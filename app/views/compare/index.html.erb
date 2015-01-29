@@ -1,4 +1,14 @@
-<h1>Compare#index <%= @providers.map(&:id).inspect %></h1>
-<p>Find me in app/views/compare/index.html.erb</p>
-<%= debug @provider %>
+<h1>Comparando </h1>
+
+<table>
+<% @providers.each do |provider| %>
+<tr>
+  <% columns_name_description(:estructura).each do |name, column| %>
+    <td><%= provider.send(column.to_sym) %></td>
+    <br/>
+  <% end %>
+</tr>
+<% end %>
+</table>
+
 
