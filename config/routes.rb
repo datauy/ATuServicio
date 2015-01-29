@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  get 'compare/index'
+
   root 'home#index'
+  match 'compare/*id' => 'compare#index', via: :get
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
