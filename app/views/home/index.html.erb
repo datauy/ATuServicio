@@ -1,19 +1,19 @@
 <% @providers.each do |provider| %>
   <h1>Estructura para <%= provider.id %></h1>
-  <% columns_name_description('estructura').each do |name, column| %>
-    <%= name %>: <%= provider[column] %>
+  <% columns_name_description(:estructura).each do |name, column| %>
+    <%= name %>: <%= provider.send(column.to_sym) %>
     <br/>
   <% end %>
 
   <h2>Metas para <%= provider.id %></h1>
-  <% columns_name_description('metas').each do |name, column| %>
-    <%= name %>: <%= provider[column] %>
+  <% columns_name_description(:metas).each do |name, column| %>
+    <%= name %>: <%= provider.send(column.to_sym) %>
     <br/>
   <% end %>
 
   <h2>Precios para <%= provider.id %></h1>
-  <% columns_name_description('precios').each do |name, column| %>
-    <%= name %>: <%= provider[column] %>
+  <% columns_name_description(:precios).each do |name, column| %>
+    <%= name %>: <%= provider.send(column.to_sym) %>
     <br/>
   <% end %>
 <% end %>
