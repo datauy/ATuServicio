@@ -1,11 +1,13 @@
 ## TODO
-- [ ] calculate averages by provider
-- [ ] calculate summary info by state
+- [X] calculate averages by provider
+- [X] calculate summary info by state
+- [ ] routes with provider_id
 - [ ] migrate frontend
+- [ ] fix rake import is making up precision??
 - [ ] calculate stats
 
 ## Performance
-- [ ] use procfile
+- [ ] use procfile (avoid webrick)
 - [ ] cache averages and summary info
 
 ## Wish List

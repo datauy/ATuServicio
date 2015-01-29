@@ -11,4 +11,19 @@ class Provider < ActiveRecord::Base
     valid_values = values && !values.empty? && !values.include?(nil)
     values.reduce(:+).to_f / values.size if valid_values
   end
+
+  # What coverage type exists by state
+  def coverage_by_state(state, type)
+    sites.where(departamento: state, nivel: type).count
+  end
+
+  def states
+    e.sites.group(:departamento).count.keys
+  end
+
+  # scope
+  # returns the providers list on that state
+  def self.by_state(state)
+    find(Site.by_state)
+  end
 end
