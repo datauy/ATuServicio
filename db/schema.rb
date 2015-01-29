@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150128234501) do
+ActiveRecord::Schema.define(version: 20150129121208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,4 +70,51 @@ ActiveRecord::Schema.define(version: 20150128234501) do
     t.decimal "laboratorio_rutina_basica_no_fonasa"
   end
 
+  create_table "sites", force: :cascade do |t|
+    t.integer  "provider_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "direccion"
+    t.string   "departamento"
+    t.string   "localidad"
+    t.string   "nivel"
+    t.boolean  "servicio_de_urgencia"
+    t.boolean  "alergista"
+    t.boolean  "anestesiologia"
+    t.boolean  "cardiologia"
+    t.boolean  "cirugia"
+    t.boolean  "cirugia_reparadora"
+    t.boolean  "cirugia_vascular"
+    t.boolean  "deportologia"
+    t.boolean  "dermatologia"
+    t.boolean  "endocrinolgia"
+    t.boolean  "fisiatria"
+    t.boolean  "gastroenterologia"
+    t.boolean  "geriatria"
+    t.boolean  "ginecologia"
+    t.boolean  "hematologia"
+    t.boolean  "infectologia"
+    t.boolean  "medicina_general"
+    t.boolean  "medicina_interna"
+    t.boolean  "medicina_intensiva"
+    t.boolean  "nefrologia"
+    t.boolean  "neonatologia"
+    t.boolean  "neumologia"
+    t.boolean  "neurocirugia"
+    t.boolean  "neurologia"
+    t.boolean  "neuropediatria"
+    t.boolean  "odontologia"
+    t.boolean  "oncologia"
+    t.boolean  "otorrinolaringologia"
+    t.boolean  "pediatria"
+    t.boolean  "psiquiatria"
+    t.boolean  "psiquiatria_infantil"
+    t.boolean  "reumatologia"
+    t.boolean  "traumatologia"
+    t.boolean  "urologia"
+  end
+
+  add_index "sites", ["provider_id"], name: "index_sites_on_provider_id", using: :btree
+
+  add_foreign_key "sites", "providers"
 end
