@@ -1,10 +1,7 @@
 class CompareController < ApplicationController
   def index
     provider_ids = *params[:id].split("/")
-    @providers = Provider.find(provider_ids)
+    @selected_providers = Provider.find(provider_ids.take(3))
+    flash['alert'] = 'Solo se pueden elegir hasta 3 proveedores' if provider_ids.length > 3
   end
-
-  # def compare_params
-  #   params.require(:compare).permit(:id)
-  # end
 end

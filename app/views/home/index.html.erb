@@ -1,3 +1,7 @@
+<%= select_tag "state", options_for_select(state_options) %>
+
+<%= select_tag "provider", options_for_select(provider_options) %>
+
 <% @providers.each do |provider| %>
   <h1>Estructura para <%= provider.id %></h1>
   <% columns_name_description(:estructura).each do |name, column| %>

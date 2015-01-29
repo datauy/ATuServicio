@@ -8,7 +8,7 @@
     <td>Cantidad de sedes</td>
     <td>Departamentos</td>
   </tr>
-<% @providers.each do |provider| %>
+<% @selected_providers.each do |provider| %>
   <tr>
     <% columns_name_description(:estructura).each do |name, column| %>
       <td><%= provider.send(column.to_sym) %></td>

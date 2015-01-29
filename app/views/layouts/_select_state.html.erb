@@ -1,0 +1,6 @@
+<%= select_tag "state",
+  options_for_select(@states), prompt: "Seleccionar un departamento" %>
+
+<%= select_tag "provider",
+  options_for_select(@providers.map{ |p| [p.id, {class: p.states.join(" ")}] }) %>
+
