@@ -1,0 +1,13 @@
+<% @providers.each do |provider| %>
+  <h1>Estructura para <%= provider.id %></h1>
+  <%= columns_name_description('estructura').each do |name, column| %>
+    <%= name %>: <%= provider[column] %>
+    <br/>
+  <% end %>
+
+  <h1>Precios para <%= provider.id %></h1>
+  <%= columns_name_description('precios').each do |name, column| %>
+    <%= name %>: <%= provider[column] %>
+    <br/>
+  <% end %>
+<% end %>
