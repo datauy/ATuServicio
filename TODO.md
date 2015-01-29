@@ -1,7 +1,9 @@
 ## TODO
 - [X] calculate averages by provider
 - [X] calculate summary info by state
-- [ ] routes with provider_id
+- [X] routes with provider_id
+- [ ] add rest of CSV's
+- [ ] add selects
 - [ ] migrate frontend
 - [ ] fix rake import is making up precision??
 - [ ] calculate stats

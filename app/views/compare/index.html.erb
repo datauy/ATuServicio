@@ -1,14 +1,23 @@
 <h1>Comparando </h1>
 
 <table>
+  <tr>
+    <% columns_name_description(:estructura).each do |name, column| %>
+      <td><%= name %></td>
+    <% end %>
+    <td>Cantidad de sedes</td>
+    <td>Departamentos</td>
+  </tr>
 <% @providers.each do |provider| %>
-<tr>
-  <% columns_name_description(:estructura).each do |name, column| %>
-    <td><%= provider.send(column.to_sym) %></td>
-    <br/>
-  <% end %>
-</tr>
+  <tr>
+    <% columns_name_description(:estructura).each do |name, column| %>
+      <td><%= provider.send(column.to_sym) %></td>
+    <% end %>
+    <td> <%= provider.sites.count %> </td>
+    <td> <%= provider.states.join(", ") %> </td>
+  </tr>
 <% end %>
 </table>
+
 
 

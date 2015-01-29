@@ -18,7 +18,7 @@ class Provider < ActiveRecord::Base
   end
 
   def states
-    e.sites.group(:departamento).count.keys
+    sites.group(:departamento).count.keys
   end
 
   # scope
