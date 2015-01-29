@@ -172,56 +172,54 @@ precios:
       - laboratorio_rutina_basica_fonasa
       - laboratorio_rutina_basica_no_fonasa
   averages:
-    - name: "medicamentos"
+    medicamentos:
       columns:
-        - "Ticket de medicamentos - general. FONASA"
-        - "Ticket de medicamentos - general. NO FONASA"
-        - "Ticket de medicamentos topeados- antihipertensivos (valsartán, amlodipina, hidroclorotiazida, enalapril). FONASA"
-        - "Ticket de medicamentos topeados- antihipertensivos (valsartán, amlodipina, hidroclorotiazida, enalapril). NO FONASA"
-    - name: "tickets"
+        - ticket_de_medicamentos_general_fonasa
+        - ticket_de_medicamentos_general_no_fonasa
+        - ticket_de_medicamentos_topeados_fonasa
+        - ticket_de_medicamentos_topeados_no_fonasa
+    tickets:
       columns:
-        - "Consulta no urgente consultorio - medicina general. FONASA"
-        - "Consulta no urgente consultorio - medicina general. NO FONASA"
-        - "Consulta no urgente consultorio - pediatria. FONASA"
-        - "Consulta no urgente consultorio - pediatria. NO FONASA"
-        - "Consulta no urgente consultorio - gineco-obstetricia (control de embarazo). FONASA"
-        - "Consulta no urgente consultorio - gineco-obstetricia (control de embarazo). NO FONASA"
-        - "Consulta no urgente consultorio - ginecologia. FONASA"
-        - "Consulta no urgente consultorio - ginecologia. NO FONASA"
-        - "Consulta no urgente consultorio - otras especialidades. FONASA"
-        - "Consulta no urgente consultorio - otras especialidades. NO FONASA"
-        - "Consulta no urgencia domicilio. FONASA"
-        - "Consulta no urgencia domicilio. NO FONASA"
-        - "Consulta odontologica. FONASA"
-        - "Consulta odontologica. NO FONASA"
-        - "Consulta medico de referencia. FONASA"
-        - "Consulta medico de referencia. NO FONASA"
-    - name: "tickets_urgentes"
+        - consulta_medicina_general_fonasa
+        - consulta_medicina_general_no_fonasa
+        - consulta_pediatria_fonasa
+        - consulta_pediatria_no_fonasa
+        - consulta_control_de_embarazo_fonasa
+        - consulta_control_de_embarazo_no_fonasa
+        - consulta_ginecologia_fonasa
+        - consulta_ginecologia_no_fonasa
+        - consulta_otras_especialidades_fonasa
+        - consulta_otras_especialidades_no_fonasa
+        - consulta_odontologica_fonasa
+        - consulta_odontologica_no_fonasa
+        - consulta_medico_de_referencia_fonasa
+        - consulta_medico_de_referencia_no_fonasa
+    tickets_urgentes:
       columns:
-        - "Consulta urgencia centralizada. FONASA"
-        - "Consulta urgencia centralizada. NO FONASA"
-        - "Consulta urgencia domicilio. FONASA"
-        - "Consulta urgencia domicilio. NO FONASA"
-    - name: "estudios"
+        - consulta_urgencia_centralizada_fonasa
+        - consulta_urgencia_centralizada_no_fonasa
+        - consulta_urgencia_domicilio_fonasa
+        - consulta_urgencia_domicilio_no_fonasa
+    estudios:
       columns:
-        - "Endoscopía digestiva. Endoscopia esofagogastroduodenal. FONASA"
-        - "Endoscopía digestiva. Endoscopia esofagogastroduodenal. NO FONASA"
-        - "Ecografía simple. FONASA"
-        - "Ecografía simple. NO FONASA"
-        - "Ecodoppler miembros (inferiores / superiores) arterial / venoso. FONASA"
-        - "Ecodoppler miembros (inferiores / superiores) arterial / venoso. NO FONASA"
-        - "Rx abdomen / aparato urinario simple. FONASA"
-        - "Rx abdomen / aparato urinario simple. NO FONASA"
-        - "Rx torax. FONASA"
-        - "Rx torax. NO FONASA"
-        - "Rx colorectal. (c/contraste) FONASA"
-        - "Rx colorectal. (c/contraste) NO FONASA"
-        - "Resonancia nuclear magnética, una región. FONASA"
-        - "Resonancia nuclear magnética, una región. NO FONASA"
-        - "Tomografía axial computarizada, una región. FONASA"
-        - "Tomografía axial computarizada, una región. NO FONASA"
-        - "Laboratorio, rutina básica. FONASA"
-        - "Laboratorio, rutina básica. NO FONASA"
+        - endoscopia_digestiva_endoscopia_fonasa
+        - endoscopia_digestiva_endoscopia_no_fonasa
+        - ecografia_simple_fonasa
+        - ecografia_simple_no_fonasa
+        - ecodoppler_fonasa
+        - ecodoppler_no_fonasa
+        - rx_simple_fonasa
+        - rx_simple_no_fonasa
+        - rx_torax_fonasa
+        - rx_torax_no_fonasa
+        - rx_colorectal_fonasa
+        - rx_colorectal_no_fonasa
+        - resonancia_fonasa
+        - resonancia_no_fonasa
+        - tomografia_fonasa
+        - tomografia_no_fonasa
+        - laboratorio_rutina_basica_fonasa
+        - laboratorio_rutina_basica_no_fonasa
 sedes:
   description:
     - "Direccion"

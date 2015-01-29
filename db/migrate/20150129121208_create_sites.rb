@@ -17,7 +17,7 @@ class CreateSites < ActiveRecord::Migration
 
   # TODO: find a way to not to repeat this in migration
   def column_definitions(filename)
-    metadata = YAML.load_file(File.join(Rails.root, "db", "data", "metadata.yml"))
+    metadata = YAML.load_file(File.join(Rails.root, "config", "metadata.yml"))
     metadata[filename]
   end
 end

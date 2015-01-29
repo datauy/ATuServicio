@@ -16,7 +16,7 @@ class CreateProviders < ActiveRecord::Migration
 
   # TODO: find a way to not to repeat this in migration
   def metadata
-    YAML.load_file(File.join(Rails.root, "db", "data", "metadata.yml"))
+    YAML.load_file(File.join(Rails.root, "config", "metadata.yml"))
   end
 
   def get_columns(filename)
