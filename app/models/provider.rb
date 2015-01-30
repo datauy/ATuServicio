@@ -9,7 +9,10 @@ class Provider < ActiveRecord::Base
 
     # I cannot average unless I have all the data
     valid_values = values && !values.empty? && !values.include?(nil)
-    values.reduce(:+).to_f / values.size if valid_values
+    if valid_values
+      average = values.reduce(:+).to_f / values.size
+      average.round(2)
+    end
   end
 
   # What coverage type exists by state

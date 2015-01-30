@@ -132,7 +132,7 @@
       <!--   </ul> -->
       <!-- </td> -->
       <td>
-        <%= image_tag("menu/derechos.png", alt: "Derechos de usuarios") %>
+        <%= image_tag("menu/derechos.png", alt: "Derechos de usuarios") %></br>
         <label>Derechos de usuarios</label>
       </td>
       <td>
@@ -141,7 +141,7 @@
       </td>
     </tr>
     <tr>
-      <td colspan="7">
+      <td colspan="6">
         <button class="referencias">
           Ver referencias
         </button>
@@ -165,9 +165,6 @@
       </td>
       <td>
         <progress max="100" value="80"></progress>
-      </td>
-      <td>
-        <i class="icon-user"> </i>
       </td>
     </tr>
     <% @sel_providers.each do |provider| %>
@@ -193,12 +190,12 @@
           <%= provider.average(:tickets_urgentes) %><br/>
           <%= provider.average(:estudios) %><br/>
         </td>
-        <td>Derechos <%=provider.id %>
-          <%= provider.satisfaccion_primer_nivel_atencion_2014 %><br/>
-          <%= provider.conformidad_disponibilidad_agenda_2014 %><br/>
-          <%= provider.facilidad_para_realizar_tramites_gestiones_2014 %><br/>
-          <%= provider.disponibilidad_medicamentos_farmacia_2014 %><br/>
-          <%= provider.queja_sugerencia_sabe_donde_dirigirse_2014 %><br/>
+        <td>Derechos <%=provider.id %></br>
+          <%= number_with_precision(provider.satisfaccion_primer_nivel_atencion_2014, precision: 2) %><br/>
+          <%= number_with_precision(provider.conformidad_disponibilidad_agenda_2014, precision: 2) %><br/>
+          <%= number_with_precision(provider.facilidad_para_realizar_tramites_gestiones_2014, precision: 2) %><br/>
+          <%= number_with_precision(provider.disponibilidad_medicamentos_farmacia_2014, precision: 2) %><br/>
+          <%= number_with_precision(provider.queja_sugerencia_sabe_donde_dirigirse_2014, precision: 2) %><br/>
         </td>
         <td><%=provider.afiliados%></td>
       </tr>
