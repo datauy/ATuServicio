@@ -340,3 +340,98 @@ sedes:
       - reumatologia
       - traumatologia
       - urologia
+
+tiempos_espera:
+  description:
+    - "Promedio de tiempo de espera para Medicina General"
+    - "Datos suficientes de tiempo de espera para Medicina General"
+    - "Promedio de tiempo de espera para Pediatría"
+    - "Datos suficientes tiempo de espera para Pediatría"
+    - "Promedio de tiempo de espera para Cirugía General"
+    - "Datos suficientes de tiempo de espera para Cirugía General"
+    - "Promedio de tiempo de espera para Ginecotocología"
+    - "Datos suficientes de tiempo de espera para Ginecotocología"
+    - "Promedio de tiempo de espera para Médico de Referencia de Medicina General"
+    - "Datos suficientes de espera para Médico de Referencia de Medicina General"
+  columns:
+    - tiempo_espera_medicina_general
+    - datos_suficientes_tiempo_espera_medicina_general
+    - tiempo_espera_pediatria
+    - datos_suficientes_tiempo_espera_pediatria
+    - tiempo_espera_cirugia_general
+    - datos_suficientes_tiempo_espera_cirugia_general
+    - tiempo_espera_ginecotocologia
+    - datos_suficientes_tiempo_espera_ginecotocologia
+    - tiempo_espera_medico_referencia
+    - datos_suficientes_tiempo_espera_medico_referencia
+  definition:
+    string:
+      - tiempo_espera_medicina_general
+      - tiempo_espera_pediatria
+      - tiempo_espera_cirugia_general
+      - tiempo_espera_ginecotocologia
+      - tiempo_espera_medico_referencia
+    boolean:
+      - datos_suficientes_tiempo_espera_medicina_general
+      - datos_suficientes_tiempo_espera_pediatria
+      - datos_suficientes_tiempo_espera_cirugia_general
+      - datos_suficientes_tiempo_espera_ginecotocologia
+      - datos_suficientes_tiempo_espera_medico_referencia
+
+satisfaccion_derechos:
+  description:
+    - "Conformidad con disponibilidad de agenda (consulta médica) (2014)"
+    - "Conformidad con disponibilidad de agenda (consulta médica) (2010)"
+    - "Evaluación de tiempo de espera en sala (2014)"
+    - "Evaluación de tiempo de espera en sala (2010)"
+    - "Facilidad para realizar trámites y gestiones (2014)"
+    - "Facilidad para realizar trámites y gestiones (2010)"
+    - "Disponibilidad de medicamentos en farmacia (2014)"
+    - "Disponibilidad de medicamentos en farmacia (2010)"
+    - "Información sobre Derechos (2014)"
+    - "Información sobre Derechos (2010)"
+    - "Si hoy tuviese una queja o sugerencia sabe a dónde dirigirse (2014)"
+    - "Si hoy tuviese una queja o sugerencia sabe a dónde dirigirse (2010)"
+    - "Satisfacción con Primer Nivel de Atención (2014)"
+    - "Satisfacción con Primer Nivel de Atención (2010)"
+    - "Satisfacción con Internación Hospitalaria (2012)"
+  columns:
+    - conformidad_disponibilidad_agenda_2014
+    - conformidad_disponibilidad_agenda_2010
+    - evaluacion_tiempo_espera_sala_2014
+    - evaluacion_tiempo_espera_sala_2010
+    - facilidad_para_realizar_tramites_gestiones_2014
+    - facilidad_para_realizar_tramites_gestiones_2010
+    - disponibilidad_medicamentos_farmacia_2014
+    - disponibilidad_medicamentos_farmacia_2010
+    - informacion_sobre_derechos_2014
+    - informacion_sobre_derechos_2010
+    - queja_sugerencia_sabe_donde_dirigirse_2014
+    - queja_sugerencia_sabe_donde_dirigirse_2010
+    - satisfaccion_primer_nivel_atencion_2014
+    - satisfaccion_primer_nivel_atencion_2010
+    - satisfaccion_internacion_hospitalaria_2012
+  definition:
+    decimal:
+      - conformidad_disponibilidad_agenda_2014
+      - conformidad_disponibilidad_agenda_2010
+      - evaluacion_tiempo_espera_sala_2014
+      - evaluacion_tiempo_espera_sala_2010
+      - facilidad_para_realizar_tramites_gestiones_2014
+      - facilidad_para_realizar_tramites_gestiones_2010
+      - disponibilidad_medicamentos_farmacia_2014
+      - disponibilidad_medicamentos_farmacia_2010
+      - informacion_sobre_derechos_2014
+      - informacion_sobre_derechos_2010
+      - queja_sugerencia_sabe_donde_dirigirse_2014
+      - queja_sugerencia_sabe_donde_dirigirse_2010
+      - satisfaccion_primer_nivel_atencion_2014
+      - satisfaccion_primer_nivel_atencion_2010
+      - satisfaccion_internacion_hospitalaria_2012
+#
+# ll:
+#   description:
+#   columns:
+#   definition:
+#     string:
+#     integer:

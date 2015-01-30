@@ -174,10 +174,17 @@
       <tr>
         <td><%=provider.nombre_completo %></td>
         <td>
-          <%= provider.average(:medicamentos) %>/
-          <%= provider.average(:tickets) %>/
-          <%= provider.average(:tickets_urgentes) %>/
-          <%= provider.average(:estudios) %>/
+          <%= show_if_valid(provider, :tiempo_espera_medicina_general) %>/
+          <%= show_if_valid(provider, :tiempo_espera_pediatria) %>/
+          <%= show_if_valid(provider, :tiempo_espera_ginecotocologia) %>/
+          <%= show_if_valid(provider, :tiempo_espera_medico_referencia) %>/
+        </td>
+        <td>
+          Metas
+          <%= provider.meta_medico_referencia %>/
+          <%= provider.meta_ninos_controlados %>/
+          <%= provider.meta_embarazadas %>/
+          <%= provider.espacio_adolescente %>/
         </td>
         <td>
           <%= provider.average(:medicamentos) %>/
@@ -185,14 +192,7 @@
           <%= provider.average(:tickets_urgentes) %>/
           <%= provider.average(:estudios) %>/
         </td>
-        <td>
-          <%= provider.average(:medicamentos) %>/
-          <%= provider.average(:tickets) %>/
-          <%= provider.average(:tickets_urgentes) %>/
-          <%= provider.average(:estudios) %>/
-        </td>
-        <td><%=provider.id %></td>
-        <td><%=provider.id %></td>
+        <td>Derechos <%=provider.id %></td>
         <td><%=provider.afiliados%></td>
       </tr>
     <% end %>
