@@ -150,17 +150,12 @@
   </button>
 
 
-  <p>Selección:
-<div id="selected_state"></div>
-<div id="selected_provider"></div>
 </p>
   <table class='table table-striped' id="listado">
     <tbody>
-    <!-- % @providers.each do |provider| %-->
     <% provider = @providers.first %>
     <tr>
       <td>
-        <!-- add directive for this -->
         <h1>Estructura para <%= provider.id %></h1>
       </td>
     </tr>
@@ -171,7 +166,6 @@
       </td>
     </tr>
     <% end %>
-
     <tr>
       <td>
         <h2>Metas para <%= provider.id %></h1>
@@ -196,6 +190,20 @@
 
   <% end %>
   </tbody>
+</table>
+<h2>Prueba</h2>
+  <p>Selección:
+<div id="selected_state"></div>
+<div id="selected_provider"></div>
+<table>
+<% @sel_providers.each do |provider| %>
+  <tr>
+  <td><%= provider.states.join(", ") %></td>
+  <td><%= provider.id %></td>
+  <td><%= provider.nombre_completo%></td>
+  <td><%= provider.nombre_abreviado %></td>
+</tr>
+<% end %>
 </table>
 </div>
 

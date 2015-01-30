@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  match '/(departamento/:departamento)' => 'home#index', via: :get
   match 'comparar/*id' => 'compare#index', via: :get
-
 end

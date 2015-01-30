@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
 
   def load_options
     @states ||= State.all
-    @providers ||= Provider.includes(:sites).all
+    @providers ||= Provider.all
   end
 end
