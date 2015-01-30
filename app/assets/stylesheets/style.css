@@ -196,8 +196,18 @@ ul.menu > li{
 
 .footer-info{
     background-color: #edf4f9;
-    margin-bottom: 150px;
     padding: 64px 24px;
+}
+
+.footer-pad{
+    height: 150px;
+    display: block;
+    padding: 60px;
+    text-align: center;
+}
+
+.footer-pad ul.menu li{
+    margin-right: 40px;
 }
 
 #footer .datos-abiertos{
