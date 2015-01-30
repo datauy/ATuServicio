@@ -153,12 +153,30 @@
     <% @sel_providers.each do |provider| %>
       <tr>
         <td>Estructura<%=provider.nombre_completo %></td>
-        <td>Tiempo de espera<%=provider.id %></td>
-        <td>Metas <%=provider.id %></td>
-        <td>Costo promedio<%=provider.id %></td>
+        <td>
+          Tiempo de Espera
+          <%= provider.average(:medicamentos) %>/
+          <%= provider.average(:tickets) %>/
+          <%= provider.average(:tickets_urgentes) %>/
+          <%= provider.average(:estudios) %>/
+        </td>
+        <td>
+          Metas
+          <%= provider.average(:medicamentos) %>/
+          <%= provider.average(:tickets) %>/
+          <%= provider.average(:tickets_urgentes) %>/
+          <%= provider.average(:estudios) %>/
+        </td>
+        <td>
+          Costo Promedio 
+          <%= provider.average(:medicamentos) %>/
+          <%= provider.average(:tickets) %>/
+          <%= provider.average(:tickets_urgentes) %>/
+          <%= provider.average(:estudios) %>/
+        </td>
         <td>Personal disponible<%=provider.id %></td>
         <td>Derechos <%=provider.id %></td>
-        <td>Cant socios<%=provider.afiliados%></td>
+        <td><%=provider.afiliados%></td>
       </tr>
     <% end %>
     </body>
