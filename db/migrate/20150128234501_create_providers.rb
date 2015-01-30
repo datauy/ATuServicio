@@ -8,7 +8,7 @@ class CreateProviders < ActiveRecord::Migration
     ['estructura', 'metas', 'precios'].each do |group|
       get_columns(group)['definition'].each do |type, column_names|
         column_names.each do |column_name|
-          add_column :providers, column_name.to_sym, type.to_sym
+          add_column :providers, column_name, type
         end
       end
     end
