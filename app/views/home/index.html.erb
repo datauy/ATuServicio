@@ -150,58 +150,19 @@
   </button>
   <table class='table table-striped' id="listado">
     <tbody>
-    <% provider = @providers.first %>
-    <tr>
-      <td>
-        <h1>Estructura para <%= provider.id %></h1>
-      </td>
-    </tr>
-    <% columns_name_description(:estructura).each do |name, column| %>
-    <tr>
-      <td>
-        <%= name %>: <%= provider.send(column.to_sym) %>
-      </td>
-    </tr>
+    <% @sel_providers.each do |provider| %>
+      <tr>
+        <td>Estructura<%=provider.nombre_completo %></td>
+        <td>Tiempo de espera<%=provider.id %></td>
+        <td>Metas <%=provider.id %></td>
+        <td>Costo promedio<%=provider.id %></td>
+        <td>Personal disponible<%=provider.id %></td>
+        <td>Derechos <%=provider.id %></td>
+        <td>Cant socios<%=provider.afiliados%></td>
+      </tr>
     <% end %>
-    <tr>
-      <td>
-        <h2>Metas para <%= provider.id %></h1>
-      </td>
-    </tr>
-  <% columns_name_description(:metas).each do |name, column| %>
-<tr>
-  <td>
-    <%= name %>: <%= provider.send(column.to_sym) %>
-  </td>
-  </tr>
-  <% end %>
-
-  <tr><td>
-      <h2>Precios para <%= provider.id %></h1>
-</td></tr>
-<% columns_name_description(:precios).each do |name, column| %>
-<tr><td>
-    <%= name %>: <%= provider.send(column.to_sym) %>
-  </td></tr>
-  <!-- % end % -->
-
-  <% end %>
-  </tbody>
-</table>
-<h2>Prueba</h2>
-  <p>Selección:
-<div id="selected_state"></div>
-<div id="selected_provider"></div>
-<table>
-<% @sel_providers.each do |provider| %>
-  <tr>
-  <td><%= provider.states.join(", ") %></td>
-  <td><%= provider.id %></td>
-  <td><%= provider.nombre_completo%></td>
-  <td><%= provider.nombre_abreviado %></td>
-</tr>
-<% end %>
-</table>
+    </body>
+  </table>
 </div>
 
 
