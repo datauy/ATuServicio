@@ -101,36 +101,36 @@
           </li>
         </ul>
       </td>
-      <td>
-        <i class="icon-05"></i>
-        <label>Personal disponible</label>
-        <ul class="filtro-hidden">
-          <li>
-            <span class="round-btn">G</span>
-            Medicos generales
-          </li>
-          <li>
-            <span class="round-btn">F</span>
-            Medicos familia
-          </li>
-          <li>
-            <span class="round-btn">P</span>
-            Pediatras
-          </li>
-          <li>
-            <span class="round-btn">G</span>
-            Ginecólogos
-          </li>
-          <li>
-            <span class="round-btn">E</span>
-            Enfermeros
-          </li>
-          <li>
-            <span class="round-btn">E</span>
-            Lic. en Enfermería
-          </li>
-        </ul>
-      </td>
+      <!-- <td> -->
+      <!--   <i class="icon&#45;05"></i> -->
+      <!--   <label>Personal disponible</label> -->
+      <!--   <ul class="filtro&#45;hidden"> -->
+      <!--     <li> -->
+      <!--       <span class="round&#45;btn">G</span> -->
+      <!--       Medicos generales -->
+      <!--     </li> -->
+      <!--     <li> -->
+      <!--       <span class="round&#45;btn">F</span> -->
+      <!--       Medicos familia -->
+      <!--     </li> -->
+      <!--     <li> -->
+      <!--       <span class="round&#45;btn">P</span> -->
+      <!--       Pediatras -->
+      <!--     </li> -->
+      <!--     <li> -->
+      <!--       <span class="round&#45;btn">G</span> -->
+      <!--       Ginecólogos -->
+      <!--     </li> -->
+      <!--     <li> -->
+      <!--       <span class="round&#45;btn">E</span> -->
+      <!--       Enfermeros -->
+      <!--     </li> -->
+      <!--     <li> -->
+      <!--       <span class="round&#45;btn">E</span> -->
+      <!--       Lic. en Enfermería -->
+      <!--     </li> -->
+      <!--   </ul> -->
+      <!-- </td> -->
       <td>
         <%= image_tag("menu/derechos.png", alt: "Derechos de usuarios") %>
         <label>Derechos de usuarios</label>
@@ -176,25 +176,30 @@
           <%=provider.nombre_completo %>
         </td>
         <td>
-          <%= show_if_valid(provider, :tiempo_espera_medicina_general) %>/
-          <%= show_if_valid(provider, :tiempo_espera_pediatria) %>/
-          <%= show_if_valid(provider, :tiempo_espera_ginecotocologia) %>/
-          <%= show_if_valid(provider, :tiempo_espera_medico_referencia) %>/
+          <%= show_if_valid(provider, :tiempo_espera_medicina_general) %><br/>
+          <%= show_if_valid(provider, :tiempo_espera_pediatria) %><br/>
+          <%= show_if_valid(provider, :tiempo_espera_ginecotocologia) %><br/>
+          <%= show_if_valid(provider, :tiempo_espera_medico_referencia) %><br/>
         </td>
         <td>
-          Metas
-          <%= provider.meta_medico_referencia %>/
-          <%= provider.meta_ninos_controlados %>/
-          <%= provider.meta_embarazadas %>/
-          <%= provider.espacio_adolescente %>/
+          <progress max="100" value="<%= provider.meta_medico_referencia %>"></progress>
+          <progress max="100" value="<%= provider.meta_ninos_controlados %>"></progress>
+          <progress max="100" value="<%= provider.meta_embarazadas %>"></progress>
+          <progress max="100" value="<%= provider.espacio_adolescente %>"></progress>
         </td>
         <td>
-          <%= provider.average(:medicamentos) %>/
-          <%= provider.average(:tickets) %>/
-          <%= provider.average(:tickets_urgentes) %>/
-          <%= provider.average(:estudios) %>/
+          <%= number_with_precision(provider.average(:medicamentos), precision: 2) %><br/>
+          <%= provider.average(:tickets) %><br/>
+          <%= provider.average(:tickets_urgentes) %><br/>
+          <%= provider.average(:estudios) %><br/>
         </td>
-        <td>Derechos <%=provider.id %></td>
+        <td>Derechos <%=provider.id %>
+          <%= provider.satisfaccion_primer_nivel_atencion_2014 %><br/>
+          <%= provider.conformidad_disponibilidad_agenda_2014 %><br/>
+          <%= provider.facilidad_para_realizar_tramites_gestiones_2014 %><br/>
+          <%= provider.disponibilidad_medicamentos_farmacia_2014 %><br/>
+          <%= provider.queja_sugerencia_sabe_donde_dirigirse_2014 %><br/>
+        </td>
         <td><%=provider.afiliados%></td>
       </tr>
     <% end %>
