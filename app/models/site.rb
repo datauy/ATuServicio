@@ -3,6 +3,6 @@ class Site < ActiveRecord::Base
 
   # scope
   def self.by_state(state)
-    where(departamento: 'Montevideo').group(:provider_id).count.keys
+    where(departamento: state).group(:provider_id).count.keys
   end
 end
