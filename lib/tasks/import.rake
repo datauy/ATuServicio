@@ -30,11 +30,11 @@ namespace :db do
 end
 
 def get_provider_groups
-  METADATA.except('sedes').keys
+  METADATA.except(:sedes).keys
 end
 
 def get_columns(filename)
-  METADATA[filename]['columns']
+  METADATA[filename.to_sym][:columns]
 end
 
 def get_parameters(headers, row)
