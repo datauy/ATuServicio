@@ -191,7 +191,8 @@ ul.menu > li{
 }
 
 #listado{
-    max-width: 100%;
+    margin-top: 20px;
+    color: #135380;
 }
 
 #footer{
