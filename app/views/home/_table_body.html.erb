@@ -1,0 +1,68 @@
+<tr>
+  <!-- <td class="title"> -->
+  <!--   Promedio Nacional -->
+  <!-- </td> -->
+  <!-- <td> -->
+  <!--   <i class="icon&#45;clock"> </i> -->
+  <!-- </td> -->
+  <!-- <td> -->
+  <!--   <progress max="100" value="80"></progress> -->
+  <!-- </td> -->
+  <!-- <td> -->
+  <!--   <i class="icon&#45;money"> </i> -->
+  <!-- </td> -->
+  <!-- <td> -->
+  <!--   <i class="icon&#45;user"> </i> -->
+  <!-- </td> -->
+  <td>
+    <progress max="100" value="80"></progress>
+  </td>
+  <td>
+    <i class="icon-user"> </i>
+  </td>
+</tr>
+<% @sel_providers.each do |provider| %>
+  <tr>
+    <td>
+      <h1><%= provider.nombre_completo %></h1>
+      <p><%= provider.web %></p>
+      <h3>Estructura:</h3>
+      <p>
+        <% if @selected_state %>
+          <span>Primaria: <%= provider.coverage_by_state(@selected_state, 'Sede Central') %></span>
+          <span>Secundaria: <%= provider.coverage_by_state(@selected_state, 'Sede Secundaria') %></span>
+          <span>Ambulatorio: <%= provider.coverage_by_state(@selected_state, 'Ambulatorio') %></span>
+          <span>Urgencia: <%= provider.coverage_by_state(@selected_state, 'Urgencia') %></span>
+        <% else %>
+          <span>Sedes en: <%= provider.states.join(", ") %></span>
+        <% end %>
+      </p>
+    </td>
+    <td>
+      <%= show_if_valid(provider, :tiempo_espera_medicina_general) %><br/>
+      <%= show_if_valid(provider, :tiempo_espera_pediatria) %><br/>
+      <%= show_if_valid(provider, :tiempo_espera_ginecotocologia) %><br/>
+      <%= show_if_valid(provider, :tiempo_espera_medico_referencia) %><br/>
+    </td>
+    <td>
+      <progress max="100" value="<%= provider.meta_medico_referencia %>"></progress>
+      <progress max="100" value="<%= provider.meta_ninos_controlados %>"></progress>
+      <progress max="100" value="<%= provider.meta_embarazadas %>"></progress>
+      <progress max="100" value="<%= provider.espacio_adolescente %>"></progress>
+    </td>
+    <td>
+      <%= number_with_precision(provider.average(:medicamentos), precision: 2) %><br/>
+      <%= provider.average(:tickets) %><br/>
+      <%= provider.average(:tickets_urgentes) %><br/>
+      <%= provider.average(:estudios) %><br/>
+    </td>
+    <td>
+      <%= number_with_precision(provider.satisfaccion_primer_nivel_atencion_2014, precision: 2) %><br/>
+      <%= number_with_precision(provider.conformidad_disponibilidad_agenda_2014, precision: 2) %><br/>
+      <%= number_with_precision(provider.facilidad_para_realizar_tramites_gestiones_2014, precision: 2) %><br/>
+      <%= number_with_precision(provider.disponibilidad_medicamentos_farmacia_2014, precision: 2) %><br/>
+      <%= number_with_precision(provider.queja_sugerencia_sabe_donde_dirigirse_2014, precision: 2) %><br/>
+    </td>
+    <td><%=provider.afiliados%></td>
+  </tr>
+<% end %>

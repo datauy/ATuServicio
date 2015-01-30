@@ -1,13 +1,25 @@
-## TODO
+## Layout
 - [X] calculate averages by provider
 - [X] calculate summary info by state
 - [X] routes with provider_id
-- [ ] add rest of CSV's
-- [ ] add selects
-- [ ] show all the data necessary for frontend
+- [X] add rest of CSV's
+- [X] add selects
+- [ ] show all the data necessary:
+  - [X] Home
+  - [ ] Comparison
 - [ ] migrate frontend
 - [ ] fix rake import is making up precision??
 - [ ] calculate stats
+
+## Data
+- [ ] Fix `rrhh.csv` and import it to the DB
+
+## Functionality
+- [ ] Select changes URL in Home
+- [ ] Link to order by column
+- [ ] Accept `comparar/` with no providers
+- [ ] Select changes URL in Comparison
+- [ ] Remove URL changes URL in Comparison
 
 ## Other
 - [ ] use pretty names for ids in routes

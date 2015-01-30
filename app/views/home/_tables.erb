@@ -147,58 +147,6 @@
         </button>
       </td>
     </tr>
-    <tr>
-      <td class="title">
-        Promedio Nacional
-      </td>
-      <td>
-        <i class="icon-clock"> </i>
-      </td>
-      <td>
-        <progress max="100" value="80"></progress>
-      </td>
-      <td>
-        <i class="icon-money"> </i>
-      </td>
-      <td>
-        <i class="icon-user"> </i>
-      </td>
-      <td>
-        <progress max="100" value="80"></progress>
-      </td>
-    </tr>
-    <% @sel_providers.each do |provider| %>
-      <tr>
-        <td>
-          <%=provider.nombre_completo %>
-        </td>
-        <td>
-          <%= show_if_valid(provider, :tiempo_espera_medicina_general) %><br/>
-          <%= show_if_valid(provider, :tiempo_espera_pediatria) %><br/>
-          <%= show_if_valid(provider, :tiempo_espera_ginecotocologia) %><br/>
-          <%= show_if_valid(provider, :tiempo_espera_medico_referencia) %><br/>
-        </td>
-        <td>
-          <progress max="100" value="<%= provider.meta_medico_referencia %>"></progress>
-          <progress max="100" value="<%= provider.meta_ninos_controlados %>"></progress>
-          <progress max="100" value="<%= provider.meta_embarazadas %>"></progress>
-          <progress max="100" value="<%= provider.espacio_adolescente %>"></progress>
-        </td>
-        <td>
-          <%= number_with_precision(provider.average(:medicamentos), precision: 2) %><br/>
-          <%= provider.average(:tickets) %><br/>
-          <%= provider.average(:tickets_urgentes) %><br/>
-          <%= provider.average(:estudios) %><br/>
-        </td>
-        <td>Derechos <%=provider.id %></br>
-          <%= number_with_precision(provider.satisfaccion_primer_nivel_atencion_2014, precision: 2) %><br/>
-          <%= number_with_precision(provider.conformidad_disponibilidad_agenda_2014, precision: 2) %><br/>
-          <%= number_with_precision(provider.facilidad_para_realizar_tramites_gestiones_2014, precision: 2) %><br/>
-          <%= number_with_precision(provider.disponibilidad_medicamentos_farmacia_2014, precision: 2) %><br/>
-          <%= number_with_precision(provider.queja_sugerencia_sabe_donde_dirigirse_2014, precision: 2) %><br/>
-        </td>
-        <td><%=provider.afiliados%></td>
-      </tr>
-    <% end %>
+    <%= render 'table_body' %>
   </tbody>
 </table>
