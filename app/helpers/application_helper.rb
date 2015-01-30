@@ -27,4 +27,10 @@ module ApplicationHelper
       "Sin suficientes datos"
     end
   end
+
+  def progress_bar(object)
+    if object && object.is_a?(BigDecimal)
+      "<progress max=\"100\" value=\"#{object}\"></progress>"
+    end
+  end
 end
