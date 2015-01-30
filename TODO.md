@@ -8,11 +8,10 @@
   - [X] Home
   - [ ] Comparison
 - [ ] migrate frontend
-- [ ] fix rake import is making up precision??
-- [ ] calculate stats
 
 ## Data
 - [ ] Fix `rrhh.csv` and import it to the DB
+- [ ] fix rake import is making up precision??
 
 ## Functionality
 - [ ] Select changes URL in Home
@@ -22,11 +21,13 @@
 - [ ] Remove URL changes URL in Comparison
 
 ## Other
+- [ ] calculate stats
 - [ ] use pretty names for ids in routes
-- [ ] use alias 'comparar for compare route
+- [X] use alias 'comparar for compare route (just changed the name in Spanish)
 
 ## Performance
 - [ ] use procfile (avoid webrick)
+- [ ] Use JS & ajax when possible
 - [ ] cache averages and summary info
 
 ## Data
