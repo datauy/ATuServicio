@@ -2,9 +2,20 @@
 <html>
 <head>
   <title>AtuservicioRails</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!-- for best results of ngCloak -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.9.5/select.css'>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
 
@@ -15,6 +26,43 @@
 <% end %>
 
 <%= yield %>
+
+<div id="footer">
+  <div class="row footer-info">
+    <div class="col-md-4">
+      <h4>Acerca de DATA</h4>
+      <p>
+        Gumbo beet greens corn soko endive gumbo gourd. Parsley
+        shallot courgette tatsoi pea sprouts fava bean collard
+        greens dandelion okra wakame tomato. Dandelion cucumber
+        earthnut pea peanut soko zucchini.
+      </p>
+      <p><a href="http://datauy.org">www.datauy.org</a></p>
+    </div>
+    <div class="col-md-4">
+      <h4>Acerca de MSP</h4>
+      <p>
+        Gumbo beet greens corn soko endive gumbo gourd. Parsley
+        shallot courgette tatsoi pea sprouts fava bean collard
+        greens dandelion okra wakame tomato. Dandelion cucumber
+        earthnut pea peanut soko zucchini.
+      </p>
+      <p><a href="http://www.msp.gub.uy">www.msp.gub.uy</a></p>
+    </div>
+    <div class="col-md-4 datos-abiertos">
+      <h4>Datos abiertos</h4>
+      <p>
+        Gumbo beet greens corn soko endive gumbo gourd. Parsley
+        shallot courgette tatsoi pea sprouts fava bean collard
+        greens dandelion okra wakame tomato. Dandelion cucumber
+        earthnut pea peanut soko zucchini.
+      </p>
+    </div>
+  </div>
+  <div class="row footer-pad"> </div>
+</div>
+
+
 
 </body>
 </html>

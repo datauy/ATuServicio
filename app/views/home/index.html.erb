@@ -1,28 +1,204 @@
-<%= select_tag "state", options_for_select(state_options) %>
-<%= select_tag "provider", options_for_select(provider_options), include_blank: "Seleccione un proveedor" %>
+<%= render 'listado_header' %>
+<div class="contenido">
+  <div id="filtros">
+    <ul class="menu">
+      <li>
+        <i class="icon-01"></i>
+        <label>Prestador de salud</label>
+        <ul class="filtro-hidden">
+          <li>
+            <span class="round-btn">1</span>
+            Sede Primaria
+          </li>
+          <li>
+            <span class="round-btn">2</span>
+            Sede Secundaria
+          </li>
+          <li>
+            <span class="round-btn">P</span>
+            Policlínicas
+          </li>
+          <li>
+            <span class="round-btn">U</span>
+            Urgencia
+          </li>
+        </ul>
+      </li>
+      <li>
+        <i class="icon-02"></i>
+        <label>Tiempo de espera</label>
+        <ul class="filtro-hidden">
+          <li>
+            <span class="round-btn">1</span>
+            Medicina gral.
+          </li>
+          <li>
+            <span class="round-btn">2</span>
+            Cirugía gral.
+          </li>
+          <li>
+            <span class="round-btn">P</span>
+            Pediatría
+          </li>
+          <li>
+            <span class="round-btn">G</span>
+            Ginecología
+          </li>
+          <li>
+            <span class="round-btn">M</span>
+            Médico de referencia
+          </li>
+        </ul>
+      </li>
+      <li>
+        <i class="icon-03"></i>
+        <label>Metas asistenciales</label>
+        <ul class="filtro-hidden">
+          <li>
+            <span class="round-btn">S</span>
+            Satisfaccion
+          </li>
+          <li>
+            <span class="round-btn">A</span>
+            Disp.agenda
+          </li>
+          <li>
+            <span class="round-btn">T</span>
+            Tramites
+          </li>
+          <li>
+            <span class="round-btn">M</span>
+            Disp. medicam.
+          </li>
+          <li>
+            <span class="round-btn">D</span>
+            Info. derechos
+          </li>
+          <li>
+            <span class="round-btn">Q</span>
+            Recep. quejas
+          </li>
+        </ul>
+      </li>
+      <li>
+        <i class="icon-04"></i>
+        <label>Costo promedio</label>
+        <ul class="filtro-hidden">
+          <li>
+            <span class="round-btn">M</span>
+            Medicamentos
+          </li>
+          <li>
+            <span class="round-btn">T</span>
+            Tickets
+          </li>
+          <li>
+            <span class="round-btn">U</span>
+            Urgencia
+          </li>
+          <li>
+            <span class="round-btn">E</span>
+            Estudios
+          </li>
+        </ul>
+      </li>
+      <li>
+        <i class="icon-05"></i>
+        <label>Personal disponible</label>
+        <ul class="filtro-hidden">
+          <li>
+            <span class="round-btn">G</span>
+            Medicos generales
+          </li>
+          <li>
+            <span class="round-btn">F</span>
+            Medicos familia
+          </li>
+          <li>
+            <span class="round-btn">P</span>
+            Pediatras
+          </li>
+          <li>
+            <span class="round-btn">G</span>
+            Ginecólogos
+          </li>
+          <li>
+            <span class="round-btn">E</span>
+            Enfermeros
+          </li>
+          <li>
+            <span class="round-btn">E</span>
+            Lic. en Enfermería
+          </li>
+        </ul>
+      </li>
+      <li>
+        <img src="img/menu/derechos.png" alt="Derechos de usuarios">
+        <label>Derechos de usuarios</label>
+      </li>
+      <li>
+        <i class="icon-06"></i>
+        <label>Cantidad de socios</label>
+      </li>
+    </ul>
+  </div>
+  <div id="filtros-detalle">
 
-<br />
-Selección:
+  </div>
+  <button class="referencias">
+    Ver referencias
+  </button>
+
+
+  <p>Selección:
 <div id="selected_state"></div>
 <div id="selected_provider"></div>
+</p>
+  <table class='table table-striped' id="listado">
+    <tbody>
+    <!-- % @providers.each do |provider| %-->
+    <% provider = @providers.first %>
+    <tr>
+      <td>
+        <!-- add directive for this -->
+        <h1>Estructura para <%= provider.id %></h1>
+      </td>
+    </tr>
+    <% columns_name_description(:estructura).each do |name, column| %>
+    <tr>
+      <td>
+        <%= name %>: <%= provider.send(column.to_sym) %>
+      </td>
+    </tr>
+    <% end %>
 
-<% @providers.each do |provider| %>
-  <h1>Estructura para <%= provider.id %></h1>
-  <% columns_name_description(:estructura).each do |name, column| %>
-    <%= name %>: <%= provider.send(column.to_sym) %>
-    <br/>
-  <% end %>
-
-  <h2>Metas para <%= provider.id %></h1>
+    <tr>
+      <td>
+        <h2>Metas para <%= provider.id %></h1>
+      </td>
+    </tr>
   <% columns_name_description(:metas).each do |name, column| %>
+<tr>
+  <td>
     <%= name %>: <%= provider.send(column.to_sym) %>
-    <br/>
+  </td>
+  </tr>
   <% end %>
 
-  <h2>Precios para <%= provider.id %></h1>
-  <% columns_name_description(:precios).each do |name, column| %>
+  <tr><td>
+      <h2>Precios para <%= provider.id %></h1>
+</td></tr>
+<% columns_name_description(:precios).each do |name, column| %>
+<tr><td>
     <%= name %>: <%= provider.send(column.to_sym) %>
-    <br/>
-  <% end %>
+  </td></tr>
+  <!-- % end % -->
 
-<% end %>
+  <% end %>
+  </tbody>
+</table>
+</div>
+
+
+
+
