@@ -16,7 +16,7 @@
 ## Functionality
 - [ ] Select changes URL in Home
 - [ ] Link to order by column
-- [ ] Accept `comparar/` with no providers
+- [X] Accept `comparar/` with no providers
 - [ ] Select changes URL in Comparison
 - [ ] Remove URL changes URL in Comparison
 
@@ -38,5 +38,6 @@
 - [ ] uncomment 'ruby' definition in Gemfile
 - [ ] separate metadata from metadata for migrations
 - [ ] call methods/modules from migrations
+- [ ] use seeds.rb instead of `db:import` rake task
 
 

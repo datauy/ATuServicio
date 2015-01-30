@@ -22,7 +22,7 @@ module ApplicationHelper
   def show_if_valid(provider, field)
     enough_data_field = "datos_suficientes_#{field}"
     if provider.send(enough_data_field)
-      field
+      provider.send(field)
     else
       "Sin suficientes datos"
     end

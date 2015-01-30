@@ -1,5 +1,11 @@
 == INSTALL
 
 Locally
-1. ``bundle``
-2. ``rake db:create db:migrate db:import``
+1. Bundle
+```
+bundle
+```
+2. Load database (postgres)
+```
+rake db:setup db:import
+```
