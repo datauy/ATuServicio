@@ -132,7 +132,7 @@
         </ul>
       </td>
       <td>
-        <img src="img/menu/derechos.png" alt="Derechos de usuarios">
+        <%= image_tag("menu/derechos.png", alt: "Derechos de usuarios") %>
         <label>Derechos de usuarios</label>
       </td>
       <td>
@@ -170,9 +170,11 @@
         <i class="icon-user"> </i>
       </td>
     </tr>
-        <% @sel_providers.each do |provider| %>
+    <% @sel_providers.each do |provider| %>
       <tr>
-        <td><%=provider.nombre_completo %></td>
+        <td>
+          <%=provider.nombre_completo %>
+        </td>
         <td>
           <%= show_if_valid(provider, :tiempo_espera_medicina_general) %>/
           <%= show_if_valid(provider, :tiempo_espera_pediatria) %>/

@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'atuserviciouy';
-    src: url('../font/atuserviciouy.svg?93644106#atuserviciouy') format('svg');
+    src: url('atuserviciouy.svg?93644106#atuserviciouy') format('svg');
   }
 }
 */
