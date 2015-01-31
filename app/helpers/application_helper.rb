@@ -34,4 +34,21 @@ module ApplicationHelper
     end
   end
 
+  def provider_structure(provider)
+    states = provider.states
+    structures = {
+      primaria: 0,
+      secundaria: 0,
+      ambulatorio: 0,
+      urgencia: 0
+    }
+    states.each do | state |
+      structures[:primaria] += provider.coverage_by_state(state, 'Sede Central')
+      structures[:secundaria] += provider.coverage_by_state(state, 'Sede Secundaria')
+      structures[:ambulatorio] += provider.coverage_by_state(state, 'Ambulatorio')
+      structures[:urgencia] += provider.coverage_by_state(state, 'Urgencia')
+    end
+    structures
+  end
+
 end

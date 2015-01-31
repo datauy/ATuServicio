@@ -138,9 +138,70 @@ ul.menu > li{
     width: 20px;
     text-align: center;
     float: left;
-    margin-right: 10px;
+    margin-right: 4px;
     line-height: 20px;
     font-size: 13px;
+}
+.sedes{clear: both}
+
+.float_left{
+    float: left;
+    margin-right: 2px;
+}
+.structure_icons span{
+    display: inline-block;
+}
+
+.celeste{
+    background: #BCE6F9;
+}
+
+.marino{
+    background: #1A557D;
+}
+
+.azul{
+    background: #1A77B9;
+}
+
+.verde{
+    background: #34B475;
+}
+
+.azul_claro{
+    background: #29ABDF;
+}
+
+.fuxia{
+    background: #902C8E;
+}
+
+.magenta{
+    background: #ED4363;
+}
+
+progress.celeste{
+    color: #BCE6F9;
+}
+
+progress..marino{
+    color: #1A557D;
+}
+
+progress.azul{
+    color: #1A77B9;
+}
+
+progress.verde{
+    color: #34B475;
+}
+
+progress.azul_claro{
+    color: #29ABDF;
+}
+
+progress.fuxia{
+    color: #902C8E;
 }
 
 .magenta{
@@ -155,6 +216,17 @@ ul.menu > li{
     font-size: 13px;
     border-radius: 15px;
     padding: 6px 15px;
+}
+
+.estructura{
+    float: left;
+    margin-right: 4px;
+}
+
+span.wrapper{
+    display: block;
+    margin: 0;
+    padding: 0;
 }
 
 .comparision-header{
