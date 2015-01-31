@@ -1,15 +1,53 @@
-<h1>Comparando </h1>
+<%= render "layouts/page_header" %>
 
-<%= select_tag "state", options_for_select(state_options) %>
-<%= select_tag "provider", options_for_select(provider_options), include_blank: "Elija una instituci&oacute;n" %>
+<div class="container" id="comparision">
+  <h1>Comparar </h1>
 
-<div class="hidden">
-<%= form_tag(compare_path, method: :get, remote: true) do %>
-  <%= hidden_field_tag "selected_providers", @selected_providers.map(&:id) %>
-  <%= submit_tag 'submit', id: 'submit' %>
-<% end %>
-</div>
+  <% if flash.count > 0 %>
+    <div class="alert alert-warning dismissable">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
 
-<div id="comparison-data">
-  <%= render partial: 'table', locals: {selected_providers: @selected_providers} %>
+  <div class="row compare">
+    <div class="col-md-6">
+      <h2>Selecciona un departamento</h2>
+      <%= select_tag "state", options_for_select(state_options) %>
+    </div>
+
+    <div class="col-md-6">
+      <h2>Elegir un prestador</h2>
+      <%= select_tag "provider", options_for_select(provider_options), include_blank: "Elija una instituci&oacute;n" %>
+    </div>
+  </div>
+
+  <div class="hidden">
+    <%= form_tag(compare_path, method: :get, remote: true) do %>
+    <%= hidden_field_tag "selected_providers", @selected_providers.map(&:id) %>
+    <%= submit_tag 'submit', id: 'submit' %>
+    <% end %>
+  </div>
+
+  <% if @selected_providers.count > 0 %>
+  <div class="row">
+    <div class="col-md-12 criterio">
+      <ul class="menu">
+        <li>Criterio</li>
+        <% @selected_providers.each do |provider| %>
+          <li>
+            <%= provider.nombre_abreviado %>
+            <a href="#">
+              <i class="icon-trash"></i>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <% end %>
+
+
+  <div id="comparison-data">
+    <%= render partial: 'table', locals: {selected_providers: @selected_providers} %>
+  </div>
 </div>
