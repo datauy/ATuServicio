@@ -6,7 +6,7 @@
 - [X] add selects
 - [ ] show all the data necessary:
   - [X] Home
-  - [ ] Comparison
+  - [X] Comparison
 - [ ] migrate frontend
 
 ## Data
@@ -14,11 +14,11 @@
 - [ ] fix rake import is making up precision??
 
 ## Functionality
-- [ ] Select changes URL in Home
+- [X] Select changes URL in Home
 - [ ] Link to order by column
 - [X] Accept `comparar/` with no providers
-- [ ] Select changes URL in Comparison
-- [ ] Remove URL changes URL in Comparison
+- [X] Select changes URL in Comparison
+- [S] Remove URL changes URL in Comparison
 
 ## Other
 - [ ] calculate stats
@@ -27,8 +27,9 @@
 
 ## Performance
 - [ ] use procfile (avoid webrick)
-- [ ] Use JS & ajax when possible
 - [ ] cache averages and summary info
+- [ ] Use JS & ajax when possible
+- [ ] Generate state table with id's, so there's no N+1
 
 ## Data
 - [ ] `sedes.csv` correct state `San Jose` with `San José`
