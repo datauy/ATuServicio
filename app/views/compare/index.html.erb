@@ -28,26 +28,7 @@
     <% end %>
   </div>
 
-  <% if @selected_providers.count > 0 %>
-  <div class="row">
-    <div class="col-md-12 criterio">
-      <ul class="menu">
-        <li>Criterio</li>
-        <% @selected_providers.each do |provider| %>
-          <li>
-            <%= provider.nombre_abreviado %>
-            <a href="#">
-              <i class="icon-trash"></i>
-            </a>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-  <% end %>
-
-
-  <div id="comparison-data">
+  <div id="comparison-data""row">
     <%= render partial: 'table', locals: {selected_providers: @selected_providers} %>
   </div>
 </div>

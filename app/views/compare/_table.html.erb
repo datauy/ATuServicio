@@ -1,14 +1,22 @@
 <table class="table tabled-striped">
   <thead>
-      <td>Nombre</td>
-    <% selected_providers.each do |provider| %>
-      <td><%= provider.nombre_abreviado %>
-      <%= link_to 'Eliminar', '#', data: {provider: provider.id}, class: 'remove_provider' %></td>
-    <% end %>
+    <tr class="criterio">
+      <td>Criterio</td>
+      <% selected_providers.each do |provider| %>
+        <td>
+          <%= provider.nombre_abreviado %>
+          <%= link_to '<i class="icon-trash"></i>'.html_safe,
+              '#',
+              data: {provider: provider.id},
+              class: 'remove_provider'
+              %>
+        </td>
+      <% end %>
+    </tr>
   </thead>
   <tbody>
     <%= render partial: 'group_data' %>
   </tbody>
 </table>
-  <%= render partial: 'sites' %>
+<%= render partial: 'sites' %>
 </div>

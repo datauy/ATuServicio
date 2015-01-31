@@ -177,6 +177,13 @@ ul.menu > li{
     padding-bottom: 4px;
 }
 
+.criterio{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 2px solid #e8e8e8;
+    border-top: 2px solid #e8e8e8;
+}
 
 #comparision a i{
     font-size: 30px;
