@@ -3,7 +3,7 @@
       <td>Nombre</td>
     <% selected_providers.each do |provider| %>
       <td><%= provider.nombre_abreviado %>
-      <%= link_to 'Eliminar', compare_path, remote: true, data: provider.id, class: 'remove_provider' %></td>
+      <%= link_to 'Eliminar', '#', data: {provider: provider.id}, class: 'remove_provider' %></td>
     <% end %>
   </thead>
   <tbody>
