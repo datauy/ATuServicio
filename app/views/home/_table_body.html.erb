@@ -78,7 +78,7 @@
   <%= show_if_valid(provider, :tiempo_espera_cirugia_general) %><br/>
   <%= show_if_valid(provider, :tiempo_espera_ginecotocologia) %><br/>
   <%= show_if_valid(provider, :tiempo_espera_medico_referencia) %><br/>
-  <strong><%= provider.sums_provider %> / <%= Provider.maximums %></strong>
+  <strong><%= provider.sums_provider.to_f %> / <%= Provider.maximums.to_f %></strong>
 </td>
 <td>
   <%= number_with_precision(provider.satisfaccion_primer_nivel_atencion_2014, precision: 2) %><br/>
