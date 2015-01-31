@@ -28,9 +28,15 @@ module ApplicationHelper
     end
   end
 
-  def progress_bar(object)
+  def progress_bar(object, css_class)
     if object && object.is_a?(BigDecimal)
-      "<progress max=\"100\" value=\"#{object}\"></progress>"
+      <<-eos
+        <div class="progress">
+          <div class="progress-bar #{css_class}" role="progressbar" aria-valuenow="#{object}" aria-valuemin="0" aria-valuemax="100" style="width: #{object}%;">
+          #{object}
+          </div>
+        </div>
+      eos
     end
   end
 

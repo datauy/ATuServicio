@@ -81,10 +81,11 @@
   <strong><%= provider.sums_provider %> / <%= Provider.maximums %></strong>
 </td>
 <td>
-  <%= raw progress_bar(provider.meta_medico_referencia) %>
-  <%= raw progress_bar(provider.meta_ninos_controlados) %>
-  <%= raw progress_bar(provider.meta_embarazadas) %>
-  <%= raw progress_bar(provider.espacio_adolescente) %>
+  <%= number_with_precision(provider.satisfaccion_primer_nivel_atencion_2014, precision: 2) %><br/>
+  <%= number_with_precision(provider.conformidad_disponibilidad_agenda_2014, precision: 2) %><br/>
+  <%= number_with_precision(provider.facilidad_para_realizar_tramites_gestiones_2014, precision: 2) %><br/>
+  <%= number_with_precision(provider.disponibilidad_medicamentos_farmacia_2014, precision: 2) %><br/>
+  <%= number_with_precision(provider.queja_sugerencia_sabe_donde_dirigirse_2014, precision: 2) %><br/>
 </td>
 <td>
   <%= number_with_precision(provider.average(:medicamentos), precision: 2) %><br/>
@@ -93,11 +94,9 @@
   <%= provider.average(:estudios) %><br/>
 </td>
 <td>
-  <%= number_with_precision(provider.satisfaccion_primer_nivel_atencion_2014, precision: 2) %><br/>
-  <%= number_with_precision(provider.conformidad_disponibilidad_agenda_2014, precision: 2) %><br/>
-  <%= number_with_precision(provider.facilidad_para_realizar_tramites_gestiones_2014, precision: 2) %><br/>
-  <%= number_with_precision(provider.disponibilidad_medicamentos_farmacia_2014, precision: 2) %><br/>
-  <%= number_with_precision(provider.queja_sugerencia_sabe_donde_dirigirse_2014, precision: 2) %><br/>
+  <%= raw progress_bar(provider.meta_medico_referencia, 'celeste') %>
+  <%= raw progress_bar(provider.meta_ninos_controlados, 'marino') %>
+  <%= raw progress_bar(provider.meta_embarazadas, 'azul') %>
 </td>
 <td><%=provider.afiliados%></td>
 </tr>
