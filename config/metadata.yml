@@ -431,6 +431,60 @@ satisfaccion_derechos:
       - satisfaccion_primer_nivel_atencion_2014
       - satisfaccion_primer_nivel_atencion_2010
       - satisfaccion_internacion_hospitalaria_2012
+
+
+rrhh:
+  title: "Recursos Humanos"
+  description:
+    - "Cargos de médicos generales en policlínica cada 10.000 usuarios mayores de 14 años"
+    - "Cargos de médicos de familia en policlínica cada 10.000 usuarios"
+    - "Cargos de médicos pediatras en policlínica cada 10.000 usuarios menores de 14 años"
+    - "Cargos de médicos ginecólogos en policlínica cada 10.000 usuarios mayores de 14 años"
+    - "Cargos de auxiliares de enfermería en policlínica cada 10.000 usuarios"
+    - "Cargos de licenciadas de enfermería en policlínica cada 10.000 usuarios"
+    - "Cantidad de CAD cada 10.000 usuarios "
+    - "Medicina General Cantidad de CAD"
+    - "Medicina Familiar Cantidad de CAD"
+    - "Pediatría Cantidad de CAD"
+    - "Ginecotología Cantidad de CAD"
+    - "Medicina Interna Cantidad de CAD"
+    - "Medicina Intensiva de Adultos Cantidad de CAD"
+    - "Medicina Intensiva Pediátrica Cantidad de CAD"
+    - "Neonatología Cantidad de CAD"
+  columns:
+    - medicos_generales_policlinica
+    - medicos_de_familia_policlinica
+    - medicos_pediatras_policlinica
+    - medicos_ginecologos_policlinica
+    - auxiliares_enfermeria_policlinica
+    - licenciadas_enfermeria_policlinica
+    - cantidad_cad
+    - medicina_general_cantidad_cad
+    - medicina_familiar_cantidad_cad
+    - pediatria_cantidad_cad
+    - ginecotologia_cantidad_cad
+    - medicina_interna_cantidad_cad
+    - medicina_intensiva_adultos_cantidad_cad
+    - medicina_intensiva_pediatrica_cantidad_cad
+    - neonatologia_cantidad_cad
+  definition:
+    decimal:
+      - medicos_generales_policlinica
+      - medicos_de_familia_policlinica
+      - medicos_pediatras_policlinica
+      - medicos_ginecologos_policlinica
+      - auxiliares_enfermeria_policlinica
+      - licenciadas_enfermeria_policlinica
+      - cantidad_cad
+      - medicina_general_cantidad_cad
+      - medicina_familiar_cantidad_cad
+      - pediatria_cantidad_cad
+      - ginecotologia_cantidad_cad
+      - medicina_interna_cantidad_cad
+      - medicina_intensiva_adultos_cantidad_cad
+      - medicina_intensiva_pediatrica_cantidad_cad
+      - neonatologia_cantidad_cad
+
 #
 # ll:
 #   description:

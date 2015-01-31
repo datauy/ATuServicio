@@ -5,7 +5,7 @@ class CreateProviders < ActiveRecord::Migration
     create_table :providers do |t|
     end
 
-    ['estructura', 'metas', 'precios', 'tiempos_espera', 'satisfaccion_derechos'].each do |group|
+    ['estructura', 'metas', 'precios', 'tiempos_espera', 'satisfaccion_derechos', 'rrhh'].each do |group|
       get_columns(group)['definition'].each do |type, column_names|
         column_names.each do |column_name|
           if type.to_sym == :decimal

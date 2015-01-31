@@ -93,6 +93,21 @@ ActiveRecord::Schema.define(version: 20150129121208) do
     t.decimal "satisfaccion_primer_nivel_atencion_2014",           precision: 9, scale: 2
     t.decimal "satisfaccion_primer_nivel_atencion_2010",           precision: 9, scale: 2
     t.decimal "satisfaccion_internacion_hospitalaria_2012",        precision: 9, scale: 2
+    t.decimal "medicos_generales_policlinica",                     precision: 9, scale: 2
+    t.decimal "medicos_de_familia_policlinica",                    precision: 9, scale: 2
+    t.decimal "medicos_pediatras_policlinica",                     precision: 9, scale: 2
+    t.decimal "medicos_ginecologos_policlinica",                   precision: 9, scale: 2
+    t.decimal "auxiliares_enfermeria_policlinica",                 precision: 9, scale: 2
+    t.decimal "licenciadas_enfermeria_policlinica",                precision: 9, scale: 2
+    t.decimal "cantidad_cad",                                      precision: 9, scale: 2
+    t.decimal "medicina_general_cantidad_cad",                     precision: 9, scale: 2
+    t.decimal "medicina_familiar_cantidad_cad",                    precision: 9, scale: 2
+    t.decimal "pediatria_cantidad_cad",                            precision: 9, scale: 2
+    t.decimal "ginecotologia_cantidad_cad",                        precision: 9, scale: 2
+    t.decimal "medicina_interna_cantidad_cad",                     precision: 9, scale: 2
+    t.decimal "medicina_intensiva_adultos_cantidad_cad",           precision: 9, scale: 2
+    t.decimal "medicina_intensiva_pediatrica_cantidad_cad",        precision: 9, scale: 2
+    t.decimal "neonatologia_cantidad_cad",                         precision: 9, scale: 2
   end
 
   create_table "sites", force: :cascade do |t|
