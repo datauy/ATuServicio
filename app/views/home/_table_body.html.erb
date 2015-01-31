@@ -1,4 +1,4 @@
-<tr>
+<!-- tr>
   <!-- <td class="title"> -->
   <!--   Promedio Nacional -->
   <!-- </td> -->
@@ -13,18 +13,18 @@
   <!-- </td> -->
   <!-- <td> -->
   <!--   <i class="icon&#45;user"> </i> -->
-  <!-- </td> -->
+  <!-- </td>
   <td>
     <progress max="100" value="80"></progress>
   </td>
   <td>
     <i class="icon-user"> </i>
   </td>
-</tr>
+</tr -->
 <% @sel_providers.each do |provider| %>
   <tr>
     <td>
-      <h1><%= provider.nombre_completo %></h1>
+      <h4><%= provider.nombre_completo %></h4>
       <p><%= provider.web %></p>
       <h3>Estructura:</h3>
       <p>
@@ -46,10 +46,10 @@
       <%= show_if_valid(provider, :tiempo_espera_medico_referencia) %><br/>
     </td>
     <td>
-      <progress max="100" value="<%= provider.meta_medico_referencia %>"></progress>
-      <progress max="100" value="<%= provider.meta_ninos_controlados %>"></progress>
-      <progress max="100" value="<%= provider.meta_embarazadas %>"></progress>
-      <progress max="100" value="<%= provider.espacio_adolescente %>"></progress>
+      <%= raw progress_bar(provider.meta_medico_referencia) %>
+      <%= raw progress_bar(provider.meta_ninos_controlados) %>
+      <%= raw progress_bar(provider.meta_embarazadas) %>
+      <%= raw progress_bar(provider.espacio_adolescente) %>
     </td>
     <td>
       <%= number_with_precision(provider.average(:medicamentos), precision: 2) %><br/>
