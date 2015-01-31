@@ -51,4 +51,9 @@ module ApplicationHelper
     structures
   end
 
+  def boolean_icons(value)
+    return"<i class=\"icon-tick\"></i>".html_safe if value.is_a?(TrueClass)
+    return "<i class=\"icon-cross\"></i>".html_safe if value.is_a?(FalseClass)
+    value
+  end
 end

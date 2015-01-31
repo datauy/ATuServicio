@@ -157,6 +157,18 @@ ul.menu > li{
     display: inline-block;
 }
 
+.icon-cross{
+    color: #f00;
+}
+.icon-tick{
+    color: #0F0;
+}
+
+.icon-tick, .icon-cross{
+    font-size: 30px;
+    margin-left: -30px;
+}
+
 .celeste{
     background: #BCE6F9;
 }

@@ -13,7 +13,7 @@
               <%= url %>
             </a>
           <% else %>
-            <%= provider.send(column.to_sym) %>
+            <%= boolean_icons(provider.send(column.to_sym)) %>
           <% end %>
         </td>
       <% end %>
