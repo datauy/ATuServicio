@@ -37,6 +37,14 @@ module ApplicationHelper
           </div>
         </div>
       eos
+    else
+      <<-eos
+        <div class="progress">
+          <div class="progress-bar no-data" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+            No hay datos
+          </div>
+        </div>
+      eos
     end
   end
 

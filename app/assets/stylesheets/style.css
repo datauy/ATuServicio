@@ -198,8 +198,10 @@ ul.menu > li{
     background: #ED4363;
 }
 
-.magenta{
-    background: #ED4363;
+.no-data{
+    color: #000;
+    min-width: 100px;
+    background: none;
 }
 
 #referencias{
