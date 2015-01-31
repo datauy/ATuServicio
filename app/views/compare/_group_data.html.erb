@@ -6,8 +6,15 @@
     <tr>
       <td class="pivot"><%= name %></td>
       <% @selected_providers.each do |provider| %>
-      <td>
-        <%= provider.send(column.to_sym) %>
+        <td>
+          <% if column == 'web' %>
+            <% url = provider.send(column.to_sym) %>
+            <a href="<%= url %>" title="Sitio web">
+              <%= url %>
+            </a>
+          <% else %>
+            <%= provider.send(column.to_sym) %>
+          <% end %>
         </td>
       <% end %>
     </tr>

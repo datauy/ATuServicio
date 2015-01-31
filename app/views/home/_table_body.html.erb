@@ -25,7 +25,11 @@
 <tr id="<%= provider.id %>">
   <td>
     <h4><%= provider.nombre_completo %></h4>
-    <p><%= provider.web %></p>
+    <p>
+      <a href="<%= provider.web %>" title="Sitio web">
+        <%= provider.web %>
+      </a>
+    </p>
     <p>
       <% if @selected_state %>
         <p>Estructura:</p>
