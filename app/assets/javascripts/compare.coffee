@@ -14,7 +14,7 @@ $ ->
   $(".remove_provider").click ->
     element = $(this).data().provider
     providers = $("#selected_providers").val().split(" ")
-    providers = providers.splice(providers.indexOf(element), 1)
+    providers.splice(providers.indexOf(element.toString()), 1)
     new_providers_list = providers.join(" ")
     document.location = "/comparar/?selected_providers=".concat(new_providers_list)
 

@@ -4,9 +4,15 @@
   </tr>
   <% columns_name_description(group).each do |name, column| %>
     <tr>
-      <td><%= name %></td>
+      <td class="pivot"><%= name %></td>
       <% @selected_providers.each do |provider| %>
-        <td><%= provider.send(column.to_sym) %></td>
+      <td>
+        <%
+           value = provider.send(column.to_sym)
+           if value && value.is_a?(Numeric) %>
+        <%= number_with_precision(value, precision: 2) %>
+        <% end  %>
+        </td>
       <% end %>
     </tr>
   <% end %>

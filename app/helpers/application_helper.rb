@@ -33,4 +33,5 @@ module ApplicationHelper
       "<progress max=\"100\" value=\"#{object}\"></progress>"
     end
   end
+
 end
