@@ -1,5 +1,7 @@
 $ ->
   $("#provider").chained("#state")
+  if ("#header")
+    $("#selected_providers").chained("#state")
 
   $("#state").change ->
     $("#selected_state").html($("#state").find(":selected").text())
