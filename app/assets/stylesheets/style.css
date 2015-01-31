@@ -148,6 +148,11 @@ ul.menu > li{
     float: left;
     margin-right: 2px;
 }
+
+.text_center{
+    text-align: center;
+}
+
 .structure_icons span{
     display: inline-block;
 }
