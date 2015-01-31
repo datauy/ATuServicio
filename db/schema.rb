@@ -21,53 +21,53 @@ ActiveRecord::Schema.define(version: 20150129121208) do
     t.string  "nombre_completo"
     t.string  "web"
     t.integer "afiliados"
-    t.decimal "meta_medico_referencia"
-    t.decimal "meta_ninos_controlados"
-    t.decimal "meta_embarazadas"
+    t.decimal "meta_medico_referencia",                            precision: 9, scale: 2
+    t.decimal "meta_ninos_controlados",                            precision: 9, scale: 2
+    t.decimal "meta_embarazadas",                                  precision: 9, scale: 2
     t.boolean "espacio_adolescente"
     t.text    "comunicacion"
-    t.decimal "ticket_de_medicamentos_general_fonasa"
-    t.decimal "ticket_de_medicamentos_general_no_fonasa"
-    t.decimal "ticket_de_medicamentos_topeados_fonasa"
-    t.decimal "ticket_de_medicamentos_topeados_no_fonasa"
-    t.decimal "consulta_medicina_general_fonasa"
-    t.decimal "consulta_medicina_general_no_fonasa"
-    t.decimal "consulta_pediatria_fonasa"
-    t.decimal "consulta_pediatria_no_fonasa"
-    t.decimal "consulta_control_de_embarazo_fonasa"
-    t.decimal "consulta_control_de_embarazo_no_fonasa"
-    t.decimal "consulta_ginecologia_fonasa"
-    t.decimal "consulta_ginecologia_no_fonasa"
-    t.decimal "consulta_otras_especialidades_fonasa"
-    t.decimal "consulta_otras_especialidades_no_fonasa"
-    t.decimal "consulta_urgencia_centralizada_fonasa"
-    t.decimal "consulta_urgencia_centralizada_no_fonasa"
-    t.decimal "consulta_no_urgencia_domicilio_fonasa"
-    t.decimal "consulta_no_urgencia_domicilio_no_fonasa"
-    t.decimal "consulta_urgencia_domicilio_fonasa"
-    t.decimal "consulta_urgencia_domicilio_no_fonasa"
-    t.decimal "consulta_odontologica_fonasa"
-    t.decimal "consulta_odontologica_no_fonasa"
-    t.decimal "consulta_medico_de_referencia_fonasa"
-    t.decimal "consulta_medico_de_referencia_no_fonasa"
-    t.decimal "endoscopia_digestiva_endoscopia_fonasa"
-    t.decimal "endoscopia_digestiva_endoscopia_no_fonasa"
-    t.decimal "ecografia_simple_fonasa"
-    t.decimal "ecografia_simple_no_fonasa"
-    t.decimal "ecodoppler_fonasa"
-    t.decimal "ecodoppler_no_fonasa"
-    t.decimal "rx_simple_fonasa"
-    t.decimal "rx_simple_no_fonasa"
-    t.decimal "rx_torax_fonasa"
-    t.decimal "rx_torax_no_fonasa"
-    t.decimal "rx_colorectal_fonasa"
-    t.decimal "rx_colorectal_no_fonasa"
-    t.decimal "resonancia_fonasa"
-    t.decimal "resonancia_no_fonasa"
-    t.decimal "tomografia_fonasa"
-    t.decimal "tomografia_no_fonasa"
-    t.decimal "laboratorio_rutina_basica_fonasa"
-    t.decimal "laboratorio_rutina_basica_no_fonasa"
+    t.decimal "ticket_de_medicamentos_general_fonasa",             precision: 9, scale: 2
+    t.decimal "ticket_de_medicamentos_general_no_fonasa",          precision: 9, scale: 2
+    t.decimal "ticket_de_medicamentos_topeados_fonasa",            precision: 9, scale: 2
+    t.decimal "ticket_de_medicamentos_topeados_no_fonasa",         precision: 9, scale: 2
+    t.decimal "consulta_medicina_general_fonasa",                  precision: 9, scale: 2
+    t.decimal "consulta_medicina_general_no_fonasa",               precision: 9, scale: 2
+    t.decimal "consulta_pediatria_fonasa",                         precision: 9, scale: 2
+    t.decimal "consulta_pediatria_no_fonasa",                      precision: 9, scale: 2
+    t.decimal "consulta_control_de_embarazo_fonasa",               precision: 9, scale: 2
+    t.decimal "consulta_control_de_embarazo_no_fonasa",            precision: 9, scale: 2
+    t.decimal "consulta_ginecologia_fonasa",                       precision: 9, scale: 2
+    t.decimal "consulta_ginecologia_no_fonasa",                    precision: 9, scale: 2
+    t.decimal "consulta_otras_especialidades_fonasa",              precision: 9, scale: 2
+    t.decimal "consulta_otras_especialidades_no_fonasa",           precision: 9, scale: 2
+    t.decimal "consulta_urgencia_centralizada_fonasa",             precision: 9, scale: 2
+    t.decimal "consulta_urgencia_centralizada_no_fonasa",          precision: 9, scale: 2
+    t.decimal "consulta_no_urgencia_domicilio_fonasa",             precision: 9, scale: 2
+    t.decimal "consulta_no_urgencia_domicilio_no_fonasa",          precision: 9, scale: 2
+    t.decimal "consulta_urgencia_domicilio_fonasa",                precision: 9, scale: 2
+    t.decimal "consulta_urgencia_domicilio_no_fonasa",             precision: 9, scale: 2
+    t.decimal "consulta_odontologica_fonasa",                      precision: 9, scale: 2
+    t.decimal "consulta_odontologica_no_fonasa",                   precision: 9, scale: 2
+    t.decimal "consulta_medico_de_referencia_fonasa",              precision: 9, scale: 2
+    t.decimal "consulta_medico_de_referencia_no_fonasa",           precision: 9, scale: 2
+    t.decimal "endoscopia_digestiva_endoscopia_fonasa",            precision: 9, scale: 2
+    t.decimal "endoscopia_digestiva_endoscopia_no_fonasa",         precision: 9, scale: 2
+    t.decimal "ecografia_simple_fonasa",                           precision: 9, scale: 2
+    t.decimal "ecografia_simple_no_fonasa",                        precision: 9, scale: 2
+    t.decimal "ecodoppler_fonasa",                                 precision: 9, scale: 2
+    t.decimal "ecodoppler_no_fonasa",                              precision: 9, scale: 2
+    t.decimal "rx_simple_fonasa",                                  precision: 9, scale: 2
+    t.decimal "rx_simple_no_fonasa",                               precision: 9, scale: 2
+    t.decimal "rx_torax_fonasa",                                   precision: 9, scale: 2
+    t.decimal "rx_torax_no_fonasa",                                precision: 9, scale: 2
+    t.decimal "rx_colorectal_fonasa",                              precision: 9, scale: 2
+    t.decimal "rx_colorectal_no_fonasa",                           precision: 9, scale: 2
+    t.decimal "resonancia_fonasa",                                 precision: 9, scale: 2
+    t.decimal "resonancia_no_fonasa",                              precision: 9, scale: 2
+    t.decimal "tomografia_fonasa",                                 precision: 9, scale: 2
+    t.decimal "tomografia_no_fonasa",                              precision: 9, scale: 2
+    t.decimal "laboratorio_rutina_basica_fonasa",                  precision: 9, scale: 2
+    t.decimal "laboratorio_rutina_basica_no_fonasa",               precision: 9, scale: 2
     t.string  "tiempo_espera_medicina_general"
     t.string  "tiempo_espera_pediatria"
     t.string  "tiempo_espera_cirugia_general"
@@ -78,21 +78,21 @@ ActiveRecord::Schema.define(version: 20150129121208) do
     t.boolean "datos_suficientes_tiempo_espera_cirugia_general"
     t.boolean "datos_suficientes_tiempo_espera_ginecotocologia"
     t.boolean "datos_suficientes_tiempo_espera_medico_referencia"
-    t.decimal "conformidad_disponibilidad_agenda_2014"
-    t.decimal "conformidad_disponibilidad_agenda_2010"
-    t.decimal "evaluacion_tiempo_espera_sala_2014"
-    t.decimal "evaluacion_tiempo_espera_sala_2010"
-    t.decimal "facilidad_para_realizar_tramites_gestiones_2014"
-    t.decimal "facilidad_para_realizar_tramites_gestiones_2010"
-    t.decimal "disponibilidad_medicamentos_farmacia_2014"
-    t.decimal "disponibilidad_medicamentos_farmacia_2010"
-    t.decimal "informacion_sobre_derechos_2014"
-    t.decimal "informacion_sobre_derechos_2010"
-    t.decimal "queja_sugerencia_sabe_donde_dirigirse_2014"
-    t.decimal "queja_sugerencia_sabe_donde_dirigirse_2010"
-    t.decimal "satisfaccion_primer_nivel_atencion_2014"
-    t.decimal "satisfaccion_primer_nivel_atencion_2010"
-    t.decimal "satisfaccion_internacion_hospitalaria_2012"
+    t.decimal "conformidad_disponibilidad_agenda_2014",            precision: 9, scale: 2
+    t.decimal "conformidad_disponibilidad_agenda_2010",            precision: 9, scale: 2
+    t.decimal "evaluacion_tiempo_espera_sala_2014",                precision: 9, scale: 2
+    t.decimal "evaluacion_tiempo_espera_sala_2010",                precision: 9, scale: 2
+    t.decimal "facilidad_para_realizar_tramites_gestiones_2014",   precision: 9, scale: 2
+    t.decimal "facilidad_para_realizar_tramites_gestiones_2010",   precision: 9, scale: 2
+    t.decimal "disponibilidad_medicamentos_farmacia_2014",         precision: 9, scale: 2
+    t.decimal "disponibilidad_medicamentos_farmacia_2010",         precision: 9, scale: 2
+    t.decimal "informacion_sobre_derechos_2014",                   precision: 9, scale: 2
+    t.decimal "informacion_sobre_derechos_2010",                   precision: 9, scale: 2
+    t.decimal "queja_sugerencia_sabe_donde_dirigirse_2014",        precision: 9, scale: 2
+    t.decimal "queja_sugerencia_sabe_donde_dirigirse_2010",        precision: 9, scale: 2
+    t.decimal "satisfaccion_primer_nivel_atencion_2014",           precision: 9, scale: 2
+    t.decimal "satisfaccion_primer_nivel_atencion_2010",           precision: 9, scale: 2
+    t.decimal "satisfaccion_internacion_hospitalaria_2012",        precision: 9, scale: 2
   end
 
   create_table "sites", force: :cascade do |t|

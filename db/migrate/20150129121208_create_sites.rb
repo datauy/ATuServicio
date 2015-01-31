@@ -10,7 +10,11 @@ class CreateSites < ActiveRecord::Migration
     # Add columns
     column_definitions('sedes')['definition'].each do |type, column_names|
       column_names.each do |column_name|
-        add_column :sites, column_name, type
+        if type == :decimal
+          add_column :sites, column_name, type, scale: 2
+        else
+          add_column :sites, column_name, type
+        end
       end
     end
   end

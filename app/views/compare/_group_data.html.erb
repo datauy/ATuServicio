@@ -7,11 +7,7 @@
       <td class="pivot"><%= name %></td>
       <% @selected_providers.each do |provider| %>
       <td>
-        <%
-           value = provider.send(column.to_sym)
-           if value && value.is_a?(Numeric) %>
-        <%= number_with_precision(value, precision: 2) %>
-        <% end  %>
+        <%= provider.send(column.to_sym) %>
         </td>
       <% end %>
     </tr>
