@@ -4,14 +4,14 @@
 - [X] routes with provider_id
 - [X] add rest of CSV's
 - [X] add selects
-- [ ] show all the data necessary:
+- [X] show all the data necessary:
   - [X] Home
   - [X] Comparison
-- [ ] migrate frontend
+- [X] migrate frontend
 
 ## Data
 - [ ] Fix `rrhh.csv` and import it to the DB
-- [ ] fix rake import is making up precision??
+- [X] fix rake import is making up precision??
 
 ## Functionality
 - [X] Select changes URL in Home
