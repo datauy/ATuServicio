@@ -164,6 +164,35 @@ ul.menu > li{
     color: #0F0;
 }
 
+.icon-clock{
+    color: #dedede;
+    background: none !important;
+}
+
+.icon-clock.celeste{
+    color: #1A557D;
+}
+
+.icon-clock.marino{
+    color: #1A557D;
+}
+
+.icon-clock.azul{
+    color: #1A77B9;
+}
+
+.icon-clock.verde{
+    color: #34B475;
+}
+
+.icon-clock.azul_claro{
+    color: #29ABDF;
+}
+
+.icon-clock.fuxia{
+    color: #902C8E;
+}
+
 .icon-tick, .icon-cross{
     font-size: 30px;
     margin-left: -30px;

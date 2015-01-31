@@ -24,7 +24,7 @@ module ApplicationHelper
     if provider.send(enough_data_field)
       provider.send(field)
     else
-      "Sin suficientes datos"
+      nil
     end
   end
 
@@ -46,6 +46,40 @@ module ApplicationHelper
         </div>
       eos
     end
+  end
+
+  def show_clocks(provider, max)
+    clocks = []
+    meta = {
+      tiempo_espera_medicina_general: 'celeste',
+      tiempo_espera_cirugia_general: 'marino',
+      tiempo_espera_pediatria: 'azul',
+      tiempo_espera_ginecotocologia: 'verde',
+      tiempo_espera_medico_referencia: 'azul_claro'
+    }
+    meta.each do |column, css|
+      value = show_if_valid(provider, column)
+      break unless value
+      clocks.concat wait_clocks(value, css, max)
+    end
+
+    while clocks.count < 50
+      clocks << "<i class=\"icon-clock\"></i>"
+    end
+    clocks.join("").html_safe
+  end
+
+  def wait_clocks(value, css_class, max)
+    clocks = []
+    if value.to_f > 0 && value.to_f < 1
+      value = 1
+    else
+      value = (value.to_f * 50 / max).round
+    end
+    value.times do
+      clocks << "<i class=\"icon-clock #{css_class}\"></i>"
+    end
+    clocks
   end
 
   def provider_structure(provider)

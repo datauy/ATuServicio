@@ -1,26 +1,3 @@
-<!-- tr>
-     <!-- <td class="title"> -->
-     <!--   Promedio Nacional -->
-     <!-- </td> -->
-     <!-- <td> -->
-     <!--   <i class="icon&#45;clock"> </i> -->
-     <!-- </td> -->
-     <!-- <td> -->
-     <!--   <progress max="100" value="80"></progress> -->
-     <!-- </td> -->
-     <!-- <td> -->
-     <!--   <i class="icon&#45;money"> </i> -->
-     <!-- </td> -->
-     <!-- <td> -->
-     <!--   <i class="icon&#45;user"> </i> -->
-     <!-- </td>
-          <td>
-            <progress max="100" value="80"></progress>
-          </td>
-<td>
-  <i class="icon-user"> </i>
-</td>
-</tr -->
 <% @sel_providers.each do |provider| %>
 <tr id="<%= provider.id %>">
   <td>
@@ -73,12 +50,11 @@
   <%= link_to 'Comparar', compare_path(selected_providers: "#{provider.id}") %>
 </td>
 <td>
-  <%= show_if_valid(provider, :tiempo_espera_medicina_general) %><br/>
-  <%= show_if_valid(provider, :tiempo_espera_pediatria) %><br/>
-  <%= show_if_valid(provider, :tiempo_espera_cirugia_general) %><br/>
-  <%= show_if_valid(provider, :tiempo_espera_ginecotocologia) %><br/>
-  <%= show_if_valid(provider, :tiempo_espera_medico_referencia) %><br/>
-  <strong><%= provider.sums_provider.to_f %> / <%= Provider.maximums.to_f %></strong>
+  <%
+     provider.sums_provider.to_f
+     max = Provider.maximums.to_f
+   %>
+  <%= show_clocks(provider, max) %>
 </td>
 <td>
   <%= number_with_precision(provider.satisfaccion_primer_nivel_atencion_2014, precision: 2) %><br/>
