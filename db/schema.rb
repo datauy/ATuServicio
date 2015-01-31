@@ -68,11 +68,11 @@ ActiveRecord::Schema.define(version: 20150129121208) do
     t.decimal "tomografia_no_fonasa",                              precision: 9, scale: 2
     t.decimal "laboratorio_rutina_basica_fonasa",                  precision: 9, scale: 2
     t.decimal "laboratorio_rutina_basica_no_fonasa",               precision: 9, scale: 2
-    t.string  "tiempo_espera_medicina_general"
-    t.string  "tiempo_espera_pediatria"
-    t.string  "tiempo_espera_cirugia_general"
-    t.string  "tiempo_espera_ginecotocologia"
-    t.string  "tiempo_espera_medico_referencia"
+    t.decimal "tiempo_espera_medicina_general",                    precision: 9, scale: 2
+    t.decimal "tiempo_espera_pediatria",                           precision: 9, scale: 2
+    t.decimal "tiempo_espera_cirugia_general",                     precision: 9, scale: 2
+    t.decimal "tiempo_espera_ginecotocologia",                     precision: 9, scale: 2
+    t.decimal "tiempo_espera_medico_referencia",                   precision: 9, scale: 2
     t.boolean "datos_suficientes_tiempo_espera_medicina_general"
     t.boolean "datos_suficientes_tiempo_espera_pediatria"
     t.boolean "datos_suficientes_tiempo_espera_cirugia_general"
