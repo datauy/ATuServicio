@@ -22,7 +22,7 @@
   </td>
 </tr -->
 <% @sel_providers.each do |provider| %>
-  <tr>
+  <tr id="<%= provider.id %>">
     <td>
       <h4><%= provider.nombre_completo %></h4>
       <p><%= provider.web %></p>

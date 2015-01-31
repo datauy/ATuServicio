@@ -93,18 +93,20 @@ ul.menu > li{
     background: #135380;
     width: 16.6%;
     color: #fff;
-    border: solid 20px #fff;
+    border: solid 1px #fff;
 }
 
 #filtros td i{
     font-size: 60px;
     clear: both;
     color: #000;
+    display: block;
 }
 
 #filtros ul.menu > li:hover{
     background: #0d2f74;
 }
+
 
 #filtros ul.menu > li label{
     margin: 10px 0 5px 0;
@@ -112,19 +114,15 @@ ul.menu > li{
     font-size: 13px;
 }
 
-#filtros .filtro-hidden{
-    position: absolute;
+#filtros .referencia-td{
     padding: 0;
-    background: #c2d1e2;
     margin-top: 10px;
     border-top: 10px solid #fff;
-    width: 174px;
     margin-left: -10px;
     text-align: left;
-    display: none;
 }
 
-#filtros .filtro-hidden li{
+.referencia-td li{
     color: #0d2f74;
     list-style: none;
     margin: 10px;
@@ -143,6 +141,14 @@ ul.menu > li{
     margin-right: 10px;
     line-height: 20px;
     font-size: 13px;
+}
+
+.magenta{
+    background: #ED4363;
+}
+
+#referencias{
+    background: #c2d1e2;
 }
 
 .referencias{
@@ -194,6 +200,11 @@ ul.menu > li{
 #listado{
     margin-top: 20px;
     color: #135380;
+}
+
+#listado progress{
+    clear: both;
+    display: block;
 }
 
 #footer{

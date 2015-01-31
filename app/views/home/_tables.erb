@@ -4,133 +4,19 @@
       <td>
         <i class="icon-01"></i>
         <label>Prestador</label>
-        <ul class="filtro-hidden">
-          <li>
-            <span class="round-btn">1</span>
-            Sede Primaria
-          </li>
-          <li>
-            <span class="round-btn">2</span>
-            Sede Secundaria
-          </li>
-          <li>
-            <span class="round-btn">P</span>
-            Policlínica
-          </li>
-          <li>
-            <span class="round-btn">U</span>
-            Urgencia
-          </li>
-        </ul>
       </td>
       <td>
         <i class="icon-02"></i>
         <label>Tiempos de espera</label>
-        <ul class="filtro-hidden">
-          <li>
-            <span class="round-btn">1</span>
-            Médico general
-          </li>
-          <li>
-            <span class="round-btn">2</span>
-            Cirujano general
-          </li>
-          <li>
-            <span class="round-btn">P</span>
-            Pediatra
-          </li>
-          <li>
-            <span class="round-btn">G</span>
-            Ginecólogo
-          </li>
-          <li>
-            <span class="round-btn">M</span>
-            Médico de referencia
-          </li>
-        </ul>
       </td>
       <td>
         <i class="icon-00"></i>
         <label>Derechos de usuarios</label>
-        <ul class="filtro-hidden">
-          <li>
-            <span class="round-btn">S</span>
-            Satisfacción
-          </li>
-          <li>
-            <span class="round-btn">A</span>
-            Disponibilidad de agenda
-          </li>
-          <li>
-            <span class="round-btn">T</span>
-            Trámites
-          </li>
-          <li>
-            <span class="round-btn">M</span>
-            Disponibilidad de medicamentos
-          </li>
-          <li>
-            <span class="round-btn">D</span>
-            Información sobre derechos
-          </li>
-          <li>
-            <span class="round-btn">Q</span>
-            Recepción de quejas
-          </li>
-        </ul>
       </td>
       <td>
         <i class="icon-04"></i>
         <label>Tickets y órdenes</label>
-        <ul class="filtro-hidden">
-          <li>
-            <span class="round-btn">M</span>
-            Medicamentos
-          </li>
-          <li>
-            <span class="round-btn">T</span>
-            Consultas
-          </li>
-          <li>
-            <span class="round-btn">U</span>
-            Consultas urgencia
-          </li>
-          <li>
-            <span class="round-btn">E</span>
-            Estudios
-          </li>
-        </ul>
       </td>
-      <!-- <td> -->
-      <!--   <i class="icon&#45;05"></i> -->
-      <!--   <label>Personal disponible</label> -->
-      <!--   <ul class="filtro&#45;hidden"> -->
-      <!--     <li> -->
-      <!--       <span class="round&#45;btn">G</span> -->
-      <!--       Medicos generales -->
-      <!--     </li> -->
-      <!--     <li> -->
-      <!--       <span class="round&#45;btn">F</span> -->
-      <!--       Medicos familia -->
-      <!--     </li> -->
-      <!--     <li> -->
-      <!--       <span class="round&#45;btn">P</span> -->
-      <!--       Pediatras -->
-      <!--     </li> -->
-      <!--     <li> -->
-      <!--       <span class="round&#45;btn">G</span> -->
-      <!--       Ginecólogos -->
-      <!--     </li> -->
-      <!--     <li> -->
-      <!--       <span class="round&#45;btn">E</span> -->
-      <!--       Enfermeros -->
-      <!--     </li> -->
-      <!--     <li> -->
-      <!--       <span class="round&#45;btn">E</span> -->
-      <!--       Lic. en Enfermería -->
-      <!--     </li> -->
-      <!--   </ul> -->
-      <!-- </td> -->
       <td>
         <i class="icon-03"></i>
         <label>Metas asistenciales</label>
@@ -140,13 +26,8 @@
         <label>Cantidad de socios</label>
       </td>
     </tr>
-    <tr>
-      <td colspan="6">
-        <button class="referencias">
-          Ver referencias
-        </button>
-      </td>
-    </tr>
+
+    <%= render 'referencia' %>
     <%= render 'table_body' %>
   </tbody>
 </table>

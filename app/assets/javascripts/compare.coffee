@@ -19,3 +19,10 @@ $ ->
     document.location = "/comparar/?selected_providers=".concat(new_providers_list)
 
   $("pp").hide();
+
+  $("#selected_providers.home_providers").change ->
+    id = $("#selected_providers.home_providers").find(':selected').val()
+    row = $('#' + id).clone()
+    $('#' + id).remove()
+    row.find('td').css('background-color', "#EDF4F9")
+    $('#referencias').after(row)

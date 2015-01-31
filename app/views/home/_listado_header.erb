@@ -68,9 +68,14 @@
         <i class="icon-number02"></i>
         Seleccionar prestador de salud
       </h2>
-      <p>
-        <%= select_tag "provider", options_for_select(provider_options), include_blank: "Elija una institución" %>
-      </p>
+      <form action=<%= compare_path %> method="get">
+        <p>
+          <%= select_tag "selected_providers",
+              options_for_select(provider_options),
+              include_blank: "Elija una institución",
+              class: "home_providers"
+              %>
+        </p>
     </div>
     <div class="col-md-4">
       <h2>
@@ -78,7 +83,8 @@
         Analizar datos en profundidad
       </h2>
       <p>
-        <button class="entendi">Comparar hasta 3 proveedores</button>
+        <button class="entendi" type="submit">Comparar hasta 3 proveedores</button>
+        </form>
       </p>
     </div>
   </div>
