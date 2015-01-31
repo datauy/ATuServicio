@@ -26,11 +26,10 @@
     </div>
     <div class="col-md-4">
       <p>
-        180 CIENCIA y DATA te dan una herramienta para que
-        contestando unas simples preguntas, veas qu&eacute;
-        prestador de salud te conviene seg&uacute;n los indicadores
-        asociados a Metas Asistenciales publicados por el Ministerio
-        de Salud P&uacute;blica.
+        Mediante esta herramienta, DATA y el Ministerio de Salud P&uacute;blica
+        permiten obtener, visualizar y comparar datos de prestadores de
+        salud, para promover la toma de decisiones informadas de los
+        usuarios y la transparencia del sistema.
       </p>
       <p><a href="#">Más información ></a></p>
     </div>
@@ -58,10 +57,8 @@
     <div class="col-md-4">
       <h2>
         <i class="icon-number01"></i>
-        Selecciona tu departamento
+        Seleccionar departamento
       </h2>
-      <p>Pod&eacute;s seleccionar tu mutualista actual o a la
-        que quieras comparar.</p>
       <p>
         <%= select_tag "state", options_for_select(state_options) %>
       </p>
@@ -69,24 +66,19 @@
     <div class="col-md-4">
       <h2>
         <i class="icon-number02"></i>
-        Selecciona tu prestador de salud y afiliaci&oacute;n
+        Seleccionar prestador de salud
       </h2>
       <p>
-        <%= select_tag "provider", options_for_select(provider_options), include_blank: "Seleccione un proveedor" %>
+        <%= select_tag "provider", options_for_select(provider_options), include_blank: "Elija una instituci&oacute;n" %>
       </p>
     </div>
     <div class="col-md-4">
       <h2>
         <i class="icon-number03"></i>
-        Compara informaci&oacute;n de hasta 3 prestadores
+        Analizar datos en profundidad
       </h2>
       <p>
-        Selecciona en el listado hasta dos prestadores de salud
-        adem&aacute;s del tuyo y usa el bot&oacute;n Comparar ahora
-        a la derecha del listado.
-      </p>
-      <p>
-        <button class="entendi">Ya entendí</button>
+        <button class="entendi">Comparar hasta 3 proveedores</button>
       </p>
     </div>
   </div>
