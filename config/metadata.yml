@@ -1,4 +1,5 @@
 estructura:
+  title: "Estructura"
   description:
     - "Nombre abreviado"
     - "Nombre Completo"
@@ -18,6 +19,7 @@ estructura:
       - afiliados
 
 metas:
+  title: "Metas Asistenciales"
   description:
     - "Porcentaje de afiliados referenciados a un médico de referencia"
     - "Porcentaje de niños de un año correctamente controlados"
@@ -41,6 +43,7 @@ metas:
       - comunicacion
 
 precios:
+  title: "Precios"
   description:
     - "Ticket de medicamentos - general. FONASA"
     - "Ticket de medicamentos - general. NO FONASA"

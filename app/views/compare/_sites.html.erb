@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <% @selected_providers.each do |provider| %>
+    <div class="col-md-4">
+      <% provider.states.each do |state| %>
+        <h1>Sedes en <%= state %></h1>
+        <% provider.sites_by_state(state).map do |site| %>
+          <div>
+            <h2><%= site.localidad %>: <%= site.direccion %></h2>
+            Nivel: <%= site.nivel %>
+            Urgencia <%= site.servicio_de_urgencia %>
+          </div>
+          <div class="especialidades"><h3>Especialidades:</h3>
+            <% columns_name_description(:sedes).each do |name, column| %>
+              <% unless site_column_exceptions.include?(name) %>
+                <span>
+                  <%= name %>: <%= site.send(column.to_sym) %> |
+                </span>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

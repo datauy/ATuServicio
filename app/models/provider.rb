@@ -27,6 +27,10 @@ class Provider < ActiveRecord::Base
   # scope
   # returns the providers list on that state
   def self.by_state(state)
-    find(Site.by_state)
+    find(Site.providers_by_state)
+  end
+
+  def sites_by_state(state)
+    sites.where(departamento: state).order(localidad: :asc)
   end
 end

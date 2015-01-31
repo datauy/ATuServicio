@@ -1,23 +1,16 @@
 <h1>Comparando </h1>
 
-<table>
-  <tr>
-    <% columns_name_description(:estructura).each do |name, column| %>
-      <td><%= name %></td>
+<%= link_to 'Agregar', compare_path(id: [62, 90001]) %>
+
+<table class="table tabled-striped">
+  <thead>
+      <td>Nombre</td>
+    <% @selected_providers.each do |provider| %>
+      <td><%= provider.nombre_abreviado %><%= link_to 'Eliminar', compare_path(ids: "62") %></td>
     <% end %>
-    <td>Cantidad de sedes</td>
-    <td>Departamentos</td>
-  </tr>
-<% @selected_providers.each do |provider| %>
-  <tr>
-    <% columns_name_description(:estructura).each do |name, column| %>
-      <td><%= provider.send(column.to_sym) %></td>
-    <% end %>
-    <td> <%= provider.sites.count %> </td>
-    <td> <%= provider.states.join(", ") %> </td>
-  </tr>
-<% end %>
+  </thead>
+  <tbody>
+    <%= render partial: 'group_data' %>
+  </tbody>
 </table>
-
-
-
+<%= render partial: 'sites' %>
