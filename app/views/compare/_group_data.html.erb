@@ -9,7 +9,7 @@
         <td>
           <% if column == 'web' %>
             <% url = provider.send(column.to_sym) %>
-            <a href="<%= url %>" title="Sitio web">
+            <a href="http://<%= url %>" title="Sitio web" target="_blank">
               <%= url %>
             </a>
           <% else %>
