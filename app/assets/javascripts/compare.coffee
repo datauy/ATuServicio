@@ -7,5 +7,5 @@ $ ->
   $("#provider").change ->
     new_provider = $("#provider").find(":selected").val()
     providers = $("#selected_providers").val().split(" ").concat(new_provider)
-    $("#selected_providers").val(providers.join(" "))
-    $("#selected_providers").parent('form').submit()
+    new_providers_list = $("#selected_providers").val(providers.join(" ")).val()
+    document.location = "comparar/?selected_providers=".concat(new_providers_list)
