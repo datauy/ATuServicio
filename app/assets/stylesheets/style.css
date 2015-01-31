@@ -250,6 +250,26 @@ span.wrapper{
     padding: -10px;
 }
 
+.site_title{
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+.site_address{
+    margin: 20px auto;
+    display: block;
+    font-weight: bold;
+}
+
+.accordion_cell{
+    vertical-align: text-top;
+}
+
+.ui-accordion-header{
+    background: #fff;
+    border: 0;
+}
+
 #listado{
     margin-top: 20px;
     color: #135380;
