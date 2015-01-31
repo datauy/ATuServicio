@@ -37,7 +37,7 @@
           <span>Sedes en: <%= provider.states.join(", ") %></span>
         <% end %>
       </p>
-      <%= link_to 'Comparar', compare_path(provider.id) %>
+      <%= link_to 'Comparar', compare_path(id: [provider.id]) %>
     </td>
     <td>
       <%= show_if_valid(provider, :tiempo_espera_medicina_general) %><br/>

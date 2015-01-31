@@ -1,0 +1,13 @@
+<table class="table tabled-striped">
+  <thead>
+      <td>Nombre</td>
+    <% selected_providers.each do |provider| %>
+      <td><%= provider.nombre_abreviado %><%= link_to 'Eliminar', compare_path(ids: ["62"]) %></td>
+    <% end %>
+  </thead>
+  <tbody>
+    <%= render partial: 'group_data' %>
+  </tbody>
+</table>
+  <%= render partial: 'sites' %>
+</div>

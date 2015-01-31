@@ -1,16 +1,17 @@
 <h1>Comparando </h1>
 
+<%= select_tag "state", options_for_select(state_options) %>
+<%= select_tag "provider", options_for_select(provider_options), include_blank: "Elija una instituci&oacute;n" %>
+
+<div class="hidden">
+<%= form_tag(compare_path, method: :get, remote: true) do %>
+  <%= hidden_field_tag "selected_providers", @selected_providers.map(&:id) %>
+  <%= submit_tag 'submit', id: 'submit' %>
+<% end %>
+</div>
+
 <%= link_to 'Agregar', compare_path(id: [62, 90001]) %>
 
-<table class="table tabled-striped">
-  <thead>
-      <td>Nombre</td>
-    <% @selected_providers.each do |provider| %>
-      <td><%= provider.nombre_abreviado %><%= link_to 'Eliminar', compare_path(ids: "62") %></td>
-    <% end %>
-  </thead>
-  <tbody>
-    <%= render partial: 'group_data' %>
-  </tbody>
-</table>
-<%= render partial: 'sites' %>
+<div id="comparison-data">
+  <%= render partial: 'table', locals: {selected_providers: @selected_providers} %>
+</div>
