@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129121208) do
+ActiveRecord::Schema.define(version: 20150131093206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "maximum_values", force: :cascade do |t|
+    t.decimal  "tiempo_espera",       precision: 10, scale: 2
+    t.decimal  "precio_tickets",      precision: 10, scale: 2
+    t.integer  "personal_disponible"
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+  end
 
   create_table "providers", force: :cascade do |t|
     t.string  "nombre_abreviado"
@@ -68,11 +76,11 @@ ActiveRecord::Schema.define(version: 20150129121208) do
     t.decimal "tomografia_no_fonasa",                              precision: 9, scale: 2
     t.decimal "laboratorio_rutina_basica_fonasa",                  precision: 9, scale: 2
     t.decimal "laboratorio_rutina_basica_no_fonasa",               precision: 9, scale: 2
-    t.string  "tiempo_espera_medicina_general"
-    t.string  "tiempo_espera_pediatria"
-    t.string  "tiempo_espera_cirugia_general"
-    t.string  "tiempo_espera_ginecotocologia"
-    t.string  "tiempo_espera_medico_referencia"
+    t.decimal "tiempo_espera_medicina_general",                    precision: 9, scale: 2
+    t.decimal "tiempo_espera_pediatria",                           precision: 9, scale: 2
+    t.decimal "tiempo_espera_cirugia_general",                     precision: 9, scale: 2
+    t.decimal "tiempo_espera_ginecotocologia",                     precision: 9, scale: 2
+    t.decimal "tiempo_espera_medico_referencia",                   precision: 9, scale: 2
     t.boolean "datos_suficientes_tiempo_espera_medicina_general"
     t.boolean "datos_suficientes_tiempo_espera_pediatria"
     t.boolean "datos_suficientes_tiempo_espera_cirugia_general"
@@ -93,6 +101,21 @@ ActiveRecord::Schema.define(version: 20150129121208) do
     t.decimal "satisfaccion_primer_nivel_atencion_2014",           precision: 9, scale: 2
     t.decimal "satisfaccion_primer_nivel_atencion_2010",           precision: 9, scale: 2
     t.decimal "satisfaccion_internacion_hospitalaria_2012",        precision: 9, scale: 2
+    t.decimal "medicos_generales_policlinica",                     precision: 9, scale: 2
+    t.decimal "medicos_de_familia_policlinica",                    precision: 9, scale: 2
+    t.decimal "medicos_pediatras_policlinica",                     precision: 9, scale: 2
+    t.decimal "medicos_ginecologos_policlinica",                   precision: 9, scale: 2
+    t.decimal "auxiliares_enfermeria_policlinica",                 precision: 9, scale: 2
+    t.decimal "licenciadas_enfermeria_policlinica",                precision: 9, scale: 2
+    t.decimal "cantidad_cad",                                      precision: 9, scale: 2
+    t.decimal "medicina_general_cantidad_cad",                     precision: 9, scale: 2
+    t.decimal "medicina_familiar_cantidad_cad",                    precision: 9, scale: 2
+    t.decimal "pediatria_cantidad_cad",                            precision: 9, scale: 2
+    t.decimal "ginecotologia_cantidad_cad",                        precision: 9, scale: 2
+    t.decimal "medicina_interna_cantidad_cad",                     precision: 9, scale: 2
+    t.decimal "medicina_intensiva_adultos_cantidad_cad",           precision: 9, scale: 2
+    t.decimal "medicina_intensiva_pediatrica_cantidad_cad",        precision: 9, scale: 2
+    t.decimal "neonatologia_cantidad_cad",                         precision: 9, scale: 2
   end
 
   create_table "sites", force: :cascade do |t|

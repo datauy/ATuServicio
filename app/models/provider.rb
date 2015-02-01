@@ -24,13 +24,25 @@ class Provider < ActiveRecord::Base
     sites.group(:departamento).count.keys
   end
 
+  def sites_by_state(state)
+    sites.where(departamento: state).order(localidad: :asc)
+  end
+
   # scope
   # returns the providers list on that state
   def self.by_state(state)
     find(Site.providers_by_state)
   end
 
-  def sites_by_state(state)
-    sites.where(departamento: state).order(localidad: :asc)
+  def self.maximums
+    all.map do |provider|
+      provider.sums_provider
+    end.compact.max
+  end
+
+  def sums_provider
+    ['medicina_general', 'pediatria', 'cirugia_general', 'ginecotocologia', 'medico_referencia'].map do |field|
+      send("tiempo_espera_#{field}".to_sym) if send("datos_suficientes_tiempo_espera_#{field}".to_sym)
+    end.compact.reduce(:+)
   end
 end

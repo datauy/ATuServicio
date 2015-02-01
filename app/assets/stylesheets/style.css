@@ -157,8 +157,50 @@ ul.menu > li{
     display: inline-block;
 }
 
+.icon-cross{
+    color: #f00;
+}
+.icon-tick{
+    color: #0F0;
+}
+
+.icon-clock{
+    color: #dedede;
+    background: none !important;
+}
+
+.icon-clock.celeste{
+    color: #1A557D;
+}
+
+.icon-clock.marino{
+    color: #1A557D;
+}
+
+.icon-clock.azul{
+    color: #1A77B9;
+}
+
+.icon-clock.verde{
+    color: #34B475;
+}
+
+.icon-clock.azul_claro{
+    color: #29ABDF;
+}
+
+.icon-clock.fuxia{
+    color: #902C8E;
+}
+
+.icon-tick, .icon-cross{
+    font-size: 30px;
+    margin-left: -30px;
+}
+
 .celeste{
     background: #BCE6F9;
+    color: #1A557D;
 }
 
 .marino{
@@ -185,8 +227,10 @@ ul.menu > li{
     background: #ED4363;
 }
 
-.magenta{
-    background: #ED4363;
+.no-data{
+    color: #000;
+    min-width: 100px;
+    background: none;
 }
 
 #referencias{
@@ -248,6 +292,26 @@ span.wrapper{
     font-size: 30px;
     color: #bebebe;
     padding: -10px;
+}
+
+.site_title{
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+.site_address{
+    margin: 20px auto;
+    display: block;
+    font-weight: bold;
+}
+
+.accordion_cell{
+    vertical-align: text-top;
+}
+
+.ui-accordion-header{
+    background: #fff;
+    border: 0;
 }
 
 #listado{

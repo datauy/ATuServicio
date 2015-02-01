@@ -28,3 +28,5 @@ $ ->
     $('#' + id).remove()
     row.find('td').css('background-color', "#EDF4F9")
     $('#referencias').after(row)
+
+  $( ".accordion" ).accordion({collapsible: true, active: false})

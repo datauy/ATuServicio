@@ -1,26 +1,31 @@
-<div class="row">
-  <div class="col-md-4"></div>
+<tr>
+  <td></td>
   <% @selected_providers.each do |provider| %>
-    <div class="col-md-4">
-      <% provider.states.each do |state| %>
-        <h1>Sedes en <%= state %></h1>
+  <td class="accordion_cell">
+    <% provider.states.each do |state| %>
+    <div class="accordion">
+      <h3 class="site_title">Sedes en <%= state %></h3>
+      <div>
         <% provider.sites_by_state(state).map do |site| %>
-          <div>
-            <h2><%= site.localidad %>: <%= site.direccion %></h2>
+          <span class="site_address">
+            <%= site.localidad %>: <%= site.direccion %>
             Nivel: <%= site.nivel %>
             Urgencia <%= site.servicio_de_urgencia %>
-          </div>
-          <div class="especialidades"><h3>Especialidades:</h3>
-            <% columns_name_description(:sedes).each do |name, column| %>
-              <% unless site_column_exceptions.include?(name) %>
-                <span>
+          </span>
+          <p class="site_title">Especialidades:</p>
+          <% columns_name_description(:sedes).each do |name, column| %>
+            <% unless site_column_exceptions.include?(name) %>
+              <div>
+                <% unless ['direccion', 'localidad', 'departamento', 'nivel', 'servicio_de_urgencia'].include? column %>
                   <%= name %>: <%= site.send(column.to_sym) %> |
-                </span>
-              <% end %>
+                <% end %>
+              </div>
             <% end %>
-          </div>
-        <% end %>
-      <% end %>
+          <% end %><!-- Ends sites info-->
+        <% end %><!-- sites by state-->
+      </div>
     </div>
+    <% end %>
+  </td>
   <% end %>
-</div>
+</tr>
