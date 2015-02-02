@@ -46,7 +46,19 @@ class Provider < ActiveRecord::Base
     end.compact.reduce(:+)
   end
 
-  def self.max_affiliates
-    Provider.maximum("afiliados")
+  def self.sum_tickets
+    max = 0
+    Provider.all.each do |p|
+      sum = 0
+      [:medicamentos, :tickets, :tickets_urgentes, :estudios].each do |a|
+        if p.average(a)
+          sum += p.average(a)
+        end
+      end
+      if sum > max
+        max = sum
+      end
+    end
+    max
   end
 end

@@ -164,24 +164,24 @@ ul.menu > li{
     color: #0F0;
 }
 
-.icon-clock, .icon-user{
+.icon-clock, .icon-user, .icon-money{
     color: #dedede;
     background: none !important;
 }
 
-.icon-clock.celeste{
+.icon-clock.celeste, .icon-money.celeste{
     color: #1A557D;
 }
 
-.icon-clock.marino{
+.icon-clock.marino, .icon-money.marino{
     color: #1A557D;
 }
 
-.icon-clock.azul{
+.icon-clock.azul, .icon-money.azul{
     color: #1A77B9;
 }
 
-.icon-clock.verde, .icon-user.verde{
+.icon-clock.verde, .icon-user.verde, .icon-money.verde{
     color: #34B475;
 }
 

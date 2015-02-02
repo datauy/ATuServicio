@@ -51,11 +51,21 @@
 </td>
 <td>
   <%
+     # TODO: REFACTOR THIS!
      provider.sums_provider.to_f
      max = Provider.maximums.to_f
-     max_afiliados = Provider.max_affiliates
-   %>
-  <%= show_clocks(provider, max) %>
+     max_afiliados = Provider.maximum("afiliados")
+     max_tickets = Provider.sum_tickets
+     %>
+  <%
+     meta = {
+       tiempo_espera_medicina_general: 'celeste',
+       tiempo_espera_cirugia_general: 'marino',
+       tiempo_espera_pediatria: 'azul',
+       tiempo_espera_ginecotocologia: 'verde',
+       tiempo_espera_medico_referencia: 'azul_claro'
+     }%>
+  <%= build_icon_rows(provider, max, meta, 'clock') %>
 </td>
 <td>
   <%= raw progress_bar(provider.satisfaccion_primer_nivel_atencion_2014, 'celeste') %>
@@ -66,10 +76,13 @@
   <%= raw progress_bar(provider.queja_sugerencia_sabe_donde_dirigirse_2014, 'fuxia') %>
 </td>
 <td>
-  <%= number_with_precision(provider.average(:medicamentos), precision: 2) %><br/>
-  <%= provider.average(:tickets) %><br/>
-  <%= provider.average(:tickets_urgentes) %><br/>
-  <%= provider.average(:estudios) %><br/>
+  <%= build_icon_money(provider, max_tickets,
+      {medicamentos: 'celeste',
+      tickets: 'marino',
+      tickets_urgentes: 'azul',
+      estudios: 'verde'
+      })
+     %>
 </td>
 <td>
   <%= raw progress_bar(provider.meta_medico_referencia, 'celeste') %>

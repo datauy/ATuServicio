@@ -48,34 +48,35 @@ module ApplicationHelper
     end
   end
 
-  def show_clocks(provider, max)
-    clocks = []
-    meta = {
-      tiempo_espera_medicina_general: 'celeste',
-      tiempo_espera_cirugia_general: 'marino',
-      tiempo_espera_pediatria: 'azul',
-      tiempo_espera_ginecotocologia: 'verde',
-      tiempo_espera_medico_referencia: 'azul_claro'
-    }
-    meta.each do |column, css|
+  def build_icon_rows(provider, max, meta, icon_type)
+    icons = []
+    meta.each do |column, css_class|
       value = show_if_valid(provider, column)
       break unless value
-      clocks.concat wait_clocks(value, css, max)
+      value = calculate_value(value, max)
+      value.times do
+        icons << "<i class=\"icon-#{icon_type} #{css_class}\"></i>"
+      end
     end
-
-    while clocks.count < 50
-      clocks << "<i class=\"icon-clock\"></i>"
+    while icons.count < 50
+      icons << "<i class=\"icon-#{icon_type}\"></i>"
     end
-    clocks.join("").html_safe
+    icons.join("").html_safe
   end
 
-  def wait_clocks(value, css_class, max)
-    clocks = []
-    value = calculate_value(value, max)
-    value.times do
-      clocks << "<i class=\"icon-clock #{css_class}\"></i>"
+  def build_icon_money(provider, max, prices)
+    icons = []
+    prices.each do |ticket, css|
+      a = provider.average(ticket)
+      value = calculate_value(a, max)
+      value.times do
+        icons << "<i class=\"icon-money #{css}\"></i>"
+      end
     end
-    clocks
+    while icons.count < 50
+      icons << "<i class=\"icon-money\"></i>"
+    end
+    icons.join("").html_safe
   end
 
   def show_users(value, max)
