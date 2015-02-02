@@ -45,4 +45,8 @@ class Provider < ActiveRecord::Base
       send("tiempo_espera_#{field}".to_sym) if send("datos_suficientes_tiempo_espera_#{field}".to_sym)
     end.compact.reduce(:+)
   end
+
+  def self.max_affiliates
+    Provider.maximum("afiliados")
+  end
 end

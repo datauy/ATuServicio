@@ -164,7 +164,7 @@ ul.menu > li{
     color: #0F0;
 }
 
-.icon-clock{
+.icon-clock, .icon-user{
     color: #dedede;
     background: none !important;
 }
@@ -181,7 +181,7 @@ ul.menu > li{
     color: #1A77B9;
 }
 
-.icon-clock.verde{
+.icon-clock.verde, .icon-user.verde{
     color: #34B475;
 }
 

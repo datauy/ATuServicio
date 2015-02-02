@@ -71,15 +71,32 @@ module ApplicationHelper
 
   def wait_clocks(value, css_class, max)
     clocks = []
+    value = calculate_value(value, max)
+    value.times do
+      clocks << "<i class=\"icon-clock #{css_class}\"></i>"
+    end
+    clocks
+  end
+
+  def show_users(value, max)
+    users = []
+    value = calculate_value(value, max)
+    value.times do
+      users << "<i class=\"icon-user verde\"></i>"
+    end
+    while users.count < 50
+      users << "<i class=\"icon-user\"></i>"
+    end
+    users.join("").html_safe
+  end
+
+  def calculate_value(value, max)
     if value.to_f > 0 && value.to_f < 1
       value = 1
     else
       value = (value.to_f * 50 / max).round
     end
-    value.times do
-      clocks << "<i class=\"icon-clock #{css_class}\"></i>"
-    end
-    clocks
+    value
   end
 
   def provider_structure(provider)

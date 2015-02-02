@@ -53,6 +53,7 @@
   <%
      provider.sums_provider.to_f
      max = Provider.maximums.to_f
+     max_afiliados = Provider.max_affiliates
    %>
   <%= show_clocks(provider, max) %>
 </td>
@@ -74,6 +75,6 @@
   <%= raw progress_bar(provider.meta_ninos_controlados, 'marino') %>
   <%= raw progress_bar(provider.meta_embarazadas, 'azul') %>
 </td>
-<td><%=provider.afiliados%></td>
+  <td><%= show_users(provider.afiliados, max_afiliados) %></td>
 </tr>
 <% end %>
