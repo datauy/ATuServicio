@@ -13,6 +13,7 @@ $ ->
     if new_provider
       document.location = "/comparar/?selected_providers=".concat(new_providers_list)
 
+  # Comparador quitar mutualista
   $(".remove_provider").click ->
     element = $(this).data().provider
     providers = $("#selected_providers").val().split(" ")
@@ -29,4 +30,5 @@ $ ->
     row.find('td').css('background-color', "#EDF4F9")
     $('#referencias').after(row)
 
+  # Comparación sedes
   $( ".accordion" ).accordion({collapsible: true, active: false})

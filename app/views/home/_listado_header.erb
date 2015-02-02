@@ -68,7 +68,7 @@
         Seleccionar departamento
       </h2>
       <p>
-        <%= select_tag "state", options_for_select(state_options) %>
+        <%= select_tag "state", options_for_select(state_options(@states)) %>
       </p>
     </div>
     <div class="col-md-4">

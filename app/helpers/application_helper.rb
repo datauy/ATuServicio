@@ -6,8 +6,7 @@ module ApplicationHelper
     group_names.zip(group_descriptions)
   end
 
-  def state_options
-    states = State.all
+  def state_options(states)
     (["Todo el pais"] + states).zip(["todos"] + to_class_names(states))
   end
 

@@ -4,6 +4,10 @@ class HomeController < ApplicationController
     @selected_state = params['departamento']
     @sel_providers = @sel_providers.where(id: Site.providers_by_state(@selected_state)) if @selected_state
 
+    Rails.cache.fetch("departamentos", expires_in: 12.hours) do
+      @states = State.all
+    end
+
     # order
     name_order = params['nombre'].try(:downcase).try(:to_sym)
     @sel_providers = @sel_providers.order(nombre_completo: name_order) if [:asc, :desc].include?(name_order)
