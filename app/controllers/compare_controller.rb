@@ -1,5 +1,4 @@
 class CompareController < ApplicationController
-  caches_action :index
 
   def index
     provider_ids = params[:selected_providers].try(:split, " ") || []
