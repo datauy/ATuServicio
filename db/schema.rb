@@ -11,18 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131093206) do
+ActiveRecord::Schema.define(version: 20150129121208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "maximum_values", force: :cascade do |t|
-    t.decimal  "tiempo_espera",       precision: 10, scale: 2
-    t.decimal  "precio_tickets",      precision: 10, scale: 2
-    t.integer  "personal_disponible"
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
-  end
 
   create_table "providers", force: :cascade do |t|
     t.string  "nombre_abreviado"
