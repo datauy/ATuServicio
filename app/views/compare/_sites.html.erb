@@ -16,7 +16,7 @@
           <% columns_name_description(:sedes).each do |name, column| %>
             <% unless site_column_exceptions.include?(name) %>
               <div>
-                <% unless ['direccion', 'localidad', 'departamento', 'nivel', 'servicio_de_urgencia'].include? column %>
+                <% unless ['direccion', 'localidad', 'departamento', 'nivel', 'servicio_de_urgencia', 'medicina_intensiva'].include? column %>
                   <%= name %>: <%= site.send(column.to_sym) %> |
                 <% end %>
               </div>
