@@ -40,5 +40,5 @@
 - [ ] separate metadata from metadata for migrations
 - [ ] call methods/modules from migrations
 - [ ] use seeds.rb instead of `db:import` rake task
-
+eliminar state_id de provider
 
