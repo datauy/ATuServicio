@@ -35,9 +35,11 @@ class Provider < ActiveRecord::Base
   end
 
   def self.maximums
-    all.map do |provider|
-      provider.sums_provider
-    end.compact.max
+    Rails.cache.fetch("maximus_provider", expires_in: 12.hours) do
+      all.map do |provider|
+        provider.sums_provider
+      end.compact.max
+    end
   end
 
   def sums_provider
@@ -47,18 +49,20 @@ class Provider < ActiveRecord::Base
   end
 
   def self.sum_tickets
-    max = 0
-    Provider.all.each do |p|
-      sum = 0
-      [:medicamentos, :tickets, :tickets_urgentes, :estudios].each do |a|
-        if p.average(a)
-          sum += p.average(a)
+    Rails.cache.fetch("sum_provider_tickets", expires_in: 12.hours) do
+      max = 0
+      Provider.all.each do |p|
+        sum = 0
+        [:medicamentos, :tickets, :tickets_urgentes, :estudios].each do |a|
+          if p.average(a)
+            sum += p.average(a)
+          end
+        end
+        if sum > max
+          max = sum
         end
       end
-      if sum > max
-        max = sum
-      end
+      max
     end
-    max
   end
 end
