@@ -58,11 +58,12 @@
   <%= show_clocks(provider, max) %>
 </td>
 <td>
-  <%= number_with_precision(provider.satisfaccion_primer_nivel_atencion_2014, precision: 2) %><br/>
-  <%= number_with_precision(provider.conformidad_disponibilidad_agenda_2014, precision: 2) %><br/>
-  <%= number_with_precision(provider.facilidad_para_realizar_tramites_gestiones_2014, precision: 2) %><br/>
-  <%= number_with_precision(provider.disponibilidad_medicamentos_farmacia_2014, precision: 2) %><br/>
-  <%= number_with_precision(provider.queja_sugerencia_sabe_donde_dirigirse_2014, precision: 2) %><br/>
+  <%= raw progress_bar(provider.satisfaccion_primer_nivel_atencion_2014, 'celeste') %>
+  <%= raw progress_bar(provider.conformidad_disponibilidad_agenda_2014, 'marino') %>
+  <%= raw progress_bar(provider.facilidad_para_realizar_tramites_gestiones_2014, 'azul') %>
+  <%= raw progress_bar(provider.disponibilidad_medicamentos_farmacia_2014, 'verde') %>
+  <%= raw progress_bar(provider.informacion_sobre_derechos_2014, 'azul_claro') %>
+  <%= raw progress_bar(provider.queja_sugerencia_sabe_donde_dirigirse_2014, 'fuxia') %>
 </td>
 <td>
   <%= number_with_precision(provider.average(:medicamentos), precision: 2) %><br/>
