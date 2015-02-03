@@ -17,7 +17,7 @@
             <% unless site_column_exceptions.include?(name) %>
               <div>
                 <% unless ['direccion', 'localidad', 'departamento', 'nivel', 'servicio_de_urgencia', 'medicina_intensiva'].include? column %>
-                  <%= name %>: <%= site.send(column.to_sym) %> |
+                  <%= name %>: <%= boolean_icons(site.send(column.to_sym)) %>
                 <% end %>
               </div>
             <% end %>

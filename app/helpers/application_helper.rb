@@ -116,9 +116,10 @@ module ApplicationHelper
     structures
   end
 
+  # Returns true, false, or question mark if value not present
   def boolean_icons(value)
     return"<i class=\"icon-tick\"></i>".html_safe if value.is_a?(TrueClass)
     return "<i class=\"icon-cross\"></i>".html_safe if value.is_a?(FalseClass)
-    value
+    "<i class=\"icon-question\"></i>".html_safe
   end
 end
