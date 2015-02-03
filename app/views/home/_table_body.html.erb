@@ -8,45 +8,31 @@
       </a>
     </p>
     <p>
-      <% if @selected_state %>
-        <p>Estructura:</p>
-        <span>
-          Primaria: <%= provider.coverage_by_state(@selected_state, 'Sede Central') %>
-        </span>
-        <span>
-          Secundaria: <%= provider.coverage_by_state(@selected_state, 'Sede Secundaria') %>
-        </span>
-        <span>
-          Ambulatorio: <%= provider.coverage_by_state(@selected_state, 'Ambulatorio') %>
-        </span>
-        <span>
-          Urgencia: <%= provider.coverage_by_state(@selected_state, 'Urgencia') %>
-        </span>
-      <% else %>
-        <p class="structure_icons">
-          <% structure = provider_structure(provider) %>
-          <span class="estructura">Estructura:</span>
-          <% if structure[:primaria] > 0 %>
-            <span class="round-btn">1</span>
-          <% end %>
-          <% if structure[:secundaria] > 0 %>
-            <span class="round-btn">2</span>
-            <% if structure[:secundaria] > 0 %>
-              <span class="float_left">X <%= structure[:secundaria] %></span>
-            <% end %>
-          <% end %>
-        <% if structure[:ambulatorio] > 0 %>
-          <span class="round-btn">P</span>
-          <% if (structure[:ambulatorio] > 1) %>
-            <span class="float_left">X <%= structure[:ambulatorio] %></span>
-          <% end %>
+
+    <p class="structure_icons">
+      <% structure = provider_structure(provider) %>
+      <span class="estructura">Estructura:</span>
+      <% if structure[:primaria] > 0 %>
+        <span class="round-btn">1</span>
+      <% end %>
+      <% if structure[:secundaria] > 0 %>
+        <span class="round-btn">2</span>
+        <% if structure[:secundaria] > 0 %>
+          <span class="float_left">X <%= structure[:secundaria] %></span>
         <% end %>
-        <% if structure[:urgencia] %>
-          <span class="round-btn magenta">U</span>
+      <% end %>
+      <% if structure[:ambulatorio] > 0 %>
+        <span class="round-btn">P</span>
+        <% if (structure[:ambulatorio] > 1) %>
+          <span class="float_left">X <%= structure[:ambulatorio] %></span>
         <% end %>
-        <p class="sedes">Sedes en: <%= provider.states.join(", ") %></p>
-      </p>
-  <% end %>
+      <% end %>
+      <% if structure[:urgencia] %>
+        <span class="round-btn magenta">U</span>
+      <% end %>
+    <p class="sedes">Sedes en: <%= provider.states.join(", ") %></p>
+    </p>
+
   <%= link_to 'Comparar', compare_path(selected_providers: "#{provider.id}") %>
 </td>
 <td>
