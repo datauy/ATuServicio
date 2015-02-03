@@ -9,3 +9,31 @@ $ ->
       $("#toggle_references").text('Ocultar referencias')
   $('#home-filter #state').change ->
     document.location = "/departamento/".concat( $(this).val() )
+
+  $("#prestador_info").click ->
+    $("#prestador-modal-content").modal();
+    return false;
+
+  $("#tiempos_info").click ->
+    $("#tiempos-modal-content").modal();
+    return false;
+
+  $("#derechos_info").click ->
+    $("#derechos-modal-content").modal();
+    return false;
+
+  $("#tickets_info").click ->
+    $("#tickets-modal-content").modal();
+    return false;
+
+  $("#metas_info").click ->
+    $("#metas-modal-content").modal();
+    return false;
+
+  $("#socios_info").click ->
+    $("#socios-modal-content").modal();
+    return false;
+
+  $("#rrhh_info").click ->
+    $("#rrhh-modal-content").modal();
+    return false;

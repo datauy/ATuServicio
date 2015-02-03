@@ -122,6 +122,14 @@ ul.menu > li{
     text-align: left;
 }
 
+#filtros span.glyphicon{
+    float: left;
+}
+
+#filtros td a span:hover{
+    color: #fff;
+}
+
 .referencia-td li{
     color: #0d2f74;
     list-style: none;
