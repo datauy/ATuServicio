@@ -57,10 +57,23 @@ module ApplicationHelper
         icons << "<i class=\"icon-#{icon_type} #{css_class}\"></i>"
       end
     end
-    while icons.count < 50
-      icons << "<i class=\"icon-#{icon_type}\"></i>"
+    if icons.count > 0
+      while icons.count < 50
+        icons << "<i class=\"icon-#{icon_type}\"></i>"
+      end
+      icons.join("").html_safe
+    else
+      no_data.html_safe
     end
-    icons.join("").html_safe
+  end
+
+  def no_data
+    <<-eos
+      <div class="text-center">
+        <i class=\"icon-emo-unhappy\"></i></br>
+        No hay datos
+      </div>
+    eos
   end
 
   def build_icon_money(provider, max, prices)
