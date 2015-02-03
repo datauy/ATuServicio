@@ -8,11 +8,15 @@ module ApplicationHelper
 
   def state_options
     states = State.all
-    (["Todo el pais"] + states).zip(["todos"] + State.map(&:id))
+    (["Todo el pais"] + states.map(&:name)).zip(["todos"] + states.map(&:name).map(&:to_sym))
   end
 
   def provider_options
-    Provider.all.map{ |p| [p.nombre_abreviado, p.id, {class: (["todos"] + p.states.map(&:id).join(" ")}] }
+    Provider.all.map do |p| 
+      [p.nombre_abreviado, p.id,
+       {class: (["todos"] + p.states.map(&:to_sym)).join(" ")}
+      ]
+    end
   end
 
   # def to_class_names(elements)
