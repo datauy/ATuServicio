@@ -120,6 +120,7 @@ module ApplicationHelper
   def boolean_icons(value)
     return"<i class=\"icon-tick\"></i>".html_safe if value.is_a?(TrueClass)
     return "<i class=\"icon-cross\"></i>".html_safe if value.is_a?(FalseClass)
-    "<i class=\"icon-question\"></i>".html_safe
+    return "<i class=\"icon-question\"></i>".html_safe unless value
+    value
   end
 end
