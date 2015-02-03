@@ -15,6 +15,10 @@ class Provider < ActiveRecord::Base
     end
   end
 
+  def is_private_insurance?
+    return nombre_abreviado.include?('Seguro Privado')
+  end
+
   # What coverage type exists by state
   def coverage_by_state(state, type)
     sites.where(departamento: State.proper_name(state), nivel: type).count if state

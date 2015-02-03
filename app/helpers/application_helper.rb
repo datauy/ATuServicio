@@ -53,7 +53,6 @@ module ApplicationHelper
       #      value = show_if_valid(provider, column)
       #      break unless value
       value = provider.send(column.to_sym)
-      break unless value
       value = calculate_value(value, max)
       value.times do
         icons << "<i class=\"icon-#{icon_type} #{css_class}\"></i>"

@@ -64,7 +64,7 @@
   <%= raw progress_bar(provider.queja_sugerencia_sabe_donde_dirigirse_2014, 'fuxia') %>
 </td>
 <td>
-  <% unless provider.nombre_abreviado.include?('Seguro Privado') %>
+  <% unless provider.is_private_insurance? %>
   <%= build_icon_money(provider, max_tickets,
       {medicamentos: 'celeste',
       tickets: 'marino',
