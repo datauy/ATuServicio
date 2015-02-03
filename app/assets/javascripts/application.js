@@ -13,6 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui/accordion
-//= require turbolinks
 //= require jquery.chained.min
 //= require_tree .
