@@ -61,14 +61,14 @@
     </div>
   </div>
   <div class="clearfix"> </div>
-  <div class="header-select">
+  <div class="header-select" id="home-filter">
     <div class="col-md-4">
       <h2>
         <i class="icon-number01"></i>
         Seleccionar departamento
       </h2>
       <p>
-        <%= select_tag "state", options_for_select(state_options(@states)) %>
+        <%= select_tag "state", options_for_select(state_options(@states), params[:departamento]) %>
       </p>
     </div>
     <div class="col-md-4">

@@ -7,3 +7,5 @@ $ ->
     else
       $("#referencias").children().find("li").show();
       $("#toggle_references").text('Ocultar referencias')
+  $('#home-filter #state').change ->
+    document.location = "/departamento/".concat( $(this).val() )
