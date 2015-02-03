@@ -1,11 +1,13 @@
 class HomeController < ApplicationController
   def index
     @selected_state = params['departamento']
-    if @selected_state && @selected_state != 'todos'
-      @sel_providers = @providers.where(id: Site.providers_by_state(@selected_state))
-    else
-      @sel_providers = @providers
-    end
+    @sel_providers = if @selected_state && @selected_state != 'todos'
+                       order_providers(
+                         @providers.where( id: Site.providers_by_state(@selected_state) )
+                       )
+                     else
+                       order_providers(@providers)
+                     end
 
     Rails.cache.fetch("departamentos", expires_in: 12.hours) do
       @states = State.all

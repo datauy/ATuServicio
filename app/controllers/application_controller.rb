@@ -8,11 +8,11 @@ class ApplicationController < ActionController::Base
 
   def load_options
     @states ||= State.all
-    @providers ||= order_providers
+    @providers ||= Provider.all
   end
 
-  def order_providers
-    providers = Provider.all.order(:nombre_completo)
+  def order_providers(providers)
+    providers = providers.order(:nombre_completo)
     # We discriminate private insurances since they're different:
     l = lambda { |a| a.is_private_insurance? }
     private_insurances = providers.select &l
