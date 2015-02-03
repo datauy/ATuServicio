@@ -3,6 +3,7 @@ class Site < ActiveRecord::Base
 
   # scope
   def self.providers_by_state(state)
-    where(departamento: state.capitalize).group(:provider_id).count.keys
+    departamento = state.split("_").map(&:capitalize).join(" ")
+    where(departamento: departamento).group(:provider_id).count.keys
   end
 end
