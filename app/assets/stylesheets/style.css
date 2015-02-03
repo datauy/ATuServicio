@@ -110,6 +110,9 @@ ul.menu > li{
     border-bottom: 1px solid #d8dde1;
     padding: 0 20px 15px;
 }
+.container {
+    padding-top: 36px;
+}
 
 #filtros{
     text-align: center;
