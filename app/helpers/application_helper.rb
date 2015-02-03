@@ -32,7 +32,7 @@ module ApplicationHelper
       <<-eos
         <div class="progress">
           <div class="progress-bar #{css_class}" role="progressbar" aria-valuenow="#{object}" aria-valuemin="0" aria-valuemax="100" style="width: #{object}%;">
-          #{object}
+          #{object} %
           </div>
         </div>
       eos
