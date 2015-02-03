@@ -14,34 +14,22 @@ ul.menu > li{
     padding-bottom: 80px;
 }
 
-#header h2{
-    font-size: 23px;
-    line-height: 32px;
-    position: relative;
-}
-
-#header h2 i{
-    color: #000;
-    position: absolute;
-    left: -2px;
-    top: 2px;
-    font-size: 30px;
-}
 
 #header a{
     color: #fff;
 }
-
-.header-select .col-md-4 > *{
-    padding-left: 39px;
+#header ul {
+-webkit-padding-start: 0px;
 }
+
 
 #header select{
     color: #000;
 }
 
-.header-info, .header-select{
+.header-info {
     padding-top: 87px;
+    text-align: left;
 }
 
 #nav-menu{
@@ -68,21 +56,59 @@ ul.menu > li{
 }
 
 #logos ul li{
-    margin: 14px;
+    margin-right: 60px;
+}
+.social {
+    padding-top: 15px;
+    list-style-type: none;
+}
+.social li {
+    display: inline;
+}
+.social .fb_iframe_widget {
+    top:-6px;
+}
+.header-select {
+    background-color: #135380;
+    float: left;
+    width: 100%;
+    padding: 12px 20px 18px;
+    margin: 15px 0;
+}
+.header-select h2{
+    font-size: 23px;
+    line-height: 32px;
+    position: relative;
+    color: #fff;
 }
 
-.entendi{
+.header-select h2 i{
+    color: #fff;
+    position: absolute;
+    left: -2px;
+    top: 2px;
+    font-size: 30px;
+}
+.header-select .col-md-4 > *{
+    padding-left: 39px;
+}
+.header-select button {
     border-radius: 3px;
     background-color: #135380;
     border: 0;
     padding: 10px 55px;
 }
-
+.header-select select {
+    width: 80%;
+}
+.header-select [class^="icon-"]:before, .header-select [class*=" icon-"]:before {
+    width: 1.4em;
+    text-align: left;
+}
 .contenido{
-    margin-left: 20px;
     margin-bottom: 26px;
     border-bottom: 1px solid #d8dde1;
-    padding-bottom: 15px;
+    padding: 0 20px 15px;
 }
 
 #filtros{
@@ -90,17 +116,19 @@ ul.menu > li{
 }
 
 #filtros td{
-    background: #135380;
+    background: #e4e4e4;
     width: 16.6%;
-    color: #fff;
+    color: #000;
     border: solid 1px #fff;
+    padding: 16px 8px 8px;
 }
 
 #filtros td i{
-    font-size: 60px;
+    font-size: 48px;
     clear: both;
     color: #000;
     display: block;
+    padding-bottom: 5px;
 }
 
 #filtros ul.menu > li:hover{
@@ -238,9 +266,9 @@ ul.menu > li{
 }
 
 .referencias{
-    font-size: 13px;
+    font-size: 12px;
     border-radius: 15px;
-    padding: 6px 15px;
+    padding-bottom: 7px;
 }
 
 .estructura{

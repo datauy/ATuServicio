@@ -27,12 +27,12 @@
         </li>
       </ul>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6 col-md-offset-1">
       <a href="/" title="atuservicio">
         <%= image_tag('logo-atuservicio.png', alt: "atuservicio", id: "logo") %>
       </a>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-5 col-md-offset-1">
       <p>
         Mediante esta herramienta, DATA y el Ministerio de Salud P&uacute;blica
         permiten obtener, visualizar y comparar datos de prestadores de
@@ -40,8 +40,12 @@
         usuarios y la transparencia del sistema.
       </p>
       <p><b><a href="/sobre_el_proyecto">Conozca más sobre el proyecto ></a></b></p>
+      <ul class="social">
+          <li><a href="https://twitter.com/share" class="twitter-share-button" data-via="DATAuy" data-related="DATAuy">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li>
+          <li><div class="fb-share-button" data-href="http://atuservicio.uy" data-layout="button_count"></div></li>
+        </ul>
     </div>
-    <div class="col-md-4" id="logos">
+    <div class="col-md-6" id="logos">
       <ul class="menu">
         <li>
           <a href="http://datauy.org/" title="DATA">
@@ -53,48 +57,10 @@
             <%= image_tag('logomsp.png', alt: 'DATA') %>
           </a>
         </li>
-        <ul class="menu">
-          <li><a href="https://twitter.com/share" class="twitter-share-button" data-via="DATAuy" data-related="DATAuy">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li>
-          <li><div class="fb-share-button" data-href="http://atuservicio.uy" data-layout="button_count"></div></li>
-        </ul>
       </ul>
     </div>
   </div>
   <div class="clearfix"> </div>
-  <div class="header-select" id="home-filter">
-    <div class="col-md-4">
-      <h2>
-        <i class="icon-number01"></i>
-        Seleccionar departamento
-      </h2>
-      <p>
-        <%= select_tag "state", options_for_select(state_options(@states), params[:departamento]) %>
-      </p>
-    </div>
-    <div class="col-md-4">
-      <h2>
-        <i class="icon-number02"></i>
-        Seleccionar prestador de salud
-      </h2>
-      <form action=<%= compare_path %> method="get">
-        <p>
-          <%= select_tag "selected_providers",
-              options_for_select(provider_options),
-              include_blank: "Elija una institución",
-              class: "home_providers"
-              %>
-        </p>
-    </div>
-    <div class="col-md-4">
-      <h2>
-        <i class="icon-number03"></i>
-        Acceder a datos completos
-      </h2>
-      <p>
-        <button class="entendi" type="submit">Analizar y comparar</button>
-        </form>
-      </p>
-    </div>
-  </div>
 </div>
+
 <!-- end header -->
