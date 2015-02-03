@@ -54,7 +54,8 @@
   <%= build_icon_rows(provider, max, meta, 'clock') %>
 </td>
 <td>
-  <%= raw progress_bar(provider.satisfaccion_primer_nivel_atencion_2014, 'celeste') %>
+  <% satisfaccion = provider.satisfaccion_primer_nivel_atencion_2014 * 10 if provider.satisfaccion_primer_nivel_atencion_2014 %>
+  <%= raw progress_bar(satisfaccion, 'celeste') %>
   <%= raw progress_bar(provider.conformidad_disponibilidad_agenda_2014, 'marino') %>
   <%= raw progress_bar(provider.facilidad_para_realizar_tramites_gestiones_2014, 'azul') %>
   <%= raw progress_bar(provider.disponibilidad_medicamentos_farmacia_2014, 'verde') %>

@@ -202,6 +202,11 @@ ul.menu > li{
     font-size: 30px;
 }
 
+.progress-bar .icon-emo-unhappy{
+    display: inline;
+    font-size: 10px;
+}
+
 .celeste{
     background: #BCE6F9;
     color: #1A557D;
