@@ -50,7 +50,9 @@ module ApplicationHelper
   def build_icon_rows(provider, max, meta, icon_type)
     icons = []
     meta.each do |column, css_class|
-      value = show_if_valid(provider, column)
+      #      value = show_if_valid(provider, column)
+      #      break unless value
+      value = provider.send(column.to_sym)
       break unless value
       value = calculate_value(value, max)
       value.times do
@@ -133,7 +135,7 @@ module ApplicationHelper
   def boolean_icons(value)
     return"<i class=\"icon-tick\"></i>".html_safe if value.is_a?(TrueClass)
     return "<i class=\"icon-cross\"></i>".html_safe if value.is_a?(FalseClass)
-    return "<i class=\"icon-question\"></i>".html_safe unless value
+    return "No hay datos" unless value
     value
   end
 end

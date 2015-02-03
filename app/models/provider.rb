@@ -65,4 +65,28 @@ class Provider < ActiveRecord::Base
       max
     end
   end
+
+  def self.sums_personnel
+    Rails.cache.fetch("sum_provider_personnel", expires_in: 120.hours) do
+      max = 0
+      Provider.all.each do |p|
+        sum = 0
+        [:medicos_generales_policlinica,
+         :medicos_de_familia_policlinica,
+         :medicos_pediatras_policlinica,
+         :medicos_ginecologos_policlinica,
+         :auxiliares_enfermeria_policlinica,
+         :licenciadas_enfermeria_policlinica].each do |a|
+          value = p.send(a).to_f
+          if value.is_a? Numeric
+            sum += p.send(a).to_f
+          end
+        end
+        if sum > max
+          max = sum
+        end
+      end
+      max
+    end
+  end
 end

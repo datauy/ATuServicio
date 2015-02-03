@@ -42,6 +42,7 @@
      max = Provider.maximums.to_f
      max_afiliados = Provider.maximum("afiliados")
      max_tickets = Provider.sum_tickets
+     max_personnel = Provider.sums_personnel
      %>
   <%
      meta = {
@@ -76,6 +77,17 @@
   <%= raw progress_bar(provider.meta_ninos_controlados, 'marino') %>
   <%= raw progress_bar(provider.meta_embarazadas, 'azul') %>
 </td>
-  <td><%= show_users(provider.afiliados, max_afiliados) %></td>
+<td><%= show_users(provider.afiliados, max_afiliados) %></td>
+<td>
+  <% meta = {
+     medicos_generales_policlinica: 'celeste',
+     medicos_de_familia_policlinica: 'marino',
+     medicos_pediatras_policlinica: 'azul',
+     medicos_ginecologos_policlinica: 'verde',
+     auxiliares_enfermeria_policlinica: 'azul_claro',
+     licenciadas_enfermeria_policlinica: 'fuxia'
+     } %>
+  <%= build_icon_rows(provider, max_personnel, meta, 'user') %>
+</td>
 </tr>
 <% end %>
