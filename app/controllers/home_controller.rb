@@ -15,6 +15,6 @@ class HomeController < ApplicationController
 
     # order
     name_order = params['nombre'].try(:downcase).try(:to_sym)
-    @sel_providers = @sel_providers.order(nombre_completo: name_order) if [:asc, :desc].include?(name_order)
+    @sel_providers = @sel_providers.order(nombre_abreviado: name_order) if [:asc, :desc].include?(name_order)
   end
 end

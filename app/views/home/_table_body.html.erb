@@ -1,7 +1,8 @@
 <% @sel_providers.each do |provider| %>
 <tr id="<%= provider.id %>">
   <td>
-    <h4><%= provider.nombre_completo %></h4>
+    <h4><%= provider.nombre_abreviado %></h4>
+    <h6><%= provider.nombre_completo %></h6>
     <p>
       <a href="http://<%= provider.web %>" title="Sitio web" target="_blank">
         <%= provider.web %>

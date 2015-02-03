@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def order_providers(providers)
-    providers = providers.order(:nombre_completo)
+    providers = providers.order(:nombre_abreviado)
     # We discriminate private insurances since they're different:
     l = lambda { |a| a.is_private_insurance? }
     private_insurances = providers.select &l

@@ -11,7 +11,13 @@ module ApplicationHelper
   end
 
   def provider_options
-    Provider.all.map{ |p| [p.nombre_abreviado, p.id, {class: (["todos"] + to_class_names(p.states)).join(" ")}] }
+    @providers.order(:nombre_abreviado).map do |p|
+      [
+        p.nombre_abreviado,
+        p.id,
+        {class: (["todos"] + to_class_names(p.states)).join(" ")}
+      ]
+    end
   end
 
   def to_class_names(elements)
