@@ -12,7 +12,8 @@ module ApplicationHelper
   end
 
   def provider_options
-    Provider.all.map do |p| 
+    providers = Provider.includes(:states).all
+    providers.map do |p|
       [p.nombre_abreviado, p.id,
        {class: (["todos"] + p.states.map(&:id)).join(" ")}
       ]
