@@ -19,23 +19,9 @@ namespace :db do
       state = State.find_or_create_by(name: parameters['departamento'])
       provider.sites.create(parameters)
       provider.states << state
-      require 'byebug'; byebug; a = 1 
-      # state.providers << provider
+      state.providers << provider unless state.providers.exists?(provider)
     end
   end
-#
-#   desc "Import states"
-#   task :import_states => [:environment, :import_sites] do
-#     require 'byebug'; byebug; a = 1 
-#     Site.group(:departamento).count.keys.each do |name|
-#       s = Site.
-#
-#     end
-#     departamento = Sede.group('departamento')
-#       # state = State.create(name: parameters['departamento'])
-#       # provider.states << state
-#   end
-
 
   desc "Import data from CSV. Erases previous information"
   task :import => [:environment, :create_providers, :import_sites] do

@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20150202142023) do
     t.decimal "medicina_intensiva_adultos_cantidad_cad",           precision: 9, scale: 2
     t.decimal "medicina_intensiva_pediatrica_cantidad_cad",        precision: 9, scale: 2
     t.decimal "neonatologia_cantidad_cad",                         precision: 9, scale: 2
+    t.integer "state_id"
   end
 
   add_index "providers", ["state_id"], name: "index_providers_on_state_id", using: :btree
