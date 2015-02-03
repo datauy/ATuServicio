@@ -65,17 +65,18 @@ module ApplicationHelper
       end
       icons.join("").html_safe
     else
-      no_data.html_safe
+      no_data
     end
   end
 
   def no_data
-    <<-eos
+    msg = <<-eos
       <div class="text-center">
         <i class=\"icon-emo-unhappy\"></i></br>
         No hay datos
       </div>
     eos
+    msg.html_safe
   end
 
   def build_icon_money(provider, max, prices)

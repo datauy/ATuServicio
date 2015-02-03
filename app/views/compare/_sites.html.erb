@@ -8,9 +8,9 @@
       <div>
         <% provider.sites_by_state(state).map do |site| %>
           <span class="site_address">
-            <%= site.localidad %>: <%= site.direccion %>
-            Nivel: <%= site.nivel %>
-            Urgencia <%= site.servicio_de_urgencia %>
+            <%= site.localidad %>: <%= site.direccion %><br/>
+            Nivel: <%= site.nivel %><br/>
+            Urgencia <%= boolean_icons(site.servicio_de_urgencia) %>
           </span>
           <p class="site_title">Especialidades:</p>
           <% columns_name_description(:sedes).each do |name, column| %>
