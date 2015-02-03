@@ -8,20 +8,16 @@ module ApplicationHelper
 
   def state_options
     states = State.all
-    (["Todo el pais"] + states.map(&:name)).zip(["todos"] + states.map(&:name).map(&:to_sym))
+    (["Todo el pais"] + states.map(&:name)).zip(["todos"] + states.map(&:id))
   end
 
   def provider_options
     Provider.all.map do |p| 
       [p.nombre_abreviado, p.id,
-       {class: (["todos"] + p.states.map(&:to_sym)).join(" ")}
+       {class: (["todos"] + p.states.map(&:id)).join(" ")}
       ]
     end
   end
-
-  # def to_class_names(elements)
-  #   elements.map{|s| s.downcase.gsub(" ", "_")}
-  # end
 
   def show_if_valid(provider, field)
     enough_data_field = "datos_suficientes_#{field}"

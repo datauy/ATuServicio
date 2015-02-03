@@ -21,9 +21,9 @@ class Provider < ActiveRecord::Base
     sites.where(departamento: state, nivel: type).count if state
   end
 
-  def states
-    sites.group(:departamento).count.keys
-  end
+  # def states
+  #   sites.group(:departamento).count.keys
+  # end
 
   def sites_by_state(state)
     sites.where(departamento: state).order(localidad: :asc)
@@ -31,9 +31,9 @@ class Provider < ActiveRecord::Base
 
   # scope
   # returns the providers list on that state
-  def self.by_state(state)
-    find(Site.providers_by_state)
-  end
+  # def self.by_state(state)
+  #   
+  # end
 
   def self.maximums
     all.map do |provider|
