@@ -105,6 +105,9 @@ ul.menu > li{
     width: 1.4em;
     text-align: left;
 }
+#filtros {
+    position: relative;
+}
 .contenido{
     margin-bottom: 26px;
     border-bottom: 1px solid #d8dde1;
@@ -159,6 +162,11 @@ ul.menu > li{
 
 #filtros td a span:hover{
     color: #fff;
+}
+
+.stick {
+    position:fixed;
+    top:0px;
 }
 
 .referencia-td li{
