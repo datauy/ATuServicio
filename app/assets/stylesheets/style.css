@@ -168,6 +168,10 @@ ul.menu > li{
     top:0px;
 }
 
+.referencia-td {
+    padding-top: 0;
+}
+
 .referencia-td li{
     color: #0d2f74;
     list-style: none;
@@ -179,15 +183,16 @@ ul.menu > li{
     background: #1a2a4c;
     border-radius: 50%;
     color: #fff;
-    height: 20px;
+    height: 17px;
     display: block;
-    width: 20px;
+    width: 17px;
     text-align: center;
     float: left;
     margin-right: 4px;
-    line-height: 20px;
+    line-height: 17px;
     font-size: 13px;
 }
+
 .sedes{clear: both}
 
 .float_left{
@@ -293,14 +298,16 @@ ul.menu > li{
 #referencias{
     background: #c2d1e2;
 }
-
-.referencias{
-    font-size: 12px;
-    border-radius: 15px;
-    padding-bottom: 7px;
-}
 #referencias td{
     border: solid 1px #fff;
+}
+.btn-references{
+    font-size: 12px;
+    border-radius: 15px;
+    padding-bottom: 3px;
+    padding-top: 2px;
+    left: 6px;
+    position: relative;
 }
 .estructura{
     float: left;
