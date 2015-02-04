@@ -20,23 +20,7 @@
     <td class="pivot col-md-3 col-centered"><%= name %></td>
       <% @selected_providers.each do |provider| %>
         <td class="col-md-<%= width_class%>">
-        <% if column == 'web' %>
-          <% url = provider.send(column.to_sym) %>
-          <a href="http://<%= url %>" title="Sitio web" target="_blank">
-            <%= url %>
-          </a>
-          <!-- Check if ASSE because tickets have no cost: -->
-        <% elsif group == :precios %>
-          <% if provider.is_asse? &&  %>
-            Sin costo
-          <% elsif provider.is_private_insurance? && group == :precios %>
-            No hay datos
-          <% else %>
-            $ <%= provider.send(column.to_sym).round %>
-          <% end %>
-        <% else %>
-          <%= boolean_icons(provider.send(column.to_sym)) %>
-        <% end %>
+          <%= show_value(group, column, provider) %>
       <% end %>
       </td>
     </tr>
