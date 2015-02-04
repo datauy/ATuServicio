@@ -2,6 +2,7 @@ class CreateSites < ActiveRecord::Migration
   def change
     create_table :sites do |t|
       t.references :provider, index: true
+      t.references :state, index: true
 
       t.timestamps null: false
     end

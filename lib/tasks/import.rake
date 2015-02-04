@@ -15,16 +15,34 @@ namespace :db do
   desc "Import provider sites"
   task :import_sites => [:environment, :create_providers] do
     puts "Import provider sites"
+    ProviderStateInfo.delete_all
+    Site.delete_all
     import_csv('sedes') do |provider, parameters|
       state = State.find_or_create_by(name: parameters['departamento'])
-      provider.sites.create(parameters)
-      provider.states << state
-      state.providers << provider unless state.providers.exists?(provider)
+      ProviderStateInfo.find_or_create_by(provider: provider, state: state)
+      provider.sites.create(parameters.merge(state: state))
+      # provider.states << state
+      # state.providers << provider unless state.providers.exists?(provider)
     end
   end
 
+  task :load_providers_states => [:environment, :import_sites] do
+    puts "import Provider State info"
+    ProviderStateInfo.all.each do |info|
+      level_count = Site.where(state_id: info.state_id,
+                         provider_id: info.provider_id).group(:nivel).count
+      urgencia = Site.where(state_id: info.state_id,
+                            provider_id: info.provider_id).count(:servicio_de_urgencia) > 0
+      info.update(primaria: level_count['Sede Central'] || 0,
+                  secundaria: level_count['Sede Secundaria'] || 0,
+                  ambulatorio: level_count['Ambulatorio'] || 0,
+                  urgencia: urgencia)
+    end
+
+  end
+
   desc "Import data from CSV. Erases previous information"
-  task :import => [:environment, :create_providers, :import_sites] do
+  task :import => [:environment, :create_providers, :import_sites, :load_providers_states] do
     puts "Import all data into providers"
     import_csv(*get_provider_groups) do |provider, parameters|
       provider.update(parameters)

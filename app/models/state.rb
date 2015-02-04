@@ -1,3 +1,4 @@
 class State < ActiveRecord::Base
-  has_and_belongs_to_many :providers
+  has_many :provider_state_infos
+  has_many :providers, through: :provider_state_infos
 end

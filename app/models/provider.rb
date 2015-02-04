@@ -1,6 +1,7 @@
 class Provider < ActiveRecord::Base
   has_many :sites, dependent: :delete_all
-  has_and_belongs_to_many :states
+  has_many :provider_state_infos
+  has_many :states, through: :provider_state_infos
 
   def average(name)
     columns = METADATA[:precios][:averages][name][:columns]
