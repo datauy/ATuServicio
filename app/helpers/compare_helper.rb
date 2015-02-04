@@ -13,12 +13,13 @@ module CompareHelper
     METADATA[:precios][:columns]
   end
 
+  # TODO Refactor
+  # FIX Fix this:
   def show_value(group, column, provider)
     value = ''
     column_value = provider.send(column.to_sym)
     if column == 'web'
-      url = column_value
-      value = "<a href=\"http://#{url} %>\" title=\"Sitio web\" target=\"_blank\">#{url}</a>".html_safe
+      value = "<a href=\"http://#{column_value}\" title=\"Sitio web\" target=\"_blank\">#{column_value}</a>".html_safe
     # Check if ASSE because tickets have no cost:
     elsif group == :precios
       if provider.is_asse?
@@ -29,13 +30,23 @@ module CompareHelper
         value = "$ #{column_value.round}"
       end
     elsif group == :metas
-      result = column_value
-      value = (result.is_a? Numeric) ? "#{result} %" : boolean_icons(result)
+      value = (column_value.is_a? Numeric) ? "#{column_value} %" : boolean_icons(column_value)
     elsif group == :tiempos_espera
       value = "#{column_value} días"
     elsif group == :satisfaccion_derechos
-      result = column_value
-      value = (result) ? "#{result} %" : "No hay datos"
+      value = (column_value) ? "#{column_value} %" : "No hay datos"
+    # FIX: This is a hack
+    # MP and Britanico - 9508 9532
+    # We are doing this because (for now) the importer turns 0 values
+    # from the open data into nil, which we *should fix* asap
+    elsif group == :rrhh
+      if [9508, 9532].include?(provider.id)
+        value = (column_value) ? "#{column_value} %" : 0
+      elsif (provider.is_private_insurance? && column.match(/_cad$/))
+        value = 0
+      else
+        value = "No hay datos"
+      end
     else
       value = boolean_icons(column_value)
     end
