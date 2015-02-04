@@ -120,7 +120,7 @@ ul.menu > li{
 
 #filtros td{
     background: #e4e4e4;
-    width: 16.6%;
+    width: 14.2%;
     color: #000;
     border: solid 1px #fff;
     padding: 16px 8px 8px;
@@ -195,38 +195,47 @@ ul.menu > li{
     color: #0F0;
 }
 
-.icon-clock, .icon-user, .icon-money{
+.icon-clock, .icon-user, .icon-money, .icon-user{
     color: #dedede;
     background: none !important;
 }
 
-.icon-clock.celeste, .icon-money.celeste{
+.icon-clock.celeste, .icon-money.celeste, .icon-user.celeste{
+    color: #BCE6F9;
+}
+
+.icon-clock.marino, .icon-money.marino, .icon-user.marino{
     color: #1A557D;
 }
 
-.icon-clock.marino, .icon-money.marino{
-    color: #1A557D;
-}
-
-.icon-clock.azul, .icon-money.azul{
+.icon-clock.azul, .icon-money.azul, .icon-user.azul{
     color: #1A77B9;
 }
 
-.icon-clock.verde, .icon-user.verde, .icon-money.verde{
+.icon-clock.verde, .icon-user.verde, .icon-money.verde, .icon-user.verde{
     color: #34B475;
 }
 
-.icon-clock.azul_claro{
+.icon-clock.azul_claro, .icon-user.azul_claro{
     color: #29ABDF;
 }
 
-.icon-clock.fuxia{
+.icon-clock.fuxia, .icon-user.fuxia{
     color: #902C8E;
 }
 
 .icon-tick, .icon-cross{
     font-size: 30px;
     margin-left: -30px;
+}
+
+.icon-emo-unhappy{
+    font-size: 30px;
+}
+
+.progress-bar .icon-emo-unhappy{
+    display: inline;
+    font-size: 10px;
 }
 
 .celeste{
