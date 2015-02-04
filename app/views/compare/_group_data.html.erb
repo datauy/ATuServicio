@@ -26,8 +26,14 @@
             <%= url %>
           </a>
           <!-- Check if ASSE because tickets have no cost: -->
-        <% elsif provider.is_asse? && ticket_prices.include?(column) %>
-          Sin costo
+        <% elsif group == :precios %>
+          <% if provider.is_asse? &&  %>
+            Sin costo
+          <% elsif provider.is_private_insurance? && group == :precios %>
+            No hay datos
+          <% else %>
+            $ <%= provider.send(column.to_sym).round %>
+          <% end %>
         <% else %>
           <%= boolean_icons(provider.send(column.to_sym)) %>
         <% end %>
