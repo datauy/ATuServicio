@@ -71,7 +71,13 @@ module CompareHelper
     value = ''
     if group == :tiempos_espera && @selected_providers.select { |p| p.nombre_abreviado.include? "ASSE" }.count > 0
     value =  <<-eos
-    ASSE: Promedios de tiempos de espera calculados con información correspondiente a 142 unidades asistenciales de un total de 800. Siendo de las 142, la mayoría Unidades de Primer Nivel de Atención del interior del país, donde las especialidades tienen una oferta limitada.
+  <tr>
+    <td colspan="4">
+      <strong>
+      ASSE: Promedios de tiempos de espera calculados con información correspondiente a 142 unidades asistenciales de un total de 800. Siendo de las 142, la mayoría Unidades de Primer Nivel de Atención del interior del país, donde las especialidades tienen una oferta limitada.
+      </strong>
+    </td>
+  </tr>
       eos
     end
     value.html_safe
