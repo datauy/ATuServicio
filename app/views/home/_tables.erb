@@ -1,56 +1,58 @@
 <table class="col-md-12 table" id="listado">
-  <tbody>
+  <thead>
     <tr id="filtros">
-      <td>
+      <th data-sort="string">
         <a href="#" id="prestador_info">
           <span class="glyphicon glyphicon-info-sign"> </span>
         </a>
         <i class="icon-01"></i>
         <label>Prestador</label>
-      </td>
-      <td>
+      </th>
+      <th data-sort="float">
         <a href="#" id="tiempos_info">
           <span class="glyphicon glyphicon-info-sign"> </span>
         </a>
         <i class="icon-02"></i>
         <label>Tiempos de espera</label>
-      </td>
-      <td>
+      </th>
+      <th>
         <a href="#" id="derechos_info">
           <span class="glyphicon glyphicon-info-sign"> </span>
         </a>
         <i class="icon-00"></i>
         <label>Derechos de usuarios</label>
-      </td>
-      <td>
+      </th>
+      <th data-sort="float">
         <a href="#" id="tickets_info">
           <span class="glyphicon glyphicon-info-sign"> </span>
         </a>
         <i class="icon-04"></i>
         <label>Tickets y órdenes</label>
-      </td>
-      <td>
+      </th>
+      <th>
         <a href="#" id="metas_info">
           <span class="glyphicon glyphicon-info-sign"> </span>
         </a>
         <i class="icon-03"></i>
         <label>Metas asistenciales</label>
-      </td>
-      <td>
+      </th>
+      <th>
         <a href="#" id="socios_info">
           <span class="glyphicon glyphicon-info-sign"> </span>
         </a>
         <i class="icon-06"></i>
         <label>Cantidad de socios</label>
-      </td>
-      <td>
+      </th>
+      <th>
         <a href="#" id="rrhh_info">
           <span class="glyphicon glyphicon-info-sign"> </span>
         </a>
         <i class="icon-05"></i>
         <label>Recursos humanos</label>
-      </td>
+      </th>
     </tr>
+  </thead>
+  <tbody>
     <%= render 'referencia' %>
     <%= render 'info_modals' %>
     <%= render 'table_body' %>

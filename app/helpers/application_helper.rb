@@ -1,4 +1,10 @@
 module ApplicationHelper
+  def waiting_times
+    [:tiempo_espera_medicina_general, :tiempo_espera_pediatria,
+     :tiempo_espera_cirugia_general, :tiempo_espera_ginecotocologia,
+     :tiempo_espera_medico_referencia]
+  end
+
   def columns_name_description(group)
     group_names = METADATA[group][:description]
     group_descriptions = METADATA[group][:columns]
@@ -144,5 +150,23 @@ module ApplicationHelper
     return "<i class=\"icon-cancel-1\"></i>".html_safe if value.is_a?(FalseClass)
     return "No hay datos" unless value
     value
+  end
+
+  def total_waiting_time(provider)
+    total = 0.0
+    waiting_times.each do |p|
+      time = provider.send(p)
+      total += time if time
+    end
+    total
+  end
+
+  def total_tickets(provider)
+    total = 0.0
+    ticket_prices.each do |p|
+      price = provider.send(p)
+      total += price if price
+    end
+    total
   end
 end

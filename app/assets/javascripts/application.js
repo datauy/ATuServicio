@@ -15,15 +15,3 @@
 //= require jquery-ui/accordion
 //= require jquery.chained.min
 //= require_tree .
-
-$(document).ready(function() {
-    var s = $("#filtros");
-    var pos = s.position();                    
-    $(window).scroll(function() {
-        if (windowpos >= pos.top) {
-            s.addClass("stick");
-        } else {
-            s.removeClass("stick"); 
-        }
-    });
-});

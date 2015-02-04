@@ -9,12 +9,6 @@ module CompareHelper
      :departamento, :localidad, :nivel, :servicio_de_urgencia]
   end
 
-  def waiting_times
-    [:tiempo_espera_medicina_general, :tiempo_espera_pediatria,
-     :tiempo_espera_cirugia_general, :tiempo_espera_ginecotocologia,
-     :tiempo_espera_medico_referencia]
-  end
-
   def ticket_prices
     METADATA[:precios][:columns]
   end

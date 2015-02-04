@@ -53,6 +53,7 @@
        tiempo_espera_ginecotocologia: 'verde',
        tiempo_espera_medico_referencia: 'azul_claro'
      }%>
+  <div class="hidden"><%= total_waiting_time(provider) %></div>
   <%= build_icon_rows(provider, max, meta, 'clock') %>
 </td>
 <td>
@@ -65,6 +66,7 @@
   <%= raw progress_bar(provider.queja_sugerencia_sabe_donde_dirigirse_2014, 'fuxia') %>
 </td>
 <td>
+  <div class="hidden"><%= total_waiting_time(provider) %></div>
   <% unless provider.is_private_insurance? %>
   <%= build_icon_money(provider, max_tickets,
       {medicamentos: 'celeste',

@@ -128,8 +128,9 @@ ul.menu > li{
 .header-select .col-md-4.more-data h2 {
    font-size: 20px;
 }
-#filtros {
+#filtros, #filtros th {
     position: relative;
+    text-align: center;
 }
 .contenido{
     margin-bottom: 26px;
@@ -139,19 +140,16 @@ ul.menu > li{
     padding-top: 36px;
 }
 
-#filtros{
-    text-align: center;
-}
-
-#filtros td{
+#filtros th{
     background: #e4e4e4;
     width: 14.2%;
     color: #000;
     border: solid 1px #fff;
     padding: 16px 8px 8px;
+    vertical-align: top;
 }
 
-#filtros td i{
+#filtros th i{
     font-size: 48px;
     clear: both;
     color: #000;
@@ -182,7 +180,7 @@ ul.menu > li{
     float: left;
 }
 
-#filtros td a span:hover{
+#filtros th a span:hover{
     color: #fff;
 }
 
@@ -459,3 +457,6 @@ background-color: #19547e;
     padding-right: 100px;
 }
 
+.hidden{
+    display: none;
+}

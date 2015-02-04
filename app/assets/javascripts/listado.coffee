@@ -1,12 +1,15 @@
 $ ->
-  $('#toggle_references').click ->
-    visible = $("#referencias").children().find('li').first().is(':visible')
-    if visible
-      $("#referencias").children().find("li").hide();
-      $("#toggle_references").text('Ver referencias')
-    else
-      $("#referencias").children().find("li").show();
-      $("#toggle_references").text('Ocultar referencias')
+  references = () ->
+    $('#toggle_references').click ->
+      visible = $("#referencias").children().find('li').first().is(':visible')
+      if visible
+        $("#referencias").children().find("li").hide();
+        $("#toggle_references").text('Ver referencias')
+      else
+        $("#referencias").children().find("li").show();
+        $("#toggle_references").text('Ocultar referencias')
+  references()
+
   $('#home-filter #state').change ->
     document.location = "/departamento/".concat( $(this).val() )
 
@@ -37,3 +40,12 @@ $ ->
   $("#rrhh_info").click ->
     $("#rrhh-modal-content").modal();
     return false;
+
+  sortable = $("#listado").stupidtable();
+
+  sortable.bind 'aftertablesort', (event, data) ->
+    referencias = $('#referencias').clone();
+    $('#referencias').remove();
+    $('#listado tbody').prepend(referencias);
+    references();
+
