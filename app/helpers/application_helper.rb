@@ -11,7 +11,13 @@ module ApplicationHelper
   end
 
   def provider_options
-    Provider.all.map{ |p| [p.nombre_abreviado, p.id, {class: (["todos"] + to_class_names(p.states)).join(" ")}] }
+    @providers.order(:nombre_abreviado).map do |p|
+      [
+        p.nombre_abreviado,
+        p.id,
+        {class: (["todos"] + to_class_names(p.states)).join(" ")}
+      ]
+    end
   end
 
   def to_class_names(elements)
@@ -32,7 +38,7 @@ module ApplicationHelper
       <<-eos
         <div class="progress">
           <div class="progress-bar #{css_class}" role="progressbar" aria-valuenow="#{object}" aria-valuemin="0" aria-valuemax="100" style="width: #{object}%;">
-          #{object}
+          #{object} %
           </div>
         </div>
       eos
@@ -40,7 +46,7 @@ module ApplicationHelper
       <<-eos
         <div class="progress">
           <div class="progress-bar no-data" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-            No hay datos
+            No hay datos <i class="icon-emo-unhappy"></i>
           </div>
         </div>
       eos
@@ -50,17 +56,32 @@ module ApplicationHelper
   def build_icon_rows(provider, max, meta, icon_type)
     icons = []
     meta.each do |column, css_class|
-      value = show_if_valid(provider, column)
-      break unless value
+      #      value = show_if_valid(provider, column)
+      #      break unless value
+      value = provider.send(column.to_sym)
       value = calculate_value(value, max)
       value.times do
         icons << "<i class=\"icon-#{icon_type} #{css_class}\"></i>"
       end
     end
-    while icons.count < 50
-      icons << "<i class=\"icon-#{icon_type}\"></i>"
+    if icons.count > 0
+      while icons.count < 50
+        icons << "<i class=\"icon-#{icon_type}\"></i>"
+      end
+      icons.join("").html_safe
+    else
+      no_data
     end
-    icons.join("").html_safe
+  end
+
+  def no_data
+    msg = <<-eos
+      <div class="text-center">
+        <i class=\"icon-emo-unhappy\"></i></br>
+        No hay datos
+      </div>
+    eos
+    msg.html_safe
   end
 
   def build_icon_money(provider, max, prices)
@@ -120,7 +141,7 @@ module ApplicationHelper
   def boolean_icons(value)
     return"<i class=\"icon-tick\"></i>".html_safe if value.is_a?(TrueClass)
     return "<i class=\"icon-cross\"></i>".html_safe if value.is_a?(FalseClass)
-    return "<i class=\"icon-question\"></i>".html_safe unless value
+    return "No hay datos" unless value
     value
   end
 end

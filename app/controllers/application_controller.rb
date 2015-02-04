@@ -10,4 +10,13 @@ class ApplicationController < ActionController::Base
     @states ||= State.all
     @providers ||= Provider.all
   end
+
+  def order_providers(providers)
+    providers = providers.order(:nombre_abreviado)
+    # We discriminate private insurances since they're different:
+    l = lambda { |a| a.is_private_insurance? }
+    private_insurances = providers.select &l
+    providers = providers.reject &l
+    providers + private_insurances
+  end
 end
