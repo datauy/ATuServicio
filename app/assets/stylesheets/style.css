@@ -110,7 +110,6 @@ ul.menu > li{
 }
 .contenido{
     margin-bottom: 26px;
-    border-bottom: 1px solid #d8dde1;
     padding: 0 20px 15px;
 }
 .container {
@@ -253,7 +252,9 @@ ul.menu > li{
     display: inline;
     font-size: 10px;
 }
-
+.progress {
+    margin-bottom: 10px;
+}
 .celeste{
     background: #BCE6F9;
     color: #1A557D;
@@ -298,7 +299,9 @@ ul.menu > li{
     border-radius: 15px;
     padding-bottom: 7px;
 }
-
+#referencias td{
+    border: solid 1px #fff;
+}
 .estructura{
     float: left;
     margin-right: 4px;
@@ -384,7 +387,6 @@ background-color: #19547e;
 }
 
 #listado{
-    margin-top: 20px;
     color: #135380;
 }
 
