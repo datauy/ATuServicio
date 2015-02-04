@@ -9,12 +9,18 @@ module CompareHelper
      :departamento, :localidad, :nivel, :servicio_de_urgencia]
   end
 
+  def waiting_times
+    [:tiempo_espera_medicina_general, :tiempo_espera_pediatria,
+     :tiempo_espera_cirugia_general, :tiempo_espera_ginecotocologia,
+     :tiempo_espera_medico_referencia]
+  end
+
   def ticket_prices
     METADATA[:precios][:columns]
   end
 
   # TODO Refactor
-  # FIX Fix this:
+  # FIX Fix this uglyness:
   def show_value(group, column, provider)
     value = ''
     column_value = provider.send(column.to_sym)
@@ -32,7 +38,8 @@ module CompareHelper
     elsif group == :metas
       value = (column_value.is_a? Numeric) ? "#{column_value} %" : boolean_icons(column_value)
     elsif group == :tiempos_espera
-      value = "#{column_value} días"
+      indicator = check_enough_data_times(column, provider)
+      value = "#{column_value} días #{indicator}".html_safe
     elsif group == :satisfaccion_derechos
       value = (column_value) ? "#{column_value} %" : "No hay datos"
     # FIX: This is a hack
@@ -51,5 +58,22 @@ module CompareHelper
       value = boolean_icons(column_value)
     end
     value
+  end
+
+  def check_enough_data_times(column, provider)
+    if !provider.send("datos_suficientes_#{column}")
+      info = "Estos datos se elaboraron con una muestra de menos del 10% de la consulta"
+      "<span class=\"glyphicon glyphicon-info-sign\" title=\"#{info}\"> </span>"
+    end
+  end
+
+  def custom_asse_message(group)
+    value = ''
+    if group == :tiempos_espera && @selected_providers.select { |p| p.nombre_abreviado.include? "ASSE" }.count > 0
+    value =  <<-eos
+    ASSE: Promedios de tiempos de espera calculados con información correspondiente a 142 unidades asistenciales de un total de 800. Siendo de las 142, la mayoría Unidades de Primer Nivel de Atención del interior del país, donde las especialidades tienen una oferta limitada.
+      eos
+    end
+    value.html_safe
   end
 end

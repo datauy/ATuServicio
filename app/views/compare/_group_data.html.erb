@@ -7,13 +7,11 @@
       <h5><%= title(group) %></h5>
     <td>
   </tr>
-  <% if @selected_providers.select { |p| p.nombre_abreviado.include? "ASSE" }.count > 0 && group == :tiempos_espera %>
   <tr>
     <td colspan="4">
-      <strong>ASSE: Promedios de tiempos de espera calculados con información correspondiente a 142 unidades asistenciales de un total de 800. Siendo de las 142, la mayoría Unidades de Primer Nivel de Atención del interior del país, donde las especialidades tienen una oferta limitada.</strong>
+      <strong><%= custom_asse_message(group) %></strong>>
     </td>
   </tr>
-  <% end %>
   <% columns_name_description(group).each do |name, column| %>
   <% unless column.match('datos_suficientes_tiempo_espera') %>
   <tr>
