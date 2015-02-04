@@ -10,14 +10,14 @@
   <% end %>
 
   <div class="row compare">
-    <div class="col-md-6">
-      <h2>Selecciona un departamento</h2>
-      <%= select_tag "state", options_for_select(state_options(@states)) %>
+    <div class="col-md-4">
+      <h3>Selecciona un departamento</h3>
+      <%= select_tag "state", options_for_select(state_options(@states)),class: "form-control" %>
     </div>
 
-    <div class="col-md-6">
-      <h2>Elegir un prestador</h2>
-      <%= select_tag "provider", options_for_select(provider_options), include_blank: "Elija una institución" %>
+    <div class="col-md-4 col-md-offset-1">
+      <h3>Elegir un prestador</h3>
+      <%= select_tag "provider", options_for_select(provider_options), include_blank: "Elija una institución", class: "form-control" %>
     </div>
   </div>
 
