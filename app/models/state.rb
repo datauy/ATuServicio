@@ -5,6 +5,9 @@ class State
   end
 
   def self.proper_name(state)
-    state.split("_").map(&:capitalize).join(" ")
+    unless state[0] == state[0].upcase
+      state = state.split("_").map(&:capitalize).join(" ")
+    end
+    state
   end
 end
