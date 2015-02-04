@@ -1,28 +1,38 @@
 <%# TODO fixme!!! %>
 <% width_class = @selected_providers.count < 3 ? "col-md-4" : "col-md-3" %>
+
 <% [:estructura, :metas, :precios, :tiempos_espera, :satisfaccion_derechos].each do |group| %>
   <tr>
-    <td class="table-title col-md-12" colspan="4"><h5><%= title(group) %></h5><td>
+    <td class="table-title col-md-12" colspan="4">
+      <h5><%= title(group) %></h5>
+    <td>
   </tr>
+  <% if @selected_providers.select { |p| p.nombre_abreviado.include? "ASSE" }.count > 0 && group == :tiempos_espera %>
+  <tr>
+    <td colspan="4">
+      <strong>ASSE: Promedios de tiempos de espera calculados con información correspondiente a 142 unidades asistenciales de un total de 800. Siendo de las 142, la mayoría Unidades de Primer Nivel de Atención del interior del país, donde las especialidades tienen una oferta limitada.</strong>
+    </td>
+  </tr>
+  <% end %>
   <% columns_name_description(group).each do |name, column| %>
-    <% unless column.match('datos_suficientes_tiempo_espera') %>
-    <tr>
-      <td class="pivot col-md-3 col-centered"><%= name %></td>
+  <% unless column.match('datos_suficientes_tiempo_espera') %>
+  <tr>
+    <td class="pivot col-md-3 col-centered"><%= name %></td>
       <% @selected_providers.each do |provider| %>
-      <td class="col-md-<%= width_class%>">
-            <% if column == 'web' %>
-              <% url = provider.send(column.to_sym) %>
-              <a href="http://<%= url %>" title="Sitio web" target="_blank">
-                <%= url %>
-              </a>
-            <!-- Check if ASSE because tickets have no cost: -->
-            <% elsif provider.nombre_abreviado.include?("ASSE") && ticket_prices.include?(column) %>
-              Sin costo
-            <% else %>
-              <%= boolean_icons(provider.send(column.to_sym)) %>
-            <% end %>
-          <% end %>
-        </td>
+        <td class="col-md-<%= width_class%>">
+        <% if column == 'web' %>
+          <% url = provider.send(column.to_sym) %>
+          <a href="http://<%= url %>" title="Sitio web" target="_blank">
+            <%= url %>
+          </a>
+          <!-- Check if ASSE because tickets have no cost: -->
+        <% elsif provider.is_asse? && ticket_prices.include?(column) %>
+          Sin costo
+        <% else %>
+          <%= boolean_icons(provider.send(column.to_sym)) %>
+        <% end %>
+      <% end %>
+      </td>
     </tr>
     <% end %>
   <% end %>

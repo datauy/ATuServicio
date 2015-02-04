@@ -16,7 +16,11 @@ class Provider < ActiveRecord::Base
   end
 
   def is_private_insurance?
-    return nombre_abreviado.include?('Seguro Privado')
+    nombre_abreviado.include?('Seguro Privado')
+  end
+
+  def is_asse?
+    nombre_abreviado.include?("ASSE")
   end
 
   # What coverage type exists by state

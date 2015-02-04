@@ -345,6 +345,7 @@ sedes:
       - urologia
 
 tiempos_espera:
+  title: "Tiempos de Espera"
   description:
     - "Promedio de tiempo de espera para Medicina General"
     - "Datos suficientes de tiempo de espera para Medicina General"
@@ -382,6 +383,7 @@ tiempos_espera:
       - datos_suficientes_tiempo_espera_medico_referencia
 
 satisfaccion_derechos:
+  title: "Satisfacción de derechos"
   description:
     - "Conformidad con disponibilidad de agenda (consulta médica) (2014)"
     - "Conformidad con disponibilidad de agenda (consulta médica) (2010)"
