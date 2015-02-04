@@ -1,17 +1,17 @@
-<table class="table tabled-striped">
+<table class="table table-striped">
   <thead>
     <tr class="criterio">
-      <td>Criterio</td>
+      <th>CRITERIO</th>
       <% selected_providers.each do |provider| %>
-        <td>
-          <%= provider.nombre_abreviado %>
-          <%= link_to '<i class="icon-trash"></i>'.html_safe,
-              '#',
-              data: {provider: provider.id},
-              class: 'remove_provider'
-              %>
-        </td>
-      <% end %>
+      <th>
+        <%= provider.nombre_abreviado %>
+        <%= link_to '<i class="icon-trash"></i>'.html_safe,
+            '#',
+            data: {provider: provider.id},
+            class: 'remove_provider'
+            %>
+      </th>
+    <% end %>
     </tr>
   </thead>
   <tbody>

@@ -335,19 +335,32 @@ span.wrapper{
     text-decoration: none;
     padding-bottom: 4px;
 }
-
+.compare {
+    padding-bottom: 25px;
+}
+tr.table-title {
+background-color: #19547e;
+}
 .criterio{
     margin-top: 20px;
     margin-bottom: 20px;
-    padding: 10px;
-    border-bottom: 2px solid #e8e8e8;
-    border-top: 2px solid #e8e8e8;
+    padding: 10px 0 10px;
+    border-bottom: 4px solid #999;
+    border-top: 1px solid #fff;
+    
+}
+.table>thead>tr.criterio>th {
+    padding: 9px 0 20px 0;
+    font-weight: bolder;
 }
 
 #comparision a i{
     font-size: 30px;
     color: #bebebe;
     padding: -10px;
+    position: relative;
+    top: -3px;
+    left: -10px;
 }
 
 .site_title{

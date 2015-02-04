@@ -29,8 +29,12 @@
     margin-right: 30px;
 }
 
-.table-title{
+.table-title,
+.table-striped>tbody>tr.table-title:nth-of-type(odd){
     background-color: #19547e;
     color: #fff;
     text-transform: capitalize;
+}
+.table>tbody>tr.table-title>td {
+    padding: 3px 8px;
 }
