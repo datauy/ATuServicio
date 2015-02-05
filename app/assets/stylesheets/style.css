@@ -136,7 +136,7 @@ ul.menu > li{
     padding: 0 20px 15px;
 }
 .container {
-    padding-top: 36px;
+    padding-top: 70px;
 }
 
 #filtros{
@@ -407,6 +407,14 @@ background-color: #19547e;
 /*#listado{
     color: #135380;
 }*/
+.fixed{
+  top:0;
+  position:fixed;
+  width:auto;
+  display:none;
+  border:none;
+}
+
 
 #listado progress{
     clear: both;
