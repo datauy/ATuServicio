@@ -52,7 +52,7 @@ module CompareHelper
       elsif (provider.is_private_insurance? && column.match(/_cad$/))
         value = 0
       else
-        value = "No hay datos"
+        value = column_value || "No hay datos"
       end
     else
       value = boolean_icons(column_value)
