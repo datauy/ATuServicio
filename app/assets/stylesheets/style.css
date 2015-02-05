@@ -37,6 +37,7 @@ ul.menu > li{
        background-color: #273D4B;
        height: 50px;
 }
+
 .top-bar-internal img {
     width: 39%;
     position: relative;
@@ -83,8 +84,6 @@ ul.menu > li{
 }
 .header-select {
     background-color: #135380;
-    float: left;
-    width: 100%;
     padding: 12px 20px 18px;
     margin: 15px 0;
 }
@@ -93,6 +92,7 @@ ul.menu > li{
     line-height: 32px;
     position: relative;
     color: #fff;
+    margin-top: 10px;
 }
 
 .header-select h2 i{
@@ -106,10 +106,8 @@ ul.menu > li{
     padding-left: 39px;
 }
 .header-select button {
-    border-radius: 3px;
-    background-color: #135380;
     border: 0;
-    padding: 10px 55px;
+    margin-bottom: 10px;
 }
 .header-select select {
     width: 80%;
@@ -118,7 +116,18 @@ ul.menu > li{
     width: 1.4em;
     text-align: left;
 }
-
+.more-data {
+    background-color: #0f4a74;
+    border-radius: 5px;
+    text-align: center;
+}
+.header-select .col-md-4.more-data p,
+.header-select .col-md-4.more-data h2 {
+    padding-left: 0;
+}
+.header-select .col-md-4.more-data h2 {
+   font-size: 20px;
+}
 #filtros {
     position: relative;
 }
@@ -186,13 +195,12 @@ ul.menu > li{
     background: #1a2a4c;
     border-radius: 50%;
     color: #fff;
-    height: 17px;
+    height: 16px;
     display: block;
     width: 17px;
     text-align: center;
     float: left;
     margin-right: 4px;
-    line-height: 17px;
     font-size: 13px;
 }
 
