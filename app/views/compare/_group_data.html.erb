@@ -1,7 +1,7 @@
 <%# TODO fixme!!! %>
 <% width_class = @selected_providers.count < 3 ? "col-md-4" : "col-md-3" %>
 
-<% [:estructura, :metas, :precios, :tiempos_espera, :satisfaccion_derechos, :rrhh].each do |group| %>
+<% [:estructura, :metas, :precios, :tiempos_espera, :rrhh].each do |group| %>
   <tr class="table-title" >
     <td class="" colspan="4">
       <h5><%= title(group) %></h5>

@@ -55,7 +55,7 @@
      }%>
   <%= build_icon_rows(provider, max, meta, 'clock') %>
 </td>
-<td>
+<!--td>
   <% satisfaccion = provider.satisfaccion_primer_nivel_atencion_2014 * 10 if provider.satisfaccion_primer_nivel_atencion_2014 %>
   <%= raw progress_bar(satisfaccion, 'celeste') %>
   <%= raw progress_bar(provider.conformidad_disponibilidad_agenda_2014, 'marino') %>
@@ -63,7 +63,7 @@
   <%= raw progress_bar(provider.disponibilidad_medicamentos_farmacia_2014, 'verde') %>
   <%= raw progress_bar(provider.informacion_sobre_derechos_2014, 'azul_claro') %>
   <%= raw progress_bar(provider.queja_sugerencia_sabe_donde_dirigirse_2014, 'fuxia') %>
-</td>
+</td -->
 <td>
   <% unless provider.is_private_insurance? %>
   <%= build_icon_money(provider, max_tickets,
