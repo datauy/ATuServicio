@@ -41,7 +41,7 @@ module CompareHelper
     # We are doing this because (for now) the importer turns 0 values
     # from the open data into nil, which we *should fix* asap
     elsif group == :rrhh
-      value = rrhh_value(provider, column_value)
+      value = rrhh_value(provider, column_value, column)
     else
       value = boolean_icons(column_value)
     end
@@ -51,7 +51,7 @@ module CompareHelper
   def precios_value(provider, column_value)
     if provider.is_asse?
       value = "Sin costo"
-    elsif provider.is_private_insurance? && group == :precios
+    elsif provider.is_private_insurance?
       value = "No hay datos"
     else
       value = "$ #{column_value.round}"
@@ -63,11 +63,11 @@ module CompareHelper
     (column_value.is_a? Numeric) ? "#{column_value} %" : boolean_icons(column_value)
   end
 
-  def rrhh_value(provider, column_value)
+  def rrhh_value(provider, column_value, column)
     value = nil
     if [9508, 9532].include?(provider.id)
       value = (column_value) ? "#{column_value} %" : 0
-    elsif (provider.is_private_insurance? && column.match(/_cad$/))
+    elsif provider.is_private_insurance? && column.match(/_cad$/)
       value = 0
     else
       value = column_value || "No hay datos"
