@@ -3,15 +3,15 @@
     <tr class="criterio">
       <th>CRITERIO</th>
       <% selected_providers.each do |provider| %>
-      <th>
-        <%= provider.nombre_abreviado %>
-        <%= link_to '<i class="icon-trash"></i>'.html_safe,
-            '#',
-            data: {provider: provider.id},
-            class: 'remove_provider'
+        <th>
+          <%= provider.nombre_abreviado %>
+          <%= link_to '<i class="icon-trash"></i>'.html_safe,
+              '#',
+              data: {provider: provider.id},
+              class: 'remove_provider'
             %>
-      </th>
-    <% end %>
+        </th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
