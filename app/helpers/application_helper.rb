@@ -7,7 +7,7 @@ module ApplicationHelper
   end
 
   def state_options(states)
-    (["Todo el pais"] + states).zip(["todos"] + to_class_names(states))
+    (['Todo el pais'] + states).zip(['todos'] + to_class_names(states))
   end
 
   def provider_options
@@ -15,13 +15,13 @@ module ApplicationHelper
       [
         p.nombre_abreviado,
         p.id,
-        {class: (["todos"] + to_class_names(p.states)).join(" ")}
+        { class: (['todos'] + to_class_names(p.states)).join(' ') }
       ]
     end
   end
 
   def to_class_names(elements)
-    elements.map{|s| s.downcase.gsub(" ", "_")}
+    elements.map{ |s| s.downcase.gsub(' ', '_') }
   end
 
   def show_if_valid(provider, field)

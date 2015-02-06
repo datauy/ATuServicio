@@ -28,15 +28,9 @@ module CompareHelper
       value = "<a href=\"http://#{column_value}\" title=\"Sitio web\" target=\"_blank\">#{column_value}</a>".html_safe
     # Check if ASSE because tickets have no cost:
     elsif group == :precios
-      if provider.is_asse?
-        value = "Sin costo"
-      elsif provider.is_private_insurance? && group == :precios
-        value = "No hay datos"
-      else
-        value = "$ #{column_value.round}"
-      end
+      value = precios_value(provider, column_value)
     elsif group == :metas
-      value = (column_value.is_a? Numeric) ? "#{column_value} %" : boolean_icons(column_value)
+      value = meta_value(column_value)
     elsif group == :tiempos_espera
       indicator = check_enough_data_times(column, provider)
       value = "#{column_value} días #{indicator}".html_safe
@@ -47,15 +41,36 @@ module CompareHelper
     # We are doing this because (for now) the importer turns 0 values
     # from the open data into nil, which we *should fix* asap
     elsif group == :rrhh
-      if [9508, 9532].include?(provider.id)
-        value = (column_value) ? "#{column_value} %" : 0
-      elsif (provider.is_private_insurance? && column.match(/_cad$/))
-        value = 0
-      else
-        value = column_value || "No hay datos"
-      end
+      value = rrhh_value(provider, column_value, column)
     else
       value = boolean_icons(column_value)
+    end
+    value
+  end
+
+  def precios_value(provider, column_value)
+    if provider.is_asse?
+      value = "Sin costo"
+    elsif provider.is_private_insurance?
+      value = "No hay datos"
+    else
+      value = "$ #{column_value.round}"
+    end
+    value
+  end
+
+  def meta_value(column_value)
+    (column_value.is_a? Numeric) ? "#{column_value} %" : boolean_icons(column_value)
+  end
+
+  def rrhh_value(provider, column_value, column)
+    value = nil
+    if [9508, 9532].include?(provider.id)
+      value = (column_value) ? "#{column_value} %" : 0
+    elsif provider.is_private_insurance? && column.match(/_cad$/)
+      value = 0
+    else
+      value = column_value || "No hay datos"
     end
     value
   end
