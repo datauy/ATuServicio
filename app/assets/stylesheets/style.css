@@ -230,11 +230,13 @@ ul.menu > li{
     display: inline-block;
 }
 
-.icon-cross{
+.icon-cross,
+.icon-cancel-1{
     color: #f00;
 }
-.icon-tick{
-    color: #0F0;
+.icon-tick,
+.icon-ok-1{
+    color: #01d601;
 }
 
 .icon-clock, .icon-user, .icon-money, .icon-user{
@@ -266,9 +268,8 @@ ul.menu > li{
     color: #902C8E;
 }
 
-.icon-tick, .icon-cross{
-    font-size: 30px;
-    margin-left: -30px;
+.icon-tick, .icon-cross, .icon-cancel-1, .icon-ok-1{
+    font-size: 20px;
 }
 
 .icon-emo-unhappy{
