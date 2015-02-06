@@ -385,8 +385,18 @@ background-color: #19547e;
 .table>thead>tr.criterio>th {
     padding: 9px 0 20px 0;
     font-weight: bolder;
+    display: inline-block;
 }
-
+.table.table-compare>thead>tr,
+.table.table-compare>tbody>tr {
+    border-bottom: 1px solid #ddd;
+}
+.table.table-compare>thead>tr>th,
+.table.table-compare>tbody>tr>td {
+    border-bottom:none;
+    border-top: none;
+    display: inline-block;
+}
 #comparision a i{
     font-size: 30px;
     color: #bebebe;
@@ -450,3 +460,4 @@ background-color: #19547e;
     background: url(datosabiertos.png) right center no-repeat;
     padding-right: 100px;
 }
+
