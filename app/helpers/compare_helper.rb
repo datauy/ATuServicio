@@ -97,4 +97,8 @@ module CompareHelper
     end
     value.html_safe
   end
+
+  def cad_abbr(value)
+    value.gsub("CAD", "<abbr title=\"Cargos de Alta Direcci&oacute;n\">CAD</abbr>").html_safe
+  end
 end

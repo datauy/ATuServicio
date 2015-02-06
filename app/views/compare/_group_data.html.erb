@@ -11,7 +11,13 @@
   <% columns_name_description(group).each do |name, column| %>
   <% unless column.match('datos_suficientes_tiempo_espera') %>
   <tr>
-    <td class="pivot col-md-3 col-centered"><%= name %></td>
+    <td class="pivot col-md-3 col-centered">
+      <% if name.match(/CAD$/) %>
+        <%= cad_abbr(name) %>
+      <% else %>
+        <%= name %>
+      <% end %>
+    </td>
       <% @selected_providers.each do |provider| %>
         <td class="col-md-<%= width_class%>">
           <%= show_value(group, column, provider) %>
