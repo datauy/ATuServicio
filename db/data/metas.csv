@@ -27,7 +27,7 @@ id,Porcentaje de afiliados referenciados a un médico de referencia,Porcentaje d
 8163,70.5,97.3,98,SI,Sin página web disponible
 1210,34.3,95.8,99.8,SI,"Contiene nombre, teléfono, horarios de atención, cartelera de servicios, formas de acceso a los servicios, nómina de profesionales, director técnico, Precios de tasas moderadoras y Derechos de los usuarios"
 6985,26.2,100,100,NO,"Contiene nombre, teléfono, horarios de atención, cartelera de servicios, formas de acceso a los servicios, nómina de profesionales, director técnico y Precios de tasas moderadoras. No contiene Derechos de los usuarios"
-5315,50.1,95,100,NO,"Contiene nombre, teléfono, horarios de atención, cartelera de servicios, formas de acceso a los servicios, nómina de profesionales, director técnico, Precios de tasas moderadoras y Derechos de los usuarios"
+5315,50.1,95,100,SI,"Contiene nombre, teléfono, horarios de atención, cartelera de servicios, formas de acceso a los servicios, nómina de profesionales, director técnico, Precios de tasas moderadoras y Derechos de los usuarios"
 1163,38.1,94,100,NO,"Contiene nombre, teléfono, horarios de atención, cartelera de servicios, formas de acceso a los servicios, nómina de profesionales, director técnico y Derechos de los usuarios. No contiene Precios de tasas moderadoras."
 62,43.1,95.5,98.8,SI,"Contiene nombre, teléfono, horarios de atención, cartelera de servicios, formas de acceso a los servicios, nómina de profesionales, director técnico, Precios de tasas moderadoras y Derechos de los usuarios"
 264,52.9,96.3,99.3,SI,"Contiene nombre, teléfono, horarios de atención, cartelera de servicios, formas de acceso a los servicios, nómina de profesionales, director técnico y Derechos de los usuarios. No contiene Precios de tasas moderadoras."
