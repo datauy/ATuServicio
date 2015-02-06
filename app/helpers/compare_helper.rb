@@ -66,7 +66,7 @@ module CompareHelper
   def rrhh_value(provider, column_value, column)
     value = nil
     if [9508, 9532].include?(provider.id)
-      value = (column_value) ? "#{column_value} %" : 0
+      value = (column_value) ? "#{column_value}" : 0
     elsif provider.is_private_insurance? && column.match(/_cad$/)
       value = 0
     else
