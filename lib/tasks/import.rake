@@ -27,6 +27,62 @@ namespace :db do
       provider.update(parameters)
     end
   end
+
+  desc "Calculate Maximums"
+  task :calculate_maximums => [:environment] do
+    maximums = ProviderMaximum.first || ProviderMaximum.new
+    # Waiting times
+    puts "Calculating Waiting times"
+    value = Provider.all.map do |provider|
+      ['medicina_general', 'pediatria', 'cirugia_general',
+       'ginecotocologia', 'medico_referencia'].map do |field|
+        if provider.send("datos_suficientes_tiempo_espera_#{field}".to_sym)
+          provider.send("tiempo_espera_#{field}".to_sym)
+        end
+      end.compact.reduce(:+)
+    end.compact.max
+    maximums.waiting_time = value
+
+    # Affiliates
+    puts "Calculating Affiliates"
+    maximums.affiliates = Provider.maximum("afiliados")
+
+    # Tickets
+    puts "Calculating Tickets"
+    value = Provider.all.map do |provider|
+      [:medicamentos, :tickets, :tickets_urgentes, :estudios].map do |ticket|
+        average = provider.average(ticket)
+        if average
+          average
+        end
+      end.compact.reduce(:+)
+    end.compact.max
+    maximums.tickets = value
+
+    # Personnel
+    puts "Calculating personnel"
+    value = Provider.all.map do |provider|
+      [:medicos_generales_policlinica,
+       :medicos_de_familia_policlinica,
+       :medicos_pediatras_policlinica,
+       :medicos_ginecologos_policlinica,
+       :auxiliares_enfermeria_policlinica,
+       :licenciadas_enfermeria_policlinica].map do |position|
+        value = provider.send(position).to_f
+        if value.is_a? Numeric
+          value
+        end
+      end.compact.reduce(:+)
+    end.compact.max
+    maximums.personnel = value
+
+    maximums.save
+  end
+
+  Rake::Task['db:import'].enhance do
+    Rake::Task['db:calculate_maximums'].invoke
+  end
+
 end
 
 def get_provider_groups

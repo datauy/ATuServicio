@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129121208) do
+ActiveRecord::Schema.define(version: 20150209223020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "provider_maximums", force: :cascade do |t|
+    t.decimal  "tickets"
+    t.decimal  "waiting_time"
+    t.integer  "affiliates"
+    t.decimal  "personnel"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "providers", force: :cascade do |t|
     t.string  "nombre_abreviado"
@@ -108,7 +117,18 @@ ActiveRecord::Schema.define(version: 20150129121208) do
     t.decimal "medicina_intensiva_adultos_cantidad_cad",           precision: 9, scale: 2
     t.decimal "medicina_intensiva_pediatrica_cantidad_cad",        precision: 9, scale: 2
     t.decimal "neonatologia_cantidad_cad",                         precision: 9, scale: 2
+    t.integer "state_id"
   end
+
+  add_index "providers", ["state_id"], name: "index_providers_on_state_id", using: :btree
+
+  create_table "providers_states", id: false, force: :cascade do |t|
+    t.integer "provider_id", null: false
+    t.integer "state_id",    null: false
+  end
+
+  add_index "providers_states", ["provider_id", "state_id"], name: "index_providers_states_on_provider_id_and_state_id", using: :btree
+  add_index "providers_states", ["state_id", "provider_id"], name: "index_providers_states_on_state_id_and_provider_id", using: :btree
 
   create_table "sites", force: :cascade do |t|
     t.integer  "provider_id"
@@ -156,5 +176,12 @@ ActiveRecord::Schema.define(version: 20150129121208) do
 
   add_index "sites", ["provider_id"], name: "index_sites_on_provider_id", using: :btree
 
+  create_table "states", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "providers", "states"
   add_foreign_key "sites", "providers"
 end
