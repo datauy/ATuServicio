@@ -161,6 +161,12 @@ ul.menu > li{
     background: #0d2f74;
 }
 
+#filtros .icon-down-open{
+    font-size: 12px;
+    position: absolute;
+    right: 3px;
+    cursor: pointer;
+}
 
 #filtros ul.menu > li label{
     margin: 10px 0 5px 0;
