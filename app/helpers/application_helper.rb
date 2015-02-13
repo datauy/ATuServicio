@@ -62,6 +62,7 @@ module ApplicationHelper
 
   def build_icon_rows(provider, max, meta, icon_type)
     icons = []
+    total = 0
     meta.each do |column, css_class|
       #      value = show_if_valid(provider, column)
       #      break unless value
@@ -69,15 +70,18 @@ module ApplicationHelper
       value = calculate_value(value, max)
       value.times do
         icons << "<i class=\"icon-#{icon_type} #{css_class}\"></i>"
+        total += 1
       end
     end
     if icons.count > 0
       while icons.count < 50
         icons << "<i class=\"icon-#{icon_type}\"></i>"
       end
+      icons << "<div class=\"hidden\">#{total}</div>" if icon_type == 'clock'
       icons.join("").html_safe
     else
-      no_data
+      value_for_sorting ="<div class=\"hidden\">#{total}</div>".html_safe
+      (icon_type == 'clock') ? value_for_sorting + no_data : no_data
     end
   end
 
@@ -93,16 +97,19 @@ module ApplicationHelper
 
   def build_icon_money(provider, max, prices)
     icons = []
+    total = 0
     prices.each do |ticket, css|
       a = provider.average(ticket)
       value = calculate_value(a, max)
       value.times do
+        total += 1
         icons << "<i class=\"icon-money #{css}\"></i>"
       end
     end
     while icons.count < 50
       icons << "<i class=\"icon-money\"></i>"
     end
+    icons << "<div class=\"hidden\">#{total}</div>"
     icons.join("").html_safe
   end
 
@@ -150,23 +157,5 @@ module ApplicationHelper
     return "<i class=\"icon-cancel-1\"></i>".html_safe if value.is_a?(FalseClass)
     return "No hay datos" unless value
     value
-  end
-
-  def total_waiting_time(provider)
-    total = 0.0
-    waiting_times.each do |p|
-      time = provider.send(p)
-      total += time if time
-    end
-    total
-  end
-
-  def total_tickets(provider)
-    total = 0.0
-    ticket_prices.each do |p|
-      price = provider.send(p)
-      total += price if price
-    end
-    total
   end
 end
