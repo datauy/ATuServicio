@@ -43,9 +43,21 @@ $ ->
 
   sortable = $("#listado").stupidtable();
 
+  sortable.bind 'beforetablesort', (event, data) ->
+    $('#loading').css('display', 'block')
+
   sortable.bind 'aftertablesort', (event, data) ->
     referencias = $('#referencias').clone();
     $('#referencias').remove();
     $('#listado tbody').prepend(referencias);
     references();
-
+    # This code won't work if we change the order of the columns. I'm
+    # checking if the column is "tickets" or "times" by their index:
+    switch data.column
+      when 1 then element = $('#time-sort')
+      when 3 then element = $('#ticket-sort')
+    if data.direction == "desc"
+      $(element).attr('class', 'icon-down-open')
+    else
+      $(element).attr('class', 'icon-up-open')
+    $('#loading').hide()

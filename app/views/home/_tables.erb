@@ -8,13 +8,13 @@
         <i class="icon-01"></i>
         <label>Prestador</label>
       </th>
-      <th data-sort="float">
+      <th data-sort="float" data-sort-default="asc">
         <a href="#" id="tiempos_info">
           <span class="glyphicon glyphicon-info-sign"> </span>
         </a>
         <i class="icon-02"></i>
         <label>Tiempos de espera</label>
-        <i class="icon-down-open"> </i>
+        <i class="icon-down-open" id="time-sort"> </i>
       </th>
       <th>
         <a href="#" id="derechos_info">
@@ -23,13 +23,13 @@
         <i class="icon-00"></i>
         <label>Derechos de usuarios</label>
       </th>
-      <th data-sort="float">
+      <th data-sort="float" data-sort-default="asc">
         <a href="#" id="tickets_info">
           <span class="glyphicon glyphicon-info-sign"> </span>
         </a>
         <i class="icon-04"></i>
         <label>Tickets y órdenes</label>
-        <i class="icon-down-open"> </i>
+        <i class="icon-down-open" id="ticket-sort"> </i>
       </th>
       <th>
         <a href="#" id="metas_info">
@@ -60,3 +60,6 @@
     <%= render 'table_body' %>
   </tbody>
 </table>
+<div id="loading">
+  <%= image_tag('loading.gif', alt: "Cargando") %>
+</div>

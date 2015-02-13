@@ -161,10 +161,10 @@ ul.menu > li{
     background: #0d2f74;
 }
 
-#filtros .icon-down-open{
+#filtros .icon-down-open, #filtros .icon-up-open{
     font-size: 12px;
     position: absolute;
-    right: 3px;
+    right: 5px;
     cursor: pointer;
 }
 
@@ -188,6 +188,23 @@ ul.menu > li{
 
 #filtros th a span:hover{
     color: #fff;
+}
+
+#loading{
+    position: fixed;
+    width: 30%;
+    height: 50px;
+    margin-left: 35%;
+    z-index: 1000;
+    top: 25%;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+    border-radius: 20px;
+    display: none;
+}
+
+#loading img{
+    margin-top: 10px;
 }
 
 .stick {
