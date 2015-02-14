@@ -487,6 +487,34 @@ rrhh:
       - medicina_intensiva_pediatrica_cantidad_cad
       - neonatologia_cantidad_cad
 
+
+solicitud_consultas:
+  title: "Solicitud de consultas"
+  description:
+    - "Reserva presencial"
+    - "Reserva telefónica"
+    - "Reserva web"
+    - "Reserva en consulta médica"
+    - "Realiza recordatorio de cita"
+    - "Realiza caída de reserva en determinado tiempo antes/después del inicio de la consulta si no es confirmada"
+    - "Comunicación con el usuario por suspensión o modificación de la consulta"
+  columns:
+    - reserva_presencial
+    - reserva_telefonica
+    - reserva_web
+    - reserva_consulta_medica
+    - realiza_recordatorio_cita
+    - realiza_caida_reserva_sin_confirmacion
+    - comunicacion_usuario_suspension_modificacion
+  definition:
+    string:
+      - reserva_presencial
+      - reserva_telefonica
+      - reserva_web
+      - reserva_consulta_medica
+      - realiza_recordatorio_cita
+      - realiza_caida_reserva_sin_confirmacion
+      - comunicacion_usuario_suspension_modificacion
 #
 # ll:
 #   description:
