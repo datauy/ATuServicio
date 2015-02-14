@@ -42,6 +42,8 @@ module CompareHelper
     # from the open data into nil, which we *should fix* asap
     elsif group == :rrhh
       value = rrhh_value(provider, column_value, column)
+    elsif group == :solicitud_consultas
+      value = appointment_request_value(column_value)
     else
       value = boolean_icons(column_value)
     end
@@ -73,6 +75,12 @@ module CompareHelper
       value = column_value || "No hay datos"
     end
     value
+  end
+
+  def appointment_request_value(column_value)
+    return "No" if column_value == 'f'
+    return "Sí" if column_value == 't'
+    column_value
   end
 
   def check_enough_data_times(column, provider)
