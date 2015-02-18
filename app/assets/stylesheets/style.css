@@ -19,7 +19,7 @@ ul.menu > li{
     color: #fff;
 }
 #header ul {
--webkit-padding-start: 0px;
+    -webkit-padding-start: 0px;
 }
 
 
@@ -34,8 +34,8 @@ ul.menu > li{
     padding-bottom: 87px;
 }
 .top-bar-internal {
-       background-color: #273D4B;
-       height: 50px;
+    background-color: #273D4B;
+    height: 50px;
 }
 
 .top-bar-internal img {
@@ -44,7 +44,7 @@ ul.menu > li{
     top: 5px;
 }
 .top-bar-internal a {
-       color: #fff;
+    color: #fff;
 }
 #nav-menu{
     float: right;
@@ -113,9 +113,9 @@ ul.menu > li{
     width: 80%;
 }
 .header-select [class^="icon-"]:before, .header-select [class*=" icon-"]:before {
-    width: 1.4em;
-    text-align: left;
-}
+                                            width: 1.4em;
+                                            text-align: left;
+                                        }
 .more-data {
     background-color: #0f4a74;
     border-radius: 5px;
@@ -126,7 +126,7 @@ ul.menu > li{
     padding-left: 0;
 }
 .header-select .col-md-4.more-data h2 {
-   font-size: 20px;
+    font-size: 20px;
 }
 #filtros, #filtros th {
     position: relative;
@@ -393,7 +393,7 @@ span.wrapper{
     padding-bottom: 25px;
 }
 tr.table-title {
-background-color: #19547e;
+    background-color: #19547e;
 }
 .criterio{
     margin-top: 20px;
@@ -478,6 +478,13 @@ background-color: #19547e;
 #footer .datos-abiertos{
     background: url(datosabiertos.png) right center no-repeat;
     padding-right: 100px;
+}
+
+.github{
+    float: left;
+    overflow: hidden;
+    line-height: 70px;
+    margin-right: -400px;
 }
 
 .hidden{
