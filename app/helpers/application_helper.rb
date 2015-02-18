@@ -64,8 +64,6 @@ module ApplicationHelper
     icons = []
     total = 0
     meta.each do |column, css_class|
-      #      value = show_if_valid(provider, column)
-      #      break unless value
       value = provider.send(column.to_sym)
       value = calculate_value(value, max)
       value.times do
@@ -80,13 +78,15 @@ module ApplicationHelper
       icons << "<div class=\"hidden\">#{total}</div>" if icon_type == 'clock'
       icons.join("").html_safe
     else
-      value_for_sorting ="<div class=\"hidden\">#{total}</div>".html_safe
-      (icon_type == 'clock') ? value_for_sorting + no_data : no_data
+      no_data(icon_type)
     end
   end
 
-  def no_data
+  def no_data(icon_type)
+    # Specify the icon type so we know which column we should modify
+    # for the sorting to put them at the bottom
     msg = <<-eos
+      <div class="hidden #{icon_type}-no-data-value">-1</div>
       <div class="text-center">
         <i class=\"icon-emo-unhappy\"></i></br>
         No hay datos

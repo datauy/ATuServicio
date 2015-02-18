@@ -45,6 +45,16 @@ $ ->
 
   sortable.bind 'beforetablesort', (event, data) ->
     $('#loading').css('display', 'block')
+    # We want the "no-data" values to always be at the bottom:
+    switch data.column
+      when 1 then element = $('.clock-no-data-value')
+      when 3 then element = $('.money-no-data-value')
+    if data.direction == "desc"
+      element.text('-1')
+      $(element).parent().updateSortVal(-1)
+    else
+      element.text('999999999999')
+      $(element).parent().updateSortVal('999999999999')
 
   sortable.bind 'aftertablesort', (event, data) ->
     referencias = $('#referencias').clone();
