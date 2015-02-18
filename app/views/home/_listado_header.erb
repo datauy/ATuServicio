@@ -5,8 +5,10 @@
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=1479349985610467&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 <div id="header">
+
   <div class="header-info">
     <div class="col-md-12 top-bar">
       <div class="col-md-8 col-md-offset-4">
@@ -29,14 +31,15 @@
             </li>
           </ul>
         </div>
+      </div>
     </div>
-  </div>
 
     <div class="col-md-6 col-md-offset-1">
       <a href="/" title="atuservicio">
         <%= image_tag('logo-atuservicio.png', alt: "atuservicio", id: "logo") %>
       </a>
     </div>
+
     <div class="col-md-5 col-md-offset-1">
       <p>
         Mediante esta herramienta, DATA y el Ministerio de Salud P&uacute;blica
@@ -46,9 +49,9 @@
       </p>
       <p><b><a href="/sobre_el_proyecto">Conozca más sobre el proyecto ></a></b></p>
       <ul class="social">
-          <li><a href="https://twitter.com/share" class="twitter-share-button" data-via="DATAuy" data-related="DATAuy">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li>
-          <li><div class="fb-share-button" data-href="http://atuservicio.uy" data-layout="button_count"></div></li>
-        </ul>
+        <li><a href="https://twitter.com/share" class="twitter-share-button" data-via="DATAuy" data-related="DATAuy">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li>
+        <li><div class="fb-share-button" data-href="http://atuservicio.uy" data-layout="button_count"></div></li>
+      </ul>
     </div>
     <div class="col-md-6" id="logos">
       <ul class="menu">
