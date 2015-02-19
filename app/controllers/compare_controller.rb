@@ -1,8 +1,8 @@
 class CompareController < ApplicationController
 
   def index
-    Rails.cache.fetch("departamentos", expires_in: 120.hours) do
-      @states = State.all
+    @states = Rails.cache.fetch("departamentos", expires_in: 120.hours) do
+      State.all
     end
     provider_ids = params[:selected_providers].try(:split, " ") || []
     @selected_providers = Provider.find(provider_ids.take(3))

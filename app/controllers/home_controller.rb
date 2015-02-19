@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
-    Rails.cache.fetch("provider_maximums", expires_in: 12.hours) do
-      @provider_maximums ||= ProviderMaximum.first
+    @provider_maximums = Rails.cache.fetch("provider_maximums", expires_in: 120.hours) do
+      ProviderMaximum.first
     end
     @selected_state = params['departamento']
     @sel_providers = if @selected_state && @selected_state != 'todos'
@@ -12,8 +12,8 @@ class HomeController < ApplicationController
                        order_providers(@providers)
                      end
 
-    Rails.cache.fetch("departamentos", expires_in: 12.hours) do
-      @states = State.all
+    @states = Rails.cache.fetch("departamentos", expires_in: 120.hours) do
+      State.all
     end
 
     # order
