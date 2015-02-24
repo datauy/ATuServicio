@@ -47,10 +47,11 @@ module IconsHelper
       icons << "<div class=\"hidden\">#{total}</div>"
       icons.join("").html_safe
     else
-      <<-eos
+      data = <<-eos
       <div class="hidden">-1</div>
       #{no_data('money')}
       eos
+      data.html_safe
     end
   end
 
