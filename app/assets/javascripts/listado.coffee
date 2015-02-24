@@ -71,3 +71,6 @@ $ ->
     else
       $(element).attr('class', 'icon-up-open')
     $('#loading').hide()
+
+  # Initialize tooltips
+  $('[data-toggle="tooltip"]').tooltip()

@@ -35,57 +35,24 @@
     </p>
 
   <%= link_to 'Comparar', compare_path(selected_providers: "#{provider.id}") %>
-</td>
-<td>
-  <%
-     meta = {
-       tiempo_espera_medicina_general: 'celeste',
-       tiempo_espera_cirugia_general: 'marino',
-       tiempo_espera_pediatria: 'azul',
-       tiempo_espera_ginecotocologia: 'verde',
-       tiempo_espera_medico_referencia: 'azul_claro'
-     }%>
-  <%= build_icon_rows(provider, @provider_maximums.waiting_time, meta, 'clock') %>
-</td>
-<td>
-  <% satisfaccion = provider.satisfaccion_primer_nivel_atencion_2014 * 10 if provider.satisfaccion_primer_nivel_atencion_2014 %>
-  <%= raw progress_bar(satisfaccion, 'celeste') %>
-  <%= raw progress_bar(provider.conformidad_disponibilidad_agenda_2014, 'marino') %>
-  <%= raw progress_bar(provider.facilidad_para_realizar_tramites_gestiones_2014, 'azul') %>
-  <%= raw progress_bar(provider.disponibilidad_medicamentos_farmacia_2014, 'verde') %>
-  <%= raw progress_bar(provider.informacion_sobre_derechos_2014, 'azul_claro') %>
-  <%= raw progress_bar(provider.queja_sugerencia_sabe_donde_dirigirse_2014, 'fuxia') %>
-</td>
-<td>
-  <% unless provider.is_private_insurance? %>
-  <%= build_icon_money(provider, @provider_maximums.tickets,
-      {medicamentos: 'celeste',
-      tickets: 'marino',
-      tickets_urgentes: 'azul',
-      estudios: 'verde'
-      })
-      %>
-  <% else %>
-    <div class="hidden">-1</div>
-    <%= no_data('money') %>
-  <% end %>
-</td>
-<td>
-  <%= raw progress_bar(provider.meta_medico_referencia, 'celeste') %>
-  <%= raw progress_bar(provider.meta_ninos_controlados, 'marino') %>
-  <%= raw progress_bar(provider.meta_embarazadas, 'azul') %>
-</td>
-<td><%= show_users(provider.afiliados, @provider_maximums.affiliates) %></td>
-<td>
-  <% meta = {
-     medicos_generales_policlinica: 'celeste',
-     medicos_de_familia_policlinica: 'marino',
-     medicos_pediatras_policlinica: 'azul',
-     medicos_ginecologos_policlinica: 'verde',
-     auxiliares_enfermeria_policlinica: 'azul_claro',
-     licenciadas_enfermeria_policlinica: 'fuxia'
-     } %>
-  <%= build_icon_rows(provider, @provider_maximums.personnel, meta, 'user') %>
-</td>
+  </td>
+
+  <td>
+    <%= IconsHelper::render_waiting_times(provider, @provider_maximums.waiting_time) %>
+  </td>
+  <td>
+    <%= ProgressbarHelper.render_satisfaction(provider) %>
+  </td>
+  <td>
+    <%= IconsHelper::render_money_icons(provider, @provider_maximums.tickets) %>
+  </td>
+  <td>
+    <%= ProgressbarHelper.render_goals(provider) %>
+  </td>
+  <td>
+    <%= IconsHelper::render_users(provider.afiliados, @provider_maximums.affiliates) %></td>
+  <td>
+    <%= IconsHelper::render_hr(provider, @provider_maximums.personnel) %>
+  </td>
 </tr>
 <% end %>
