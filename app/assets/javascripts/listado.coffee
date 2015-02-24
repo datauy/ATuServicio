@@ -74,3 +74,6 @@ $ ->
 
   # Initialize tooltips
   $('[data-toggle="tooltip"]').tooltip()
+
+  # Fixed header for table
+  $('#listado').stickyTableHeaders();
