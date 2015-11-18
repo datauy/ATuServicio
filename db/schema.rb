@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20150214034903) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "provider_state_infos", force: :cascade do |t|
+    t.integer "provider_id"
+    t.integer "state_id"
+    t.integer "primaria"
+    t.integer "secundaria"
+    t.integer "ambulatorio"
+    t.boolean "urgencia"
+  end
+
+  add_index "provider_state_infos", ["provider_id"], name: "index_provider_state_infos_on_provider_id", using: :btree
+  add_index "provider_state_infos", ["state_id"], name: "index_provider_state_infos_on_state_id", using: :btree
+
   create_table "providers", force: :cascade do |t|
     t.string  "nombre_abreviado"
     t.string  "nombre_completo"
@@ -117,7 +129,6 @@ ActiveRecord::Schema.define(version: 20150214034903) do
     t.decimal "medicina_intensiva_adultos_cantidad_cad",           precision: 9, scale: 2
     t.decimal "medicina_intensiva_pediatrica_cantidad_cad",        precision: 9, scale: 2
     t.decimal "neonatologia_cantidad_cad",                         precision: 9, scale: 2
-    t.integer "state_id"
     t.string  "reserva_presencial"
     t.string  "reserva_telefonica"
     t.string  "reserva_web"
@@ -127,18 +138,9 @@ ActiveRecord::Schema.define(version: 20150214034903) do
     t.string  "comunicacion_usuario_suspension_modificacion"
   end
 
-  add_index "providers", ["state_id"], name: "index_providers_on_state_id", using: :btree
-
-  create_table "providers_states", id: false, force: :cascade do |t|
-    t.integer "provider_id", null: false
-    t.integer "state_id",    null: false
-  end
-
-  add_index "providers_states", ["provider_id", "state_id"], name: "index_providers_states_on_provider_id_and_state_id", using: :btree
-  add_index "providers_states", ["state_id", "provider_id"], name: "index_providers_states_on_state_id_and_provider_id", using: :btree
-
   create_table "sites", force: :cascade do |t|
     t.integer  "provider_id"
+    t.integer  "state_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "direccion"
@@ -182,6 +184,7 @@ ActiveRecord::Schema.define(version: 20150214034903) do
   end
 
   add_index "sites", ["provider_id"], name: "index_sites_on_provider_id", using: :btree
+  add_index "sites", ["state_id"], name: "index_sites_on_state_id", using: :btree
 
   create_table "states", force: :cascade do |t|
     t.string   "name"
@@ -189,6 +192,5 @@ ActiveRecord::Schema.define(version: 20150214034903) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "providers", "states"
   add_foreign_key "sites", "providers"
 end
