@@ -1,13 +1,5 @@
 require 'csv'
 
-def import_file(file, &block)
-  options = { headers: true,
-              converters: [:all, :empty_data, :true_indicator, :false_indicator]
-            }
-  CSV.foreach(file, options) do |row|
-    yield
-  end
-end
 
 # CSV converters, used to transform cells when parsing the CSV
 # 0 values are not valid in this case
