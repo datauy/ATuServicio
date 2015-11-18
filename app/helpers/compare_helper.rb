@@ -45,10 +45,10 @@ module CompareHelper
   end
 
   def precios_value(provider, column_value)
-    if provider.is_asse?
-      value = "Sin costo"
-    elsif provider.is_private_insurance?
-      value = "No hay datos"
+    if provider.asse?
+      value = 'Sin costo'
+    elsif provider.private_insurance?
+      value = 'No hay datos'
     else
       value = "$ #{column_value.round}"
     end
@@ -63,17 +63,17 @@ module CompareHelper
     value = nil
     if [9508, 9532].include?(provider.id)
       value = (column_value) ? "#{column_value}" : 0
-    elsif provider.is_private_insurance? && column.match(/_cad$/)
+    elsif provider.private_insurance? && column.match(/_cad$/)
       value = 0
     else
-      value = column_value || "No hay datos"
+      value = column_value || 'No hay datos'
     end
     value
   end
 
   def appointment_request_value(column_value)
-    return "No" if column_value == 'f'
-    return "Sí" if column_value == 't'
+    return 'No' if column_value == 'f'
+    return 'Sí' if column_value == 't'
     column_value
   end
 
@@ -86,7 +86,7 @@ module CompareHelper
 
   def custom_asse_message(group)
     value = ''
-    if group == :tiempos_espera && @selected_providers.select { |p| p.nombre_abreviado.include? "ASSE" }.count > 0
+    if group == :tiempos_espera && @selected_providers.select { |p| p.nombre_abreviado.include? 'ASSE' }.count > 0
     value =  <<-eos
   <tr>
     <td colspan="4">
@@ -101,6 +101,6 @@ module CompareHelper
   end
 
   def cad_abbr(value)
-    value.gsub("CAD", "<abbr title=\"Cargos de Alta Direcci&oacute;n\">CAD</abbr>").html_safe
+    value.gsub('CAD', '<abbr title=\'Cargos de Alta Direcci&oacute;n\'>CAD</abbr>').html_safe
   end
 end

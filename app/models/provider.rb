@@ -4,7 +4,7 @@ class Provider < ActiveRecord::Base
   def average(name)
     columns = METADATA[:precios][:averages][name][:columns]
     values = columns.map do |column|
-      self.send(column.to_sym)
+      send(column.to_sym)
     end
 
     # I cannot average unless I have all the data
@@ -15,12 +15,12 @@ class Provider < ActiveRecord::Base
     end
   end
 
-  def is_private_insurance?
+  def private_insurance?
     nombre_abreviado.include?('Seguro Privado')
   end
 
-  def is_asse?
-    nombre_abreviado.include?("ASSE")
+  def asse?
+    nombre_abreviado.include?('ASSE')
   end
 
   # What coverage type exists by state
@@ -38,7 +38,7 @@ class Provider < ActiveRecord::Base
 
   # scope
   # returns the providers list on that state
-  def self.by_state(state)
+  def self.by_state
     find(Site.providers_by_state)
   end
 end

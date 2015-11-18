@@ -24,7 +24,7 @@ module IconsHelper
   end
 
   def self.render_money_icons(provider, max)
-    unless provider.is_private_insurance?
+    unless provider.private_insurance?
       meta = [
         [:medicamentos, 'celeste', 'Medicamentos'],
         [:tickets, 'marino', 'Consultas'],
@@ -67,6 +67,7 @@ module IconsHelper
   end
 
   private
+
   def self.no_data(icon_type)
     # Specify the icon type so we know which column we should modify
     # for the sorting to put them at the bottom
