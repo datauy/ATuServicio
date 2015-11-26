@@ -7,16 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :load_options
 
   def load_options
-    @states ||= State.all
     @providers ||= Provider.all
-  end
-
-  def order_providers(providers)
-    providers = providers.order(:nombre_abreviado)
-    # We discriminate private insurances since they're different:
-    l = lambda { |a| a.private_insurance? }
-    private_insurances = providers.select &l
-    providers = providers.reject &l
-    providers + private_insurances
+    @states ||= State.all
   end
 end

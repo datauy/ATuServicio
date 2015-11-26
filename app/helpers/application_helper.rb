@@ -39,6 +39,7 @@ module ApplicationHelper
     end
   end
 
+  # TODO - Here's the bottleneck Johny!
   def provider_structure(provider)
     states = provider.states
     structures = {
@@ -60,7 +61,7 @@ module ApplicationHelper
   def boolean_icons(value)
     return"<i class=\"icon-tick\"></i>".html_safe if value.is_a?(TrueClass)
     return "<i class=\"icon-cross\"></i>".html_safe if value.is_a?(FalseClass)
-    return "No hay datos" unless value
+    return 'No hay datos' unless value
     value
   end
 end

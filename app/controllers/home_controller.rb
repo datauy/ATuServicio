@@ -1,23 +1,21 @@
 class HomeController < ApplicationController
   def index
-    @provider_maximums = Rails.cache.fetch("provider_maximums", expires_in: 120.hours) do
+    # Get the ProviderMaximum object which contains all the maximum
+    # values to compare in the graphs in the home view.
+    @provider_maximums = Rails.cache.fetch('provider_maximums', expires_in: 120.hours) do
       ProviderMaximum.first
     end
+
+    # Get the selected state if we want to have the providers for a
+    # given state
     @selected_state = params['departamento']
+
     @sel_providers = if @selected_state && @selected_state != 'todos'
-                       order_providers(
-                         @providers.where( id: Site.providers_by_state(@selected_state) )
-                       )
+                       @providers.where(
+                         id: Site.providers_by_state(@selected_state)
+                       ).order(:private_insurance).order(:nombre_abreviado)
                      else
-                       order_providers(@providers)
+                       @providers.order(:private_insurance).order(:nombre_abreviado)
                      end
-
-    @states = Rails.cache.fetch("departamentos", expires_in: 120.hours) do
-      State.all
-    end
-
-    # order
-    name_order = params['nombre'].try(:downcase).try(:to_sym)
-    @sel_providers = @sel_providers.order(nombre_abreviado: name_order) if [:asc, :desc].include?(name_order)
   end
 end

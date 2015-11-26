@@ -47,7 +47,7 @@ module CompareHelper
   def precios_value(provider, column_value)
     if provider.asse?
       value = 'Sin costo'
-    elsif provider.private_insurance?
+    elsif provider.private_insurance
       value = 'No hay datos'
     else
       value = "$ #{column_value.round}"
@@ -63,7 +63,7 @@ module CompareHelper
     value = nil
     if [9508, 9532].include?(provider.id)
       value = (column_value) ? "#{column_value}" : 0
-    elsif provider.private_insurance? && column.match(/_cad$/)
+    elsif provider.private_insurance && column.match(/_cad$/)
       value = 0
     else
       value = column_value || 'No hay datos'

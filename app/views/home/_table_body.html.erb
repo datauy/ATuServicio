@@ -1,58 +1,58 @@
 <% @sel_providers.each do |provider| %>
-<tr id="<%= provider.id %>">
-  <td>
-    <h4><%= provider.nombre_abreviado %></h4>
-    <h6><%= provider.nombre_completo %></h6>
-    <p>
-      <a href="http://<%= provider.web %>" title="Sitio web" target="_blank">
-        <%= provider.web %>
-      </a>
-    </p>
-    <p>
+  <tr id="<%= provider.id %>">
+    <td>
+      <h4><%= provider.nombre_abreviado %></h4>
+      <h6><%= provider.nombre_completo %></h6>
+      <p>
+        <a href="http://<%= provider.web %>" title="Sitio web" target="_blank">
+          <%= provider.web %>
+        </a>
+      </p>
+      <p>
 
-    <p class="structure_icons">
-      <% structure = provider_structure(provider) %>
-      <span class="estructura">Estructura:</span>
-      <% if structure[:primaria] > 0 %>
-        <span class="round-btn">1</span>
-      <% end %>
-      <% if structure[:secundaria] > 0 %>
-        <span class="round-btn">2</span>
-        <% if structure[:secundaria] > 0 %>
-          <span class="float_left">X <%= structure[:secundaria] %></span>
-        <% end %>
-      <% end %>
-      <% if structure[:ambulatorio] > 0 %>
-        <span class="round-btn">P</span>
-        <% if (structure[:ambulatorio] > 1) %>
-          <span class="float_left">X <%= structure[:ambulatorio] %></span>
-        <% end %>
-      <% end %>
-      <% if structure[:urgencia] %>
-        <span class="round-btn magenta">U</span>
-      <% end %>
-    <p class="sedes">Sedes en: <%= provider.states.join(", ") %></p>
-    </p>
+        <p class="structure_icons">
+          <% structure = provider_structure(provider) %>
+          <span class="estructura">Estructura:</span>
+          <% if structure[:primaria] > 0 %>
+            <span class="round-btn">1</span>
+          <% end %>
+          <% if structure[:secundaria] > 0 %>
+            <span class="round-btn">2</span>
+            <% if structure[:secundaria] > 0 %>
+              <span class="float_left">X <%= structure[:secundaria] %></span>
+            <% end %>
+          <% end %>
+          <% if structure[:ambulatorio] > 0 %>
+            <span class="round-btn">P</span>
+            <% if (structure[:ambulatorio] > 1) %>
+              <span class="float_left">X <%= structure[:ambulatorio] %></span>
+            <% end %>
+          <% end %>
+          <% if structure[:urgencia] %>
+            <span class="round-btn magenta">U</span>
+          <% end %>
+          <p class="sedes">Sedes en: <%= provider.states.join(", ") %></p>
+        </p>
 
-  <%= link_to 'Comparar', compare_path(selected_providers: "#{provider.id}") %>
-  </td>
+        <%= link_to 'Comparar', compare_path(selected_providers: "#{provider.id}") %>
+    </td>
 
-  <td>
-    <%= IconsHelper::render_waiting_times(provider, @provider_maximums.waiting_time) %>
-  </td>
-  <td>
-    <%= ProgressbarHelper.render_satisfaction(provider) %>
-  </td>
-  <td>
-    <%= IconsHelper::render_money_icons(provider, @provider_maximums.tickets) %>
-  </td>
-  <td>
-    <%= ProgressbarHelper.render_goals(provider) %>
-  </td>
-  <td>
-    <%= IconsHelper::render_users(provider.afiliados, @provider_maximums.affiliates) %></td>
-  <td>
-    <%= IconsHelper::render_hr(provider, @provider_maximums.personnel) %>
-  </td>
-</tr>
+    <td>
+      <%= IconsHelper::render_waiting_times(provider, @provider_maximums.waiting_time) %>
+    </td>
+    <td>
+      <%= ProgressbarHelper.render_satisfaction(provider) %>
+    </td>
+    <td>
+      <%= IconsHelper::render_money_icons(provider, @provider_maximums.tickets) %>
+    </td>
+    <td>
+      <%= ProgressbarHelper.render_goals(provider) %>
+    </td>
+    <td>
+      <%= IconsHelper::render_users(provider.afiliados, @provider_maximums.affiliates) %></td>
+    <td>
+      <%= IconsHelper::render_hr(provider, @provider_maximums.personnel) %>
+    </td>
+  </tr>
 <% end %>

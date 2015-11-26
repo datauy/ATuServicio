@@ -1,6 +1,6 @@
 <%= render 'listado_header' %>
 <div class="contenido">
-<div class="col-md-12 header-select" id="home-filter">
+  <div class="col-md-12 header-select" id="home-filter">
     <div class="col-md-4">
       <h2>
         <i class="icon-number01"></i>
@@ -8,7 +8,7 @@
       </h2>
       <p>
         <%= select_tag "state", options_for_select(state_options(@states), params[:departamento]),
-              class: "form-control" %>
+          class: "form-control" %>
       </p>
     </div>
     <div class="col-md-4">
@@ -19,23 +19,19 @@
       <form action=<%= compare_path %> method="get">
         <p>
           <%= select_tag "selected_providers",
-              options_for_select(provider_options),
-              include_blank: "Elija una institución",
-              class: "form-control home_providers"
-              %>
+          options_for_select(provider_options),
+            include_blank: "Elija una institución",
+            class: "form-control home_providers"
+          %>
         </p>
     </div>
     <div class="col-md-4 more-data">
       <h2>Por más información</h2>
       <p>
         <button class="btn btn-sm btn-default" type="submit">Acceder a datos completos</button>
-        </form>
+      </form>
       </p>
     </div>
   </div>
   <%= render 'tables' %>
 </div>
-
-
-
-
