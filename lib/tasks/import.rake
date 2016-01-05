@@ -25,6 +25,16 @@ namespace :db do
     puts "Import all data into providers"
     import_csv(*get_provider_groups) do |provider, parameters|
       provider.update(parameters)
+
+      states = provider.states
+      states.each do | state |
+        provider.update_attributes(
+          estructura_primaria: provider.coverage_by_state(state, 'Sede Central'),
+          estructura_secundaria: provider.coverage_by_state(state, 'Sede Secundaria'),
+          estructura_ambulatorio: provider.coverage_by_state(state, 'Ambulatorio'),
+          estructura_urgencia: provider.coverage_by_state(state, 'Urgencia')
+        )
+      end
     end
   end
 

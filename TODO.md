@@ -26,7 +26,7 @@
 - [X] use alias 'comparar for compare route (just changed the name in Spanish)
 
 ## Performance
-- [ ] use procfile (avoid webrick)
+- [X] use procfile (avoid webrick)
 - [ ] cache averages and summary info
 - [ ] Use JS & ajax when possible
 - [ ] Generate state table with id's, so there's no N+1
@@ -36,9 +36,11 @@
 - [ ] `rrhh.csv` correct format
 
 ## Wish List
-- [ ] uncomment 'ruby' definition in Gemfile
+- [X] uncomment 'ruby' definition in Gemfile
 - [ ] separate metadata from metadata for migrations
 - [ ] call methods/modules from migrations
 - [ ] use seeds.rb instead of `db:import` rake task
 
-
+## TODO
+- [ ] - Create "state" model for better queries
+- [X] - Provider - provider_structure, this should be calculated on import and saved in the Database

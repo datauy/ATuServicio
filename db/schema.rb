@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126211742) do
+ActiveRecord::Schema.define(version: 20160105220140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,6 +137,10 @@ ActiveRecord::Schema.define(version: 20151126211742) do
     t.string  "realiza_caida_reserva_sin_confirmacion"
     t.string  "comunicacion_usuario_suspension_modificacion"
     t.boolean "private_insurance",                                                         default: false
+    t.integer "estructura_primaria",                                                       default: 0
+    t.integer "estructura_secundaria",                                                     default: 0
+    t.integer "estructura_ambulatorio",                                                    default: 0
+    t.integer "estructura_urgencia",                                                       default: 0
   end
 
   create_table "sites", force: :cascade do |t|

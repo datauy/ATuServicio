@@ -11,24 +11,24 @@
       <p>
 
         <p class="structure_icons">
-          <% structure = provider_structure(provider) %>
           <span class="estructura">Estructura:</span>
-          <% if structure[:primaria] > 0 %>
+
+          <% if provider.estructura_primaria > 0 %>
             <span class="round-btn">1</span>
           <% end %>
-          <% if structure[:secundaria] > 0 %>
+          <% if provider.estructura_secundaria > 0 %>
             <span class="round-btn">2</span>
-            <% if structure[:secundaria] > 0 %>
-              <span class="float_left">X <%= structure[:secundaria] %></span>
+            <% if provider.estructura_secundaria > 0 %>
+              <span class="float_left">X <%= provider.estructura_secundaria %></span>
             <% end %>
           <% end %>
-          <% if structure[:ambulatorio] > 0 %>
+          <% if provider.estructura_ambulatorio > 0 %>
             <span class="round-btn">P</span>
-            <% if (structure[:ambulatorio] > 1) %>
-              <span class="float_left">X <%= structure[:ambulatorio] %></span>
+            <% if (provider.estructura_ambulatorio > 1) %>
+              <span class="float_left">X <%= provider.estructura_ambulatorio %></span>
             <% end %>
           <% end %>
-          <% if structure[:urgencia] %>
+          <% if provider.estructura_urgencia %>
             <span class="round-btn magenta">U</span>
           <% end %>
           <p class="sedes">Sedes en: <%= provider.states.join(", ") %></p>
