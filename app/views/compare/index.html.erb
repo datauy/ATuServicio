@@ -22,7 +22,7 @@
   </div>
 
   <div class="hidden">
-    <%= form_tag(compare_path, method: :get, remote: true) do %>
+    <%= form_tag('/comparar', method: :get, remote: true) do %>
     <%= hidden_field_tag "selected_providers", @selected_providers.map(&:id) %>
     <%= submit_tag 'submit', id: 'submit' %>
     <% end %>
