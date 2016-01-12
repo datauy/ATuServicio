@@ -29,7 +29,7 @@ module CompareHelper
       indicator = check_enough_data_times(column, provider)
       value = "#{column_value} días #{indicator}".html_safe
     elsif group == :satisfaccion_derechos
-      value = (column_value) ? "#{column_value} %" : "No hay datos"
+      value = (column_value) ? "#{column_value} %" : no_hay_datos
     # FIX: This is a hack
     # MP and Britanico - 9508 9532
     # We are doing this because (for now) the importer turns 0 values
@@ -46,9 +46,9 @@ module CompareHelper
 
   def precios_value(provider, column_value)
     if provider.asse?
-      value = 'Sin costo'
+      value = sin_costo
     elsif provider.private_insurance
-      value = 'No hay datos'
+      value = no_hay_datos
     else
       value = "$ #{column_value.round}"
     end
@@ -66,7 +66,7 @@ module CompareHelper
     elsif provider.private_insurance && column.match(/_cad$/)
       value = 0
     else
-      value = column_value || 'No hay datos'
+      value = column_value || no_hay_datos
     end
     value
   end
@@ -103,5 +103,13 @@ module CompareHelper
 
   def cad_abbr(value)
     value.gsub('CAD', '<abbr title=\'Cargos de Alta Direcci&oacute;n\'>CAD</abbr>').html_safe
+  end
+
+  def no_hay_datos
+    "<p class=\"nodata\">NO HAY DATOS</p><i class=\"demo-icon icon-sad\"></i>".html_safe
+  end
+
+  def sin_costo
+    "<p class=\"free\">SIN COSTO</p><i class=\"demo-icon icon-happy\">".html_safe
   end
 end
