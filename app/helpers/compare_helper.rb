@@ -105,10 +105,6 @@ module CompareHelper
     value.gsub('CAD', '<abbr title=\'Cargos de Alta Direcci&oacute;n\'>CAD</abbr>').html_safe
   end
 
-  def no_hay_datos
-    "<p class=\"nodata\">NO HAY DATOS</p><i class=\"demo-icon icon-sad\"></i>".html_safe
-  end
-
   def sin_costo
     "<p class=\"free\">SIN COSTO</p><i class=\"demo-icon icon-happy\">".html_safe
   end

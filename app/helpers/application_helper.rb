@@ -44,9 +44,14 @@ module ApplicationHelper
 
   # Returns true, false, or question mark if value not present
   def boolean_icons(value)
-    return"<i class=\"icon-tick\"></i>".html_safe if value.is_a?(TrueClass)
-    return "<i class=\"icon-cross\"></i>".html_safe if value.is_a?(FalseClass)
-    return 'No hay datos' unless value
+    return"<i class=\"demo-icon icon-ok\"></i>".html_safe if value.is_a?(TrueClass)
+    return "<i class=\"demo-icon icon-no\"></i>".html_safe if value.is_a?(FalseClass)
+    return no_hay_datos unless value
     value
   end
+
+  def no_hay_datos
+    "<p class=\"nodata\">NO HAY DATOS</p><i class=\"demo-icon icon-sad\"></i>".html_safe
+  end
+
 end
