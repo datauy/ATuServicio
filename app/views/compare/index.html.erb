@@ -11,7 +11,7 @@
             </ul>
           </td>
 
-          <% @selected_providers.each do |provider| %>
+          <% @selected_providers.each_with_index do | provider, index | %>
             <td data-step="4" data-intro="Estas son las Prestadoras" data-position='top'>
               <figure>
                 <%=
@@ -28,9 +28,11 @@
               <a class="icon-delate" href="#">
                 <span>Borrar</span><i class="fa fa-trash"></i>
               </a>
-              <!-- TODO: Sólo si segundo o tercero: <span class="title-vs"> vs </span> -->
+              <% if index > 0 %>
+                <span class="title-vs"> vs </span>
+              <% end %>
             </td>
-            <% end %><!-- End selected_providers loop -->
+          <% end %><!-- End selected_providers loop -->
         </tr>
       </tbody>
     </table>
@@ -41,8 +43,32 @@
     </div>
   <% end %>
 
+  <!-- Hidden part fixed for scrolling -->
+  <div id="fixed-versus" class="block">
+    <table class="table table-head">
+      <tbody>
+        <tr>
+          <td class="col-md-3">
+            <h3 style="text-align:left">Estas comparando:</h3>
+          </td>
+          <% @selected_providers.each_with_index do | provider, index | %>
+            <td>
+              <h3><%= provider.nombre_abreviado %></h3>
+              <%= link_to provider.web, "http://#{provider.web}" %>
+              <a class="icon-delate" href="#">
+                <span>Borrar</span><i class="fa fa-trash"></i>
+              </a>
+              <% if index > 0 %>
+                <span class="title-vs"> vs </span>
+              <% end %>
+            </td>
+          <% end %><!-- End selected_providers loop -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!--END: Hidden part fixed for scrolling -->
+
   <%= render partial: 'group_data', locals: { providers: @selected_providers }%>
-  <!-- TODO -->
-  <!-- %= render partial: 'you_are_comparing', locals: { provider: provider } %-->
 </section>
 <%= render partial: 'modals'%>
