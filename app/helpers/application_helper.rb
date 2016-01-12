@@ -9,7 +9,10 @@ module ApplicationHelper
     group_names = METADATA[group][:description]
     group_descriptions = METADATA[group][:columns]
 
-    group_names.zip(group_descriptions)
+    groups = group_names.zip(group_descriptions)
+    # Remove web since we show it elsewhere:
+    groups.delete(["Web", "web"])
+    groups
   end
 
   def state_options(states)

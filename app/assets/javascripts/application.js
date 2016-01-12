@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require jquery-ui/accordion
-//= require jquery.chained.min
-//= require_tree .
+//= require bootstrap.min
+//= require intro
+//= require modals

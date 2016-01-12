@@ -1,29 +1,42 @@
-<%# TODO fixme!!! %>
-<% width_class = @selected_providers.count < 3 ? "col-md-4" : "col-md-3" %>
-
 <% [:estructura, :metas, :precios, :tiempos_espera, :satisfaccion_derechos, :rrhh, :solicitud_consultas].each do |group| %>
-  <tr class="table-title" >
-    <td colspan="<%= @selected_providers.count + 1 %>">
-      <h5><%= title(group) %></h5>
-    </td>
-  </tr>
-  <%= custom_asse_message(group) %>
-  <% columns_name_description(group).each do |name, column| %>
-  <% unless column.match('datos_suficientes_tiempo_espera') %>
-  <tr>
-    <td class="pivot col-md-3 col-centered">
-      <% if name.match(/CAD$/) %>
-        <%= cad_abbr(name) %>
-      <% else %>
-        <%= name %>
-      <% end %>
-    </td>
-      <% @selected_providers.each do |provider| %>
-        <td class="col-md-<%= width_class%>">
-          <%= show_value(group, column, provider) %>
-        </td>
-      <% end %>
-    </tr>
-    <% end %>
-  <% end %>
+  <div class="panel-group" role="tablist" aria-multiselectable="true">
+    <div class="block">
+      <div class="block_title" role="tab" id="heading<%= group %>">
+        <h4>
+          <a class="info" href="#" data-toggle="modal" data-target="#myModal">
+            <i class="demo-icon icon-info"></i>
+          </a>
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= group %>" aria-expanded="true" aria-controls="collapse<%= group %>">
+            <i class="demo-icon icon-estructura"></i>
+            <%= title(group) %><i class="fa fa-chevron-down"></i>
+          </a>
+        </h4>
+      </div>
+      <div id="collapse<%= group %>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading<%= group %>">
+        <table class="table">
+          <tbody>
+            <% columns_name_description(group).each do |name, column| %>
+            <tr>
+              <td class="col-md-3 col-left">
+                <p>
+                  <% if name.match(/CAD$/) %>
+                    <%= cad_abbr(name) %>
+                  <% else %>
+                    <%= name %>
+                  <% end %>
+                </p>
+              </td>
+              <% @selected_providers.each do |provider| %>
+                <td>
+                  <p>
+                    <%= show_value(group, column, provider) %>
+                  </p>
+                </td>
+              <% end %>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
 <% end %>

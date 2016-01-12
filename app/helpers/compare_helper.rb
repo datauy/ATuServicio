@@ -78,10 +78,11 @@ module CompareHelper
   end
 
   def check_enough_data_times(column, provider)
-    if !provider.send("datos_suficientes_#{column}")
+    unless provider.send("datos_suficientes_#{column}")
       info = "Estos datos se elaboraron con una muestra de menos del 10% de la consulta"
       "<span class=\"glyphicon glyphicon-info-sign\" title=\"#{info}\"> </span>"
     end
+  rescue
   end
 
   def custom_asse_message(group)
