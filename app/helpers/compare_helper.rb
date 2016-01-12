@@ -29,7 +29,11 @@ module CompareHelper
       indicator = check_enough_data_times(column, provider)
       value = "#{column_value} días #{indicator}".html_safe
     elsif group == :satisfaccion_derechos
-      value = (column_value) ? "#{column_value} %" : no_hay_datos
+      value = if (column_value)
+                progress_bar(column_value).html_safe
+              else
+                no_hay_datos
+              end
     # FIX: This is a hack
     # MP and Britanico - 9508 9532
     # We are doing this because (for now) the importer turns 0 values
@@ -56,7 +60,11 @@ module CompareHelper
   end
 
   def meta_value(column_value)
-    (column_value.is_a? Numeric) ? "#{column_value} %" : boolean_icons(column_value)
+    if column_value.is_a? Numeric
+      progress_bar(column_value).html_safe
+    else
+      boolean_icons(column_value)
+    end
   end
 
   def rrhh_value(provider, column_value, column)
@@ -107,5 +115,15 @@ module CompareHelper
 
   def sin_costo
     "<p class=\"free\">SIN COSTO</p><i class=\"demo-icon icon-happy\">".html_safe
+  end
+
+  def progress_bar(value)
+    <<-eos
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="#{value}" aria-valuemin="0" aria-valuemax="100" style="width: #{value}%;">
+        </div>
+        <span class="sr-only">#{value}%</span>
+      </div>
+    eos
   end
 end
