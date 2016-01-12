@@ -15,6 +15,7 @@
       <div id="collapse<%= group %>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading<%= group %>">
         <table class="table">
           <tbody>
+            <%= custom_asse_message(group) %>
             <% columns_name_description(group).each do |name, column| %>
             <tr>
               <td class="col-md-3 col-left">

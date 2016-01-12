@@ -91,9 +91,9 @@ module CompareHelper
     value =  <<-eos
   <tr>
     <td colspan="4">
-      <strong>
+      <p class="asse">
       ASSE: Promedios de tiempos de espera calculados con información correspondiente a 142 unidades asistenciales de un total de 800. Siendo de las 142, la mayoría Unidades de Primer Nivel de Atención del interior del país, donde las especialidades tienen una oferta limitada.
-      </strong>
+      </p>
     </td>
   </tr>
       eos
