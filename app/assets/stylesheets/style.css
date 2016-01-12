@@ -198,7 +198,7 @@ background: #666;
 .list {  width: 40%;float: left;margin-left: 10%}
 .list:last-child { margin-left: 0}
 .list li {list-style-type:disc;text-align:left;font-size: 11px; margin-bottom: 0px; list-style-position: inside;}
-.list li:first-child { list-style-type: none;ƒ}
+.list li:first-child { list-style-type: none;}
 .list li h5 { font-size: 14px;}
 
  [class^="icon-"]:before, [class*=" icon-"]:before {
