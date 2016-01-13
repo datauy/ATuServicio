@@ -1,4 +1,15 @@
 <section>
+
+  <!-- Search box -->
+  <% if @selected_providers.count < 3 %>
+    <div class="input-group search-prestadora">
+      <input type="text" class="form-control" placeholder="Buscar otra prestadora">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Buscar</button>
+      </span>
+    </div>
+  <% end %>
+
   <div class="block" data-step="1" data-intro="Estas son las Prestadoras" data-position='top'>
     <table class="table table-head">
       <tbody>
@@ -14,8 +25,9 @@
           <% @selected_providers.each_with_index do | provider, index | %>
             <td data-step="4" data-intro="Estas son las Prestadoras" data-position='top'>
               <figure>
+                <!-- TODO - IMAGE -->
                 <%=
-                image_tag "url",
+                image_tag '',
                 alt: provider.nombre_abreviado,
                 title: provider.nombre_abreviado,
                 class: "img-thumbnail"
