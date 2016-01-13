@@ -126,4 +126,9 @@ module CompareHelper
       </div>
     eos
   end
+
+  def share_message
+    providers = @selected_providers.map{ |n| n.nombre_abreviado.downcase.capitalize }.join(", ")
+    "Comparando #{providers} en AtuServicio.uy - #{URI.encode(request.original_url)}"
+  end
 end
