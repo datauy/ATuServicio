@@ -8,7 +8,8 @@ namespace :db do
 
     puts "Creating providers"
     import_file('estructura.csv') do |row|
-      Provider.create(id: row[0])
+      provider = Provider.create(id: row[0])
+      assign_logo(provider)
     end
   end
 
@@ -132,6 +133,21 @@ def import_csv(*groups, &block)
       end
     end
   end
+end
+
+# Logos should live in app/assets/images/logos
+# The image name should have the provider's ID first, followed by the
+# provider's name and in png format.
+def assign_logo(provider)
+  # Hack ASSE:
+  if provider.id.between?(90_001, 90_020)
+    logo = '90000-asse.png'
+  else
+    logo_file = Dir["./app/assets/images/logos/#{provider.id}-*.png"]
+    logo = /logos\/([0-9]+\-[a-z\-]+\.png)/.match(logo_file[0])[1]
+  end
+
+  provider.update_attributes(logo: logo) if logo
 end
 
 CSV::Converters[:true_indicator] = lambda do |data|
