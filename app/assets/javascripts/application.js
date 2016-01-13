@@ -14,3 +14,4 @@
 //= require bootstrap.min
 //= require intro
 //= require modals
+//= require comparar

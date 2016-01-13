@@ -25,7 +25,7 @@
                 <%= provider.nombre_abreviado %>
               </h3>
               <%= link_to provider.web, "http://#{provider.web}" %>
-              <a class="icon-delate" href="#">
+              <a class="icon-delate remove_provider" href="#" data-provider="<%= provider.id %>">
                 <span>Borrar</span><i class="fa fa-trash"></i>
               </a>
               <% if index > 0 %>
@@ -55,7 +55,7 @@
             <td>
               <h3><%= provider.nombre_abreviado %></h3>
               <%= link_to provider.web, "http://#{provider.web}" %>
-              <a class="icon-delate" href="#">
+              <a class="icon-delate remove_provider" href="#" data-provider="<%= provider.id %>">
                 <span>Borrar</span><i class="fa fa-trash"></i>
               </a>
               <% if index > 0 %>
