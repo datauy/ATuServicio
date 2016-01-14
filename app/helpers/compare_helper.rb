@@ -18,6 +18,12 @@ module CompareHelper
     value = ''
     column_value = provider.send(column.to_sym)
     case group
+    when :estructura
+      if column == 'afiliados'
+        value = table_cell("<h5 class=\"people people-high\">#{number_with_delimiter(column_value, delimiter: '.')}</h5>")
+      else
+        value = table_cell("<p>#{column_value}</p>")
+      end
     when :precios
       value = precios_value(provider, column_value)
     when :metas
@@ -47,7 +53,7 @@ module CompareHelper
     elsif provider.private_insurance
       no_hay_datos
     else
-      table_cell("$ #{column_value.round}")
+      table_cell("<p>$ #{column_value.round}</p>")
     end
   end
 

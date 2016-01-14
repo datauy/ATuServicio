@@ -19,6 +19,7 @@
   </head>
 
   <body>
+    <%= query_diet_widget if Rails.env.development? %>
     <div id="loader">
       <%= image_tag 'loading.gif'%>
     </div>

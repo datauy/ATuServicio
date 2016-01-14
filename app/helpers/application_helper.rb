@@ -11,7 +11,7 @@ module ApplicationHelper
 
     groups = group_names.zip(group_descriptions)
     # Remove web since we show it elsewhere:
-    groups.delete(["Web", "web"])
+    groups.delete(['Web', 'web'])
     groups
   end
 
