@@ -28,11 +28,7 @@
                 </p>
               </td>
               <% @selected_providers.each do |provider| %>
-                <td>
-                  <p>
-                    <%= show_value(group, column, provider) %>
-                  </p>
-                </td>
+                <%= show_value(group, column, provider) %>
               <% end %>
             </tr>
             <% end %>

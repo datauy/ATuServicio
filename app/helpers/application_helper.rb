@@ -51,7 +51,6 @@ module ApplicationHelper
   end
 
   def no_hay_datos
-    "<p class=\"nodata\">NO HAY DATOS</p><i class=\"demo-icon icon-sad\"></i>".html_safe
+    "<td class=\"nodata\"><p>NO HAY DATOS</p><i class=\"demo-icon icon-sad\"></i></td>".html_safe
   end
-
 end

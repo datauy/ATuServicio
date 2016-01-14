@@ -14,81 +14,80 @@ module CompareHelper
   end
 
   # TODO Refactor
-  # FIX Fix this uglyness:
   def show_value(group, column, provider)
     value = ''
     column_value = provider.send(column.to_sym)
-    if column == 'web'
-      value = "<a href=\"http://#{column_value}\" title=\"Sitio web\" target=\"_blank\">#{column_value}</a>".html_safe
-    # Check if ASSE because tickets have no cost:
-    elsif group == :precios
+    case group
+    when :precios
       value = precios_value(provider, column_value)
-    elsif group == :metas
+    when :metas
       value = meta_value(column_value)
-    elsif group == :tiempos_espera
+    when :tiempos_espera
       indicator = check_enough_data_times(column, provider)
-      value = "#{column_value} días #{indicator}".html_safe
-    elsif group == :satisfaccion_derechos
+      value = "<td><h5>#{column_value} <small>DÍAS</small> #{indicator}</h5></td>"
+    when :satisfaccion_derechos
       value = if (column_value)
-                progress_bar(column_value).html_safe
+                table_cell(progress_bar(column_value))
               else
                 no_hay_datos
               end
-    # FIX: This is a hack
-    # MP and Britanico - 9508 9532
-    # We are doing this because (for now) the importer turns 0 values
-    # from the open data into nil, which we *should fix* asap
-    elsif group == :rrhh
+    when :rrhh
       value = rrhh_value(provider, column_value, column)
-    elsif group == :solicitud_consultas
+    when :solicitud_consultas
       value = appointment_request_value(column_value)
     else
-      value = boolean_icons(column_value)
+      value = table_cell(boolean_icons(column_value))
     end
-    value
+    value.to_s.html_safe
   end
 
   def precios_value(provider, column_value)
     if provider.asse?
-      value = sin_costo
+      sin_costo
     elsif provider.private_insurance
-      value = no_hay_datos
+      no_hay_datos
     else
-      value = "$ #{column_value.round}"
+      table_cell("$ #{column_value.round}")
     end
-    value
   end
 
   def meta_value(column_value)
     if column_value.is_a? Numeric
-      progress_bar(column_value).html_safe
+      table_cell(progress_bar(column_value))
+    elsif column_value.is_a?(TrueClass) || column_value.is_a?(FalseClass)
+      table_cell(boolean_icons(column_value))
     else
-      boolean_icons(column_value)
+      no_hay_datos
     end
   end
 
   def rrhh_value(provider, column_value, column)
     value = nil
+    # TODO - Check if this is still an issue:
+    # FIX: This is a hack
+    # MP and Britanico - 9508 9532
+    # We are doing this because (for now) the importer turns 0 values
+    # from the open data into nil, which we *should fix* asap
     if [9508, 9532].include?(provider.id)
-      value = (column_value) ? "#{column_value}" : 0
+      value = (column_value) ? column_value : 0
     elsif provider.private_insurance && column.match(/_cad$/)
       value = 0
     else
-      value = column_value || no_hay_datos
+      value = (column_value) ? column_value : nil
     end
-    value
+    value.nil? ? no_hay_datos : table_cell(value)
   end
 
   def appointment_request_value(column_value)
-    return 'No' if column_value == 'f'
-    return 'Sí' if column_value == 't'
-    column_value
+    return table_cell('No') if column_value == 'f'
+    return table_cell('Sí') if column_value == 't'
+    column_value ? table_cell(column_value) : no_hay_datos
   end
 
   def check_enough_data_times(column, provider)
     unless provider.send("datos_suficientes_#{column}")
       info = "Estos datos se elaboraron con una muestra de menos del 10% de la consulta"
-      "<span class=\"glyphicon glyphicon-info-sign\" title=\"#{info}\"> </span>"
+      "<i class=\"demo-icon icon-info\" title=\"#{info}\"> </i>"
     end
   rescue
   end
@@ -114,7 +113,7 @@ module CompareHelper
   end
 
   def sin_costo
-    "<p class=\"free\">SIN COSTO</p><i class=\"demo-icon icon-happy\">".html_safe
+    "<td class=\"free\"><p>SIN COSTO</p><i class=\"demo-icon icon-happy\"></td>".html_safe
   end
 
   def progress_bar(value)
@@ -128,7 +127,11 @@ module CompareHelper
   end
 
   def share_message
-    providers = @selected_providers.map{ |n| n.nombre_abreviado.downcase.capitalize }.join(", ")
+    providers = @selected_providers.map{ |n| n.nombre_abreviado.split.map(&:capitalize)*' ' }.join(', ')
     "Comparando #{providers} en AtuServicio.uy - #{URI.encode(request.original_url)}"
+  end
+
+  def table_cell(value)
+    "<td>#{value}</td>"
   end
 end
