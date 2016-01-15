@@ -1,5 +1,5 @@
 class ProvidersController < ApplicationController
-  autocomplete :provider, :nombre_completo, full: true
+  autocomplete :provider, :search_name, full: true, limit: 15
 
   def show
     @providers = Provider.all.map(&:nombre_abreviado)

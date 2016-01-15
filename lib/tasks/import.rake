@@ -44,6 +44,14 @@ namespace :db do
     end
   end
 
+  desc "Assign search name"
+  task :assign_search_name => [:environment] do
+    Provider.all.each do |provider|
+      search_name = "#{provider.nombre_abreviado} - #{provider.nombre_completo}"
+      provider.update_attributes(search_name: search_name)
+    end
+  end
+
   desc "Calculate Maximums"
   task :calculate_maximums => [:environment] do
     maximums = ProviderMaximum.first || ProviderMaximum.new
@@ -97,6 +105,7 @@ namespace :db do
 
   Rake::Task['db:import'].enhance do
     Rake::Task['db:calculate_maximums'].invoke
+    Rake::Task['db:assign_search_name'].invoke
   end
 
 end

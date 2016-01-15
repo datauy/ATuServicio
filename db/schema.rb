@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113221403) do
+ActiveRecord::Schema.define(version: 20160115180804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(version: 20160113221403) do
     t.integer "estructura_ambulatorio",                                                    default: 0
     t.integer "estructura_urgencia",                                                       default: 0
     t.string  "logo"
+    t.string  "search_name"
   end
 
   create_table "sites", force: :cascade do |t|
