@@ -3,7 +3,7 @@ class CompareController < ApplicationController
   layout 'atuservicio'
 
   def index
-    provider_ids = params[:selected_providers].try(:split, " ") || []
+    provider_ids = params[:selected_providers].try(:split, ' ').uniq || []
 
     @selected_providers = Provider.find(provider_ids.take(3))
     @title = 'Comparando'
@@ -28,7 +28,7 @@ class CompareController < ApplicationController
   end
 
   def add
-    selected_providers = "#{params[:selected_providers]} #{params[:provider_id]}" if params[:provider_id]
+    selected_providers = "#{params[:selected_providers]} #{params[:provider_id]}".split(' ').uniq.join(' ')
     redirect_to action: 'index', selected_providers: selected_providers
   end
 end
