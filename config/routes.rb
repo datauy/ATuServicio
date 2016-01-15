@@ -10,6 +10,4 @@ Rails.application.routes.draw do
   end
 
   get '/sobre_el_proyecto' => 'home#sobre_el_proyecto'
-
-  get '/providers' => 'providers#show'
 end
