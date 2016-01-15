@@ -1,12 +1,26 @@
 <section>
   <!-- Search box -->
   <% if @selected_providers.count < 3 %>
+    <%= form_tag '/agregar', method: 'get', id: 'compare' do %>
     <div class="input-group search-prestadora">
-      <input type="text" class="form-control" placeholder="Buscar otra prestadora">
+      <%=
+        text_field_tag :search,
+          nil,
+          class: "search-query form-control",
+          placeholder: "Buscar otra prestadora",
+          type: "search",
+          data: {
+            autocomplete: autocomplete_provider_nombre_completo_providers_path,
+            id_element: "#provider_id"
+          }
+      %>
+      <input type="hidden" id="provider_id" name="provider_id">
+      <input type="hidden" id="selected_providers" name="selected_providers" value="<%= @selected_providers.map(&:id).join(' ')%>">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Buscar</button>
+        <button class="btn btn-default" type="submit">Agregar</button>
       </span>
     </div>
+    <% end %>
   <% end %>
 
   <div class="block" data-step="1" data-intro="Estas son las Prestadoras" data-position='top'>

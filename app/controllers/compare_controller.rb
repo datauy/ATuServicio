@@ -4,6 +4,7 @@ class CompareController < ApplicationController
 
   def index
     provider_ids = params[:selected_providers].try(:split, " ") || []
+
     @selected_providers = Provider.find(provider_ids.take(3))
     @title = 'Comparando'
     @description = 'Compará éstos prestadores de Salud para elegir informado o personalizalo para conocer a fondo los indicadores del tuyo.'
@@ -24,5 +25,10 @@ class CompareController < ApplicationController
       format.html
       format.js
     end
+  end
+
+  def add
+    selected_providers = "#{params[:selected_providers]} #{params[:provider_id]}" if params[:provider_id]
+    redirect_to action: 'index', selected_providers: selected_providers
   end
 end

@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'newrelic_rpm'
 gem 'puma'
 gem 'actionpack-action_caching'
+gem 'rails-jquery-autocomplete'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
