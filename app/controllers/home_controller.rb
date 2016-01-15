@@ -1,3 +1,4 @@
+# coding: utf-8
 class HomeController < ApplicationController
   def index
     # Get the ProviderMaximum object which contains all the maximum
@@ -5,6 +6,9 @@ class HomeController < ApplicationController
     @provider_maximums = Rails.cache.fetch('provider_maximums', expires_in: 120.hours) do
       ProviderMaximum.first
     end
+
+    @title = 'Inicio'
+    @description = 'Toda la información e indicadores de todos los prestadores de Salud de Uruguay para elegir informado o conocer a fondo los indicadores de tu servicio de salud.'
 
     # Get the selected state if we want to have the providers for a
     # given state

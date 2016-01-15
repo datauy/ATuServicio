@@ -134,7 +134,11 @@ module CompareHelper
 
   def share_message
     providers = @selected_providers.map{ |n| n.nombre_abreviado.split.map(&:capitalize)*' ' }.join(', ')
-    "Comparando #{providers} en AtuServicio.uy - #{URI.encode(request.original_url)}"
+    "Comparando #{providers} en AtuServicio.uy"
+  end
+
+  def current_url
+    URI.encode(request.original_url)
   end
 
   def table_cell(value)

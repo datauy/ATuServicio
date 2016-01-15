@@ -6,8 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title><%= @title %> - AtuServicio.uy</title>
+    <meta property="og:title" content="<%= @title %> - AtuServicio.uy" />
+    <meta property="og:description" content="<%= @description %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= current_url %>" />
+    <meta property="og:image" content="<%= image_url 'atuservicio-card.png'%>" />
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@datauy" />
+    <meta name="twitter:title" content="<%= @title %> - ATuServicio.uy" />
+    <meta name="twitter:description" content="<%= @description %>" />
+    <meta name="twitter:image" content="<%= image_url 'atuservicio-card.png'%>" />
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
