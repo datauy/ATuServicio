@@ -33,7 +33,7 @@ namespace :db do
       provider.update(parameters)
 
       states = provider.states
-      states.each do | state |
+      states.each do |state|
         provider.update_attributes(
           estructura_primaria: provider.coverage_by_state(state, 'Sede Central'),
           estructura_secundaria: provider.coverage_by_state(state, 'Sede Secundaria'),

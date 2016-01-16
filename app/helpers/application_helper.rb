@@ -30,7 +30,7 @@ module ApplicationHelper
   end
 
   def to_class_names(elements)
-    elements.map{ |s| s.downcase.gsub(' ', '_') }
+    elements.map { |s| s.downcase.gsub(' ', '_') }
   end
 
   def show_if_valid(provider, field)
