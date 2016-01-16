@@ -85,8 +85,13 @@ module CompareHelper
   end
 
   def appointment_request_value(column_value)
-    return table_cell('No') if column_value == 'f'
-    return table_cell('Sí') if column_value == 't'
+    no_icon = "<i class=\"demo-icon icon-no\"></i>"
+    yes_icon = "<i class=\"demo-icon icon-ok\"></i>"
+    return table_cell(no_icon) if column_value == 'f'
+    return table_cell(yes_icon) if column_value == 't'
+    if match = /^(S[í|I|i],?\s?)(.+)/.match(column_value)
+      return table_cell("#{yes_icon}<p>#{match[2].capitalize}</p>")
+    end
     column_value ? table_cell(column_value) : no_hay_datos
   end
 
