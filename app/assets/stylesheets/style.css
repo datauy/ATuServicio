@@ -19,7 +19,7 @@ a:hover {text-decoration: underline;}
 
 .comparative_header {
  background: #0B2F47;
- padding:2% 4%;
+ padding:2% 6%;
  display: inline-table;
  width: 100%;
 }
@@ -29,17 +29,41 @@ header .nav li a:hover, header .nav li.active a {background-color: #fff;color: #
 
 
 #logo { background: url(logo.png);display: block; height:59px; width: 262px; float:left;text-indent:-9000px;font-size: 0; margin:0 0 10px 0}
-.breadcrumb { width: 100%; background: #EAEAEA; padding:1% 4%; border-radius: 0; color:#E0F2F1; margin-bottom:50px;}
+.breadcrumb { width: 100%; background: #EAEAEA; padding:1% 6%; border-radius: 0; color:#E0F2F1; margin-bottom:50px;}
 .breadcrumb li a {
    color: #0B2F47;
 }
-section { padding:0 4%}
+section { padding:0 6%}
 
 /*HOME*/
-.home_header {background: none; display: inline-block;}
 
-.table-head-preview {}
+.home #intro { width: 100%; height: 900px; background: #ccc}
 
+.home thead th {background: #186E93; border: none; }
+.home thead th h3 {color: #fff;font-size: 15px; margin: 0}
+.home thead th a i {color: #3FA6C9}
+.home thead th .demo-icon {color: #fff;font-size: 30px;}
+.home  .input select { background: #fff;box-shadow: none;border: 1px solid #fff}
+.btn-tag {float: right; margin-left: 10px; background: #fff; padding: 10px 10px}
+.btn-tag figure img {width: 10%; float: left;}
+
+.table-head-preview tbody td {padding-left: 30px;}
+.table-head-preview tbody h4 { font-size: 16px;}
+.table-head-preview tbody p { }
+.table-head-preview tbody a { font-size: 10px;}
+.table-head-preview .structure { text-align: center; border:1px solid;display: block;padding:10px 5px; margin-top: 100px}
+.table-head-preview .progress { width: 100%;}
+.table-head-preview span { top: 1px !important;}
+.home .value {margin-bottom: 20px}
+.home .value label {font-size: 10px; width: auto; float: left; margin: 0}
+.home .value .txt { width: 100%; display: inline-block;}
+.home .value label:nth-of-type(even) {float: right;}
+.home .value  i {font-size: 20px; margin: 0 -5px}
+.home .txt-info { padding-left: 10px;}
+.home .txt-info p { font-size: 10px;}
+.home .txt-info .checkbox { text-transform: uppercase; margin: 40px 0; color: #186e93}
+
+.home #fixed-versus thead th {background: none}
 /*END HOME*/
 .share-nav  {padding: 0 !important}
 .share-nav li  { 
@@ -47,8 +71,15 @@ section { padding:0 4%}
     color: #ccc;
     display: inline-block;
 }
-.share-nav li a i:hover { background: none; color: #0B2F47}
-.share-nav li a i {font-size: 25px; color: #929497}
+.share-nav li a i:hover { border-color:#333; color: #333}
+.share-nav li a i {
+     font-size: 20px;
+    border: 4px solid #ccc;
+    color: #ccc;
+    border-radius: 100px;
+    padding: 6px 8px;
+    margin-left: 9px; 
+}
 
 .search-prestadora { }
 .search-prestadora input { border:1px solid #ccc; border-radius:0; padding: 20px }
@@ -133,7 +164,7 @@ background: #666;
 }
 .table-head td:hover > .icon-delate  { display: block;}
 .table-head figure { min-height: 100px}
-.table-head img { width: 70%; border: none;}
+.table-head img { width:100%; border: none;box-shadow: none}
 .two .table-head img {width: 45%}
 
 .block_title { background:#186E93; }
@@ -175,13 +206,13 @@ background: #666;
 }
 .block_preview .progress {height: 20px; margin: 0}
 
-.value {display: inline-block; width: 100%}
-.value label {display: inline-block; width: 100%; font-size: 12px; font-weight:normal; margin: 0}
+.value {display: inline-block; width: 100%;margin-bottom: 10px;}
+.value label {display: inline-block; width: 100%; font-size: 14px; font-weight:normal; margin: 0 0 5px 0}
 .socios { text-align: center;}
 .free { color: #A8D26F; margin: 0 }
 .free p {display: inline-block; padding: 0; margin: 0}
 .nodata { color: #0B2F47;margin: 0}
-.nodata p {display: inline-block;padding: 0;margin: 0}
+.nodata p {display: inline-block;padding: 0;margin: 0;text-transform: uppercase;}
 .asse { 
     font-size: 12px !important;
     text-align: left;
@@ -235,13 +266,13 @@ background: #666;
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
+
 .icon-info:before { content: '\e807'; } 
 .icon-ok:before { content: '\e806';font-size: 40px; color: #A8D26F } 
 .icon-no:before { content: '\e805';font-size: 40px; color: #0B2F47  }
 .icon-sad:before { content: '\e802';font-size: 30px; color: #0B2F47  } 
 .icon-happy:before { content: '\e803'; font-size: 30px; color: #A8D26F }
 .icon-derechos:before { content: '\e808'; }
-.icon-cancel:before { content: '\e800'; } 
 .icon-money:before { content: '\e801'; } 
 .icon-estructura:before { content: '\e809'; } 
 .icon-calendar:before { content: '\e80a'; } 
@@ -250,15 +281,22 @@ background: #666;
 .icon-rrhh:before { content: '\e80d'; } 
 .icon-sedes:before { content: '\e80e'; } 
 .icon-consultas:before { content: '\e804'; } 
+.icon-socios:before { content: '\e80f'; }
+.icon-clock:before { content: '\e810';color: #186e93 } 
+.icon-user:before { content: '\e811'; color: #3fa6c9 } 
+.icon-coin:before { content: '\e812'; } 
+.icon-cross:before { content: '\e813'; }
+.icon-person:before { content: '\e800';font-size: 80px; color:#3fa6c9 } /* '' */
+.icon-cancel:before { content: '\e801'; } /* '' */ 
+.disable:before { color: #dddddc}
 
 
 
-
-footer { background: #E6E7E8; padding: 2% 4%;}
+footer { background: #E6E7E8; padding: 2% 6%;}
 footer p {font-size: 12px; line-height: 20px; color:#666}
 footer h4 { color: #666}
 footer a { color: #42B4E7; font-size: 11px;}
-
+#bottom_footer { border-top:1px solid  #ccc; padding: 20px 0; margin-top: 20px}
 .modal-content { padding:10% 7%; box-shadow: none;border-radius: 10px; border:none;}
 .modal-title {
      font-size: 22px;
