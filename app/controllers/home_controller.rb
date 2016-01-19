@@ -1,5 +1,7 @@
 # coding: utf-8
 class HomeController < ApplicationController
+  layout 'atuservicio'
+
   def index
     # Get the ProviderMaximum object which contains all the maximum
     # values to compare in the graphs in the home view.

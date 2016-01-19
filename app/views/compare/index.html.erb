@@ -1,3 +1,17 @@
+<header class='comparative_header'>
+  <a class="logo" href="/">Atuservicio.uy</a>
+  <ul class="nav nav-pills">
+    <li role="presentation">
+      <a href="/sobre_el_proyecto">Sobre el proyecto</a></li>
+    <li>
+      <a  href="javascript:void(0);" onclick="javascript:introJs().start();">
+        Como funciona?
+      </a>
+    </li>
+  </ul>
+</header>
+
+<%= render 'layouts/breadcrumbs'%>
 <section>
   <!-- Search box -->
   <% if @selected_providers.count < 3 %>

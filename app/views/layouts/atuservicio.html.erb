@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title><%= @title %> - AtuServicio.uy</title>
     <meta property="og:title" content="<%= @title %> - AtuServicio.uy" />
     <meta property="og:description" content="<%= @description %>" />
@@ -29,26 +28,15 @@
          <![endif]-->
   </head>
 
-  <body>
+  <% if current_page?(controller: 'home', action: 'index')%>
+    <body class="home">
+  <% else %>
+    <body>
+  <% end %>
     <%= query_diet_widget if Rails.env.development? %>
     <div id="loader">
       <%= image_tag 'loading.gif'%>
     </div>
-
-    <header class='comparative_header'>
-      <a class="logo" href="/">Atuservicio.uy</a>
-      <ul class="nav nav-pills">
-        <li role="presentation">
-          <a href="/sobre_el_proyecto">Sobre el proyecto</a></li>
-        <li>
-          <a  href="javascript:void(0);" onclick="javascript:introJs().start();">
-            Como funciona?
-          </a>
-        </li>
-      </ul>
-    </header>
-
-    <%= render 'layouts/breadcrumbs'%>
 
     <%= yield %>
 
