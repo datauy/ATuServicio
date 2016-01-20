@@ -129,11 +129,11 @@ module CompareHelper
 
   def progress_bar(value)
     <<-eos
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="#{value}" aria-valuemin="0" aria-valuemax="100" style="width: #{value}%;">
-        </div>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="#{value}" aria-valuemin="0" aria-valuemax="100" style="width: #{value}%;">
         <span class="sr-only">#{value}%</span>
       </div>
+    </div>
     eos
   end
 

@@ -1,9 +1,5 @@
+# coding: utf-8
 module ApplicationHelper
-  def waiting_times
-    [:tiempo_espera_medicina_general, :tiempo_espera_pediatria,
-     :tiempo_espera_cirugia_general, :tiempo_espera_ginecotocologia,
-     :tiempo_espera_medico_referencia]
-  end
 
   def columns_name_description(group)
     group_names = METADATA[group][:description]
@@ -47,7 +43,7 @@ module ApplicationHelper
     value
   end
 
-  def no_hay_datos
+  def self.no_hay_datos
     "<td class=\"nodata\"><p>NO HAY DATOS</p><i class=\"demo-icon icon-sad\"></i></td>".html_safe
   end
 end
