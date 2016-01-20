@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115180804) do
+ActiveRecord::Schema.define(version: 20160119235215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -188,13 +188,14 @@ ActiveRecord::Schema.define(version: 20160115180804) do
     t.boolean  "reumatologia"
     t.boolean  "traumatologia"
     t.boolean  "urologia"
+    t.integer  "states_id"
   end
 
   add_index "sites", ["provider_id"], name: "index_sites_on_provider_id", using: :btree
   add_index "sites", ["state_id"], name: "index_sites_on_state_id", using: :btree
 
   create_table "states", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

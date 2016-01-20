@@ -16,21 +16,18 @@ module ApplicationHelper
   end
 
   def state_options(states)
-    (['Todo el pais'] + states).zip(['todos'] + to_class_names(states))
+    (['Filtar por departamento'] + states).zip(
+      ['todos'] + states.map(&:name)
+    )
   end
 
   def provider_options
     @providers.order(:nombre_abreviado).map do |p|
       [
         p.nombre_abreviado,
-        p.id,
-        { class: (['todos'] + to_class_names(p.states)).join(' ') }
+        p.id
       ]
     end
-  end
-
-  def to_class_names(elements)
-    elements.map { |s| s.downcase.gsub(' ', '_') }
   end
 
   def show_if_valid(provider, field)

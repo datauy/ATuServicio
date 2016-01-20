@@ -17,9 +17,8 @@ class HomeController < ApplicationController
     @selected_state = params['departamento']
 
     @sel_providers = if @selected_state && @selected_state != 'todos'
-                       @providers.where(
-                         id: Site.providers_by_state(@selected_state)
-                       ).order(:private_insurance).order(:nombre_abreviado)
+                       state = State.find_by_name(@selected_state)
+                       state.providers.order(:private_insurance).order(:nombre_abreviado).uniq
                      else
                        @providers.order(:private_insurance).order(:nombre_abreviado)
                      end

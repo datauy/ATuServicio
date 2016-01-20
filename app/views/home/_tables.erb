@@ -1,65 +1,159 @@
-<table class="col-md-12 table" id="listado">
-  <thead>
-    <tr id="filtros">
-      <th>
-        <a href="#" id="prestador_info">
-          <span class="glyphicon glyphicon-info-sign"> </span>
-        </a>
-        <i class="icon-01"></i>
-        <label>Prestador</label>
-      </th>
-      <th data-sort="float" data-sort-default="asc">
-        <a href="#" id="tiempos_info">
-          <span class="glyphicon glyphicon-info-sign"> </span>
-        </a>
-        <i class="icon-02"></i>
-        <label>Tiempos de espera</label>
-        <i class="icon-down-open" id="time-sort"> </i>
-      </th>
-      <th>
-        <a href="#" id="derechos_info">
-          <span class="glyphicon glyphicon-info-sign"> </span>
-        </a>
-        <i class="icon-00"></i>
-        <label>Derechos de usuarios</label>
-      </th>
-      <th data-sort="float" data-sort-default="asc">
-        <a href="#" id="tickets_info">
-          <span class="glyphicon glyphicon-info-sign"> </span>
-        </a>
-        <i class="icon-04"></i>
-        <label>Tickets y órdenes</label>
-        <i class="icon-down-open" id="ticket-sort"> </i>
-      </th>
-      <th>
-        <a href="#" id="metas_info">
-          <span class="glyphicon glyphicon-info-sign"> </span>
-        </a>
-        <i class="icon-03"></i>
-        <label>Metas asistenciales</label>
-      </th>
-      <th>
-        <a href="#" id="socios_info">
-          <span class="glyphicon glyphicon-info-sign"> </span>
-        </a>
-        <i class="icon-06"></i>
-        <label>Cantidad de socios</label>
-      </th>
-      <th>
-        <a href="#" id="rrhh_info">
-          <span class="glyphicon glyphicon-info-sign"> </span>
-        </a>
-        <i class="icon-05"></i>
-        <label>Recursos humanos</label>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render 'referencia' %>
-    <%= render 'info_modals' %>
-    <%= render 'table_body' %>
-  </tbody>
-</table>
-<div id="loading">
-  <%= image_tag('loading.gif', alt: "Cargando") %>
-</div>
+<section id="home_table">
+  <div id="fixed-versus" class="block">
+    <table class="table table-head">
+      <thead>
+        <tr>
+          <th>
+            <i class="demo-icon icon-estructura"></i>
+            <h3>Prestador</h3>
+            <a class="info" href="#" data-toggle="modal" data-target="#myModal"><i class="icon-info"></i> </a>
+          </th>
+
+          <th>
+            <i class="demo-icon icon-calendar"></i>
+            <h3>Tiempos de espera</h3>
+            <a class="info" href="#"><i class="icon-info"></i></a>
+          </th>
+
+          <th>
+            <i class="demo-icon icon-derechos"></i>
+            <h3>Derechos de usuario</h3>
+            <a class="info" href="#"><i class="icon-info"></i></a>
+          </th>
+
+          <th>
+            <i class="demo-icon icon-price"></i>
+            <h3>Precios</h3>
+            <a class="info" href="#"><i class="icon-info"></i></a>
+          </th>
+
+          <th>
+            <i class="demo-icon icon-metas"></i>
+            <h3>Metas asistenciales</h3>
+            <a class="info" href="#"><i class="icon-info"></i></a>
+          </th>
+
+          <th>
+            <i class="demo-icon icon-socios"></i>
+            <h3>Cantidad de socios</h3>
+            <a class="info" href="#"><i class="icon-info"></i></a>
+          </th>
+
+          <th>
+            <i class="demo-icon icon-rrhh"></i>
+            <h3>RRHH</h3>
+            <a class="info" href="#"><i class="icon-info"></i></a>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td colspan='7' style='background:#3FA6C9;height:auto'>
+            <div class="row input">
+              <div class="col-md-4">
+                <select class="form-control">
+                  <option>Ver datos del 2015</option>
+                  <option>Ver datos del 2014</option>
+                </select>
+              </div>
+              <div class="col-md-8">
+                <a class="btn-tag" id="btn-compare" href="#">Comparar ahora</a>
+                <!-- TODO selected providers (JS) -->
+                  <div class="btn-tag">
+                    <p>provider.nombre_abreviado</p>
+                    <a href="#"><i class="fa fa-trash"></i></a>
+                  </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="block_preview">
+    <table class="table table-head-preview">
+      <thead>
+        <tr>
+          <th>
+            <i class="demo-icon icon-estructura"></i>
+            <h3>Prestador</h3>
+            <a class="info" href="#" data-toggle="modal" data-target="#myModal"><i class="icon-info"></i> </a>
+          </th>
+
+          <th>
+            <i class="demo-icon icon-calendar"></i>
+            <h3>Tiempos de espera</h3>
+            <a href="#"><i class="icon-info"></i></a>
+          </th>
+
+          <th>
+            <i class="demo-icon icon-derechos"></i>
+            <h3>Derechos de usuario</h3>
+            <a href="#"><i class="icon-info"></i></a>
+          </th>
+
+          <th>
+            <i class="demo-icon icon-price"></i>
+            <h3>Precios</h3>
+            <a href="#"><i class="icon-info"></i></a>
+          </th>
+
+          <th>
+            <i class="demo-icon icon-metas"></i>
+            <h3>Metas asistenciales</h3>
+            <a href="#"><i class="icon-info"></i></a>
+          </th>
+
+          <th>
+            <i class="demo-icon icon-socios"></i>
+            <h3>Cantidad de socios</h3>
+            <a href="#"><i class="icon-info"></i></a>
+          </th>
+
+          <th>
+            <i class="demo-icon icon-rrhh"></i>
+            <h3>RRHH</h3>
+            <a href="#"><i class="icon-info"></i></a>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td colspan='7' style='background:#3FA6C9;padding:20px'>
+            <div class="row input">
+              <div class="col-md-4">
+                <select  class="form-control">
+                  <option>Ver datos del 2015</option>
+                  <option>Ver datos del 2014</option>
+                </select>
+              </div>
+
+              <div class="col-md-8">
+                <a class="btn-tag" id="btn-compare" href="#">Comparar ahora</a>
+                <!-- TODO selected providers (JS) -->
+                <div class="btn-tag">
+                  <p>provider.nombre_abreviado</p>
+                  <a href="#"><i class="fa fa-trash"></i></a>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan='7'>
+            <div class="row">
+              <div class="col-md-12">
+                <p class="olddata">Estas viendo datos del 2015</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <!--Prestadora-->
+        <%= render 'provider_rows' %>
+      </tbody>
+    </table>
+  </div>
+</section>

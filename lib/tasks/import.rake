@@ -22,16 +22,26 @@ namespace :db do
   task :import_sites => [:environment, :create_providers] do
     puts "Import provider sites"
     import_csv('sedes') do |provider, parameters|
+      state = State.find_by_name(parameters['departamento'].downcase)
+      parameters['state_id'] = state.id
       provider.sites.create(parameters)
     end
   end
 
   desc "Import data from CSV. Erases previous information"
   task :import => [:environment, :create_providers, :import_sites] do
+    puts "Import states"
+    states = YAML.load_file('config/states.yml')
+    states.each do |state|
+      State.create(
+        name: state
+      )
+    end
+
     puts "Import all data into providers"
     import_csv(*get_provider_groups) do |provider, parameters|
       provider.update(parameters)
-
+      # TODO - Check this
       states = provider.states
       states.each do |state|
         provider.update_attributes(

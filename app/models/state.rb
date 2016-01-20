@@ -1,13 +1,15 @@
 # coding: utf-8
-class State
-  def self.all
-    ['Artigas', 'Canelones', 'Cerro Largo', 'Colonia', 'Durazno', 'Flores', 'Florida', 'Lavalleja', 'Maldonado', 'Montevideo', 'Paysandú', 'Rivera', 'Rocha', 'Río Negro', 'Salto', 'San José', 'Soriano', 'Tacuarembó', 'Treinta Y Tres']
+class State  < ActiveRecord::Base
+  validates_presence_of :name
+  validates_uniqueness_of :name
+  has_many :sites
+  has_many :providers, through: :sites
+
+  def proper_name
+    name.split(' ').map(&:capitalize).join(' ')
   end
 
-  def self.proper_name(state)
-    unless state[0] == state[0].upcase
-      state = state.split('_').map(&:capitalize).join(' ')
-    end
-    state
+  def to_s
+    proper_name
   end
 end

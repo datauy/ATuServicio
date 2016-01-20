@@ -28,7 +28,7 @@
          <![endif]-->
   </head>
 
-  <% if current_page?(controller: 'home', action: 'index')%>
+  <% if controller.controller_name == 'home' %>
     <body class="home">
   <% else %>
     <body>

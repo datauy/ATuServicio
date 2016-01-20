@@ -1,5 +1,6 @@
 class Provider < ActiveRecord::Base
   has_many :sites, dependent: :delete_all
+  has_many :states, through: :sites
 
   def average(name)
     columns = METADATA[:precios][:averages][name][:columns]
@@ -20,11 +21,7 @@ class Provider < ActiveRecord::Base
 
   # What coverage type exists by state
   def coverage_by_state(state, type)
-    sites.where(departamento: State.proper_name(state), nivel: type).count if state
-  end
-
-  def states
-    sites.group(:departamento).count.keys
+    sites.where(departamento: state.name, nivel: type).count if state
   end
 
   def sites_by_state(state)
