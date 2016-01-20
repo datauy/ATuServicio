@@ -35,7 +35,7 @@ module CompareHelper
       value = if (column_value)
                 table_cell(progress_bar(column_value))
               else
-                no_hay_datos
+                ApplicationHelper.no_hay_datos
               end
     when :rrhh
       value = rrhh_value(provider, column_value, column)
@@ -51,7 +51,7 @@ module CompareHelper
     if provider.asse?
       sin_costo
     elsif provider.private_insurance
-      no_hay_datos
+      ApplicationHelper.no_hay_datos
     else
       table_cell("<p>$ #{column_value.round}</p>")
     end
@@ -63,7 +63,7 @@ module CompareHelper
     elsif column_value.is_a?(TrueClass) || column_value.is_a?(FalseClass)
       table_cell(boolean_icons(column_value))
     else
-      no_hay_datos
+      ApplicationHelper.no_hay_datos
     end
   end
 
@@ -81,7 +81,7 @@ module CompareHelper
     else
       value = (column_value) ? column_value : nil
     end
-    value.nil? ? no_hay_datos : table_cell(value)
+    value.nil? ? ApplicationHelper.no_hay_datos : table_cell(value)
   end
 
   def appointment_request_value(column_value)
@@ -92,7 +92,7 @@ module CompareHelper
     if match = /^(S[í|I|i],?\s?)(.+)/.match(column_value)
       return table_cell("#{yes_icon}<p>#{match[2].capitalize}</p>")
     end
-    column_value ? table_cell(column_value) : no_hay_datos
+    column_value ? table_cell(column_value) : ApplicationHelper.no_hay_datos
   end
 
   def check_enough_data_times(column, provider)
