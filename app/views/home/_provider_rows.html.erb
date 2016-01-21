@@ -49,6 +49,7 @@
 
     <td>Tickets</td>
 
+    <!-- Metas asistenciales -->
     <td>
       <% goals.each do |value| %>
         <div class="value">
@@ -62,7 +63,7 @@
       <div class="socios">
         <i class="icon-person"></i>
         <h4><%= number_with_delimiter(provider.afiliados, delimiter: ".") %></h4>
-        <h5>15% del SNIS</h5>
+        <h5><%= snis_percentage(provider.afiliados) %>% del SNIS</h5>
       </div>
     </td>
 

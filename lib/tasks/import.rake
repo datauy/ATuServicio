@@ -83,7 +83,7 @@ namespace :db do
 
     # Affiliates
     puts "Calculating Affiliates"
-    maximums.affiliates = Provider.maximum("afiliados")
+    maximums.affiliates = Provider.all.map(&:afiliados).reduce(:+)
 
     # Tickets
     puts "Calculating Tickets"

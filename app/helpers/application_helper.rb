@@ -1,6 +1,5 @@
 # coding: utf-8
 module ApplicationHelper
-
   def columns_name_description(group)
     group_names = METADATA[group][:description]
     group_descriptions = METADATA[group][:columns]
@@ -33,6 +32,10 @@ module ApplicationHelper
     else
       nil
     end
+  end
+
+  def snis_percentage(affiliates)
+    affiliates * 100 / @provider_maximums.affiliates
   end
 
   # Returns true, false, or question mark if value not present
