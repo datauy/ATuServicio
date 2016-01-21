@@ -24,7 +24,7 @@
           <div class="txt">
             <label><%= value[1] %></label>
             <% if provider.send(value[0]) %>
-              <label><%= provider.send(value[0]) %> DIAS</label>
+              <label><%= number_with_delimiter(provider.send(value[0]), separator: ',') %> DIAS</label>
           </div>
           <div class="icons">
             <%= IconsHelper::render_clocks(provider, value, @provider_maximums.waiting_time) %>
@@ -61,12 +61,11 @@
     <td>
       <div class="socios">
         <i class="icon-person"></i>
-        <h4>2.421</h4>
+        <h4><%= number_with_delimiter(provider.afiliados, delimiter: ".") %></h4>
         <h5>15% del SNIS</h5>
-
       </div>
-
     </td>
+
     <td>
       <div class="value">
         <div class="txt">

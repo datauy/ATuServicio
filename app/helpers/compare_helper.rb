@@ -131,7 +131,7 @@ module CompareHelper
     <<-eos
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="#{value}" aria-valuemin="0" aria-valuemax="100" style="width: #{value}%;">
-        <span class="sr-only">#{value}%</span>
+        <span class="sr-only">#{number_with_delimiter(value, separator: ',')}%</span>
       </div>
     </div>
     eos
