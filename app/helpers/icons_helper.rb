@@ -17,7 +17,7 @@ module IconsHelper
 
   private
 
-  def satisfactions_value(provider, value)
+  def percentages_value(provider, value)
     html = ''
     begin
       percentage = provider.send(value[0])

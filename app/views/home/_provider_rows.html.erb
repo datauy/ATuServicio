@@ -20,7 +20,7 @@
     <!-- Tiempos de espera -->
     <td>
       <% waiting_times.each do |value| %>
-        <div class="value <%= provider.id %>">
+        <div class="value">
           <div class="txt">
             <label><%= value[1] %></label>
             <% if provider.send(value[0]) %>
@@ -37,43 +37,27 @@
       <% end %>
     </td>
 
+    <!-- Satisfaction -->
     <td>
       <% satisfactions.each do |value| %>
         <div class="value">
           <label><%= value[1] %></label>
-          <%= satisfactions_value(provider, value).html_safe %>
+          <%= percentages_value(provider, value).html_safe %>
         </div>
       <% end %>
     </td>
 
     <td>Tickets</td>
-    <td>
-      <div class="value">
-        <label>Recep Quejas</label>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-            <span class="sr-only">60%</span>
-          </div>
-        </div>
-      </div>
-      <div class="value">
-        <label>Recep Quejas</label>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-            <span class="sr-only">60%</span>
-          </div>
-        </div>
-      </div>
-      <div class="value">
-        <label>Recep Quejas</label>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-            <span class="sr-only">60%</span>
-          </div>
-        </div>
-      </div>
 
+    <td>
+      <% goals.each do |value| %>
+        <div class="value">
+          <label><%= value[1] %></label>
+          <%= percentages_value(provider, value).html_safe %>
+        </div>
+      <% end %>
     </td>
+
     <td>
       <div class="socios">
         <i class="icon-person"></i>
