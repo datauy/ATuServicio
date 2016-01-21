@@ -11,7 +11,7 @@
             <input type="checkbox" class="add_compare" data-id="<%= provider.id %>" data-name="<%= provider.nombre_abreviado %>">Comparar
           </label>
         </div>
-        <a class="structure" href="/comparar/<%= provider.id %>">
+        <a class="structure" href="#">
           Ver estructura y sedes
         </a>
       </div>
@@ -74,7 +74,7 @@
           <div class="txt">
             <label><%= value[1] %></label>
             <% if provider.send(value[0]) %>
-              <label><%= number_with_delimiter(provider.send(value[0]), separator: ',') %></label>
+              <label><%= number_with_delimiter(provider.send(value[0]), separator: ',') %>/10.000</label>
           </div>
           <div class="icons">
             <%= IconsHelper::render_icons(provider, value, @provider_maximums.personnel, 'user') %>
