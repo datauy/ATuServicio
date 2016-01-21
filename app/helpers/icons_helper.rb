@@ -1,15 +1,15 @@
 # coding: utf-8
 module IconsHelper
-  def self.render_clocks(provider, value, max)
+  def self.render_icons(provider, value, max, icon)
     display = ''
     # Get the actual value for this column:
     clocks = calculate_value(provider.send(value[0]), max)
     clocks.times do
-      display += "<i class=\"icon-clock\"></i> "
+      display += "<i class=\"icon-#{icon}\"></i> "
     end
     if clocks < 5
       (5 - clocks).times do
-        display += "<i class=\"icon-clock disable\"></i> "
+        display += "<i class=\"icon-#{icon} disable\"></i> "
       end
     end
     display.html_safe

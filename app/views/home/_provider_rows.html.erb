@@ -27,7 +27,7 @@
               <label><%= number_with_delimiter(provider.send(value[0]), separator: ',') %> DIAS</label>
           </div>
           <div class="icons">
-            <%= IconsHelper::render_clocks(provider, value, @provider_maximums.waiting_time) %>
+            <%= IconsHelper::render_icons(provider, value, @provider_maximums.waiting_time, 'clock') %>
           </div>
             <% else %>
         </div>
@@ -67,47 +67,24 @@
       </div>
     </td>
 
+    <!-- RRHH -->
     <td>
-      <div class="value">
-        <div class="txt">
-          <label>Medico Grl</label>
-          <label>2</label>
+      <% rrhh.each do |value| %>
+        <div class="value">
+          <div class="txt">
+            <label><%= value[1] %></label>
+            <% if provider.send(value[0]) %>
+              <label><%= number_with_delimiter(provider.send(value[0]), separator: ',') %></label>
+          </div>
+          <div class="icons">
+            <%= IconsHelper::render_icons(provider, value, @provider_maximums.personnel, 'user') %>
+          </div>
+            <% else %>
         </div>
-        <div class="icons">
-          <i class="icon-user"></i>
-          <i class="icon-user"></i>
-          <i class="icon-user"></i>
-          <i class="icon-user"></i>
-          <i class="icon-user"></i>
-        </div>
-        
-      </div>  
-      <div class="value">
-        <div class="txt">
-          <label>Medico Grl</label>
-          <label>14</label>
-        </div>
-        <div class="icons">
-          <i class="icon-user"></i>
-          <i class="icon-user"></i>
-          <i class="icon-user"></i>
-          <i class="icon-user"></i>
-          <i class="icon-user disable"></i>
-        </div>
+        <%= IconsHelper.no_data.html_safe %>
+            <% end %>
       </div>
-      <div class="value">
-        <div class="txt">
-          <label>Medico Grl</label>
-          <label>18</label>
-        </div>
-        <div class="icons">
-          <i class="icon-user"></i>
-          <i class="icon-user"></i>
-          <i class="icon-user"></i>
-          <i class="icon-user disable"></i>
-          <i class="icon-user disable"></i>
-        </div>
-      </div>
+      <% end %>
     </td>
   </tr>
 <% end %>
