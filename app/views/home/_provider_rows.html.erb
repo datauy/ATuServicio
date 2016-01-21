@@ -23,12 +23,17 @@
         <div class="value <%= provider.id %>">
           <div class="txt">
             <label><%= value[1] %></label>
-            <label>14 DIAS</label>
+            <% if provider.send(value[0]) %>
+              <label><%= provider.send(value[0]) %> DIAS</label>
           </div>
           <div class="icons">
             <%= IconsHelper::render_clocks(provider, value, @provider_maximums.waiting_time) %>
           </div>
+            <% else %>
         </div>
+        <%= IconsHelper.no_data.html_safe %>
+            <% end %>
+      </div>
       <% end %>
     </td>
 
@@ -42,7 +47,6 @@
     </td>
 
     <td>Tickets</td>
-
     <td>
       <div class="value">
         <label>Recep Quejas</label>

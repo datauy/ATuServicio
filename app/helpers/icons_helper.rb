@@ -1,7 +1,6 @@
 # coding: utf-8
 module IconsHelper
   def self.render_clocks(provider, value, max)
-    return no_data.html_safe unless provider.send(value[0])
     display = ''
     # Get the actual value for this column:
     clocks = calculate_value(provider.send(value[0]), max)
@@ -48,11 +47,6 @@ module IconsHelper
   end
 
   def self.calculate_value(value, max)
-    if value.to_f > 0 && value.to_f < 1
-      value = 1
-    else
-      value = (value.to_f * 5 / max).round
-    end
-    value
+    (value.to_f * 5 / max).round
   end
 end
