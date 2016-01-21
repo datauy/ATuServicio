@@ -33,7 +33,12 @@
     </td>
 
     <td>
-      <%= render_satisfactions(provider).html_safe %>
+      <% satisfactions.each do |value| %>
+        <div class="value">
+          <label><%= value[1] %></label>
+          <%= satisfactions_value(provider, value).html_safe %>
+        </div>
+      <% end %>
     </td>
 
     <td>Tickets</td>

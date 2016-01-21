@@ -18,34 +18,21 @@ module IconsHelper
 
   private
 
-  def render_satisfactions(provider)
+  def satisfactions_value(provider, value)
     html = ''
-    values = satisfactions
-    # First goal is not percentage, just a value:
-    general = values.shift
-    html += <<-eos
-        <div class="value">
-          <label>#{general[1]}</label>
-          <h4>#{provider.send(general[0])}</h4>
-        </div>
-    eos
-    # End "Satisfacción con Servicios del Primer Nivel de Atención (2014)"
-    values.each do |satisfaction|
-      begin
-        html += <<-eos
-        <div class="value">
-          <label>#{satisfaction[1]}</label>
-          #{progress_bar(provider.send(satisfaction[0]))}
-        </div>
-        eos
-      rescue
-        html += <<-eos
-        <div class="value">
-          <label>#{satisfaction[1]}</label>
-          #{IconsHelper.no_data}
-        </div>
-        eos
+    begin
+      percentage = provider.send(value[0])
+      if percentage == nil
+        html += IconsHelper.no_data
+      else
+        if value[0] == :satisfaccion_primer_nivel_atencion_2014
+          html += "<h4>#{provider.send(value[0])}</h4>"
+        else
+          html += progress_bar(percentage)
+        end
       end
+    rescue
+      html += IconsHelper.no_data
     end
     html
   end
