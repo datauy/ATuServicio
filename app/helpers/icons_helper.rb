@@ -1,10 +1,10 @@
 # coding: utf-8
 module IconsHelper
   def self.render_clocks(provider, value, max)
-    return no_data.html_safe unless provider.send(value[0].to_sym)
+    return no_data.html_safe unless provider.send(value[0])
     display = ''
     # Get the actual value for this column:
-    clocks = calculate_value(provider.send(value[0].to_sym), max)
+    clocks = calculate_value(provider.send(value[0]), max)
     clocks.times do
       display += "<i class=\"icon-clock\"></i> "
     end
@@ -54,17 +54,5 @@ module IconsHelper
       value = (value.to_f * 5 / max).round
     end
     value
-  end
-
-  def self.render_users(value, max)
-    users = []
-    value = calculate_value(value, max)
-    value.times do
-      users << "<i class=\"icon-user verde\"></i>"
-    end
-    while users.count < 50
-      users << "<i class=\"icon-user\"></i>"
-    end
-    users.join('').html_safe
   end
 end

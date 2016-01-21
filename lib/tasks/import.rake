@@ -67,14 +67,18 @@ namespace :db do
     maximums = ProviderMaximum.first || ProviderMaximum.new
     # Waiting times
     puts "Calculating Waiting times"
-    value = Provider.all.map do |provider|
+    value = 0
+    Provider.all.each do |provider|
       ['medicina_general', 'pediatria', 'cirugia_general',
        'ginecotocologia', 'medico_referencia'].map do |field|
         if provider.send("datos_suficientes_tiempo_espera_#{field}".to_sym)
-          provider.send("tiempo_espera_#{field}".to_sym)
+          if provider.send("tiempo_espera_#{field}".to_sym) > value
+            value = provider.send("tiempo_espera_#{field}".to_sym)
+          end
         end
-      end.compact.reduce(:+)
-    end.compact.max
+      end
+    end
+
     maximums.waiting_time = value
 
     # Affiliates
