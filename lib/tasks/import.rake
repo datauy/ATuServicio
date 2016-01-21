@@ -41,6 +41,10 @@ namespace :db do
     puts "Import all data into providers"
     import_csv(*get_provider_groups) do |provider, parameters|
       provider.update(parameters)
+
+      # Set private insurances
+      provider.update_attributes(private_insurance: true) if provider.nombre_abreviado.include?("Seguro Privado")
+
       # TODO - Check this
       states = provider.states
       states.each do |state|
