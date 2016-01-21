@@ -103,21 +103,21 @@ namespace :db do
 
     # Personnel
     puts "Calculating personnel"
-    value = Provider.all.map do |provider|
+    value = 0
+    Provider.all.map do |provider|
       [:medicos_generales_policlinica,
        :medicos_de_familia_policlinica,
        :medicos_pediatras_policlinica,
        :medicos_ginecologos_policlinica,
        :auxiliares_enfermeria_policlinica,
        :licenciadas_enfermeria_policlinica].map do |position|
-        value = provider.send(position).to_f
-        if value.is_a? Numeric
-          value
+        quantity = provider.send(position).to_f
+        if quantity > value
+          value = quantity
         end
-      end.compact.reduce(:+)
-    end.compact.max
+      end
+    end
     maximums.personnel = value
-
     maximums.save
   end
 
