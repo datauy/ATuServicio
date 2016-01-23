@@ -52,13 +52,20 @@ namespace :importer do
   desc 'Import consultations'
   task consultas: [:environment] do
     puts 'Importing consultas'
-    importing('solicitud_consultas', {col_sep: ','})
+    importing('solicitud_consultas', col_sep: ',')
+  end
+
+  desc 'Import waiting times'
+  task times: [:environment] do
+    puts 'Importing waiting times'
+    importing('tiempos_espera')
   end
 
   desc 'Sites'
   task sites: [:environment] do
     puts 'Importing sites'
     importing('sedes') do |provider, parameters|
+      #TODO: Remove these:
       byebug unless parameters['departamento']
       state = State.find_by_name(parameters['departamento'].strip.mb_chars.downcase.to_s)
       byebug unless state

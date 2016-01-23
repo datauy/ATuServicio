@@ -356,28 +356,15 @@ tiempos_espera:
     - "Datos suficientes de espera para Médico de Referencia de Medicina General"
   columns:
     - tiempo_espera_medicina_general
-    - datos_suficientes_tiempo_espera_medicina_general
     - tiempo_espera_pediatria
-    - datos_suficientes_tiempo_espera_pediatria
     - tiempo_espera_cirugia_general
-    - datos_suficientes_tiempo_espera_cirugia_general
     - tiempo_espera_ginecotocologia
-    - datos_suficientes_tiempo_espera_ginecotocologia
-    - tiempo_espera_medico_referencia
-    - datos_suficientes_tiempo_espera_medico_referencia
   definition:
     decimal:
       - tiempo_espera_medicina_general
       - tiempo_espera_pediatria
       - tiempo_espera_cirugia_general
       - tiempo_espera_ginecotocologia
-      - tiempo_espera_medico_referencia
-    boolean:
-      - datos_suficientes_tiempo_espera_medicina_general
-      - datos_suficientes_tiempo_espera_pediatria
-      - datos_suficientes_tiempo_espera_cirugia_general
-      - datos_suficientes_tiempo_espera_ginecotocologia
-      - datos_suficientes_tiempo_espera_medico_referencia
 
 satisfaccion_derechos:
   title: "Satisfacción de derechos"
