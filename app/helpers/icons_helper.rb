@@ -47,6 +47,6 @@ module IconsHelper
   end
 
   def self.calculate_value(value, max)
-    (value.to_f * 5 / max).round
+    (value.to_f * 5 / max)
   end
 end
