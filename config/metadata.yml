@@ -489,10 +489,7 @@ solicitud_consultas:
     - comunicacion_usuario_suspension_modificacion
   definition:
     string:
-      - reserva_presencial
-      - reserva_telefonica
-      - reserva_web
-      - reserva_consulta_medica
+      - vias_asignacion_citas
       - realiza_recordatorio_cita
       - realiza_caida_reserva_sin_confirmacion
       - comunicacion_usuario_suspension_modificacion

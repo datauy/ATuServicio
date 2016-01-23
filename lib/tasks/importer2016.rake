@@ -34,7 +34,7 @@ namespace :importer do
 
     [:rrhh, :solicitud_consultas].each do |importable|
       puts "Importing #{importable}"
-      importing('rrhh', col_sep: ',')
+      importing(importable, col_sep: ',')
     end
 
     puts 'Importing sites'
