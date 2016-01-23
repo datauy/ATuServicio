@@ -53,6 +53,8 @@ module ImporterHelper
       logo = /logos\/([0-9]+\-[a-z\-]+\.png)/.match(logo_file[0])[1]
     end
     logo if logo
+  rescue
+    './app/assets/images/logos/no-logo.png'
   end
 
   # TODO

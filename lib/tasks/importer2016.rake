@@ -17,7 +17,8 @@ namespace :importer do
         nombre_completo: row[2],
         web: row[3],
         afiliados_fonasa: row[4],
-        afiliados: row[6]
+        afiliados: row[6],
+        logo: assign_logo(row[0])
       )
       # Set private insurances
       provider.private_insurance = true if provider.nombre_abreviado.include?('Seguro Privado')
