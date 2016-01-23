@@ -15,8 +15,8 @@ namespace :importer do
         id: row[0],
         nombre_abreviado: row[1],
         nombre_completo: row[2],
-        web: row[4],
-        fonasa_affiliates: row[5],
+        web: row[3],
+        afiliados_fonasa: row[4],
         afiliados: row[6]
       )
       # Set private insurances
@@ -25,69 +25,110 @@ namespace :importer do
     end
   end
 
-  desc 'Import prices'
-  task prices: [:environment] do
-    puts 'Importing prices'
-    importing('precios')
-  end
+  desc 'Import provider data'
+  task provider_data: [:environment] do
+    [:precios, :metas, :satisfaccion_derechos, :tiempos_espera].each do |importable|
+      puts "Importing #{importable}"
+      importing(importable)
+    end
 
-  desc 'Import goals'
-  task goals: [:environment] do
-    puts 'Importing goals'
-    importing('metas')
-  end
+    [:rrhh, :solicitud_consultas].each do |importable|
+      puts "Importing #{importable}"
+      importing('rrhh', col_sep: ',')
+    end
 
-  desc 'Import rrhh'
-  task rrhh: [:environment] do
-    puts 'Importing humans'
-    importing('rrhh', {col_sep: ','})
-  end
-
-  desc 'Get satisfaction'
-  task get_satisfaction: [:environment] do
-    puts 'I can\'t get no satisfaction'
-    importing('satisfaccion_derechos')
-  end
-
-  desc 'Import consultations'
-  task consultas: [:environment] do
-    puts 'Importing consultas'
-    importing('solicitud_consultas', col_sep: ',')
-  end
-
-  desc 'Import waiting times'
-  task times: [:environment] do
-    puts 'Importing waiting times'
-    importing('tiempos_espera')
-  end
-
-  desc 'Sites'
-  task sites: [:environment] do
     puts 'Importing sites'
     importing('sedes') do |provider, parameters|
-      #TODO: Remove these:
-      byebug unless parameters['departamento']
       state = State.find_by_name(parameters['departamento'].strip.mb_chars.downcase.to_s)
-      byebug unless state
       parameters['state_id'] = state.id
       provider.sites.create(parameters)
     end
   end
-end
 
-def importing(name, more_options = nil, &block)
-  options = {col_sep: ';'}
-  options.merge!(more_options) if more_options
-  import_file("2015/#{name}.csv", options) do |row|
-    headers = get_columns(name)
-    provider = Provider.find_by(id: row[0].to_i)
-    parameters = get_parameters(headers, row)
-    if block && provider
-      yield(provider, parameters)
-    elsif provider
-      provider.update(parameters)
-    else
-      puts "#{name} - No existe proveedor para #{row[0]}"
+  desc 'Import States'
+  task states: [:environment] do
+    puts 'Import states'
+    states = YAML.load_file('config/states.yml')
+    states.each do |state|
+      State.create(
+        name: state
+      )
     end
+  end
+
+  desc "Assign search name"
+  task :assign_search_name => [:environment] do
+    Provider.all.each do |provider|
+      search_name = "#{provider.nombre_abreviado} - #{provider.nombre_completo}"
+      provider.update_attributes(search_name: search_name)
+    end
+  end
+
+  desc 'Calculate Maximums'
+  task :calculate_maximums => [:environment] do
+    maximums = ProviderMaximum.first || ProviderMaximum.new
+    # Waiting times
+    puts 'Calculating Waiting times'
+    value = 0
+    Provider.all.each do |provider|
+      ['medicina_general', 'pediatria', 'cirugia_general',
+       'ginecotocologia', 'medico_referencia'].map do |field|
+        if provider.send("datos_suficientes_tiempo_espera_#{field}".to_sym)
+          if provider.send("tiempo_espera_#{field}".to_sym) > value
+            value = provider.send("tiempo_espera_#{field}".to_sym)
+          end
+        end
+      end
+    end
+
+    maximums.waiting_time = value
+
+    # Affiliates
+    puts 'Calculating Affiliates'
+    maximums.affiliates = Provider.all.map(&:afiliados).compact.reduce(:+)
+
+    # Tickets
+    puts 'Calculating Tickets'
+    value = Provider.all.map do |provider|
+      [:medicamentos, :tickets, :tickets_urgentes, :estudios].map do |ticket|
+        average = provider.average(ticket)
+        if average
+          average
+        end
+      end.compact.reduce(:+)
+    end.compact.max
+    maximums.tickets = value
+
+    # Personnel
+    puts 'Calculating personnel'
+    value = 0
+    Provider.all.map do |provider|
+      [:medicos_generales_policlinica,
+       :medicos_de_familia_policlinica,
+       :medicos_pediatras_policlinica,
+       :medicos_ginecologos_policlinica,
+       :auxiliares_enfermeria_policlinica,
+       :licenciadas_enfermeria_policlinica].map do |position|
+        quantity = provider.send(position).to_f
+        if quantity > value
+          value = quantity
+        end
+      end
+    end
+    maximums.personnel = value
+    maximums.save
+  end
+
+  desc 'Importing everything'
+  task all: [:environment] do
+    puts 'Import all data'
+  end
+
+  Rake::Task['importer:all'].enhance do
+    Rake::Task['importer:states'].invoke
+    Rake::Task['importer:providers'].invoke
+    Rake::Task['importer:provider_data'].invoke
+    Rake::Task['importer:calculate_maximums'].invoke
+    Rake::Task['importer:assign_search_name'].invoke
   end
 end

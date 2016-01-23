@@ -55,6 +55,24 @@ module ImporterHelper
     logo if logo
   end
 
+  # TODO
+  def importing(name, more_options = nil, &block)
+    options = {col_sep: ';'}
+    options.merge!(more_options) if more_options
+    import_file("2015/#{name}.csv", options) do |row|
+      headers = get_columns(name)
+      provider = Provider.find_by(id: row[0].to_i)
+      parameters = get_parameters(headers, row)
+      if block && provider
+        yield(provider, parameters)
+      elsif provider
+        provider.update(parameters)
+      else
+        puts "#{name} - No existe proveedor para #{row[0]}"
+      end
+    end
+  end
+
   CSV::Converters[:true_indicator] = lambda do |data|
     (data.downcase == "si") ? true : data
   end

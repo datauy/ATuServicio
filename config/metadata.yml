@@ -4,11 +4,13 @@ estructura:
     - "Nombre abreviado"
     - "Nombre Completo"
     - "Web"
+    - "Afiliados por Fonasa"
     - "Total de afiliados"
   columns:
     - nombre_abreviado
     - nombre_completo
     - web
+    - afiliados_fonasa
     - afiliados
   definition:
     string:
@@ -16,6 +18,7 @@ estructura:
       - nombre_completo
       - web
     integer:
+      - afiliados_fonasa
       - afiliados
 
 metas:
