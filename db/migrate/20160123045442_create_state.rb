@@ -4,8 +4,5 @@ class CreateState < ActiveRecord::Migration
       t.string :name, unique: true, null: false
       t.timestamps null: false
     end
-    change_table :sites do |t|
-      t.references :states
-    end
   end
 end

@@ -348,15 +348,9 @@ tiempos_espera:
   title: "Tiempos de Espera"
   description:
     - "Promedio de tiempo de espera para Medicina General"
-    - "Datos suficientes de tiempo de espera para Medicina General"
     - "Promedio de tiempo de espera para Pediatría"
-    - "Datos suficientes tiempo de espera para Pediatría"
     - "Promedio de tiempo de espera para Cirugía General"
-    - "Datos suficientes de tiempo de espera para Cirugía General"
     - "Promedio de tiempo de espera para Ginecotocología"
-    - "Datos suficientes de tiempo de espera para Ginecotocología"
-    - "Promedio de tiempo de espera para Médico de Referencia de Medicina General"
-    - "Datos suficientes de espera para Médico de Referencia de Medicina General"
   columns:
     - tiempo_espera_medicina_general
     - tiempo_espera_pediatria

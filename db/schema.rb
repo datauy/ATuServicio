@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123045442) do
+ActiveRecord::Schema.define(version: 20160123050658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,7 +170,7 @@ ActiveRecord::Schema.define(version: 20160123045442) do
     t.boolean  "reumatologia"
     t.boolean  "traumatologia"
     t.boolean  "urologia"
-    t.integer  "states_id"
+    t.integer  "state_id"
   end
 
   add_index "sites", ["provider_id"], name: "index_sites_on_provider_id", using: :btree

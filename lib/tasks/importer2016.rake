@@ -73,11 +73,10 @@ namespace :importer do
     value = 0
     Provider.all.each do |provider|
       ['medicina_general', 'pediatria', 'cirugia_general',
-       'ginecotocologia', 'medico_referencia'].map do |field|
-        if provider.send("datos_suficientes_tiempo_espera_#{field}".to_sym)
-          if provider.send("tiempo_espera_#{field}".to_sym) > value
-            value = provider.send("tiempo_espera_#{field}".to_sym)
-          end
+       'ginecotocologia'].map do |field|
+        the_thing = provider.send("tiempo_espera_#{field}".to_sym)
+        if  the_thing && the_thing > value
+          value = provider.send("tiempo_espera_#{field}".to_sym)
         end
       end
     end
