@@ -46,15 +46,11 @@ module ImporterHelper
   # provider's name and in png format.
   def assign_logo(id)
     # Hack ASSE:
-    if id.between?(90_000, 90_020)
-      logo = '90000-asse.png'
-    else
-      logo_file = Dir["./app/assets/images/logos/#{id}-*.png"]
-      logo = /logos\/([0-9]+\-[a-z\-]+\.png)/.match(logo_file[0])[1]
-    end
+    logo_file = Dir["./app/assets/images/logos/#{id}-*.png"]
+    logo = /logos\/([0-9]+\-[a-z\-]+\.png)/.match(logo_file[0])[1]
     logo if logo
   rescue
-    './app/assets/images/logos/no-logo.png'
+    'no-logo.png'
   end
 
   # TODO
