@@ -4,11 +4,13 @@ estructura:
     - "Nombre abreviado"
     - "Nombre Completo"
     - "Web"
+    - "Afiliados por Fonasa"
     - "Total de afiliados"
   columns:
     - nombre_abreviado
     - nombre_completo
     - web
+    - afiliados_fonasa
     - afiliados
   definition:
     string:
@@ -16,25 +18,23 @@ estructura:
       - nombre_completo
       - web
     integer:
+      - afiliados_fonasa
       - afiliados
 
 metas:
   title: "Metas Asistenciales"
   description:
-    - "Porcentaje de afiliados referenciados a un médico de referencia"
     - "Porcentaje de niños de un año correctamente controlados"
     - "Porcentaje de embarazadas correctamente controladas"
     - "Existencia de Espacio Adolescente en la institución"
     - "Comunicación en soporte electrónico (página web)"
   columns:
-    - meta_medico_referencia
     - meta_ninos_controlados
     - meta_embarazadas
     - espacio_adolescente
     - comunicacion
   definition:
     decimal:
-      - meta_medico_referencia
       - meta_ninos_controlados
       - meta_embarazadas
     boolean:
@@ -359,28 +359,15 @@ tiempos_espera:
     - "Datos suficientes de espera para Médico de Referencia de Medicina General"
   columns:
     - tiempo_espera_medicina_general
-    - datos_suficientes_tiempo_espera_medicina_general
     - tiempo_espera_pediatria
-    - datos_suficientes_tiempo_espera_pediatria
     - tiempo_espera_cirugia_general
-    - datos_suficientes_tiempo_espera_cirugia_general
     - tiempo_espera_ginecotocologia
-    - datos_suficientes_tiempo_espera_ginecotocologia
-    - tiempo_espera_medico_referencia
-    - datos_suficientes_tiempo_espera_medico_referencia
   definition:
     decimal:
       - tiempo_espera_medicina_general
       - tiempo_espera_pediatria
       - tiempo_espera_cirugia_general
       - tiempo_espera_ginecotocologia
-      - tiempo_espera_medico_referencia
-    boolean:
-      - datos_suficientes_tiempo_espera_medicina_general
-      - datos_suficientes_tiempo_espera_pediatria
-      - datos_suficientes_tiempo_espera_cirugia_general
-      - datos_suficientes_tiempo_espera_ginecotocologia
-      - datos_suficientes_tiempo_espera_medico_referencia
 
 satisfaccion_derechos:
   title: "Satisfacción de derechos"
@@ -491,27 +478,18 @@ rrhh:
 solicitud_consultas:
   title: "Solicitud de consultas"
   description:
-    - "Reserva presencial"
-    - "Reserva telefónica"
-    - "Reserva web"
-    - "Reserva en consulta médica"
+    - "Vias de asignación de citas"
     - "Realiza recordatorio de cita"
     - "Realiza caída de reserva en determinado tiempo antes/después del inicio de la consulta si no es confirmada"
     - "Comunicación con el usuario por suspensión o modificación de la consulta"
   columns:
-    - reserva_presencial
-    - reserva_telefonica
-    - reserva_web
-    - reserva_consulta_medica
+    - vias_asignacion_citas
     - realiza_recordatorio_cita
     - realiza_caida_reserva_sin_confirmacion
     - comunicacion_usuario_suspension_modificacion
   definition:
     string:
-      - reserva_presencial
-      - reserva_telefonica
-      - reserva_web
-      - reserva_consulta_medica
+      - vias_asignacion_citas
       - realiza_recordatorio_cita
       - realiza_caida_reserva_sin_confirmacion
       - comunicacion_usuario_suspension_modificacion

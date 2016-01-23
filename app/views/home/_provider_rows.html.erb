@@ -62,8 +62,12 @@
     <td>
       <div class="socios">
         <i class="icon-person"></i>
-        <h4><%= number_with_delimiter(provider.afiliados, delimiter: ".") %></h4>
-        <h5><%= snis_percentage(provider.afiliados) %>% del SNIS</h5>
+        <% if provider.afiliados %>
+          <h4><%= number_with_delimiter(provider.afiliados, delimiter: ".") %></h4>
+          <h5><%= snis_percentage(provider.afiliados) %>% del SNIS</h5>
+        <% else %>
+          <%= IconsHelper.no_data.html_safe %>
+        <% end %>
       </div>
     </td>
 

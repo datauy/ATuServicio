@@ -1,59 +1,59 @@
+# See:
 require "#{Rails.root}/lib/importer_helper"
 include ImporterHelper
 
-namespace :db do
-  desc "Create providers"
-  task :create_providers => [:environment] do
-    puts "Deleting all providers"
+namespace :importer do
+  desc 'Create providers'
+  task providers: [:environment] do
+    puts 'Delete providers'
     Provider.destroy_all
 
-    puts "Creating providers"
+    puts 'Creating providers'
+
     import_file('2015/estructura.csv') do |row|
-      id = row[0]
-      Provider.create(
-        id: id,
-        logo: assign_logo(id)
+      provider = Provider.new(
+        id: row[0],
+        nombre_abreviado: row[1],
+        nombre_completo: row[2],
+        web: row[3],
+        afiliados_fonasa: row[4],
+        afiliados: row[6],
+        logo: assign_logo(row[0])
       )
+      # Set private insurances
+      provider.private_insurance = true if provider.nombre_abreviado.include?('Seguro Privado')
+      provider.save
     end
   end
 
-  desc "Import provider sites"
-  task :import_sites => [:environment, :create_providers] do
-    puts "Import provider sites"
-    import_csv('sedes') do |provider, parameters|
-      state = State.find_by_name(parameters['departamento'].downcase)
+  desc 'Import provider data'
+  task provider_data: [:environment] do
+    [:precios, :metas, :satisfaccion_derechos, :tiempos_espera].each do |importable|
+      puts "Importing #{importable}"
+      importing(importable)
+    end
+
+    [:rrhh, :solicitud_consultas].each do |importable|
+      puts "Importing #{importable}"
+      importing(importable, col_sep: ',')
+    end
+
+    puts 'Importing sites'
+    importing('sedes') do |provider, parameters|
+      state = State.find_by_name(parameters['departamento'].strip.mb_chars.downcase.to_s)
       parameters['state_id'] = state.id
       provider.sites.create(parameters)
     end
   end
 
-  desc "Import data from CSV. Erases previous information"
-  task :import => [:environment, :create_providers, :import_sites] do
-    puts "Import states"
+  desc 'Import States'
+  task states: [:environment] do
+    puts 'Import states'
     states = YAML.load_file('config/states.yml')
     states.each do |state|
       State.create(
         name: state
       )
-    end
-
-    puts "Import all data into providers"
-    import_csv(*get_provider_groups) do |provider, parameters|
-      provider.update(parameters)
-
-      # Set private insurances
-      provider.update_attributes(private_insurance: true) if provider.nombre_abreviado.include?("Seguro Privado")
-
-      # TODO - Check this
-      states = provider.states
-      states.each do |state|
-        provider.update_attributes(
-          estructura_primaria: provider.coverage_by_state(state, 'Sede Central'),
-          estructura_secundaria: provider.coverage_by_state(state, 'Sede Secundaria'),
-          estructura_ambulatorio: provider.coverage_by_state(state, 'Ambulatorio'),
-          estructura_urgencia: provider.coverage_by_state(state, 'Urgencia')
-        )
-      end
     end
   end
 
@@ -65,11 +65,11 @@ namespace :db do
     end
   end
 
-  desc "Calculate Maximums"
+  desc 'Calculate Maximums'
   task :calculate_maximums => [:environment] do
     maximums = ProviderMaximum.first || ProviderMaximum.new
     # Waiting times
-    puts "Calculating Waiting times"
+    puts 'Calculating Waiting times'
     value = 0
     Provider.all.each do |provider|
       ['medicina_general', 'pediatria', 'cirugia_general',
@@ -85,11 +85,11 @@ namespace :db do
     maximums.waiting_time = value
 
     # Affiliates
-    puts "Calculating Affiliates"
-    maximums.affiliates = Provider.all.map(&:afiliados).reduce(:+)
+    puts 'Calculating Affiliates'
+    maximums.affiliates = Provider.all.map(&:afiliados).compact.reduce(:+)
 
     # Tickets
-    puts "Calculating Tickets"
+    puts 'Calculating Tickets'
     value = Provider.all.map do |provider|
       [:medicamentos, :tickets, :tickets_urgentes, :estudios].map do |ticket|
         average = provider.average(ticket)
@@ -101,7 +101,7 @@ namespace :db do
     maximums.tickets = value
 
     # Personnel
-    puts "Calculating personnel"
+    puts 'Calculating personnel'
     value = 0
     Provider.all.map do |provider|
       [:medicos_generales_policlinica,
@@ -120,8 +120,16 @@ namespace :db do
     maximums.save
   end
 
-  Rake::Task['db:import'].enhance do
-    Rake::Task['db:calculate_maximums'].invoke
-    Rake::Task['db:assign_search_name'].invoke
+  desc 'Importing everything'
+  task all: [:environment] do
+    puts 'Import all data'
+  end
+
+  Rake::Task['importer:all'].enhance do
+    Rake::Task['importer:states'].invoke
+    Rake::Task['importer:providers'].invoke
+    Rake::Task['importer:provider_data'].invoke
+    Rake::Task['importer:calculate_maximums'].invoke
+    Rake::Task['importer:assign_search_name'].invoke
   end
 end

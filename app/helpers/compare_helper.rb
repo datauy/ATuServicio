@@ -16,6 +16,9 @@ module CompareHelper
   # TODO Refactor
   def show_value(group, column, provider)
     value = ''
+    unless column
+      return ApplicationHelper.no_hay_datos
+    end
     column_value = provider.send(column.to_sym)
     case group
     when :estructura
@@ -50,7 +53,7 @@ module CompareHelper
   def precios_value(provider, column_value)
     if provider.asse?
       sin_costo
-    elsif provider.private_insurance
+    elsif provider.private_insurance || !column_value
       ApplicationHelper.no_hay_datos
     else
       table_cell("<p>$ #{column_value.round}</p>")
