@@ -14,11 +14,12 @@ module ImporterHelper
     headers.zip(values).map{|p| Hash[*p]}.inject({}){|h1, h2| h1.merge(h2)}
   end
 
-  def import_file(file, &block)
+  def import_file(file, custom_options = nil, &block)
     options = {
       headers: true,
       converters: [:all, :true_indicator, :false_indicator]
     }
+    options.merge!(custom_options) if custom_options
     CSV.foreach(File.join(Rails.root, "db/data/", file), options) do |row|
       yield row
     end
@@ -60,5 +61,9 @@ module ImporterHelper
 
   CSV::Converters[:false_indicator] = lambda do |data|
     (data.downcase == "no") ? false : data
+  end
+
+  CSV::Converters[:no_data] = lambda do |data|
+    (data.downcase == 's/d') ? nil : data
   end
 end

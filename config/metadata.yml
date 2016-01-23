@@ -21,20 +21,17 @@ estructura:
 metas:
   title: "Metas Asistenciales"
   description:
-    - "Porcentaje de afiliados referenciados a un médico de referencia"
     - "Porcentaje de niños de un año correctamente controlados"
     - "Porcentaje de embarazadas correctamente controladas"
     - "Existencia de Espacio Adolescente en la institución"
     - "Comunicación en soporte electrónico (página web)"
   columns:
-    - meta_medico_referencia
     - meta_ninos_controlados
     - meta_embarazadas
     - espacio_adolescente
     - comunicacion
   definition:
     decimal:
-      - meta_medico_referencia
       - meta_ninos_controlados
       - meta_embarazadas
     boolean:
@@ -491,18 +488,12 @@ rrhh:
 solicitud_consultas:
   title: "Solicitud de consultas"
   description:
-    - "Reserva presencial"
-    - "Reserva telefónica"
-    - "Reserva web"
-    - "Reserva en consulta médica"
+    - "Vias de asignación de citas"
     - "Realiza recordatorio de cita"
     - "Realiza caída de reserva en determinado tiempo antes/después del inicio de la consulta si no es confirmada"
     - "Comunicación con el usuario por suspensión o modificación de la consulta"
   columns:
-    - reserva_presencial
-    - reserva_telefonica
-    - reserva_web
-    - reserva_consulta_medica
+    - vias_asignacion_citas
     - realiza_recordatorio_cita
     - realiza_caida_reserva_sin_confirmacion
     - comunicacion_usuario_suspension_modificacion
