@@ -21,7 +21,7 @@
         text_field_tag :search,
           nil,
           class: "search-query form-control",
-          placeholder: "Buscar otra prestadora",
+          placeholder: "Buscar otro prestador",
           type: "search",
           data: {
             autocomplete: autocomplete_provider_search_name_providers_path,
@@ -37,7 +37,7 @@
     <% end %>
   <% end %>
 
-  <div class="block" data-step="1" data-intro="Estas son las Prestadoras" data-position='top'>
+  <div class="block" data-step="1" data-intro="Estos son los Prestadores" data-position='top'>
     <table class="table table-head">
       <tbody>
         <tr>
@@ -58,7 +58,7 @@
           </td>
 
           <% @selected_providers.each_with_index do | provider, index | %>
-            <td data-step="4" data-intro="Estas son las Prestadoras" data-position='top'>
+            <td data-step="4" data-intro="Estos son los Prestadores" data-position='top'>
               <figure>
                 <!-- TODO - IMAGE -->
                 <%=
