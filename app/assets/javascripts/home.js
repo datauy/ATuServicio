@@ -41,3 +41,15 @@ $("#btn-compare").click(function(e){
   });
   document.location = "/comparar/".concat(ids.join(" "));
 });
+
+$('.structure').click(function(e){
+  e.preventDefault();
+  var id = $(this).data('id');
+  var structure  = $('#structure_' + id);
+  structure.removeClass('hidden').addClass('visible');
+});
+
+$('.close').click(function(e){
+  e.preventDefault();
+  $(this).parent().removeClass('visible').addClass('hidden');
+});
