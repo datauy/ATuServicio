@@ -434,6 +434,8 @@ rrhh:
     - "Medicina Intensiva de Adultos Cantidad de CAD"
     - "Medicina Intensiva Pediátrica Cantidad de CAD"
     - "Neonatología Cantidad de CAD"
+    - "Cantidad de CAD Psiquiatría Adultos"
+    - "Cantidad de CAD Psiquiatría Pediátrica"
   columns:
     - medicos_generales_policlinica
     - medicos_de_familia_policlinica
@@ -450,6 +452,8 @@ rrhh:
     - medicina_intensiva_adultos_cantidad_cad
     - medicina_intensiva_pediatrica_cantidad_cad
     - neonatologia_cantidad_cad
+    - cantidad_cad_psiquiatria_adultos
+    - cantidad_cad_psiquiatria_pediatrica
   definition:
     decimal:
       - medicos_generales_policlinica
@@ -467,6 +471,8 @@ rrhh:
       - medicina_intensiva_adultos_cantidad_cad
       - medicina_intensiva_pediatrica_cantidad_cad
       - neonatologia_cantidad_cad
+      - cantidad_cad_psiquiatria_adultos
+      - cantidad_cad_psiquiatria_pediatrica
 
 
 solicitud_consultas:

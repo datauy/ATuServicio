@@ -111,6 +111,8 @@ ActiveRecord::Schema.define(version: 20160123050658) do
     t.decimal "medicina_intensiva_adultos_cantidad_cad",         precision: 9, scale: 2
     t.decimal "medicina_intensiva_pediatrica_cantidad_cad",      precision: 9, scale: 2
     t.decimal "neonatologia_cantidad_cad",                       precision: 9, scale: 2
+    t.decimal "cantidad_cad_psiquiatria_adultos",                precision: 9, scale: 2
+    t.decimal "cantidad_cad_psiquiatria_pediatrica",             precision: 9, scale: 2
     t.string  "reserva_presencial"
     t.string  "reserva_telefonica"
     t.string  "reserva_web"
