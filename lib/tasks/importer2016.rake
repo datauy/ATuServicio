@@ -57,6 +57,13 @@ namespace :importer do
     end
   end
 
+  desc 'Get structure'
+  task structure: [:environment] do
+    Provider.all.each do |provider|
+      provider_structure(provider)
+    end
+  end
+
   desc "Assign search name"
   task :assign_search_name => [:environment] do
     Provider.all.each do |provider|
@@ -130,5 +137,6 @@ namespace :importer do
     Rake::Task['importer:provider_data'].invoke
     Rake::Task['importer:calculate_maximums'].invoke
     Rake::Task['importer:assign_search_name'].invoke
+    Rake::Task['importer:structure'].invoke
   end
 end

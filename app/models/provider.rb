@@ -21,7 +21,7 @@ class Provider < ActiveRecord::Base
 
   # What coverage type exists by state
   def coverage_by_state(state, type)
-    sites.where(departamento: state.name, nivel: type).count if state
+    sites.where(state: state, nivel: type).count
   end
 
   def sites_by_state(state)

@@ -82,4 +82,26 @@ module ImporterHelper
   CSV::Converters[:no_data] = lambda do |data|
     (data.downcase == 's/d') ? nil : data
   end
+
+  def provider_structure(provider)
+    states = provider.states
+    structures = {
+      primaria: 0,
+      secundaria: 0,
+      ambulatorio: 0,
+      urgencia: 0
+    }
+    states.uniq.each do | state |
+      structures[:primaria] += provider.coverage_by_state(state, 'Sede Central')
+      structures[:secundaria] += provider.coverage_by_state(state, 'Sede Secundaria')
+      structures[:ambulatorio] += provider.coverage_by_state(state, 'Ambulatorio')
+      structures[:urgencia] += provider.coverage_by_state(state, 'Urgencia')
+    end
+    provider.update_attributes(
+      estructura_primaria: structures[:primaria],
+      estructura_secundaria: structures[:secundaria],
+      estructura_ambulatorio: structures[:ambulatorio],
+      estructura_urgencia: structures[:urgencia]
+    )
+  end
 end

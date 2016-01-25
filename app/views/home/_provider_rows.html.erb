@@ -18,12 +18,28 @@
           <a class="close" href="#"><i class="icon-no"></i></a>
           <ul>
             <li><h4>Estructura:</h4></li>
-            <li><p>Primaria <span>Total 1</span></p></li>
-            <li><p>Secundaria:
-              <span>Total 2</span></p></li>
-            <li><p>Policlínica:
-              <span>Total 4</span></p></li>
-            <li><p>Urgencia <span>Total 1</span></p></li>
+            <li>
+              <p>
+                Primaria <span>Total <%= provider.estructura_primaria %></span>
+              </p>
+            </li>
+            <li>
+              <p>
+                Secundaria:
+                <span>Total <%= provider.estructura_secundaria %></span>
+              </p>
+            </li>
+            <li>
+              <p>
+                Policlínica:
+                <span>Total <%= provider.estructura_ambulatorio%></span>
+              </p>
+            </li>
+            <li>
+              <p>
+                Urgencia <span>Total <%= provider.estructura_urgencia %></span>
+              </p>
+            </li>
           </ul>
         </div>
       </div>
