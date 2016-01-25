@@ -17,7 +17,7 @@ module ImporterHelper
   def import_file(file, custom_options = nil, &block)
     options = {
       headers: true,
-      converters: [:all, :true_indicator, :false_indicator]
+      converters: [:all, :true_indicator, :false_indicator, :no_data]
     }
     options.merge!(custom_options) if custom_options
     CSV.foreach(File.join(Rails.root, "db/data/", file), options) do |row|

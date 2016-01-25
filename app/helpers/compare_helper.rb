@@ -32,8 +32,12 @@ module CompareHelper
     when :metas
       value = meta_value(column_value)
     when :tiempos_espera
-      indicator = check_enough_data_times(column, provider)
-      value = "<td><h5>#{column_value} <small>DÍAS</small> #{indicator}</h5></td>"
+      if column_value
+        indicator = check_enough_data_times(column, provider)
+        value = "<td><h5>#{column_value} <small>DÍAS</small> #{indicator}</h5></td>"
+      else
+        value = ApplicationHelper.no_hay_datos
+      end
     when :satisfaccion_derechos
       value = if (column_value)
                 table_cell(progress_bar(column_value))
@@ -92,7 +96,8 @@ module CompareHelper
     yes_icon = "<i class=\"demo-icon icon-ok\"></i>"
     return table_cell(no_icon) if column_value == 'f'
     return table_cell(yes_icon) if column_value == 't'
-    if match = /^(S[í|I|i],?\s?)(.+)/.match(column_value)
+    if /^(S[í|I|i],?\s?)(.+)/.match(column_value)
+      match = /^(S[í|I|i],?\s?)(.+)/.match(column_value)
       return table_cell("#{yes_icon}<p>#{match[2].capitalize}</p>")
     end
     column_value ? table_cell(column_value) : ApplicationHelper.no_hay_datos
