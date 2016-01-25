@@ -39,4 +39,11 @@ module ValuesHelper
     ]
   end
 
+  def tickets_show
+    [
+      [:medicamentos, 'Medicamentos'],
+      [:tickets, 'Consultas'],
+      [:tickets_urgentes, 'Consultas urgentes']
+    ]
+  end
 end

@@ -75,7 +75,21 @@
       <% end %>
     </td>
 
-    <td>Tickets</td>
+    <td>
+      <div class="tickets">
+        <div class="coins">
+          <div class="icon-coin"></div>
+          <div class="icon-coin"></div>
+          <div class="icon-coin"></div>
+        </div>
+        <ul>
+          <% tickets_show.each do |ticket| %>
+            <li><p><%= ticket[1] %> <span>$<%= provider.average(ticket[0]) %></span></p></li>
+          <% end %>
+          <li class="low-price"> <i class="icon-coin"></i></li>
+        </ul>
+      </div>
+    </td>
 
     <!-- Metas asistenciales -->
     <td>
