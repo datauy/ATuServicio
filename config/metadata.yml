@@ -421,8 +421,8 @@ rrhh:
   description:
     - "Cargos de médicos generales en policlínica cada 10.000 usuarios mayores de 14 años"
     - "Cargos de médicos de familia en policlínica cada 10.000 usuarios"
-    - "Cargos de médicos pediatras en policlínica cada 10.000 usuarios menores de 14 años"
-    - "Cargos de médicos ginecólogos en policlínica cada 10.000 usuarios mayores de 14 años"
+    - "Cargos de médicos pediatras en policlínica cada 10.000 usuarios menores de 15 años"
+    - "Cargos de médicos ginecólogos en policlínica cada 10.000 usuarias mayores de 14 años"
     - "Cargos de auxiliares de enfermería en policlínica cada 10.000 usuarios"
     - "Cargos de licenciadas de enfermería en policlínica cada 10.000 usuarios"
     - "Cantidad de CAD cada 10.000 usuarios "
