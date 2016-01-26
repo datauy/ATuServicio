@@ -1,7 +1,9 @@
+// Redirect to state providers on state change:
 $('#state').change(function(){
   document.location = "/departamento/".concat( $(this).val() );
 });
 
+// Add providers to menu and selected providers to compare them
 var selected_providers = [];
 $(".add_compare").click(function(){
   var provider = {
@@ -33,6 +35,7 @@ $(".add_compare").click(function(){
   }
 });
 
+// Go to compare with selected providers
 $("#btn-compare").click(function(e){
   e.preventDefault();
   var ids = [];
@@ -42,6 +45,7 @@ $("#btn-compare").click(function(e){
   document.location = "/comparar/".concat(ids.join(" "));
 });
 
+// See structure on button click
 $('.structure').click(function(e){
   e.preventDefault();
   var id = $(this).data('id');
@@ -49,7 +53,18 @@ $('.structure').click(function(e){
   structure.removeClass('hidden').addClass('visible');
 });
 
+// Close stuff
 $('.close').click(function(e){
   e.preventDefault();
   $(this).parent().removeClass('visible').addClass('hidden');
+});
+
+// Fixed stuff
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 900) {
+    $("#fixed-versus").show();
+  }
+  else {
+    $("#fixed-versus").hide();
+  }
 });

@@ -3,7 +3,7 @@
     <div class="block">
       <div class="block_title" role="tab" id="heading<%= group %>">
         <h4>
-          <a class="info" href="#" data-toggle="modal" data-target="#myModal">
+          <a class="info" href="#" data-toggle="modal" data-target="#<%= group.to_s %>_modal">
             <i class="demo-icon icon-info"></i>
           </a>
           <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= group %>" aria-expanded="true" aria-controls="collapse<%= group %>">

@@ -56,4 +56,23 @@
     </div>
   </div>
 </section>
-<%= render "tables" %>
+
+<section id="home_table">
+  <div id="fixed-versus" class="block">
+    <table class="table table-head">
+      <%= render 'table_header' %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="block_preview">
+    <table class="table table-head-preview">
+      <%= render 'table_header' %>
+      <!--Prestadora-->
+      <%= render 'provider_rows' %>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<%= render "layouts/modals" %>
