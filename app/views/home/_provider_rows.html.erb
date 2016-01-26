@@ -2,7 +2,9 @@
   <tr>
     <td>
       <div class="txt-info">
-        <h4><%= provider.nombre_abreviado %></h4>
+        <h4>
+          <%= link_to provider.nombre_abreviado, "/comparar/#{provider.id}"%>
+        </h4>
         <p><%= provider.nombre_completo %></p>
         <%= link_to provider.web, "http://#{provider.web}", target: '_blank' %>
 

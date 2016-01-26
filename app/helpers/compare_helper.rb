@@ -79,10 +79,14 @@ module CompareHelper
         data-target="#asse_metas_modal"></i></td>
       eos
     end
-    value.gsub!(
-      '</td>',
-      "<a href='#'>#{modal}</a></td>"
-    ) if modal else value
+    if modal
+      value.gsub!(
+        '</td>',
+        "<a href='#'>#{modal}</a></td>"
+      )
+    else
+      value
+    end
   end
 
   def precios_value(provider, column_value)
