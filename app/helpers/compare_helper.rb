@@ -40,7 +40,14 @@ module CompareHelper
       end
     when :satisfaccion_derechos
       value = if (column_value)
-                table_cell(progress_bar(column_value))
+                if [
+                  'satisfaccion_primer_nivel_atencion_2014',
+                  'satisfaccion_primer_nivel_atencion_2010', 'satisfaccion_internacion_hospitalaria_2012'
+                ].include? column
+                  table_cell("<p>#{column_value}</p>")
+                else
+                  table_cell(progress_bar(column_value))
+                end
               else
                 ApplicationHelper.no_hay_datos
               end
