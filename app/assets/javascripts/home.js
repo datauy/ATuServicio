@@ -1,6 +1,6 @@
 // Redirect to state providers on state change:
 $('#state').change(function(){
-  document.location = "/departamento/".concat( $(this).val() );
+  document.location = "/departamento/".concat( $(this).val() ).concat('#home_table');
 });
 
 // Add providers to menu and selected providers to compare them
