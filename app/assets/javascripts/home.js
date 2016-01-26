@@ -52,7 +52,7 @@ $(".add_compare").click(function(){
 });
 
 function check_compare_button(){
-  if(selected_providers.length > 1){
+  if(selected_providers.length > 0){
     $('#btn-compare').removeClass('hidden').addClass('visible');
   } else {
     $('#btn-compare').removeClass('visible').addClass('hidden');
