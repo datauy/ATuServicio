@@ -33,7 +33,6 @@ module ValuesHelper
 
   def goals
     [
-      [:meta_medico_referencia, 'Afiliados c/médico de referencia (%)'],
       [:meta_embarazadas, 'Embarazadas correct. controladas (%)'],
       [:meta_ninos_controlados, ' Niños (1 año) correct. controlados (%)']
     ]
