@@ -31,6 +31,10 @@ module CompareHelper
       value = precios_value(provider, column_value)
     when :metas
       value = meta_value(column_value)
+      if provider.id == 9000 && column == 'espacio_adolescente'
+        info = 'En ASSE se cuenta con 57 Espacios Adolescentes distribuidos en todo el país (33 en el Interior del país y 24 en Montevideo).'
+        value.gsub!("</td>", "<i class=\"demo-icon icon-info\" title=\"#{info}\"> </i></td>")
+      end
     when :tiempos_espera
       if column_value
         indicator = check_enough_data_times(column, provider)
@@ -42,7 +46,8 @@ module CompareHelper
       value = if (column_value)
                 if [
                   'satisfaccion_primer_nivel_atencion_2014',
-                  'satisfaccion_primer_nivel_atencion_2010', 'satisfaccion_internacion_hospitalaria_2012'
+                  'satisfaccion_primer_nivel_atencion_2010',
+                  'satisfaccion_internacion_hospitalaria_2012'
                 ].include? column
                   table_cell("<p>#{column_value}</p>")
                 else
