@@ -22,18 +22,42 @@ $(".add_compare").click(function(){
   }
   var provider_names ='';
   selected_providers.map(function(provider){
-    provider_names += '<div class="btn-tag">' +
+    provider_names += '<div class="btn-tag" data-id="'+ provider.id +
+      '" data-name="' + provider.name + '">' +
       '<p>' + provider.name + '</p>' +
       '<a href="#"><i class="fa fa-trash" data-id="' + provider.id + '"></i></a>' +
       '</div>';
   });
   $('.provider-names').html(provider_names);
-  if(selected_providers.length > 0){
+
+  // Delete button
+  $(".fa-trash").on("click", function(e){
+    e.preventDefault();
+    var button = $(this).closest('.btn-tag');
+    var provider = {
+      name: button.data('name'),
+      id: button.data('id')
+    };
+    button.remove();
+    selected_providers.splice(selected_providers.indexOf(provider), 1);
+    selected_providers.splice();
+
+    check_compare_button();
+
+    var box = $(".checkbox").find("[data-id='" + provider.id + "']");
+    box.prop('checked', false);
+  });
+
+  check_compare_button();
+});
+
+function check_compare_button(){
+  if(selected_providers.length > 1){
     $('#btn-compare').removeClass('hidden').addClass('visible');
   } else {
     $('#btn-compare').removeClass('visible').addClass('hidden');
   }
-});
+}
 
 // Go to compare with selected providers
 $("#btn-compare").click(function(e){
