@@ -83,8 +83,8 @@
           <div class="icon-coin"></div>
         </div>
         <ul>
-          <% tickets_show.each do |ticket| %>
-            <li><p><%= ticket[1] %> <span>$<%= provider.average(ticket[0]) %></span></p></li>
+          <% ordered_tickets(provider).each do |ticket| %>
+            <li><p><%= ticket[:label] %> <span>$ <%= ticket[:average] %></span></p></li>
           <% end %>
           <li class="low-price"> <i class="icon-coin"></i></li>
         </ul>

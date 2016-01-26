@@ -15,6 +15,17 @@ module IconsHelper
     display.html_safe
   end
 
+  def ordered_tickets(provider)
+    structure = []
+    tickets_show.each do |ticket|
+      structure << {
+        average: provider.average(ticket[0]),
+        label: ticket[1],
+      }
+    end
+    structure.sort! { |x, y| y[:average] <=> x[:average] }
+  end
+
   private
 
   def percentages_value(provider, value)
