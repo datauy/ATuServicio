@@ -60,6 +60,9 @@
             <% else %>
         </div>
         <%= IconsHelper.no_data.html_safe %>
+        <% if provider.nombre_abreviado == "ASSE" %>
+          <a href="#" data-toggle="modal" data-target="#asse_tiempos_modal"><i class="demo-icon icon-info"></i> </a>
+        <% end %>
             <% end %>
       </div>
       <% end %>

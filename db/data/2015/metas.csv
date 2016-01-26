@@ -41,4 +41,4 @@ Intituciones;% de niños de un año correctamente controlados;% de embarazadas c
 7719;75;99;SI;Contiene nombre, teléfono, horarios de atención, cartelera de servicios, formas de acceso a los servicios, nómina de profesionales, director técnico, Precios de tasas moderadoras y Derechos de los usuarios.
 9502;0;100;NO;Contiene nombre, teléfono, horarios de atención, cartelera de servicios, formas de acceso a los servicios, nómina de profesionales, director técnico. No contiene Derechos de los usuarios
 4810;98;100;SI;Página web en construcción.
-9000;34;60;SI*;Contiene nombre, teléfono, horarios de atención, director técnico y Derechos de los usuarios. No contiene cartelera de servicios, formas de acceso a los servicios, nómina de profesionales.
+9000;34;60;SI;Contiene nombre, teléfono, horarios de atención, director técnico y Derechos de los usuarios. No contiene cartelera de servicios, formas de acceso a los servicios, nómina de profesionales.

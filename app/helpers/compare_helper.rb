@@ -120,17 +120,32 @@ module CompareHelper
 
   def custom_asse_message(group)
     value = ''
-    if group == :tiempos_espera && @selected_providers.select { |p| p.nombre_abreviado.include? 'ASSE' }.count > 0
-    value =  <<-eos
-  <tr>
-    <td colspan="4">
-      <p class="asse">
-      ASSE: Promedios de tiempos de espera calculados con información correspondiente a 142 unidades asistenciales de un total de 800. Siendo de las 142, la mayoría Unidades de Primer Nivel de Atención del interior del país, donde las especialidades tienen una oferta limitada.
-      </p>
-    </td>
-  </tr>
-      eos
+    if @selected_providers.select { |p| p.nombre_abreviado.include? 'ASSE' }.count > 0
+      case group
+      when :tiempos_espera
+        value = <<-eos
+        <tr><td colspan="5">
+        <p class="asse">
+        #{asse_waiting_times}
+        </p></td></tr>
+        eos
+      when :satisfaccion_derechos
+        value = <<-eos
+        <tr><td colspan="5">
+        <p class="asse">
+        Ver resultados de encuestas de satisfacción en<br>
+        <a
+    href="http://www.asse.com.uy/contenido/Movilidad-Regulada-8431" target="_blank">http://www.asse.com.uy/contenido/Movilidad-Regulada-8431</a>
+        <br>
+        Los datos de las Encuestas de Satisfacción sobre los Servicios
+        del Primer Nivel de Atención (2014 y 2010) correspondientes a
+        ASSE no son estrictamente comparables para esos dos años,
+        debido a aspectos de conformación y alcance de la muestra
+        </p></td></tr>
+        eos
+      end
     end
+
     value.html_safe
   end
 
