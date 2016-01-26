@@ -364,7 +364,7 @@ tiempos_espera:
       - tiempo_espera_ginecotocologia
 
 satisfaccion_derechos:
-  title: "Satisfacción de derechos"
+  title: "Derechos y satisfacción del usuario"
   description:
     - "Conformidad con disponibilidad de agenda (consulta médica) (2014)"
     - "Conformidad con disponibilidad de agenda (consulta médica) (2010)"

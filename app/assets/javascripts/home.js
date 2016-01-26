@@ -53,14 +53,14 @@ $(".add_compare").click(function(){
 
 function check_compare_button(){
   if(selected_providers.length > 0){
-    $('#btn-compare').removeClass('hidden').addClass('visible');
+    $('.btn-compare').removeClass('hidden').addClass('visible');
   } else {
-    $('#btn-compare').removeClass('visible').addClass('hidden');
+    $('.btn-compare').removeClass('visible').addClass('hidden');
   }
 }
 
 // Go to compare with selected providers
-$("#btn-compare").click(function(e){
+$(".btn-compare").click(function(e){
   e.preventDefault();
   var ids = [];
   selected_providers.map(function(provider){
