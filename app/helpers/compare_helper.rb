@@ -31,9 +31,8 @@ module CompareHelper
       value = precios_value(provider, column_value)
     when :metas
       value = meta_value(column_value)
-      if provider.id == 9000 && column == 'espacio_adolescente'
-        info = 'En ASSE se cuenta con 57 Espacios Adolescentes distribuidos en todo el país (33 en el Interior del país y 24 en Montevideo).'
-        value.gsub!("</td>", "<i class=\"demo-icon icon-info\" title=\"#{info}\"> </i></td>")
+      if provider.id == 9000
+        metas_asse(column, value)
       end
     when :tiempos_espera
       if column_value
@@ -64,6 +63,26 @@ module CompareHelper
       value = table_cell(boolean_icons(column_value))
     end
     value.to_s.html_safe
+  end
+
+  def metas_asse(column, value)
+    modal = nil
+    case column
+    when 'espacio_adolescente'
+      modal = <<-eos
+        <i class="demo-icon icon-info" data-toggle="modal"
+        data-target="#asse_espacio_modal"></i></td>
+      eos
+    when 'meta_ninos_controlados', 'meta_embarazadas'
+      modal = <<-eos
+        <i class="demo-icon icon-info" data-toggle="modal"
+        data-target="#asse_metas_modal"></i></td>
+      eos
+    end
+    value.gsub!(
+      '</td>',
+      "<a href='#'>#{modal}</a></td>"
+    ) if modal else value
   end
 
   def precios_value(provider, column_value)

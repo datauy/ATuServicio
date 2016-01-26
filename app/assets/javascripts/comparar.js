@@ -8,3 +8,7 @@ $(".remove_provider").click(function(){
   providers.splice(index, 1);
   document.location = "/comparar/".concat(providers.join(" "));
 });
+
+$(".icon-info").click(function(e){
+  e.preventDefault();
+});

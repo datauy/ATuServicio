@@ -121,3 +121,4 @@
 
 </section>
 <%= render partial: 'layouts/modals'%>
+<%= render partial: 'layouts/asse_modals' if @selected_providers.map(&:id).include? 9000 %>
