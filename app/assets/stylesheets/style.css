@@ -235,7 +235,7 @@ section { padding:0 50px;}
 }
 .low-price::before {height: 0}
 .low-price {
-    bottom: -34px;
+    bottom: -26px;
     left: -19px;
 }
 /*END HOME*/

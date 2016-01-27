@@ -42,7 +42,8 @@ module ValuesHelper
     [
       [:medicamentos, 'Medicamentos'],
       [:tickets, 'Consultas'],
-      [:tickets_urgentes, 'Consultas urgentes']
+      [:tickets_urgentes, 'Consultas urgentes'],
+      [:estudios, 'Estudios']
     ]
   end
 

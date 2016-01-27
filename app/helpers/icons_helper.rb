@@ -20,7 +20,7 @@ module IconsHelper
     tickets_show.each do |ticket|
       structure << {
         average: provider.average(ticket[0]),
-        label: ticket[1],
+        label: ticket[1]
       }
     end
     structure.sort! { |x, y| y[:average] <=> x[:average] }
