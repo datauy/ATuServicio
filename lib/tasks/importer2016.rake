@@ -10,7 +10,7 @@ namespace :importer do
 
     puts 'Creating providers'
 
-    import_file('2015/estructura.csv') do |row|
+    import_file('2015/estructura.csv', col_sep: ';') do |row|
       provider = Provider.new(
         id: row[0],
         nombre_abreviado: row[1],
@@ -18,7 +18,8 @@ namespace :importer do
         web: row[3],
         afiliados_fonasa: row[4],
         afiliados: row[6],
-        logo: assign_logo(row[0])
+        logo: assign_logo(row[0]),
+        comunicacion: row[7]
       )
       # Set private insurances
       provider.private_insurance = true if provider.nombre_abreviado.include?('Seguro Privado')

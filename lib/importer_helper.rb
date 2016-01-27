@@ -84,19 +84,11 @@ module ImporterHelper
   end
 
   def provider_structure(provider)
-    states = provider.states
-    structures = {
-      primaria: 0,
-      secundaria: 0,
-      ambulatorio: 0,
-      urgencia: 0
-    }
-    states.uniq.each do | state |
-      structures[:primaria] += provider.coverage_by_state(state, 'Sede Central')
-      structures[:secundaria] += provider.coverage_by_state(state, 'Sede Secundaria')
-      structures[:ambulatorio] += provider.coverage_by_state(state, 'Ambulatorio')
-      structures[:urgencia] += provider.coverage_by_state(state, 'Urgencia')
-    end
+    structures = {}
+    structures[:primaria] = provider.sites.where(nivel: 'Sede Central').count
+    structures[:secundaria] = provider.sites.where(nivel: 'Sede Secundaria').count
+    structures[:ambulatorio] = provider.sites.where(nivel: 'Ambulatorio').count
+    structures[:urgencia] = provider.sites.where(servicio_de_urgencia: true).count
     provider.update_attributes(
       estructura_primaria: structures[:primaria],
       estructura_secundaria: structures[:secundaria],

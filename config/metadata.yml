@@ -6,12 +6,14 @@ estructura:
     - "Web"
     - "Afiliados por Fonasa"
     - "Total de afiliados"
+    - "Comunicación en soporte electrónico (página web)"
   columns:
     - nombre_abreviado
     - nombre_completo
     - web
     - afiliados_fonasa
     - afiliados
+    - comunicacion
   definition:
     string:
       - nombre_abreviado
@@ -20,6 +22,8 @@ estructura:
     integer:
       - afiliados_fonasa
       - afiliados
+    text:
+      - comunicacion
 
 metas:
   title: "Metas Asistenciales"
@@ -27,20 +31,16 @@ metas:
     - "Porcentaje de niños de un año correctamente controlados"
     - "Porcentaje de embarazadas correctamente controladas"
     - "Existencia de Espacio Adolescente en la institución"
-    - "Comunicación en soporte electrónico (página web)"
   columns:
     - meta_ninos_controlados
     - meta_embarazadas
     - espacio_adolescente
-    - comunicacion
   definition:
     decimal:
       - meta_ninos_controlados
       - meta_embarazadas
     boolean:
       - espacio_adolescente
-    text:
-      - comunicacion
 
 precios:
   title: "Precios"
