@@ -95,7 +95,7 @@ module CompareHelper
     elsif provider.private_insurance || !column_value
       ApplicationHelper.no_hay_datos
     else
-      table_cell("<p>$ #{column_value.round}</p>")
+      table_cell("<p>$ #{number_with_delimiter(column_value, separator: ',')}</p>")
     end
   end
 
