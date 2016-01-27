@@ -30,6 +30,14 @@ class Provider < ActiveRecord::Base
     sites.where(departamento: State.proper_name(state)).order(localidad: :asc)
   end
 
+  def states_names
+    state_names = states.uniq.map(&:name).map do |names| # Get state names
+      names.split(' ').map do |n| # Separate array to capitalize
+        n.capitalize
+      end.join(' ') # Join two word States
+    end.join(', ') # Comma separate States
+  end
+
   # scope
   # returns the providers list on that state
   def self.by_state
