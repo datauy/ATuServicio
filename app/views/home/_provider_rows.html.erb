@@ -90,7 +90,15 @@
         </div>
         <ul>
           <% ordered_tickets(provider).each do |ticket| %>
-            <li><p><%= ticket[:label] %> <span>$ <%= ticket[:average] %></span></p></li>
+            <li>
+              <% if ticket[:average] %>
+                <p><%= ticket[:label] %> <span>$ <%= ticket[:average] %></span></p>
+              <% else %>
+                <div class="average_tickets">
+                  <%= IconsHelper.no_data.html_safe %>
+                </div>
+              <% end %>
+            </li>
           <% end %>
           <li class="low-price"> <i class="icon-coin"></i></li>
         </ul>

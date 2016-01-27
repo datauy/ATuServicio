@@ -9,9 +9,11 @@ class Provider < ActiveRecord::Base
     end
 
     # I cannot average unless I have all the data
-    valid_values = values && !values.empty?
+    valid_values = values && !values.empty? && !values.include?(nil)
     if valid_values
-      (values.compact.reduce(:+).to_f / values.size).round(2)
+      (values.reduce(:+).to_f / values.size).round(2)
+    else
+      nil
     end
   end
 
