@@ -178,51 +178,31 @@ precios:
     medicamentos:
       columns:
         - ticket_de_medicamentos_general_fonasa
-        - ticket_de_medicamentos_general_no_fonasa
         - ticket_de_medicamentos_topeados_fonasa
-        - ticket_de_medicamentos_topeados_no_fonasa
     tickets:
       columns:
         - consulta_medicina_general_fonasa
-        - consulta_medicina_general_no_fonasa
         - consulta_pediatria_fonasa
-        - consulta_pediatria_no_fonasa
         - consulta_control_de_embarazo_fonasa
-        - consulta_control_de_embarazo_no_fonasa
         - consulta_ginecologia_fonasa
-        - consulta_ginecologia_no_fonasa
         - consulta_otras_especialidades_fonasa
-        - consulta_otras_especialidades_no_fonasa
         - consulta_odontologica_fonasa
-        - consulta_odontologica_no_fonasa
         - consulta_medico_de_referencia_fonasa
-        - consulta_medico_de_referencia_no_fonasa
     tickets_urgentes:
       columns:
         - consulta_urgencia_centralizada_fonasa
-        - consulta_urgencia_centralizada_no_fonasa
         - consulta_urgencia_domicilio_fonasa
-        - consulta_urgencia_domicilio_no_fonasa
     estudios:
       columns:
         - endoscopia_digestiva_endoscopia_fonasa
-        - endoscopia_digestiva_endoscopia_no_fonasa
         - ecografia_simple_fonasa
-        - ecografia_simple_no_fonasa
         - ecodoppler_fonasa
-        - ecodoppler_no_fonasa
         - rx_simple_fonasa
-        - rx_simple_no_fonasa
         - rx_torax_fonasa
-        - rx_torax_no_fonasa
         - rx_colorectal_fonasa
-        - rx_colorectal_no_fonasa
         - resonancia_fonasa
-        - resonancia_no_fonasa
         - tomografia_fonasa
-        - tomografia_no_fonasa
         - laboratorio_rutina_basica_fonasa
-        - laboratorio_rutina_basica_no_fonasa
 sedes:
   description:
     - "Direccion"

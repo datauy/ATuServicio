@@ -97,14 +97,14 @@ namespace :importer do
 
     # Tickets
     puts 'Calculating Tickets'
-    value = Provider.all.map do |provider|
+    Provider.all.map do |provider|
       [:medicamentos, :tickets, :tickets_urgentes, :estudios].map do |ticket|
         average = provider.average(ticket)
-        if average
-          average
+        if average && average > value
+          value = average
         end
-      end.compact.reduce(:+)
-    end.compact.max
+      end
+    end
     maximums.tickets = value
 
     # Personnel
