@@ -11,7 +11,7 @@
 
 
 * {font-family: 'Montserrat', sans-serif; outline: none;}
-a:focus { outline: none; text-decoration: none;} 
+a:focus { outline: none; text-decoration: none;}
 a:hover {text-decoration: underline;}
 .table>tbody>tr:nth-of-type(even) { background-color: #F7F7F7; }
 .selected { background:rgba(124, 217, 242, 0.18) !important}
@@ -100,8 +100,8 @@ section { padding:0 50px;}
     padding: 5px 0;
 }
 
-.btn-compare { background: #0b2f47 !important;font-size: 14px; color: #fff }
-.btn-compare:hover { background: #fff !important; color: #0b2f47 !important; text-decoration: none}
+.btn-compare { background: #0b2f47;font-size: 14px; color: #fff }
+.btn-compare:hover { background: #fff; color: #0b2f47; text-decoration: none}
 .btn-tag {
     float: right;
     margin-left: 10px;
@@ -393,7 +393,7 @@ background: #666;
 .asse { 
     font-size: 12px !important;
     text-align: left;
-    width: 46%;
+    width: 65%;
     line-height: 18px;
     color: #666;
     border-left: 2px solid #333;
