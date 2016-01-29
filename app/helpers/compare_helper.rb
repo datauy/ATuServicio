@@ -56,7 +56,7 @@ module CompareHelper
                 ApplicationHelper.no_hay_datos
               end
     when :rrhh
-      value = rrhh_value(provider, column_value, column)
+      value = rrhh_value(column_value, column)
     when :solicitud_consultas
       value = appointment_request_value(column_value)
     else
@@ -92,7 +92,7 @@ module CompareHelper
   def precios_value(provider, column_value)
     if provider.asse?
       sin_costo
-    elsif provider.private_insurance || !column_value
+    elsif !column_value
       ApplicationHelper.no_hay_datos
     else
       table_cell("<p>$ #{number_with_delimiter(column_value, separator: ',')}</p>")
@@ -109,20 +109,8 @@ module CompareHelper
     end
   end
 
-  def rrhh_value(provider, column_value, column)
-    value = nil
-    # TODO - Check if this is still an issue:
-    # FIX: This is a hack
-    # MP and Britanico - 9508 9532
-    # We are doing this because (for now) the importer turns 0 values
-    # from the open data into nil, which we *should fix* asap
-    if [9508, 9532].include?(provider.id)
-      value = (column_value) ? column_value : 0
-    elsif provider.private_insurance && column.match(/_cad$/)
-      value = 0
-    else
-      value = (column_value) ? column_value : nil
-    end
+  def rrhh_value(column_value, column)
+    value = (column_value) ? column_value : nil
     value.nil? ? ApplicationHelper.no_hay_datos : table_cell(value)
   end
 
