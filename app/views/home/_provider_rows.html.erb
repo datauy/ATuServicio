@@ -20,6 +20,11 @@
           <a class="close" href="#"><i class="icon-no"></i></a>
           <ul>
             <li><h4>Estructura:</h4></li>
+            <% if provider.id == 9000 %>
+              <li>
+                <%= link_to 'Estructuras de centros de Salud en ASSE', 'http://www.asse.com.uy/categoria/Centros-de-Salud-148', target: '_blank' %>
+              </li>
+            <% end %>
             <li>
               <p>
                 Primaria <span>Total <%= provider.estructura_primaria %></span>
