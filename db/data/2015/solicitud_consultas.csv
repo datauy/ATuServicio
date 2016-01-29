@@ -6,7 +6,7 @@ ID,VIAS DE ASIGNACIÓN DE CITAS ,REALIZA RECORDATORIO DE CITA ,REALIZA CAÍDA DE
 9000,Presencial y telefónica,NO,NO,"SI, telefónica "
 9516,"Presencial, telefónica y web.",SI por SMS,NO,"SI, telefónica y por SMS."
 5163,Presencial y telefónica.,"SI, por SMS",NO,"Si, telefonica."
-5810,Presencial y telefónica,"SI, por SMS","Si,48 hs antes.","SI, telefónica "
+5810,Presencial y telefónica,"SI, por SMS","Si,48 hs antes.","SI, telefónica y por SMS"
 6769,Presencial y telefónica,NO,"Si,48 hs antes. Excepto población de zona rural.","SI, telefónica "
 6012,Presencial y telefónica,"SI, por SMS","Si,48 hs antes.","SI, telefónica "
 6416,Presencial y telefónica,"SI, por SMS","Si, 24 hs antes.","SI, telefónica y por SMS."
