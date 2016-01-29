@@ -25,6 +25,8 @@ class CompareController < ApplicationController
       format.html
       format.js
     end
+  rescue ActiveRecord::RecordNotFound
+    redirect_to '/404'
   end
 
   def add

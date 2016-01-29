@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   end
 
   get '/sobre_el_proyecto' => 'home#sobre_el_proyecto'
+
+  get "/404" => "errors#not_found"
+  get "/500" => "errors#internal_server_error"
 end
