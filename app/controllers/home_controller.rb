@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
   def index
+  end
+
+  def old
     # Get the ProviderMaximum object which contains all the maximum
     # values to compare in the graphs in the home view.
     @provider_maximums = Rails.cache.fetch('provider_maximums', expires_in: 120.hours) do
