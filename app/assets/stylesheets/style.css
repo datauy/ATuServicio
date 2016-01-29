@@ -100,7 +100,7 @@ section { padding:0 50px;}
     padding: 5px 0;
 }
 
-.btn-compare { background: #0b2f47;font-size: 14px; color: #fff }
+.btn-compare { background: #0b2f47 !important;font-size: 14px; color: #fff }
 .btn-compare:hover { background: #fff; color: #0b2f47; text-decoration: none}
 .btn-tag {
     float: right;

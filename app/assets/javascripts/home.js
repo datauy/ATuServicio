@@ -5,6 +5,7 @@ $('#state').change(function(){
 
 // Add providers to menu and selected providers to compare them
 var selected_providers = [];
+
 $(".add_compare").click(function(){
   var provider = {
       name: $(this).data('name'),
@@ -20,15 +21,7 @@ $(".add_compare").click(function(){
   } else {
     selected_providers.splice(selected_providers.indexOf(provider), 1);
   }
-  var provider_names ='';
-  selected_providers.map(function(provider){
-    provider_names += '<div class="btn-tag" data-id="'+ provider.id +
-      '" data-name="' + provider.name + '">' +
-      '<p>' + provider.name + '</p>' +
-      '<a href="#"><i class="fa fa-trash" data-id="' + provider.id + '"></i></a>' +
-      '</div>';
-  });
-  $('.provider-names').html(provider_names);
+  add_providers_buttons(selected_providers);
 
   // Delete button
   $(".fa-trash").on("click", function(e){
@@ -50,6 +43,33 @@ $(".add_compare").click(function(){
 
   check_compare_button();
 });
+
+$( window ).load(function() {
+  $(".add_compare").each(function(){
+    if( $(this).prop('checked')){
+      var provider = {
+        name: $(this).data('name'),
+        id: $(this).data('id')
+      };
+      selected_providers.push(provider);
+      add_providers_buttons(selected_providers);
+      check_compare_button();
+    }
+  });
+});
+
+function add_providers_buttons(selected_providers){
+  var provider_names ='';
+  selected_providers.map(function(provider){
+    provider_names += '<div class="btn-tag" data-id="'+ provider.id +
+      '" data-name="' + provider.name + '">' +
+      '<p>' + provider.name + '</p>' +
+      '<a href="#"><i class="fa fa-trash" data-id="' + provider.id + '"></i></a>' +
+      '</div>';
+  });
+  $('.provider-names').html(provider_names);
+}
+
 
 function check_compare_button(){
   if(selected_providers.length > 0){
