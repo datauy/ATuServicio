@@ -16,6 +16,16 @@
         <table class="table">
           <tbody>
             <%= custom_asse_message(group) %>
+            <% if group == :rrhh %>
+              <tr>
+                <td colspan="5">
+                  <p class="asse">
+                    Los datos presentados son a nivel país, considerando el total de trabajadores de la Institución en todas sus dependencias.
+                  </p>
+                </td>
+              </tr>
+              <p>
+            <% end %>
             <% columns_name_description(group).each do |name, column| %>
               <tr>
                 <td class="col-md-3 col-left">
