@@ -27,7 +27,7 @@ class Provider < ActiveRecord::Base
   end
 
   def sites_by_state(state)
-    sites.where(departamento: State.proper_name(state)).order(localidad: :asc)
+    sites.where(departamento: state.proper_name).order(localidad: :asc)
   end
 
   def states_names

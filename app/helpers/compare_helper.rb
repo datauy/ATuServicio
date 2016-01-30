@@ -195,4 +195,25 @@ module CompareHelper
   def table_cell(value)
     "<td>#{value}</td>"
   end
+
+  def show_site_data(site, type)
+    html = ''
+    ValuesHelper.send("sites_#{type}".to_sym).each do |value|
+      html += "<tr><td>#{value.capitalize}:"
+      unless site.send(value).nil?
+        info = site.send(value)
+        if info.is_a?(TrueClass) || info.is_a?(FalseClass)
+          info = boolean_icons(info)
+        else
+          info = info.capitalize
+        end
+        html+= <<-eos
+          #{info}</tr></td>
+        eos
+      else
+        html+= "<span class='nodata'>#{ApplicationHelper.no_hay_datos(false)}</span>"
+      end
+    end
+    html.html_safe
+  end
 end

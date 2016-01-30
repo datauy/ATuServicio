@@ -117,8 +117,8 @@
   <!--END: Hidden part fixed for scrolling -->
 
   <!-- The partial that has all the info -->
-  <%= render partial: 'group_data', locals: { providers: @selected_providers }%>
-
+  <%= render partial: 'group_data' %>
+  <%= render partial: 'sites' %>
 </section>
 <%= render partial: 'layouts/modals'%>
 <%= render partial: 'layouts/asse_modals' if @selected_providers.map(&:id).include? 9000 %>

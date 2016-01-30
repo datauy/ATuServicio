@@ -13,3 +13,17 @@
 .txt-info h4 a{
     font-size: 20px !important;
 }
+
+table.sites td{
+    height: 20px;
+    text-align: left;
+    font-size: 12px;
+}
+table.sites th a{ color: #fff; }
+table.sites td i:before {font-size:18px; }
+table.sites td span.nodata {
+    display: inline-block;
+    font-size: 10px !important;
+    line-height: 10px !important;
+    max-height: 8px !important;
+}

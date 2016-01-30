@@ -4,8 +4,7 @@ class CompareController < ApplicationController
 
   def index
     provider_ids = params[:selected_providers].try(:split, ' ').try(:uniq) || []
-
-    @selected_providers = Provider.find(provider_ids.take(3))
+    @selected_providers = Provider.includes(:sites).where(id: provider_ids.take(3))
     @title = 'Comparando'
     @description = 'Compará éstos prestadores de Salud para elegir informado o personalizalo para conocer a fondo los indicadores del tuyo.'
 

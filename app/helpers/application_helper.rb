@@ -42,11 +42,13 @@ module ApplicationHelper
   def boolean_icons(value)
     return"<i class=\"demo-icon icon-ok\"></i>".html_safe if value.is_a?(TrueClass)
     return "<i class=\"demo-icon icon-no\"></i>".html_safe if value.is_a?(FalseClass)
-    return no_hay_datos unless value
+    return ApplicationHelper.no_hay_datos unless value
     value
   end
 
-  def self.no_hay_datos
-    "<td class=\"nodata\"><p>NO HAY DATOS</p><i class=\"demo-icon icon-sad\"></i></td>".html_safe
+  def self.no_hay_datos(td = true)
+    value = "<p>NO HAY DATOS</p><i class=\"demo-icon icon-sad\"></i>"
+    return "<td class=\"nodata\">#{value}</td>" if td
+    value
   end
 end
