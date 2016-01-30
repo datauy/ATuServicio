@@ -87,7 +87,8 @@ module ImporterHelper
     structures = {}
     structures[:primaria] = provider.sites.where(nivel: ['Sede Central', 'Sanatorio', 'Sede Principal']).count
     structures[:secundaria] = provider.sites.where(nivel: 'Sede Secundaria').count
-    structures[:ambulatorio] = provider.sites.where(nivel: ['Ambulatorio', 'Centro de Salud']).count
+    # Convention: nil is ambulatorio
+    structures[:ambulatorio] = provider.sites.where(nivel: ['Ambulatorio', 'Centro de Salud', nil]).count
     structures[:urgencia] = provider.sites.where(servicio_de_urgencia: true).count
     provider.update_attributes(
       estructura_primaria: structures[:primaria],
