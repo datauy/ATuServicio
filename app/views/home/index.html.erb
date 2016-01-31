@@ -7,6 +7,14 @@
     <li role="presentation"><a href="/sobre_el_proyecto">Sobre el proyecto</a></li>
   </ul>
 
+  <% if flash.count > 0 %>
+    <div class="clearfix">
+    </div>
+    <div class="alert alert-warning dismissable">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
   <div class="slides">
     <ul> <!-- slides -->
       <li>
@@ -23,7 +31,6 @@
 
   <div id="animation">
   </div>
-
 </header>
 
 <section id="filter">

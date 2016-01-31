@@ -3,8 +3,13 @@ class CompareController < ApplicationController
   layout 'atuservicio'
 
   def index
+    unless params[:selected_providers]
+      flash['alert'] = "Debe elegir al menos un proveedor para ver los datos de comparación"
+      redirect_to '/'
+      return
+    end
     provider_ids = params[:selected_providers].try(:split, ' ').try(:uniq) || []
-    @selected_providers = Provider.includes(:sites).where(id: provider_ids.take(3))
+    @selected_providers = Provider.includes([:sites, :states]).where(id: provider_ids.take(3))
     @title = 'Comparando'
     @description = 'Compará éstos prestadores de Salud para elegir informado o personalizalo para conocer a fondo los indicadores del tuyo.'
 
