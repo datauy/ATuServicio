@@ -199,7 +199,7 @@ module CompareHelper
   def show_site_data(site, type)
     html = ''
     ValuesHelper.send("sites_#{type}".to_sym).each do |value|
-      html += "<tr><td>#{value.capitalize}:"
+      html += "<tr><td>#{value.to_s.split('_').join(' ').capitalize}:"
       unless site.send(value).nil?
         info = site.send(value)
         if info.is_a?(TrueClass) || info.is_a?(FalseClass)
