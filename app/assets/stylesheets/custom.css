@@ -28,6 +28,24 @@ table.sites td span.nodata {
     max-height: 8px !important;
 }
 
+.state_sites{
+    width:100%;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.state_title{
+    background: #3FA6C9;
+}
+
+.state_title a{
+    color: #fff;
+}
+
+.site_name a{
+    color: #333 !important;
+}
+
 #providers_bar td{
     background:#3FA6C9;
     height: auto;

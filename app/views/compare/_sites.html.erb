@@ -1,5 +1,7 @@
 <div class="panel-group" role="tablist" aria-multiselectable="true">
   <div class="block">
+
+    <!-- MAIN TITLE -->
     <div class="block_title" role="tab" id="headingEight">
       <h4>
         <a class="info" href="#" data-toggle="modal" data-target="#myModal">
@@ -10,33 +12,54 @@
         </a>
       </h4>
     </div>
+
+    <!-- MAIN WRAPPER -->
     <div id="collapseSites" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSites">
       <table class="table">
         <tbody>
           <tr>
-            <td class="col-md-3 col-left" style="vertical-align: top;">
+            <td class="col-md-3 col-left">
             </td>
+
+            <!-- Each provider's td -->
             <% @selected_providers.each do |provider| %>
               <td style="vertical-align: top;">
-                <% provider.sites.each do |site| %>
-                  <table class="table table-condensed sites">
-                    <thead>
-                      <tr>
-                        <th class="block_title">
-                          <a role="button" data-toggle="collapse"  href="#collapse<%= site.id %>" aria-expanded="true" aria-controls="collapse<%= site.id %>">
-                            <%= site.direccion.split(" ").map(&:capitalize).join(" ") %>
-                          </a>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody class="panel-collapse collapse" id="collapse<%= site.id %>">
-                      <%= show_site_data(site, 'structure') %>
-                      <tr>
-                        <th>Datos</th>
-                      </tr>
-                      <%= show_site_data(site, 'data') %>
-                    </tbody>
-                  </table>
+                <!-- Show by state -->
+                <% provider.states.uniq.each do |state| %>
+                  <div class="state_sites">
+                    <div class="state_title">
+                      <a role="button" data-toggle="collapse" href="#collapse<%= "#{provider.id}#{state.id}" %>" aria-expanded="true" aria-controls="collapse<%= "#{provider.id}#{state.id}" %>">
+                        <h4>
+                          <%= state.proper_name %><i class="fa fa-chevron-down"></i>
+                        </h4>
+                      </a>
+                    </div>
+
+                    <div class="panel-collapse collapse" id="collapse<%= "#{provider.id}#{state.id}" %>">
+                      <!-- Sites individual unit  -->
+                      <% provider.sites.where(state: state).each do |site| %>
+                        <table class="table table-condensed sites">
+                          <thead>
+                            <tr>
+                              <th class="site_name">
+                                <a role="button" data-toggle="collapse" href="#collapse<%= site.id %>" aria-expanded="true" aria-controls="collapse<%= site.id %>">
+                                  <%= site.direccion.split(" ").map(&:capitalize).join(" ") %><i class="fa fa-chevron-down"></i>
+                                </a>
+                              </th>
+                            </tr>
+                          </thead>
+
+                          <tbody class="panel-collapse collapse" id="collapse<%= site.id %>">
+                            <%= show_site_data(site, 'structure') %>
+                            <tr>
+                              <th>Datos</th>
+                            </tr>
+                            <%= show_site_data(site, 'data') %>
+                          </tbody>
+                        </table>
+                      <% end %>
+                    </div>
+                  </div>
                 <% end %>
               </td>
             <% end %>
