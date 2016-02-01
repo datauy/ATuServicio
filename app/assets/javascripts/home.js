@@ -103,7 +103,7 @@ $('.close').click(function(e){
   $(this).parent().removeClass('visible').addClass('hidden');
 });
 
-// Fixed stuff
+// Fixed table header
 $(window).scroll(function() {
   if ($(window).scrollTop() > 900) {
     $("#fixed-versus").show();
@@ -111,4 +111,9 @@ $(window).scroll(function() {
   else {
     $("#fixed-versus").hide();
   }
+});
+
+// Providers dropdown
+$('#selected_providers').change(function(){
+  document.location = "/comparar/".concat($(this).val());
 });
