@@ -50,3 +50,17 @@ table.sites td span.nodata {
     background:#3FA6C9;
     height: auto;
 }
+
+.social{
+    list-style-type: none;
+}
+
+.social li{
+    display: inline;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+.social .twitter{
+    padding-top: 29px;
+}
