@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get :autocomplete_provider_search_name, on: :collection
   end
 
-  get '/sobre_el_proyecto' => 'home#sobre_el_proyecto'
+  get '/sobre_el_proyecto' => 'home#about'
 
   get "/404" => "errors#not_found"
   get "/500" => "errors#internal_server_error"

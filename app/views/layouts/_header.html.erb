@@ -1,0 +1,22 @@
+<header class='comparative_header'>
+  <a class="logo" href="/">Atuservicio.uy</a>
+  <ul class="nav nav-pills">
+    <li role="presentation">
+      <a href="/sobre_el_proyecto">Sobre el proyecto</a>
+    </li>
+    <% if controller.controller_name == 'compare' %>
+      <li>
+        <a  href="javascript:void(0);" onclick="javascript:introJs().start();">
+          ¿Cómo funciona?
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</header>
+
+<ol class="breadcrumb">
+  <li><a href="/">Listado Prestadores</a></li>
+  <li class="active">
+    <%= @title %>
+  </li>
+</ol>

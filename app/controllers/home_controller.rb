@@ -21,4 +21,8 @@ class HomeController < ApplicationController
                        @providers.order(:private_insurance).order(:nombre_abreviado)
                      end
   end
+
+  def about
+    @title = 'Sobre el proyecto'
+  end
 end

@@ -28,21 +28,21 @@
          <![endif]-->
   </head>
 
-  <% if controller.controller_name == 'home' %>
+  <% if controller.controller_name == 'home' && action_name == 'index' %>
     <body class="home">
+  <% elsif action_name == 'about' %>
+      <body class="about">
   <% else %>
-    <body>
+        <body>
   <% end %>
-    <%= query_diet_widget if Rails.env.development? %>
-    <div id="loader">
-      <%= image_tag 'loading.gif'%>
-    </div>
 
-    <%= yield %>
+  <%= query_diet_widget if Rails.env.development? %>
 
-    <%= render 'layouts/footer'%>
+  <%= yield %>
 
-    <!-- JavaScript -->
-    <%= javascript_include_tag 'application' %>
-  </body>
+  <%= render 'layouts/footer'%>
+
+  <!-- JavaScript -->
+  <%= javascript_include_tag 'application' %>
+        </body>
 </html>

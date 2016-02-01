@@ -67,13 +67,14 @@ section { padding:0 50px;}
 .home header .nav li.none a { border:none; border-radius: 0}
 .home header #animation {
     background: url(bghome.png) no-repeat;
-    height: 355px;
+    height: 289px;
     position: absolute;
-    width: 88%;
-    bottom: -8px;
+    width: 100%;
+    bottom: -21px;
     overflow: hidden;
     left: 50%;
-    margin-left: -44%;
+    margin-left: -50%;
+
 }
 .home .text-slider { position: absolute; width: 400px; left: 50%; margin-left: -200px;top: 40%}
 .home .text-slider h3 { font-size: 20px; text-align: center; width: 400px; line-height: 28px; color: #0b2f47;font-weight:700}
@@ -681,8 +682,9 @@ footer a { color: #42B4E7; font-size: 11px;}
 .about .content { padding: 4%}
 
 .about article h2 {font-size: 24px; text-transform: uppercase;font-family: 'Montserrat', sans-serif;font-weight: bold; margin:0 0 50px 0;}
-.about article p {font-size: 15px;line-height: 24px;}
-.about article figure { position: relative; margin: 0 0 20px 0}
+.about article p {font-size: 14px;line-height: 24px;}
+.about article figure { position: relative; margin: 20px; text-align: right;}
+.about article figure  img { width: 100%}
 .about article .title {
 
     border-bottom: 1px solid #42B4E7;
