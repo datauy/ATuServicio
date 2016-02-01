@@ -3,9 +3,6 @@ class HomeController < ApplicationController
   layout 'atuservicio'
 
   def index
-  end
-
-  def old
     # Get the ProviderMaximum object which contains all the maximum
     # values to compare in the graphs in the home view.
     @provider_maximums = ProviderMaximum.first
