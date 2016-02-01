@@ -67,10 +67,10 @@ section { padding:0 50px;}
 .home header .nav li.none a { border:none; border-radius: 0}
 .home header #animation {
     background: url(bghome.png) no-repeat;
-    height: 295px;
+    height: 355px;
     position: absolute;
     width: 88%;
-    bottom: -20px;
+    bottom: -8px;
     overflow: hidden;
     left: 50%;
     margin-left: -44%;
@@ -677,3 +677,6 @@ footer a { color: #42B4E7; font-size: 11px;}
     -moz-animation-play-state: running;
     -moz-animation-fill-mode: forwards;
 }
+
+
+.terms { color: #666; font-size: 12px; margin: 20px 0}
