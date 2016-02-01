@@ -11,7 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require jquery-ui/accordion
-//= require jquery.chained.min
-//= require_tree .
+//= require jquery-ui
+//= require jquery-ui/autocomplete
+//= require bootstrap.min
+//= require intro
+//= require home
+//= require modals
+//= require comparar
+//= require autocomplete-rails

@@ -1,5 +1,6 @@
 class Provider < ActiveRecord::Base
   has_many :sites, dependent: :delete_all
+  has_many :states, through: :sites
 
   def average(name)
     columns = METADATA[:precios][:averages][name][:columns]
@@ -11,6 +12,8 @@ class Provider < ActiveRecord::Base
     valid_values = values && !values.empty? && !values.include?(nil)
     if valid_values
       (values.reduce(:+).to_f / values.size).round(2)
+    else
+      nil
     end
   end
 
@@ -20,15 +23,19 @@ class Provider < ActiveRecord::Base
 
   # What coverage type exists by state
   def coverage_by_state(state, type)
-    sites.where(departamento: State.proper_name(state), nivel: type).count if state
-  end
-
-  def states
-    sites.group(:departamento).count.keys
+    sites.where(state: state, nivel: type).count
   end
 
   def sites_by_state(state)
-    sites.where(departamento: State.proper_name(state)).order(localidad: :asc)
+    sites.where(departamento: state.proper_name).order(localidad: :asc)
+  end
+
+  def states_names
+    state_names = states.uniq.map(&:name).map do |names| # Get state names
+      names.split(' ').map do |n| # Separate array to capitalize
+        n.capitalize
+      end.join(' ') # Join two word States
+    end.join(', ') # Comma separate States
   end
 
   # scope

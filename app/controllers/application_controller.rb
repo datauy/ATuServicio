@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :load_options
 
   def load_options
-    @providers ||= Provider.all
+    @providers ||= Provider.includes(:states).all
     @states ||= State.all
   end
 end

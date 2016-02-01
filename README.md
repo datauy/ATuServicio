@@ -48,6 +48,16 @@ Recursos Humanos, cargos de médicos generales, de familia, etc. Datos que se ag
 ### solicitud_consultas.csv
 Solicitud de consultas (reserva presencial, telefónica, web). Datos que se agregan al objeto Provider.
 
+## Logos
+
+Los logos deben ir en el directorio `app/assets/images/logos` con el siguiente formato de nombre:
+
+```ruby
+"#{provider.id}-solo-letras-minusculas.png"
+```
+
+Archivos PNG nombre sólo letras (sin acentos ni símbolos) y separado del ID de proveedor (por practicidad).
+
 ## Dependencies
 
 ### JavaScript

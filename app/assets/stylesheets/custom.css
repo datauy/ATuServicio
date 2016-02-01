@@ -1,0 +1,52 @@
+.ui-menu-item{
+    list-style-type: none;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.visible{
+    visibility: visible;
+}
+
+.txt-info h4 a{
+    font-size: 20px !important;
+}
+
+table.sites td{
+    height: 20px;
+    text-align: left;
+    font-size: 12px;
+}
+table.sites th a{ color: #fff; }
+table.sites td i:before {font-size:18px; }
+table.sites td span.nodata {
+    display: inline-block;
+    font-size: 10px !important;
+    line-height: 10px !important;
+    max-height: 8px !important;
+}
+
+.state_sites{
+    width:100%;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.state_title{
+    background: #3FA6C9;
+}
+
+.state_title a{
+    color: #fff;
+}
+
+.site_name a{
+    color: #333 !important;
+}
+
+#providers_bar td{
+    background:#3FA6C9;
+    height: auto;
+}

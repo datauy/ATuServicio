@@ -1,3 +1,82 @@
-<div class="text-center">
-  <%= image_tag 'ats-2016.png'%>
-</div>
+<header>
+  <a id="logo_color" class="logo" href="/">Atuservicio.uy</a>
+  <ul class="nav nav-pills">
+    <li class="none" role="presentation"><a id="logo_data" href="http://datauy.org" target="_blank">Data</a></li>
+    <li class="none" role="presentation"><a id="logo_msp" href="http://www.msp.gub.uy" target="_blank">MSP</a></li>
+    <li class="active" role="presentation"><a href="#">Inicio</a></li>
+    <li role="presentation"><a href="/sobre_el_proyecto">Sobre el proyecto</a></li>
+  </ul>
+
+  <% if flash.count > 0 %>
+    <div class="clearfix">
+    </div>
+    <div class="alert alert-warning dismissable">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <div class="slides">
+    <ul> <!-- slides -->
+      <li>
+        <div>Visualizá y compará indicadores de todos los prestadores de salud del país</div>
+      </li>
+      <li>
+        <div>Conocé a fondo datos de tu prestador de salud y compará con otras opciones</div>
+      </li>
+    </ul>
+  </div>
+
+  <div id="animation">
+  </div>
+</header>
+
+<section id="filter">
+  <div class="row">
+    <div class="col-md-3">
+      <h3>Te mostramos listado todos los prestadores de Salud del Uruguay
+        elegi cual te corresponde y compara con el resto.</h3>
+    </div>
+    <div class="col-md-4">
+      <%= form_tag '/comparar', method: 'get', id: 'sites' do %>
+        <%=
+        select_tag "selected_providers",
+        options_for_select(provider_options),
+          include_blank: "Elija una institución",
+          class: "form-control home_providers",
+            name: 'selected_providers',
+            id: 'selected_providers'
+        %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4">
+      <%=
+      select_tag "state",
+      options_for_select(
+        state_options(@states),
+        params[:departamento]),
+        class: "form-control"
+      %>
+    </div>
+  </div>
+</section>
+
+<section id="home_table">
+  <div id="fixed-versus" class="block">
+    <table class="table table-head">
+      <%= render 'table_header' %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="block_preview">
+    <table class="table table-head-preview">
+      <%= render 'table_header' %>
+      <!--Prestadora-->
+      <%= render 'provider_rows' %>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<%= render "layouts/modals" %>

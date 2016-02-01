@@ -1,34 +1,124 @@
-<%= render "layouts/page_header" %>
+<header class='comparative_header'>
+  <a class="logo" href="/">Atuservicio.uy</a>
+  <ul class="nav nav-pills">
+    <li role="presentation">
+      <a href="/sobre_el_proyecto">Sobre el proyecto</a></li>
+    <li>
+      <a  href="javascript:void(0);" onclick="javascript:introJs().start();">
+        ¿Cómo funciona?
+      </a>
+    </li>
+  </ul>
+</header>
 
-<div class="container" id="comparision">
-  <h1>Comparar </h1>
-  <p>Elegí hasta tres prestadores usando esta herramienta y accedé a la totalidad de los datos disponibles, comparándolos entre sí. Para agregar un prestador a la tabla, basta con seleccionarlo y para dejar de verlo, utiliza los íconos de eliminar que aparecen junto al nombre del prestador.</p>
+<%= render 'layouts/breadcrumbs'%>
+<section>
+  <!-- Search box -->
+  <% if @selected_providers.count < 3 %>
+    <%= form_tag '/agregar', method: 'get', id: 'compare' do %>
+    <div class="input-group search-prestadora">
+      <%=
+        text_field_tag :search,
+          nil,
+          class: "search-query form-control",
+          placeholder: "Buscar otro prestador",
+          type: "search",
+          data: {
+            autocomplete: autocomplete_provider_search_name_providers_path,
+            id_element: "#provider_id"
+          }
+      %>
+      <input type="hidden" id="provider_id" name="provider_id">
+      <input type="hidden" id="selected_providers" name="selected_providers" value="<%= @selected_providers.map(&:id).join(' ')%>">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Agregar</button>
+      </span>
+    </div>
+    <% end %>
+  <% end %>
+
+  <div class="block" data-step="1" data-intro="Estos son los Prestadores" data-position='top'>
+    <table class="table table-head">
+      <tbody>
+        <tr>
+          <td class="col-md-3">
+            <p>Compartir esta comparativa en:</p>
+            <ul class="share-nav">
+              <li>
+                <a href="http://www.facebook.com/sharer.php?u=<%= current_url%>" target="_blank">
+                  <i class="fa fa-facebook-official"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/intent/tweet?text=<%= "#{share_message} - #{current_url}" %>" target="_blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+            </ul>
+          </td>
+
+          <% @selected_providers.each_with_index do | provider, index | %>
+            <td data-step="4" data-intro="Estos son los Prestadores" data-position='top'>
+              <figure>
+                <!-- TODO - IMAGE -->
+                <%=
+                image_tag "logos/#{provider.logo}",
+                alt: provider.nombre_abreviado,
+                title: provider.nombre_abreviado,
+                class: "img-thumbnail"
+                %>
+              </figure>
+              <h3>
+                <%= provider.nombre_abreviado %>
+              </h3>
+              <%= link_to provider.web, "http://#{provider.web}", target: '_blank' %>
+              <a class="icon-delate remove_provider" href="#" data-provider="<%= provider.id %>">
+                <span>Borrar</span><i class="fa fa-trash"></i>
+              </a>
+              <% if index > 0 %>
+                <span class="title-vs"> vs </span>
+              <% end %>
+            </td>
+          <% end %><!-- End selected_providers loop -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <% if flash.count > 0 %>
     <div class="alert alert-warning dismissable">
       <%= flash[:alert] %>
     </div>
   <% end %>
 
-  <div class="row compare">
-    <div class="col-md-4">
-      <h3>Selecciona un departamento</h3>
-      <%= select_tag "state", options_for_select(state_options(@states)),class: "form-control" %>
-    </div>
-
-    <div class="col-md-4 col-md-offset-1">
-      <h3>Elegir un prestador</h3>
-      <%= select_tag "provider", options_for_select(provider_options), include_blank: "Elija una institución", class: "form-control" %>
-    </div>
+  <!-- Hidden part fixed for scrolling -->
+  <div id="fixed-versus" class="block">
+    <table class="table table-head">
+      <tbody>
+        <tr>
+          <td class="col-md-3">
+            <h3 style="text-align:left">Estas comparando:</h3>
+          </td>
+          <% @selected_providers.each_with_index do | provider, index | %>
+            <td>
+              <h3><%= provider.nombre_abreviado %></h3>
+              <%= link_to provider.web, "http://#{provider.web}" %>
+              <a class="icon-delate remove_provider" href="#" data-provider="<%= provider.id %>">
+                <span>Borrar</span><i class="fa fa-trash"></i>
+              </a>
+              <% if index > 0 %>
+                <span class="title-vs"> vs </span>
+              <% end %>
+            </td>
+          <% end %><!-- End selected_providers loop -->
+        </tr>
+      </tbody>
+    </table>
   </div>
+  <!--END: Hidden part fixed for scrolling -->
 
-  <div class="hidden">
-    <%= form_tag('/comparar', method: :get, remote: true) do %>
-    <%= hidden_field_tag "selected_providers", @selected_providers.map(&:id) %>
-    <%= submit_tag 'submit', id: 'submit' %>
-    <% end %>
-  </div>
-
-  <div id="comparison-data""row">
-    <%= render partial: 'table', locals: {selected_providers: @selected_providers} %>
-  </div>
-</div>
+  <!-- The partial that has all the info -->
+  <%= render partial: 'group_data' %>
+  <%= render partial: 'sites' %>
+</section>
+<%= render partial: 'layouts/modals'%>
+<%= render partial: 'layouts/asse_modals' if @selected_providers.map(&:id).include? 9000 %>

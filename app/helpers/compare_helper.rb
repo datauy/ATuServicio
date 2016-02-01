@@ -14,93 +14,206 @@ module CompareHelper
   end
 
   # TODO Refactor
-  # FIX Fix this uglyness:
   def show_value(group, column, provider)
     value = ''
+    unless column
+      return ApplicationHelper.no_hay_datos
+    end
     column_value = provider.send(column.to_sym)
-    if column == 'web'
-      value = "<a href=\"http://#{column_value}\" title=\"Sitio web\" target=\"_blank\">#{column_value}</a>".html_safe
-    # Check if ASSE because tickets have no cost:
-    elsif group == :precios
+    case group
+    when :estructura
+      if ['afiliados', 'afiliados_fonasa'].include? column
+        value = table_cell("<h5 class=\"people people-high\">#{number_with_delimiter(column_value, delimiter: '.')}</h5>")
+      else
+        value = table_cell("<p>#{column_value}</p>")
+      end
+    when :precios
       value = precios_value(provider, column_value)
-    elsif group == :metas
+    when :metas
       value = meta_value(column_value)
-    elsif group == :tiempos_espera
-      indicator = check_enough_data_times(column, provider)
-      value = "#{column_value} días #{indicator}".html_safe
-    elsif group == :satisfaccion_derechos
-      value = (column_value) ? "#{column_value} %" : "No hay datos"
-    # FIX: This is a hack
-    # MP and Britanico - 9508 9532
-    # We are doing this because (for now) the importer turns 0 values
-    # from the open data into nil, which we *should fix* asap
-    elsif group == :rrhh
-      value = rrhh_value(provider, column_value, column)
-    elsif group == :solicitud_consultas
+      if provider.id == 9000
+        metas_asse(column, value)
+      end
+    when :tiempos_espera
+      if column_value
+        indicator = check_enough_data_times(column, provider)
+        value = "<td><h5>#{column_value} <small>DÍAS</small> #{indicator}</h5></td>"
+      else
+        value = ApplicationHelper.no_hay_datos
+      end
+    when :satisfaccion_derechos
+      value = if (column_value)
+                if [
+                  'satisfaccion_primer_nivel_atencion_2014',
+                  'satisfaccion_primer_nivel_atencion_2010',
+                  'satisfaccion_internacion_hospitalaria_2012'
+                ].include? column
+                  table_cell("<p>#{column_value}</p>")
+                else
+                  table_cell(progress_bar(column_value))
+                end
+              else
+                ApplicationHelper.no_hay_datos
+              end
+    when :rrhh
+      value = rrhh_value(column_value, column)
+    when :solicitud_consultas
       value = appointment_request_value(column_value)
     else
-      value = boolean_icons(column_value)
+      value = table_cell(boolean_icons(column_value))
     end
-    value
+    value.to_s.html_safe
+  end
+
+  def metas_asse(column, value)
+    modal = nil
+    case column
+    when 'espacio_adolescente'
+      modal = <<-eos
+        <i class="demo-icon icon-info" data-toggle="modal"
+        data-target="#asse_espacio_modal"></i></td>
+      eos
+    when 'meta_ninos_controlados', 'meta_embarazadas'
+      modal = <<-eos
+        <i class="demo-icon icon-info" data-toggle="modal"
+        data-target="#asse_metas_modal"></i></td>
+      eos
+    end
+    if modal
+      value.gsub!(
+        '</td>',
+        "<a href='#'>#{modal}</a></td>"
+      )
+    else
+      value
+    end
   end
 
   def precios_value(provider, column_value)
     if provider.asse?
-      value = 'Sin costo'
-    elsif provider.private_insurance
-      value = 'No hay datos'
+      sin_costo
+    elsif !column_value
+      ApplicationHelper.no_hay_datos
     else
-      value = "$ #{column_value.round}"
+      table_cell("<h5>$ #{number_with_delimiter(column_value, separator: ',')}</h5>")
     end
-    value
   end
 
   def meta_value(column_value)
-    (column_value.is_a? Numeric) ? "#{column_value} %" : boolean_icons(column_value)
+    if column_value.is_a? Numeric
+      table_cell(progress_bar(column_value))
+    elsif column_value.is_a?(TrueClass) || column_value.is_a?(FalseClass)
+      table_cell(boolean_icons(column_value))
+    else
+      ApplicationHelper.no_hay_datos
+    end
   end
 
-  def rrhh_value(provider, column_value, column)
-    value = nil
-    if [9508, 9532].include?(provider.id)
-      value = (column_value) ? "#{column_value}" : 0
-    elsif provider.private_insurance && column.match(/_cad$/)
-      value = 0
-    else
-      value = column_value || 'No hay datos'
-    end
-    value
+  def rrhh_value(column_value, column)
+    value = (column_value) ? column_value : nil
+    value.nil? ? ApplicationHelper.no_hay_datos : table_cell(value)
   end
 
   def appointment_request_value(column_value)
-    return 'No' if column_value == 'f'
-    return 'Sí' if column_value == 't'
-    column_value
+    no_icon = "<i class=\"demo-icon icon-no\"></i>"
+    yes_icon = "<i class=\"demo-icon icon-ok\"></i>"
+    return table_cell(no_icon) if column_value == 'f'
+    return table_cell(yes_icon) if column_value == 't'
+    if /^(S[í|I|i],?\s?)(.+)/.match(column_value)
+      match = /^(S[í|I|i],?\s?)(.+)/.match(column_value)
+      return table_cell("#{yes_icon}<p>#{match[2].capitalize}</p>")
+    end
+    column_value ? table_cell(column_value) : ApplicationHelper.no_hay_datos
   end
 
   def check_enough_data_times(column, provider)
-    if !provider.send("datos_suficientes_#{column}")
+    unless provider.send("datos_suficientes_#{column}")
       info = "Estos datos se elaboraron con una muestra de menos del 10% de la consulta"
-      "<span class=\"glyphicon glyphicon-info-sign\" title=\"#{info}\"> </span>"
+      "<i class=\"demo-icon icon-info\" title=\"#{info}\"> </i>"
     end
+  rescue
   end
 
   def custom_asse_message(group)
     value = ''
-    if group == :tiempos_espera && @selected_providers.select { |p| p.nombre_abreviado.include? 'ASSE' }.count > 0
-    value =  <<-eos
-  <tr>
-    <td colspan="4">
-      <strong>
-      ASSE: Promedios de tiempos de espera calculados con información correspondiente a 142 unidades asistenciales de un total de 800. Siendo de las 142, la mayoría Unidades de Primer Nivel de Atención del interior del país, donde las especialidades tienen una oferta limitada.
-      </strong>
-    </td>
-  </tr>
-      eos
+    if @selected_providers.select { |p| p.nombre_abreviado.include? 'ASSE' }.count > 0
+      case group
+      when :tiempos_espera
+        value = <<-eos
+        <tr><td colspan="5">
+        <p class="asse">
+        #{asse_waiting_times}
+        </p></td></tr>
+        eos
+      when :satisfaccion_derechos
+        value = <<-eos
+        <tr><td colspan="5">
+        <p class="asse">
+        Ver resultados de encuestas de satisfacción en<br>
+        <a
+    href="http://www.asse.com.uy/contenido/Movilidad-Regulada-8431" target="_blank">http://www.asse.com.uy/contenido/Movilidad-Regulada-8431</a>
+        <br>
+        Los datos de las Encuestas de Satisfacción sobre los Servicios
+        del Primer Nivel de Atención (2014 y 2010) correspondientes a
+        ASSE no son estrictamente comparables para esos dos años,
+        debido a aspectos de conformación y alcance de la muestra
+        </p></td></tr>
+        eos
+      end
     end
+
     value.html_safe
   end
 
   def cad_abbr(value)
     value.gsub('CAD', '<abbr title=\'Cargos de Alta Direcci&oacute;n\'>CAD</abbr>').html_safe
+  end
+
+  def sin_costo
+    "<td class=\"free\"><p>SIN COSTO</p><i class=\"demo-icon icon-happy\"></td>".html_safe
+  end
+
+  def progress_bar(value)
+    <<-eos
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="#{value}" aria-valuemin="0" aria-valuemax="100" style="width: #{value}%;">
+        <span class="sr-only">#{number_with_delimiter(value, separator: ',')}%</span>
+      </div>
+    </div>
+    eos
+  end
+
+  def share_message
+    providers = @selected_providers.map{ |n| n.nombre_abreviado.split.map(&:capitalize)*' ' }.join(', ')
+    "Comparando #{providers} en AtuServicio.uy"
+  end
+
+  def current_url
+    URI.encode(request.original_url)
+  end
+
+  def table_cell(value)
+    "<td>#{value}</td>"
+  end
+
+  def show_site_data(site, type)
+    html = ''
+    ValuesHelper.send("sites_#{type}".to_sym).each do |value|
+      html += "<tr><td>#{value.capitalize}:"
+      unless site.send(value).nil?
+        info = site.send(value)
+        if info.is_a?(TrueClass) || info.is_a?(FalseClass)
+          info = boolean_icons(info)
+        else
+          info = info.capitalize
+        end
+        html+= <<-eos
+          #{info}</tr></td>
+        eos
+      else
+        html+= "<span class='nodata'>#{ApplicationHelper.no_hay_datos(false)}</span>"
+      end
+    end
+    html.html_safe
   end
 end
