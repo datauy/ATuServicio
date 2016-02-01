@@ -1,15 +1,15 @@
 @font-face {
-  font-family: 'ats2016';
-  src: url('ats2016.eot');
-  src: url('ats2016.eot#iefix') format('embedded-opentype'),
-       url('ats2016.woff') format('woff'),
-       url('ats2016.ttf') format('truetype'),
-       url('ats2016.svg#ats2016') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'ats2016';
+    src: url('ats2016.eot');
+    src: url('ats2016.eot#iefix') format('embedded-opentype'),
+    url('ats2016.woff') format('woff'),
+    url('ats2016.ttf') format('truetype'),
+    url('ats2016.svg#ats2016') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-
+.form-control:focus {border-color:none !important;}
 * {font-family: 'Montserrat', sans-serif; outline: none;}
 a:focus { outline: none; text-decoration: none;}
 a:hover {text-decoration: underline;}
@@ -19,10 +19,10 @@ a:hover {text-decoration: underline;}
 #loader { background: rgba(255,255,255,0.8); height: 100%; width: 100%; position: fixed; z-index: 3; display: none;}
 
 .comparative_header {
- background: #0B2F47;
- padding:2% 50px;
- display: inline-table;
- width: 100%;
+    background: #0B2F47;
+    padding:2% 50px;
+    display: inline-table;
+    width: 100%;
 }
 header .nav { display: block; float: right; margin-top: 10px;}
 header .nav li a { border:1px solid #fff; border-radius: 30px; color: #fff;font-weight: 300;font-size: 12px; margin-left:10px;}
@@ -33,7 +33,7 @@ header .nav li a:hover, header .nav li.active a {background-color: #fff;color: #
 #logo_color { background: url(logocolor.png) no-repeat;  height:65px; width: 272px;}
 #logo_data { background: url(data.png);display: block; height:48px; width: 122px; text-indent:-9000px;font-size: 0;margin: -9px 22px }
 #logo_msp {
-      background: url(msp.png) no-repeat;
+    background: url(msp.png) no-repeat;
     display: block;
     height: 48px;
     width: 178px;
@@ -41,10 +41,10 @@ header .nav li a:hover, header .nav li.active a {background-color: #fff;color: #
     text-indent: -9000px;
     font-size: 0;
     margin: 3px 22px;
- }
+}
 .breadcrumb { width: 100%; background: #EAEAEA; padding:1% 50px; border-radius: 0; color:#E0F2F1; margin-bottom:50px;}
 .breadcrumb li a {
-   color: #0B2F47; 
+    color: #0B2F47; 
 }
 section { padding:0 50px;}
 
@@ -52,7 +52,7 @@ section { padding:0 50px;}
 
 .home { width: 100%;  background: #fff}
 .home   header h1 {
-     position: absolute;
+    position: absolute;
     top: 45%;
     width: 30%;
     left: 6%; 
@@ -65,9 +65,9 @@ section { padding:0 50px;}
 .home header .nav li a{border-color: #0b2f47; color: #0b2f47}
 .home header .nav li a:hover, .home header .nav li.active a {background-color:#0b2f47; color: #fff }
 .home header .nav li.none a { border:none; border-radius: 0}
-.home header #animation { 
+.home header #animation {
     background: url(bghome.png) no-repeat;
-    height: 366px;
+    height: 295px;
     position: absolute;
     width: 88%;
     bottom: -20px;
@@ -82,10 +82,10 @@ section { padding:0 50px;}
 .home #filter {  width: 100%;padding:4% 50px}
 .home #filter h3 {margin:0;color: #0b2f47;font-size: 14px; line-height: 20px }
 .home #filter select {
-  border-color: #0b2f47;
-  height: 46px;
-  color: #0b2f47;
-  text-indent: 10px;
+    border-color: #0b2f47;
+    height: 46px;
+    color: #0b2f47;
+    text-indent: 10px;
 }
 .home .block_preview tr { border-top: 1px solid #ccc}
 .home thead th {background: #0b2f47; border: none; }
@@ -113,7 +113,7 @@ section { padding:0 50px;}
     color: #fff;
 }
 .btn-tag a i {
-      position: absolute;
+    position: absolute;
     top: 11px;
     right: 13px;
     color: #fff;
@@ -137,10 +137,10 @@ section { padding:0 50px;}
     font-size: 10px !important;
     border-radius: 20px;
 
- }
+}
 .table-head-preview .structure:hover { background-color: #0B2F47; color: #fff;text-decoration: none;border-color:#0B2F47}
 .table-head-preview .structure_module {
-     position: absolute;
+    position: absolute;
     top: 0;
     left: 0;
     background: #fff;
@@ -151,13 +151,13 @@ section { padding:0 50px;}
 .table-head-preview .structure_module ul li { list-style: none;}
 .table-head-preview .structure_module ul li h4 { font-size: 15px;}
 .table-head-preview .structure_module ul li p {
-      font-size: 12px;
+    font-size: 12px;
     margin: 13px 0;
     font-weight: bold;
 }
 
 .table-head-preview .structure_module ul li p span {
-      font-weight: normal;
+    font-weight: normal;
     display: block;
 }
 .table-head-preview .structure_module i::before {font-size: 20px;}
@@ -180,13 +180,20 @@ section { padding:0 50px;}
 
 }
 .home .value .nodata i {margin-left: 1px}
+.home .info-nodata {
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    color: #ccc;
+    margin: 10px 0;
+}
 .home .value .nodata i:before {font-size:18px; }
 .home .txt-info { padding-left:0px;}
 .home .txt-info p { font-size: 10px; margin-top: 20px;}
 .home .txt-info a {font-size: 12px;}
 .home .txt-info .checkbox { text-transform: uppercase; margin: 40px 0; color: #186e93}
 .home .olddata  {
-  font-size: 12px;
+    font-size: 12px;
     line-height: 30px;
     margin: 0;
 
@@ -202,9 +209,9 @@ section { padding:0 50px;}
     position: absolute;
     left: 40px;
     top: 50px;
- }
+}
 .tickets ul li {
-      list-style-type: none;
+    list-style-type: none;
     position: relative;
     padding-left: 9px;
     margin-top: 12px;
@@ -223,7 +230,7 @@ section { padding:0 50px;}
 .tickets ul p {font-size: 12px;}
 .tickets ul p span { display:block;}
 .tickets .coins {
-      position: absolute;
+    position: absolute;
     top: 28px;
     left: 32px;
 }
@@ -247,7 +254,7 @@ section { padding:0 50px;}
 }
 .share-nav li a i:hover { border-color:#333; color: #333}
 .share-nav li a i {
-     font-size: 20px;
+    font-size: 20px;
     border: 4px solid #ccc;
     color: #ccc;
     border-radius: 100px;
@@ -255,12 +262,12 @@ section { padding:0 50px;}
     margin-left: 9px; 
 }
 
-.search-prestadora { }
+.search-prestadora { margin:0 0 20px 0}
 .search-prestadora input { border:1px solid #ccc; border-radius:0; padding: 20px }
 .search-prestadora .btn { padding: 10px; background:#ccc; color: #fff}
 
 #fixed-versus {
-	background: #0B2F47;
+	  background: #0B2F47;
     position: fixed;
     top: 0;
     left: 0;
@@ -298,7 +305,7 @@ section { padding:0 50px;}
 }
 
 .fixed-preview { 
-background: #666;
+    background: #666;
     position: fixed;
     top: 0;
     left: 0;
@@ -329,8 +336,8 @@ background: #666;
 .table-head td:nth-child(2), .table-head td:nth-child(1) {border: none;}
 .table-head td .icon-delate span { font-size: 12px;}
 .table-head td .icon-delate {
-	display: none;
-	position: absolute;
+	  display: none;
+	  position: absolute;
     font-size: 19px;
     color: #333;
     top: -10px;
@@ -363,20 +370,20 @@ background: #666;
 .block h5 { font-size: 18px;color: #231F20}
 .block h5 small { font-size: 80%;padding-right: 5px;color:#231F20}
 .block h5 i {
-      color: #C8D5DA;
-      position: absolute;
-      right: 0;
-      top:33%;
+    color: #C8D5DA;
+    position: absolute;
+    right: 0;
+    top:33%;
 }
 .block i {font-size: 100%; padding:10px}
 
 .progress { height: 35px; background:#E6E7E8; box-shadow: none;padding: 0 !important; border-radius: 0; margin: 0;position: relative;}
 .progress .progress-bar {
-      background: #3fa6c9;
+    background: #3fa6c9;
     border-right: 2px solid #186e93;
 }
 .progress span {
-      position: absolute;
+    position: absolute;
     left: 20px;
     top: 7px;
     color: #fff;
@@ -409,40 +416,40 @@ background: #666;
 .list li:first-child { list-style-type: none;}
 .list li h5 { font-size: 14px;}
 
- [class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: "ats2016";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
- 
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: .2em;
-  text-align: center;
-  /* opacity: .8; */
- 
-  /* For safety - reset parent styles, that can break glyph codes*/
-  font-variant: normal;
-  text-transform: none;
- 
-  /* fix buttons height, for twitter bootstrap */
-  line-height: 1em;
- 
-  /* Animation center compensation - margins should be symmetric */
-  /* remove if not needed */
-  margin-left: .2em;
- 
-  /* you can be more comfortable with increased icons size */
-  /* font-size: 120%; */
- 
-  /* Font smoothing. That was taken from TWBS */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
- 
-  /* Uncomment for 3D effect */
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+                             font-family: "ats2016";
+                             font-style: normal;
+                             font-weight: normal;
+                             speak: none;
+                             
+                             display: inline-block;
+                             text-decoration: inherit;
+                             width: 1em;
+                             margin-right: .2em;
+                             text-align: center;
+                             /* opacity: .8; */
+                             
+                             /* For safety - reset parent styles, that can break glyph codes*/
+                             font-variant: normal;
+                             text-transform: none;
+                             
+                             /* fix buttons height, for twitter bootstrap */
+                             line-height: 1em;
+                             
+                             /* Animation center compensation - margins should be symmetric */
+                             /* remove if not needed */
+                             margin-left: .2em;
+                             
+                             /* you can be more comfortable with increased icons size */
+                             /* font-size: 120%; */
+                             
+                             /* Font smoothing. That was taken from TWBS */
+                             -webkit-font-smoothing: antialiased;
+                             -moz-osx-font-smoothing: grayscale;
+                             
+                             /* Uncomment for 3D effect */
+                             /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+                         }
 
 .icon-info:before { content: '\e807'; } 
 .icon-ok:before { content: '\e806';font-size: 40px; color: #A8D26F } 
@@ -459,9 +466,9 @@ background: #666;
 .icon-sedes:before { content: '\e80e'; } 
 .icon-consultas:before { content: '\e804'; } 
 .icon-socios:before { content: '\e80f'; }
-.icon-clock:before { content: '\e810';color: #186e93 } 
+.icon-clock:before { content: '\e810';color: #3fa6c9 } 
 .icon-user:before { content: '\e811'; color: #3fa6c9 } 
-.icon-coin:before { content: '\e812'; } 
+.icon-coin:before { content: '\e812';color: #3fa6c9  } 
 .icon-cross:before { content: '\e813'; }
 .icon-person:before { content: '\e800';font-size: 80px; color:#3fa6c9 } /* '' */
 .icon-cancel:before { content: '\e801'; } /* '' */ 
@@ -476,7 +483,7 @@ footer a { color: #42B4E7; font-size: 11px;}
 #bottom_footer { border-top:1px solid  #ccc; padding: 20px 0; margin-top: 20px}
 .modal-content { padding:10% 7%; box-shadow: none;border-radius: 10px; border:none;}
 .modal-title {
-     font-size: 22px;
+    font-size: 22px;
     font-weight: bold;
     text-transform: uppercase;
     border-bottom: 3px solid #42B4E7;
@@ -497,7 +504,7 @@ footer a { color: #42B4E7; font-size: 11px;}
 
 /* fade slider */
 .slides {
-     height: 100px;
+    height: 100px;
     overflow: hidden;
     position: absolute;
     width: 400px;
@@ -505,9 +512,9 @@ footer a { color: #42B4E7; font-size: 11px;}
     left: 50%;
     margin-left: -200px;
     background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0.99) 1%, rgba(255,255,255,0) 100%);
-background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0) 100%);
-background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0) 100%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
 
 }
 .slides ul {
@@ -578,17 +585,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 /* css3 delays */
 .slides ul  li:nth-child(2), .slides ul  li:nth-child(2) div {
-    -webkit-animation-delay: 6.0s;
-    -moz-animation-delay: 6.0s;
-}
+                                 -webkit-animation-delay: 6.0s;
+                                 -moz-animation-delay: 6.0s;
+                             }
 .slides ul  li:nth-child(3), .slides ul  li:nth-child(3) div {
-    -webkit-animation-delay: 12.0s;
-    -moz-animation-delay: 12.0s;
-}
+                                 -webkit-animation-delay: 12.0s;
+                                 -moz-animation-delay: 12.0s;
+                             }
 .slides ul  li:nth-child(4), .slides ul  li:nth-child(4) div {
-    -webkit-animation-delay: 18.0s;
-    -moz-animation-delay: 18.0s;
-}
+                                 -webkit-animation-delay: 18.0s;
+                                 -moz-animation-delay: 18.0s;
+                             }
 .slides ul li span {
     display:block;
 }
@@ -640,7 +647,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 .slides ul li div {
-   
+    
     font-size: 18px;
     left: 10%;
     margin: 0 auto;

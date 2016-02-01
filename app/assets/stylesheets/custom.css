@@ -27,3 +27,8 @@ table.sites td span.nodata {
     line-height: 10px !important;
     max-height: 8px !important;
 }
+
+#providers_bar td{
+    background:#3FA6C9;
+    height: auto;
+}

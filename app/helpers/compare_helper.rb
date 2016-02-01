@@ -95,7 +95,7 @@ module CompareHelper
     elsif !column_value
       ApplicationHelper.no_hay_datos
     else
-      table_cell("<p>$ #{number_with_delimiter(column_value, separator: ',')}</p>")
+      table_cell("<h5>$ #{number_with_delimiter(column_value, separator: ',')}</h5>")
     end
   end
 
