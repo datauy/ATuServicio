@@ -677,6 +677,32 @@ footer a { color: #42B4E7; font-size: 11px;}
     -moz-animation-play-state: running;
     -moz-animation-fill-mode: forwards;
 }
+.about section {padding: 0}
+.about .content { padding: 4%}
 
+.about article h2 {font-size: 24px; text-transform: uppercase;font-family: 'Montserrat', sans-serif;font-weight: bold; margin:0 0 50px 0;}
+.about article p {font-size: 15px;line-height: 24px;}
+.about article figure { position: relative; margin: 0 0 20px 0}
+.about article .title {
 
-.terms { color: #666; font-size: 12px; margin: 20px 0}
+    border-bottom: 1px solid #42B4E7;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.about article h3 {
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 3px solid #42B4E7;
+    display: inline-block;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+}
+.about article figure figcaption { position: absolute;bottom: 0; left: 0; width: 100%; background:black; padding: 20px;}
+.content-color {background: #e6e7e8}
+.terms { color: #666; font-size: 12px; margin: 20px 0; background:rgba(64, 167, 201, 0.08); padding: 20px; line-height: 20px;}
+
+.social { padding: 0}
+.social li {line-height: 11px}
