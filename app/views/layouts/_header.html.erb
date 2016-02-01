@@ -2,7 +2,16 @@
   <a class="logo" href="/">Atuservicio.uy</a>
   <ul class="nav nav-pills">
     <li role="presentation">
-      <a href="/sobre_el_proyecto">Sobre el proyecto</a>
+      <a href="/">Inicio</a>
+    </li>
+    <li role="presentation"
+       <% if action_name == 'about' %>
+         class="active"
+       <% end %>
+    >
+      <a href="/sobre_el_proyecto">
+        Sobre el proyecto
+      </a>
     </li>
     <% if controller.controller_name == 'compare' %>
       <li>
