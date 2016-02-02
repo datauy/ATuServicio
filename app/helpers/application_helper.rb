@@ -44,7 +44,7 @@ module ApplicationHelper
   def affiliate_person_size(affiliates)
     max_size = 160
     min_size = 40
-    pixels = affiliates * max_size / 200_000
+    pixels = affiliates * max_size / 100_000
     pixels = min_size if pixels < min_size
     pixels = max_size if pixels > max_size
     pixels
