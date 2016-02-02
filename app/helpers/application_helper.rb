@@ -38,6 +38,18 @@ module ApplicationHelper
     affiliates * 100 / @provider_maximums.affiliates
   end
 
+  # Size for the person icon in the home page. I use '100_000' as the
+  # maximum for reference, since the difference is way too big between
+  # providers.
+  def affiliate_person_size(affiliates)
+    max_size = 160
+    min_size = 40
+    pixels = affiliates * max_size / 200_000
+    pixels = min_size if pixels < min_size
+    pixels = max_size if pixels > max_size
+    pixels
+  end
+
   # Returns true, false, or question mark if value not present
   def boolean_icons(value)
     return"<i class=\"demo-icon icon-ok\"></i>".html_safe if value.is_a?(TrueClass)

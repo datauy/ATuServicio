@@ -471,10 +471,10 @@ section { padding:0 50px;}
 .icon-user:before { content: '\e811'; color: #3fa6c9 } 
 .icon-coin:before { content: '\e812';color: #3fa6c9  } 
 .icon-cross:before { content: '\e813'; }
-.icon-person:before { content: '\e800';font-size: 80px; color:#3fa6c9 } /* '' */
+.icon-person:before { content: '\e800';color:#3fa6c9 } /* '' */
 .icon-cancel:before { content: '\e801'; } /* '' */ 
 .disable:before { color: #dddddc}
-
+.icon-person {font-size: 80px; }
 
 
 footer { background: #E6E7E8; padding: 2% 6%;}
