@@ -3,7 +3,6 @@
   <ul class="nav nav-pills">
     <li class="none" role="presentation"><a id="logo_data" href="http://datauy.org" target="_blank">Data</a></li>
     <li class="none" role="presentation"><a id="logo_msp" href="http://www.msp.gub.uy" target="_blank">MSP</a></li>
-    <li class="active" role="presentation"><a href="#">Inicio</a></li>
     <li role="presentation"><a href="/sobre_el_proyecto">Sobre el proyecto</a></li>
   </ul>
 
@@ -38,6 +37,15 @@
         elegí cuál te corresponde y compará con el resto.</h3>
     </div>
     <div class="col-md-4">
+      <%=
+      select_tag "state",
+      options_for_select(
+        state_options(@states),
+        params[:departamento]),
+        class: "form-control"
+      %>
+    </div>
+    <div class="col-md-4">
       <%= form_tag '/comparar', method: 'get', id: 'sites' do %>
         <%=
         select_tag "selected_providers",
@@ -48,16 +56,6 @@
             id: 'selected_providers'
         %>
       <% end %>
-    </div>
-
-    <div class="col-md-4">
-      <%=
-      select_tag "state",
-      options_for_select(
-        state_options(@states),
-        params[:departamento]),
-        class: "form-control"
-      %>
     </div>
   </div>
 </section>

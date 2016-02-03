@@ -15,6 +15,7 @@ $(".add_compare").click(function(){
       name: $(this).data('name'),
       id: $(this).data('id')
   };
+
   if ($(this).prop('checked') === true){
     if (selected_providers.length == 3){
       var to_remove = selected_providers.pop();
@@ -77,8 +78,10 @@ function add_providers_buttons(selected_providers){
 
 function check_compare_button(){
   if(selected_providers.length > 0){
+    $(".providers_bar").removeClass('hidden').addClass('visible');
     $('.btn-compare').removeClass('hidden').addClass('visible');
   } else {
+    $(".providers_bar").removeClass('visible').addClass('hidden');
     $('.btn-compare').removeClass('visible').addClass('hidden');
   }
 }

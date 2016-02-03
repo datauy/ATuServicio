@@ -46,9 +46,9 @@ table.sites td span.nodata {
     color: #333 !important;
 }
 
-#providers_bar td{
+.providers_bar td{
     background:#3FA6C9;
-    height: auto;
+    height: 30px !important;
 }
 
 .social{
