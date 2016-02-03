@@ -44,10 +44,10 @@ module ApplicationHelper
   def affiliate_person_size(affiliates)
     max_size = 160
     min_size = 40
-    pixels = affiliates * max_size / 100_000
-    pixels = min_size if pixels < min_size
-    pixels = max_size if pixels > max_size
-    pixels
+    # TODO : Put this in the BD?
+    max_value = 1_264_942 # ASSE
+    min_value = 955 # COMMETT
+    (affiliates - min_value) * (max_size - min_size) / max_value + min_size
   end
 
   # Returns true, false, or question mark if value not present
