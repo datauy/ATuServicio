@@ -11,13 +11,13 @@ module ApplicationHelper
   end
 
   def state_options(states)
-    (['Filtar por departamento'] + states).zip(
+    (['Todo el país'] + states).zip(
       ['todos'] + states.map(&:name)
     )
   end
 
   def provider_options
-    @providers.order(:nombre_abreviado).map do |p|
+    @sel_providers.map do |p|
       [
         p.nombre_abreviado,
         p.id
