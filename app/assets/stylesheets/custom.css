@@ -64,3 +64,8 @@ table.sites td span.nodata {
 .social .twitter{
     padding-top: 1px;
 }
+
+#search{
+    padding: 10px 20px !important;
+    height: 42px;
+}

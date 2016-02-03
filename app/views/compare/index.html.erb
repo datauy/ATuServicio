@@ -18,7 +18,7 @@
       <input type="hidden" id="provider_id" name="provider_id">
       <input type="hidden" id="selected_providers" name="selected_providers" value="<%= @selected_providers.map(&:id).join(' ')%>">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="submit">Agregar</button>
+        <button class="btn btn-default" type="submit" id="add_provider">Agregar</button>
       </span>
     </div>
     <% end %>

@@ -12,3 +12,7 @@ $(".remove_provider").click(function(){
 $(".icon-info").click(function(e){
   e.preventDefault();
 });
+
+$("#search").on( "autocompleteselect", function( event, ui ) {
+  $("#add_provider").css('background', '#3FA6C9');
+});
