@@ -35,7 +35,7 @@ module ApplicationHelper
   end
 
   def snis_percentage(affiliates)
-    affiliates * 100 / @provider_maximums.affiliates
+    number_with_precision(affiliates.to_f * 100 / @provider_maximums.affiliates.to_f, precision: 2)
   end
 
   # Size for the person icon in the home page. I use '100_000' as the
