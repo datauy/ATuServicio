@@ -78,11 +78,9 @@ function add_providers_buttons(selected_providers){
 
 function check_compare_button(){
   if(selected_providers.length > 0){
-    $(".providers_bar").removeClass('hidden').addClass('visible');
-    $('.btn-compare').removeClass('hidden').addClass('visible');
+    $(".providers_bar, .btn-compare").removeClass('hidden').addClass('visible');
   } else {
-    $(".providers_bar").removeClass('visible').addClass('hidden');
-    $('.btn-compare').removeClass('visible').addClass('hidden');
+    $(".providers_bar, .btn-compare").removeClass('visible').addClass('hidden');
   }
 }
 
