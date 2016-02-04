@@ -13,7 +13,7 @@ gem 'newrelic_rpm'
 gem 'puma'
 gem 'actionpack-action_caching'
 gem 'rails-jquery-autocomplete'
-gem 'rollbar', '~> 1.2.7'
+gem 'rollbar', '~> 2.7.1'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
