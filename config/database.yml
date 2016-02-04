@@ -79,7 +79,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: atuservicio_rails_production
-  username: atuservicio_rails
-  password: <%= ENV['ATUSERVICIO_RAILS_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: <%= ENV['ATUSERVICIO_DB'] %>
+  username: <%= ENV['ATUSERVICIO_DB_USER'] %>
+  password: <%= ENV['ATUSERVICIO_DB_PASSWORD'] %>
+  host:     <%= ENV['ATUSERVICIO_DB_HOST'] %>
