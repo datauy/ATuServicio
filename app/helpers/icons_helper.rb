@@ -1,23 +1,12 @@
 # coding: utf-8
 module IconsHelper
-  def self.render_icons(provider, value, max, icon)
-    display = ''
-    # Get the actual value for this column:
+  def self.icons_quantity(provider, value, max)
     if value.is_a? Array
       icons = calculate_value(provider.send(value[0]), max)
     else
       icons = calculate_value(value, max)
     end
-
-    icons.times do
-      display += "<i class=\"icon-#{icon}\"></i> "
-    end
-    if icons < 5
-      (5 - icons).times do
-        display += "<i class=\"icon-#{icon} disable\"></i> "
-      end
-    end
-    display.html_safe
+    [icons, (5 - icons)]
   end
 
   def ordered_tickets(provider)

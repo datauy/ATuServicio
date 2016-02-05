@@ -67,7 +67,18 @@
               <label><%= number_with_delimiter(provider.send(value[0]), separator: ',') %> DIAS</label>
           </div>
           <div class="icons">
-            <%= IconsHelper::render_icons(provider, value, @provider_maximums.waiting_time, 'clock') %>
+            <!-- IconsHelper::render_icons(provider, value, @provider_maximums.waiting_time, 'clock') -->
+            <%
+            clocks = IconsHelper.icons_quantity(provider, value, @provider_maximums.waiting_time)
+            clocks[0].times do
+            %>
+              <i class="icon-clock"></i>
+            <%
+            end
+            clocks[1].times do
+            %>
+            <i class="icon-clock disable"></i>
+            <% end %>
           </div>
             <% else %>
         </div>
@@ -103,7 +114,17 @@
           </div>
           <div class="icons">
             <% if ticket[:average] %>
-              <%= IconsHelper::render_icons(provider, ticket[:average], @provider_maximums.tickets, 'coin') %>
+              <%
+              tickets = IconsHelper.icons_quantity(provider, ticket[:average], @provider_maximums.tickets)
+              tickets[0].times do
+              %>
+              <i class="icon-coin"></i>
+            <% end %>
+
+            <% tickets[1].times do %>
+              <i class="icon-coin disable"></i>
+            <% end %>
+            <!-- IconsHelper::render_icons(provider, ticket[:average], @provider_maximums.tickets, 'coin') -->
             <% else %>
               <%= IconsHelper.no_data.html_safe %>
             <% end %>
@@ -144,7 +165,17 @@
               <label><%= number_with_delimiter(provider.send(value[0]), separator: ',') %>/10.000</label>
           </div>
           <div class="icons">
-            <%= IconsHelper::render_icons(provider, value, @provider_maximums.personnel, 'user') %>
+            <%
+            users = IconsHelper.icons_quantity(provider, value, @provider_maximums.personnel)
+            users[0].times do
+            %>
+              <i class="icon-user"></i>
+            <% end %>
+
+            <% users[1].times do %>
+              <i class="icon-user disable"></i>
+            <% end %>
+            <!--  IconsHelper::render_icons(provider, value, @provider_maximums.personnel, 'user') -->
           </div>
             <% else %>
         </div>
