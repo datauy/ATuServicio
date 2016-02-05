@@ -34,7 +34,7 @@ module ValuesHelper
   def goals
     [
       [:meta_embarazadas, 'Embarazadas correct. controladas (%)'],
-      [:meta_ninos_controlados, ' Niños (1 año) correct. controlados (%)']
+      [:meta_ninos_controlados, 'Niños (1 año) correct. controlados (%)']
     ]
   end
 

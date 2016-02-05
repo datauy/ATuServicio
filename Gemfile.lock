@@ -90,7 +90,6 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
-    newrelic_rpm (3.14.0.305)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     pg (0.18.4)
@@ -185,7 +184,6 @@ DEPENDENCIES
   derailed
   jquery-rails
   jquery-ui-rails
-  newrelic_rpm
   pg
   puma
   query_diet

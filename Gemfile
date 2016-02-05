@@ -9,7 +9,6 @@ gem 'uglifier', '>= 1.3.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'newrelic_rpm'
 gem 'puma'
 gem 'actionpack-action_caching'
 gem 'rails-jquery-autocomplete'
