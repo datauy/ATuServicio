@@ -6,7 +6,7 @@ class State  < ActiveRecord::Base
   has_many :providers, through: :sites
 
   def proper_name
-    name.split(' ').map(&:capitalize).join(' ')
+    name.split(StringConstants::SPACE).map(&:capitalize).join(StringConstants::SPACE)
   end
 
   def to_s

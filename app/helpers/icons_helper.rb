@@ -27,16 +27,16 @@ module IconsHelper
     begin
       percentage = provider.send(value[0])
       if percentage == nil
-        html += IconsHelper.no_data
+        html << IconsHelper.no_data
       else
         if value[0] == :satisfaccion_primer_nivel_atencion_2014
-          html += "<h4>#{number_with_delimiter(provider.send(value[0]), separator: ',')}</h4>"
+          html << "<h4>#{number_with_delimiter(provider.send(value[0]), separator: StringConstants::COMMA)}</h4>"
         else
-          html += progress_bar(percentage)
+          html << progress_bar(percentage)
         end
       end
     rescue
-      html += IconsHelper.no_data
+      html << IconsHelper.no_data
     end
     html
   end

@@ -32,10 +32,10 @@ class Provider < ActiveRecord::Base
 
   def states_names
     state_names = states.uniq.map(&:name).map do |names| # Get state names
-      names.split(' ').map do |n| # Separate array to capitalize
+      names.split(StringConstants::SPACE).map do |n| # Separate array to capitalize
         n.capitalize
-      end.join(' ') # Join two word States
-    end.join(', ') # Comma separate States
+      end.join(StringConstants::SPACE) # Join two word States
+    end.join(StringConstants::COMMA + StringConstants::SPACE) # Comma separate States
   end
 
   # scope

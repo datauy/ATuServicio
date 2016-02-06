@@ -177,7 +177,7 @@ module CompareHelper
     <<-eos
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="#{value}" aria-valuemin="0" aria-valuemax="100" style="width: #{value}%;">
-        <span class="sr-only">#{number_with_delimiter(value, separator: ',')}%</span>
+        <span class="sr-only">#{number_with_delimiter(value, separator: StringConstants::COMMA)}%</span>
       </div>
     </div>
     eos
@@ -199,7 +199,7 @@ module CompareHelper
   def show_site_data(site, type)
     html = ''
     ValuesHelper.send("sites_#{type}".to_sym).each do |value|
-      html += "<tr><td>#{value.to_s.split('_').join(' ').capitalize}:"
+      html << "<tr><td>#{value.to_s.split('_').join(' ').capitalize}:"
       unless site.send(value).nil?
         info = site.send(value)
         if info.is_a?(TrueClass) || info.is_a?(FalseClass)
@@ -207,11 +207,11 @@ module CompareHelper
         else
           info = info.capitalize
         end
-        html+= <<-eos
+        html << <<-eos
           #{info}</tr></td>
         eos
       else
-        html+= "<span class='nodata'>#{ApplicationHelper.no_hay_datos(false)}</span>"
+        html << "<span class='nodata'>#{ApplicationHelper.no_hay_datos(false)}</span>"
       end
     end
     html.html_safe
