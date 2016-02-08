@@ -166,7 +166,7 @@ module CompareHelper
   end
 
   def cad_abbr(value)
-    value.gsub('CAD', '<abbr title=\'Cargos de Alta Direcci&oacute;n\'>CAD</abbr>').html_safe
+    value.gsub('CAD', '<abbr title=\'Cargos de Alta Dedicaci&oacute;n\'>CAD</abbr>').html_safe
   end
 
   def sin_costo
