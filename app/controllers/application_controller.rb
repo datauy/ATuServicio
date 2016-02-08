@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   before_filter :load_options
 
   def load_options
-    #@providers ||= Provider.includes(:states).all
     @providers ||= Provider.select(
       'id',
       'nombre_abreviado',

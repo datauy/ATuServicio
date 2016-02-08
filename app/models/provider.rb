@@ -31,16 +31,10 @@ class Provider < ActiveRecord::Base
   end
 
   def states_names
-    state_names = states.uniq.map(&:name).map do |names| # Get state names
+    states.uniq.map(&:name).map do |names| # Get state names
       names.split(StringConstants::SPACE).map do |n| # Separate array to capitalize
         n.capitalize
       end.join(StringConstants::SPACE) # Join two word States
     end.join(StringConstants::COMMA + StringConstants::SPACE) # Comma separate States
-  end
-
-  # scope
-  # returns the providers list on that state
-  def self.by_state
-    find(Site.providers_by_state)
   end
 end
