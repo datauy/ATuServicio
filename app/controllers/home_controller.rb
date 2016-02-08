@@ -16,6 +16,8 @@ class HomeController < ApplicationController
 
     @sel_providers = if @selected_state && @selected_state != 'todos'
                        state = State.find_by_name(@selected_state)
+                       unless state raise ActionController::RoutingError.new('No se encontró el departamento')
+                       end
                        state.providers.includes(:states).order(:private_insurance).order(:nombre_abreviado).uniq
                      else
                        @providers.order(:private_insurance).order(:nombre_abreviado)
