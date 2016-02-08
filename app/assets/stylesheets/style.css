@@ -188,6 +188,8 @@ section { padding:0 50px;}
     color: #ccc;
     margin: 10px 0;
 }
+.home .satisfaction { text-align: center;}
+.home .satisfaction h4 { margin: 20px 0 0 0}
 .home .value .nodata i:before {font-size:18px; }
 .home .txt-info { padding-left:0px;}
 .home .txt-info p { font-size: 10px; margin-top: 20px;}

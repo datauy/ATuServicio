@@ -98,10 +98,19 @@
     <!-- Satisfaction -->
     <td>
       <% satisfactions.each do |value| %>
-        <div class="value">
-          <label><%= value[1] %></label>
-          <%= percentages_value(provider, value).html_safe %>
-        </div>
+        <% if value[0] == :satisfaccion_primer_nivel_atencion_2014 %>
+          <div class="value satisfaction">
+            <label><%= value[1] %></label>
+            <h4>
+              <%= number_with_delimiter(provider.send(value[0]), separator: StringConstants::COMMA) %>
+            </h4>
+          </div>
+        <% else %>
+          <div class="value">
+            <label><%= value[1] %></label>
+            <%= percentages_value(provider, value).html_safe %>
+          </div>
+        <% end %>
       <% end %>
     </td>
 
