@@ -58,8 +58,6 @@ Los logos deben ir en el directorio `app/assets/images/logos` con el siguiente f
 
 Archivos PNG nombre sólo letras (sin acentos ni símbolos) y separado del ID de proveedor (por practicidad).
 
-## Dependencies
+## Dependencias
 
-### CSS
-
- * **Bootstrap** - [Homepage](http://getbootstrap.com)
+Ver COPYRIGHT.md

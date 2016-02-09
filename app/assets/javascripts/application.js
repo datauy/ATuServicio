@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery-ui
 //= require jquery-ui/autocomplete
 //= require bootstrap.min
 //= require intro

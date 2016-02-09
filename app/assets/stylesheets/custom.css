@@ -1,3 +1,9 @@
+/* Autocomplete menu*/
+.ui-widget-content{
+    background: #fff;
+    border: 1px solid #aaa;
+}
+
 .ui-menu-item{
     list-style-type: none;
 }

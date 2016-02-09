@@ -3,7 +3,8 @@ ruby '2.2.4'
 
 gem 'rails', '~> 4.2.5'
 gem 'pg'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
+gem 'sass-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
