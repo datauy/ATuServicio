@@ -206,49 +206,7 @@ section { padding:0 50px;}
 .home #fixed-versus thead th {background: none;border:none;position: relative;text-align: center;padding: 45px 0}
 .home #fixed-versus thead th h3 {font-size: 13px; margin: 0}
 .home #fixed-versus .info {position: absolute;top: 15px;left: 0;font-size: 16px;}
-.tickets ul {
-    min-height: 200px;
-    border-left: 3px solid #3fa6c9;
-    padding: 0;
-    position: absolute;
-    left: 40px;
-    top: 50px;
-}
-.tickets ul li {
-    list-style-type: none;
-    position: relative;
-    padding-left: 9px;
-    margin-top: 12px;
-}
-.tickets ul li::before { 
-    height: 10px;
-    width: 10px;
-    background: #3fa6c9;
-    content: "";
-    position: absolute;
-    display: block;
-    top: 6px;
-    left: -6px;
-    border-radius: 60px;
-}
-.tickets ul p {font-size: 12px;}
-.tickets ul p span { display:block;}
-.tickets .coins {
-    position: absolute;
-    top: 28px;
-    left: 32px;
-}
-.tickets .icon-coin {
-    display: inline-block;
-    font-size: 30px;
-    color: #3fa6c9;
-    margin: -11px; 
-}
-.low-price::before {height: 0}
-.low-price {
-    bottom: -26px;
-    left: -19px;
-}
+
 /*END HOME*/
 .share-nav  {padding: 0 !important}
 .share-nav li  { 
