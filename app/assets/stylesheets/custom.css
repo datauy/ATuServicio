@@ -2,10 +2,15 @@
 .ui-widget-content{
     background: #fff;
     border: 1px solid #aaa;
+    padding: 0;
 }
 
 .ui-menu-item{
     list-style-type: none;
+    padding: 10px;
+}
+.ui-menu-item:hover{
+    background-color: #3FA6C9;
 }
 
 .hidden{
