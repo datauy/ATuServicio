@@ -1,12 +1,10 @@
 # coding: utf-8
 module IconsHelper
-  def self.icons_quantity(provider, value, max)
+  def self.percentage_icons(provider, value, max)
     if value.is_a? Array
-      icons = calculate_value(provider.send(value[0]), max)
-    else
-      icons = calculate_value(value, max)
+      value = provider.send(value[0])
     end
-    [icons, (5 - icons)]
+    value * 100 / max
   end
 
   def ordered_tickets(provider)
@@ -45,9 +43,5 @@ module IconsHelper
     </div>
     eos
     html
-  end
-
-  def self.calculate_value(value, max)
-    (value.to_f * 5 / max).round
   end
 end

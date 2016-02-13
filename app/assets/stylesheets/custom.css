@@ -13,6 +13,26 @@
     background-color: #3FA6C9;
 }
 
+.progress.icons{
+    width: 96px !important;
+    height: 17px !important;
+}
+
+.progress.icons .progress-bar{
+    border-right: 2px solid #3fa6c9;
+}
+
+.progress_icons{
+    z-index: 10000;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.home #fixed-versus{
+    z-index: 99999;
+}
+
 .hidden{
     visibility: hidden;
 }
