@@ -1,4 +1,11 @@
+<% n = 1 %>
 <% @sel_providers.each do |provider| %>
+  <%
+  n += 1
+  clocks = (n % 2 == 0) ? 'clocks-gray.png' : 'clocks.png'
+  coins = (n % 2 == 0) ? 'coins-gray.png' : 'coins.png'
+  users = (n % 2 == 0) ? 'users-gray.png' : 'users.png'
+  %>
   <tr>
     <td>
       <div class="txt-info">
@@ -70,7 +77,7 @@
           <div class="progress icons">
             <div class="progress-bar" role="progressbar" aria-valuenow="<%= value %>}" aria-valuemin="0" aria-valuemax="100" style="width: <%= value %>%;">
             </div>
-            <%= image_tag('clocks.png', class: 'progress_icons')%>
+            <%= image_tag(clocks, class: 'progress_icons')%>
           </div>
         </div>
             <% else %>
@@ -119,7 +126,7 @@
             <div class="progress icons">
               <div class="progress-bar" role="progressbar" aria-valuenow="<%= value %>}" aria-valuemin="0" aria-valuemax="100" style="width: <%= value %>%;">
               </div>
-              <%= image_tag('coins.png', class: 'progress_icons')%>
+              <%= image_tag(coins, class: 'progress_icons')%>
             </div>
           <% else %>
             <%= IconsHelper.no_data.html_safe %>
@@ -163,7 +170,7 @@
           <div class="progress icons">
             <div class="progress-bar" role="progressbar" aria-valuenow="<%= value %>}" aria-valuemin="0" aria-valuemax="100" style="width: <%= value %>%;">
             </div>
-            <%= image_tag('users.png', class: 'progress_icons')%>
+            <%= image_tag(users, class: 'progress_icons')%>
           </div>
 
             <% else %>
