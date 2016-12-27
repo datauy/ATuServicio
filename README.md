@@ -1,9 +1,9 @@
-## Install
+## Instalación
 
 Local:
 
 1. Bundle - `bundle`
-2. Load database (postgres) `rake db:setup db:import`
+2. Levantar base de datos (postgres): `rake db:create db:migrate importer:all`
 
 ## Configuración y CSV's
 
