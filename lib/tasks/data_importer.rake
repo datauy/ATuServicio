@@ -113,7 +113,7 @@ namespace :importer do
     value = 0
     Provider.all.each do |provider|
       ['medicina_general', 'pediatria', 'cirugia_general',
-       'ginecotocologia'].map do |field|
+       'ginecotocologia', 'cardiologia'].map do |field|
         the_thing = provider.send("tiempo_espera_#{field}".to_sym)
         if  the_thing && the_thing > value
           value = provider.send("tiempo_espera_#{field}".to_sym)

@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
       'tiempo_espera_cirugia_general',
       'tiempo_espera_pediatria',
       'tiempo_espera_ginecotocologia',
+      'tiempo_espera_cardiologia',
       'medicos_generales_policlinica',
       'medicos_de_familia_policlinica',
       'medicos_pediatras_policlinica',

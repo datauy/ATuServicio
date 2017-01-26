@@ -7,7 +7,8 @@ module ValuesHelper
       [:tiempo_espera_medicina_general, 'Médico general'],
       [:tiempo_espera_cirugia_general, 'Cirujano general'],
       [:tiempo_espera_pediatria, 'Pediatra'],
-      [:tiempo_espera_ginecotocologia, 'Ginecólogo']
+      [:tiempo_espera_ginecotocologia, 'Ginecólogo'],
+      [:tiempo_espera_cardiologia, 'Cardiología']
     ]
   end
 
