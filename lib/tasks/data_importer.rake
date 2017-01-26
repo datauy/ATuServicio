@@ -1,16 +1,51 @@
 # See:
 require "#{Rails.root}/lib/importer_helper"
+
 include ImporterHelper
 
 namespace :importer do
-  desc 'Create providers'
-  task providers: [:environment] do
+  @year = '2016'
+
+  desc 'Importing everything'
+  task :all, [:year] => [:environment] do |t, args|
+    puts 'Import all data'
+    @year = args[:year]
+
+    Rake::Task['importer:all'].enhance do
+      Rake::Task['importer:states'].invoke
+    end
+
+    providers
+    provider_data
+    calculate_maximums
+    assign_search_name
+    structure
+  end
+
+  #
+  # Los departamentos se importan de config/states.yml
+  #
+  desc 'Import States'
+  task states: [:environment] do
+    puts 'Import states'
+    states = YAML.load_file('config/states.yml')
+    states.each do |state|
+      State.create(
+        name: state
+      )
+    end
+  end
+
+  #
+  # Create providers
+  #
+  def providers
     puts 'Delete providers'
     Provider.destroy_all
 
     puts 'Creating providers'
 
-    import_file('2015/estructura.csv', col_sep: ';') do |row|
+    import_file(@year + "/estructura.csv", col_sep: ';') do |row|
       provider = Provider.new(
         id: row[0],
         nombre_abreviado: row[1],
@@ -27,54 +62,51 @@ namespace :importer do
     end
   end
 
-  desc 'Import provider data'
-  task provider_data: [:environment] do
+  #
+  # Import provider data
+  #
+  def provider_data
     [:precios, :metas, :satisfaccion_derechos, :tiempos_espera].each do |importable|
       puts "Importing #{importable}"
-      importing(importable)
+      importing(importable, @year)
     end
 
     [:rrhh, :solicitud_consultas].each do |importable|
       puts "Importing #{importable}"
-      importing(importable, col_sep: ',')
+      importing(importable, @year)
     end
 
     puts 'Importing sites'
-    importing('sedes') do |provider, parameters|
+    importing('sedes', @year) do |provider, parameters|
       state = State.find_by_name(parameters['departamento'].strip.mb_chars.downcase.to_s)
       parameters['state_id'] = state.id
       provider.sites.create(parameters)
     end
   end
 
-  desc 'Import States'
-  task states: [:environment] do
-    puts 'Import states'
-    states = YAML.load_file('config/states.yml')
-    states.each do |state|
-      State.create(
-        name: state
-      )
-    end
-  end
-
-  desc 'Get structure'
-  task structure: [:environment] do
+  #
+  # Get structure
+  #
+  def structure
     Provider.all.each do |provider|
       provider_structure(provider)
     end
   end
 
-  desc "Assign search name"
-  task :assign_search_name => [:environment] do
+  #
+  # Assign search name
+  #
+  def assign_search_name
     Provider.all.each do |provider|
       search_name = "#{provider.nombre_abreviado} - #{provider.nombre_completo}"
       provider.update_attributes(search_name: search_name)
     end
   end
 
-  desc 'Calculate Maximums'
-  task :calculate_maximums => [:environment] do
+  #
+  # Calculate Maximums
+  #
+  def calculate_maximums
     maximums = ProviderMaximum.first || ProviderMaximum.new
     # Waiting times
     puts 'Calculating Waiting times'
@@ -127,17 +159,4 @@ namespace :importer do
     maximums.save
   end
 
-  desc 'Importing everything'
-  task all: [:environment] do
-    puts 'Import all data'
-  end
-
-  Rake::Task['importer:all'].enhance do
-    Rake::Task['importer:states'].invoke
-    Rake::Task['importer:providers'].invoke
-    Rake::Task['importer:provider_data'].invoke
-    Rake::Task['importer:calculate_maximums'].invoke
-    Rake::Task['importer:assign_search_name'].invoke
-    Rake::Task['importer:structure'].invoke
-  end
 end

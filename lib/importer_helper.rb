@@ -54,10 +54,10 @@ module ImporterHelper
   end
 
   # TODO
-  def importing(name, more_options = nil, &block)
+  def importing(name, year, more_options = nil, &block)
     options = {col_sep: ';'}
     options.merge!(more_options) if more_options
-    import_file("2015/#{name}.csv", options) do |row|
+    import_file("#{year}/#{name}.csv", options) do |row|
       headers = get_columns(name)
       provider = Provider.find_by(id: row[0].to_i)
       parameters = get_parameters(headers, row)

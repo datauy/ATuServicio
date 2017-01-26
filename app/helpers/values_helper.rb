@@ -1,4 +1,6 @@
 # coding: utf-8
+# Helper for values we want to show in the home page
+#
 module ValuesHelper
   def waiting_times
     [
@@ -32,10 +34,9 @@ module ValuesHelper
   end
 
   def goals
-    [
-      [:meta_embarazadas, 'Embarazadas correct. controladas (%)'],
-      [:meta_ninos_controlados, 'Niños (1 año) correct. controlados (%)']
-    ]
+    # TODO - No sabemos qué datos quieren mostrar de esto, pero esta
+    # función se podría generalizar para otras cosas. Si hubiera tiempo...
+    (METADATA[:metas][:columns].zip METADATA[:metas][:description]).to_h
   end
 
   def tickets_show

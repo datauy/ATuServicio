@@ -3,7 +3,7 @@
 Local:
 
 1. Bundle - `bundle`
-2. Levantar base de datos (postgres): `rake db:create db:migrate importer:all`
+2. Levantar base de datos (postgres): `rake db:create db:migrate importer:all[year]`
 
 ## Configuración y CSV's
 
@@ -47,6 +47,10 @@ Recursos Humanos, cargos de médicos generales, de familia, etc. Datos que se ag
 
 ### solicitud_consultas.csv
 Solicitud de consultas (reserva presencial, telefónica, web). Datos que se agregan al objeto Provider.
+
+## Importando los datos
+
+En el directorio `lib/` del proyecto hay un script `convert.sh` que convierte todos los archivos CSV de su encoding a utf-8 para Ruby. A su vez, hay que fijarse bien el tema de las comas, punto y coma y punto para separadores de columna y decimales.
 
 ## Logos
 

@@ -28,19 +28,28 @@ estructura:
 metas:
   title: "Metas Asistenciales"
   description:
-    - "Porcentaje de niños de un año correctamente controlados"
-    - "Porcentaje de embarazadas correctamente controladas"
-    - "Existencia de Espacio Adolescente en la institución"
+    - "Captación RN"
+    - "Control de desarrollo al 4to mes de vida -1 año"
+    - "Control embarazo"
+    - "Control HIV-VDRL en el embarazo"
+    - "Control según pauta de 45 a 64 años"
+    - "Indice de cesareas SIP 2015"
   columns:
-    - meta_ninos_controlados
-    - meta_embarazadas
-    - espacio_adolescente
+    - captacion_rn
+    - control_desarrollo
+    - control_embarazo
+    - control_hiv_vdrl
+    - control_pauta_45_64
+    - indice_cesareas
   definition:
     decimal:
-      - meta_ninos_controlados
-      - meta_embarazadas
-    boolean:
-      - espacio_adolescente
+      - captacion_rn
+      - control_desarrollo
+      - control_embarazo
+      - control_hiv_vdrl
+      - control_pauta_45_64
+    integer:
+      - indice_cesareas
 
 precios:
   title: "Precios"

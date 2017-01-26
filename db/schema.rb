@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123050658) do
+ActiveRecord::Schema.define(version: 20170126042055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,9 +31,6 @@ ActiveRecord::Schema.define(version: 20160123050658) do
     t.string  "web"
     t.integer "afiliados_fonasa"
     t.integer "afiliados"
-    t.decimal "meta_ninos_controlados",                          precision: 9, scale: 2
-    t.decimal "meta_embarazadas",                                precision: 9, scale: 2
-    t.boolean "espacio_adolescente"
     t.text    "comunicacion"
     t.decimal "ticket_de_medicamentos_general_fonasa",           precision: 9, scale: 2
     t.decimal "ticket_de_medicamentos_general_no_fonasa",        precision: 9, scale: 2
@@ -128,6 +125,12 @@ ActiveRecord::Schema.define(version: 20160123050658) do
     t.string  "logo"
     t.string  "search_name"
     t.string  "vias_asignacion_citas"
+    t.decimal "captacion_rn"
+    t.decimal "control_desarrollo"
+    t.decimal "control_embarazo"
+    t.decimal "control_hiv_vdrl"
+    t.decimal "control_pauta_45_64"
+    t.integer "indice_cesareas"
   end
 
   create_table "sites", force: :cascade do |t|
