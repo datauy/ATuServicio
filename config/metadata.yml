@@ -340,17 +340,20 @@ tiempos_espera:
     - "Promedio de tiempo de espera para Pediatría"
     - "Promedio de tiempo de espera para Cirugía General"
     - "Promedio de tiempo de espera para Ginecotocología"
+    - "Promedio de tiempo de espera para Cardiología"
   columns:
     - tiempo_espera_medicina_general
     - tiempo_espera_pediatria
     - tiempo_espera_cirugia_general
     - tiempo_espera_ginecotocologia
+    - tiempo_espera_cardiologia
   definition:
     decimal:
       - tiempo_espera_medicina_general
       - tiempo_espera_pediatria
       - tiempo_espera_cirugia_general
       - tiempo_espera_ginecotocologia
+      - tiempo_espera_cardiologia
 
 satisfaccion_derechos:
   title: "Derechos y satisfacción del usuario"
