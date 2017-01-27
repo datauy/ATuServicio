@@ -17,10 +17,10 @@ class CompareController < ApplicationController
 
     @groups = {
       estructura: 'estructura',
-      metas: 'metas',
-      precios: 'price',
       tiempos_espera: 'calendar',
       satisfaccion_derechos: 'derechos',
+      precios: 'price',
+      metas: 'metas',
       rrhh: 'rrhh',
       solicitud_consultas: 'consultas'
     }
