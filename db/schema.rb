@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126231752) do
+ActiveRecord::Schema.define(version: 20170127214723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -132,6 +132,9 @@ ActiveRecord::Schema.define(version: 20170126231752) do
     t.decimal "control_pauta_45_64"
     t.integer "indice_cesareas"
     t.decimal "tiempo_espera_cardiologia"
+    t.decimal "especialidades_medicas_cantidad_cad"
+    t.decimal "cirugia_general_cantidad_cad"
+    t.decimal "medicina_emergencia_cantidad_cad"
   end
 
   create_table "sites", force: :cascade do |t|

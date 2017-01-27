@@ -30,7 +30,7 @@ namespace :importer do
     puts 'Import states'
     states = YAML.load_file('config/states.yml')
     states.each do |state|
-      State.create(
+      State.find_or_create_by(
         name: state
       )
     end

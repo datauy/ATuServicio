@@ -428,6 +428,9 @@ rrhh:
     - "Neonatología Cantidad de CAD"
     - "Cantidad de CAD Psiquiatría Adultos"
     - "Cantidad de CAD Psiquiatría Pediátrica"
+    - "Especialidades Médicas Cantidad de CAD"
+    - "Cirugía General Cantidad de CAD"
+    - "Medicina de Emergencia Cantidad de CAD"
   columns:
     - medicos_generales_policlinica
     - medicos_de_familia_policlinica
@@ -446,6 +449,9 @@ rrhh:
     - neonatologia_cantidad_cad
     - cantidad_cad_psiquiatria_adultos
     - cantidad_cad_psiquiatria_pediatrica
+    - especialidades_medicas_cantidad_cad
+    - cirugia_general_cantidad_cad
+    - medicina_emergencia_cantidad_cad
   definition:
     decimal:
       - medicos_generales_policlinica
@@ -465,6 +471,9 @@ rrhh:
       - neonatologia_cantidad_cad
       - cantidad_cad_psiquiatria_adultos
       - cantidad_cad_psiquiatria_pediatrica
+      - especialidades_medicas_cantidad_cad
+      - cirugia_general_cantidad_cad
+      - medicina_emergencia_cantidad_cad
 
 
 solicitud_consultas:
