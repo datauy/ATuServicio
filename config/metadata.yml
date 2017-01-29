@@ -26,10 +26,10 @@ estructura:
       - comunicacion
 
 metas:
-  title: "Metas Asistenciales"
+  title: "Indicadores Asistenciales"
   description:
     - "Captación RN"
-    - "Control de desarrollo al 4to mes de vida -1 año"
+    - "Control de desarrollo al 4to mes de vida"
     - "Control embarazo"
     - "Control HIV-VDRL en el embarazo"
     - "Control según pauta de 45 a 64 años"
