@@ -170,7 +170,7 @@ module CompareHelper
   end
 
   def sin_costo
-    "<td class=\"free\"><p>SIN COSTO</p><i class=\"demo-icon icon-happy\"></td>".html_safe
+    "<td class=\"free\"><p>GRATUITO</p><i class=\"demo-icon icon-happy\"></td>".html_safe
   end
 
   def progress_bar(value)
