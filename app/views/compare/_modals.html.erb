@@ -1,0 +1,248 @@
+<!-- Prestador -->
+<div class="modal fade" id="estructura_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Estructura</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Sobre estos datos</h3>
+        <p>
+          Los datos muestran el nombre completo y abreviado de la institución y el número de afiliados o usuarios FONASA y los afiliados o usuarios totales.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <%= render 'layouts/modals_meta' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Tiempos de espera -->
+<div class="modal fade" id="tiempos_espera_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Tiempos de espera</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Sobre estos datos</h3>
+        <p>
+          Se muestran los tiempos de espera promedio, medido en días, para diferentes especialidades (medicina general, pediatría, cirugía general, ginecotocología y cardiología).
+        </p>
+        <h3>En el caso de ASSE</h3>
+        <p>
+          ASSE desarrolló en el año 2012 el Sistema de Gestión Consultas (SGC) (Sistema web), que se encuentra en proceso de expansión en todo el país, tanto en el primer, como segundo y tercer nivel de atención.
+        </p>
+        <p>
+          Actualmente se encuentra implantado en 267 Unidades Asistenciales -46 unidades más que en el año 2015-, de las cuales 217 son Centros de Salud o Policlínicas y 50 son Hospitales o Centros Auxiliares.
+        </p>
+        <p>
+          Está prevista que continúe la implantación del sistema a lo largo de los próximos años. En función de esta implantación progresiva, los datos de tiempo de espera que surgen actualmente del SGC no son representativos de toda la institución, ni de sus diferentes niveles de complejidad.
+        </p>
+        <p>Ver información complementaria en: <a href="http://www.asse.com.uy/contenido/Movilidad-Regulada-8431" target="_blank">http://www.asse.com.uy/contenido/Movilidad-Regulada-8431</a></p>
+      </div>
+      <div class="modal-footer">
+        <%= render 'layouts/modals_meta' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Derechos usuario -->
+<div class="modal fade" id="satisfaccion_derechos_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Derechos de usuario</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Sobre estos datos</h3>
+        <p>
+          Los indicadores que se definen a continuación surgen de las Encuestas de Satisfacción de Usuarios realizadas en los años 2010 y 2014 sobre Satisfacción con los Servicios del Primer Nivel de Atención y 2012 sobre Satisfacción con Internación Hospitalaria. Las encuestas abarcaron a afiliados de todas las Instituciones que conforman el Seguro Nacional de Salud.
+        </p>
+        <p>
+          Las barras reflejan el porcentaje de cada uno de los indicadores sobre satisfacción y derechos, siendo el 100% el total de los usuarios universo del indicador.
+        </p>
+        <p>
+          Estos indicadores proporcionan información sobre la "calidad percibida", por lo tanto, no constituye una medida "objetiva" de desempeño, ya que se formula desde la subjetividad de las personas que contestaron la encuesta, es decir, se basa en sus propias experiencias, necesidades, expectativas, etc.
+        </p>
+        <p>
+          <strong>Satisfacción</strong>: Promedio de las opiniones de los afiliados encuestados sobre su satisfacción con servicios del primer nivel de atención.
+        </p>
+        <p>
+          <strong>Disponibilidad de agenda</strong>: Porcentaje de usuarios que responden "Muy Buena" y "Buena" a la siguiente pregunta: Cuando Ud. pide hora en IS para consultar médico (personalmente, por teléfono o por Internet) ¿Cómo diría que es la disponibilidad de horarios para ver al médico/especialista que quiere consultar?.
+        </p>
+        <p>
+          <strong>Facilidad para trámites</strong>: Porcentaje de usuarios que responden "Muy Fácil" y "Fácil" a la siguiente pregunta: Los trámites y gestiones que debe realizar en (Institución) para consultar médico de medicina general o especialista, ¿le resultan fáciles o difíciles?
+        </p>
+        <p>
+          <strong>Disponibilidad de medicamentos</strong>: Porcentaje de usuarios que responden "Siempre" y "Casi siempre" a la siguiente pregunta: Cuando concurre a la farmacia de la Institución donde se atiende (SI TIENE) ¿siempre están disponibles los medicamentos o alguna vez se fue sin conseguirlos?
+        </p>
+        <p>
+          <strong>Información sobre derechos</strong>: Porcentaje de usuarios que responden "Sí" a la siguiente pregunta: En los últimos doce meses, ¿ha recibido por parte de (Institución) alguna información respecto a sus derechos como usuario?.
+        </p>
+        <p>
+          <strong>Recepción de quejas</strong>: Porcentaje de usuarios que responden "Sí" a la siguiente pregunta: Si hoy tuviese una queja o sugerencia para hacerle a (Institución) ¿sabe qué tiene que hacer, a dónde se debe dirigir?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <%= render 'layouts/modals_meta' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Precios -->
+<div class="modal fade" id="precios_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Precios</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Sobre estos datos</h3>
+        <p>
+          Se incluyen los precios máximos de tickets y órdenes que las instituciones están autorizadas a cobrar a sus afiliados a partir de enero de 2017, tanto para afiliados o usuarios FONASA, como NO FONASA.
+        </p>
+        <p>
+          <strong>Medicamentos</strong>: Promedio de los precios de Ticket de medicamentos general y Ticket de medicamentos topeados antihipertensivos (valsartán, amlodipina, hidroclorotiazida, enalapril).
+        </p>
+        <p>
+          <strong>Consultas</strong>: Promedio de los precios de Consulta no urgente consultorio - medicina general, Consulta no urgente consultorio - pediatría, Consulta no urgente consultorio - gineco-obstetricia (control de embarazo), Consulta no urgente consultorio - ginecología, Consulta no urgente consultorio - otras especialidades, Consulta no urgencia domicilio, Consulta odontológica y Consulta médico de referencia.
+        </p>
+        <p>
+          <strong>Consultas urgencia</strong>: Promedio de los precios de Consulta urgencia centralizada y Consulta urgencia domicilio.
+        </p>
+        <p>
+          <strong>Estudios</strong>: Promedio de los precios de Endoscopía digestiva, Endoscopia esofagogastroduodenal, Ecografía simple, Ecodoppler miembros (inferiores / superiores) arterial / venoso, Rx abdomen / aparato urinario simple, Rx tórax, Rx colorectal, Resonancia nuclear magnética una región, Tomografía axial computarizada una región y Laboratorio, rutina básica.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <%= render 'layouts/modals_meta' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Metas -->
+<div class="modal fade" id="metas_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Indicadores asistenciales</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Sobre estos datos</h3>
+        <p>
+          Las barras reflejan la proporción de los usuarios de cada institución que están cubiertos en cada indicador.
+        </p>
+        <p>
+          <strong>Captación RN</strong>: El indicador refiere al porcentaje de niños nacidos vivos, afiliados a la institución, que presentan su primer control médico en los primeros 10 días de vida.
+        </p>
+        <p>
+          <strong>Porcentaje de niños de un año con control de desarrollo en el 4to mes de vida</strong>: El indicador refiere al porcentaje de niños de un año que cuentan con control de desarrollo en el 4to mes de vida.
+        </p>
+        <p>
+          <strong>Porcentaje de embarazadas con 5 o más controles obstétricos al momento del parto</strong>: El indicador refiere al porcentaje de mujeres afiliadas que presentan un parto/cesárea en el trimestre y cuentan con 5 o más controles obstétricos realizados al momento del parto.
+        </p>
+        <p>
+          <strong>Porcentaje de embarazadas con control de HIV y VDRL en el 1er y 3er trimestre</strong>: El indicador refiere al porcentaje de mujeres afiliadas que presentan un parto/cesárea en el trimestre y cuentan con análisis paraclínico de VDRL y HIV en el 1er y 3er trimestre de embarazo.
+        </p>
+        <p>
+          <strong>Porcentaje de afiliados entre 45 y 64 años controlados según pauta</strong>: Para este indicador se considera a los afiliados entre 45 y 64 años controlados con su médico de referencia según pauta sobre el total de afiliados de la institución de dicho grupo etario.
+        </p>
+        <p>
+          <strong>Tasa de cesáreas</strong>: La tasa de cesáreas es el porcentaje de partos terminados por vía cesárea en relación al total de partos.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <%= render 'layouts/modals_meta' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cantidad de socios -->
+<div class="modal fade" id="affiliates_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cantidad de usuarios</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Sobre estos datos</h3>
+        <p>
+          Las cifras indican el personal disponible cada 10.000 usuarios para diferentes especialidades médicas y no médicas y los Cargos de Alta Dedicación (CAD) cada 10.000 usuarios que fueron creados en el marco del Nuevo Régimen de Trabajo Médico (NRTM) y que abarcan también a varias especialidades.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <%= render 'layouts/modals_meta' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RRHH -->
+<div class="modal fade" id="rrhh_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">RRHH</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Sobre estos datos</h3>
+        <p>
+          Las cifras indican el personal disponible cada 10.000 usuarios para diferentes especialidades médicas y no médicas y los Cargos de Alta Dedicación (CAD) cada 10.000 usuarios que fueron creados en el marco del Nuevo Régimen de Trabajo Médico (NRTM) y que abarcan también a varias especialidades.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <%= render 'layouts/modals_meta' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Solicitud consultas -->
+<div class="modal fade" id="solicitud_consultas_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Solicitud consultas</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Sobre estos datos</h3>
+        <p>En el contexto de la Ordenanza de Agenda de Consulta Externa se establece en forma obligatoria la existencia de dos vías de asignación de citas: presencial y telefónica, las cuales deben estar disponibles para el usuario a la hora de realizar una solicitud de consulta. Este indicador da cuenta de la existencia o no de las dos vías obligatorias de asignación de citas, así como también de otras vías no obligatorias como son vía correo electrónico o página web.</p>
+      </div>
+      <div class="modal-footer">
+        <%= render 'layouts/modals_meta' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ASSE tiempos de espera -->
+<div class="modal fade" id="asse_tiempos_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Tiempos de espera ASSE</h4>
+      </div>
+      <div class="modal-body">
+        <h5><%= asse_waiting_times.html_safe %></h5>
+      </div>
+      <div class="modal-footer">
+        <%= render 'layouts/modals_meta' %>
+      </div>
+    </div>
+  </div>
+</div>
