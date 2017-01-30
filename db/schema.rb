@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170127214723) do
+ActiveRecord::Schema.define(version: 20170130152028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(version: 20170127214723) do
     t.decimal "control_embarazo"
     t.decimal "control_hiv_vdrl"
     t.decimal "control_pauta_45_64"
-    t.integer "indice_cesareas"
+    t.decimal "indice_cesareas"
     t.decimal "tiempo_espera_cardiologia"
     t.decimal "especialidades_medicas_cantidad_cad"
     t.decimal "cirugia_general_cantidad_cad"
