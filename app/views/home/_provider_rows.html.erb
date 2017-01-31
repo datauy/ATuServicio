@@ -150,7 +150,7 @@
         <i class="icon-person" style="font-size:<%= affiliate_person_size(provider.afiliados) %>px"></i>
         <% if provider.afiliados %>
           <h4><%= number_with_delimiter(provider.afiliados, delimiter: ".") %></h4>
-          <h5><%= snis_percentage(provider.afiliados) %>% del SNIS</h5>
+          <h5><%= snis_percentage(provider.afiliados) %>% del total</h5>
         <% else %>
           <%= IconsHelper.no_data.html_safe %>
         <% end %>
