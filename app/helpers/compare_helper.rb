@@ -90,7 +90,7 @@ module CompareHelper
   end
 
   def precios_value(provider, column_value)
-    if provider.asse?
+    if provider.asse? || column_value == 0
       sin_costo
     elsif !column_value
       ApplicationHelper.no_hay_datos
