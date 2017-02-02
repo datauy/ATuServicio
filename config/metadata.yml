@@ -30,10 +30,10 @@ metas:
   description:
     - "Captación RN"
     - "Control de desarrollo al 4to mes de vida"
-    - "Control embarazo"
+    - "Embarazadas con controles obstétricos"
     - "Control HIV-VDRL en el embarazo"
     - "Control según pauta de 45 a 64 años"
-    - "Indice de cesareas SIP 2015"
+    - "Tasa de cesareas"
   columns:
     - captacion_rn
     - control_desarrollo

@@ -95,7 +95,7 @@ module CompareHelper
     elsif !column_value
       ApplicationHelper.no_hay_datos
     else
-      table_cell("<h5>$ #{number_with_delimiter(column_value, separator: ',')}</h5>")
+      table_cell("<h5>$ #{number_with_delimiter(column_value, separator: StringConstants::COMMA)}</h5>")
     end
   end
 
@@ -177,7 +177,7 @@ module CompareHelper
     <<-eos
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="#{value}" aria-valuemin="0" aria-valuemax="100" style="width: #{value}%;">
-        <span class="sr-only">#{number_with_delimiter(value, separator: StringConstants::COMMA)}%</span>
+        <span class="sr-only">#{sprintf("%g", value)}%</span>
       </div>
     </div>
     eos
