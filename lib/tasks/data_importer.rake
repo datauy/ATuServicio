@@ -79,8 +79,10 @@ namespace :importer do
     puts 'Importing sites'
     importing('sedes', @year) do |provider, parameters|
       state = State.find_by_name(parameters['departamento'].strip.mb_chars.downcase.to_s)
-      parameters['state_id'] = state.id
-      provider.sites.create(parameters)
+      unless state.nil?
+        parameters['state_id'] = state.id
+        provider.sites.create(parameters)
+      end
     end
   end
 
