@@ -9,7 +9,7 @@ namespace :importer do
   desc 'Importing everything'
   task :all, [:year] => [:environment] do |t, args|
     puts 'Import all data'
-    @year = args[:year]
+    @year = args[:year] || @year
 
     Rake::Task['importer:all'].enhance do
       Rake::Task['importer:states'].invoke
@@ -79,8 +79,10 @@ namespace :importer do
     puts 'Importing sites'
     importing('sedes', @year) do |provider, parameters|
       state = State.find_by_name(parameters['departamento'].strip.mb_chars.downcase.to_s)
-      parameters['state_id'] = state.id
-      provider.sites.create(parameters)
+      unless state.nil?
+        parameters['state_id'] = state.id
+        provider.sites.create(parameters)
+      end
     end
   end
 
