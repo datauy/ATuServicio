@@ -7,9 +7,9 @@ namespace :importer do
   @year = '2016'
 
   desc 'Importing everything'
-  task :all, [:year] => [:environment] do |t, args|
-    puts 'Import all data'
+  task :all, [:year] => [:environment] do |_, args|
     @year = args[:year]
+    puts "Importing all data for year #{@year}"
 
     Rake::Task['importer:all'].enhance do
       Rake::Task['importer:states'].invoke
