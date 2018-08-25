@@ -32,6 +32,12 @@ ActiveRecord::Schema.define(version: 20170130152028) do
     t.integer "afiliados_fonasa"
     t.integer "afiliados"
     t.text    "comunicacion"
+    t.decimal "captacion_rn",                                    precision: 9, scale: 2
+    t.decimal "control_desarrollo",                              precision: 9, scale: 2
+    t.decimal "control_embarazo",                                precision: 9, scale: 2
+    t.decimal "control_hiv_vdrl",                                precision: 9, scale: 2
+    t.decimal "control_pauta_45_64",                             precision: 9, scale: 2
+    t.decimal "indice_cesareas"
     t.decimal "ticket_de_medicamentos_general_fonasa",           precision: 9, scale: 2
     t.decimal "ticket_de_medicamentos_general_no_fonasa",        precision: 9, scale: 2
     t.decimal "ticket_de_medicamentos_topeados_fonasa",          precision: 9, scale: 2
@@ -78,6 +84,7 @@ ActiveRecord::Schema.define(version: 20170130152028) do
     t.decimal "tiempo_espera_pediatria",                         precision: 9, scale: 2
     t.decimal "tiempo_espera_cirugia_general",                   precision: 9, scale: 2
     t.decimal "tiempo_espera_ginecotocologia",                   precision: 9, scale: 2
+    t.decimal "tiempo_espera_cardiologia",                       precision: 9, scale: 2
     t.decimal "conformidad_disponibilidad_agenda_2014",          precision: 9, scale: 2
     t.decimal "conformidad_disponibilidad_agenda_2010",          precision: 9, scale: 2
     t.decimal "evaluacion_tiempo_espera_sala_2014",              precision: 9, scale: 2
@@ -110,6 +117,9 @@ ActiveRecord::Schema.define(version: 20170130152028) do
     t.decimal "neonatologia_cantidad_cad",                       precision: 9, scale: 2
     t.decimal "cantidad_cad_psiquiatria_adultos",                precision: 9, scale: 2
     t.decimal "cantidad_cad_psiquiatria_pediatrica",             precision: 9, scale: 2
+    t.decimal "especialidades_medicas_cantidad_cad",             precision: 9, scale: 2
+    t.decimal "cirugia_general_cantidad_cad",                    precision: 9, scale: 2
+    t.decimal "medicina_emergencia_cantidad_cad",                precision: 9, scale: 2
     t.string  "reserva_presencial"
     t.string  "reserva_telefonica"
     t.string  "reserva_web"
@@ -125,16 +135,6 @@ ActiveRecord::Schema.define(version: 20170130152028) do
     t.string  "logo"
     t.string  "search_name"
     t.string  "vias_asignacion_citas"
-    t.decimal "captacion_rn"
-    t.decimal "control_desarrollo"
-    t.decimal "control_embarazo"
-    t.decimal "control_hiv_vdrl"
-    t.decimal "control_pauta_45_64"
-    t.decimal "indice_cesareas"
-    t.decimal "tiempo_espera_cardiologia"
-    t.decimal "especialidades_medicas_cantidad_cad"
-    t.decimal "cirugia_general_cantidad_cad"
-    t.decimal "medicina_emergencia_cantidad_cad"
   end
 
   create_table "sites", force: :cascade do |t|
