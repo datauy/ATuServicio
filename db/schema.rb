@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180830212654) do
+ActiveRecord::Schema.define(version: 20180830222651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,11 @@ ActiveRecord::Schema.define(version: 20180830212654) do
     t.string  "search_name"
     t.string  "vias_asignacion_citas"
     t.string  "espacio_adolescente"
+    t.decimal "medicina_emergencia_pediatrica_cantidad_cad"
+    t.decimal "cantidad_medicina_rural"
+    t.decimal "cantidad_imagenologia"
+    t.decimal "cantidad_anestesia"
+    t.decimal "proporcion_trabajadores_seminario_2017"
   end
 
   create_table "sites", force: :cascade do |t|
