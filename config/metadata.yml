@@ -7,6 +7,7 @@ estructura:
     - "Afiliados por Fonasa"
     - "Total de afiliados"
     - "Comunicación en soporte electrónico (página web)"
+    - "Disponibilidad de Espacios específicos para atención a adolescentes"
   columns:
     - nombre_abreviado
     - nombre_completo
@@ -14,11 +15,13 @@ estructura:
     - afiliados_fonasa
     - afiliados
     - comunicacion
+    - espacio_adolescente
   definition:
     string:
       - nombre_abreviado
       - nombre_completo
       - web
+      - espacio_adolescente
     integer:
       - afiliados_fonasa
       - afiliados

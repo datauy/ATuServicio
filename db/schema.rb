@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180830193734) do
+ActiveRecord::Schema.define(version: 20180830202256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,6 +135,7 @@ ActiveRecord::Schema.define(version: 20180830193734) do
     t.decimal "control_embarazo_hiv_vdrl"
     t.decimal "control_pauta_25_a_64_hipertensos"
     t.decimal "capacitacion_infarto_st_elevado"
+    t.string  "espacio_adolescente"
   end
 
   create_table "sites", force: :cascade do |t|

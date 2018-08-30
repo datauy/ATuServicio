@@ -54,7 +54,8 @@ namespace :importer do
         afiliados_fonasa: row[4],
         afiliados: row[6],
         logo: assign_logo(row[0]),
-        comunicacion: row[7]
+        comunicacion: row[7],
+        espacio_adolescente: row[8]
       )
       # Set private insurances
       provider.private_insurance = true if provider.nombre_abreviado.include?('Seguro Privado')
