@@ -28,27 +28,26 @@ estructura:
 metas:
   title: "Indicadores Asistenciales"
   description:
-    - "Captación RN"
-    - "Control de desarrollo al 4to mes de vida"
-    - "Embarazadas con controles obstétricos"
-    - "Control HIV-VDRL en el embarazo"
-    - "Control según pauta de 45 a 64 años"
-    - "Tasa de cesareas"
+    - "Porcentaje de captación de recién nacido"
+    - "Porcentaje de niños de un año con control de desarrollo en el 4to mes de vida"
+    - "Porcentaje de embarazadas con control de HIV y VDRL en el 1er y 3er trimestre"
+    - "Porcentaje de usuarios de 25 a 64 años capatados e identificados como hipertensos"
+    - "Porcentaje de médicos con capacitación realizada en tratamiento del infarto agudo de miocardio con ST elevado"
+    - "Indice de cesareas SIP 2017"
   columns:
     - captacion_rn
     - control_desarrollo
-    - control_embarazo
-    - control_hiv_vdrl
-    - control_pauta_45_64
+    - control_embarazo_hiv_vdrl
+    - control_pauta_25_a_64_hipertensos
+    - capacitacion_infarto_st_elevado
     - indice_cesareas
   definition:
     decimal:
       - captacion_rn
       - control_desarrollo
-      - control_embarazo
-      - control_hiv_vdrl
-      - control_pauta_45_64
-    integer:
+      - control_embarazo_hiv_vdrl
+      - control_pauta_25_a_64_hipertensos
+      - capacitacion_infarto_st_elevado
       - indice_cesareas
 
 precios:
