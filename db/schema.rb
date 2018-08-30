@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180830202256) do
+ActiveRecord::Schema.define(version: 20180830212654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(version: 20180830202256) do
     t.text    "comunicacion"
     t.decimal "captacion_rn",                                    precision: 9, scale: 2
     t.decimal "control_desarrollo",                              precision: 9, scale: 2
+    t.decimal "control_embarazo_hiv_vdrl",                       precision: 9, scale: 2
+    t.decimal "control_pauta_25_a_64_hipertensos",               precision: 9, scale: 2
+    t.decimal "capacitacion_infarto_st_elevado",                 precision: 9, scale: 2
     t.decimal "indice_cesareas"
     t.decimal "ticket_de_medicamentos_general_fonasa",           precision: 9, scale: 2
     t.decimal "ticket_de_medicamentos_general_no_fonasa",        precision: 9, scale: 2
@@ -83,19 +86,17 @@ ActiveRecord::Schema.define(version: 20180830202256) do
     t.decimal "tiempo_espera_ginecotocologia",                   precision: 9, scale: 2
     t.decimal "tiempo_espera_cardiologia",                       precision: 9, scale: 2
     t.decimal "conformidad_disponibilidad_agenda_2014",          precision: 9, scale: 2
-    t.decimal "conformidad_disponibilidad_agenda_2010",          precision: 9, scale: 2
+    t.decimal "conformidad_disponibilidad_agenda_2017",          precision: 9, scale: 2
     t.decimal "evaluacion_tiempo_espera_sala_2014",              precision: 9, scale: 2
-    t.decimal "evaluacion_tiempo_espera_sala_2010",              precision: 9, scale: 2
+    t.decimal "evaluacion_tiempo_espera_sala_2017",              precision: 9, scale: 2
     t.decimal "facilidad_para_realizar_tramites_gestiones_2014", precision: 9, scale: 2
-    t.decimal "facilidad_para_realizar_tramites_gestiones_2010", precision: 9, scale: 2
-    t.decimal "disponibilidad_medicamentos_farmacia_2014",       precision: 9, scale: 2
-    t.decimal "disponibilidad_medicamentos_farmacia_2010",       precision: 9, scale: 2
-    t.decimal "informacion_sobre_derechos_2014",                 precision: 9, scale: 2
-    t.decimal "informacion_sobre_derechos_2010",                 precision: 9, scale: 2
+    t.decimal "facilidad_para_realizar_tramites_gestiones_2017", precision: 9, scale: 2
+    t.decimal "disponibilidad_medicamentos_farmacia_2017",       precision: 9, scale: 2
+    t.decimal "informacion_sobre_derechos_2017",                 precision: 9, scale: 2
+    t.decimal "queja_sugerencia_sabe_donde_dirigirse_2017",      precision: 9, scale: 2
     t.decimal "queja_sugerencia_sabe_donde_dirigirse_2014",      precision: 9, scale: 2
-    t.decimal "queja_sugerencia_sabe_donde_dirigirse_2010",      precision: 9, scale: 2
     t.decimal "satisfaccion_primer_nivel_atencion_2014",         precision: 9, scale: 2
-    t.decimal "satisfaccion_primer_nivel_atencion_2010",         precision: 9, scale: 2
+    t.decimal "satisfaccion_primer_nivel_atencion_2017",         precision: 9, scale: 2
     t.decimal "satisfaccion_internacion_hospitalaria_2012",      precision: 9, scale: 2
     t.decimal "medicos_generales_policlinica",                   precision: 9, scale: 2
     t.decimal "medicos_de_familia_policlinica",                  precision: 9, scale: 2
@@ -132,9 +133,6 @@ ActiveRecord::Schema.define(version: 20180830202256) do
     t.string  "logo"
     t.string  "search_name"
     t.string  "vias_asignacion_citas"
-    t.decimal "control_embarazo_hiv_vdrl"
-    t.decimal "control_pauta_25_a_64_hipertensos"
-    t.decimal "capacitacion_infarto_st_elevado"
     t.string  "espacio_adolescente"
   end
 

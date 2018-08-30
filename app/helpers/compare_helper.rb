@@ -50,7 +50,7 @@ module CompareHelper
       value = if (column_value)
                 if [
                   'satisfaccion_primer_nivel_atencion_2014',
-                  'satisfaccion_primer_nivel_atencion_2010',
+                  'satisfaccion_primer_nivel_atencion_2017',
                   'satisfaccion_internacion_hospitalaria_2012'
                 ].include? column
                   table_cell("<p>#{column_value}</p>")

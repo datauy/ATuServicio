@@ -14,12 +14,12 @@ module ValuesHelper
 
   def satisfactions
     [
-      [:satisfaccion_primer_nivel_atencion_2014, 'Satisfacción'],
-      [:conformidad_disponibilidad_agenda_2014, 'Disponibilidad de agenda'],
-      [:facilidad_para_realizar_tramites_gestiones_2014, 'Trámites'],
-      [:disponibilidad_medicamentos_farmacia_2014, 'Disponibilidad de medicamentos'],
-      [:informacion_sobre_derechos_2014, 'Información sobre derechos'],
-      [:queja_sugerencia_sabe_donde_dirigirse_2014, 'Recepción de quejas']
+      [:satisfaccion_primer_nivel_atencion_2017, 'Satisfacción'],
+      [:conformidad_disponibilidad_agenda_2017, 'Disponibilidad de agenda'],
+      [:facilidad_para_realizar_tramites_gestiones_2017, 'Trámites'],
+      [:disponibilidad_medicamentos_farmacia_2017, 'Disponibilidad de medicamentos'],
+      [:informacion_sobre_derechos_2017, 'Información sobre derechos'],
+      [:queja_sugerencia_sabe_donde_dirigirse_2017, 'Recepción de quejas']
     ]
   end
 
