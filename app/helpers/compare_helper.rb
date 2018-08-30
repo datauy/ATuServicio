@@ -24,16 +24,21 @@ module CompareHelper
     when :estructura
       if ['afiliados', 'afiliados_fonasa'].include? column
         value = table_cell("<h5 class=\"people people-high\">#{number_with_delimiter(column_value, delimiter: '.')}</h5>")
+      elsif column == 'espacio_adolescente'
+        value = table_cell(boolean_icons(column_value))
       else
         value = table_cell("<p>#{column_value}</p>")
       end
+
+
     when :precios
       value = precios_value(provider, column_value)
     when :metas
       value = meta_value(column_value)
-      if provider.id == 9000
-        metas_asse(column, value)
-      end
+      # TODO: Comento esto porque las metas que controlábamos no existen más
+      # if provider.id == 9000
+      #   metas_asse(column, value)
+      # end
     when :tiempos_espera
       if column_value
         indicator = check_enough_data_times(column, provider)
@@ -56,7 +61,7 @@ module CompareHelper
                 ApplicationHelper.no_hay_datos
               end
     when :rrhh
-      value = rrhh_value(column_value, column)
+      value = rrhh_value(column_value)
     when :solicitud_consultas
       value = appointment_request_value(column_value)
     else
@@ -65,29 +70,29 @@ module CompareHelper
     value.to_s.html_safe
   end
 
-  def metas_asse(column, value)
-    modal = nil
-    case column
-    when 'espacio_adolescente'
-      modal = <<-eos
-        <i class="demo-icon icon-info" data-toggle="modal"
-        data-target="#asse_espacio_modal"></i></td>
-      eos
-    when 'meta_ninos_controlados', 'meta_embarazadas'
-      modal = <<-eos
-        <i class="demo-icon icon-info" data-toggle="modal"
-        data-target="#asse_metas_modal"></i></td>
-      eos
-    end
-    if modal
-      value.gsub!(
-        '</td>',
-        "<a href='#'>#{modal}</a></td>"
-      )
-    else
-      value
-    end
-  end
+  # def metas_asse(column, value)
+  #   modal = nil
+  #   case column
+  #   when 'espacio_adolescente'
+  #     modal = <<-eos
+  #       <i class="demo-icon icon-info" data-toggle="modal"
+  #       data-target="#asse_espacio_modal"></i></td>
+  #     eos
+  #   when 'meta_ninos_controlados', 'meta_embarazadas'
+  #     modal = <<-eos
+  #       <i class="demo-icon icon-info" data-toggle="modal"
+  #       data-target="#asse_metas_modal"></i></td>
+  #     eos
+  #   end
+  #   if modal
+  #     value.gsub!(
+  #       '</td>',
+  #       "<a href='#'>#{modal}</a></td>"
+  #     )
+  #   else
+  #     value
+  #   end
+  # end
 
   def precios_value(provider, column_value)
     if provider.asse? || column_value == 0
@@ -109,7 +114,7 @@ module CompareHelper
     end
   end
 
-  def rrhh_value(column_value, column)
+  def rrhh_value(column_value)
     value = (column_value) ? column_value : nil
     value.nil? ? ApplicationHelper.no_hay_datos : table_cell(value)
   end
