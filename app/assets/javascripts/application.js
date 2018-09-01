@@ -20,3 +20,4 @@
 //= require comparar
 //= require autocomplete-rails
 //= require jquery.mark.min
+//= require popper

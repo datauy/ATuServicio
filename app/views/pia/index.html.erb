@@ -1,191 +1,52 @@
 <%= render partial: 'layouts/header'%>
-<div class="container">
-
-	<div class="header">
-
-    <div class="input-group mb-3 pias-search">
-      <%=
+<section>
+  <div class="header">
+    <form>
+      <div class="input-group search-prestadora">
+        <%=
         text_field_tag :search,
-          nil,
-          class: "search-query form-control",
+        nil,
+        class: "search-query form-control",
           placeholder: "Ingrese sus criterios de búsqueda",
           type: "search",
           data: {
-            autocomplete: autocomplete_pia_titulo_pia_path,
+            autocomplete: autocomplete_pia_titulo_pia_path
           }
-      %>
-      <div class="input-group-append">
-        <button class="btn btn-default pias-search-btn" type="submit" data-search="search"><i class="fa fa-search"></i></button>
+        %>
+        <div class="input-group-btn">
+          <button class="btn btn-default pias-search-btn" type="submit" data-search="search"><i class="fa fa-search"></i></button>
+        </div>
       </div>
-    </div>
+    </form>
     <div class="no-results"> No se encontraron resultados para su búsqueda </div>
-	</div>
+  </div>
 
   <div class="search-controls">
-     <span id="index-counter"></span><span id="results-counter" ></span>
-     <div class="search-controls-actions">
-       <i data-search="next" class="fa fa-arrow-down"></i>
-       <i data-search="prev" class="fa fa-arrow-up"></i>
-       <i data-search="clear" class="fa fa-times"></i>
+    <span id="index-counter"></span><span id="results-counter" ></span>
+    <div class="search-controls-actions">
+      <i data-search="next" class="fa fa-arrow-down"></i>
+      <i data-search="prev" class="fa fa-arrow-up"></i>
+      <i data-search="clear" class="fa fa-times"></i>
     </div>
   </div>
 
-	<p class="filters-title">Filtrar por:</p>
-	<div class="pias-filters">
-		<% @categories.each do |category| %>
-        <div class="pias-filter">
-  		    <a class="<%= 'active' if '/pias/'+category.pid == request.path_info %>"
-  		     href='<%= "/pias/#{category.pid}" %>'>
-  		    	<%= category.titulo %>
-  		    </a>
-        </div>
-		<%end %>
-	</div>
+  <p class="filters-title">Filtrar por:</p>
+  <div class="pias-filters">
+    <% @categories.each do |category| %>
+      <div class="pias-filter">
+        <a class="<%= 'active' if '/pias/'+category.pid == request.path_info %>"
+          href='<%= "/pias/#{category.pid}" %>'>
+          <%= category.titulo %>
+        </a>
+      </div>
+    <%end %>
+  </div>
 
-	<div class="pias-content">
-		<%= nested_pias @pia %>
-	</div>
+  <div class="pias-content">
+    <%= nested_pias @pia %>
+  </div>
+</section>
 
-
-</div>
-
-<script>
-	$(document).ready(function(){
-
-	var activeFilter;
-  $('.pias-filters').on('click', '.pias-filter a', function(e) {
-		if(window.location.href === this.href){
-			var url = location.origin + "/pias";    
-			$(location).attr('href',url);	
-			e.preventDefault();
-		}
-	});
-
-	function toggleIcon() {
-        $(this).find('.pias-link-icon')
-            .toggleClass('fa-angle-up fa-angle-down');
-    }
-  $('.pias-content').on('click', '.card .pias-link', toggleIcon);
-
-
-  // the input field
-  var $input = $("input[type='search']"),
-    // search button
-    $searchBtn = $("button[data-search='search']"),
-    // clear button
-    $clearBtn = $("i[data-search='clear']"),
-    // prev button
-    $prevBtn = $("i[data-search='prev']"),
-    // next button
-    $nextBtn = $("i[data-search='next']"),
-    // the context where to search
-    $content = $(".pias-content"),
-    // jQuery object to save <mark> elements
-    $results,
-    // the class that will be appended to the current
-    // focused element
-    currentClass = "current",
-    // top offset for the jump (the search bar)
-    offsetTop = 50,
-    // the current index of the focused element
-    currentIndex = 0,
-
-    $searchControls = $('.search-controls'),
-    $indexCounter = $('#index-counter'),
-    $resultCounter = $('#results-counter'),
-    $noResults = $('.no-results');
-
-  /**
-   * Jumps to the element matching the currentIndex
-   */
-  function jumpTo() {
-    if ($results.length) {
-      $indexCounter.text((currentIndex +1 ) + '/');
-      $resultCounter.text($results.length);
-      $searchControls.css('display','block');
-      var position,
-        $current = $results.eq(currentIndex);
-      $results.removeClass(currentClass);
-      collapseShowParents($current);
-
-      if ($current.length) {
-        $current.addClass(currentClass);
-        position = $current.offset().top - offsetTop;
-        window.scrollTo(0, position);
-      }
-    }else{
-      $noResults.css('display','block');
-    }
-  }
-
-  function collapseShowParents($element){
-  	var $collapseContainer=$element.closest('.collapse');
-  	if(!$collapseContainer.hasClass('show') && !$collapseContainer.hasClass('in')){
-			$collapseContainer.toggleClass('show in');
-      $collapseContainer.css('height', 'auto');
-  	}
-  	if($collapseContainer.hasClass('root')){
-  		return false;
-  	}
-   collapseShowParents($collapseContainer.parent());
-  }
-
-  /**
-   * Searches for the entered keyword in the
-   * specified context on input
-   */
-  $searchBtn.on("click", function() {
-  	var searchVal = $input.val();
-    $content.unmark({
-      done: function() {
-        $content.mark(searchVal, {
-          separateWordSearch: false,
-          done: function() {
-            $results = $content.find("mark");
-            currentIndex = 0;
-            jumpTo();
-          }
-        });
-      }
-    });
-  });
-
-  function clearSearch(){
-    $content.unmark();
-    $input.val("").focus();
-    $searchControls.css('display','none');
-    $noResults.css('display','none');
-    $indexCounter.text('');
-    $resultCounter.text('');
-  }
-
-  /**
-   * Clears the search
-   */
-  $clearBtn.on("click", clearSearch);
-
-
-  $input.on('input', function(){
-    if($searchControls.css("display") === "block" || $noResults.css("display") === "block") {
-      clearSearch();
-    }
-  });
-
-
-  /**
-   * Next and previous search jump to
-   */
-  $nextBtn.add($prevBtn).on("click", function() {
-    if ($results.length) {
-      currentIndex += $(this).is($prevBtn) ? -1 : 1;
-      if (currentIndex < 0) {
-        currentIndex = $results.length - 1;
-      }
-      if (currentIndex > $results.length - 1) {
-        currentIndex = 0;
-      }
-      jumpTo();
-    }
-  });
-});
-</script>
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "pias.js" %>
+<% end %>
