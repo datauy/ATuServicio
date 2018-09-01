@@ -135,9 +135,6 @@ ActiveRecord::Schema.define(version: 20180830222651) do
     t.string  "vias_asignacion_citas"
     t.string  "espacio_adolescente"
     t.decimal "medicina_emergencia_pediatrica_cantidad_cad"
-    t.decimal "cantidad_medicina_rural"
-    t.decimal "cantidad_imagenologia"
-    t.decimal "cantidad_anestesia"
     t.decimal "proporcion_trabajadores_seminario_2017"
   end
 

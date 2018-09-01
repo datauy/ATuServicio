@@ -428,9 +428,6 @@ rrhh:
     - "Cirugía General Cantidad de CAD"
     - "Medicina de Emergencia Adultos Cantidad de CAD"
     - "Medicina de Emergencia Pediátrica Cantidad de CAD"
-    - "Cantidad de CAD de Medicina Rural"
-    - "Cantidad de CAD de Imagenología"
-    - "Cantidad de CAD de Anestesia"
     - "Proporción de trabajadores que realizaron el seminario de capacitación en el 2017"
   columns:
     - medicos_generales_policlinica
@@ -454,9 +451,6 @@ rrhh:
     - cirugia_general_cantidad_cad
     - medicina_emergencia_cantidad_cad
     - medicina_emergencia_pediatrica_cantidad_cad
-    - cantidad_medicina_rural
-    - cantidad_imagenologia
-    - cantidad_anestesia
     - proporcion_trabajadores_seminario_2017
   definition:
     decimal:
@@ -481,11 +475,7 @@ rrhh:
       - cirugia_general_cantidad_cad
       - medicina_emergencia_cantidad_cad
       - medicina_emergencia_pediatrica_cantidad_cad
-      - cantidad_medicina_rural
-      - cantidad_imagenologia
-      - cantidad_anestesia
       - proporcion_trabajadores_seminario_2017
-
 
 solicitud_consultas:
   title: "Solicitud de consultas"
