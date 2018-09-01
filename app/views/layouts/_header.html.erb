@@ -13,6 +13,15 @@
         Sobre el proyecto
       </a>
     </li>
+    <li role="presentation"
+       <% if action_name == 'index' %>
+         class="active"
+       <% end %>
+    >
+      <a href="/pias">
+       Catálogo Prestaciones
+      </a>
+    </li>
     <% if controller.controller_name == 'compare' %>
       <li>
         <a  href="javascript:void(0);" onclick="javascript:introJs().start();">
