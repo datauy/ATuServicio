@@ -1,7 +1,7 @@
 class AddFieldsFromRrhh < ActiveRecord::Migration
   def change
-    add_column :providers, :especialidades_medicas_cantidad_cad, :decimal
-    add_column :providers, :cirugia_general_cantidad_cad, :decimal
-    add_column :providers, :medicina_emergencia_cantidad_cad, :decimal
+    [:especialidades_medicas_cantidad_cad, :cirugia_general_cantidad_cad, :medicina_emergencia_cantidad_cad].each do |meta|
+      add_column :providers, meta, :decimal unless column_exists?(:providers, meta)
+    end
   end
 end

@@ -7,6 +7,7 @@ estructura:
     - "Afiliados por Fonasa"
     - "Total de afiliados"
     - "Comunicación en soporte electrónico (página web)"
+    - "Disponibilidad de Espacios específicos para atención a adolescentes"
   columns:
     - nombre_abreviado
     - nombre_completo
@@ -14,11 +15,13 @@ estructura:
     - afiliados_fonasa
     - afiliados
     - comunicacion
+    - espacio_adolescente
   definition:
     string:
       - nombre_abreviado
       - nombre_completo
       - web
+      - espacio_adolescente
     integer:
       - afiliados_fonasa
       - afiliados
@@ -28,27 +31,26 @@ estructura:
 metas:
   title: "Indicadores Asistenciales"
   description:
-    - "Captación RN"
-    - "Control de desarrollo al 4to mes de vida"
-    - "Embarazadas con controles obstétricos"
-    - "Control HIV-VDRL en el embarazo"
-    - "Control según pauta de 45 a 64 años"
-    - "Tasa de cesareas"
+    - "Porcentaje de captación de recién nacido"
+    - "Porcentaje de niños de un año con control de desarrollo en el 4to mes de vida"
+    - "Porcentaje de embarazadas con control de HIV y VDRL en el 1er y 3er trimestre"
+    - "Porcentaje de usuarios de 25 a 64 años capatados e identificados como hipertensos"
+    - "Porcentaje de médicos con capacitación realizada en tratamiento del infarto agudo de miocardio con ST elevado"
+    - "Indice de cesareas SIP 2017"
   columns:
     - captacion_rn
     - control_desarrollo
-    - control_embarazo
-    - control_hiv_vdrl
-    - control_pauta_45_64
+    - control_embarazo_hiv_vdrl
+    - control_pauta_25_a_64_hipertensos
+    - capacitacion_infarto_st_elevado
     - indice_cesareas
   definition:
     decimal:
       - captacion_rn
       - control_desarrollo
-      - control_embarazo
-      - control_hiv_vdrl
-      - control_pauta_45_64
-    integer:
+      - control_embarazo_hiv_vdrl
+      - control_pauta_25_a_64_hipertensos
+      - capacitacion_infarto_st_elevado
       - indice_cesareas
 
 precios:
@@ -358,53 +360,47 @@ tiempos_espera:
 satisfaccion_derechos:
   title: "Derechos y satisfacción del usuario"
   description:
+    - "Conformidad con disponibilidad de agenda (consulta médica) (2017)"
     - "Conformidad con disponibilidad de agenda (consulta médica) (2014)"
-    - "Conformidad con disponibilidad de agenda (consulta médica) (2010)"
+    - "Evaluación de tiempo de espera en sala (2017)"
     - "Evaluación de tiempo de espera en sala (2014)"
-    - "Evaluación de tiempo de espera en sala (2010)"
+    - "Facilidad para realizar trámites y gestiones (2017)"
     - "Facilidad para realizar trámites y gestiones (2014)"
-    - "Facilidad para realizar trámites y gestiones (2010)"
-    - "Disponibilidad de medicamentos en farmacia (2014)"
-    - "Disponibilidad de medicamentos en farmacia (2010)"
-    - "Información sobre Derechos (2014)"
-    - "Información sobre Derechos (2010)"
+    - "Disponibilidad de medicamentos en farmacia (2017)"
+    - "Información sobre Derechos y Obligaciones (2017)"
+    - "Si hoy tuviese una queja o sugerencia sabe a dónde dirigirse (2017)"
     - "Si hoy tuviese una queja o sugerencia sabe a dónde dirigirse (2014)"
-    - "Si hoy tuviese una queja o sugerencia sabe a dónde dirigirse (2010)"
+    - "Satisfacción con Primer Nivel de Atención (2017)"
     - "Satisfacción con Primer Nivel de Atención (2014)"
-    - "Satisfacción con Primer Nivel de Atención (2010)"
     - "Satisfacción con Internación Hospitalaria (2012)"
   columns:
+    - conformidad_disponibilidad_agenda_2017
     - conformidad_disponibilidad_agenda_2014
-    - conformidad_disponibilidad_agenda_2010
+    - evaluacion_tiempo_espera_sala_2017
     - evaluacion_tiempo_espera_sala_2014
-    - evaluacion_tiempo_espera_sala_2010
+    - facilidad_para_realizar_tramites_gestiones_2017
     - facilidad_para_realizar_tramites_gestiones_2014
-    - facilidad_para_realizar_tramites_gestiones_2010
-    - disponibilidad_medicamentos_farmacia_2014
-    - disponibilidad_medicamentos_farmacia_2010
-    - informacion_sobre_derechos_2014
-    - informacion_sobre_derechos_2010
+    - disponibilidad_medicamentos_farmacia_2017
+    - informacion_sobre_derechos_2017
+    - queja_sugerencia_sabe_donde_dirigirse_2017
     - queja_sugerencia_sabe_donde_dirigirse_2014
-    - queja_sugerencia_sabe_donde_dirigirse_2010
+    - satisfaccion_primer_nivel_atencion_2017
     - satisfaccion_primer_nivel_atencion_2014
-    - satisfaccion_primer_nivel_atencion_2010
     - satisfaccion_internacion_hospitalaria_2012
   definition:
     decimal:
       - conformidad_disponibilidad_agenda_2014
-      - conformidad_disponibilidad_agenda_2010
+      - conformidad_disponibilidad_agenda_2017
       - evaluacion_tiempo_espera_sala_2014
-      - evaluacion_tiempo_espera_sala_2010
+      - evaluacion_tiempo_espera_sala_2017
       - facilidad_para_realizar_tramites_gestiones_2014
-      - facilidad_para_realizar_tramites_gestiones_2010
-      - disponibilidad_medicamentos_farmacia_2014
-      - disponibilidad_medicamentos_farmacia_2010
-      - informacion_sobre_derechos_2014
-      - informacion_sobre_derechos_2010
+      - facilidad_para_realizar_tramites_gestiones_2017
+      - disponibilidad_medicamentos_farmacia_2017
+      - informacion_sobre_derechos_2017
+      - queja_sugerencia_sabe_donde_dirigirse_2017
       - queja_sugerencia_sabe_donde_dirigirse_2014
-      - queja_sugerencia_sabe_donde_dirigirse_2010
       - satisfaccion_primer_nivel_atencion_2014
-      - satisfaccion_primer_nivel_atencion_2010
+      - satisfaccion_primer_nivel_atencion_2017
       - satisfaccion_internacion_hospitalaria_2012
 
 
@@ -430,7 +426,9 @@ rrhh:
     - "Psiquiatría Pediátrica Cantidad de CAD"
     - "Especialidades Médicas Cantidad de CAD"
     - "Cirugía General Cantidad de CAD"
-    - "Medicina de Emergencia Cantidad de CAD"
+    - "Medicina de Emergencia Adultos Cantidad de CAD"
+    - "Medicina de Emergencia Pediátrica Cantidad de CAD"
+    - "Proporción de trabajadores que realizaron el seminario de capacitación en el 2017"
   columns:
     - medicos_generales_policlinica
     - medicos_de_familia_policlinica
@@ -452,6 +450,8 @@ rrhh:
     - especialidades_medicas_cantidad_cad
     - cirugia_general_cantidad_cad
     - medicina_emergencia_cantidad_cad
+    - medicina_emergencia_pediatrica_cantidad_cad
+    - proporcion_trabajadores_seminario_2017
   definition:
     decimal:
       - medicos_generales_policlinica
@@ -474,7 +474,8 @@ rrhh:
       - especialidades_medicas_cantidad_cad
       - cirugia_general_cantidad_cad
       - medicina_emergencia_cantidad_cad
-
+      - medicina_emergencia_pediatrica_cantidad_cad
+      - proporcion_trabajadores_seminario_2017
 
 solicitud_consultas:
   title: "Solicitud de consultas"

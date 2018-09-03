@@ -7,9 +7,9 @@ namespace :importer do
   @year = '2016'
 
   desc 'Importing everything'
-  task :all, [:year] => [:environment] do |t, args|
-    puts 'Import all data'
+  task :all, [:year] => [:environment] do |_, args|
     @year = args[:year]
+    puts "Importing all data for year #{@year}"
 
     Rake::Task['importer:all'].enhance do
       Rake::Task['importer:states'].invoke
@@ -54,7 +54,8 @@ namespace :importer do
         afiliados_fonasa: row[4],
         afiliados: row[6],
         logo: assign_logo(row[0]),
-        comunicacion: row[7]
+        comunicacion: row[7],
+        espacio_adolescente: row[8]
       )
       # Set private insurances
       provider.private_insurance = true if provider.nombre_abreviado.include?('Seguro Privado')

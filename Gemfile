@@ -1,19 +1,16 @@
 source 'https://rubygems.org'
-ruby '2.2.4'
+ruby '2.5.1'
 
-gem 'rails', '~> 4.2.7'
-gem 'pg'
-gem 'uglifier'
-gem 'sass-rails'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-# Use jquery as the JavaScript library
+gem 'actionpack-action_caching'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'pg', '~> 0.18'
 gem 'puma'
-gem 'actionpack-action_caching'
+gem 'rails', '~> 4.2.10'
 gem 'rails-jquery-autocomplete'
-gem 'rollbar', '~> 2.7.1'
+gem 'rollbar', '~> 2.16'
+gem 'sass-rails'
+gem 'uglifier'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -22,15 +19,15 @@ gem 'rollbar', '~> 2.7.1'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'byebug'
-  gem 'query_diet'
+  gem 'active_record_query_trace'
   gem 'bullet'
+  gem 'byebug'
+  gem 'capybara'
+  gem 'derailed'
+  gem 'query_diet'
+  gem 'rspec-rails', '~> 3.0'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  gem 'rspec-rails', '~> 3.0'
-  gem 'capybara'
-  gem 'active_record_query_trace'
-  gem 'derailed'
 end
 
 group :production do

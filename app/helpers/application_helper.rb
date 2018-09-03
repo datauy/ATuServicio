@@ -52,10 +52,10 @@ module ApplicationHelper
 
   # Returns true, false, or question mark if value not present
   def boolean_icons(value)
-    return"<i class=\"demo-icon icon-ok\"></i>".html_safe if value.is_a?(TrueClass)
-    return "<i class=\"demo-icon icon-no\"></i>".html_safe if value.is_a?(FalseClass)
+    return "<i class=\"demo-icon icon-ok\"></i>".html_safe if value.is_a?(TrueClass) || value == 't'
+    return "<i class=\"demo-icon icon-no\"></i>".html_safe if value.is_a?(FalseClass) || value == 'f'
     return ApplicationHelper.no_hay_datos unless value
-    value
+    value.capitalize
   end
 
   def self.no_hay_datos(td = true)
