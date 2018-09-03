@@ -61,7 +61,7 @@ module CompareHelper
                 ApplicationHelper.no_hay_datos
               end
     when :rrhh
-      value = rrhh_value(column_value)
+      value = rrhh_value(column, column_value)
     when :solicitud_consultas
       value = appointment_request_value(column_value)
     else
@@ -114,9 +114,17 @@ module CompareHelper
     end
   end
 
-  def rrhh_value(column_value)
+  def rrhh_value(column, column_value)
     value = (column_value) ? column_value : nil
-    value.nil? ? ApplicationHelper.no_hay_datos : table_cell(value)
+    if value.nil?
+      ApplicationHelper.no_hay_datos
+    else
+      if column == 'proporcion_trabajadores_seminario_2017'
+        table_cell(progress_bar(column_value))
+      else
+        table_cell(value)
+      end
+    end
   end
 
   def appointment_request_value(column_value)
