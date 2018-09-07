@@ -30,7 +30,10 @@
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
         <p>
-          Se muestran los tiempos de espera promedio, medido en días, para diferentes especialidades (medicina general, pediatría, cirugía general, ginecotocología y cardiología).
+          Se muestran los tiempos de espera promedio, medidos en días, para diferentes especialidades (medicina general, pediatría, cirugía general, ginecotocología y cardiología).
+        </p>
+        <p>
+        El tiempo de espera individual es la diferencia entre la fecha de solicitud de la cita y la fecha de la cita médica otorgada, para el primer médico disponible dentro de cada especialidad. Si la cita se otorga para el mismo día en que se solicita, se contabiliza como tiempo de espera de cero días. Se presentan los promedios de los tiempos de espera individuales de todas las solicitudes de citas del período considerado.
         </p>
         <h3>En el caso de ASSE</h3>
         <p>
@@ -220,7 +223,7 @@
       </div>
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
-        <p>En el contexto de la Ordenanza de Agenda de Consulta Externa se establece en forma obligatoria la existencia de dos vías de asignación de citas: presencial y telefónica, las cuales deben estar disponibles para el usuario a la hora de realizar una solicitud de consulta. Este indicador da cuenta de la existencia o no de las dos vías obligatorias de asignación de citas, así como también de otras vías no obligatorias como son vía correo electrónico o página web.</p>
+        <p>Los datos muestran algunas características de los sistemas de Agenda de Consulta Externa de las instituciones: tipos de vías de asignación de citas, existencia de recordatorio de citas, existencia de caída de reservas de citas no confirmadas, formas de comunicación con el usuario por suspensión o modificación de consultas.</p>
       </div>
       <div class="modal-footer">
         <%= render 'layouts/modals_meta' %>
