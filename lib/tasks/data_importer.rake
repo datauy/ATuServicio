@@ -46,7 +46,6 @@ namespace :importer do
     Pia.destroy_all
 
     puts 'Creating pias'
-
     import_file(@year + "/pias.csv", col_sep: ',') do |row|
       if Pia.where(:pid => row[0]).empty?
         pias = Pia.new(
@@ -57,6 +56,7 @@ namespace :importer do
           normativa: row[4],
           normativa_url: row[5],
           snomed: row[6],
+          orden: $.
         )
         pias.save
       end

@@ -7,9 +7,9 @@ class PiaController < ApplicationController
 
     if params[:category]
       $category = params[:category]
-      @pia = Pia.where('pid LIKE ? OR pid = ? OR ancestry LIKE ? OR ancestry = ?', "#{$category}.%", $category, "#{$category}%", $category).arrange
+      @pia = Pia.where('pid LIKE ? OR pid = ? OR ancestry LIKE ? OR ancestry = ?', "#{$category}.%", $category, "#{$category}%", $category).arrange(:order => :orden)
     else
-      @pia = Pia.all.arrange
+      @pia = Pia.all.arrange(:order => :orden)
     end
 
     @categories = Pia.all.where(ancestry: nil).order(:pid)

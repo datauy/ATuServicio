@@ -11,19 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180830222651) do
+ActiveRecord::Schema.define(version: 20180919225250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "pia", primary_key: "pid", force: :cascade do |t|
-    t.string "titulo"
-    t.string "cie_9"
-    t.string "informacion"
-    t.string "normativa"
-    t.string "normativa_url"
-    t.string "snomed"
-    t.string "ancestry"
+    t.string  "titulo"
+    t.string  "cie_9"
+    t.string  "informacion"
+    t.string  "normativa"
+    t.string  "normativa_url"
+    t.string  "snomed"
+    t.string  "ancestry"
+    t.integer "orden"
   end
 
   add_index "pia", ["ancestry"], name: "index_pia_on_ancestry", using: :btree
