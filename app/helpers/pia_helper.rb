@@ -35,7 +35,7 @@ module PiaHelper
 					:id => "#{pia.pid}",
 				    :class => "collapse #{expanded} #{ is_first ? 'root': '' }" do
 				 	content_tag :div, :class => "card-body nested_pia" do
-					  content_tag(:p, pia.informacion, :class => "pia-info") +
+					  content_tag(:p, pia.informacion.to_s.html_safe, :class => "pia-info") +
 	      			  (if pia.cie_9
 	      			  	content_tag(:p,"Codificación CIE 9: #{pia.cie_9}", :class => "pia-cie9")
 	      			  end)  +

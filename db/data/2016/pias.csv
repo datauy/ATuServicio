@@ -6051,7 +6051,7 @@ ID,Título,CIE 9,Información,Normativa,Normativa URL,SNOMED
 5.f.3,Radiografía bitewing,,,,,
 5.f.4,Tomografía computada,,,,,
 6,MEDICAMENTOS Y VACUNAS,,,,,
-6.a,Formulario Terapeútico de Medicamentos (FTM),,Lo comprendido en este capitulo se encuentra en el Formulario Terapéutico de Medicamentos.,,,
+6.a,Formulario Terapeútico de Medicamentos (FTM),,Lo comprendido en este capitulo se encuentra en el <a href='https://listadomedicamentos.msp.gub.uy'>Formulario Terapéutico de Medicamentos</a>,,,
 7,TRANSPORTE SANITARIO,,,,,
 7.a,Transporte Sanitario,,"Las Instituciones Prestadoras Integrales del Sistema Nacional Integrado de Salud, deben cubrir a sus asociados, afiliados o beneficiarios, los traslados en ambulancia común o especializada de acuerdo a indicación de médicos tratantes, con la anuencia de la Dirección Técnica Institucional.",,,
 8,INTERPRETACIÓN,,,,,
