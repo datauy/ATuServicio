@@ -19,10 +19,10 @@ class PiaController < ApplicationController
     term = params[:term]
     @pias = []
     puts $cat
-    if $category 
-      @pias = Pia.where('(pid LIKE ? OR pid = ? OR ancestry LIKE ? OR ancestry = ?) AND lower(titulo) LIKE  lower(?)', "#{$category}.%", $category, "#{$category}%", $category, "%#{term}%").order(:titulo).all
+    if $category
+      @pias = Pia.where('(pid LIKE ? OR pid = ? OR ancestry LIKE ? OR ancestry = ?) AND lower(titulo) LIKE  lower(?)', "#{$category}.%", $category, "#{$category}%", $category, "%#{term}%").order(:orden).all
     else
-      @pias = Pia.where('lower(titulo) LIKE lower(?)', "%#{term}%").order(:titulo).all
+      @pias = Pia.where('lower(titulo) LIKE lower(?)', "%#{term}%").order(:orden).all
     end
     render :json => @pias.map { |product| {:id => product.pid, :label => product.titulo, :value => product.titulo} }
   end
