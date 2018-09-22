@@ -1,12 +1,8 @@
- .pia{
-    background: url(bghome.png) #F8F8F8 repeat-x bottom center;
- }
-
- .pia .ui-menu-item:hover{
+.pia .ui-menu-item:hover{
   background: #F8F8F8;
- }
+}
 
- .pia #accordion h5 {
+.pia #accordion h5 {
   color: #2e6da4;
   border-bottom: 1px solid #93A3AE;
   padding: 10px;
@@ -71,7 +67,7 @@
 }
 
 .pia .pias-filters{
-    width: 100%;
+  width: 100%;
   display: inline-block;
 }
 
