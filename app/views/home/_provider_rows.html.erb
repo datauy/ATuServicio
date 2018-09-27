@@ -64,22 +64,25 @@
     </td>
 
     <!-- Tiempos de espera -->
-    <td>
-      <% waiting_times.each do |value| %>
-        <div class="value">
-          <div class="txt">
-            <label><%= value[1] %></label>
-            <% if provider.send(value[0]) %>
-              <label><%= number_with_delimiter(provider.send(value[0]), separator: StringConstants::COMMA) %> DIAS</label>
-          </div>
-          <% value = IconsHelper.percentage_icons(provider, value, @provider_maximums.waiting_time) %>
-          <div class="progress icons">
-            <div class="progress-bar" role="progressbar" aria-valuenow="<%= value %>}" aria-valuemin="0" aria-valuemax="100" style="width: <%= value %>%;">
+    <% if provider.id == 9000 %>
+      <%= render 'asse_tiempos_espera' %>
+    <% else %>
+      <td>
+        <% waiting_times.each do |value| %>
+          <div class="value">
+            <div class="txt">
+              <label><%= value[1] %></label>
+              <% if provider.send(value[0]) %>
+                <label><%= number_with_delimiter(provider.send(value[0]), separator: StringConstants::COMMA) %> DIAS</label>
             </div>
-            <%= image_tag(clocks, class: 'progress_icons')%>
+            <% value = IconsHelper.percentage_icons(provider, value, @provider_maximums.waiting_time) %>
+            <div class="progress icons">
+              <div class="progress-bar" role="progressbar" aria-valuenow="<%= value %>}" aria-valuemin="0" aria-valuemax="100" style="width: <%= value %>%;">
+              </div>
+              <%= image_tag(clocks, class: 'progress_icons')%>
+            </div>
           </div>
-        </div>
-            <% else %>
+              <% else %>
       </div>
       <% if provider.nombre_abreviado == "ASSE" %>
         <a href="#" data-toggle="modal" data-target="#asse_tiempos_modal" class="info-nodata">
@@ -89,10 +92,11 @@
       <% else %>
         <%= IconsHelper.no_data.html_safe %>
       <% end %>
-            <% end %>
+              <% end %>
       </div>
-      <% end %>
-    </td>
+        <% end %>
+      </td>
+    <% end %>
 
     <!-- Satisfaction -->
     <td>

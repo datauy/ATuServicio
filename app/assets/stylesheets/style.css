@@ -55,7 +55,7 @@ header .nav li a:hover, header .nav li.active a {background-color: #fff;color: #
 }
 .breadcrumb { width: 100%; background: #EAEAEA; padding:1% 50px; border-radius: 0; color:#E0F2F1; margin-bottom:50px;}
 .breadcrumb li a {
-    color: #0B2F47; 
+    color: #0B2F47;
 }
 section { padding:0 50px;}
 
@@ -66,7 +66,7 @@ section { padding:0 50px;}
     position: absolute;
     top: 45%;
     width: 30%;
-    left: 6%; 
+    left: 6%;
     font-weight: 400;
     color: #0b2f47;
     letter-spacing: 1px;
@@ -137,7 +137,7 @@ section { padding:0 50px;}
     top: 11px;
     right: 13px;
     color: #fff;
-    font-size: 16px !important; 
+    font-size: 16px !important;
     padding: 0;
 
 }
@@ -165,7 +165,7 @@ section { padding:0 50px;}
     left: 0;
     background: #fff;
     width: 100%;
-    height: 100%; 
+    height: 100%;
 }
 .table-head-preview .structure_module ul { padding:20px}
 .table-head-preview .structure_module ul li { list-style: none;}
@@ -227,7 +227,7 @@ section { padding:0 50px;}
 
 /*END HOME*/
 .share-nav  {padding: 0 !important}
-.share-nav li  { 
+.share-nav li  {
     font-size: 27px;
     color: #ccc;
     display: inline-block;
@@ -249,7 +249,7 @@ section { padding:0 50px;}
 .search-prestadora .btn { padding: 10px; background:#ccc; color: #fff}
 
 #fixed-versus {
-	  background: #0B2F47;
+    background: #0B2F47;
     position: fixed;
     top: 0;
     left: 0;
@@ -286,7 +286,7 @@ section { padding:0 50px;}
     padding:0 !important;
 }
 
-.fixed-preview { 
+.fixed-preview {
     background: #666;
     position: fixed;
     top: 0;
@@ -318,8 +318,8 @@ section { padding:0 50px;}
 .table-head td:nth-child(2), .table-head td:nth-child(1) {border: none;}
 .table-head td .icon-delate span { font-size: 12px;}
 .table-head td .icon-delate {
-	  display: none;
-	  position: absolute;
+    display: none;
+    position: absolute;
     font-size: 19px;
     color: #333;
     top: -10px;
@@ -335,7 +335,7 @@ section { padding:0 50px;}
 .block_title h4 .info { background-color: #3FA6C9; padding:15px 5px}
 .block_title h4 a { color: #fff;display: block; font-size: 18px; display: inline-block;}
 .block_title h4 a:hover {text-decoration: none;}
-.block_title h4 a i:before { font-size: 16px}	
+.block_title h4 a i:before { font-size: 16px}
 .block_title .demo-icon:before {font-size: 20px;}
 
 .block_title .button-info i {font-size: 20px; display: inline}
@@ -347,7 +347,7 @@ section { padding:0 50px;}
 .block td p {font-size: 15px;}
 
 .block .col-left {text-align: left;}
-.block .col-left p {max-width:80%;font-size: 14px;font-weight: normal; margin: 0} 
+.block .col-left p {max-width:80%;font-size: 14px;font-weight: normal; margin: 0}
 
 .block h5 { font-size: 18px;color: #231F20}
 .block h5 small { font-size: 80%;padding-right: 5px;color:#231F20}
@@ -379,7 +379,7 @@ section { padding:0 50px;}
 .free p {display: inline-block; padding: 0; margin: 0}
 .nodata { color: #0B2F47;margin: 0}
 .nodata p {display: inline-block;padding: 0;margin: 0;text-transform: uppercase;}
-.asse { 
+.asse {
     font-size: 12px !important;
     text-align: left;
     width: 65%;
@@ -387,6 +387,9 @@ section { padding:0 50px;}
     color: #666;
     border-left: 2px solid #333;
     padding: 2px 14px !important;
+}
+.asse p{
+  font-size: 12px !important;
 }
 .people i { display: block;font-size: 30px; text-indent: -10px ; color: #186E93}
 .money-high { color: #0B2F47;}
@@ -403,57 +406,57 @@ section { padding:0 50px;}
                              font-style: normal;
                              font-weight: normal;
                              speak: none;
-                             
+
                              display: inline-block;
                              text-decoration: inherit;
                              width: 1em;
                              margin-right: .2em;
                              text-align: center;
                              /* opacity: .8; */
-                             
+
                              /* For safety - reset parent styles, that can break glyph codes*/
                              font-variant: normal;
                              text-transform: none;
-                             
+
                              /* fix buttons height, for twitter bootstrap */
                              line-height: 1em;
-                             
+
                              /* Animation center compensation - margins should be symmetric */
                              /* remove if not needed */
                              margin-left: .2em;
-                             
+
                              /* you can be more comfortable with increased icons size */
                              /* font-size: 120%; */
-                             
+
                              /* Font smoothing. That was taken from TWBS */
                              -webkit-font-smoothing: antialiased;
                              -moz-osx-font-smoothing: grayscale;
-                             
+
                              /* Uncomment for 3D effect */
                              /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
                          }
 
-.icon-info:before { content: '\e807'; } 
-.icon-ok:before { content: '\e806';font-size: 40px; color: #A8D26F } 
+.icon-info:before { content: '\e807'; }
+.icon-ok:before { content: '\e806';font-size: 40px; color: #A8D26F }
 .icon-no:before { content: '\e805';font-size: 40px; color: #0B2F47  }
-.icon-sad:before { content: '\e802';font-size: 30px; color: #0B2F47  } 
+.icon-sad:before { content: '\e802';font-size: 30px; color: #0B2F47  }
 .icon-happy:before { content: '\e803'; font-size: 30px; color: #A8D26F }
 .icon-derechos:before { content: '\e808'; }
-.icon-money:before { content: '\e801'; } 
-.icon-estructura:before { content: '\e809'; } 
-.icon-calendar:before { content: '\e80a'; } 
-.icon-price:before { content: '\e80b'; } 
-.icon-metas:before { content: '\e80c'; } 
-.icon-rrhh:before { content: '\e80d'; } 
-.icon-sedes:before { content: '\e80e'; } 
-.icon-consultas:before { content: '\e804'; } 
+.icon-money:before { content: '\e801'; }
+.icon-estructura:before { content: '\e809'; }
+.icon-calendar:before { content: '\e80a'; }
+.icon-price:before { content: '\e80b'; }
+.icon-metas:before { content: '\e80c'; }
+.icon-rrhh:before { content: '\e80d'; }
+.icon-sedes:before { content: '\e80e'; }
+.icon-consultas:before { content: '\e804'; }
 .icon-socios:before { content: '\e80f'; }
-.icon-clock:before { content: '\e810';color: #3fa6c9 } 
-.icon-user:before { content: '\e811'; color: #3fa6c9 } 
-.icon-coin:before { content: '\e812';color: #3fa6c9  } 
+.icon-clock:before { content: '\e810';color: #3fa6c9 }
+.icon-user:before { content: '\e811'; color: #3fa6c9 }
+.icon-coin:before { content: '\e812';color: #3fa6c9  }
 .icon-cross:before { content: '\e813'; }
 .icon-person:before { content: '\e800';color:#3fa6c9 } /* '' */
-.icon-cancel:before { content: '\e801'; } /* '' */ 
+.icon-cancel:before { content: '\e801'; } /* '' */
 .disable:before { color: #dddddc}
 .icon-person {font-size: 80px; }
 
@@ -469,7 +472,7 @@ footer a { color: #42B4E7; font-size: 11px;}
     font-weight: bold;
     text-transform: uppercase;
     border-bottom: 3px solid #42B4E7;
-    display: inline-block; 
+    display: inline-block;
     letter-spacing: 2px;
 }
 .modal-body { padding: 0; margin: 20px 0}
@@ -629,7 +632,7 @@ footer a { color: #42B4E7; font-size: 11px;}
 }
 
 .slides ul li div {
-    
+
     font-size: 18px;
     left: 10%;
     margin: 0 auto;

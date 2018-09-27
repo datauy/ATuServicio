@@ -56,15 +56,4 @@ module ValuesHelper
   def self.sites_data
     METADATA[:sedes][:columns] - ValuesHelper.sites_structure.map(&:to_s) - ['departamento', 'direccion']
   end
-
-
-  def asse_waiting_times
-    <<-eos
-    ASSE desarrolló en el año 2012 el Sistema de Gestión Consultas (SGC) (Sistema web), que se encuentra en proceso de expansión en todo el país, tanto en el primer, como segundo y tercer nivel de atención.<br><br>
-    Actualmente se encuentra implantado en 267 Unidades Asistenciales -46 unidades más que en el año 2015-, de las cuales 217 son Centros de Salud o Policlínicas y 50 son Hospitales o Centros Auxiliares.<br><br>
-    Está prevista que continúe la implantación del sistema a lo largo de los próximos años. En función de esta implantación progresiva, los datos de tiempo de espera que surgen actualmente del SGC no son representativos de toda la institución, ni de sus diferentes niveles de complejidad.<br><br>
-    Ver información complementaria en<br><a
-    href="http://www.asse.com.uy/contenido/Movilidad-Regulada-8431" target="_blank">http://www.asse.com.uy/contenido/Movilidad-Regulada-8431</a>
-    eos
-  end
 end
