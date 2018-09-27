@@ -28,37 +28,36 @@
           <ul>
             <li><h4>Estructura:</h4></li>
             <% if provider.id == 9000 %>
+              <%= render 'asse_estructura' %>
+            <% else %>
               <li>
-                <%= link_to 'Estructuras de centros de Salud en ASSE', 'http://www.asse.com.uy/categoria/Centros-de-Salud-148', target: '_blank' %>
+                <p>
+                  Primaria <span>Total <%= provider.estructura_primaria %></span>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Secundaria:
+                  <span>Total <%= provider.estructura_secundaria %></span>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Policlínica:
+                  <span>Total <%= provider.estructura_ambulatorio%></span>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Urgencia <span>Total <%= provider.estructura_urgencia %></span>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Sedes en: <span><%= provider.states_names %>
+                </p>
               </li>
             <% end %>
-            <li>
-              <p>
-                Primaria <span>Total <%= provider.estructura_primaria %></span>
-              </p>
-            </li>
-            <li>
-              <p>
-                Secundaria:
-                <span>Total <%= provider.estructura_secundaria %></span>
-              </p>
-            </li>
-            <li>
-              <p>
-                Policlínica:
-                <span>Total <%= provider.estructura_ambulatorio%></span>
-              </p>
-            </li>
-            <li>
-              <p>
-                Urgencia <span>Total <%= provider.estructura_urgencia %></span>
-              </p>
-            </li>
-            <li>
-              <p>
-                Sedes en: <span><%= provider.states_names %>
-              </p>
-            </li>
           </ul>
         </div>
       </div>
@@ -81,15 +80,15 @@
           </div>
         </div>
             <% else %>
-        </div>
-        <% if provider.nombre_abreviado == "ASSE" %>
-          <a href="#" data-toggle="modal" data-target="#asse_tiempos_modal" class="info-nodata">
-            <%= IconsHelper.no_data.html_safe %>
-            <i class="demo-icon icon-info"></i>
-          </a>
-        <% else %>
+      </div>
+      <% if provider.nombre_abreviado == "ASSE" %>
+        <a href="#" data-toggle="modal" data-target="#asse_tiempos_modal" class="info-nodata">
           <%= IconsHelper.no_data.html_safe %>
-        <% end %>
+          <i class="demo-icon icon-info"></i>
+        </a>
+      <% else %>
+        <%= IconsHelper.no_data.html_safe %>
+      <% end %>
             <% end %>
       </div>
       <% end %>
