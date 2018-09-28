@@ -36,16 +36,7 @@
         El tiempo de espera individual es la diferencia entre la fecha de solicitud de la cita y la fecha de la cita médica otorgada, para el primer médico disponible dentro de cada especialidad. Si la cita se otorga para el mismo día en que se solicita, se contabiliza como tiempo de espera de cero días. Se presentan los promedios de los tiempos de espera individuales de todas las solicitudes de citas del período considerado.
         </p>
         <h3>En el caso de ASSE</h3>
-        <p>
-          ASSE desarrolló en el año 2012 el Sistema de Gestión Consultas (SGC) (Sistema web), que se encuentra en proceso de expansión en todo el país, tanto en el primer, como segundo y tercer nivel de atención.
-        </p>
-        <p>
-          Actualmente se encuentra implantado en 267 Unidades Asistenciales -46 unidades más que en el año 2015-, de las cuales 217 son Centros de Salud o Policlínicas y 50 son Hospitales o Centros Auxiliares.
-        </p>
-        <p>
-          Está prevista que continúe la implantación del sistema a lo largo de los próximos años. En función de esta implantación progresiva, los datos de tiempo de espera que surgen actualmente del SGC no son representativos de toda la institución, ni de sus diferentes niveles de complejidad.
-        </p>
-        <p>Ver información complementaria en: <a href="http://www.asse.com.uy/contenido/Movilidad-Regulada-8431" target="_blank">http://www.asse.com.uy/contenido/Movilidad-Regulada-8431</a></p>
+        <%= render 'layouts/asse_tiempos_espera_info' %>
       </div>
       <div class="modal-footer">
         <%= render 'layouts/modals_meta' %>
