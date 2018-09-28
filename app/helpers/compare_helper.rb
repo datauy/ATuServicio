@@ -149,7 +149,7 @@ module CompareHelper
 
   def custom_asse_message(group)
     value = ''
-    if @selected_providers.select { |p| p.id == 9000 }
+    if @selected_providers.select { |p| p.id == 9000 }.present?
       value = case group
               when :tiempos_espera
                 <<-eos
