@@ -1,0 +1,20 @@
+<div class="input-group search-prestadora">
+  <%=
+  text_field_tag :search,
+  nil,
+  class: "search-query form-control",
+    placeholder: "Ingrese sus criterios de búsqueda",
+    type: "search",
+    data: {
+      autocomplete: autocomplete_pia_titulo_pia_path
+    }
+  %>
+  <div class="input-group-btn">
+    <button class="btn btn-default pias-search-btn" data-search="search"><i class="fa fa-search"></i>
+    </button>
+  </div>
+</div>
+
+<div class="no-results">
+  No se encontraron resultados para su búsqueda
+</div>
