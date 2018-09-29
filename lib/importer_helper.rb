@@ -86,9 +86,12 @@ module ImporterHelper
   def provider_structure(provider)
     structures = {}
     structures[:primaria] = provider.sites.where(nivel: ['Sede Central', 'Sanatorio', 'Sede Principal']).count
-    structures[:secundaria] = provider.sites.where(nivel: 'Sede Secundaria').count
-    # Convention: nil is ambulatorio
-    structures[:ambulatorio] = provider.sites.where(nivel: ['Ambulatorio', 'Centro de Salud', nil]).count
+    structures[:secundaria] = provider.sites.where(nivel: ['Sede Secundaria', 'Ambulatorio - Sede Secundaria']).count
+    # Convención: nil es ambulatorio
+    ambulatorios = ['Ambulatorio', 'Centro de Salud',  'Ambulatorio - Policlínica',
+      'Ambulatorio - Sede Secundaria', 'Ambulatorio - Serv. Medicina Nuclear',
+      'Ambulatorio - Serv. de Fertilidad', 'Ambulatorio(ASSE)', nil]
+    structures[:ambulatorio] = provider.sites.where(nivel: ambulatorios).count
     structures[:urgencia] = provider.sites.where(servicio_de_urgencia: true).count
     provider.update_attributes(
       estructura_primaria: structures[:primaria],
