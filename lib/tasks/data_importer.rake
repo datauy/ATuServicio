@@ -15,6 +15,8 @@ namespace :importer do
       Rake::Task['importer:states'].invoke
     end
 
+    pias_data
+    pias_ancestry
     providers
     provider_data
     calculate_maximums
@@ -35,6 +37,39 @@ namespace :importer do
       )
     end
   end
+
+  #
+  # Create pias
+  #
+  def pias_data
+    puts 'Delete pias'
+    Pia.destroy_all
+
+    puts 'Creating pias'
+    import_file(@year + "/pias.csv", col_sep: ',') do |row|
+      if Pia.where(:pid => row[0]).empty?
+        pias = Pia.new(
+          pid: row[0],
+          titulo: row[1],
+          cie_9: row[2],
+          informacion: row[3],
+          normativa: row[4],
+          normativa_url: row[5],
+          snomed: row[6],
+          orden: $.
+        )
+        pias.save
+      end
+    end
+  end
+
+  def pias_ancestry
+    puts 'Pias hierarchy'
+    ActiveRecord::Base.connection.execute("update pia set ancestry = h.ancestry from 
+      ( select pid, regexp_replace(pid,'(\.[^\.]+)$','') as ancestry from pia )
+       as h where  h.pid = pia.pid and pia.pid != h.ancestry;")
+  end
+
 
   #
   # Create providers

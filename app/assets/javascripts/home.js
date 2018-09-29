@@ -122,3 +122,4 @@ $(window).scroll(function() {
 $('#selected_providers').change(function(){
   document.location = "/comparar/".concat($(this).val());
 });
+jQuery.railsAutocomplete.options.noMatchesLabel = "No se encontraron resultados."

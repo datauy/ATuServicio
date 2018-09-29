@@ -14,5 +14,13 @@ Rails.application.routes.draw do
   get '/404' => 'errors#not_found'
   get '/500' => 'errors#internal_server_error'
 
-  get '/apple-touch-icon-precomposed.png', to: redirect('/assets/apple-touch-icon-precomposed.png')
+  get '/apple-touch-icon-precomposed.png',
+      to: redirect('/assets/apple-touch-icon-precomposed.png')
+
+  # PIAS
+  resources :pia do
+    get :autocomplete_pia_titulo, on: :collection
+  end
+  get '/pias' => 'pia#index'
+  get '/pias/:category' => 'pia#index'
 end
