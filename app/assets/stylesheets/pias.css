@@ -31,6 +31,7 @@
 .pia .pias-search-btn{
   background: #2e6da4 !important;
   color: white;
+  height: 100%;
 }
 
 .pia .pias-search-btn:hover{
