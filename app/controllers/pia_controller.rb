@@ -3,16 +3,21 @@ class PiaController < ApplicationController
   autocomplete :pia, :titulo, full: true, limit: 15
 
   def index
-    @title = 'Catálogo Prestaciones'
+    respond_to do |format|
+      format.html {
+        @title = 'Catálogo Prestaciones'
 
-    if params[:category]
-      $category = params[:category]
-      @pia = Pia.where('pid LIKE ? OR pid = ? OR ancestry LIKE ? OR ancestry = ?', "#{$category}.%", $category, "#{$category}%", $category).arrange(:order => :orden)
-    else
-      @pia = Pia.all.arrange(:order => :orden)
+        if params[:category]
+          $category = params[:category]
+          @pia = Pia.where('pid LIKE ? OR pid = ? OR ancestry LIKE ? OR ancestry = ?', "#{$category}.%", $category, "#{$category}%", $category).arrange(:order => :orden)
+        else
+          @pia = Pia.all.arrange(order: :orden)
+        end
+
+        @categories = Pia.all.where(ancestry: nil).order(:pid)
+      }
+      format.json { render json: Pia.all.order(:orden).map(&:as_json) }
     end
-
-    @categories = Pia.all.where(ancestry: nil).order(:pid)
   end
 
   def autocomplete_pia_titulo
