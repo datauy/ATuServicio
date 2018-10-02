@@ -29,7 +29,6 @@ class PiaController < ApplicationController
     else
       @pias = Pia.where('lower(titulo) LIKE lower(?)', "%#{term}%").order(:orden).all
     end
-    render :json => @pias.map { |product| {:id => product.pid, :label => product.titulo, :value => product.titulo} }
+    render json: @pias.map { |product| {id: product.pid, label: product.titulo, value: product.titulo} }
   end
-
 end
