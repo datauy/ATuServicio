@@ -3,7 +3,7 @@
 Local:
 
 1. Bundle - `bundle`
-2. Levantar base de datos (postgres): `rake db:create db:migrate importer:all[year]`
+2. Levantar base de datos (postgres): `rake db:create db:migrate importer:states importer:all[year]`
 
 ## Configuración y CSV's
 

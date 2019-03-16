@@ -131,6 +131,8 @@ ActiveRecord::Schema.define(version: 20180919225250) do
     t.decimal "especialidades_medicas_cantidad_cad",             precision: 9, scale: 2
     t.decimal "cirugia_general_cantidad_cad",                    precision: 9, scale: 2
     t.decimal "medicina_emergencia_cantidad_cad",                precision: 9, scale: 2
+    t.decimal "medicina_emergencia_pediatrica_cantidad_cad",     precision: 9, scale: 2
+    t.integer "proporcion_trabajadores_seminario_2017"
     t.string  "reserva_presencial"
     t.string  "reserva_telefonica"
     t.string  "reserva_web"
@@ -147,8 +149,6 @@ ActiveRecord::Schema.define(version: 20180919225250) do
     t.string  "search_name"
     t.string  "vias_asignacion_citas"
     t.string  "espacio_adolescente"
-    t.decimal "medicina_emergencia_pediatrica_cantidad_cad"
-    t.decimal "proporcion_trabajadores_seminario_2017"
   end
 
   create_table "sites", force: :cascade do |t|
