@@ -4,7 +4,7 @@ require "#{Rails.root}/lib/importer_helper"
 include ImporterHelper
 
 namespace :importer do
-  @year = '2016'
+  @year = '2018'
 
   desc 'Importing everything'
   task :all, [:year] => [:environment] do |_, args|
@@ -168,9 +168,7 @@ namespace :importer do
     Provider.all.map do |provider|
       [:medicamentos, :tickets, :tickets_urgentes, :estudios].map do |ticket|
         average = provider.average(ticket)
-        if average && average > value
-          value = average
-        end
+        value = average if (average && average > value)
       end
     end
     maximums.tickets = value
@@ -194,5 +192,4 @@ namespace :importer do
     maximums.personnel = value
     maximums.save
   end
-
 end
