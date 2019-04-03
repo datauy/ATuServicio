@@ -22,16 +22,19 @@
               <td class="col-md-3 col-left" style="vertical-align: top !important;">
                 <% if provider.recognitions.any? %>
                   <% provider.recognitions.each do |reconocimiento| %>
-                    <ul class="ui-menu-item">
-                      <li>
-                        <strong><%= reconocimiento.institution %></strong>
-                      </li>
-                      <li><%= reconocimiento.state %> - <%= reconocimiento.year %></li>
-                      <li>
-                        <strong><%= reconocimiento.recognition %></strong>
-                      </li>
-                      <li><%= reconocimiento.practice %></li>
-                    </ul>
+                    <div style="display: block; clear: both">
+                      <%= image_tag "reconocimientos/#{reconocimiento.icon}.png", style: "float:left; margin-right: 10px;" %>
+                      <ul class="ui-menu-item">
+                        <li>
+                          <strong><%= reconocimiento.institution %></strong>
+                        </li>
+                        <li><%= reconocimiento.state %> - <%= reconocimiento.year %></li>
+                        <li>
+                          <strong><%= reconocimiento.recognition %></strong>
+                        </li>
+                        <li><%= reconocimiento.practice %></li>
+                      </ul>
+                    </div>
                   <% end %>
                 <% end %>
               </td>
