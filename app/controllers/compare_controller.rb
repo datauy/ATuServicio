@@ -8,12 +8,19 @@ class CompareController < ApplicationController
       redirect_to '/'
       return
     end
-    provider_ids = params[:selected_providers].try(:split, ' ').try(:uniq) || []
-    @selected_providers = Provider.includes([:sites, :states]).where(id: provider_ids.take(3))
-    @title = 'Comparando'
-    @description = 'Compará éstos prestadores de Salud para elegir informado o personalizalo para conocer a fondo los indicadores del tuyo.'
 
+    provider_ids = params[:selected_providers].try(:split, ' ').try(:uniq) || []
     flash['alert'] = 'Solo se pueden elegir hasta 3 proveedores' if provider_ids.length > 3
+
+    @selected_providers = Provider.
+      includes([:sites, :states]).
+      where(id: provider_ids.take(3)).
+      includes(:recognitions)
+    @any_recognitions = @selected_providers.map(&:recognitions).any?
+
+    @title = 'Comparando'
+
+    @description = 'Compará éstos prestadores de Salud para elegir informado o personalizalo para conocer a fondo los indicadores del tuyo.'
 
     @groups = {
       estructura: 'estructura',

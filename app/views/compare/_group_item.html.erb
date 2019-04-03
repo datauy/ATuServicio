@@ -1,0 +1,52 @@
+<%
+  group = locals[:group]
+  icon = locals[:icon]
+%>
+
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+  <div class="block">
+    <div class="block_title" role="tab" id="heading<%= group %>">
+      <h4>
+        <a class="info" href="#" data-toggle="modal" data-target="#<%= group.to_s %>_modal">
+          <i class="demo-icon icon-info"></i>
+        </a>
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= group %>" aria-expanded="true" aria-controls="collapse<%= group %>">
+          <i class="demo-icon icon-<%= icon %>"></i>
+          <%= title(group) %><i class="fa fa-chevron-down"></i>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse<%= group %>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading<%= group %>">
+      <table class="table">
+        <tbody>
+          <%= custom_asse_message(group) %>
+          <% if group == :rrhh %>
+            <tr>
+              <td colspan="5">
+                <p class="asse">
+                  Los datos presentados son a nivel país, considerando el total de trabajadores de la Institución en todas sus dependencias.
+                </p>
+              </td>
+            </tr>
+            <p>
+          <% end %>
+          <% columns_name_description(group).each do |name, column| %>
+            <tr>
+              <td class="col-md-3 col-left">
+                <p>
+                  <% if name.match(/\ ?CAD\ ?/) %>
+                    <%= cad_abbr(name) %>
+                  <% else %>
+                    <%= name %>
+                  <% end %>
+                </p>
+              </td>
+              <% @selected_providers.each do |provider| %>
+                <%= show_value(group, column, provider) %>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>

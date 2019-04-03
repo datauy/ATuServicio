@@ -1,0 +1,44 @@
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+  <div class="block">
+    <div class="block_title" role="tab" id="headingreconocimientos>">
+      <h4>
+        <a class="info" href="#" data-toggle="modal" data-target="#reconocimientos_modal">
+          <i class="demo-icon icon-info"></i>
+        </a>
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsereconocimientos" aria-expanded="true" aria-controls="collapsereconocimientos">
+          Reconocimientos<i class="fa fa-chevron-down"></i>
+        </a>
+      </h4>
+    </div>
+    <div id="collapsereconocimientos" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingreconocimientos">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="col-md-3 col-left">
+              <p>
+              </p>
+            </td>
+            <% @selected_providers.each do |provider| %>
+              <td class="col-md-3 col-left" style="vertical-align: top !important;">
+                <% if provider.recognitions.any? %>
+                  <% provider.recognitions.each do |reconocimiento| %>
+                    <ul class="ui-menu-item">
+                      <li>
+                        <strong><%= reconocimiento.institution %></strong>
+                      </li>
+                      <li><%= reconocimiento.state_id %> - <%= reconocimiento.year %></li>
+                      <li>
+                        <strong><%= reconocimiento.recognition %></strong>
+                      </li>
+                      <li><%= reconocimiento.practice %></li>
+                    </ul>
+                  <% end %>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
