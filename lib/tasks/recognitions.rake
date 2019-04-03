@@ -11,9 +11,9 @@ namespace :importer do
         recognition: row[0],
         institution: row[1],
         provider_id: row[2].to_i,
-        state_id:    row[3].to_i,
+        state:       row[3],
         practice:    row[4],
-        year: 2018,
+        year:        2018,
         link:        row[6],
         icon:        row[7] == "MBP" ? :mbp : :mencion
       )
