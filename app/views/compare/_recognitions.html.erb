@@ -25,15 +25,18 @@
                     <div style="display: block; clear: both">
                       <%= image_tag "reconocimientos/#{reconocimiento.icon}.png", style: "float:left; margin-right: 10px;" %>
                       <ul class="ui-menu-item">
-                        <li>
-                          <strong><%= reconocimiento.institution %></strong>
-                        </li>
-                        <li><%= reconocimiento.state %> - <%= reconocimiento.year %></li>
-                        <li>
-                          <strong><%= reconocimiento.recognition %></strong>
-                        </li>
-                        <li><%= reconocimiento.practice %></li>
+                        <a href="/reconocimientos/<%= reconocimiento.link %>">
+                          <li>
+                            <strong><%= reconocimiento.institution %></strong>
+                          </li>
+                          <li><%= reconocimiento.state %> - <%= reconocimiento.year %></li>
+                          <li>
+                            <strong><%= reconocimiento.recognition %></strong>
+                          </li>
+                          <li><%= reconocimiento.practice %></li>
+                        </a>
                       </ul>
+
                     </div>
                   <% end %>
                 <% end %>
