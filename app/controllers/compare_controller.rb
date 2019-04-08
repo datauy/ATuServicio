@@ -16,7 +16,6 @@ class CompareController < ApplicationController
       includes([:sites, :states]).
       where(id: provider_ids.take(3)).
       includes(:recognitions)
-    @any_recognitions = @selected_providers.map(&:recognitions).any?
 
     @title = 'Comparando'
 

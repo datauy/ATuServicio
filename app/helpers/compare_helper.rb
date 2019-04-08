@@ -196,4 +196,8 @@ module CompareHelper
     end
     html.html_safe
   end
+
+  def any_recognitions?
+    @selected_providers.map{ |p| p.recognitions.size }.sum > 0
+  end
 end
