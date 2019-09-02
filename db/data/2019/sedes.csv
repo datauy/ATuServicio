@@ -1,0 +1,181 @@
+id_institucion;Direccion ;Departamento ;localidad;nivel;Servicio de Urgencia;Alergista    Si/No;Anestesiología Si/No;Cardiología Si/No;Cirugía  Si/No;Cirugía Reparadora Si/No;Cirugía Vascular Si/No;Deportología Si/No;Dermatología Si/No;Endocrinolgía Si/No;Fisiatría Si/No;Gastroenterología Si/No;Geriatría Si/No;Ginecología Si/No;Hematología Si/No;Infectología Si/No;Medicina General Si/No;Medicina Interna Si/No;Nefrología Si/No;Neonatología Si/No;Neumología Si/No;Neurocirugía Si/No;Neurología Si/No;Neuropediatría Si/No;Odontología Si/No;Oncología Si/No;Otorrinolaringología Si/No;Pediatría Si/No;Psiquiatría Si/No;Psiquiatría Infantil Si/No;Reumatología Si/No;Traumatología Si/No;Urología Si/No
+62;ACEVEDO DIAZ 1464;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO
+62;ANA MONTERROSO LAVALLEJA 2266;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;SI*;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO
+62;AVENIDA GRAL. RIVERA 2309;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;NO;SI**;SI;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO
+62;AVENIDA GRAL. RIVERA 2407;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI***;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO
+62;BULEVAR GRAL. ARTIGAS 1492;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO
+62;BULEVAR GRAL. ARTIGAS 1490;Montevideo;Montevideo;Ambulatorio;NO;NO;SI;NO;SI;SI;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO
+62;BULEVAR GRAL. ARTIGAS 1515 ;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO
+62;BULEVAR GRAL. ARTIGAS 1525;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI (pediátrica);SI;NO;NO;NO;SI;NO;SI (pediátrica);NO;SI (pediátrica);NO;SI;SI;SI;NO;NO;SI;NO;SI;NO;NO;NO
+62;BULEVAR GRAL. ARTIGAS 1531;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI
+62;BULEVAR GRAL. ARTIGAS 1550;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;NO;NO;NO;SI;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO
+62;BULEVAR GRAL. ARTIGAS 1553;Montevideo;Montevideo;Ambulatorio;NO;NO;SI;NO;SI;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;SI;NO;SI;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO
+62;MARIO CASSINONI 1414;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO
+62;MARIO CASSINONI 1420;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;SI;NO;NO;NO;NO;SI;NO;NO;NO;NO;SI;NO;NO;NO;SI;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO
+62;MARIO CASSINONI 1432;Montevideo;Montevideo;Ambulatorio;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO
+62;MARIO CASSINONI 1444;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;SI;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;SI;SI;SI;NO;SI;NO;NO;NO;SI;NO;NO;NO;NO;NO;SI;NO;SI;NO;NO
+62;PALMAR 2324;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;SI;SI;NO;SI;NO;NO;NO;SI;NO;NO;NO;NO;NO;SI;NO;SI;NO;NO;NO;NO;SI;SI;NO;NO;SI;SI;NO;NO;NO;NO;NO;NO
+62;CLINICA LAS TORRES - AVENIDA LUIS ALBERTO DE HERRERA 1223;Montevideo;Montevideo;Ambulatorio;NO;NO;NO;SI;SI;SI;NO;SI;SI;SI;NO;SI;SI;SI;NO;NO;SI;SI;SI (consultante);NO;SI;NO;NO;NO;SI;NO;SI;SI;NO;NO;NO;NO;SI
+62;CLINICA NUEVOCENTRO - AVENIDA LUIS ALBERTO DE HERRERA 3365. 3er. NIVEL;Montevideo;Montevideo;Ambulatorio;NO;NO;NO;SI;NO;NO;NO;NO;SI;SI;NO;SI;SI;SI;NO;NO;SI;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;SI;NO;NO;SI
+62;CLINICA PUNTA GORDA - AVENIDA GENERAL PAZ 1429;Montevideo;Montevideo;Ambulatorio;NO;NO;NO;SI;NO;NO;NO;NO;SI;SI;NO;SI;SI;SI;NO;NO;SI;SI;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;SI;NO;NO;SI;NO
+62;CLINICA DEL PRADO - AVENIDA 19 DE ABRIL 3322;Montevideo;Montevideo;Ambulatorio;NO;NO;NO;SI;NO;NO;NO;NO;SI;SI;NO;SI;SI;SI;NO;NO;SI;NO;NO;NO;SI;NO;NO;NO;SI;NO;NO;SI;SI;SI;NO;NO;SI
+62;POLICLINICA AGUADA - YI 1771/75;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;SI;NO;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;SI;NO;NO;NO;NO
+62;POLICLINICA CERRO - GRECIA 3865;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;SI;NO;NO;NO;NO;SI;SI;NO;NO;NO;SI;NO;NO;SI;si;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;NO;NO;NO;NO
+62;POLICLINICA MAROÑAS - GENERAL FLORES 4944;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO ;SI;NO;NO;NO;NO;NO;NO;NO ;SI;NO;NO;SI;NO;NO;NO;NO;NO
+62;POLICLINICA PASO DE LA ARENA - LUIS BATLLE BERRES 6665;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO
+62;POLICLINICA BELVEDERE - PEDRO VISCA 4223;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;SI;NO;NO;NO;NO;SI;NO;NO;SI;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;SI;NO;NO;NO;NO
+62;POLICLINICA UNION - ENRIQUE CLAY 2646;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;NO;SI;NO;NO;NO;NO;SI;NO;NO;SI;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;SI;NO;NO;NO;NO
+62;POLICLINCIA PUNTA DEL ESTE - FRANKLIN D. ROOSVELT ESQ. SIMÓN BOLIVAR;Maldonado;Punta del Este;Ambulatorio - Policlínica;SI;NO;NO;SI;SI;NO;NO;NO;SI;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;NO;SI;NO;NO
+62;POLICLINICA ATLANTIDA - AVENIDA ARTIGAS s/n esq. RAMBLA COSTANERA;Canelones;Atlántida;Ambulatorio - Policlínica;SI;NO;NO;SI;SI;NO;NO;NO;SI;SI;SI;SI;SI;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;SI;NO;SI;SI;SI
+62;POLICLINICA PIRIAPOLIS -AV. GRAL. ARTIGAS esq. NIZA;Maldonado;Piriápolis;Ambulatorio - Policlínica;SI;NO;NO;SI;SI;NO;NO;NO;SI;NO;NO;SI;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;NO;SI;SI;NO
+62;SEDE SECUNDARIA CANELONES - JOSE BATLLE Y ORDOÑEZ 669;Canelones;Canelones;Ambulatorio - Sede Secundaria;SI;NO;NO;SI;SI;NO;NO;NO;SI;SI;NO;SI;SI;SI;NO;NO;SI;NO;NO;NO;SI;NO;SI;NO;SI;NO;SI;SI;SI;NO;SI;SI;SI
+62;SEDE SECUNDARIA LAS PIEDRAS - LAVALLEJA 655;Canelones;Las Piedras;Ambulatorio - Sede Secundaria;SI;NO;NO;SI;SI;NO;NO;NO;SI;SI;NO;SI;NO;SI;NO;NO;SI;NO;NO;NO;SI;NO;SI;NO;SI;NO;SI;SI;SI;NO;SI;SI;SI
+62;SEDE SECUNDARIA PANDO - ITURRIA s/n esq. LAVALLEJA;Canelones;Pando;Ambulatorio - Sede Secundaria;SI;NO;NO;SI;SI;SI;NO;NO;SI;SI;SI;SI;NO;SI;NO;SI;SI;NO;SI;NO;SI;NO;SI;NO;SI;SI;SI;SI;SI;NO;SI;SI;SI
+62;SEDE SECUNDARIA SALINAS - RUTA INTERBALNEARIA KM. 37.200 esq. COLÓN;Canelones;Salinas;Ambulatorio - Sede Secundaria;SI;NO;NO;SI;SI;NO;NO;NO;SI;SI;SI;SI;NO;SI;NO;NO;SI;NO;NO;NO;SI;NO;SI;NO;SI;SI;SI;SI;SI;NO;SI;SI;SI
+62;SEDE SECUNDARIA SOLYMAR - AVENIDA GIANNATASSIO KM 22.500;Canelones;Solymar;Ambulatorio - Sede Secundaria;SI;SI;NO;SI;SI;SI;NO;NO;SI;SI;SI;SI;SI;SI;NO;SI;SI;NO;SI;NO;SI;NO;SI;NO;SI;SI;SI;SI;SI;NO;SI;SI;SI
+62;POLICLINICA BARROS BLANCOS - RUTA 8 KM 24.200;Canelones;Barros Blancos;Ambulatorio - Policlínica;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;NO
+62;POLICLÍNICA PASO CARRASCO - AVENIDA WILSON FERREIRA ALDUNATE 3020;Canelones;Paso Carrasco;Ambulatorio - Policlínica;NO;NO;NO;SI;NO;NO;NO;NO;NO;SI;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;NO
+62;MONTEVIDEO - JOSE ENRIQUE RODO 1986;Montevideo;Montevideo;IMAE Hemodiálisis;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+62;MONTEVIDEO - MARIO CASSINONI 1441;Montevideo;Montevideo;Ambulatorio - Serv. de Fertilidad;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+62;MONTEVIDEO - MARIO CASSINONI 1443;Montevideo;Montevideo;Ambulatorio - Serv. Medicina Nuclear;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+264;SEDE SECUNDARIA COLECTIVA TOLEDO- Av.La Estación 60 mts;Canelones;Toledo;Sede Secundaria;SI;NO;NO;SI;SI;NO;NO;NO;SI;SI;NO;SI;SI;SI;NO;NO;SI;NO;NO;NO;NO;NO;SI;NO;NO;NO;SI;SI;SI;NO;SI;NO;NO
+264;SEDE SECUNDARIA SALINAS - RUTA INTERBALNEARIA KM 38400;Canelones;Salinas;Sede Secundaria;Si;NO;NO;SI;SI;NO;NO;NO;SI;SI;NO;SI;SI;SI;NO;NO;SI;NO;NO;NO;NO;NO;SI;NO;NO;NO;SI;SI;SI;NO;SI;NO;NO
+264;SEDE SECUNDARIA SAN JOSÉ DE CARRASCO - AVENIDA ALVEAR MANZANA 16 SOLAR 6;Canelones;San José de Carrasco ;Sede Secundaria;Si;;;SI;SI;;;;SI;SI;;;;SI;;;SI;;;;;;;;SI;;SI;SI;SI;;SI;SI;SI
+264;SEDE SECUNDARIA COLONIA - DANIEL FOSALBA 366 - Sanatorio;Colonia;Colonia;Sede Secundaria;Si;No;SI;SI;SI;Si;No;No;SI;SI;SI;SI;SI;SI;Si;No;SI;SI;No;No;SI;No;SI;Si;Si;SI;SI;SI;SI;SI;SI;SI;Si
+264;SEDE SECUNDARIA NUEVA PALMIRA - JOSE LAGUNA 879;Colonia;Nueva Palmira;Sede Secundaria;SI;No;No;No;SI;No;No;No;No;No;No;No;No;SI;No;No;SI;SI;No;No;No;No;No;No;SI;No;No;SI;No;No;No;No;No
+264;Sede Secundaria Tarariras - Lavalleja 1999;Colonia;Tarariras;Sede Secundaria;Si;No;No;SI;SI;No;No;No;SI;SI;No;No;No;SI;No;No;SI;No;No;No;No;No;No;No;SI;No;SI;SI;SI;No;SI;SI;No
+264;SEDE SECUNDARIA NUEVA HELVECIA - ARTIGAS 1055;Colonia;Nueva Helvecia;Sede Secundaria;Si;No;No;SI;SI;No;No;No;SI;SI;No;No;No;SI;No;No;SI;No;No;No;No;No;No;No;SI;No;SI;SI;SI;No;SI;SI;No
+264;SEDE SECUNDARIA CARMELO - URUGUAY 202;Colonia;Carmelo;Sede Secundaria;Si;No;No;No;SI;No;No;No;SI;SI;No;No;SI;SI;No;No;SI;SI;No;No;No;No;No;No;SI;No;No;SI;No;No;No;No;No
+264;Sede Secundaria Ombues de Lavalle - Pablo Davyd s/n;Colonia;Ombués de Lavalle;Sede Secundaria;Si;No;No;si;si;No;No;No;SI;Si;No;No;No;SI;No;No;SI;No;No;No;No;No;No;No;SI;No;No;SI;SI;No;No;No;No
+264;SEDE SECUNDARIA COLONIA MIGUELETE - JOSE ARTIGAS S/N;Colonia;Colonia Miguelete;Sede Secundaria;Si;No;No;si;Si;No;No;No;No;No;No;No;No;SI;No;No;SI;No;No;No;No;No;No;No;SI;No;No;SI;No;No;No;No;No
+264;SEDE SECUNDARIA COLONIA VALDENSE - 17 DE FEBRERO 1080;Colonia;Colonia Valdense;Sede Secundaria;Si;No;No;No;No;No;No;No;No;No;No;No;No;si;No;No;SI;No;No;No;No;No;No;No;SI;No;No;si;Si;No;No;No;No
+264;Sede Secundaria Young - Montevideo 3335;Río Negro;Young;Sede Secundaria;Si;No;No;Si;Si;No;No;No;Si;Si;No;No;No;Si;No;No;Si;No;No;No;No;No;No;No;SI;No;Si;Si;No;No;No;No;No
+264;Sede Secundaria Ciudad del Plata - Ruta 1 vieja Km 31500;San José;Ciudad del Plata;Sede Secundaria;Si;No;No;SI;SI;No;No;No;SI;Si;No;No;No;SI;No;No;SI;No;No;No;No;No;No;No;SI;No;No;SI;No;No;No;No;No
+264;Sede Secundaria Ecilda Paullier - Avenida Artigas s/n;San José;Ecilda Paullier;Sede Secundaria;Si;No;No;SI;SI;No;No;No;Si;Si;No;No;SI;Si;No;No;Si;No;No;No;No;No;No;No;Si;No;No;Si;No;No;No;No;No
+264;Sede Secundaria R. Perazza Ruta 1 Km. 72;San José;Rafael Perazza;Sede Secundaria;Si;No;No;No;No;No;No;No;Si;No;No;No;No;SI;No;No;SI;No;No;No;No;No;No;No;SI;No;No;SI;No;No;No;No;No
+264;Dolores - Carlos Puig  1830;Soriano;Dolores;Sede Secundaria;Si;No;No;Si;SI;No;No;No;SI;No;No;No;No;SI;No;No;SI;No;No;No;No;No;No;No;SI;No;No;SI;SI;No;No;SI;No
+264;POLICLINICO COLONIA - BALTASAR BRUM 703;Colonia;Colonia;Ambulatorio;Si (tercerizada);No;SI;SI;SI;Si;No;No;SI;SI;SI;SI;SI;SI;Si;No;SI;SI;No;No;SI;No;SI;Si;Si;SI;SI;SI;SI;SI;SI;SI;Si
+264;Montevideo - General Flores 4594;Montevideo;Montevideo;Ambulatorio;Si (tercerizada);No;No;Si;No;No;No;No;Si;No;No;No;No;Si;No;No;Si;No;No;No;No;No;No;No;No;No;Si;Si;No;No;No;No;No
+264;Montevideo - Carlos Maria Ramirez 420;Montevideo;Montevideo;Ambulatorio;Si (tercerizada);No;No;Si;No;No;No;No;No;No;No;No;No;Si;No;No;Si;No;No;No;No;No;No;No;No;No;Si;Si;No;No;No;No;No
+264;MONTEVIDEO - POLICLINICA ROXLO - CARLOS ROXLO 1332;Montevideo;Montevideo;Ambulatorio;Si (tercerizada);No;No;Si;No;No;No;No;Si;Si;No;No;No;Si;No;No;Si;No;No;No;No;No;No;No;No;No;Si;Si;Si;Si;Si;No;No
+264;MONTEVIDEO - SEDE PRINCIPAL - BULEVAR JOSE BATLLE Y ORDOÑEZ 2759;Montevideo;Montevideo;Sede Central;Si;Si;Si;Si;Si;Si (ver cirug);SI;No;Si;Si;Si;Si;Si;Si;Si; (Med gral con preparción);Si;Si;Si;SI;Si;Si;Si;Si;Si;Si;Si;Si;SI;SI;Si;Si;Si
+264;Montevideo - Br. Batlle y Ordóñez 2796 - UDI;Montevideo;Montevideo;Ambulatorio;Si (tercerizada);;;;;;;;;;;;;;;;;;;;;;;SI;;;;;;;;;
+264;Montevideo - Mateo Vidal 3392 - Nefrología (Hemodiálisis);Montevideo;Montevideo;;Si (tercerizada);;;;;;;;;;;;;;;;;;SI;;;;;;;;;;SI;;;;
+264;Montevideo - Mateo Vidal 3380 - Odontología;Montevideo;Montevideo;;Si (tercerizada);;;;;;;;;;;;;;;;;;;;;;;;SI;;;;;;;;
+567;POLICLINICO CENTRAL  Colonia 1474;Montevideo;Montevideo;Sede Central;No;Si;No;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;No;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;si
+567;SANATORIO Millan 4480-82;Montevideo;Montevideo;Ambulatorio;Si;No;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;No;Si;Si;Si;Si;Si;No;Si;Si;si
+567;POLICLÌNICA LUGO Avda Italia y Bolivia;Montevideo;Montevideo;Ambulatorio;Si;No;No;Si;Si;No;No;No;Si;Si;No;Si;Si;Si;No;no;Si;No;Si;No;No;No;Si;No;Si;No;Si;Si;Si;Si;Si;Si;no
+567;POLICLINICA SGO. COMPOSTELA Millan 3400;Montevideo;Montevideo;Ambulatorio;No;No;No;No ;No;No;No;No;No;Si;No;No;No;Si;No;no;Si;No;No;No;No;No;No;Si;Si;Si;no;Si;Si;Si;No;No;no
+567;POLICLINICA J.M .BARREIRO Grecia 4277;Montevideo;Montevideo;Ambulatorio;No;No;No;Si;No;No;No;No;Si;Si;No;No;No;Si;No;no;Si;No;Si;No;No;No;No;No;Si;No;no;Si;Si;No;Si;Si;si
+567;POLICLINICA LA CORUÑA(UNION) Avda. 8 de Octubre 4482;Montevideo;Montevideo;Ambulatorio;No;No;No;Si;No;No;No;No;Si;Si;Si;No;No;Si;No;no;Si;No;No;No;No;No;No;No;Si;No;no;Si;Si;No;Si;No;no
+567;POLICLINICA PONTEVEDRA (LAGOMAR). Avda Giannatasio esq Becu Km 21.500;Canelones;Lagomar;Sede Secundaria;SI;No;No;Si;Si;No;No;No;Si;Si;No;No;No;Si;No;no;Si;No;No;No;No;No;No;No;Si;No;Si;Si;Si;No;No;No;no
+567;POLICLINICA ORENSE (LAS PIEDRAS) Dr Pouey esq Gral Flores ;Canelones;Las Piedras;Sede Secundaria;SI;No;No;Si;Si;No;No;No;Si;Si;Si;No;No;Si;No;no;Si;No;Si;No;No;No;No;No;Si;No;no;Si;Si;No;Si;Si;si
+567;SEDE SECUNDARIA SALINAS - RUTA INTERBALNEARIA KM 38200;Canelones;Salinas;Sede Secundaria;SI;No;No;No;No;No;No;No;No;No;No;No;No;No;No;no;Si;No;No;No;No;No;No;No;No;No;no;Si;no;No;No;No;no
+567;TOLEDO - BARROS BLANCOS S/N;Canelones;Toledo;Convenio SAPP;SI;No;No;No;No;No;No;No;No;No;No;No;No;No;No;no;Si;No;No;No;No;No;No;No;No;No;no;Si;no;No;No;No;no
+567;TOLEDO - SEDE SECUNDARIA COLECTIVA - SABINO ALVAREZ AVENIDA DE LAS ESTACION S/N;Canelones;Toledo;Convenio SAPP;SI;No;No;No;No;No;No;No;No;No;No;No;No;No;No;no;Si;No;No;No;No;No;No;No;No;No;no;Si;no;No;No;No;no
+769;MONTEVIDEO - AGUSTIN ABREU 2474;Montevideo;Montevideo;Ambulatorio;;;;;;;;;;;;;;;;;;;;;;;;;;SI;;;;;;;
+769;MONTEVIDEO - AVENIDA AGRACIADA 3691;Montevideo;Montevideo;Ambulatorio;NO;SI;NO;SI;NO;NO;NO;NO;SI;SI;NO;SI;NO;SI;NO;NO;SI;NO;NO;SI;NO;NO;NO;SI;SI;NO;NO;SI;SI;SI;SI;SI;NO
+769;MONTEVIDEO - CERRO - Carlos M. Ramirez 1651;Montevideo;Montevideo;Ambulatorio;NO;NO;NO;SI;NO;NO;NO;NO;SI;SI;NO;SI;NO;SI;NO;NO;SI;NO;NO;SI;NO;NO;NO;SI;NO;NO;NO;SI;SI;SI;NO;SI;NO
+769;MONTEVIDEO - COLON - GARZON 2003;Montevideo;Montevideo;Ambulatorio;NO;SI;NO;SI;NO;NO;NO;NO;SI;SI;NO;SI;SI;SI;NO;NO;SI;NO;NO;SI;NO;NO;NO;SI;NO;NO;NO;SI;SI;SI;NO;SI;NO
+769;MONTEVIDEO - JUAN RAMON GOMEZ 2675;Montevideo;Montevideo;Ambulatorio;SI;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+769;MONTEVIDEO – CENTRO MEDICO LA BLANQUEADA LUIS ALBERTO DE HERRERA 2421;Montevideo;Montevideo;Ambulatorio;NO;NO;NO;SI;NO;NO;NO;SI;SI;SI;NO;SI;SI;SI;NO;SI;SI;NO;NO;SI;NO;SI;NO;SI;NO;NO;NO;NO;SI;SI;SI;SI;NO
+769;MONTEVIDEO - MALVIN NORTE - CAMINO CARRASCO 4641;Montevideo;Montevideo;Ambulatorio;NO;NO;NO;SI;NO;NO;NO;NO;SI;SI;NO;SI;NO;SI;NO;NO;SI;NO;NO;SI;NO;NO;NO;SI;SI;NO;NO;NO;SI;SI;NO;SI;NO
+769;MONTEVIDEO - MALVIN SUR - VERDI 4820;Montevideo;Montevideo;Ambulatorio;NO;SI;NO;SI;NO;NO;NO;NO;SI;SI;NO;SI;SI;SI;NO;NO;SI;NO;NO;SI;NO;NO;NO;SI;NO;NO;NO;NO;SI;SI;NO;SI;NO
+769;MONTEVIDEO - PARQUE BATLLE - CATALUÑA 3140;Montevideo;Montevideo;Ambulatorio;NO;SI;NO;SI;NO;NO;NO;SI;SI;SI;NO;SI;SI;SI;NO;NO;SI;NO;NO;no;NO;NO;NO;SI;SI;NO;NO;SI;SI;SI;SI;SI;SI
+769;PASO CARRASCO - PASO CARRASCO - CAMINO CARRASCO 8054;Canelones;Paso Carrasco;Sede Secundaria;NO;NO;NO;SI;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO
+769;Centro Médico Paso de la ArenaCno. Tomkinson 2456;Montevideo;Montevideo;Ambulatorio;NO;NO;NO;SI;NO;NO;NO;NO;SI;NO;NO;SI;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;SI;NO;NO;NO;NO
+769;MONTEVIDEO - PIEDRAS BLANCAS - JOSE BELLONI 4611;Montevideo;Montevideo;Ambulatorio;NO;NO;NO;SI;NO;NO;NO;NO;SI;NO;NO;SI;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;SI;SI;SI;NO;SI;NO
+769;MONTEVIDEO - PORTONES - AVENIDA BOLIVIA 2345;Montevideo;Montevideo;Ambulatorio;NO;NO;NO;SI;NO;NO;NO;NO;SI;SI;NO;SI;NO;SI;NO;NO;SI;NO;NO;SI;NO;NO;NO;SI;NO;NO;NO;SI;SI;SI;SI;SI;NO
+769;MONTEVIDEO - POLICLINICA CENTRAL - AVENIDA 8 DE OCTUBRE 3300;Montevideo;Montevideo;Sede Central;NO;NO;SI;SI;SI;SI;SI;NO;SI;NO;SI;NO;NO;SI;SI;NO;NO;SI;NO;SI;NO;NO;SI;SI;NO;NO;SI;SI;NO;NO;NO;NO;SI
+769;MONTEVIDEO - SANATORIO 1 - COLONIA 1942;Montevideo;Montevideo;2DO NIVEL;Si;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+769;MONTEVIDEO - SANATORIO 2 - 8 DE OCTUBRE 3300;Montevideo;Montevideo;2 y 3 NIVEL;Si;;;;;;;;;;;;;;;;;;SI;;;;;;;;;;;;;;
+769;MONTEVIDEO - SANATORIO 3 - AVENIDA GARIBALDI 2644;Montevideo;Montevideo;2 y 3 NIVEL;Si;;;;;;;;;;;;;;;;;;SI;;;;;;;;;;;;;;
+769;MONTEVIDEO - UPECA - ARENAL GRANDE 1539;Montevideo;Montevideo;Ambulatorio;NO;SI;NO;SI;NO;NO;NO;NO;SI;SI;NO;SI;SI;SI;NO;NO;SI;NO;NO;SI;NO;NO;NO;SI;SI;NO;NO;NO;SI;SI;NO;SI;NO
+769;MONTEVIDEO -ASILO 3336;Montevideo;Montevideo;Ambulatorio;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+769;MONTEVIDEO-CENTRO MÉDICO BULEVAR BULEVAR ARTIGAS 1305;Montevideo;Montevideo;Ambulatorio;NO;SI;NO;SI;NO;NO;NO;SI;SI;SI;SI;SI;SI;SI;NO;NO;SI;NO;NO;SI;NO;NO;NO;SI;NO;NO;NO;SI;SI;SI;SI;SI;NO
+769;Consultorio Colectivo Priorizado  Gral. Flores 3935;Montevideo;Montevideo;Ambulatorio;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO
+769;SEDE SECUNDARIA ATLANTIDA - ROGER BALLET S/N;Canelones;Atlántida;Sede Secundaria;NO;NO;NO;SI;SI;NO;NO;NO;NO;SI;NO;SI;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;NO;NO;NO
+769;SEDE SECUNDARIA BARROS BLANCOS RUTA 8 KM 24400;Canelones;Barros Blancos;Sede Secundaria;NO;NO;NO;SI;SI;NO;NO;NO;SI;SI;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;SI;NO;SI;NO;SI;NO
+769;SEDE SECUNDARIA CANELONES - TOMAS BERRETA 177;Canelones;Canelones;Sede Secundaria;SI;NO;NO;SI;SI;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;SI;NO;NO;NO
+769;SEDE SECUNDARIA CIUDAD DEL PLATA - RUTA 1 KM 27500;San José;Ciudad del Plata;Sede Secundaria;SI;NO;NO;SI;SI;NO;NO;NO;NO;SI;NO;NO;NO;SI;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;SI;NO;SI;SI;SI;NO;NO;NO
+769;JOAQUIN SUAREZ - Gral. Artigas y Saravia;Canelones;Joaquín Suárez;Ambulatorio;NO;NO;NO;SI;NO;NO;NO;NO;SI;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;SI;NO;NO;SI;NO
+769;LA FLORESTA – TREINTA Y TRES 225;Canelones;La Floresta;Ambulatorio;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;NO;NO;NO
+769;SEDE SECUNDARIA LAGOMAR - COSTA URBANA SHOPPING - AVENIDA GIANNATASSIO KM 21;Canelones;Lagomar;Sede Secundaria;NO;SI;NO;SI;NO;NO;NO;SI;SI;SI;SI;SI;SI;SI;NO;NO;SI;SI;NO;SI;NO;NO;NO;SI;NO;NO;NO;SI;SI;SI;SI;NO;SI
+769;SEDE SECUNDARIA LAS PIEDRAS PILAR CABRERA 545;Canelones;Las Piedras;Sede Secundaria;SI;NO;NO;SI;SI;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;SI;si;NO;NO
+769;SEDE SECUNDARIA MALDONADO - JOAQUIN DE VIANA S/N;Maldonado;Maldonado;Sede Secundaria;SI;NO;NO;SI;SI;NO;NO;NO;SI;SI;NO;SI;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;SI;SI;SI;NO;NO;SI
+769;MONTES - CIRCUNVALACION DE LA PLAZA S/N;Canelones;Montes;Ambulatorio;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO
+769;SEDE SECUNDARIA MIGUES - FELICIANO VIERA S/N;Canelones;Migues;Sede Secundaria;si;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO
+769;SEDE SECUNDARIA PANDO - RUTA INDEPENDENCIA 964;Canelones;Pando;Sede Secundaria;SI;NO;NO;SI;SI;NO;NO;NO;SI;no;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;SI;NO;SI;NO;SI;SI;SI;NO;SI;NO
+769;PIRIAPOLIS - SALTA 1930;Maldonado;Piriápolis;Ambulatorio;NO;NO;NO;SI;NO;NO;NO;NO;SI;SI;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;NO;NO;NO;NO
+769;SEDE SECUNDARIA SALINAS - RUTA INTERBALNEARIA KM 37500;Canelones;Salinas;Sede Secundaria;SI;NO;NO;SI;SI;NO;NO;NO;NO;SI;NO;SI;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;SI;NO;NO;NO
+769;SAN JACINTO - AVENIDA ARTIGAS S/N;Canelones;San Jacinto;Ambulatorio;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO
+769;SEDE SECUNDARIA SAN LUIS - CARUSSO S/N;Canelones;San Luis;Sede Secundaria;SI;NO;NO;SI;SI;NO;NO;NO;NO;SI;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;NO;NO;NO
+769;SEDE SECUNDARIA SAUCE - SAN MIGUEL 1576;Canelones;Sauce;Sede Secundaria;si;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO
+769;SEDE SECUNDARIA SOLYMAR - AVENIDA GIANNATTASIO KM 23800;Canelones;Solymar;Sede Secundaria;SI;NO;NO;SI;SI;NO;NO;NO;SI;SI;SI;SI;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;SI;SI;NO;NO;SI;SI;SI;NO;NO;NO
+769;CUCHILLA ALTA- LAS PALMERAS S/N;Canelones;Cuchilla Alta;Ambulatorio;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;NO;NO;NO
+1062;CARDONA - SEDE SECUNDARIA - LIBERTAD 136;Soriano;Cardona;Ambulatorio;si;no;si;si;si;no;si;si;si;si;si;si;no;si;si;no;si;si;no;no;no;no;si;no;si;no;si;si;si;si;si;si;si
+1062;JOSE ENRIQUE RODO - CALLE 10 s/n;Soriano;Mercedes;Ambulatorio;si;no;no;no;no;no;no;si;no;no;no;no;no;si;no;no;si;no;no;no;no;no;no;no;si;no;no;si;no;no;no;no;no
+1062;MERCEDES - ARTIGAS 385;Soriano;Montevideo;Ambulatorio;si;no;no;si;si;no;no;no;si;si;no;no;no;si;no;no;si;no;no;no;no;no;no;no;si;no;no;si;no;no;no;no;no
+1062;MONTEVIDEO - 8 DE OCTUBRE 2710;Montevideo;Montevideo;Ambulatorio;no;no;no;si;si;si;no;no;no;si;no;si;si;si;no;no;si;si;si;no;si;no;si;si;si;si;si;si;si;si;si;no;si
+1062;MONTEVIDEO - BELVEDERE - CARLOS MARIA RAMIREZ 120;Montevideo;Montevideo;Ambulatorio;no;no;no;si;si;no;no;no;si;si;no;no;no;si;no;no;si;no;no;no;no;no;si;no;si;no;si;si;si;si;si;si;si
+1062;MONTEVIDEO - CANELONES 1680;Montevideo;Montevideo;Ambulatorio;no;no;no;no;no;no;no;si;no;no;si;no;no;no;no;no;no;no;no;no;no;no;si;no;no;no;no;no;no;no;no;no;no
+1062;MONTEVIDEO - COLON - LEZICA 5704;Montevideo;Montevideo;Ambulatorio;no;si;no;si;si;no;no;no;si;si;si;no;si;si;no;no;si;no;no;no;no;no;si;no;no;no;si;si;si;si;si;no;si
+1062;MONTEVIDEO - MAGALLANES 1217;Montevideo;Montevideo;Ambulatorio;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;si;no;no;no;no;no;no;no;no
+1062;MONTEVIDEO - PASO DE LA ARENA - BATLLE BERRES 6580;Montevideo;Montevideo;Ambulatorio;no;no;no;no;si;no;no;no;si;no;no;no;no;si;no;no;si;no;no;no;no;no;si;no;no;no;si;si;si;no;no;no;no
+1062;MONTEVIDEO - SANATORIO JUAN PABLO II - BULEVAR ARTIGAS 2120;Montevideo;Montevideo;Ambulatorio;si;si;si;si;si;si;si;no;si;no;si;si;no;si;si;si;si;si;si;si;no;si;si;si;si;si;si;si;si;si;no;si;si
+1062;MONTEVIDEO - SEDE PRINCIPAL - MINAS 1250;Montevideo;Montevideo;Sede Central;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si;si
+1062;NUEVA HELVECIA - 18 DE JULIO 1326;Colonia;Nueva Helvecia;Ambulatorio;si;no;no;si;no;no;no;no;no;no;no;no;no;si;no;no;si;no;no;no;no;no;no;no;no;no;no;si;no;no;no;no;no
+1062;OMBUES DE LAVALLE - EL EXODO S/N;Colonia;Ombués de Lavalle;Ambulatorio;si;no;no;si;si;no;no;si;no;no;no;no;no;si;no;no;si;no;no;no;no;no;no;no;no;no;no;si;no;no;no;no;no
+1062;SEDE SECUNDARIA AGUAS CORRIENTES - 18 DE JULIO S/N -;Canelones;Aguas Corrientes;Sede Secundaria;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;si;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no
+1062;SEDE SECUNDARIA ATLANTIDA - CALLE 4 4528;Canelones;Atlántida;Sede Secundaria;si;no;no;si;si;no;no;no;si;si;si;no;no;si;no;no;si;no;no;no;no;no;no;no;si;no;si;si;si;si;si;no;si
+1062;SEDE SECUNDARIA BARROS BLANCOS - RUTA 8 KM. 26500;Canelones;Barros Blancos;Sede Secundaria;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no
+1062;SEDE SECUNDARIA CANELONES - BATLLE Y ORDOÑEZ 516;Canelones;Canelones;Sede Secundaria;si;no;no;si;si;no;no;no;si;si;no;si;no;si;no;no;si;no;no;no;no;no;si;no;si;no;si;si;si;no;si;si;si
+1062;SEDE SECUNDARIA CIUDAD DEL PLATA - RUTA 1 KM. 31900 - MALAGA;San José;Ciudad del Plata;Sede Secundaria;si;no;no;si;si;no;no;no;si;si;no;no;no;si;no;no;si;no;no;no;no;no;si;no;si;no;si;si;si;no;si;si;si
+1062;SEDE COLECTIVA TOLEDO SABINO ALVAREA - AVENIDA DE LA ESTACION;Canelones;Toledo;Sede Secundaria;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no
+1062;SEDE SECUNDARIA COLONIA MIGUELETE - JOSE ARTIGAS S/N;Colonia;Colonia Miguelete;Sede Secundaria;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no
+1062;SEDE SECUNDARIA COLONIA NOCOLICH - RUTA 101 KM 22.500;Canelones;Colonia Nicolich;Sede Secundaria;si;no;no;si;no;no;no;no;no;no;no;no;no;si;no;no;si;no;no;no;no;no;no;no;si;no;no;si;no;no;no;no;no
+1062;SEDE SECUNDARIA JUAN LACAZE - JOSE SALVO 212;Colonia;Juan Lacaze;Sede Secundaria;si;no;si;si;si;si;no;no;si;si;si;si;si;si;si;no;si;si;no;no;no;no;si;si;si;si;si;si;si;si;si;si;si
+1062;SEDE SECUNDARIA LA PAZ - AVENIDA ARTIGAS 265;Canelones;La Paz;Sede Secundaria;si;no;no;si;no;no;no;no;si;si;no;no;no;si;no;no;si;no;no;no;no;no;no;no;si;no;si;si;si;no;no;no;no
+1062;SEDE SECUNDARIA LAGOMAR - RUTA INTERBALNEARIA KM. 22.500;Canelones;Lagomar;Sede Secundaria;si;no;no;si;si;no;no;no;si;si;si;si;no;si;no;no;si;no;no;no;no;no;si;no;si;no;si;si;si;si;si;si;si
+1062;SEDE SECUNDARIA LAS PIEDRAS - BATLLE Y ORDOÑEZ 583;canelones;Las Piedras;Sede Secundaria;si;no;no;si;si;no;no;no;si;si;si;no;si;si;no;no;si;no;no;no;no;no;si;no;si;no;si;si;si;si;si;si;si
+1062;SEDE SECUNDARIA LIBERTAD - ARTIGAS 872;San José;Libertad;Sede Secundaria;si;no;no;si;si;no;no;no;si;si;si;no;no;si;no;no;si;no;no;no;no;no;si;no;si;no;si;si;si;si;si;si;si
+1062;SEDE SECUNDARIA PASO CARRASCO - CAMINO CARRASCO 398;Canelones;Paso Carrasco;Sede Secundaria;si;no;no;si;si;no;no;no;si;si;no;no;no;si;no;no;si;no;no;no;no;no;si;no;si;no;si;si;si;no;no;no;no
+1062;SEDE SECUNDARIA PUNTA DEL ESTE - BULEVAR ARTIGAS S/N;Maldonado;Punta del Este;Sede Secundaria;si;no;no;si;si;no;no;no;si;si;no;no;no;si;no;no;si;no;no;no;no;no;si;no;si;no;si;si;si;no;no;no;no
+1062;SEDE SECUNDARIA ROSARIO - RINCON 291;Colonia;Rosario;Sede Secundaria;si;no;no;si;no;no;no;no;si;no;no;no;no;si;no;no;si;no;no;no;no;no;no;no;si;no;si;si;si;no;no;no;no
+1062;SEDE SECUNDARIA SALINAS - RUTA INTERBALNEARIA KM. 38200;Canelones;Salinas;Sede Secundaria;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;si;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no;no
+1062;SEDE SECUNDARIA SAN BAUTISTA - LUIS ALBERTO DE HERRERA S/N;Canelones;San Bautista;Sede Secundaria;si;no;no;si;si;no;no;no;si;si;no;no;no;si;no;no;si;no;no;no;no;no;si;no;si;no;si;si;si;no;no;no;no
+1062;SEDE SECUNDARIA SAN JOSÉ - ARTIGAS 338;Canelones;San Jose;Sede Secundaria;si;no;no;si;si;no;no;no;si;si;si;no;no;si;no;no;si;no;no;no;no;no;si;no;si;no;si;si;si;no;no;si;si
+1062;SEDE SECUNDARIA SAN RAMON - 18 DE JULIO 2635;Canelones;San Ramon;Sede Secundaria;si;no;no;si;si;no;no;no;si;si;no;no;no;si;no;no;si;no;no;no;no;no;no;no;si;no;si;si;si;no;no;no;no
+1062;SEDE SECUNDARIA SANTA LUCIA - REPUBLICA ARGENTINA;Canelones;Santa Lucia ;Sede Secundaria;si;no;no;si;si;no;no;no;si;si;no;no;si;si;no;no;si;no;no;no;no;no;si;no;si;no;si;si;si;si;no;si;si
+1062;SEDE SECUNDARIA SANTA ROSA - BALTASAR BRUM S/N;Canelones;Santa Rosa;Sede Secundaria;si;no;no;si;si;no;no;no;si;si;si;no;no;si;no;no;si;no;no;no;no;no;no;no;si;no;si;si;si;no;no;no;no
+1062;SEDE SECUNDARIA SARANDI GRANDE - FONTES DE ARRILLAGA 867;Florida;Sarandi Grande;Sede Secundaria;si;no;no;si;si;no;no;no;si;no;no;no;no;si;no;no;si;no;no;no;no;no;no;no;si;no;si;si;no;no;no;no;no
+1062;SEDE SECUNDARIA TALA - GENERAL ARTIGAS S/N;Canelones;Tala;Sede Secundaria;si;no;no;si;si;no;no;no;si;si;no;no;no;si;no;no;si;no;no;no;no;no;no;no;si;no;si;si;si;no;no;no;no
+1062;SEDE SECUNDARIA TARARIRAS - BARTOLOME BACIGALUPI 2224;Colonia;Tarariras;Sede Secundaria;si;no;no;si;no;no;no;no;si;si;no;no;no;si;no;no;si;no;no;no;no;no;no;no;si;no;si;si;si;no;si;no;no
+1062;MONTEVIDEO - CLINICA INTEGRAL DEL EJERCICIO - CANELONES 1667;Montevideo;Montevideo;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+1062;MONTEVIDEO - FISIATRIA - CANELONES 1667;Montevideo;Montevideo;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+1163;LA PAZ-POLICLINICA LA PAZ-EMILIO ANDREON 300;Canelones;La Paz;Sede Secundaria;No;No;No;Si;No;N0;No;N0;No;No;No;No;No;Si;No;N0;Si;No;No;No;No;No;No;N0;No;No;Si;No;No;No;No;No;
+1163;MONTEVIDEO - POLICLINICA AGRECIADA - AVENIDA AGRECIADA 3248;Montevideo;Montevideo;Ambulatorio;No;Si;Si;Si;Si;Si;N0;No;Si ;Si;Si;Si;No;Si;No;Si;Si;Si;Si;Si;No;No;Si;Si;No;Si;Si;Si;No;Si;Si;Si;
+1163;MONTEVIDEO - POLICLINICA CENTRO - BULEVAR ARTIGAS 2173;Montevideo;Montevideo;Ambulatorio;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+1163;MONTEVIDEO - POLICLINICA CERRO - VIACABA 1680;Montevideo;Montevideo;Ambulatorio;No;No;No;Si;No;No;No;No;No;No;No;No;No;Si;No;No;Si;No;No;No;No;No;No;No;No;No;Si;Si;No;No;No;No;
+1163;MONTEVIDEO - POLICLINICA LEZICA - AVENIDA LEZICA 5679;Montevideo;Montevideo;Sede Central;Si;No;Si;Si;Si;No;No;No;Si ;Si;Si;Si;No;Si;Si;No;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si;Si ;No;Si;Si;Si;
+1163;MONTEVIDEO - POLICLINICA PASO DE LA ARENA - LUIS BATLLE BERRES 6651;Montevideo;Montevideo;Ambulatorio;Si;No;No;Si;Si;No;No;No;No;No;No;No;No;Si;No;No;Si;No;Si;No;No;No;No;Si;No;No;Si;Si;No;No;No;No;
+1163;MONTEVIDEO - SANATORIO COLON - AVENIDA LEZICA 5710;Montevideo;Montevideo;Ambulatorio;Si;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+1163;MONTEVIDEO - UNIVERSAL - HOSPITAL ITALIANO - BULEVAR ARTIGAS 1632;Montevideo;Montevideo;Ambulatorio;No;No;Si;Si;Si;Si;Si;No;Si ;Si;Si;Si;Si;Si;Si;No;Si;Si;Si;Si;No;Si;No;No;Si;Si;Si;Si;Si;Si;Si;Si;
+1163;POLICLINICA LAS PIEDRAS - GENERAL FLORES 669;Canelones;Las Piedras;Sede Secundaria;No;No;No;Si;No;No;No;No;No;No;No;No;No;Si;No;No;Si;No;No;No;No;No;No;No;No;No;SI;Si;No;No;No;No;
+1163;RURAL - POLICLINICA MELILLA - CAMINO DE LA REDENCION 9256;Montevideo;;Ambulatorio;No;N0;No;No;No;No;No;No;No;No;No;No;No;Si;No;No;Si;No;No;No;No;No;No;No;No;No;Si;No;No;No;No;No ;
+1163;POLICLINICA TOLEDO -RUTA 6 KM 23;Canelones;Toledo;Sede Secundaria;Si;No;No;No;No;No;No;No;No;No;No;No;No;Si;No;No;Si;No;No;No;No;No;No;No;No;No;Si;No;No;No;No;No;
+1163;EMPALME OLMOS - 26 DE MARZO S/N;Canelones;Empalme Olmos;Ambulatorio;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+1163;PANDO - SOLIS 932;Canelones;Pando;Ambulatorio;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+1163;CASARINO - ANDALUZ S/N;Canelones;Casarino;Ambulatorio;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+1210;LAGOMAR - AVENIDA GIANNATTASIO KM 21500;Canelones;Lagomar;Sede Secundaria;NO;NO;NO;SI;SI;NO;NO;NO;NO;NO / DIABETOLOGIA SI;SI;si;NO;SI;NO;SI;SI;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;NO;NO;NO;SI
+1210;MONTEVIDEO - 21 DE SETIEMBRE 2387;Montevideo;Montevideo;Ambulatorio;NO;NO;NO;SI;SI;SI;SI;NO;SI;SI;SI;Si;SI;SI;NO;NO;SI;SI;SI (PEDIATRICA);SI;SI;SI;NO;NO;NO;SI;SI;SI;SI;NO;SI;SI;SI
+1210;MONTEVIDEO - AVENIDA ITALIA 2603;Montevideo;Montevideo;Ambulatorio;NO;SI;SI;SI;SI;SI;NO;SI;SI;SI;SI;SI;SI;SI;SI;NO;SI;SI;NO;SI;SI;NO;SI;SI;NO;NO;NO;SI;SI;SI;SI;NO;SI
+1210;MONTEVIDEO - AVENIDA ITALIA 4206;Montevideo;Montevideo;Ambulatorio;NO;SI;SI;SI;SI;SI;NO;NO;SI;SI;SI;SI  ;NO;SI;SI;SI;SI;SI;NO;SI;SI;NO;SI;SI;NO;NO;SI;SI;SI;SI;SI;SI;SI
+1210;MONTEVIDEO - CATALUÑA 3137;Montevideo;Montevideo;Ambulatorio;NO;NO;SI;SI;SI;SI;NO;SI;SI;SI ;SI;SI;NO;SI;SI;SI;SI;SI;SI  ;NO;SI;SI;SI;NO;NO;SI;NO;SI;SI;SI;SI;NO;NO
+1210;MONTEVIDEO – DR. GASTON RAMON 2322;Montevideo;Montevideo;Ambulatorio;NO;NO;SI;SI;SI;SI;SI;SI;SI;SI;SI;SI;NO;SI;NO;SI;SI;SI;NO;SI;SI;NO;SI;NO;NO;SI;SI;SI;SI;SI;SI;SI;SI
+1210;MONTEVIDEO - BULEVAR ARTIGAS 1283;Montevideo;Montevideo;Sede Central;No se realiza actividad asistencial en esta sede;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+1210;MONTEVIDEO - DOCTOR MANUEL ALBO 2675;Montevideo;Montevideo;Ambulatorio;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO
+2315;8 de octubre 2870;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;NO;SI;SI;SI;SI;SI;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;SI;SI;NO;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO
+2315;8 de octubre 2804;Montevideo;Montevideo;Ambulatorio - Policlínica;NO;SI;SI;SI;NO;NO;NO;SI;SI;SI;SI;SI;SI;SI;SI;NO;SI;NO;SI;NO;SI;NO;NO;NO;NO;NO;SI;NO;SI;NO;SI;NO;SI
+2315;Camino Carrasco 137;Canelones;Paso Carrasco;Ambulatorio - Policlínica;SI;NO;NO;SI;SI;NO;NO;NO;NO;NO;NO;NO;NO;SI;NO;NO;SI;NO;NO;NO;NO;NO;NO;NO;NO;NO;SI;SI;NO;NO;NO;SI;NO
+2315;Camino a la Fábrica s/n;Canelones;Empalme 
