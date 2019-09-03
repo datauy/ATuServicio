@@ -80,7 +80,13 @@ module CompareHelper
     elsif !column_value
       ApplicationHelper.no_hay_datos
     else
-      table_cell("<h5>$ #{number_with_delimiter(column_value, separator: StringConstants::COMMA)}</h5>")
+      price = number_to_currency(
+        column_value,
+        delimiter: StringConstants::DOT,
+        separator: StringConstants::COMMA,
+        unit: StringConstants::PESOS,
+      )
+      table_cell("<h5>#{price}</h5>")
     end
   end
 
