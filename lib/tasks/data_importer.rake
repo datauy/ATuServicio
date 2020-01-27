@@ -46,7 +46,7 @@ namespace :importer do
     Pia.destroy_all
 
     puts 'Creating pias'
-    import_file(@year + "/pias.csv", col_sep: ',') do |row|
+    import_file(@year + '/pias.csv', col_sep: ',') do |row|
       if Pia.where(:pid => row[0]).empty?
         pias = Pia.new(
           pid: row[0],
@@ -90,7 +90,8 @@ namespace :importer do
         afiliados: row[6],
         logo: assign_logo(row[0]),
         comunicacion: row[7],
-        espacio_adolescente: row[8]
+        espacio_adolescente: row[8],
+        servicios_atencion_adolescentes: row[9]
       )
       # Set private insurances
       provider.private_insurance = true if provider.nombre_abreviado.include?('Seguro Privado')

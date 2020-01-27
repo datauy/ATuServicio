@@ -24,7 +24,7 @@ module CompareHelper
     when :estructura
       if ['afiliados', 'afiliados_fonasa'].include? column
         value = table_cell("<h5 class=\"people people-high\">#{number_with_delimiter(column_value, delimiter: '.')}</h5>")
-      elsif column == 'espacio_adolescente'
+      elsif ['espacio_adolescente', 'servicios_atencion_adolescentes'].include? column
         value = table_cell(boolean_icons(column_value))
       else
         value = table_cell("<p>#{column_value}</p>")
