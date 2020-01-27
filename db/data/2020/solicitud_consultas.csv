@@ -1,0 +1,44 @@
+ID;Vías de asignación de citas;Realiza recordatorio de cita;Realiza caída de reserva en determinado tiempo antes/después del inicio de la consulta si no es confirmada;Comunicación con el usuario por suspensión o modificación de la consulta
+62;Presencial, telefónica y web;Si, por correo electrónico;No;Si, telefónica 
+264;Presencial y telefónica;Si, por SMS;Si, 24 hs. antes;Si, telefónica
+567;Presencial, telefónica y solicitud de reserva via formulario web;Si, por SMS y whatsApp;No;Si, telefónica, por SMS y whatsApp
+769;Presencial, telefónica, web, App Movil y médico en la consulta;Si, por SMS, mail y App móvil;No;Si, telefónica, por App móvil, sms, correo electrónico
+1062;Presencial, telefónica y web;Si, por SMS;Si, 30 minutos después de iniciada la consulta ;Si, telefónica y por SMS
+1163;Presencial , telefónica  y App;Si, por SMS y App;No;Si, telefónica y App
+1210;Presencial (médico y operador), telefónica, correo electrónico, web y App;Si, por SMS (2 por cada consulta) y correo electrónico;No;Si, telefónica y por SMS
+2315;Presencial y telefónica;No;No;Si, telefónica 
+3567;Presencial, telefónica ;Si, por llamada telefónica y SMS;Si, 30 minutos después de iniciada la consulta ;Si, telefónica
+4315;Presencial, telefónica y via web;Si, se avisa via mail;Sí, sino se levantan hasta el comienzo de la consulta se adjudica a otro socio.;Si, por SMS
+4810;Presencial, telefónica, vía Web y app;Si;Si, 30 minutos después de iniciada la consulta ;Si, telefónica ,vía Web y correo electrónico
+5012;Presencial y telefónica;No (sólo se recuerda antes que caiga la reserva);Si, 24 hs. antes;Si, telefónica y por SMS
+5163;Presencial y telefónica;Si, por SMS;No;Si, telefónica
+5315;Presencial y telefónica;Si. Por SMS y llamada telefónica;Si. A) Previo a la consulta: 72 horas hábiles antes de esta si aun no retiró la orden reservada. B) Durante la consulta: tiene tiempo para anunciar la llegada del paciente hasta 30 minutos después del inicio de la consulta, de lo contrario cae la órden.;Si, mediante llamada telefonica
+5517;Presencial, telefónica, web y App;Si, por SMS en caso de reserva presencial o telefónica;Si, 48 hs. antes. Excepto población mayor de 74 años y estudios complejos.;Si, telefónica o SMS
+5810;Presencial ,telefónica y por sistema de autogestion;Si,  cuando cambia la fecha de la consulta y cuando no levanta la reserva en tiempo y forma.;Si, 48 hs. antes;Si, telefónica y por SMS
+6012;Presencial,  telefónica y on line;Si, por SMS;Si, 48 hs. antes;Si, telefónica 
+6062;Presencial y telefónica ;Si, 48 hs. antes se envía SMS con opción de respuesta;Si, 48 hs. antes;Si, telefónica y por SMS
+6416;Presencial y telefónica;Si, por SMS;Si, 24 hs. antes;Si, telefónica y por SMS
+6517;Presencial y telefónica;Si, para especialidades con alta demanda;Si, 48 hs. antes;Si, telefónica 
+6618;Presencial y telefónica;Si, por SMS;Si, 48 hs. antes;Si, telefónica 
+6769;Presencial, telefónica, WhatsApp y APP propietaria;No;Si, 48 hs. antes. Excepto población de zona rural;Si, telefónica 
+6860;Presencial, telefónica y App Movil;Solo en algunas especialidades;Si, 48 hs. antes;Si, telefónica 
+6985;Presencial, telefónica, App Movil y web;Si, por SMS;Si, 72 hs. antes;Si, telefónica 
+7062;Presencial y telefónica;Si, por SMS;Si, 48 hs. antes;Si, telefónica 
+7214;Presencial y telefónica;Si, por SMS;Si, 48 hs. antes;Si, telefónica y por SMS
+7264;Presencial y telefónica;Si, por SMS;Si, 48 hs. antes. Excepto población de zona rural;Si, telefónica 
+7466;Presencial y telefónica;Si, por SMS y llamada telefónica;Si, 48 hs. antes;Si, telefónica y por SMS
+7553;Presencial y telefónica;No;Si, 24 hs. antes;Si, telefónica y por SMS
+7618;Presencial y telefónica;Si, por SMS y correo electrónico;"Si, para los afiliados con categoría ""no cumplidores"" que no confirmaron asistencia con la emisión de la orden correspondiente";Si, telefónica
+7719;Presencial, telefónica y web;Si, por SMS;Si, 48 hs. antes;Si, por SMS
+7810;Presencial, telefónica y web;Si, por SMS y por mail;Si, 72 hs. antes;Si, por SMS y por mail
+8012;Presencial y telefónica;Si, por SMS ;Si, 48 hs. antes;Si, telefónica 
+8163;Presencial, telefónica y web;No;Si, 48 hs. antes;Si, telefónica
+8220;Presencial y telefónica;No;No;Si, telefónica
+8264;Presencial y telefónica;No;No;Si, telefónica
+9000;Presencial y telefónica;Realizando prueba piloto con SMS;No en forma sistemática;Si, telefónica 
+9502;Presencial, telefónica, web y app;Si, por SMS;No;Si, telefónica 
+9508;Presencial, telefónica y web;Si, por SMS;No;Si, telefónica
+9516;Presencial, telefónica y web;Si, por SMS y App;No;Si, telefónica, por SMS y App
+9518;Presencial, telefónica, web, app/mobile, correo electrónico;Si, vía Whatsapp;No;Si, telefónica
+9526;Presencial, telefónica y web;Si, por SMS y llamada telefónica;No;Si
+9532;Presencial, telefónica , web y APP;Si, por SMS y correo electrónico;No;Si, telefónica 
