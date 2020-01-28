@@ -39,7 +39,7 @@ metas:
     - "Porcentaje de embarazadas con control de HIV y VDRL en el 1er y 3er trimestre"
     - "Porcentaje de usuarios de 25 a 64 años capatados e identificados como hipertensos"
     - "Porcentaje de médicos con capacitación realizada en tratamiento del infarto agudo de miocardio con ST elevado"
-    - "Indice de cesareas SIP 2017"
+    - "Indice de cesareas"
   columns:
     - captacion_rn
     - control_desarrollo
