@@ -8,9 +8,7 @@
       </div>
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
-        <p>
-          Los datos de estructura y sedes indican la existencia de una (o más en caso de estar indicado) sede o servicio del prestador de salud.
-        </p>
+        <p>Los datos de estructura y sedes indican la existencia de una (o más en caso de estar indicado) sede o servicio del prestador de salud.</p>
         <p><b>Sede primaria:</b> Cantidad de sedes principales del prestador de salud.</p>
         <p><b>Sede secundaria:</b> Cantidad de sedes secundarias del prestador de salud. Las sedes secundarias brindan como mínimo atención ambulatoria o consultorio de las especialidades básicas, cobertura domiciliaria no urgente de Médico General y Pediatra y atención domiciliaria de urgencia de 24 horas de Médico General.</p>
         <p><b>Policlínica:</b> Cantidad de servicios de policlínica (no internación) del prestador de salud. Brinda atención en consultorio de uno o más especialidades médicas.</p>
@@ -35,6 +33,7 @@
         <h3>Sobre estos datos</h3>
         <p>Las gráficas reflejan los distintos tiempos de espera promedio para el primer médico disponible dentro de la especialidad considerada. A mayor cantidad de íconos coloreados, mayor tiempo de espera. El mínimo (ningún ícono coloreado) equivale a cero días, mientras que todos los íconos coloreados equivalen al tiempo de espera mayor entre todos los prestadores.</p>
         <p>El tiempo de espera individual es la diferencia entre la fecha de solicitud de la cita y la fecha de la cita médica otorgada, para el primer médico disponible dentro de cada especialidad. Si la cita se otorga para el mismo día en que se solicita, se contabiliza como tiempo de espera de cero días. Se presentan los promedios de los tiempos de espera individuales de todas las solicitudes de citas del período considerado.</p>
+        <p>Fecha del dato: promedio semestre enero – junio de 2019</p>
         <h3>En el caso de ASSE</h3>
         <%= render 'layouts/asse_tiempos_espera_info' %>
       </div>
@@ -55,15 +54,15 @@
       </div>
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
-        <p>Los indicadores que se definen a continuación surgen de las Encuestas de Satisfacción de Usuarios realizadas en los años 2010 y 2014 sobre Satisfacción con los Servicios del Primer Nivel de Atención y 2012 sobre Satisfacción con Internación Hospitalaria. Las encuestas abarcaron a afiliados de todas las Instituciones que conforman el Seguro Nacional de Salud.</p>
+        <p>Los indicadores que se definen a continuación surgen de las Encuestas de Satisfacción de Usuarios realizadas en los años 2014 y 2017 sobre Satisfacción con los Servicios del Primer Nivel de Atención y 2012 sobre Satisfacción con Internación Hospitalaria. Las encuestas abarcaron a afiliados de todas las Instituciones que conforman el Seguro Nacional de Salud.</p>
         <p>Las barras reflejan el porcentaje de cada uno de los indicadores sobre satisfacción y derechos, siendo el 100% el total de los usuarios universo del indicador.</p>
-        <p>Estos indicadores proporcionan información sobre la "calidad percibida", por lo tanto, no constituye una medida "objetiva" de desempeño, ya que se formula desde la subjetividad de las personas que contestaron la encuesta, es decir, se basa en sus propias experiencias, necesidades, expectativas, etc.</p>
-        <p><b>Satisfacción:</b> Promedio de las opiniones de los afiliados encuestados sobre su satisfacción con servicios del primer nivel de atención.</p>
-        <p><b>Disponibilidad de agenda:</b> Porcentaje de usuarios que responden "Muy Buena" y "Buena" a la siguiente pregunta: Cuando Ud. pide hora en IS para consultar médico (personalmente, por teléfono o por Internet) ¿Cómo diría que es la disponibilidad de horarios para ver al médico/especialista que quiere consultar?.</p>
-        <p><b>Facilidad para trámites:</b> Porcentaje de usuarios que responden "Muy Fácil" y "Fácil" a la siguiente pregunta: Los trámites y gestiones que debe realizar en (Institución) para consultar médico de medicina general o especialista, ¿le resultan fáciles o difíciles?</p>
-        <p><b>Disponibilidad de medicamentos:</b> Porcentaje de usuarios que responden "Siempre" y "Casi siempre" a la siguiente pregunta: Cuando concurre a la farmacia de la Institución donde se atiende (SI TIENE) ¿siempre están disponibles los medicamentos o alguna vez se fue sin conseguirlos?</p>
-        <p><b>Información sobre derechos:</b> Porcentaje de usuarios que responden "Sí" a la siguiente pregunta: En los últimos doce meses, ¿ha recibido por parte de (Institución) alguna información respecto a sus derechos como usuario?.</p>
-        <p><b>Recepción de quejas:</b> Porcentaje de usuarios que responden "Sí" a la siguiente pregunta: Si hoy tuviese una queja o sugerencia para hacerle a (Institución) ¿sabe qué tiene que hacer, a dónde se debe dirigir?</p>
+        <p><b>Satisfacción:</b> Índice construido a partir de las respuestas obtenidas en la siguiente pregunta: Teniendo en cuenta todos los aspectos evaluados ¿Cuán satisfecho se encuentra con (Institución)?</p>
+        <p><b>Conformidad con disponibilidad de agenda para consulta médica:</b> Refiere al Porcentaje de usuarios que responden "Muy Buena" y "Buena" a la siguiente pregunta: Cuando Ud. pide hora en IS para consultar médico (personalmente, por teléfono o por Internet) ¿Cómo diría que es la disponibilidad de horarios para ver al médico/especialista que quiere consultar?</p>
+        <p><b>Evaluación de tiempo de espera en sala:</b> Refiere al Porcentaje de usuarios que responden "Muy corto", "Corto" y "Razonable" a la siguiente pregunta: Y ese tiempo de espera, ¿le parece corto, razonable o largo?</p>
+        <p><b>Facilidad para realizar trámites y gestiones:</b> Refiere al Porcentaje de usuarios que responden "Muy Fácil" y "Fácil" a la siguiente pregunta: Los trámites y gestiones que debe realizar en (Institución) para consultar médico de medicina general o especialista, ¿le resultan fáciles o difíciles?</p>
+        <p><b>Disponibilidad de medicamentos en farmacia:</b> Refiere al Porcentaje de usuarios que responden "Siempre" y "Casi siempre" a la siguiente pregunta: Cuando concurre a la farmacia de la Institución donde se atiende (SI TIENE) ¿suelen estar disponibles los medicamentos que le indicó su médico?</p>
+        <p><b>Información sobre Derechos y Obligaciones:</b> Refiere al Porcentaje de usuarios que responden "Sí" a la siguiente pregunta: En los últimos doce meses, ¿ha recibido por parte de (Institución) alguna información respecto a sus derechos y obligaciones como usuario?.</p>
+        <p><b>Si hoy tuviese una queja o sugerencia sabe a dónde dirigirse:</b> Refiere al Porcentaje de usuarios que responden "Sí" a la siguiente pregunta: Si hoy tuviese una queja o sugerencia para hacerle a (Institución) ¿sabe qué tiene que hacer, a dónde se debe dirigir?</p>
       </div>
       <div class="modal-footer">
         <%= render 'layouts/modals_meta' %>
@@ -83,11 +82,11 @@
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
         <p>La gráfica refleja los precios promedio agrupados. A mayor cantidad de íconos coloreados, mayor precio. El mínimo (ningún ícono coloreado) equivale a precio cero, mientras todos los íconos coloreados equivalen a los precios sumados del prestador con las cifras más elevadas.</p>
-        <p>Los precios utilizados son los valores máximos de tickets y órdenes que las instituciones están autorizadas a cobrar a sus afiliados a partir de agosto de 2019. Cuando se realiza la comparación entre instituciones, además de los tickets y órdenes para afiliados FONASA, pueden observarse los valores para los afiliados NO FONASA. </p>
+        <p>Los precios utilizados son los valores máximos de tickets y órdenes que las instituciones están autorizadas a cobrar a sus afiliados a partir de febrero 2020. Cuando se realiza la comparación entre instituciones, además de los tickets y órdenes para afiliados FONASA, pueden observarse los valores para los afiliados NO FONASA.</p>
         <p><b>Medicamentos:</b> Promedio de los precios FONASA de Ticket de medicamentos general y Ticket de medicamentos topeados antihipertensivos (valsartán, amlodipina, hidroclorotiazida, enalapril).</p>
         <p><b>Consultas:</b> Promedio de los precios FONASA de Consulta no urgente consultorio - medicina general, Consulta no urgente consultorio - pediatría, Consulta no urgente consultorio - gineco-obstetricia (control de embarazo), Consulta no urgente consultorio - ginecología, Consulta no urgente consultorio - otras especialidades, Consulta no urgencia domicilio, Consulta odontológica y Consulta médico de referencia.</p>
         <p><b>Consultas urgencia:</b> Promedio de los precios FONASA de Consulta urgencia centralizada y Consulta urgencia domicilio.</p>
-        <p><b>Estudios:</b> Promedio de los precios FONASA de Endoscopía digestiva, Endoscopia esofagogastroduodenal, Ecografía simple, Ecodoppler miembros (inferiores / superiores) arterial / venoso, Rx abdomen / aparato urinario simple, Rx tórax, Rx colorectal, Resonancia nuclear magnética una región, Tomografía axial computarizada una región y Laboratorio, rutina básica.</p>
+        <p><b>Estudios:</b> Promedio de los precios FONASA de Endoscopía digestiva, Endoscopia esofagogastroduodenal, Ecografía simple, Ecodoppler miembros (inferiores / superiores) arterial / venoso, Rx abdomen / aparato urinario simple, Rx tórax, Rx colorectal, Resonancia nuclear magnética una región y Tomografía axial computarizada una región.</p>
       </div>
       <div class="modal-footer">
         <%= render 'layouts/modals_meta' %>
@@ -106,18 +105,21 @@
       </div>
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
-        <p>Las barras reflejan la proporción de los usuarios de cada institución que están cubiertos en cada indicador. </p>
-        <p><b>Captación RN:</b> El indicador refiere al porcentaje de niños nacidos vivos, afiliados a la
-institución, que presentan su primer control médico en los primeros 10 días de vida.</p>
+        <p>Las barras reflejan la proporción de los usuarios de cada institución que están cubiertos en cada indicador.</p>
+        <p><b>Porcentaje de captación de recién nacido:</b> El indicador refiere al porcentaje de niños nacidos vivos, afiliados a la institución, que presentan su primer control médico en los primeros 10 días de vida.</p>
+        <p>El cumplimiento de la meta comprende el control efectivo de salud, así como protocolos de actuación los cuales contemplan determinados casos debidamente acreditados en los que los usuarios no concurren a los controles de salud en tiempo, a pesar de una actitud activa de citación por parte de la Institución.</p>
+        <p>Fecha del dato: trimestre julio-agosto-setiembre de 2019</p>
         <p><b>Porcentaje de niños de un año con control de desarrollo en el 4to mes de vida:</b> El indicador refiere al porcentaje de niños de un año que cuentan con control de desarrollo en el 4to mes de vida.</p>
+        <p>El cumplimiento de la meta comprende el control efectivo de salud, así como protocolos de actuación los cuales contemplan determinados casos debidamente acreditados en los que los usuarios no concurren a los controles de salud en tiempo, a pesar de una actitud activa de citación por parte de la Institución.</p>
+        <p>Fecha del dato: trimestre julio-agosto-setiembre de 2019</p>
         <p><b>Porcentaje de embarazadas con control de HIV y VDRL en el 1er, 2° y 3er trimestre:</b> El indicador refiere al porcentaje de mujeres afiliadas que presentan un parto/cesárea en el trimestre y cuentan con análisis paraclínico de VDRL y HIV en el 1er, 2° y 3er trimestre de embarazo.</p>
-        <p><b>Porcentaje de usuarios de 25 a 64 años captados e identificados como hipertensos:</b> El
-indicador refiere al porcentaje de personas entre 25 y 64 años afiliadas a la institución que han
-sido diagnosticadas con hipertensión.
-</p>
-        <p><b>Porcentaje de médicos con capacitación realizada en tratamiento del infarto agudo de miocardio con ST elevado:</b> El indicador refiere a la formación permanente de aquellos médicos que se desempeñan en los servicios de urgencia/emergencia, cuidados moderados e intensivos y sistemas de traslado en el tratamiento de la reperfusión del infarto agudo de miocardio con segmento ST elevado.
-</p>
+        <p>Fecha del dato: trimestre julio-agosto-setiembre de 2019</p>
+        <p><b>Porcentaje de usuarios de 25 a 64 años captados como hipertensos:</b> Según la ENFRENT 2013, 36.6% de la población de este rango etario es hipertensa y se toma dicho valor como referencia para realizar la pesquisa de la enfermedad.</p>
+        <p>Fecha del dato: semestre enero - junio 2019.</p>
+        <p><b>Porcentaje de médicos capacitados en la detección precoz y oportuna del síndrome coronario agudo con ST elevado:</b> Este indicador consiste en la "capacitación para la reperfusión en el IAM”. Está destinado a los médicos de los servicios involucrados en la asistencia de esta patología. Se realiza en modalidad virtual con un componente presencial de los referentes de cada una de las instituciones.</p> 
+<p>Fecha del dato: semestre abril-setiembre de 2018</p>
         <p><b>Tasa de cesáreas:</b> La tasa de cesáreas es el porcentaje de partos terminados por vía cesárea en relación al total de partos.</p>
+<p>Fecha del dato: año 2018</p>
       </div>
       <div class="modal-footer">
         <%= render 'layouts/modals_meta' %>
@@ -136,9 +138,7 @@ sido diagnosticadas con hipertensión.
       </div>
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
-        <p>
-          Número total de afiliados o usuarios a julio de 2018 y porcentaje que representa en el total de los prestadores integrales del Seguro Nacional de Salud, considerando afiliados o usuarios FONASA y NO FONASA.
-        </p>
+        <p>Número total de afiliados o usuarios a diciembre de 2019 y porcentaje que representa en el total de los prestadores integrales del Seguro Nacional de Salud, considerando afiliados o usuarios FONASA y NO FONASA.</p>
       </div>
       <div class="modal-footer">
         <%= render 'layouts/modals_meta' %>
@@ -157,7 +157,7 @@ sido diagnosticadas con hipertensión.
       </div>
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
-        <p>Las gráficas reflejan la cantidad de personal disponible cada 10.000 usuarios. A mayor cantidad de íconos coloreados, mayor cantidad de personal cada 10.000 usuarios. El mínimo (ningún ícono coloreado) equivale a cero, mientras que todos los íconos coloreados equivalen al número mayor el prestador que suma más personal disponible cada 10.000 usuarios.</p>
+        <p>Las cifras indican el personal disponible cada 10.000 usuarios para diferentes especialidades médicas y no médicas, los Cargos de Alta Dedicación (CAD) cada 10.000 usuarios que fueron creados en el marco del Nuevo Régimen de Trabajo Médico (NRTM) que abarcan a varias especialidades y el porcentaje de trabajadores que realizaron el Curso 2019 del proceso de capacitación continua.</p>
         <p><b>Médico general:</b> Cargos de médicos generales en policlínica cada 10.000 usuarios mayores de 14 años.</p>
         <p><b>Médicos de familia:</b> Cargos de médicos de familia en policlínica cada 10.000 usuarios.</p>
         <p><b>Pediatras:</b> Cargos de médicos pediatras en policlínica cada 10.000 usuarios menores de 15 años.</p>
