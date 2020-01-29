@@ -21,7 +21,7 @@
             <% @selected_providers.each do |provider| %>
               <td class="col-md-3 col-left" style="vertical-align: top !important;">
                 <% if provider.recognitions.any? %>
-                  <% provider.recognitions.each do |reconocimiento| %>
+                  <% provider.recognitions.order(year: :desc).each do |reconocimiento| %>
                     <div style="display: block; clear: both">
                       <%= image_tag "reconocimientos/#{reconocimiento.icon}.png", style: "float:left; margin-right: 10px;" %>
                       <ul class="ui-menu-item">
