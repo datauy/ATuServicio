@@ -125,7 +125,9 @@
             <label><%= ticket[:label] %> (promedio)</label>
           </div>
           <% if provider.id == 9000%>
-            <p class="free">GRATUITO <i class="demo-icon icon-happy"></i></p>
+            <div class="nodata" >
+              <p class="free">GRATUITO</p> <i class="demo-icon icon-happy"></i></p>
+            </div>
           <% elsif ticket[:average] %>
             <% value = IconsHelper.percentage_icons(provider, ticket[:average], @provider_maximums.tickets) %>
             <div class="progress icons">
