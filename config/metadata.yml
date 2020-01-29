@@ -36,8 +36,8 @@ metas:
   description:
     - "Porcentaje de captación de recién nacido"
     - "Porcentaje de niños de un año con control de desarrollo en el 4to mes de vida"
-    - "Porcentaje de embarazadas con control de HIV y VDRL en el 1er y 3er trimestre"
-    - "Porcentaje de usuarios de 25 a 64 años capatados e identificados como hipertensos"
+    - "Porcentaje de embarazadas con control de HIV y VDRL en el 1er, 2do y 3er trimestre"
+    - "Porcentaje de usuarios de 25 a 64 años captados e identificados como hipertensos"
     - "Porcentaje de médicos con capacitación realizada en tratamiento del infarto agudo de miocardio con ST elevado"
     - "Tasa de cesáreas"
   columns:
