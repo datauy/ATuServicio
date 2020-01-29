@@ -17,6 +17,8 @@ class CompareController < ApplicationController
       where(id: provider_ids.take(3)).
       includes(:recognitions)
 
+    raise ActionController::RoutingError.new('Proveedor no encontrado') if @selected_providers.empty?
+
     @title = 'Comparando'
 
     @description = 'Compará éstos prestadores de Salud para elegir informado o personalizalo para conocer a fondo los indicadores del tuyo.'
