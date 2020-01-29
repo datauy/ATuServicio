@@ -124,7 +124,9 @@
           <div class="txt">
             <label><%= ticket[:label] %> (promedio)</label>
           </div>
-          <% if ticket[:average] %>
+          <% if provider.id == 9000%>
+            <p class="free">GRATUITO <i class="demo-icon icon-happy"></i></p>
+          <% elsif ticket[:average] %>
             <% value = IconsHelper.percentage_icons(provider, ticket[:average], @provider_maximums.tickets) %>
             <div class="progress icons">
               <div class="progress-bar" role="progressbar" aria-valuenow="<%= value %>}" aria-valuemin="0" aria-valuemax="100" style="width: <%= value %>%;">
