@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200127222246) do
+ActiveRecord::Schema.define(version: 20200129215058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -150,6 +150,9 @@ ActiveRecord::Schema.define(version: 20200127222246) do
     t.string  "vias_asignacion_citas"
     t.string  "espacio_adolescente"
     t.boolean "servicios_atencion_adolescentes"
+    t.decimal "cantidad_cad_medicina_rural"
+    t.decimal "cantidad_cad_imagenologia"
+    t.decimal "cantidad_cad_anestesia"
   end
 
   create_table "recognitions", force: :cascade do |t|

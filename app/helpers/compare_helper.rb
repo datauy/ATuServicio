@@ -1,5 +1,7 @@
 # coding: utf-8
 module CompareHelper
+  NC = 'No corresponde'.freeze
+
   def title(group)
     METADATA[group][:title]
   end
@@ -63,7 +65,7 @@ module CompareHelper
                 ApplicationHelper.no_hay_datos
               end
     when :rrhh
-      value = rrhh_value(column, column_value)
+      value = rrhh_value(column, column_value, provider.id)
     when :solicitud_consultas
       value = appointment_request_value(column_value)
     else
@@ -92,7 +94,7 @@ module CompareHelper
     # El proveedor con id 9508 tiene una excepción en este valor, por lo que no
     # se debe evaluar este valor:
     if id == 9508 && column == 'capacitacion_infarto_st_elevado'
-      table_cell('No corresponde')
+      table_cell(NC)
     elsif column_value.is_a? Numeric
       table_cell(progress_bar(column_value))
     elsif column_value.is_a?(TrueClass) || column_value.is_a?(FalseClass)
@@ -103,13 +105,17 @@ module CompareHelper
     end
   end
 
-  def rrhh_value(column, column_value)
+  def rrhh_value(column, column_value, provider_id)
     value = (column_value) ? column_value : nil
     if value.nil?
       ApplicationHelper.no_hay_datos
     else
       if column == 'proporcion_trabajadores_seminario_2017'
         table_cell(progress_bar(column_value))
+      elsif provider_id != 9000 &&
+          ['cantidad_cad_medicina_rural', 'cantidad_cad_imagenologia',
+            'cantidad_cad_anestesia'].include?(column)
+        table_cell(NC)
       else
         table_cell(value)
       end
