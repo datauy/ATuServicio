@@ -29,12 +29,10 @@ module CompareHelper
       else
         value = table_cell("<p>#{column_value}</p>")
       end
-
-
     when :precios
       value = precios_value(provider, column_value)
     when :metas
-      value = meta_value(column_value)
+      value = meta_value(column_value, provider.id, column)
     when :tiempos_espera
       if provider.id == 9000
         value = <<-VERLINK
@@ -90,11 +88,16 @@ module CompareHelper
     end
   end
 
-  def meta_value(column_value)
-    if column_value.is_a? Numeric
+  def meta_value(column_value, id, column)
+    # El proveedor con id 9508 tiene una excepción en este valor, por lo que no
+    # se debe evaluar este valor:
+    if id == 9508 && column == 'capacitacion_infarto_st_elevado'
+      table_cell('No corresponde')
+    elsif column_value.is_a? Numeric
       table_cell(progress_bar(column_value))
     elsif column_value.is_a?(TrueClass) || column_value.is_a?(FalseClass)
       table_cell(boolean_icons(column_value))
+      table_cell(column_value)
     else
       ApplicationHelper.no_hay_datos
     end
