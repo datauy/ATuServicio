@@ -99,8 +99,6 @@ precios:
     - "Resonancia nuclear magnética, una región. NO FONASA"
     - "Tomografía axial computarizada, una región. FONASA"
     - "Tomografía axial computarizada, una región. NO FONASA"
-    - "Laboratorio, rutina básica. FONASA"
-    - "Laboratorio, rutina básica. NO FONASA"
   columns:
     - ticket_de_medicamentos_general_fonasa
     - ticket_de_medicamentos_general_no_fonasa
@@ -142,8 +140,6 @@ precios:
     - resonancia_no_fonasa
     - tomografia_fonasa
     - tomografia_no_fonasa
-    - laboratorio_rutina_basica_fonasa
-    - laboratorio_rutina_basica_no_fonasa
   definition:
     decimal:
       - ticket_de_medicamentos_general_fonasa
@@ -186,8 +182,6 @@ precios:
       - resonancia_no_fonasa
       - tomografia_fonasa
       - tomografia_no_fonasa
-      - laboratorio_rutina_basica_fonasa
-      - laboratorio_rutina_basica_no_fonasa
   averages:
     medicamentos:
       columns:
@@ -216,7 +210,6 @@ precios:
         - rx_colorectal_fonasa
         - resonancia_fonasa
         - tomografia_fonasa
-        - laboratorio_rutina_basica_fonasa
 sedes:
   description:
     - "Direccion"
