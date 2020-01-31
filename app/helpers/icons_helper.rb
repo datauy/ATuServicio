@@ -15,7 +15,7 @@ module IconsHelper
         label: ticket[1]
       }
     end
-    structure.sort! { |x, y| y[:average] <=> x[:average] }
+    structure.sort! { |x, y| x[:label] <=> y[:label] }
   end
 
   private
