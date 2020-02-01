@@ -117,8 +117,7 @@ module CompareHelper
       if column == 'proporcion_trabajadores_seminario_2017'
         table_cell(progress_bar(column_value))
       elsif provider_id != 9000 &&
-          ['cantidad_cad_medicina_rural', 'cantidad_cad_imagenologia',
-            'cantidad_cad_anestesia'].include?(column)
+          ['cantidad_cad_medicina_rural', 'cantidad_cad_anestesia'].include?(column)
         table_cell(NC)
       else
         table_cell(value)
