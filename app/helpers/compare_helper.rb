@@ -50,7 +50,16 @@ module CompareHelper
         VERLINK
       elsif column_value
         indicator = check_enough_data_times(column, provider)
-        value = "<td><h5>#{column_value} <small>DÍAS</small> #{indicator}</h5></td>"
+
+        tiempo = case column_value
+                 when 0..(1.0/24.0)
+                   "#{column_value * 24 * 60} <small>MINUTOS</small>"
+                 when (1.0/24.0)..1
+                   "#{column_value * 24} <small>HORAS</small>"
+                 else
+                   "#{column_value} <small>DÍAS</small>"
+                end
+        value = "<td><h5>#{tiempo} #{indicator}</h5></td>"
       else
         value = ApplicationHelper.no_hay_datos
       end
