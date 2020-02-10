@@ -330,18 +330,18 @@ id_institucion;Direccion ;Departamento ;localidad;nivel
 5810;SANTA CLARA - 25 DE AGOSTO S/N;Treinta y Tres;Santa Clara de Olimar;Ambulatorio
 5810;MELO - SANATORIO MELO - AGUSTIN DE LA ROSA 576;Cerro Largo;Melo;Ambulatorio
 5810;MELO - SANATORIO 2 - DURAZNO 660 (EX COMECEL);Cerro Largo;Melo;Ambulatorio
-6010;ROSARIO - SEDE PRINCIPAL - ITUZAINGO S/N;Colonia;Rosario;Ambulatorio
-6010;FLORENCIO SANCHEZ - 18 DE JULIO S/N;Colonia;Florencio Sánchez;Ambulatorio
-6010;JUAN LACAZE - DOCTOR VACHELLI S/N;Colonia;Juan Lacaze;Ambulatorio
-6010;COLONIA MIGUELETE - JOSE PEDRO VARELA S/N;Colonia;Miguelete;Ambulatorio
-6010;TARARIRAS - General Artigas 2947;Colonia;Tarariras;Ambulatorio
-6010;NUEVA HELVECIA - LUIS DREYER 1172;Colonia;Nueva Helvecia;Ambulatorio
-6010;COLONIA VALDENSE - 11 DE JUNIO 1174;Colonia;Colonia Valdense;Ambulatorio
-6010;LA PAZ - GENERAL ARTIGAS S/N;Colonia;La Paz;Ambulatorio
-6010;COLONIA - ALBERTO MENDEZ 170;Colonia;Colonia del Sacramento;Ambulatorio
-6010;COLONIA - POLICLINICA EL GENERAL - FERNANDO CARABALLO 2286;Colonia;Colonia del Sacramento;Ambulatorio
-6010;COLONIA - POLICLINICA REAL DE SAN CARLOS - AVENIDA CORONEL LORENZO LATORRE S/N;Colonia;Colonia del Sacramento;Ambulatorio
-6010;COLONIA DEL SACRAMENTO - LUIS ALBERTO DE HERRERA S/N;Colonia;Colonia del Sacramento;Ambulatorio
+6012;ROSARIO - SEDE PRINCIPAL - ITUZAINGO S/N;Colonia;Rosario;Ambulatorio
+6012;FLORENCIO SANCHEZ - 18 DE JULIO S/N;Colonia;Florencio Sánchez;Ambulatorio
+6012;JUAN LACAZE - DOCTOR VACHELLI S/N;Colonia;Juan Lacaze;Ambulatorio
+6012;COLONIA MIGUELETE - JOSE PEDRO VARELA S/N;Colonia;Miguelete;Ambulatorio
+6012;TARARIRAS - General Artigas 2947;Colonia;Tarariras;Ambulatorio
+6012;NUEVA HELVECIA - LUIS DREYER 1172;Colonia;Nueva Helvecia;Ambulatorio
+6012;COLONIA VALDENSE - 11 DE JUNIO 1174;Colonia;Colonia Valdense;Ambulatorio
+6012;LA PAZ - GENERAL ARTIGAS S/N;Colonia;La Paz;Ambulatorio
+6012;COLONIA - ALBERTO MENDEZ 170;Colonia;Colonia del Sacramento;Ambulatorio
+6012;COLONIA - POLICLINICA EL GENERAL - FERNANDO CARABALLO 2286;Colonia;Colonia del Sacramento;Ambulatorio
+6012;COLONIA - POLICLINICA REAL DE SAN CARLOS - AVENIDA CORONEL LORENZO LATORRE S/N;Colonia;Colonia del Sacramento;Ambulatorio
+6012;COLONIA DEL SACRAMENTO - LUIS ALBERTO DE HERRERA S/N;Colonia;Colonia del Sacramento;Ambulatorio
 6062;CARMELO - ZORRILLA DE SAN MARTIN 541;Colonia;Carmelo;Ambulatorio
 6062;CARMELO - SEDE PRINCIPAL - ZORRILLA DE SAN MARTIN 683;Colonia;Carmelo;Ambulatorio
 6062;CARMELO - URUGUAY 521;Colonia;Colonia del Sacramento;Ambulatorio
@@ -501,694 +501,694 @@ id_institucion;Direccion ;Departamento ;localidad;nivel
 8264;SANTA CLARA DEL OLIMAR - 25 DE AGOSTO S/N;Treinta y Tres;Santa Clara de Olimar;Ambulatorio
 8264;VERGARA - MARCELO BARRETO S/N;Treinta y Tres;Vergara;Ambulatorio
 8264;LA CHARQUEADA - CORONEL LEONARDO OLIVERA S/N;Treinta y Tres;La Charqueada;Ambulatorio
-9001;Centro Departamental de Artigas - Eduardo M Castro s/n;ARTIGAS;Artigas;Centro de Salud
-9001;Centro de Salud de Artigas - 18 de Julio 237;ARTIGAS;Artigas;Centro de Salud
-9001;Policlínica Baltasar Brum - Calle José Batlle y Ordoñez y Calle Dr. Errandonea;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Tomás Gomensoro - Calle Independencia S/N;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Bernabé Rivera - Calle Hipólito Ipar esquina Calle Pedro de Bazán;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Sequeira - Ruta 4 km. 126;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Cerro Ejido - Calle Senda de Paso ;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Vitopa  Grupo Habitacional Cuareim ;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Aparicio Saravia;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica 19 de Junio - Andrés Cheveste y Carlos María Ramírez;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Ayui  - Emilio Mello y Perichón;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Fabini - Olimar esq. Queguay;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Catala - Santiago Montes y Juan B. Torres ;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Pintadito - 4 de Abril 14 ;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Barrio Sur - Alba Roballo 1410;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Cobazo  Carmelo - Colman 146 ;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Las Flores - Gral. Flores 47 ;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica San Miguel - Bernardina Fragoso de Rivera esq. Río Branco;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Rincón de Pacheco;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Paguero ;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Cuaró - Estación Cuaro;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Campamento -  Ruta 3 Andrés Artigas Km 47.0 ;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Javier de Viana - Ruta 30 Km. 98;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Topador ;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Sequeira - Ruta 4 Andrés Artigas Km. 128;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Bernabé Rivera - Hipolito Ipar esq. Avda. Pedro de Bazan;ARTIGAS;Artigas;Ambulatorio
-9001;Policlínica Paso Farias - Ruta 30 Bella Unión Km. 58.0 ;ARTIGAS;Artigas;Ambulatorio
-9001;Hospital de Bella Unión -  Fructuoso Rivera esq. Calle Dr. Pedro Acosta.;ARTIGAS;Bella Unión;Centro de Salud
-9001;Policlínica Cuareim - Calle Principal ;ARTIGAS;Bella Unión;Ambulatorio
-9001;Policlínica Las Piedras A 5 entre B 32 y B 31 ;ARTIGAS;Bella Unión;Ambulatorio
-9001;Policlínica Cainsa - Ruta 3 Km. 614 ;ARTIGAS;Bella Unión;Ambulatorio
-9001;Policlínica Mones Quintela ;ARTIGAS;Bella Unión;Ambulatorio
-9001;Policlínica U.T.A -  A. Saravias 456;ARTIGAS;Bella Unión;Ambulatorio
-9001;Policlínica Tres Fronteras - Chile 1261 ;ARTIGAS;Bella Unión;Ambulatorio
-9001;Policlínica Las Láminas - Ruta 3 Km 632;ARTIGAS;Bella Unión;Ambulatorio
-9001;Policlínica Barrio Sur -  Alba Roballo 1410;ARTIGAS;Bella Unión;Ambulatorio
-9001;Policlínica Portón de Fierro y Campodonico - Ruta 3 Km.622;ARTIGAS;Bella Unión;Ambulatorio
-9001;Policlínica Nuevo Coronado - Ing. Alfredo Mones Quintela esq. Callejón J. Beninca;ARTIGAS;Bella Unión;Ambulatorio
-9002;Hospital de Canelones - Gerson Taube 1073 esq. Cendan.;CANELONES;Canelones ;Centro de Salud
-9002;"Centro Auxiliar de Las Piedras ""Dr. Alfonso Espínola"" - Espinola y Ferreira Aldunate";CANELONES;Las Piedras;Centro de Salud
-9002;Centro Auxiliar de Pando - Dr. Correch s/n ;CANELONES;Pando;Centro de Salud
-9002;Centro Auxiliar Tala - José Alonso s/nº esq. Avda. Artigas;CANELONES;Tala;Centro de Salud
-9002;Centro Auxiliar Santa Lucia -  Luis Alberto de Herrera s/nº entre Chile y Rodó;CANELONES;Santa Lucia;Centro de Salud
-9002;"Centro Auxiliar de San Ramón ""Dr. José Bove Arteaga"" - Avda. Batlle y Ordóñez s/nº";CANELONES;San Ramón;Centro de Salud
-9002;Policlinica San Jacinto -  Carlos Rebufello esq. Artigas;CANELONES;San Jacinto;Ambulatorio
-9002;Policlinica Migues - Uruguay esq. 25 de agosto;CANELONES;Migues;Ambulatorio
-9002;Policlinica Montes - Calle 11 u Av. Centenario;CANELONES;Montes;Ambulatorio
-9002;Policlinica Soca - Calle 25 de Agosto esq. Burgueño;CANELONES;Soca;Ambulatorio
-9002;Policlinica Tapia - Ruta 88 Km 7;CANELONES;;Ambulatorio
-9002;Puesto de salud Rural Bolivar - Ruta 7.;CANELONES;;Ambulatorio
-9002;Puesto de Salud Rural Capilla de Cella - Ruta 9 Km. 63;CANELONES;;Ambulatorio
-9002;Puesto de Salud Rural Piedras de Afilar -  Ruta 70 Km 63;CANELONES;Cerrillos;Ambulatorio
-9002;Policlinica Los Cerrillos -  Ruta 36 Km 37;CANELONES;;Ambulatorio
-9002;Policlinica Aguas Corrientes - Calle Lezica s/n. Barrio 19 de junio;CANELONES;;Ambulatorio
-9002;Puesto de Salud Paso Pache - Ruta 81 Km 10.;CANELONES;;Ambulatorio
-9002;Policlinica Campo Militar - Ruta 36 KM 42.;CANELONES;;Ambulatorio
-9002;Policlinica Pio X -  Fco. Acuña de Figueroa;CANELONES;;Ambulatorio
-9002;Policlinica Castellanos - Calle a la Estación s/n;CANELONES;;Ambulatorio
-9002;Policlinica San Bautista -  Justo Alavarez esq. Yamandú Mourant s/n;CANELONES;;Ambulatorio
-9002;Policlinica San Antonio - Rogelio P. Martinez manzana 8 Solar 3;CANELONES;;Ambulatorio
-9002;Policlinica Santa Rosa - 18 de Julio esq. Batlle y Ordoñez;CANELONES;;Ambulatorio
-9002;Puesto de Salud MEVIR 1;CANELONES;;Ambulatorio
-9002;Puesto de Salud Escuela Nº 117;CANELONES;;Ambulatorio
-9002;Puesto de Salud Rural Paso de la Cadena  - Ruta 64 Km 15 - Complejo Mevir;CANELONES;;Ambulatorio
-9002;Puesto de Salud Rural La Paloma - Ruta 11 Km 53 empalme ruta 63;CANELONES;;Ambulatorio
-9002;Policlínica Ventura - Cno. Ventura s/nº Barros Blancos ;CANELONES;Barros Blancos;Ambulatorio
-9002;Policlinica 6 de Setiembre - Ruta 8 Km 28 Calle Neruda esquina Quiroga;CANELONES;;Ambulatorio
-9002;Policlinica La Loma -  Ruta 8 Km 25 Centro Civico Salvador Allende;CANELONES;;Ambulatorio
-9002;Consultorio de Medicina Familiar y Comunitaria: El Remanso - Ruta 8 Km 22.;CANELONES;;Ambulatorio
-9002;Policlinica Entre Todos Paso Escobar - Ruta 8 Km 23.400 Calle Canelones Esquina Toledo;CANELONES;;Ambulatorio
-9002;Policlinica Casarino - Ruta 84 Camino del Andaluz Km 3200;CANELONES;;Ambulatorio
-9002;Policlínica Suárez - Rómulo Carlos s/n Ruta 74;CANELONES;;Ambulatorio
-9002;Consultorio Comunitario Tres Villas - Ruta 74 ;CANELONES;;Ambulatorio
-9002;Policlínica (Huracán Siré) - Ruta 8 KM 25 calle 18 de Julio s/nº esq. Rincón - Barros Blancos ;CANELONES;Barros Blancos;Ambulatorio
-9002;Policlinica Mano con Mano - Hugo Mendez y Blas Basualdo;CANELONES;;Ambulatorio
-9002;Policlínica Toledo - Ruta 85 o Silvestre Guillén s/nº entre Via Ferrea y Toledo ;CANELONES;;Ambulatorio
-9002;Consultorio de Medicina Familiar y Comunitaria Villa San Jose - Ruta 6 Km 26;CANELONES;;Ambulatorio
-9002;Consultorio La Capilla -  Ruta 33 Km 22.500;CANELONES;;Ambulatorio
-9002;Policlínica Empalme Olmos - Gastón Rosa s/nº entre Deolinda de Pollero y Empalme Olmos ;CANELONES;Empalme Olmos;Ambulatorio
-9002;Policlinica Barrio Estadio - Manuel Quintela s/n ;CANELONES;;Ambulatorio
-9002;Centro Materno Infantil- Pando ASSE- BPS - Baltasar Brum y Solis;CANELONES;;Ambulatorio
-9002;Policlinica Totoral del Sauce - Ruta 7 entre la 74 y 75;CANELONES;;Ambulatorio
-9002;Policlínica Barrio El Talar - Hno.Eugenio s/nº (Ex - Furriol) esq. 19 de Junio ;CANELONES;;Ambulatorio
-9002;Policlínica Salinas - Avda. Julieta s/nº entre Yaguareté y Guazubir ;CANELONES;;Ambulatorio
-9002;Policlínica Aeroparque - Ruta 101 KM.26 - Calle Austral esq. Rambla Costanera s/n;CANELONES;;Ambulatorio
-9002;Consultorio Estación Atlántida - Con. Parque del Plata y Los Lirios ;CANELONES;;Ambulatorio
-9002;Consultorio de Medicina Familiar y Comunitaria  Villa El Tato - Ruta 101 Km 28;CANELONES;;Ambulatorio
-9002;Policlínica San Luis - Caruso y Rambla Costanera s/n ;CANELONES;;Ambulatorio
-9002;Policlinica Floresta - Rambla Perea y Calle 33 ;CANELONES;;Ambulatorio
-9002;Consultorio de Medicina Familiar y Comunitaria Costa Azul - Calle Perú y Roxlo.;CANELONES;;Ambulatorio
-9002;Policlínica Cuchilla Alta - Calle Montevideo s/n y Pons ;CANELONES;;Ambulatorio
-9002;Consultorio de Medicina Familiar Parque del Plata Norte - Teatro de Verano s/n.;CANELONES;;Ambulatorio
-9002;Policlínica Parque del Plata - Tomas Berreta y Zorrilla de San Martin ;CANELONES;;Ambulatorio
-9002;Consultorio de Medicina Familiar y Comunitaria Jaureguiberry - Ruta Interbalnearia Km 88 ;CANELONES;Jaureguiberry;Ambulatorio
-9002;Consultorio Medicina Familiar y Comunitaria Abayuba - Magalona 3349.;CANELONES;;Ambulatorio
-9002;Policlínica Obelisco - Simón Bolívar s/nº entre San Luis y Moreira.;CANELONES;;Ambulatorio
-9002;Policlínica Progreso - Maldonado s/n Esq. R. Argentina.;CANELONES;;Ambulatorio
-9002;Policlínica Sauce - Avda. P. de León entre J.E. Rodó y J. A.Lavalleja. ;CANELONES;;Ambulatorio
-9002;Policlínica San Marcos - Federico Ozanam s/n Esq. Julio Sosa..;CANELONES;;Ambulatorio
-9002;Policlínica Rincón del Colorado - Ruta 48 Km. 8.500..;CANELONES;;Ambulatorio
-9002;Policlínica El Dorado - Avda. El Dorado s/n esq. Reconquista.;CANELONES;;Ambulatorio
-9002;Policlínica Villa Alegría - Algarrobos s/n esq. Progreso Canelones.;CANELONES;;Ambulatorio
-9002;Policlínica La Paz - Emilio Andreon esq. Garibaldi.;CANELONES;;Ambulatorio
-9002;Policlínica Laures - Virgen de Lourdes s/n esq. La Gruta.;CANELONES;;Ambulatorio
-9002;Policlínica Juanicó - Salón Comunal MEVIR.;CANELONES;Juanicó;Ambulatorio
-9002;Policlínica Hipódromo - Avda. del Bicentenario-Parque Artigas Hipodromo de Las Piedras.;CANELONES;las Piedras;Ambulatorio
-9002;Policlínica Vista Linda - Magallanes s/n esq. Asencio.;CANELONES;;Ambulatorio
-9002;Policlínica Villa Felicidad - Jacinto Vera- Ruta 5 Km. 32.500. - Progreso.;CANELONES;;Ambulatorio
-9002;Consultorio Medicina Familiar y Comunitaria Villa Juanita;CANELONES;;Ambulatorio
-9002;Dirección: Julio Sosa s/n entre Paso de Los Toros y Flores;CANELONES;;Ambulatorio
-9002;Policlínica Obelisco - Simón Bolívar 120 esq. San Luis.;CANELONES;;Ambulatorio
-9002;Policlínica Antelo - Valdenegro s/n esq. Paraguay Chico.;CANELONES;;Ambulatorio
-9002;Consultorio Medicina familiar y Comunitaria El Santo - Barranquilla s/n esq. Queguay.;CANELONES;;Ambulatorio
-9002;Policlínica Corfrisa - Vivián Trías s/n esq. Espínola.;CANELONES;;Ambulatorio
-9002;Policlínica Tiscornia - Tiscornia s/n;CANELONES;;Ambulatorio
-9002;Policlínica Canelón Chico - Ruta 107 km 15 - Canelón Chico;CANELONES;;Ambulatorio
-9002;Puesto de Salud Villa Foresti - Granada esq. Chopin;CANELONES;;Ambulatorio
-9002;Centro de Salud Monterrey - Maciel 116 entre Eduardo Acevedo y Avda. Calcagno;CANELONES;Paso Carrasco;Centro de Salud
-9002;"Consultorio MFyC ""Casa Pueblo"" - Cno. Carrasco 164 esq. Pedro Varela";CANELONES;Canelones ;Ambulatorio
-9002;Consultorio MFyC Junta Local Vieja - Cno. Carrasco 70 ;CANELONES;Paso Carrasco;Ambulatorio
-9002;Centro de Salud Ciudad de la Costa - García Arocena s/nº y Seco García Km 22.200;CANELONES;Ciudad de la Costa;Centro de Salud
-9002;Policlínica Rambla - Rambla Costanera Solar 77 Esq. Calle 70;CANELONES;Ciudad de la Costa;Ambulatorio
-9002;Policlínica Autódromo - Rio Negro e Interbalnearia Km 30 (1 cuadra del Autódromo);CANELONES;Ciudad de la Costa;Ambulatorio
-9002;Policlínica Empalme Nicolich - Ruta 101, Km 21200 y Ruta 102;CANELONES;Empalme Nicolich;Ambulatorio
-9002;Policlínica Villa Don Arturo - Paso Escobar entre Calle 3 y Márquez Castro (Solymar Norte);CANELONES;Solymar ;Ambulatorio
-9002;Policlínica Pinar - Avda. Eduardo Pérez y Ciudad Pando;CANELONES;El Pinar;Ambulatorio
-9002;Policlínica Colonia Nicolich - Calle Pochintesta Manz. 121 Los Aromos y Tomás Berreta;CANELONES;Colonia Nicolich;Ambulatorio
-9002;Policlínica Colinas de Solymar - Avda. C Capilla San Benito Manzana 418 Solar 2 Esq. Pirineos;CANELONES;Solymar;Ambulatorio
-9002;Consultorio MFyC Montes de Solymar - Colibrí Manz. 118 Solar 10 Esq. Garzas y Picaflores;CANELONES;Solymar ;Ambulatorio
-9003;Hospital Departamental de Cerro Largo - Treinta y Tres 226.;CERRO LARGO;Melo;Centro de Salud
-9003;Centro de Salud de Melo - Colón No. 919.;CERRO LARGO;Melo;Centro de Salud
-9003;Policlínica de Fraile Muerto - Avenida Blanca Castro de Argencio y Gral. Artigas. ;CERRO LARGO;Fraile Muerto;Ambulatorio
-9003;Policlínica de Tupambaé - Continuación Ruta 7 y Avda. Gral. Artigas. ;CERRO LARGO;Tupambaé;Ambulatorio
-9003;Policlínica de Ageguá -  María Isabel Rodríguez Mattos. No. 776-;CERRO LARGO;Aceguá;Ambulatorio
-9003;Policlínica de Noblía - Calle No. 4 S/N;CERRO LARGO;Cerro Largo;Ambulatorio
-9003;Centro Auxiliar de Río Branco - Ismael Velázquez No. 1131 ;CERRO LARGO;Rio Branco;Centro de Salud
-9004;"Centro Auxiliar de Cardona ""Dr. Rogelio C. Sosa"" - Rogelio Sosa S/N.";COLONIA;Cardona;Centro de Salud
-9004;Centro Departamental de Colonia - Avda. Batlle y Ordóñez 596, esq. Felipe Basshaum;COLONIA;Colonia del Sacramento;Centro de Salud
-9004;Centro Auxiliar de Juan Lacaze - Zorrilla de San Martín Nº 515;COLONIA;Juan Lacaze;Centro de Salud
-9004;"Centro Auxiliar de Carmelo ""José Artigas"" - Bulevar Artigas entre Zorrilla y 19 de Abril";COLONIA;Carmelo;Centro de Salud
-9004;Centro Auxiliar de Rosario -  Martínez Diez y Garat;COLONIA;Rosario;Centro de Salud
-9004;CENTRO AUXILIAR NUEVA HELVECIA - 18 de Julio 1592;COLONIA;Rosario;Centro de Salud
-9004;CENTRO AUXILIAR NUEVA PALMIRA - Varela s/n entre Ituzaingó e Ibicuy;COLONIA;Rosario;Centro de Salud
-9004;CENTRO DE SALUD OMBÚES DE LAVALLE - 25 de Mayo esq. Sarandí;COLONIA;Rosario;Ambulatorio
-9004;Policlínica El General - Calle Pública s/n. Barrio El General;COLONIA;Colonia del Sacramento;Ambulatorio
-9004;Policlínica El Real de San Carlos - Calle Quinque s/n;COLONIA;Colonia del Sacramento;Ambulatorio
-9004;Policlínica Los Nogales - José Vico 500.;COLONIA;Colonia del Sacramento;Ambulatorio
-9004;Policlínica Golondrina -  Ibicuy esq. Estados Unidos.;COLONIA;Nueva Palmira;Ambulatorio
-9004;Policlínica Asencio - Montevideo s/n esq. Sur.;COLONIA;Nueva Palmira;Ambulatorio
-9004;Policlínica Saravia - Roberto Berttolini esq. Treinta y Tres;COLONIA;Carmelo;Ambulatorio
-9004;Policlínica Mihanovich - Wilson Ferreira 63, esq. José P. Varela;COLONIA;Carmelo;Ambulatorio
-9004;Policlínica Cerro MEVIR - Paraje Cerro.;COLONIA;Carmelo;Ambulatorio
-9004;Policlínica Comité de Jubilados - Ignacio Barrios 395 esq. 19 de Abril;COLONIA;Carmelo;Ambulatorio
-9004;Policlínica Raúl López - Piedras entre Leandro Gómez y Oficial 2;COLONIA;Carmelo;Ambulatorio
-9004;Policlínica COPOBCE - Manuel Belgrano 342;COLONIA;Carmelo;Ambulatorio
-9004;Policlínica San Francisco - Camino de los Peregrinos s/n;COLONIA;Carmelo;Ambulatorio
-9004;Policlínica Villa Pancha -Esquina Calle 2 y 9.;COLONIA;Juan Lacaze;Ambulatorio
-9004;Policlínica El Ranchito - Avenida Don Bosco s/n;COLONIA;Juan Lacaze;Ambulatorio
-9004;Policlínica 21 de Octubre - Avda. Fernández Crespo;COLONIA;Juan Lacaze;Ambulatorio
-9004;Policlínica Retiro -  Chile s/n , casi Uruguay;COLONIA;Nueva Helvecia;Ambulatorio
-9004;POLICLÍNICAS URBANAS - COLONIA VALDENSE;COLONIA;Nueva Helvecia;Ambulatorio
-9004;Policlínica Colonia Valdense -Juan Bonjour esq. 11 de Junio.;COLONIA;Colonia Valdense;Ambulatorio
-9004;Policlínica El Pastoreo - Picapalo s/n;COLONIA;Rosario;Ambulatorio
-9004;Policlínica Juan González - Calle: Ruta 21 Km 246;COLONIA;;Ambulatorio
-9004;Policlínica Conchillas - Camino al Puerto s/n;COLONIA;;Ambulatorio
-9004;Policlínica Campana - Ruta 55 Km 12;COLONIA;;Ambulatorio
-9004;Policlínica Miguelete - José Pedro Varela s/n;COLONIA;;Ambulatorio
-9004;Policlínica Tarariras - Las Flores s/n;COLONIA;;Ambulatorio
-9004;Policlínica Semilleros - Octavio Vergara, Ruta 50;COLONIA;;Ambulatorio
-9004;Policlínica Riachuelo - Avda. Uruguay s/n, Ruta 1 Km 168;COLONIA;;Ambulatorio
-9004;Policlínica Santa Ana - Avda de los Cardenales s/n;COLONIA;;Ambulatorio
-9004;Policlínica Minuano - Ruta 1 Km 140 Paraje Minuano. MEVIR, Salón Comunal.;COLONIA;;Ambulatorio
-9004;Policlínica Barker - Ruta 54.;COLONIA;;Ambulatorio
-9004;Policlínica La Paz - Colonia Piamontesa - Rosa Butlwe s/n, esq. Artigas;COLONIA;;Ambulatorio
-9004;"Policlínica Fomento ""Dr. Luis A. Bonjour. - Calle  la Capilla.";COLONIA;;Ambulatorio
-9004;Policlínica Cufré - Sarandí esq. Jacarandá;COLONIA;;Ambulatorio
-9005;Centro Departamental de Durazno - Prof. Miguel C. Rubino S/N.;DURAZNO;Durazno ;Centro de Salud
-9005;Centro de Salud Sarandí del Yí - Avda. Dr. Héctor Petrini S/N esq. José María Rodríguez;DURAZNO;Durazno ;Centro de Salud
-9005;Policlínica San Francisco - Gral. San Martín 333;DURAZNO;Durazno ;Ambulatorio
-9005;Policlínica Barrio Durán -  José Gómez s/n.;DURAZNO;Durazno ;Ambulatorio
-9005;Policlínica La Amarilla -Dr. Rossi 110 ex 18 de Mayo;DURAZNO;Durazno ;Ambulatorio
-9005;Policlínica BUEM - Etchechuri esq. Giordano.;DURAZNO;Durazno ;Ambulatorio
-9005;Policlínica Sportivo Yí -  Hudson esq. Irrisarri.;DURAZNO;Durazno ;Ambulatorio
-9005;Policlínica Puerto de los Barriles - George Washington esq. Baltasar Brum.;DURAZNO;Durazno ;Ambulatorio
-9005;Policlínica COBUSU - Instrucciones del año XIII esq. Grito de Asencio.;DURAZNO;Durazno ;Ambulatorio
-9005;Policlínica MAPEP George Washington esq. Garibaldi.;DURAZNO;Durazno ;Ambulatorio
-9005;Policlínica Centro -  Eusebio Píriz, entre 18 de Julio y Avda. Gral José Artigas;DURAZNO;Durazno ;Ambulatorio
-9005;Policlínica Policial - Eusebio Píriz esq. 18 de Julio;DURAZNO;Durazno ;Ambulatorio
-9005;Policlínica Playa Vieja - Sarandí esq. Osiris.;DURAZNO;Sarandi del Yi;Ambulatorio
-9005;Policlínica Barrio Estación - BarrioEstación s/n. En Capilla frente a Estación de AFE.;DURAZNO;Sarandi del Yi;Ambulatorio
-9005;Policlínica Barrio Norte - Juan Antonio Lavalleja, entre Francisco Ríos y Justo Lema;DURAZNO;Sarandi del Yi;Ambulatorio
-9005;Policlínica San Antonio - Prof. Enrique Martínez Matonte entre José Ellauri y José P. Varela.;DURAZNO;Sarandi del Yi;Ambulatorio
-9005;Policlínica MEVIR - Democracia esq. Gallinal;DURAZNO;Sarandi del Yi;Ambulatorio
-9005;Policlínica Malbajar - Prof. Enrique Martínez Matonte entre Isidoro de María y 25 de Agosto.;DURAZNO;Sarandi del Yi;Ambulatorio
-9005;Puesto de Ronda Rural La Alegría - Ruta 6 Km 306, 20 Km por Camino Vecinal.;DURAZNO;;Ambulatorio
-9005;Puesto de Ronda Rural Cuchilla de Ramírez - Ruta 6 Km 319 .;DURAZNO;;Ambulatorio
-9005;Policlínica La Paloma - Celia C. Galarza s/n ;DURAZNO;;Ambulatorio
-9005;Policlínica Blanquillo -  Dr. Alejandro Saráchaga s/n;DURAZNO;;Ambulatorio
-9005;Policlínica Rossell y Rius -  Rossell y Rius s/n.;DURAZNO;;Ambulatorio
-9005;Puesto de Ronda Rural Puntas de Malbajar -  Ruta 43 y Ruta 6. puntas de Malbajar .;DURAZNO;;Ambulatorio
-9005;Policlínica San Jorge - Ruta 100 Km 92, Sociedad Rural.;DURAZNO;;Ambulatorio
-9005;Puesto de Ronda Rural Aguas Buenas - Ruta 100 Km 85, Camino vecinal .;DURAZNO;;Ambulatorio
-9005;Policlínica Villa del Carmen -  Andrés Farraut s/n.;DURAZNO;;Ambulatorio
-9005;Puesto de Ronda Rural Ombúes de Oribe - Ruta 14 y Ruta 100.;DURAZNO;;Ambulatorio
-9005;Puesto de Ronda Rural Pueblo Álvarez - Ruta 100 Km 40.;DURAZNO;;Ambulatorio
-9005;Policlínica Centenario -  Ruta 5 Km 247, 500;DURAZNO;;Ambulatorio
-9005;Policlínica Carlos Reyles - Rivera s/n.;DURAZNO;;Ambulatorio
-9005;Puesto de Ronda Rural La Lanera - Odilia Rivas s/n barrio La Laanera.;DURAZNO;;Ambulatorio
-9005;Puesto de Ronda Rural La Curva -  Continuación José Gómez esq. Ruta 14 MEVIR La Curva.;DURAZNO;;Ambulatorio
-9005;Puesto de Ronda Rural Batoví - Camino vecinal s/n Paraje Batoví .;DURAZNO;;Ambulatorio
-9006;"Centro Departamental de Flores ""Dr.Edison Camacho"" -  Batlle y Ordoñez 966";FLORES;Trinidad;Centro de Salud
-9006;"Policlínica Cruz Roja, ""Pedro Blas Sallúa"" - Herrera 088.";FLORES;Trinidad;Ambulatorio
-9006;Policlínica Ribot (Iglesia) - Leandro Gómez esq. Dr. Sanche.;FLORES;Trinidad;Ambulatorio
-9006;Policlínica Sánchez Echeverría (COVIF I) - Solis esq. Colón.;FLORES;Trinidad;Ambulatorio
-9006;Policlínica Retirados Militares - Lavalleja esq. 25 de Agosto.;FLORES;Trinidad;Ambulatorio
-9006;Policlínica Barrio Unión - Calle 14 de Abril Nº 71.;FLORES;Trinidad;Ambulatorio
-9006;Policlínica Dr. Rubio - Santísima Trinidad esq. Sarandí.;FLORES;Trinidad;Ambulatorio
-9006;Policlínica Andresito -Senaqué s/n - MEVIR.;FLORES;;Ambulatorio
-9006;Policlínica Ismael Cortinas -Saravia esq. Herrera.;FLORES;;Ambulatorio
-9006;Policlínica Cerro Colorado - Ruta 3, MEVIR.;FLORES;;Ambulatorio
-9006;Policlínica Juan José Castro - Escuela Nº 25, Estación Juan José Castro.;FLORES;;Ambulatorio
-9006;Policlínica La Casilla - Ruta 23, MEVIR.;FLORES;;Ambulatorio
-9007;Centro Departamental de Florida “Dr. Raúl Amorín Cal” - Baltasar Brum 414.;FLORIDA;Florida;Centro de Salud
-9007;"CENTRO AUXILIAR SARANDÍ GRANDE  ""Dr. Alfredo Sanjuán Suárez"" - Pasteur 1052.";FLORIDA;Sarandi Grande;Centro de Salud
-9007;Policlínica Cuchilla Santarcieri - Calle 60 Nº 3545 casi Grauert.;FLORIDA;Florida;Ambulatorio
-9007;Policlínica Florida Blanca - Timoteo Aparicio esq. Harrinson.;FLORIDA;Florida;Ambulatorio
-9007;Policlínica San Fernando - Gianolla casi Heber Usher.;FLORIDA;Florida;Ambulatorio
-9007;Policlínica Prado Español - L. E. Pérez s/n entre Batlle y Ordóñez Y F. López.;FLORIDA;Florida;Ambulatorio
-9007;Policlínica Corralón del Tigre - 3 de Junio s/n casi 12 de Octubre.;FLORIDA;Florida;Ambulatorio
-9007;Policlínica Comisario Hugo Román - Gallinal esq. 18 de julio.;FLORIDA;Florida;Ambulatorio
-9007;Policlínica Del Parque Asuaga s/n.;FLORIDA;Sarandi Grande;Ambulatorio
-9007;Policlínica MEVIR - Salón Comunal MEVIR I.;FLORIDA;Sarandi Grande;Ambulatorio
-9007;Policlínica Champañat - Calle francisco González, Barrio Nuevo Paris.;FLORIDA;Sarandi Grande;Ambulatorio
-9007;Policlínica Villa Hípica - R.5 y cont. Avda. Artigas - Capilla V.Hípica.;FLORIDA;Sarandi Grande;Ambulatorio
-9007;Policlínica Polanco del Yí -Ruta 42 , Km 40 - Escuela de Polanco del Yí.;FLORIDA;;Ambulatorio
-9007;Policlínica Goñi - Ruta 5, Km 162.;FLORIDA;;Ambulatorio
-9007;Policlínica Maciel -Maciel Ruta 5 - Camino vecinal - Salón Comunal Puntas de Maciel - MEVIR;FLORIDA;;Ambulatorio
-9007;Policlínica Pintado - Ruta 5, Km 145 - Capilla.;FLORIDA;;Ambulatorio
-9007;Policlínica La Cruz - Av. Artigas s/n- Ruta 5, Km 131.;FLORIDA;;Ambulatorio
-9007;Policlínica La Macana - Camino de la Costa ,Km 10.;FLORIDA;;Ambulatorio
-9007;"Policlínica Capilla del Sauce ""Dr. Hugo Dibarboure Icasuriaga"" - Ruta 6 Km. 182.";FLORIDA;;Ambulatorio
-9007;Puesto Rural: Montecoral -Ruta 6, Km 175 - Estación de AFE.;FLORIDA;;Ambulatorio
-9007;Puesto Rural: Chilcas y Chingolas - Ruta 6 Km 172, Camino vecinal.;FLORIDA;;Ambulatorio
-9007;Policlínica San Gabriel - Ruta 56, cruce Ruta 6.;FLORIDA;;Ambulatorio
-9007;Policlínica Cerro Colorado - Ruta 7 Km 145.500.;FLORIDA;;Ambulatorio
-9007;Policlínica Reboledo - Ruta 7 Km 123.;FLORIDA;;Ambulatorio
-9007;Policlínica Casupá -  José P. Varela s/n.;FLORIDA;;Ambulatorio
-9007;Policlínica Fray Marcos - Ruta 7, Avenida Ciro Giambruno s/n-.;FLORIDA;;Ambulatorio
-9007;Policlínica Chamizo - Ruta 94- Florida s/n.;FLORIDA;;Ambulatorio
-9007;Policlínica Mendoza Chico - Ruta 5 Km 80 - Calle 10 s/n.;FLORIDA;;Ambulatorio
-9007;Policlínica Mendoza Grande -  Ruta 5 Km 74.;FLORIDA;;Ambulatorio
-9007;Policlínica Berrondo - Ruta 77 Km 101.;FLORIDA;;Ambulatorio
-9007;Policlínica 25 de Mayo -  Ruta 77, 19 de Junio s/n.;FLORIDA;;Ambulatorio
-9007;Policlínica Cardal -  Ruta 77 Km 79, Av. Artigas s/n.;FLORIDA;;Ambulatorio
-9007;Policlínica Independencia - Ruta 77 Km 72;FLORIDA;;Ambulatorio
-9007;Policlínica 25 de Agosto - Ruta 77 , Manuel Calleros s/n.;FLORIDA;;Ambulatorio
-9008;Centro Departamental de Lavalleja Dr. Alfredo Vidal y Fuentes - Avda. Varela 1185;LAVALLEJA;Minas;Centro de Salud
-9008;Centro Auxiliar José Batlle y Ordoñez - 18 de Julio s/n y Bvar. Artigas.;LAVALLEJA;Minas;Centro de Salud
-9008;Policlínica Piraraja - Calle Olmos entre Gerona y 18 de Julio.;LAVALLEJA;Minas;Ambulatorio
-9008;Policlínica Mariscala - Sarandi s/n.;LAVALLEJA;Minas;Ambulatorio
-9008;Policlínica Solís de Mataojo - 25 de Agosto y Maria Amestoy.;LAVALLEJA;;Ambulatorio
-9008;Policlínica Barrio 3 Zamora -  Calle pública 68 y Stgo. Vázquez ;LAVALLEJA;Minas;Ambulatorio
-9008;Policlínica Barrio España - Chico Carlo Esq. Ariel s/n ;LAVALLEJA;Minas;Ambulatorio
-9008;Policlínica Barrio 2 - Las Delicias - Jhon Kennedy y Paul Harris S/N ;LAVALLEJA;Minas;Ambulatorio
-9008;Policlínica Estación - Avda. Artigas y Ugolini;LAVALLEJA;;Ambulatorio
-9008;Policlínica Complejo las Delicias - Cno. Paso de las Piedras entre R 8 y Kennedy.;LAVALLEJA;Minas;Ambulatorio
-9008;Policlínica Douglas Elola - Avda Artigas (dentro Sede Brio Olimpico).;LAVALLEJA;Minas;Ambulatorio
-9008;Policlínica Filarmónica - Washington Beltran Esq. Rondeau.;LAVALLEJA;Minas;Ambulatorio
-9008;Policlínica Dr. Reyes Terra -  España entre Ellauri y Amilibia.;LAVALLEJA;Minas;Ambulatorio
-9008;Policlínica Garolini - Calle Tala S/N.;LAVALLEJA;;Ambulatorio
-9008;Policlínica Barrion Garolini;LAVALLEJA;Minas;Ambulatorio
-9008;Policlínica La Coronilla - Ruta 8 km 112.500;LAVALLEJA;;Ambulatorio
-9008;Policlinica Barrio Ancap - Minas;LAVALLEJA;Minas;Ambulatorio
-9008;Policliníca La Rambla - Dgo. Pérez 433.;LAVALLEJA;Minas.;Ambulatorio
-9008;Policlínica Colon - Oficial 12 esq. Amilivia.;LAVALLEJA;Minas;Ambulatorio
-9008;Policlínica Villa Rosario - 25 de Agosto S/N y Constituyente Zapicán.;LAVALLEJA;;Ambulatorio
-9008;Policlínica Polanco - Ruta 108 Km. 185.;LAVALLEJA;;Ambulatorio
-9008;Policlínica Poblado Aramendia - Ruta 8 km 234.;LAVALLEJA;;Ambulatorio
-9008;Policlínica Zapicán - Bvar. Constitución S/N y 25 de Agosto;LAVALLEJA;;Ambulatorio
-9009;Complejo Hospitalario San Carlos - Maldonado - Ventura Alegre s/n y Las Dalias .;MALDONADO;Maldonado;Centro de Salud
-9009;Hospital de San Carlos - Avda. Andrés Ceberio 519 casi Abreu.;MALDONADO;San Carlos;Centro de Salud
-9009;Centro Auxiliar Aiguá - Gral Manuel Oribe y Av. Juan A. Lavalleja.;MALDONADO;Aiguá;Centro de Salud
-9009;Centro Auxiliar Pan de Azúcar -  Rincón 471 y Francisco Bonilla.;MALDONADO;Pan de Azúcar;Centro de Salud
-9009;Centro de Salud Vigía - Cont. Garzón s/n  y Ferreira Aldunate, Barrio Cugñetti ;MALDONADO;Maldonado;Centro de Salud
-9009;Policlínica Piriápolis - Simón del Pino y Dr. Barrios.;MALDONADO;Piriápolis;Ambulatorio
-9009;Policlínica Barrio Elisa - Calle 15 esq. Zitarrosa - Barrio Elisa- Maldonado Nuevo.;MALDONADO;Maldonado;Ambulatorio
-9009;Policlínica Intersocial - Av. De Los Gauchos y Vialidad -Barrió San Antonio 3 - Maldonado Nuevo;MALDONADO;Maldonado;Ambulatorio
-9009;Policlínica Hipódromo - Avda. Guenoas (Avda. 3) s/n. ;MALDONADO;Maldonado;Ambulatorio
-9009;Policlínica Kennedy - San Pablo casi Isabel de Castilla.;MALDONADO;Maldonado;Ambulatorio
-9009;Policlínica Rodríguez Barrios -  Av. Rocha esq. A. Lapido Montenegro.;MALDONADO;San Carlos;Ambulatorio
-9009;Policlínica Barrio Sur - Melchor Maurente al cont. La Alameda Valmal;MALDONADO;San Carlos;Ambulatorio
-9009;Policlínica Gregorio Aznáres - Bvar Artigas Manzana 20 esq. Wilson Ferreira Aldunate ;MALDONADO;Gregorio Aznáres;Ambulatorio
-9009;Policlínica Garzón - Los Cerrillos y La Cantera - Pueblo Garzón.;MALDONADO;Garzón;Ambulatorio
-9009;Policlínica La Capuera - Calle Avda. del Lago a 1/2 cuadra de parada 1. ;MALDONADO;La Capuera;Ambulatorio
-9009;Policlínica José Ignacio - Calle Luis Schickendantz y Del Timonel .;MALDONADO;José Ignacio;Ambulatorio
-9009;Policínica Balneario Buenos Aires - Calle 22 entre 48 y 49 (Ruta 10 km165).;MALDONADO;Balneario BS.AS.;Ambulatorio
-9010;"Hospital Centro Geriátrico ""Dr. Luis Piñeyro del Campo"" -  Larravide 2351 (Esq. Morelli).";MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Instituto Nacional de Reumatologia - Av. Italia S/N esq. Las Heras;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Instituto Nacional del Cancer - Joanicó 3265;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Instituto Nacional de Ortopedia y Traumatología - Luis A. de Herrera 3326.;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Hospital de la Mujer Dra. Paulina Luisi CHPR - Bulevard Artigas 1550;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Hospital Pediátrico  CHPR - Bulevard Artigas 1550;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Hospital Maciel - 25 de Mayo 174;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Hospital Pasteur -  Larravide 2458.;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Centro Hospitalario del Norte - Gustavo Saint Bois  -  Cno. Fauquet 6358 - Villa Colón;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Hospital Español - Avda. Gral. Garibaldi 1729 esq. Rocha .;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Centro de Salud Sayago - Ariel 5018 entre Avda. Garzón y Quicuyo.;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Policlínica Asentamiento 25 de Agosto Fernando Menk esq. Pororó;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Nueva Esperanza - Pasaje H 1675 Esq. Albeniz;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Complejo América - Cno. Durán esq. Yegros;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Jardines de Peñarol - Badajoz 1796 Esq. Fynn;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Udai 2 -  Laura Cortinas 6370 esq. Rinaldi Guerra;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Verdisol - Cno. Melilla 6420 (entrando calle 3 al fondo);MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Villa Teresa - Jacinto De Serpa (ex Durán) 1210 Esq. Isidoro Pérez de Roxas;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica San José - Guanahany 1870 entre Luis Lasagna y Avda. Lezica- Villa Colón;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica INVE 19 - Lezica 6708 Esq. Camino Melilla;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;"Policlínica ""Helios Sarthou"" - Picaflor 6307 Esq. Confederada";MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Centro de Salud Ciudad Vieja - 25 de Mayo 183 entre Maciel y Guaraní;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Centro de Salud del Cerro - Carlos Ma. Ramírez 1744 entre Chile y Grecia;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Policlínica 19 De Abril - Guazucuá 320 esq. Pasaje 19 De Abril;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica 3 Ombués - Alagoas 742 esq. Pedro Giralt;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Consultorio de  MFyC Club Cap-Polonio -  Basagoiti 4539 esq. Gregorio Camino;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Cardona -  Lunarejo 5185 bis entre Cordobés y Gaita;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;"Policlínica ""Casa de Mario"" - Vázquez Sagaztume 383 entre Conciliación y Gobernador del Pino";MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Inve 18 - Carlos Tellier 4442 Esq. Inclusa;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Consultorio de MFyC Monserrat - Alaska 748 y Cno. Agustin Muñoz;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Covicenova - Cno. Cibils 4617 Esq. Verdún;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Maracana Sur -  Cno. Cibils entre Nube Yic y Ruta 1 Nueva;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica La Boyada - La Boyada 1682 Esq. Santín Carlos Rossi;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Consultorio de MFyC El Tobogán - Luis Trocoli entre Pasaje B y Pasaje A;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Nuevo Amanecer - Pasaje Central entre Solar 12 y Pasaje De La Vida;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Santa Catalina - Burdeos esq. Delia Zoppa;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Pajas Blancas - Leal De Ibarra 5495 entre Cap. Mesa y Castro;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Maracaná Norte - Calle 3 5813 (1era. Al norte Maracaná) esq. Cno. Cibils;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Jardines De Las Torres -  Los Nogales 2366 Cno. Cibils;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Consultorio MFyC Las Flores - Cno. Las Flores y Cno. Tomkinson;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Villa Sarandí - Minotto Di Cicco 5802 entre Campo Amor y Gavioli.;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Espartaco - Lomas De Zamora 2996 entre Cno. Manuel Flores y Oficial 4;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Santiago Vázquez - Avda. Luis Batlle Berres 174 Esq. La Guardia;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Los Bulevares -  Ideario Artiguista 2145 Esq. Liga Federal;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;"Consultorio de MFyC ""Aldeas Infantiles"" - Avda. Luis Batlle Berres Km. 19,500.";MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica 6 de diciembre - Oficial 3 Carlos María Pena (al fondo) Esq. Islas Canarias.;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;"Policlínica ""Tito Borjas"" - Gibraltar 3992 Esq. Bélgica";MONTEVIDEO ;Montevideo;Ambulatorio
-9010;"Centro de Salud ""Dr. Antonio Giordano"" - Avda. San Martín 3797 entre Rep. Chipre y García de Zuñiga";MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Policlínica San Lorenzo - Lancaster 4267 esq. Chimborazo;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Legión Buena Voluntad - José Batlle y Ordoñez 4820 entre Fco. Goyen y Arechavaleta;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica COVIMT 9 - Avda. José Batlle y Ordoñez 5129 Esq. Zubiría;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Centro de Salud Marroñas - José Ma. Guerra 3510 esq. Shaw;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;"Policlínica Acción Promocional ""18 de Julio"" Chimborazo 3266 Esq. Gral. Flores";MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Centro de Salud Unión - Vicenza 2815 entre 8 de Octubre y Mateo Cortés;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Policlínica León Duarte - Suñer y Capdevilla 3995 entre Vicente de Arco e Irureta Goyena;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;"Policlínica La Casona - Pantaleon Pérez 4961 Senda ""L"" Esq. Calle ""U"". Viviendas del Complejo Maroñas";MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Consultorio de MFyC CAIF Juan XXIII - Menorca 2107 entre Juan José Castro y Azara;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Centro de Salud Cruz de Carrasco - Juan Agazzi 2735 entre Cno. Carrasco y Dr. A. Pereira;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Policlínica Arroyo Carrasco - Acosta y Lara 7125 Esq. Antonio Pena;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Dr. Yanicelli - Cno. Carrasco 4626 Esq. Dr. Roberto Berro;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Dr. Manuel Liberoff -  Carlos Prando 2450 Esq. José de Freitas;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Centro de Salud Jardines del Hipódromo - Malinas 3843 entre Libia y Rafael;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Policlínica 24 de Junio - Pasaje Eucaliptus 7759 y Cno. Repetto y Pasaje del Mirador;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Don Bosco - Cno. Maldonado 777 Esq. Cno. Repetto;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Consultorio MFyC Ulises Fabaro - Ulises Fabaro 5619 Esq. Ombú;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;"Policlínica ""Silvia Da Luz"" (COVIPRO) -  Ruta 8 km. 19 Pasaje C9621 Esq. Laudino Vázquez y Pasaje A";MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica El Monarca - Calle 4 N° 188. Ruta 8 Km. 21800 Esq. Calle Central;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Villa Farré -  Estrellita Genta S/N Esq. Leandro Gómez;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;"Policlínica ""El Eje"" Ruta 8 11264 Km 21";MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Centro de Salud Badano Repetto - Capitán Mateo Tula Dufort 4145 y José Belloni;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Policlínica: Anexo Centro de Salud - J. Belloni 4602 Esq. Clemente Ruggi;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Consultorio MFyC Asentamiento 23 de Diciembre - Cno. C Linneo S/N Cno. Mendoza;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Capra - Continuación Argos S/N Plazoleta Barrio Nuevo;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Toledo Chico -  Avda. De Las Instrucciones 5461 Esq. Toledo Chico;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Artigas - Camino Cap. Peterossi 5185 Instrucciones y Mendoza;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Cirilo -  Santos Alfonso 4085 Esq. Esdrulfo Olivera;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Santa María - Teniente Galeano 3761 Bis Esq. Sixtina;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Consultorio MFy C Fénix - Cno. Fénix e Instrucciones;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Centro de Salud Enrique Claveaux - Pampillo y Novas 3661 esq. Cufré;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Policlínica Capurro - Doroteo Enciso 676 Esq. Accesos;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Centro de Salud Ruben Misurraco -  Enrique Castro 4149;MONTEVIDEO ;Montevideo;Centro de Salud
-9010;Policlínica Aquiles Lanza - Natal 5469 esq. Chicago;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Las Acacias - Iberia 3895 esq. Niagara;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;"Policlínica Los Reyes - Pasaje ""A"" Solar 35 entre Matilde Pacheco y Cno. Mendoza";MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Policlínica Rep. De Chile -  Baye 3790 Esq. Gral. Flores;MONTEVIDEO ;Montevideo;Ambulatorio
-9010;Consultorio MFyC Plemu - Senda 26 Esq. Volpe entre Aparicio Saravia y Arroyo Miguelete;MONTEVIDEO ;Montevideo;Ambulatorio
-9011;"Centro Departamental de Paysandú - Hospital ""Escuela del Litoral Galan y Rocha"" - Monte Caseros 520";PAYSANDÚ;Paysandú;Centro de Salud
-9011;Centro Auxiliar de Guichón - Calle Avenida Pedro Guichóns;PAYSANDÚ;Guichón;Centro de Salud
-9011;Policlínica Artigas - Calle Grito de Asencio esquina Calle Larrañaga;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica Chaplin - Calle Andresito esquina Calle Joaquín Suarez;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica Purificación 3 - Calle Dr. Alberto Roldán esquina Calle Antonio Estefanel;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica Municipales II - Calle Benito Chain esquina Calle Independencia;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica Nueva York Calle Silverio Martinez 566 entre Calle Zelmar Michellini y Calle Entre Rios;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica Nuevo Paysandú - Calle Proyectada 31 esquina Avenida de las Américas;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica Puerto - Avenida Brasil esquina Calle Gutierrez Ruiz;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica El Techo - Soriano esquina Calle Dr. José Verocay;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica Barrio Norte - La Paz esquina Calle Valparaiso;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica CO.VI.FE. - Cerrito, esquina Calle Instrucciones del Año XIII;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica Mateo Perez Correa -  Larrañaga 809 entre Calle Dr. Baltasar Brum y Calle Pte. Luis Batlle Berres;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica Santa Mónica - Benito Chain,esq. Dr. Felippone;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica Casa Blanca - MEVIR N° 8.;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica Asencio - Grito de Asencio, esq. Batalla de las Piedras;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica Vista Hermosa - Juan de Almagro, esq. Grito de Asencio;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica Barrio INVE - Limite Este y Avda Italia, Barrio Inve;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica San Antonio - Uruguay entre Calle Nº 1 y Calle Nº 2;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica Santa Elena - Calle Proyectada Nº 11 Norte y Ciudad de Young;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica San Félix -  Avda. San Felix y Democracia;PAYSANDÚ;Paysandú;Ambulatorio
-9011;Policlínica Quebracho - Dr. Raúl Martini entre Sarandi y 8 de Octubre ;PAYSANDÚ;Quebracho;Ambulatorio
-9011;Policlínica Termas de Guaviyú -  Termas de Guaviyú. Ruta 3 Km. 432;PAYSANDÚ;;Ambulatorio
-9011;Policlínica Piedras Coloradas - 18 de Julio, esq. Puntas de Arroyo Negro. ;PAYSANDÚ;Piedras Coloradas;Ambulatorio
-9011;Policlínica Porvenir - Calle 9 entre calle 33 y calle E ;PAYSANDÚ;Porvenir;Ambulatorio
-9011;Policlínica Lorenzo Geyres - Tacuabe, esq. Cuareim;PAYSANDÚ;Estación Queguay;Ambulatorio
-9011;Policlínica Estación Porvenir - Mevir 14585;PAYSANDÚ;;Ambulatorio
-9011;Policlínica Orgoroso - Camino a la Bacacua, esq. Rincón.;PAYSANDÚ;;Ambulatorio
-9011;Policlínica Esperanza - Ruta 90 Km. 15.;PAYSANDÚ;Pueblo Esperanza;Ambulatorio
-9011;Policlínica Mevir II - Salon Comunal Mevir II;PAYSANDÚ;Guichon;Ambulatorio
-9011;Policlínica El Eucalipto - Salon Comunal de Mevir . Ruta 26 Km 99;PAYSANDÚ;;Ambulatorio
-9011;Policlínica Chapicuy - Mevir calle 11 (Chapicuy - Ruta 3 Km 453);PAYSANDÚ;Chapicuy;Ambulatorio
-9011;Policlínica Gallinal - Mevir 9644 ;PAYSANDÚ;Paraje Gallinal;Ambulatorio
-9011;Policlínica Morató - Salon Comunal - Ruta Nacional , Cuchilla de Haedo;PAYSANDÚ;;Ambulatorio
-9011;Policlínica Merinos - Continuación 18 de julio - Barrio Mevir;PAYSANDÚ;;Ambulatorio
-9011;Policlínica Tiatucura - Salon Comunal MEVIR;PAYSANDÚ;;Ambulatorio
-9011;Policlínica Piñera - Francisco Piria, esq. Menéndez y Pelayo .(pueblo Beisso-Piñera);PAYSANDÚ;;Ambulatorio
-9011;Policlínica Araujo - Escuela 36 - Camino Vecinal, 12 Km al Este de Ruta 3 Km 410(Queguayar);PAYSANDÚ;;Ambulatorio
-9011;Policlínica Bella Vista - Salon Parroquial - Paraje Bella Vista - Ruta 3 Km 486;PAYSANDÚ;;Ambulatorio
-9011;Policlínica Parada Daymán - Ruta 3 Km 480.;PAYSANDÚ;;Ambulatorio
-9011;Policlínica Cerro Chato - Salon Comunal Mevir -Camino Dtal Cuchilla San Jose;PAYSANDÚ;;Ambulatorio
-9011;Policlínica Cañada del Pueblo - Salon Comunal MEVIR (Paraje Cañada del Pueblo).;PAYSANDÚ;;Ambulatorio
-9011;Policlínica Sauce del Burucayupí - Escuela Rural Nº 31- Ruta 26 Km 68,500.;PAYSANDÚ;;Ambulatorio
-9011;Policlínica Puntas del Burucayupí - Escuela Rural Nº 34 - Ruta 26 Km 92,500.;PAYSANDÚ;;Ambulatorio
-9012;Hopsital de Rio Negro -  Echevarria y Lavalleja s/n.;RIO NEGRO;Fray Bentos;Centro de Salud
-9012;Hospital de Young - Av. Zeballos y Martirene;RIO NEGRO;Young;Centro de Salud
-9012;Centro de Salud Fray Bentos - 18 de julio e Ituzaingo;RIO NEGRO;Fray Bentos;Ambulatorio
-9012;Policlínica Barrio Anglo -  Dr. Andrés Montaño s/n.;RIO NEGRO;Fray Bentos;Ambulatorio
-9012;Policlínica Barrio Unión - Wilson Ferreira Aldunate esq. Rivera;RIO NEGRO;Fray Bentos;Ambulatorio
-9012;Policlínica 2000 - República de Chile esq. Lawry;RIO NEGRO;Fray Bentos;Ambulatorio
-9012;Policlínica Las Canteras - Rivera esq. Ibirapitá;RIO NEGRO;Fray Bentos;Ambulatorio
-9012;Policlínica COBENA -  Lawry esq. Crottogini;RIO NEGRO;Fray Bentos;Ambulatorio
-9012;Policlínica de Espacio Adolescente -  18 de Julio esq Ituzaingó;RIO NEGRO;Fray Bentos;Ambulatorio
-9012;Centro de Salud Young  - Lavalleja esq. Zeballos;RIO NEGRO;Young;Centro de Salud
-9012;Policlínica Dr. Iris Abad Guerra - Batlle y Ordóñez, casi vía férrea;RIO NEGRO;Young;Ambulatorio
-9012;Policlínica MEVIR -  Senaqué 1394;RIO NEGRO;Young;Ambulatorio
-9012;Policlínica de Espacio Adolescente  - Lavalleja esq. Zeballos;RIO NEGRO;Young;Ambulatorio
-9012;Policlínica San Javier - Basilio Lubkov esq. Colón;RIO NEGRO;;Ambulatorio
-9012;Policlínica Nuevo Berlín - Pita Nevril esq. Repetto;RIO NEGRO;;Ambulatorio
-9012;Policlínica Algorta - Dr. Calcagno esq. 18 de Julio;RIO NEGRO;;Ambulatorio
-9012;Policlínica Grecco - Complejo MEVIR;RIO NEGRO;;Ambulatorio
-9012;Policlínica Paso de los Mellizos - Roberto Vivo s/n;RIO NEGRO;;Ambulatorio
-9012;Policlínica Paso de la Cruz - Complejo MEVIR;RIO NEGRO;;Ambulatorio
-9012;Policlínica Sarandi de Navarro - Complejo MEVIR;RIO NEGRO;;Ambulatorio
-9012;Policlínica Sauce - Camino Vecinal - Rutas 20 y 25;RIO NEGRO;;Ambulatorio
-9012;Policlínica Bellaco - Complejo MEVIR;RIO NEGRO;;Ambulatorio
-9012;Policlínica Tomás Berreta - Escuela Nº 19 - Las Margaritas;RIO NEGRO;;Ambulatorio
-9013;Hospital Departamental de Rivera -  Calle Bulevar Presidente Viera S/N;RIVERA;Rivera;Centro de Salud
-9013;"Centro de Salud ""Q.F. Federico Dìaz"" - Avda. 1825 nº 531";RIVERA;Rivera;Centro de Salud
-9013;"Centro de Salud ""Dr. José Royol"" - Avda. Libano s/n";RIVERA;Rivera;Centro de Salud
-9013;Centro Auxiliar Minas de Corrales - 12 de Octubre s/n.;RIVERA;Minas de Corrales;Centro de Salud
-9013;Policlínica Periférica Paso de La Estiva - Viviendas Paso de la Estiva;RIVERA;Rivera;Ambulatorio
-9013;Policlínica Periférica La Pedrera - Celia Bueno de Arizaga s/n ;RIVERA;Rivera;Ambulatorio
-9013;Policlínica Periférica Lagunon - Chasque de los Santos s/n ;RIVERA;Rivera;Ambulatorio
-9013;Policlínica Periférica Mandubí - José Nasazzi s/n;RIVERA;Rivera;Ambulatorio
-9013;Policlínica Periférica Rampla - Avda. Brasil s/n;RIVERA;Rivera;Ambulatorio
-9013;Policlínica Periférica Santa Isabel Arturo Nuñez s/n;RIVERA;Rivera;Ambulatorio
-9013;Policlínica Periférica Tres Cruces - Pte. Giro y Maximiliano Luz - Complejo Hab. Tres Cruces;RIVERA;Rivera;Ambulatorio
-9013;Policlínica Ciudad Tranqueras - 33 Orientales s/n;RIVERA;Tranqueras;Ambulatorio
-9013;Policlínica Villa Vichadero -  Bvar. Rivera s/n;RIVERA;Vichadero;Ambulatorio
-9013;Policlínica Abrojal ;RIVERA;;Ambulatorio
-9013;Policlínica Amarillo ;RIVERA;;Ambulatorio
-9013;Policlínica Arroyo Blanco ;RIVERA;;Ambulatorio
-9013;Policlínica Caraguatá;RIVERA;;Ambulatorio
-9013;Policlínica Cerrillada;RIVERA;;Ambulatorio
-9013;Policlínica Cerro Pelado;RIVERA;Cerro Pelado;Ambulatorio
-9013;Policlínica La Palma ;RIVERA;;Ambulatorio
-9013;Policlínica La Puente;RIVERA;;Ambulatorio
-9013;Policlínica Lagos del Norte ;RIVERA;;Ambulatorio
-9013;Policlínica Las Flores;RIVERA;;Ambulatorio
-9013;Policlínica Masoller ;RIVERA;;Ambulatorio
-9013;Policlínica Moirones ;RIVERA;;Ambulatorio
-9013;Policlínica Paso Hospital ;RIVERA;;Ambulatorio
-9013;Policlínica Pueblo de los Santos ;RIVERA;;Ambulatorio
-9014;Centro Departamental de Rocha - Avda Martínez y Treinta y Tres.;ROCHA;Rocha;Centro de Salud
-9014;Centro Auxiliar de Castillos - 19 de Abril 1561.;ROCHA;Castillos;Centro de Salud
-9014;Hospital de Chuy - Sta. Teresa s/n;ROCHA;Chuy;Centro de Salud
-9014;Centro Auxiliar de Lascano - Eudoxio Vivas 1401;ROCHA;Lascano;Centro de Salud
-9014;Centro Auxiliar de Castillos - 19 de Abril 1561.;ROCHA;Castillos;Centro de Salud
-9014;Policlínica La Paloma - Calle La Paloma s/n;ROCHA;La Paloma;Ambulatorio
-9014;Policlínica Cebollatí - San Miguel s/n;ROCHA;Cebollatí;Ambulatorio
-9014;Policlínica Velázquez -  Calle C I 13 s/n;ROCHA;Velázquez;Ambulatorio
-9014;Policlínica de San Luis -  Camino Paso de la Balsa;ROCHA;San Luis;Ambulatorio
-9014;Policlínica La Coronilla -  Leopoldo Fernández s/n;ROCHA;La Coronilla;Ambulatorio
-9014;Policlínica Punta del Diablo - Explanada entrada Playa de la Viuda;ROCHA;Punta del Diablo;Ambulatorio
-9014;"Policlínica Barra de Chuy ""Bernardo Ventura"" - Parada 2";ROCHA;Barra de Chuy;Ambulatorio
-9014;Policlínica Dieciocho de Julio - Artesanos de la Piedra;ROCHA;18 de Julio;Ambulatorio
-9014;Policlínica 19 de Abril - A dos cuadras de la Comisaría y a una de Ruta 9;ROCHA;19 de Abril;Ambulatorio
-9014;Enfermería de Cabo Polonio - Terminal  de Omnibus.;ROCHA;Cabo Polonio;Ambulatorio
-9014;Policlínica Barra de Valizas -  Calle Aladino Veiga s/n;ROCHA;Barra de Valizas;Ambulatorio
-9014;Policlínica Aguas Dulces - Avda. Central M1 S2;ROCHA;Aguas Dulces;Ambulatorio
-9014;Policlínica Samuel Prilliac - Barrio Samuel;ROCHA;Chuy;Ambulatorio
-9014;Policlínica Barrio Florinda - Calle India Muerta s/n;ROCHA;Castillos;Ambulatorio
-9014;Policlínica Puimayen -  Parada 15 .;ROCHA;Barra de Chuy;Ambulatorio
-9014;Policlínica Barrio Parque Barrio Pescadores;ROCHA;La Paloma;Ambulatorio
-9014;Policlínica Balneario Costa Azul - junto a la Escuela Publica;ROCHA;Costa Azul;Ambulatorio
-9014;Policlínica Lauro Cruz Goyenla - Barrio Lavalleja Pantealón Artigas casi Agraciada;ROCHA;Rocha;Ambulatorio
-9014;Policlínica Barrio Belvedere (Rocha) - Centro Comunal del Barrio.;ROCHA;Rocha;Ambulatorio
-9014;Policlínica Barrio Treinta y Tres - Plazoleta del Barrio.;ROCHA;Rocha;Ambulatorio
-9014;Policlínica El Ombú - Avda. 1º de Agosto y Ruta 9.;ROCHA;Rocha;Ambulatorio
-9014;Policlínica Barrio Hipódromo - Avda. del Hipódromo.;ROCHA;Rocha;Ambulatorio
-9014;Policlínica Barrio España - Calle Pagola.;ROCHA;Rocha;Ambulatorio
-9015;Hospital Regional de Salto - Cervantes esq. 18 de Julio ;SALTO;Salto;Centro de Salud
-9015;Policlínica UBA 1 - Lib. Juan Antonio Lavalleja 1902.;SALTO;;Ambulatorio
-9015;Policlínica UBA 2 - Salón Comunal Complejo GUAVIYÚ YATAY;SALTO;;Ambulatorio
-9015;Dirección: UBA 3 - Lorenzo Latorre s/n;SALTO;;Ambulatorio
-9015;Policlínica UBA 5 - Asencio esq. Chile;SALTO;;Ambulatorio
-9015;Policlínica UBA 6 - Complejo Habitacional CALAFI II;SALTO;;Ambulatorio
-9015;Policlínica UBA 7 - Julio Delgado 695;SALTO;;Ambulatorio
-9015;Policlínica UBA 8 - Malvacio Varela 2704;SALTO;;Ambulatorio
-9015;Policlínica Williams junto al CAIF del Barrio;SALTO;;Ambulatorio
-9015;Policlínica Burton - Barrio Burton;SALTO;;Ambulatorio
-9015;Policlínica Barrio Artigas -  Inst.Año XIII y Ruta 31;SALTO;;Ambulatorio
-9015;Policlínica Cien Manzanas -  San Martín esq. Corrientes;SALTO;;Ambulatorio
-9015;Policlínica La Tablada - 19 de Abril esq.Bella Unión;SALTO;;Ambulatorio
-9015;Policlínica Centro de Prematuros - 18 de Julio 286;SALTO;;Ambulatorio
-9015;Policlínica Barrio Albisu - Calle 1 esq. Calle 2;SALTO;;Ambulatorio
-9015;Policlínica Campos De Todos - Campos de Todos esq. Camino Vecinal;SALTO;;Ambulatorio
-9015;Policlínica Cerro Chato;SALTO;;Ambulatorio
-9015;Policlínica Cerro De Vera - Complejo MEVIR;SALTO;;Ambulatorio
-9015;Policlínica Colonia 18 Julio - calle 2;SALTO;;Ambulatorio
-9015;Policlínica Colonia Garibaldi;SALTO;;Ambulatorio
-9015;Policlínica Colonia Itapebí;SALTO;;Ambulatorio
-9015;Policlínica Cuchilla De Guaviyú;SALTO;;Ambulatorio
-9015;Policlínica Hipódromo -  Garibaldi esq. Defensa;SALTO;;Ambulatorio
-9015;Policlínica Laureles - Pueblo Laureles;SALTO;;Ambulatorio
-9015;Policlínica Paso Cementerio;SALTO;;Ambulatorio
-9015;Policlínica Paso De Las Piedras;SALTO;;Ambulatorio
-9015;Policlínica Paso Del Parque -  Ruta de Yones esq. Ruta 4;SALTO;;Ambulatorio
-9015;Policlínica Pepe Nuñez - Camino Vecinal a 28 Km. al noreste de Ruta 31;SALTO;;Ambulatorio
-9015;Policlínica Pueblo Fernández - Pueblo Fernández;SALTO;;Ambulatorio
-9015;Policlínica Pueblo Quintana - Pueblo Quintana;SALTO;;Ambulatorio
-9015;Policlínica Puntas De Valentín ;SALTO;;Ambulatorio
-9015;Policlínica Rincón De Valentin;SALTO;;Ambulatorio
-9015;Policlínica San Antonio;SALTO;;Ambulatorio
-9015;Policlínica Sarandí De Arapey;SALTO;;Ambulatorio
-9015;Policlínica Saucedo;SALTO;;Ambulatorio
-9015;Policlínica Belén;SALTO;;Ambulatorio
-9015;Policlínica Colonia Lavalleja;SALTO;;Ambulatorio
-9015;Policlínica Constitución;SALTO;;Ambulatorio
-9015;Policlínica Colonia Harriague;SALTO;;Ambulatorio
-9015;Policlínica Guaviyú De Arapey - Dirección: Ruta 4 Km. 114.;SALTO;;Ambulatorio
-9015;Policlínica Paso del Potrero - Ruta 31 Km. 122;SALTO;;Ambulatorio
-9015;Policlínica Pueblo Cayetano;SALTO;;Ambulatorio
-9015;Policlínica Pueblo Olivera;SALTO;;Ambulatorio
-9015;Policlínica Pueblo Ramos;SALTO;;Ambulatorio
-9015;Policlínica Carumbe;SALTO;;Ambulatorio
-9015;Policlínica Puntas De Cañas;SALTO;;Ambulatorio
-9015;Policlínica Cerros de Vera;SALTO;;Ambulatorio
-9015;Policlínica Palomas - Calle 1 esq. Calle 2;SALTO;;Ambulatorio
-9016;Hospital Departamental de San José;SAN JOSÉ;San José de Mayo;Centro de Salud
-9016;Centro de Salud Ciudad del Plata -  Ruta 1 km 26 , manzana 67 - Calle Rivera s/n;SAN JOSÉ;Ciudad del Plata;Centro de Salud
-9016;Policlínica Juana Martínez -  Km 32 Manz. C Solar 2 Sobre ruta 1 Vieja (Barrio Sta. María);SAN JOSÉ;;Ambulatorio
-9016;Policlínica Delta del Tigre - Km. 23 Manz. 20 Solar 4;SAN JOSÉ;;Ambulatorio
-9016;Consultorio MFyC Penino - Km. 29 Manz. De Soto S/N;SAN JOSÉ;;Ambulatorio
-9016;Centro de Salud San José -  Vidal 867 esq. Larriera;SAN JOSÉ;San José de Mayo;Ambulatorio
-9016;Policlínica Las Palmas - Cándido Marín esq. R.P.Martínez;SAN JOSÉ;San José de Mayo;Ambulatorio
-9016;Policlínica Tres Barrios -  Gral Flores esq. Suiza.;SAN JOSÉ;San José de Mayo;Ambulatorio
-9016;Policlínica Colón - Pelossi 137;SAN JOSÉ;San José de Mayo;Ambulatorio
-9016;Policlínica Mondex - Rosa Luna esq. F. Rodriguez;SAN JOSÉ;San José de Mayo;Ambulatorio
-9016;Policlínica Nuestra Señora de Fátima - Pelossi 132;SAN JOSÉ;San José de Mayo;Ambulatorio
-9016;Policlínica Parque Rodó - Laura Cortina 1019;SAN JOSÉ;San José de Mayo;Ambulatorio
-9016;Policlínica Prado Maragato - Rafael Salguero 746;SAN JOSÉ;San José de Mayo;Ambulatorio
-9016;Policlínica Roberto Mariano - España, entre Salto y Durazno;SAN JOSÉ;San José de Mayo;Ambulatorio
-9016;Policlínica Treinta y Tres al Sur - Treinta y Tres esq. Ellauri;SAN JOSÉ;San José de Mayo;Ambulatorio
-9016;Policlínica La Industrial - Guayabos 707;SAN JOSÉ;San José de Mayo;Ambulatorio
-9016;Policlínica INVE II - Rafael Salguero 746;SAN JOSÉ;San José de Mayo;Ambulatorio
-9016;Policlínica Asociación de Jubilados -  Sarandí 245;SAN JOSÉ;San José de Mayo;Ambulatorio
-9016;Centro de Salud de Libertad  - Artigas 626;SAN JOSÉ;Libertad;Centro de Salud
-9016;Policlínica María Julia - Edinson 1220;SAN JOSÉ;Libertad;Ambulatorio
-9016;Policlínica Progreso - 18 de Julio esq. José P. Varela;SAN JOSÉ;Libertad;Ambulatorio
-9016;Policlínica Ecilda Paullier - Federico Paullier esq. Digiovanángelo;SAN JOSÉ;;Ambulatorio
-9016;Policlínica Juan Soler - Ruta 11, Km 39.500 - AFE;SAN JOSÉ;;Ambulatorio
-9016;Policlínica Estación González - Ruta 23, Km 115;SAN JOSÉ;;Ambulatorio
-9016;Policlínica Fagina -  Escuela Nº 7;SAN JOSÉ;;Ambulatorio
-9016;Policlínica Mal Abrigo - Ruta 23 km 124 - MEVIR;SAN JOSÉ;;Ambulatorio
-9016;Policlínica Carreta Quemada - Ruta 45, Km 107.500;SAN JOSÉ;;Ambulatorio
-9016;Policlínica Villa Rodríguez -  León Jude 1070;SAN JOSÉ;;Ambulatorio
-9016;Policlínica Capurro - Ruta 11, Km 77;SAN JOSÉ;;Ambulatorio
-9016;Policlínica Ituzaingó -  San José esq. Ansina;SAN JOSÉ;;Ambulatorio
-9016;Policlínica Raigón - Salón Comunal MEVIR;SAN JOSÉ;;Ambulatorio
-9016;Policlínica Villa María -  Salón Comunal MEVIR;SAN JOSÉ;;Ambulatorio
-9016;Policlínica Rafael Peraza ( Rincón del Pino) -Ruta 1 vieja, entre calle 1080 y San José;SAN JOSÉ;;Ambulatorio
-9016;Policlínica Puntas de Valdez - Ruta 1, Km 61;SAN JOSÉ;;Ambulatorio
-9016;Policlínica Kiyú - Balneario Kiyú ( zona Parador Grande);SAN JOSÉ;;Ambulatorio
-9016;Policlínica Colonia Italia -Ruta 45, Km 59;SAN JOSÉ;;Ambulatorio
-9017;"Hospital Departamental de Soriano - ""Zoilo A. Chelle"" -  Sánchez 204.";SORIANO;Mercedes;Centro de Salud
-9017;"Centro Auxiliar de Dolores ""Alejandro C. Bardier"" - Cheveste y Puig.";SORIANO;Dolores;Centro de Salud
-9017;"Centro Auxiliar de Cardona ""Dr. Rogelio C. Sosa"" - Rogelio Sosa S/N.";SORIANO;Cardona;Centro de Salud
-9017;Policlínica Gota de Leche - Ferrería 1137;SORIANO;Mercedes;Ambulatorio
-9017;Policlínica Barrio Treinta y Tres - Colman 526;SORIANO;Mercedes;Ambulatorio
-9017;Policlínica El Túnel - Varela 840;SORIANO;Mercedes;Ambulatorio
-9017;Policlínica Grito de Asencio - Justo Correa 1121 esq. Constituyente;SORIANO;Mercedes;Ambulatorio
-9017;Policlínica Paul Harris - Ansina esq. Magnone (Plaza Paul Harris);SORIANO;Mercedes;Ambulatorio
-9017;Policlínica Tomás Gómez - Ruta 96 Km 25 (Frente a Escuela Nº 15);SORIANO;Dolores;Ambulatorio
-9017;Policlínica San Salvador - 22 de Agosto esq. Nakle;SORIANO;Dolores;Ambulatorio
-9017;Policlínica Santa Teresita - Lavalleja, entre Cheveste y De los Santos;SORIANO;Cardona;Ambulatorio
-9017;Policlínica Fátima -  Los Chanaes s/n;SORIANO;Cardona;Ambulatorio
-9017;"Policlínica Los Arrayanes -  Paraje ""Los Arrayanes"", Río Negro, Salón Comunal";SORIANO;;Ambulatorio
-9017;Policlínica Pense - Camino Pense s/n (Escuela Nº 25);SORIANO;;Ambulatorio
-9017;Policlínica Villa Darwin - Ruta 14 Km 34.500 - Camino Roque Gil (Sacachispas);SORIANO;;Ambulatorio
-9017;Policlínica El Tala - Ruta 14 Km 65- por camino vecinal;SORIANO;;Ambulatorio
-9017;Policlínica Palmar -  Avenida Brasil s/n;SORIANO;;Ambulatorio
-9017;Policlínica Palmitas - Vicente Orcoyen, entre Laureana Jauregui y Rodriguez Serrano;SORIANO;;Ambulatorio
-9017;Policlínica Egaña - Tabaré esq. Coquimbo;SORIANO;;Ambulatorio
-9017;Policlínica Risso - Calle 3, entre 8 y 10 ( Contigua a la Comisaría);SORIANO;;Ambulatorio
-9017;Policlínica Luis H. Perrone - Ruta 2 Km 208 . José E. Rodó;SORIANO;;Ambulatorio
-9017;Policlínica Santa Catalina - Rufino Lorenzo Vázquez, entre Genaro de León y Salvador Viola;SORIANO;;Ambulatorio
-9017;Policlínica Jackson - Ruta 12 Km 124 , Estación Juan J. Jackson;SORIANO;;Ambulatorio
-9017;Policlínica Villa Soriano - Cabildo esq. Florida;SORIANO;;Ambulatorio
-9017;Policlínica La Concordia - Parque Municipal - Balneario La Concordia;SORIANO;;Ambulatorio
-9017;Policlínica Agraciada - Gral Artigas esq. Rivera;SORIANO;;Ambulatorio
-9017;Policlínica Cañada Nieto - Manuel Souto esq. Emigrantes Valdenses;SORIANO;;Ambulatorio
-9017;Policlínica Palo Solo - Ruta 96 Km 63.500 y Ruta 12 - Escuela Nº 13;SORIANO;;Ambulatorio
-9017;Policlínica Perseverano -Camino Perseverano s/n;SORIANO;;Ambulatorio
-9017;Policlínica Castillos -  Ruta 55 Km 38 - Contiguo a Salón MEVIR;SORIANO;;Ambulatorio
-9018;Hospital Departamental de Tacuarembó - Treinta y Tres 444 esq. Consejal Catalogne;TACUAREMBÓ;Tacuarembó;Centro de Salud
-9018;" Hospital Paso de los Toros ""Dr. Ruben Curi"" - Víctor Alvarez Menéndez 155";TACUAREMBÓ;Paso de los Toros;Centro de Salud
-9018;Centro Auxiliar San Gregorio de Polanco -  Yamandú Gamba nº 46;TACUAREMBÓ;San Gregorio de Polanco;Centro de Salud
-9018;Policlínica Tambores - Avenida Artigas;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Curtina - Hector Gutierrez Ruiz s/n;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Villa Ansina - Ruta 26 Km. 289.0;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Caraguatá;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Achar - Calle 7;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Sauce de Batoví -  Camino Vecinal ;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Cerro de Batoví - Ruta 5 Cerro Batoví Km.370.0;TACUAREMBÓ;;Ambulatorio
-9018;Policlinica Paso Bonilla - Ruta 5 continuación ;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Rincón de Tranqueras;TACUAREMBÓ;Tranqueras;Ambulatorio
-9018;Policlínica Paso del Cerro- Calle 1 y Calle 4;TACUAREMBÓ;;Ambulatorio
-9018;Policlínicas Cañas;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Los Cuadrados;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica La Hilera;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Clara;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Montevideo Chico - Km.26 al este de Ruta 50 ;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Paso de los Novillos (Puesto de Salud en Escuela);TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Cerro Travieso;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Estacion Laureles - Camino Vecinal esq. calle Laureles.;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Cuchilla Laureles - Camino Vecinal Escuela 42;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Poblado 33;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica La Calzada - Ruta 5 Km 407.0;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Paso de las Carretas;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Lambaré;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Paso Ceferino;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Rincón de la Aldea;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Cerro de la Aldea;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Quiebrayugos;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Paso Hondo (Puesto de Salud en la Escuela) ;TACUAREMBÓ;San Gregorio de Polanco;Ambulatorio
-9018;Policlínica Los Furtados (Puesto de Salud en la escuela);TACUAREMBÓ;San Gregorio de Polanco;Ambulatorio
-9018;Policlínica Cañada del Estado (Puesto de Salud en la Escuela) ;TACUAREMBÓ;San Gregorio de Polanco;Ambulatorio
-9018;Policlínica Carpintería ( Puesto de Salud en la Escuela) ;TACUAREMBÓ;San Gregorio de Polanco;Ambulatorio
-9018;Policlínica Los Arenales;TACUAREMBÓ;Paso de los Toros;Ambulatorio
-9018;Policlínica Peralta (Puesto de Salud en la Escuela);TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Cardozo Grande (Puesto de Salud en la Escuela) ;TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Cardozo Chico (Puesto de Salud en la Escuela);TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Chamberlein (Puesto de Salud en la Escuela);TACUAREMBÓ;;Ambulatorio
-9018;Policlínica Barrio Godoy - Calle Chiquito Saravia S/ Nº (Puesto de Salud en la Escuela);TACUAREMBÓ;Tacuarembó;Ambulatorio
-9018;Policlínica La Matutina- Calle Ruta 31;TACUAREMBÓ;Tacuarembó;Ambulatorio
-9018;Policlínica Barrio Artigas-  Calle 18 de julio s/n (Puesto de Salud en Escuela);TACUAREMBÓ;Tacuarembó;Ambulatorio
-9018;Puesto de Salud Los Molles  Calle Miranda y Fernández Crespo;TACUAREMBÓ;Tacuarembó;Ambulatorio
-9018;Policlínica Barrio Santa Isabel - Calle Martín Luther King Puesto de Salud en Iglesia;TACUAREMBÓ;Tacuarembó;Ambulatorio
-9018;Policlínica Buen Samaritano -  Atanasio Viera y Domingo Arena Barrio Centenario;TACUAREMBÓ;Tacuarembó;Ambulatorio
-9018;Policlínica Nº1 Barrio Ferrocarril- Calle Pablo Ríos;TACUAREMBÓ;Tacuarembó;Ambulatorio
-9018;Policlínica Nº2 Barrio López-calle Manuel Freire 277;TACUAREMBÓ;Tacuarembó;Ambulatorio
-9018;Policlínica Nº3 Barrio El Hongo-calle Bvar. Rodríguez Correa;TACUAREMBÓ;Tacuarembó;Ambulatorio
-9018;Policlínica Nº4 Barrio Torres-calle Avda. San Martín;TACUAREMBÓ;Tacuarembó;Ambulatorio
-9018;Policlínica Nº5 Barrio El Molino-calle Ruta 31 ;TACUAREMBÓ;Tacuarembó;Ambulatorio
-9018;Policlínica Nº6 Barrio Montevideo-calle Michelson 313 ;TACUAREMBÓ;Tacuarembó;Ambulatorio
-9019;Hospital Departamental de Treinta y Tres - José Enrique Rodó y Manuel Cacheiro;TREINTA Y TRES;Treinta y Tres;Centro de Salud
-9019;Centro Auxiliar Dr. Alberto Podestá Carnelli - Treinta y Tres y José María Coya.;TREINTA Y TRES;Treinta y Tres;Centro de Salud
-9019;Centro Auxiliar Santa Clara - Av. Chiquito Saravia casi ruta 7;TREINTA Y TRES;Santa Clara;Centro de Salud
-9019;Centro Auxiliar Vergara -  Lucas Urritia 585;TREINTA Y TRES;Vergara;Centro de Salud
-9019;Centro Auxiliar Cerro Chato - Brigadier Manuel Oribe y Ruta 19;TREINTA Y TRES;Cerro Chato ;Centro de Salud
-9019;Centro de Salud: Dr. Bolivar Ledesma - Pablo Zufriategui Y Areguatti;TREINTA Y TRES;Treinta y Tres;Ambulatorio
-9019;Policlínica Los Arrayanes - Carmelo Colman y Pedro Campbell;TREINTA Y TRES;;Ambulatorio
-9019;Policlínica de Valentines  -  Ruta 19 Valentines;TREINTA Y TRES;;Ambulatorio
-9019;Policlinica Charqueada - La Charqueada Ellauri s/n.;TREINTA Y TRES;;Ambulatorio
-9502;BULEVAR ARTIGAS 1198;Montevideo;Montevideo;Ambulatorio
-9502;MONTEVIDEO - ANTONIO COSTA 3568;Montevideo;Montevideo;Ambulatorio
-9508;MONTEVIDEO - CLINICA CARRASCO - AVENIDA BLANES VIALE 6358;Montevideo;Montevideo;Ambulatorio
-9508;MONTEVIDEO - CLINICA GOLF - BULEVAR ARTIGAS 499;Montevideo;Montevideo;Ambulatorio
-9508;MONTEVIDEO  - CLINICA SETIEMBRE - AVENIDA RICALDONI 2474;Montevideo;Montevideo;Ambulatorio
-9516;MONTEVIDEO - ANEXO JACKSONVILLE - RUTA 8 KM 17;Montevideo;Montevideo;Ambulatorio
-9516;PUNTA DEL ESTE - RIO BRANCO S/N MANZANA 558;Maldonado;Punta del Este;Ambulatorio
-9516;MONTEVIDEO - RAMBLA REPUBLICA DE MEXICO 6405;Montevideo;Montevideo;Ambulatorio
-9518;MONTEVIDEO - AVENIDA INGENIERO LUIS PONCE 1523;Montevideo;Montevideo;Ambulatorio
-9526;MONTEVIDEO - JORGE CANNING 2385;Montevideo;Montevideo;Ambulatorio
-9532;MONTEVIDEO - MORALES 2578;Montevideo;Montevideo;Ambulatorio
-9532;MONTEVIDEO - BAUZA 2406;Montevideo;Montevideo;Ambulatorio
-9532;MONTEVIDEO - AVENIDA ITALIA 2420;Montevideo;Montevideo;Ambulatorio
+9000;Centro Departamental de Artigas - Eduardo M Castro s/n;ARTIGAS;Artigas;Centro de Salud
+9000;Centro de Salud de Artigas - 18 de Julio 237;ARTIGAS;Artigas;Centro de Salud
+9000;Policlínica Baltasar Brum - Calle José Batlle y Ordoñez y Calle Dr. Errandonea;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Tomás Gomensoro - Calle Independencia S/N;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Bernabé Rivera - Calle Hipólito Ipar esquina Calle Pedro de Bazán;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Sequeira - Ruta 4 km. 126;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Cerro Ejido - Calle Senda de Paso ;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Vitopa  Grupo Habitacional Cuareim ;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Aparicio Saravia;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica 19 de Junio - Andrés Cheveste y Carlos María Ramírez;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Ayui  - Emilio Mello y Perichón;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Fabini - Olimar esq. Queguay;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Catala - Santiago Montes y Juan B. Torres ;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Pintadito - 4 de Abril 14 ;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Barrio Sur - Alba Roballo 1410;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Cobazo  Carmelo - Colman 146 ;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Las Flores - Gral. Flores 47 ;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica San Miguel - Bernardina Fragoso de Rivera esq. Río Branco;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Rincón de Pacheco;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Paguero ;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Cuaró - Estación Cuaro;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Campamento -  Ruta 3 Andrés Artigas Km 47.0 ;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Javier de Viana - Ruta 30 Km. 98;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Topador ;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Sequeira - Ruta 4 Andrés Artigas Km. 128;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Bernabé Rivera - Hipolito Ipar esq. Avda. Pedro de Bazan;ARTIGAS;Artigas;Ambulatorio
+9000;Policlínica Paso Farias - Ruta 30 Bella Unión Km. 58.0 ;ARTIGAS;Artigas;Ambulatorio
+9000;Hospital de Bella Unión -  Fructuoso Rivera esq. Calle Dr. Pedro Acosta.;ARTIGAS;Bella Unión;Centro de Salud
+9000;Policlínica Cuareim - Calle Principal ;ARTIGAS;Bella Unión;Ambulatorio
+9000;Policlínica Las Piedras A 5 entre B 32 y B 31 ;ARTIGAS;Bella Unión;Ambulatorio
+9000;Policlínica Cainsa - Ruta 3 Km. 614 ;ARTIGAS;Bella Unión;Ambulatorio
+9000;Policlínica Mones Quintela ;ARTIGAS;Bella Unión;Ambulatorio
+9000;Policlínica U.T.A -  A. Saravias 456;ARTIGAS;Bella Unión;Ambulatorio
+9000;Policlínica Tres Fronteras - Chile 1261 ;ARTIGAS;Bella Unión;Ambulatorio
+9000;Policlínica Las Láminas - Ruta 3 Km 632;ARTIGAS;Bella Unión;Ambulatorio
+9000;Policlínica Barrio Sur -  Alba Roballo 1410;ARTIGAS;Bella Unión;Ambulatorio
+9000;Policlínica Portón de Fierro y Campodonico - Ruta 3 Km.622;ARTIGAS;Bella Unión;Ambulatorio
+9000;Policlínica Nuevo Coronado - Ing. Alfredo Mones Quintela esq. Callejón J. Beninca;ARTIGAS;Bella Unión;Ambulatorio
+9000;Hospital de Canelones - Gerson Taube 1073 esq. Cendan.;CANELONES;Canelones ;Centro de Salud
+9000;"Centro Auxiliar de Las Piedras ""Dr. Alfonso Espínola"" - Espinola y Ferreira Aldunate";CANELONES;Las Piedras;Centro de Salud
+9000;Centro Auxiliar de Pando - Dr. Correch s/n ;CANELONES;Pando;Centro de Salud
+9000;Centro Auxiliar Tala - José Alonso s/nº esq. Avda. Artigas;CANELONES;Tala;Centro de Salud
+9000;Centro Auxiliar Santa Lucia -  Luis Alberto de Herrera s/nº entre Chile y Rodó;CANELONES;Santa Lucia;Centro de Salud
+9000;"Centro Auxiliar de San Ramón ""Dr. José Bove Arteaga"" - Avda. Batlle y Ordóñez s/nº";CANELONES;San Ramón;Centro de Salud
+9000;Policlinica San Jacinto -  Carlos Rebufello esq. Artigas;CANELONES;San Jacinto;Ambulatorio
+9000;Policlinica Migues - Uruguay esq. 25 de agosto;CANELONES;Migues;Ambulatorio
+9000;Policlinica Montes - Calle 11 u Av. Centenario;CANELONES;Montes;Ambulatorio
+9000;Policlinica Soca - Calle 25 de Agosto esq. Burgueño;CANELONES;Soca;Ambulatorio
+9000;Policlinica Tapia - Ruta 88 Km 7;CANELONES;;Ambulatorio
+9000;Puesto de salud Rural Bolivar - Ruta 7.;CANELONES;;Ambulatorio
+9000;Puesto de Salud Rural Capilla de Cella - Ruta 9 Km. 63;CANELONES;;Ambulatorio
+9000;Puesto de Salud Rural Piedras de Afilar -  Ruta 70 Km 63;CANELONES;Cerrillos;Ambulatorio
+9000;Policlinica Los Cerrillos -  Ruta 36 Km 37;CANELONES;;Ambulatorio
+9000;Policlinica Aguas Corrientes - Calle Lezica s/n. Barrio 19 de junio;CANELONES;;Ambulatorio
+9000;Puesto de Salud Paso Pache - Ruta 81 Km 10.;CANELONES;;Ambulatorio
+9000;Policlinica Campo Militar - Ruta 36 KM 42.;CANELONES;;Ambulatorio
+9000;Policlinica Pio X -  Fco. Acuña de Figueroa;CANELONES;;Ambulatorio
+9000;Policlinica Castellanos - Calle a la Estación s/n;CANELONES;;Ambulatorio
+9000;Policlinica San Bautista -  Justo Alavarez esq. Yamandú Mourant s/n;CANELONES;;Ambulatorio
+9000;Policlinica San Antonio - Rogelio P. Martinez manzana 8 Solar 3;CANELONES;;Ambulatorio
+9000;Policlinica Santa Rosa - 18 de Julio esq. Batlle y Ordoñez;CANELONES;;Ambulatorio
+9000;Puesto de Salud MEVIR 1;CANELONES;;Ambulatorio
+9000;Puesto de Salud Escuela Nº 117;CANELONES;;Ambulatorio
+9000;Puesto de Salud Rural Paso de la Cadena  - Ruta 64 Km 15 - Complejo Mevir;CANELONES;;Ambulatorio
+9000;Puesto de Salud Rural La Paloma - Ruta 11 Km 53 empalme ruta 63;CANELONES;;Ambulatorio
+9000;Policlínica Ventura - Cno. Ventura s/nº Barros Blancos ;CANELONES;Barros Blancos;Ambulatorio
+9000;Policlinica 6 de Setiembre - Ruta 8 Km 28 Calle Neruda esquina Quiroga;CANELONES;;Ambulatorio
+9000;Policlinica La Loma -  Ruta 8 Km 25 Centro Civico Salvador Allende;CANELONES;;Ambulatorio
+9000;Consultorio de Medicina Familiar y Comunitaria: El Remanso - Ruta 8 Km 22.;CANELONES;;Ambulatorio
+9000;Policlinica Entre Todos Paso Escobar - Ruta 8 Km 23.400 Calle Canelones Esquina Toledo;CANELONES;;Ambulatorio
+9000;Policlinica Casarino - Ruta 84 Camino del Andaluz Km 3200;CANELONES;;Ambulatorio
+9000;Policlínica Suárez - Rómulo Carlos s/n Ruta 74;CANELONES;;Ambulatorio
+9000;Consultorio Comunitario Tres Villas - Ruta 74 ;CANELONES;;Ambulatorio
+9000;Policlínica (Huracán Siré) - Ruta 8 KM 25 calle 18 de Julio s/nº esq. Rincón - Barros Blancos ;CANELONES;Barros Blancos;Ambulatorio
+9000;Policlinica Mano con Mano - Hugo Mendez y Blas Basualdo;CANELONES;;Ambulatorio
+9000;Policlínica Toledo - Ruta 85 o Silvestre Guillén s/nº entre Via Ferrea y Toledo ;CANELONES;;Ambulatorio
+9000;Consultorio de Medicina Familiar y Comunitaria Villa San Jose - Ruta 6 Km 26;CANELONES;;Ambulatorio
+9000;Consultorio La Capilla -  Ruta 33 Km 22.500;CANELONES;;Ambulatorio
+9000;Policlínica Empalme Olmos - Gastón Rosa s/nº entre Deolinda de Pollero y Empalme Olmos ;CANELONES;Empalme Olmos;Ambulatorio
+9000;Policlinica Barrio Estadio - Manuel Quintela s/n ;CANELONES;;Ambulatorio
+9000;Centro Materno Infantil- Pando ASSE- BPS - Baltasar Brum y Solis;CANELONES;;Ambulatorio
+9000;Policlinica Totoral del Sauce - Ruta 7 entre la 74 y 75;CANELONES;;Ambulatorio
+9000;Policlínica Barrio El Talar - Hno.Eugenio s/nº (Ex - Furriol) esq. 19 de Junio ;CANELONES;;Ambulatorio
+9000;Policlínica Salinas - Avda. Julieta s/nº entre Yaguareté y Guazubir ;CANELONES;;Ambulatorio
+9000;Policlínica Aeroparque - Ruta 101 KM.26 - Calle Austral esq. Rambla Costanera s/n;CANELONES;;Ambulatorio
+9000;Consultorio Estación Atlántida - Con. Parque del Plata y Los Lirios ;CANELONES;;Ambulatorio
+9000;Consultorio de Medicina Familiar y Comunitaria  Villa El Tato - Ruta 101 Km 28;CANELONES;;Ambulatorio
+9000;Policlínica San Luis - Caruso y Rambla Costanera s/n ;CANELONES;;Ambulatorio
+9000;Policlinica Floresta - Rambla Perea y Calle 33 ;CANELONES;;Ambulatorio
+9000;Consultorio de Medicina Familiar y Comunitaria Costa Azul - Calle Perú y Roxlo.;CANELONES;;Ambulatorio
+9000;Policlínica Cuchilla Alta - Calle Montevideo s/n y Pons ;CANELONES;;Ambulatorio
+9000;Consultorio de Medicina Familiar Parque del Plata Norte - Teatro de Verano s/n.;CANELONES;;Ambulatorio
+9000;Policlínica Parque del Plata - Tomas Berreta y Zorrilla de San Martin ;CANELONES;;Ambulatorio
+9000;Consultorio de Medicina Familiar y Comunitaria Jaureguiberry - Ruta Interbalnearia Km 88 ;CANELONES;Jaureguiberry;Ambulatorio
+9000;Consultorio Medicina Familiar y Comunitaria Abayuba - Magalona 3349.;CANELONES;;Ambulatorio
+9000;Policlínica Obelisco - Simón Bolívar s/nº entre San Luis y Moreira.;CANELONES;;Ambulatorio
+9000;Policlínica Progreso - Maldonado s/n Esq. R. Argentina.;CANELONES;;Ambulatorio
+9000;Policlínica Sauce - Avda. P. de León entre J.E. Rodó y J. A.Lavalleja. ;CANELONES;;Ambulatorio
+9000;Policlínica San Marcos - Federico Ozanam s/n Esq. Julio Sosa..;CANELONES;;Ambulatorio
+9000;Policlínica Rincón del Colorado - Ruta 48 Km. 8.500..;CANELONES;;Ambulatorio
+9000;Policlínica El Dorado - Avda. El Dorado s/n esq. Reconquista.;CANELONES;;Ambulatorio
+9000;Policlínica Villa Alegría - Algarrobos s/n esq. Progreso Canelones.;CANELONES;;Ambulatorio
+9000;Policlínica La Paz - Emilio Andreon esq. Garibaldi.;CANELONES;;Ambulatorio
+9000;Policlínica Laures - Virgen de Lourdes s/n esq. La Gruta.;CANELONES;;Ambulatorio
+9000;Policlínica Juanicó - Salón Comunal MEVIR.;CANELONES;Juanicó;Ambulatorio
+9000;Policlínica Hipódromo - Avda. del Bicentenario-Parque Artigas Hipodromo de Las Piedras.;CANELONES;las Piedras;Ambulatorio
+9000;Policlínica Vista Linda - Magallanes s/n esq. Asencio.;CANELONES;;Ambulatorio
+9000;Policlínica Villa Felicidad - Jacinto Vera- Ruta 5 Km. 32.500. - Progreso.;CANELONES;;Ambulatorio
+9000;Consultorio Medicina Familiar y Comunitaria Villa Juanita;CANELONES;;Ambulatorio
+9000;Dirección: Julio Sosa s/n entre Paso de Los Toros y Flores;CANELONES;;Ambulatorio
+9000;Policlínica Obelisco - Simón Bolívar 120 esq. San Luis.;CANELONES;;Ambulatorio
+9000;Policlínica Antelo - Valdenegro s/n esq. Paraguay Chico.;CANELONES;;Ambulatorio
+9000;Consultorio Medicina familiar y Comunitaria El Santo - Barranquilla s/n esq. Queguay.;CANELONES;;Ambulatorio
+9000;Policlínica Corfrisa - Vivián Trías s/n esq. Espínola.;CANELONES;;Ambulatorio
+9000;Policlínica Tiscornia - Tiscornia s/n;CANELONES;;Ambulatorio
+9000;Policlínica Canelón Chico - Ruta 107 km 15 - Canelón Chico;CANELONES;;Ambulatorio
+9000;Puesto de Salud Villa Foresti - Granada esq. Chopin;CANELONES;;Ambulatorio
+9000;Centro de Salud Monterrey - Maciel 116 entre Eduardo Acevedo y Avda. Calcagno;CANELONES;Paso Carrasco;Centro de Salud
+9000;"Consultorio MFyC ""Casa Pueblo"" - Cno. Carrasco 164 esq. Pedro Varela";CANELONES;Canelones ;Ambulatorio
+9000;Consultorio MFyC Junta Local Vieja - Cno. Carrasco 70 ;CANELONES;Paso Carrasco;Ambulatorio
+9000;Centro de Salud Ciudad de la Costa - García Arocena s/nº y Seco García Km 22.200;CANELONES;Ciudad de la Costa;Centro de Salud
+9000;Policlínica Rambla - Rambla Costanera Solar 77 Esq. Calle 70;CANELONES;Ciudad de la Costa;Ambulatorio
+9000;Policlínica Autódromo - Rio Negro e Interbalnearia Km 30 (1 cuadra del Autódromo);CANELONES;Ciudad de la Costa;Ambulatorio
+9000;Policlínica Empalme Nicolich - Ruta 101, Km 21200 y Ruta 102;CANELONES;Empalme Nicolich;Ambulatorio
+9000;Policlínica Villa Don Arturo - Paso Escobar entre Calle 3 y Márquez Castro (Solymar Norte);CANELONES;Solymar ;Ambulatorio
+9000;Policlínica Pinar - Avda. Eduardo Pérez y Ciudad Pando;CANELONES;El Pinar;Ambulatorio
+9000;Policlínica Colonia Nicolich - Calle Pochintesta Manz. 121 Los Aromos y Tomás Berreta;CANELONES;Colonia Nicolich;Ambulatorio
+9000;Policlínica Colinas de Solymar - Avda. C Capilla San Benito Manzana 418 Solar 2 Esq. Pirineos;CANELONES;Solymar;Ambulatorio
+9000;Consultorio MFyC Montes de Solymar - Colibrí Manz. 118 Solar 10 Esq. Garzas y Picaflores;CANELONES;Solymar ;Ambulatorio
+9000;Hospital Departamental de Cerro Largo - Treinta y Tres 226.;CERRO LARGO;Melo;Centro de Salud
+9000;Centro de Salud de Melo - Colón No. 919.;CERRO LARGO;Melo;Centro de Salud
+9000;Policlínica de Fraile Muerto - Avenida Blanca Castro de Argencio y Gral. Artigas. ;CERRO LARGO;Fraile Muerto;Ambulatorio
+9000;Policlínica de Tupambaé - Continuación Ruta 7 y Avda. Gral. Artigas. ;CERRO LARGO;Tupambaé;Ambulatorio
+9000;Policlínica de Ageguá -  María Isabel Rodríguez Mattos. No. 776-;CERRO LARGO;Aceguá;Ambulatorio
+9000;Policlínica de Noblía - Calle No. 4 S/N;CERRO LARGO;Cerro Largo;Ambulatorio
+9000;Centro Auxiliar de Río Branco - Ismael Velázquez No. 1131 ;CERRO LARGO;Rio Branco;Centro de Salud
+9000;"Centro Auxiliar de Cardona ""Dr. Rogelio C. Sosa"" - Rogelio Sosa S/N.";COLONIA;Cardona;Centro de Salud
+9000;Centro Departamental de Colonia - Avda. Batlle y Ordóñez 596, esq. Felipe Basshaum;COLONIA;Colonia del Sacramento;Centro de Salud
+9000;Centro Auxiliar de Juan Lacaze - Zorrilla de San Martín Nº 515;COLONIA;Juan Lacaze;Centro de Salud
+9000;"Centro Auxiliar de Carmelo ""José Artigas"" - Bulevar Artigas entre Zorrilla y 19 de Abril";COLONIA;Carmelo;Centro de Salud
+9000;Centro Auxiliar de Rosario -  Martínez Diez y Garat;COLONIA;Rosario;Centro de Salud
+9000;CENTRO AUXILIAR NUEVA HELVECIA - 18 de Julio 1592;COLONIA;Rosario;Centro de Salud
+9000;CENTRO AUXILIAR NUEVA PALMIRA - Varela s/n entre Ituzaingó e Ibicuy;COLONIA;Rosario;Centro de Salud
+9000;CENTRO DE SALUD OMBÚES DE LAVALLE - 25 de Mayo esq. Sarandí;COLONIA;Rosario;Ambulatorio
+9000;Policlínica El General - Calle Pública s/n. Barrio El General;COLONIA;Colonia del Sacramento;Ambulatorio
+9000;Policlínica El Real de San Carlos - Calle Quinque s/n;COLONIA;Colonia del Sacramento;Ambulatorio
+9000;Policlínica Los Nogales - José Vico 500.;COLONIA;Colonia del Sacramento;Ambulatorio
+9000;Policlínica Golondrina -  Ibicuy esq. Estados Unidos.;COLONIA;Nueva Palmira;Ambulatorio
+9000;Policlínica Asencio - Montevideo s/n esq. Sur.;COLONIA;Nueva Palmira;Ambulatorio
+9000;Policlínica Saravia - Roberto Berttolini esq. Treinta y Tres;COLONIA;Carmelo;Ambulatorio
+9000;Policlínica Mihanovich - Wilson Ferreira 63, esq. José P. Varela;COLONIA;Carmelo;Ambulatorio
+9000;Policlínica Cerro MEVIR - Paraje Cerro.;COLONIA;Carmelo;Ambulatorio
+9000;Policlínica Comité de Jubilados - Ignacio Barrios 395 esq. 19 de Abril;COLONIA;Carmelo;Ambulatorio
+9000;Policlínica Raúl López - Piedras entre Leandro Gómez y Oficial 2;COLONIA;Carmelo;Ambulatorio
+9000;Policlínica COPOBCE - Manuel Belgrano 342;COLONIA;Carmelo;Ambulatorio
+9000;Policlínica San Francisco - Camino de los Peregrinos s/n;COLONIA;Carmelo;Ambulatorio
+9000;Policlínica Villa Pancha -Esquina Calle 2 y 9.;COLONIA;Juan Lacaze;Ambulatorio
+9000;Policlínica El Ranchito - Avenida Don Bosco s/n;COLONIA;Juan Lacaze;Ambulatorio
+9000;Policlínica 21 de Octubre - Avda. Fernández Crespo;COLONIA;Juan Lacaze;Ambulatorio
+9000;Policlínica Retiro -  Chile s/n , casi Uruguay;COLONIA;Nueva Helvecia;Ambulatorio
+9000;POLICLÍNICAS URBANAS - COLONIA VALDENSE;COLONIA;Nueva Helvecia;Ambulatorio
+9000;Policlínica Colonia Valdense -Juan Bonjour esq. 11 de Junio.;COLONIA;Colonia Valdense;Ambulatorio
+9000;Policlínica El Pastoreo - Picapalo s/n;COLONIA;Rosario;Ambulatorio
+9000;Policlínica Juan González - Calle: Ruta 21 Km 246;COLONIA;;Ambulatorio
+9000;Policlínica Conchillas - Camino al Puerto s/n;COLONIA;;Ambulatorio
+9000;Policlínica Campana - Ruta 55 Km 12;COLONIA;;Ambulatorio
+9000;Policlínica Miguelete - José Pedro Varela s/n;COLONIA;;Ambulatorio
+9000;Policlínica Tarariras - Las Flores s/n;COLONIA;;Ambulatorio
+9000;Policlínica Semilleros - Octavio Vergara, Ruta 50;COLONIA;;Ambulatorio
+9000;Policlínica Riachuelo - Avda. Uruguay s/n, Ruta 1 Km 168;COLONIA;;Ambulatorio
+9000;Policlínica Santa Ana - Avda de los Cardenales s/n;COLONIA;;Ambulatorio
+9000;Policlínica Minuano - Ruta 1 Km 140 Paraje Minuano. MEVIR, Salón Comunal.;COLONIA;;Ambulatorio
+9000;Policlínica Barker - Ruta 54.;COLONIA;;Ambulatorio
+9000;Policlínica La Paz - Colonia Piamontesa - Rosa Butlwe s/n, esq. Artigas;COLONIA;;Ambulatorio
+9000;"Policlínica Fomento ""Dr. Luis A. Bonjour. - Calle  la Capilla.";COLONIA;;Ambulatorio
+9000;Policlínica Cufré - Sarandí esq. Jacarandá;COLONIA;;Ambulatorio
+9000;Centro Departamental de Durazno - Prof. Miguel C. Rubino S/N.;DURAZNO;Durazno ;Centro de Salud
+9000;Centro de Salud Sarandí del Yí - Avda. Dr. Héctor Petrini S/N esq. José María Rodríguez;DURAZNO;Durazno ;Centro de Salud
+9000;Policlínica San Francisco - Gral. San Martín 333;DURAZNO;Durazno ;Ambulatorio
+9000;Policlínica Barrio Durán -  José Gómez s/n.;DURAZNO;Durazno ;Ambulatorio
+9000;Policlínica La Amarilla -Dr. Rossi 110 ex 18 de Mayo;DURAZNO;Durazno ;Ambulatorio
+9000;Policlínica BUEM - Etchechuri esq. Giordano.;DURAZNO;Durazno ;Ambulatorio
+9000;Policlínica Sportivo Yí -  Hudson esq. Irrisarri.;DURAZNO;Durazno ;Ambulatorio
+9000;Policlínica Puerto de los Barriles - George Washington esq. Baltasar Brum.;DURAZNO;Durazno ;Ambulatorio
+9000;Policlínica COBUSU - Instrucciones del año XIII esq. Grito de Asencio.;DURAZNO;Durazno ;Ambulatorio
+9000;Policlínica MAPEP George Washington esq. Garibaldi.;DURAZNO;Durazno ;Ambulatorio
+9000;Policlínica Centro -  Eusebio Píriz, entre 18 de Julio y Avda. Gral José Artigas;DURAZNO;Durazno ;Ambulatorio
+9000;Policlínica Policial - Eusebio Píriz esq. 18 de Julio;DURAZNO;Durazno ;Ambulatorio
+9000;Policlínica Playa Vieja - Sarandí esq. Osiris.;DURAZNO;Sarandi del Yi;Ambulatorio
+9000;Policlínica Barrio Estación - BarrioEstación s/n. En Capilla frente a Estación de AFE.;DURAZNO;Sarandi del Yi;Ambulatorio
+9000;Policlínica Barrio Norte - Juan Antonio Lavalleja, entre Francisco Ríos y Justo Lema;DURAZNO;Sarandi del Yi;Ambulatorio
+9000;Policlínica San Antonio - Prof. Enrique Martínez Matonte entre José Ellauri y José P. Varela.;DURAZNO;Sarandi del Yi;Ambulatorio
+9000;Policlínica MEVIR - Democracia esq. Gallinal;DURAZNO;Sarandi del Yi;Ambulatorio
+9000;Policlínica Malbajar - Prof. Enrique Martínez Matonte entre Isidoro de María y 25 de Agosto.;DURAZNO;Sarandi del Yi;Ambulatorio
+9000;Puesto de Ronda Rural La Alegría - Ruta 6 Km 306, 20 Km por Camino Vecinal.;DURAZNO;;Ambulatorio
+9000;Puesto de Ronda Rural Cuchilla de Ramírez - Ruta 6 Km 319 .;DURAZNO;;Ambulatorio
+9000;Policlínica La Paloma - Celia C. Galarza s/n ;DURAZNO;;Ambulatorio
+9000;Policlínica Blanquillo -  Dr. Alejandro Saráchaga s/n;DURAZNO;;Ambulatorio
+9000;Policlínica Rossell y Rius -  Rossell y Rius s/n.;DURAZNO;;Ambulatorio
+9000;Puesto de Ronda Rural Puntas de Malbajar -  Ruta 43 y Ruta 6. puntas de Malbajar .;DURAZNO;;Ambulatorio
+9000;Policlínica San Jorge - Ruta 100 Km 92, Sociedad Rural.;DURAZNO;;Ambulatorio
+9000;Puesto de Ronda Rural Aguas Buenas - Ruta 100 Km 85, Camino vecinal .;DURAZNO;;Ambulatorio
+9000;Policlínica Villa del Carmen -  Andrés Farraut s/n.;DURAZNO;;Ambulatorio
+9000;Puesto de Ronda Rural Ombúes de Oribe - Ruta 14 y Ruta 100.;DURAZNO;;Ambulatorio
+9000;Puesto de Ronda Rural Pueblo Álvarez - Ruta 100 Km 40.;DURAZNO;;Ambulatorio
+9000;Policlínica Centenario -  Ruta 5 Km 247, 500;DURAZNO;;Ambulatorio
+9000;Policlínica Carlos Reyles - Rivera s/n.;DURAZNO;;Ambulatorio
+9000;Puesto de Ronda Rural La Lanera - Odilia Rivas s/n barrio La Laanera.;DURAZNO;;Ambulatorio
+9000;Puesto de Ronda Rural La Curva -  Continuación José Gómez esq. Ruta 14 MEVIR La Curva.;DURAZNO;;Ambulatorio
+9000;Puesto de Ronda Rural Batoví - Camino vecinal s/n Paraje Batoví .;DURAZNO;;Ambulatorio
+9000;"Centro Departamental de Flores ""Dr.Edison Camacho"" -  Batlle y Ordoñez 966";FLORES;Trinidad;Centro de Salud
+9000;"Policlínica Cruz Roja, ""Pedro Blas Sallúa"" - Herrera 088.";FLORES;Trinidad;Ambulatorio
+9000;Policlínica Ribot (Iglesia) - Leandro Gómez esq. Dr. Sanche.;FLORES;Trinidad;Ambulatorio
+9000;Policlínica Sánchez Echeverría (COVIF I) - Solis esq. Colón.;FLORES;Trinidad;Ambulatorio
+9000;Policlínica Retirados Militares - Lavalleja esq. 25 de Agosto.;FLORES;Trinidad;Ambulatorio
+9000;Policlínica Barrio Unión - Calle 14 de Abril Nº 71.;FLORES;Trinidad;Ambulatorio
+9000;Policlínica Dr. Rubio - Santísima Trinidad esq. Sarandí.;FLORES;Trinidad;Ambulatorio
+9000;Policlínica Andresito -Senaqué s/n - MEVIR.;FLORES;;Ambulatorio
+9000;Policlínica Ismael Cortinas -Saravia esq. Herrera.;FLORES;;Ambulatorio
+9000;Policlínica Cerro Colorado - Ruta 3, MEVIR.;FLORES;;Ambulatorio
+9000;Policlínica Juan José Castro - Escuela Nº 25, Estación Juan José Castro.;FLORES;;Ambulatorio
+9000;Policlínica La Casilla - Ruta 23, MEVIR.;FLORES;;Ambulatorio
+9000;Centro Departamental de Florida “Dr. Raúl Amorín Cal” - Baltasar Brum 414.;FLORIDA;Florida;Centro de Salud
+9000;"CENTRO AUXILIAR SARANDÍ GRANDE  ""Dr. Alfredo Sanjuán Suárez"" - Pasteur 1052.";FLORIDA;Sarandi Grande;Centro de Salud
+9000;Policlínica Cuchilla Santarcieri - Calle 60 Nº 3545 casi Grauert.;FLORIDA;Florida;Ambulatorio
+9000;Policlínica Florida Blanca - Timoteo Aparicio esq. Harrinson.;FLORIDA;Florida;Ambulatorio
+9000;Policlínica San Fernando - Gianolla casi Heber Usher.;FLORIDA;Florida;Ambulatorio
+9000;Policlínica Prado Español - L. E. Pérez s/n entre Batlle y Ordóñez Y F. López.;FLORIDA;Florida;Ambulatorio
+9000;Policlínica Corralón del Tigre - 3 de Junio s/n casi 12 de Octubre.;FLORIDA;Florida;Ambulatorio
+9000;Policlínica Comisario Hugo Román - Gallinal esq. 18 de julio.;FLORIDA;Florida;Ambulatorio
+9000;Policlínica Del Parque Asuaga s/n.;FLORIDA;Sarandi Grande;Ambulatorio
+9000;Policlínica MEVIR - Salón Comunal MEVIR I.;FLORIDA;Sarandi Grande;Ambulatorio
+9000;Policlínica Champañat - Calle francisco González, Barrio Nuevo Paris.;FLORIDA;Sarandi Grande;Ambulatorio
+9000;Policlínica Villa Hípica - R.5 y cont. Avda. Artigas - Capilla V.Hípica.;FLORIDA;Sarandi Grande;Ambulatorio
+9000;Policlínica Polanco del Yí -Ruta 42 , Km 40 - Escuela de Polanco del Yí.;FLORIDA;;Ambulatorio
+9000;Policlínica Goñi - Ruta 5, Km 162.;FLORIDA;;Ambulatorio
+9000;Policlínica Maciel -Maciel Ruta 5 - Camino vecinal - Salón Comunal Puntas de Maciel - MEVIR;FLORIDA;;Ambulatorio
+9000;Policlínica Pintado - Ruta 5, Km 145 - Capilla.;FLORIDA;;Ambulatorio
+9000;Policlínica La Cruz - Av. Artigas s/n- Ruta 5, Km 131.;FLORIDA;;Ambulatorio
+9000;Policlínica La Macana - Camino de la Costa ,Km 10.;FLORIDA;;Ambulatorio
+9000;"Policlínica Capilla del Sauce ""Dr. Hugo Dibarboure Icasuriaga"" - Ruta 6 Km. 182.";FLORIDA;;Ambulatorio
+9000;Puesto Rural: Montecoral -Ruta 6, Km 175 - Estación de AFE.;FLORIDA;;Ambulatorio
+9000;Puesto Rural: Chilcas y Chingolas - Ruta 6 Km 172, Camino vecinal.;FLORIDA;;Ambulatorio
+9000;Policlínica San Gabriel - Ruta 56, cruce Ruta 6.;FLORIDA;;Ambulatorio
+9000;Policlínica Cerro Colorado - Ruta 7 Km 145.500.;FLORIDA;;Ambulatorio
+9000;Policlínica Reboledo - Ruta 7 Km 123.;FLORIDA;;Ambulatorio
+9000;Policlínica Casupá -  José P. Varela s/n.;FLORIDA;;Ambulatorio
+9000;Policlínica Fray Marcos - Ruta 7, Avenida Ciro Giambruno s/n-.;FLORIDA;;Ambulatorio
+9000;Policlínica Chamizo - Ruta 94- Florida s/n.;FLORIDA;;Ambulatorio
+9000;Policlínica Mendoza Chico - Ruta 5 Km 80 - Calle 10 s/n.;FLORIDA;;Ambulatorio
+9000;Policlínica Mendoza Grande -  Ruta 5 Km 74.;FLORIDA;;Ambulatorio
+9000;Policlínica Berrondo - Ruta 77 Km 101.;FLORIDA;;Ambulatorio
+9000;Policlínica 25 de Mayo -  Ruta 77, 19 de Junio s/n.;FLORIDA;;Ambulatorio
+9000;Policlínica Cardal -  Ruta 77 Km 79, Av. Artigas s/n.;FLORIDA;;Ambulatorio
+9000;Policlínica Independencia - Ruta 77 Km 72;FLORIDA;;Ambulatorio
+9000;Policlínica 25 de Agosto - Ruta 77 , Manuel Calleros s/n.;FLORIDA;;Ambulatorio
+9000;Centro Departamental de Lavalleja Dr. Alfredo Vidal y Fuentes - Avda. Varela 1185;LAVALLEJA;Minas;Centro de Salud
+9000;Centro Auxiliar José Batlle y Ordoñez - 18 de Julio s/n y Bvar. Artigas.;LAVALLEJA;Minas;Centro de Salud
+9000;Policlínica Piraraja - Calle Olmos entre Gerona y 18 de Julio.;LAVALLEJA;Minas;Ambulatorio
+9000;Policlínica Mariscala - Sarandi s/n.;LAVALLEJA;Minas;Ambulatorio
+9000;Policlínica Solís de Mataojo - 25 de Agosto y Maria Amestoy.;LAVALLEJA;;Ambulatorio
+9000;Policlínica Barrio 3 Zamora -  Calle pública 68 y Stgo. Vázquez ;LAVALLEJA;Minas;Ambulatorio
+9000;Policlínica Barrio España - Chico Carlo Esq. Ariel s/n ;LAVALLEJA;Minas;Ambulatorio
+9000;Policlínica Barrio 2 - Las Delicias - Jhon Kennedy y Paul Harris S/N ;LAVALLEJA;Minas;Ambulatorio
+9000;Policlínica Estación - Avda. Artigas y Ugolini;LAVALLEJA;;Ambulatorio
+9000;Policlínica Complejo las Delicias - Cno. Paso de las Piedras entre R 8 y Kennedy.;LAVALLEJA;Minas;Ambulatorio
+9000;Policlínica Douglas Elola - Avda Artigas (dentro Sede Brio Olimpico).;LAVALLEJA;Minas;Ambulatorio
+9000;Policlínica Filarmónica - Washington Beltran Esq. Rondeau.;LAVALLEJA;Minas;Ambulatorio
+9000;Policlínica Dr. Reyes Terra -  España entre Ellauri y Amilibia.;LAVALLEJA;Minas;Ambulatorio
+9000;Policlínica Garolini - Calle Tala S/N.;LAVALLEJA;;Ambulatorio
+9000;Policlínica Barrion Garolini;LAVALLEJA;Minas;Ambulatorio
+9000;Policlínica La Coronilla - Ruta 8 km 112.500;LAVALLEJA;;Ambulatorio
+9000;Policlinica Barrio Ancap - Minas;LAVALLEJA;Minas;Ambulatorio
+9000;Policliníca La Rambla - Dgo. Pérez 433.;LAVALLEJA;Minas.;Ambulatorio
+9000;Policlínica Colon - Oficial 12 esq. Amilivia.;LAVALLEJA;Minas;Ambulatorio
+9000;Policlínica Villa Rosario - 25 de Agosto S/N y Constituyente Zapicán.;LAVALLEJA;;Ambulatorio
+9000;Policlínica Polanco - Ruta 108 Km. 185.;LAVALLEJA;;Ambulatorio
+9000;Policlínica Poblado Aramendia - Ruta 8 km 234.;LAVALLEJA;;Ambulatorio
+9000;Policlínica Zapicán - Bvar. Constitución S/N y 25 de Agosto;LAVALLEJA;;Ambulatorio
+9000;Complejo Hospitalario San Carlos - Maldonado - Ventura Alegre s/n y Las Dalias .;MALDONADO;Maldonado;Centro de Salud
+9000;Hospital de San Carlos - Avda. Andrés Ceberio 519 casi Abreu.;MALDONADO;San Carlos;Centro de Salud
+9000;Centro Auxiliar Aiguá - Gral Manuel Oribe y Av. Juan A. Lavalleja.;MALDONADO;Aiguá;Centro de Salud
+9000;Centro Auxiliar Pan de Azúcar -  Rincón 471 y Francisco Bonilla.;MALDONADO;Pan de Azúcar;Centro de Salud
+9000;Centro de Salud Vigía - Cont. Garzón s/n  y Ferreira Aldunate, Barrio Cugñetti ;MALDONADO;Maldonado;Centro de Salud
+9000;Policlínica Piriápolis - Simón del Pino y Dr. Barrios.;MALDONADO;Piriápolis;Ambulatorio
+9000;Policlínica Barrio Elisa - Calle 15 esq. Zitarrosa - Barrio Elisa- Maldonado Nuevo.;MALDONADO;Maldonado;Ambulatorio
+9000;Policlínica Intersocial - Av. De Los Gauchos y Vialidad -Barrió San Antonio 3 - Maldonado Nuevo;MALDONADO;Maldonado;Ambulatorio
+9000;Policlínica Hipódromo - Avda. Guenoas (Avda. 3) s/n. ;MALDONADO;Maldonado;Ambulatorio
+9000;Policlínica Kennedy - San Pablo casi Isabel de Castilla.;MALDONADO;Maldonado;Ambulatorio
+9000;Policlínica Rodríguez Barrios -  Av. Rocha esq. A. Lapido Montenegro.;MALDONADO;San Carlos;Ambulatorio
+9000;Policlínica Barrio Sur - Melchor Maurente al cont. La Alameda Valmal;MALDONADO;San Carlos;Ambulatorio
+9000;Policlínica Gregorio Aznáres - Bvar Artigas Manzana 20 esq. Wilson Ferreira Aldunate ;MALDONADO;Gregorio Aznáres;Ambulatorio
+9000;Policlínica Garzón - Los Cerrillos y La Cantera - Pueblo Garzón.;MALDONADO;Garzón;Ambulatorio
+9000;Policlínica La Capuera - Calle Avda. del Lago a 1/2 cuadra de parada 1. ;MALDONADO;La Capuera;Ambulatorio
+9000;Policlínica José Ignacio - Calle Luis Schickendantz y Del Timonel .;MALDONADO;José Ignacio;Ambulatorio
+9000;Policínica Balneario Buenos Aires - Calle 22 entre 48 y 49 (Ruta 10 km165).;MALDONADO;Balneario BS.AS.;Ambulatorio
+9000;"Hospital Centro Geriátrico ""Dr. Luis Piñeyro del Campo"" -  Larravide 2351 (Esq. Morelli).";MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Instituto Nacional de Reumatologia - Av. Italia S/N esq. Las Heras;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Instituto Nacional del Cancer - Joanicó 3265;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Instituto Nacional de Ortopedia y Traumatología - Luis A. de Herrera 3326.;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Hospital de la Mujer Dra. Paulina Luisi CHPR - Bulevard Artigas 1550;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Hospital Pediátrico  CHPR - Bulevard Artigas 1550;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Hospital Maciel - 25 de Mayo 174;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Hospital Pasteur -  Larravide 2458.;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Centro Hospitalario del Norte - Gustavo Saint Bois  -  Cno. Fauquet 6358 - Villa Colón;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Hospital Español - Avda. Gral. Garibaldi 1729 esq. Rocha .;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Centro de Salud Sayago - Ariel 5018 entre Avda. Garzón y Quicuyo.;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Policlínica Asentamiento 25 de Agosto Fernando Menk esq. Pororó;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Nueva Esperanza - Pasaje H 1675 Esq. Albeniz;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Complejo América - Cno. Durán esq. Yegros;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Jardines de Peñarol - Badajoz 1796 Esq. Fynn;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Udai 2 -  Laura Cortinas 6370 esq. Rinaldi Guerra;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Verdisol - Cno. Melilla 6420 (entrando calle 3 al fondo);MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Villa Teresa - Jacinto De Serpa (ex Durán) 1210 Esq. Isidoro Pérez de Roxas;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica San José - Guanahany 1870 entre Luis Lasagna y Avda. Lezica- Villa Colón;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica INVE 19 - Lezica 6708 Esq. Camino Melilla;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;"Policlínica ""Helios Sarthou"" - Picaflor 6307 Esq. Confederada";MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Centro de Salud Ciudad Vieja - 25 de Mayo 183 entre Maciel y Guaraní;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Centro de Salud del Cerro - Carlos Ma. Ramírez 1744 entre Chile y Grecia;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Policlínica 19 De Abril - Guazucuá 320 esq. Pasaje 19 De Abril;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica 3 Ombués - Alagoas 742 esq. Pedro Giralt;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Consultorio de  MFyC Club Cap-Polonio -  Basagoiti 4539 esq. Gregorio Camino;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Cardona -  Lunarejo 5185 bis entre Cordobés y Gaita;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;"Policlínica ""Casa de Mario"" - Vázquez Sagaztume 383 entre Conciliación y Gobernador del Pino";MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Inve 18 - Carlos Tellier 4442 Esq. Inclusa;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Consultorio de MFyC Monserrat - Alaska 748 y Cno. Agustin Muñoz;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Covicenova - Cno. Cibils 4617 Esq. Verdún;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Maracana Sur -  Cno. Cibils entre Nube Yic y Ruta 1 Nueva;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica La Boyada - La Boyada 1682 Esq. Santín Carlos Rossi;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Consultorio de MFyC El Tobogán - Luis Trocoli entre Pasaje B y Pasaje A;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Nuevo Amanecer - Pasaje Central entre Solar 12 y Pasaje De La Vida;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Santa Catalina - Burdeos esq. Delia Zoppa;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Pajas Blancas - Leal De Ibarra 5495 entre Cap. Mesa y Castro;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Maracaná Norte - Calle 3 5813 (1era. Al norte Maracaná) esq. Cno. Cibils;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Jardines De Las Torres -  Los Nogales 2366 Cno. Cibils;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Consultorio MFyC Las Flores - Cno. Las Flores y Cno. Tomkinson;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Villa Sarandí - Minotto Di Cicco 5802 entre Campo Amor y Gavioli.;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Espartaco - Lomas De Zamora 2996 entre Cno. Manuel Flores y Oficial 4;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Santiago Vázquez - Avda. Luis Batlle Berres 174 Esq. La Guardia;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Los Bulevares -  Ideario Artiguista 2145 Esq. Liga Federal;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;"Consultorio de MFyC ""Aldeas Infantiles"" - Avda. Luis Batlle Berres Km. 19,500.";MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica 6 de diciembre - Oficial 3 Carlos María Pena (al fondo) Esq. Islas Canarias.;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;"Policlínica ""Tito Borjas"" - Gibraltar 3992 Esq. Bélgica";MONTEVIDEO ;Montevideo;Ambulatorio
+9000;"Centro de Salud ""Dr. Antonio Giordano"" - Avda. San Martín 3797 entre Rep. Chipre y García de Zuñiga";MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Policlínica San Lorenzo - Lancaster 4267 esq. Chimborazo;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Legión Buena Voluntad - José Batlle y Ordoñez 4820 entre Fco. Goyen y Arechavaleta;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica COVIMT 9 - Avda. José Batlle y Ordoñez 5129 Esq. Zubiría;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Centro de Salud Marroñas - José Ma. Guerra 3510 esq. Shaw;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;"Policlínica Acción Promocional ""18 de Julio"" Chimborazo 3266 Esq. Gral. Flores";MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Centro de Salud Unión - Vicenza 2815 entre 8 de Octubre y Mateo Cortés;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Policlínica León Duarte - Suñer y Capdevilla 3995 entre Vicente de Arco e Irureta Goyena;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;"Policlínica La Casona - Pantaleon Pérez 4961 Senda ""L"" Esq. Calle ""U"". Viviendas del Complejo Maroñas";MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Consultorio de MFyC CAIF Juan XXIII - Menorca 2107 entre Juan José Castro y Azara;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Centro de Salud Cruz de Carrasco - Juan Agazzi 2735 entre Cno. Carrasco y Dr. A. Pereira;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Policlínica Arroyo Carrasco - Acosta y Lara 7125 Esq. Antonio Pena;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Dr. Yanicelli - Cno. Carrasco 4626 Esq. Dr. Roberto Berro;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Dr. Manuel Liberoff -  Carlos Prando 2450 Esq. José de Freitas;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Centro de Salud Jardines del Hipódromo - Malinas 3843 entre Libia y Rafael;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Policlínica 24 de Junio - Pasaje Eucaliptus 7759 y Cno. Repetto y Pasaje del Mirador;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Don Bosco - Cno. Maldonado 777 Esq. Cno. Repetto;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Consultorio MFyC Ulises Fabaro - Ulises Fabaro 5619 Esq. Ombú;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;"Policlínica ""Silvia Da Luz"" (COVIPRO) -  Ruta 8 km. 19 Pasaje C9621 Esq. Laudino Vázquez y Pasaje A";MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica El Monarca - Calle 4 N° 188. Ruta 8 Km. 21800 Esq. Calle Central;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Villa Farré -  Estrellita Genta S/N Esq. Leandro Gómez;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;"Policlínica ""El Eje"" Ruta 8 11264 Km 21";MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Centro de Salud Badano Repetto - Capitán Mateo Tula Dufort 4145 y José Belloni;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Policlínica: Anexo Centro de Salud - J. Belloni 4602 Esq. Clemente Ruggi;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Consultorio MFyC Asentamiento 23 de Diciembre - Cno. C Linneo S/N Cno. Mendoza;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Capra - Continuación Argos S/N Plazoleta Barrio Nuevo;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Toledo Chico -  Avda. De Las Instrucciones 5461 Esq. Toledo Chico;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Artigas - Camino Cap. Peterossi 5185 Instrucciones y Mendoza;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Cirilo -  Santos Alfonso 4085 Esq. Esdrulfo Olivera;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Santa María - Teniente Galeano 3761 Bis Esq. Sixtina;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Consultorio MFy C Fénix - Cno. Fénix e Instrucciones;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Centro de Salud Enrique Claveaux - Pampillo y Novas 3661 esq. Cufré;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Policlínica Capurro - Doroteo Enciso 676 Esq. Accesos;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Centro de Salud Ruben Misurraco -  Enrique Castro 4149;MONTEVIDEO ;Montevideo;Centro de Salud
+9000;Policlínica Aquiles Lanza - Natal 5469 esq. Chicago;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Las Acacias - Iberia 3895 esq. Niagara;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;"Policlínica Los Reyes - Pasaje ""A"" Solar 35 entre Matilde Pacheco y Cno. Mendoza";MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Policlínica Rep. De Chile -  Baye 3790 Esq. Gral. Flores;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;Consultorio MFyC Plemu - Senda 26 Esq. Volpe entre Aparicio Saravia y Arroyo Miguelete;MONTEVIDEO ;Montevideo;Ambulatorio
+9000;"Centro Departamental de Paysandú - Hospital ""Escuela del Litoral Galan y Rocha"" - Monte Caseros 520";PAYSANDÚ;Paysandú;Centro de Salud
+9000;Centro Auxiliar de Guichón - Calle Avenida Pedro Guichóns;PAYSANDÚ;Guichón;Centro de Salud
+9000;Policlínica Artigas - Calle Grito de Asencio esquina Calle Larrañaga;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica Chaplin - Calle Andresito esquina Calle Joaquín Suarez;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica Purificación 3 - Calle Dr. Alberto Roldán esquina Calle Antonio Estefanel;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica Municipales II - Calle Benito Chain esquina Calle Independencia;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica Nueva York Calle Silverio Martinez 566 entre Calle Zelmar Michellini y Calle Entre Rios;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica Nuevo Paysandú - Calle Proyectada 31 esquina Avenida de las Américas;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica Puerto - Avenida Brasil esquina Calle Gutierrez Ruiz;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica El Techo - Soriano esquina Calle Dr. José Verocay;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica Barrio Norte - La Paz esquina Calle Valparaiso;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica CO.VI.FE. - Cerrito, esquina Calle Instrucciones del Año XIII;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica Mateo Perez Correa -  Larrañaga 809 entre Calle Dr. Baltasar Brum y Calle Pte. Luis Batlle Berres;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica Santa Mónica - Benito Chain,esq. Dr. Felippone;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica Casa Blanca - MEVIR N° 8.;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica Asencio - Grito de Asencio, esq. Batalla de las Piedras;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica Vista Hermosa - Juan de Almagro, esq. Grito de Asencio;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica Barrio INVE - Limite Este y Avda Italia, Barrio Inve;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica San Antonio - Uruguay entre Calle Nº 1 y Calle Nº 2;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica Santa Elena - Calle Proyectada Nº 11 Norte y Ciudad de Young;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica San Félix -  Avda. San Felix y Democracia;PAYSANDÚ;Paysandú;Ambulatorio
+9000;Policlínica Quebracho - Dr. Raúl Martini entre Sarandi y 8 de Octubre ;PAYSANDÚ;Quebracho;Ambulatorio
+9000;Policlínica Termas de Guaviyú -  Termas de Guaviyú. Ruta 3 Km. 432;PAYSANDÚ;;Ambulatorio
+9000;Policlínica Piedras Coloradas - 18 de Julio, esq. Puntas de Arroyo Negro. ;PAYSANDÚ;Piedras Coloradas;Ambulatorio
+9000;Policlínica Porvenir - Calle 9 entre calle 33 y calle E ;PAYSANDÚ;Porvenir;Ambulatorio
+9000;Policlínica Lorenzo Geyres - Tacuabe, esq. Cuareim;PAYSANDÚ;Estación Queguay;Ambulatorio
+9000;Policlínica Estación Porvenir - Mevir 14585;PAYSANDÚ;;Ambulatorio
+9000;Policlínica Orgoroso - Camino a la Bacacua, esq. Rincón.;PAYSANDÚ;;Ambulatorio
+9000;Policlínica Esperanza - Ruta 90 Km. 15.;PAYSANDÚ;Pueblo Esperanza;Ambulatorio
+9000;Policlínica Mevir II - Salon Comunal Mevir II;PAYSANDÚ;Guichon;Ambulatorio
+9000;Policlínica El Eucalipto - Salon Comunal de Mevir . Ruta 26 Km 99;PAYSANDÚ;;Ambulatorio
+9000;Policlínica Chapicuy - Mevir calle 11 (Chapicuy - Ruta 3 Km 453);PAYSANDÚ;Chapicuy;Ambulatorio
+9000;Policlínica Gallinal - Mevir 9644 ;PAYSANDÚ;Paraje Gallinal;Ambulatorio
+9000;Policlínica Morató - Salon Comunal - Ruta Nacional , Cuchilla de Haedo;PAYSANDÚ;;Ambulatorio
+9000;Policlínica Merinos - Continuación 18 de julio - Barrio Mevir;PAYSANDÚ;;Ambulatorio
+9000;Policlínica Tiatucura - Salon Comunal MEVIR;PAYSANDÚ;;Ambulatorio
+9000;Policlínica Piñera - Francisco Piria, esq. Menéndez y Pelayo .(pueblo Beisso-Piñera);PAYSANDÚ;;Ambulatorio
+9000;Policlínica Araujo - Escuela 36 - Camino Vecinal, 12 Km al Este de Ruta 3 Km 410(Queguayar);PAYSANDÚ;;Ambulatorio
+9000;Policlínica Bella Vista - Salon Parroquial - Paraje Bella Vista - Ruta 3 Km 486;PAYSANDÚ;;Ambulatorio
+9000;Policlínica Parada Daymán - Ruta 3 Km 480.;PAYSANDÚ;;Ambulatorio
+9000;Policlínica Cerro Chato - Salon Comunal Mevir -Camino Dtal Cuchilla San Jose;PAYSANDÚ;;Ambulatorio
+9000;Policlínica Cañada del Pueblo - Salon Comunal MEVIR (Paraje Cañada del Pueblo).;PAYSANDÚ;;Ambulatorio
+9000;Policlínica Sauce del Burucayupí - Escuela Rural Nº 31- Ruta 26 Km 68,500.;PAYSANDÚ;;Ambulatorio
+9000;Policlínica Puntas del Burucayupí - Escuela Rural Nº 34 - Ruta 26 Km 92,500.;PAYSANDÚ;;Ambulatorio
+9000;Hopsital de Rio Negro -  Echevarria y Lavalleja s/n.;RÍO NEGRO;Fray Bentos;Centro de Salud
+9000;Hospital de Young - Av. Zeballos y Martirene;RÍO NEGRO;Young;Centro de Salud
+9000;Centro de Salud Fray Bentos - 18 de julio e Ituzaingo;RÍO NEGRO;Fray Bentos;Ambulatorio
+9000;Policlínica Barrio Anglo -  Dr. Andrés Montaño s/n.;RÍO NEGRO;Fray Bentos;Ambulatorio
+9000;Policlínica Barrio Unión - Wilson Ferreira Aldunate esq. Rivera;RÍO NEGRO;Fray Bentos;Ambulatorio
+9000;Policlínica 2000 - República de Chile esq. Lawry;RÍO NEGRO;Fray Bentos;Ambulatorio
+9000;Policlínica Las Canteras - Rivera esq. Ibirapitá;RÍO NEGRO;Fray Bentos;Ambulatorio
+9000;Policlínica COBENA -  Lawry esq. Crottogini;RÍO NEGRO;Fray Bentos;Ambulatorio
+9000;Policlínica de Espacio Adolescente -  18 de Julio esq Ituzaingó;RÍO NEGRO;Fray Bentos;Ambulatorio
+9000;Centro de Salud Young  - Lavalleja esq. Zeballos;RÍO NEGRO;Young;Centro de Salud
+9000;Policlínica Dr. Iris Abad Guerra - Batlle y Ordóñez, casi vía férrea;RÍO NEGRO;Young;Ambulatorio
+9000;Policlínica MEVIR -  Senaqué 1394;RÍO NEGRO;Young;Ambulatorio
+9000;Policlínica de Espacio Adolescente  - Lavalleja esq. Zeballos;RÍO NEGRO;Young;Ambulatorio
+9000;Policlínica San Javier - Basilio Lubkov esq. Colón;RÍO NEGRO;;Ambulatorio
+9000;Policlínica Nuevo Berlín - Pita Nevril esq. Repetto;RÍO NEGRO;;Ambulatorio
+9000;Policlínica Algorta - Dr. Calcagno esq. 18 de Julio;RÍO NEGRO;;Ambulatorio
+9000;Policlínica Grecco - Complejo MEVIR;RÍO NEGRO;;Ambulatorio
+9000;Policlínica Paso de los Mellizos - Roberto Vivo s/n;RÍO NEGRO;;Ambulatorio
+9000;Policlínica Paso de la Cruz - Complejo MEVIR;RÍO NEGRO;;Ambulatorio
+9000;Policlínica Sarandi de Navarro - Complejo MEVIR;RÍO NEGRO;;Ambulatorio
+9000;Policlínica Sauce - Camino Vecinal - Rutas 20 y 25;RÍO NEGRO;;Ambulatorio
+9000;Policlínica Bellaco - Complejo MEVIR;RÍO NEGRO;;Ambulatorio
+9000;Policlínica Tomás Berreta - Escuela Nº 19 - Las Margaritas;RÍO NEGRO;;Ambulatorio
+9000;Hospital Departamental de Rivera -  Calle Bulevar Presidente Viera S/N;RIVERA;Rivera;Centro de Salud
+9000;"Centro de Salud ""Q.F. Federico Dìaz"" - Avda. 1825 nº 531";RIVERA;Rivera;Centro de Salud
+9000;"Centro de Salud ""Dr. José Royol"" - Avda. Libano s/n";RIVERA;Rivera;Centro de Salud
+9000;Centro Auxiliar Minas de Corrales - 12 de Octubre s/n.;RIVERA;Minas de Corrales;Centro de Salud
+9000;Policlínica Periférica Paso de La Estiva - Viviendas Paso de la Estiva;RIVERA;Rivera;Ambulatorio
+9000;Policlínica Periférica La Pedrera - Celia Bueno de Arizaga s/n ;RIVERA;Rivera;Ambulatorio
+9000;Policlínica Periférica Lagunon - Chasque de los Santos s/n ;RIVERA;Rivera;Ambulatorio
+9000;Policlínica Periférica Mandubí - José Nasazzi s/n;RIVERA;Rivera;Ambulatorio
+9000;Policlínica Periférica Rampla - Avda. Brasil s/n;RIVERA;Rivera;Ambulatorio
+9000;Policlínica Periférica Santa Isabel Arturo Nuñez s/n;RIVERA;Rivera;Ambulatorio
+9000;Policlínica Periférica Tres Cruces - Pte. Giro y Maximiliano Luz - Complejo Hab. Tres Cruces;RIVERA;Rivera;Ambulatorio
+9000;Policlínica Ciudad Tranqueras - 33 Orientales s/n;RIVERA;Tranqueras;Ambulatorio
+9000;Policlínica Villa Vichadero -  Bvar. Rivera s/n;RIVERA;Vichadero;Ambulatorio
+9000;Policlínica Abrojal ;RIVERA;;Ambulatorio
+9000;Policlínica Amarillo ;RIVERA;;Ambulatorio
+9000;Policlínica Arroyo Blanco ;RIVERA;;Ambulatorio
+9000;Policlínica Caraguatá;RIVERA;;Ambulatorio
+9000;Policlínica Cerrillada;RIVERA;;Ambulatorio
+9000;Policlínica Cerro Pelado;RIVERA;Cerro Pelado;Ambulatorio
+9000;Policlínica La Palma ;RIVERA;;Ambulatorio
+9000;Policlínica La Puente;RIVERA;;Ambulatorio
+9000;Policlínica Lagos del Norte ;RIVERA;;Ambulatorio
+9000;Policlínica Las Flores;RIVERA;;Ambulatorio
+9000;Policlínica Masoller ;RIVERA;;Ambulatorio
+9000;Policlínica Moirones ;RIVERA;;Ambulatorio
+9000;Policlínica Paso Hospital ;RIVERA;;Ambulatorio
+9000;Policlínica Pueblo de los Santos ;RIVERA;;Ambulatorio
+9000;Centro Departamental de Rocha - Avda Martínez y Treinta y Tres.;ROCHA;Rocha;Centro de Salud
+9000;Centro Auxiliar de Castillos - 19 de Abril 1561.;ROCHA;Castillos;Centro de Salud
+9000;Hospital de Chuy - Sta. Teresa s/n;ROCHA;Chuy;Centro de Salud
+9000;Centro Auxiliar de Lascano - Eudoxio Vivas 1401;ROCHA;Lascano;Centro de Salud
+9000;Centro Auxiliar de Castillos - 19 de Abril 1561.;ROCHA;Castillos;Centro de Salud
+9000;Policlínica La Paloma - Calle La Paloma s/n;ROCHA;La Paloma;Ambulatorio
+9000;Policlínica Cebollatí - San Miguel s/n;ROCHA;Cebollatí;Ambulatorio
+9000;Policlínica Velázquez -  Calle C I 13 s/n;ROCHA;Velázquez;Ambulatorio
+9000;Policlínica de San Luis -  Camino Paso de la Balsa;ROCHA;San Luis;Ambulatorio
+9000;Policlínica La Coronilla -  Leopoldo Fernández s/n;ROCHA;La Coronilla;Ambulatorio
+9000;Policlínica Punta del Diablo - Explanada entrada Playa de la Viuda;ROCHA;Punta del Diablo;Ambulatorio
+9000;"Policlínica Barra de Chuy ""Bernardo Ventura"" - Parada 2";ROCHA;Barra de Chuy;Ambulatorio
+9000;Policlínica Dieciocho de Julio - Artesanos de la Piedra;ROCHA;18 de Julio;Ambulatorio
+9000;Policlínica 19 de Abril - A dos cuadras de la Comisaría y a una de Ruta 9;ROCHA;19 de Abril;Ambulatorio
+9000;Enfermería de Cabo Polonio - Terminal  de Omnibus.;ROCHA;Cabo Polonio;Ambulatorio
+9000;Policlínica Barra de Valizas -  Calle Aladino Veiga s/n;ROCHA;Barra de Valizas;Ambulatorio
+9000;Policlínica Aguas Dulces - Avda. Central M1 S2;ROCHA;Aguas Dulces;Ambulatorio
+9000;Policlínica Samuel Prilliac - Barrio Samuel;ROCHA;Chuy;Ambulatorio
+9000;Policlínica Barrio Florinda - Calle India Muerta s/n;ROCHA;Castillos;Ambulatorio
+9000;Policlínica Puimayen -  Parada 15 .;ROCHA;Barra de Chuy;Ambulatorio
+9000;Policlínica Barrio Parque Barrio Pescadores;ROCHA;La Paloma;Ambulatorio
+9000;Policlínica Balneario Costa Azul - junto a la Escuela Publica;ROCHA;Costa Azul;Ambulatorio
+9000;Policlínica Lauro Cruz Goyenla - Barrio Lavalleja Pantealón Artigas casi Agraciada;ROCHA;Rocha;Ambulatorio
+9000;Policlínica Barrio Belvedere (Rocha) - Centro Comunal del Barrio.;ROCHA;Rocha;Ambulatorio
+9000;Policlínica Barrio Treinta y Tres - Plazoleta del Barrio.;ROCHA;Rocha;Ambulatorio
+9000;Policlínica El Ombú - Avda. 1º de Agosto y Ruta 9.;ROCHA;Rocha;Ambulatorio
+9000;Policlínica Barrio Hipódromo - Avda. del Hipódromo.;ROCHA;Rocha;Ambulatorio
+9000;Policlínica Barrio España - Calle Pagola.;ROCHA;Rocha;Ambulatorio
+9000;Hospital Regional de Salto - Cervantes esq. 18 de Julio ;SALTO;Salto;Centro de Salud
+9000;Policlínica UBA 1 - Lib. Juan Antonio Lavalleja 1902.;SALTO;;Ambulatorio
+9000;Policlínica UBA 2 - Salón Comunal Complejo GUAVIYÚ YATAY;SALTO;;Ambulatorio
+9000;Dirección: UBA 3 - Lorenzo Latorre s/n;SALTO;;Ambulatorio
+9000;Policlínica UBA 5 - Asencio esq. Chile;SALTO;;Ambulatorio
+9000;Policlínica UBA 6 - Complejo Habitacional CALAFI II;SALTO;;Ambulatorio
+9000;Policlínica UBA 7 - Julio Delgado 695;SALTO;;Ambulatorio
+9000;Policlínica UBA 8 - Malvacio Varela 2704;SALTO;;Ambulatorio
+9000;Policlínica Williams junto al CAIF del Barrio;SALTO;;Ambulatorio
+9000;Policlínica Burton - Barrio Burton;SALTO;;Ambulatorio
+9000;Policlínica Barrio Artigas -  Inst.Año XIII y Ruta 31;SALTO;;Ambulatorio
+9000;Policlínica Cien Manzanas -  San Martín esq. Corrientes;SALTO;;Ambulatorio
+9000;Policlínica La Tablada - 19 de Abril esq.Bella Unión;SALTO;;Ambulatorio
+9000;Policlínica Centro de Prematuros - 18 de Julio 286;SALTO;;Ambulatorio
+9000;Policlínica Barrio Albisu - Calle 1 esq. Calle 2;SALTO;;Ambulatorio
+9000;Policlínica Campos De Todos - Campos de Todos esq. Camino Vecinal;SALTO;;Ambulatorio
+9000;Policlínica Cerro Chato;SALTO;;Ambulatorio
+9000;Policlínica Cerro De Vera - Complejo MEVIR;SALTO;;Ambulatorio
+9000;Policlínica Colonia 18 Julio - calle 2;SALTO;;Ambulatorio
+9000;Policlínica Colonia Garibaldi;SALTO;;Ambulatorio
+9000;Policlínica Colonia Itapebí;SALTO;;Ambulatorio
+9000;Policlínica Cuchilla De Guaviyú;SALTO;;Ambulatorio
+9000;Policlínica Hipódromo -  Garibaldi esq. Defensa;SALTO;;Ambulatorio
+9000;Policlínica Laureles - Pueblo Laureles;SALTO;;Ambulatorio
+9000;Policlínica Paso Cementerio;SALTO;;Ambulatorio
+9000;Policlínica Paso De Las Piedras;SALTO;;Ambulatorio
+9000;Policlínica Paso Del Parque -  Ruta de Yones esq. Ruta 4;SALTO;;Ambulatorio
+9000;Policlínica Pepe Nuñez - Camino Vecinal a 28 Km. al noreste de Ruta 31;SALTO;;Ambulatorio
+9000;Policlínica Pueblo Fernández - Pueblo Fernández;SALTO;;Ambulatorio
+9000;Policlínica Pueblo Quintana - Pueblo Quintana;SALTO;;Ambulatorio
+9000;Policlínica Puntas De Valentín ;SALTO;;Ambulatorio
+9000;Policlínica Rincón De Valentin;SALTO;;Ambulatorio
+9000;Policlínica San Antonio;SALTO;;Ambulatorio
+9000;Policlínica Sarandí De Arapey;SALTO;;Ambulatorio
+9000;Policlínica Saucedo;SALTO;;Ambulatorio
+9000;Policlínica Belén;SALTO;;Ambulatorio
+9000;Policlínica Colonia Lavalleja;SALTO;;Ambulatorio
+9000;Policlínica Constitución;SALTO;;Ambulatorio
+9000;Policlínica Colonia Harriague;SALTO;;Ambulatorio
+9000;Policlínica Guaviyú De Arapey - Dirección: Ruta 4 Km. 114.;SALTO;;Ambulatorio
+9000;Policlínica Paso del Potrero - Ruta 31 Km. 122;SALTO;;Ambulatorio
+9000;Policlínica Pueblo Cayetano;SALTO;;Ambulatorio
+9000;Policlínica Pueblo Olivera;SALTO;;Ambulatorio
+9000;Policlínica Pueblo Ramos;SALTO;;Ambulatorio
+9000;Policlínica Carumbe;SALTO;;Ambulatorio
+9000;Policlínica Puntas De Cañas;SALTO;;Ambulatorio
+9000;Policlínica Cerros de Vera;SALTO;;Ambulatorio
+9000;Policlínica Palomas - Calle 1 esq. Calle 2;SALTO;;Ambulatorio
+9000;Hospital Departamental de San José;SAN JOSÉ;San José de Mayo;Centro de Salud
+9000;Centro de Salud Ciudad del Plata -  Ruta 1 km 26 , manzana 67 - Calle Rivera s/n;SAN JOSÉ;Ciudad del Plata;Centro de Salud
+9000;Policlínica Juana Martínez -  Km 32 Manz. C Solar 2 Sobre ruta 1 Vieja (Barrio Sta. María);SAN JOSÉ;;Ambulatorio
+9000;Policlínica Delta del Tigre - Km. 23 Manz. 20 Solar 4;SAN JOSÉ;;Ambulatorio
+9000;Consultorio MFyC Penino - Km. 29 Manz. De Soto S/N;SAN JOSÉ;;Ambulatorio
+9000;Centro de Salud San José -  Vidal 867 esq. Larriera;SAN JOSÉ;San José de Mayo;Ambulatorio
+9000;Policlínica Las Palmas - Cándido Marín esq. R.P.Martínez;SAN JOSÉ;San José de Mayo;Ambulatorio
+9000;Policlínica Tres Barrios -  Gral Flores esq. Suiza.;SAN JOSÉ;San José de Mayo;Ambulatorio
+9000;Policlínica Colón - Pelossi 137;SAN JOSÉ;San José de Mayo;Ambulatorio
+9000;Policlínica Mondex - Rosa Luna esq. F. Rodriguez;SAN JOSÉ;San José de Mayo;Ambulatorio
+9000;Policlínica Nuestra Señora de Fátima - Pelossi 132;SAN JOSÉ;San José de Mayo;Ambulatorio
+9000;Policlínica Parque Rodó - Laura Cortina 1019;SAN JOSÉ;San José de Mayo;Ambulatorio
+9000;Policlínica Prado Maragato - Rafael Salguero 746;SAN JOSÉ;San José de Mayo;Ambulatorio
+9000;Policlínica Roberto Mariano - España, entre Salto y Durazno;SAN JOSÉ;San José de Mayo;Ambulatorio
+9000;Policlínica Treinta y Tres al Sur - Treinta y Tres esq. Ellauri;SAN JOSÉ;San José de Mayo;Ambulatorio
+9000;Policlínica La Industrial - Guayabos 707;SAN JOSÉ;San José de Mayo;Ambulatorio
+9000;Policlínica INVE II - Rafael Salguero 746;SAN JOSÉ;San José de Mayo;Ambulatorio
+9000;Policlínica Asociación de Jubilados -  Sarandí 245;SAN JOSÉ;San José de Mayo;Ambulatorio
+9000;Centro de Salud de Libertad  - Artigas 626;SAN JOSÉ;Libertad;Centro de Salud
+9000;Policlínica María Julia - Edinson 1220;SAN JOSÉ;Libertad;Ambulatorio
+9000;Policlínica Progreso - 18 de Julio esq. José P. Varela;SAN JOSÉ;Libertad;Ambulatorio
+9000;Policlínica Ecilda Paullier - Federico Paullier esq. Digiovanángelo;SAN JOSÉ;;Ambulatorio
+9000;Policlínica Juan Soler - Ruta 11, Km 39.500 - AFE;SAN JOSÉ;;Ambulatorio
+9000;Policlínica Estación González - Ruta 23, Km 115;SAN JOSÉ;;Ambulatorio
+9000;Policlínica Fagina -  Escuela Nº 7;SAN JOSÉ;;Ambulatorio
+9000;Policlínica Mal Abrigo - Ruta 23 km 124 - MEVIR;SAN JOSÉ;;Ambulatorio
+9000;Policlínica Carreta Quemada - Ruta 45, Km 107.500;SAN JOSÉ;;Ambulatorio
+9000;Policlínica Villa Rodríguez -  León Jude 1070;SAN JOSÉ;;Ambulatorio
+9000;Policlínica Capurro - Ruta 11, Km 77;SAN JOSÉ;;Ambulatorio
+9000;Policlínica Ituzaingó -  San José esq. Ansina;SAN JOSÉ;;Ambulatorio
+9000;Policlínica Raigón - Salón Comunal MEVIR;SAN JOSÉ;;Ambulatorio
+9000;Policlínica Villa María -  Salón Comunal MEVIR;SAN JOSÉ;;Ambulatorio
+9000;Policlínica Rafael Peraza ( Rincón del Pino) -Ruta 1 vieja, entre calle 1080 y San José;SAN JOSÉ;;Ambulatorio
+9000;Policlínica Puntas de Valdez - Ruta 1, Km 61;SAN JOSÉ;;Ambulatorio
+9000;Policlínica Kiyú - Balneario Kiyú ( zona Parador Grande);SAN JOSÉ;;Ambulatorio
+9000;Policlínica Colonia Italia -Ruta 45, Km 59;SAN JOSÉ;;Ambulatorio
+9000;"Hospital Departamental de Soriano - ""Zoilo A. Chelle"" -  Sánchez 204.";SORIANO;Mercedes;Centro de Salud
+9000;"Centro Auxiliar de Dolores ""Alejandro C. Bardier"" - Cheveste y Puig.";SORIANO;Dolores;Centro de Salud
+9000;"Centro Auxiliar de Cardona ""Dr. Rogelio C. Sosa"" - Rogelio Sosa S/N.";SORIANO;Cardona;Centro de Salud
+9000;Policlínica Gota de Leche - Ferrería 1137;SORIANO;Mercedes;Ambulatorio
+9000;Policlínica Barrio Treinta y Tres - Colman 526;SORIANO;Mercedes;Ambulatorio
+9000;Policlínica El Túnel - Varela 840;SORIANO;Mercedes;Ambulatorio
+9000;Policlínica Grito de Asencio - Justo Correa 1121 esq. Constituyente;SORIANO;Mercedes;Ambulatorio
+9000;Policlínica Paul Harris - Ansina esq. Magnone (Plaza Paul Harris);SORIANO;Mercedes;Ambulatorio
+9000;Policlínica Tomás Gómez - Ruta 96 Km 25 (Frente a Escuela Nº 15);SORIANO;Dolores;Ambulatorio
+9000;Policlínica San Salvador - 22 de Agosto esq. Nakle;SORIANO;Dolores;Ambulatorio
+9000;Policlínica Santa Teresita - Lavalleja, entre Cheveste y De los Santos;SORIANO;Cardona;Ambulatorio
+9000;Policlínica Fátima -  Los Chanaes s/n;SORIANO;Cardona;Ambulatorio
+9000;"Policlínica Los Arrayanes -  Paraje ""Los Arrayanes"", Río Negro, Salón Comunal";SORIANO;;Ambulatorio
+9000;Policlínica Pense - Camino Pense s/n (Escuela Nº 25);SORIANO;;Ambulatorio
+9000;Policlínica Villa Darwin - Ruta 14 Km 34.500 - Camino Roque Gil (Sacachispas);SORIANO;;Ambulatorio
+9000;Policlínica El Tala - Ruta 14 Km 65- por camino vecinal;SORIANO;;Ambulatorio
+9000;Policlínica Palmar -  Avenida Brasil s/n;SORIANO;;Ambulatorio
+9000;Policlínica Palmitas - Vicente Orcoyen, entre Laureana Jauregui y Rodriguez Serrano;SORIANO;;Ambulatorio
+9000;Policlínica Egaña - Tabaré esq. Coquimbo;SORIANO;;Ambulatorio
+9000;Policlínica Risso - Calle 3, entre 8 y 10 ( Contigua a la Comisaría);SORIANO;;Ambulatorio
+9000;Policlínica Luis H. Perrone - Ruta 2 Km 208 . José E. Rodó;SORIANO;;Ambulatorio
+9000;Policlínica Santa Catalina - Rufino Lorenzo Vázquez, entre Genaro de León y Salvador Viola;SORIANO;;Ambulatorio
+9000;Policlínica Jackson - Ruta 12 Km 124 , Estación Juan J. Jackson;SORIANO;;Ambulatorio
+9000;Policlínica Villa Soriano - Cabildo esq. Florida;SORIANO;;Ambulatorio
+9000;Policlínica La Concordia - Parque Municipal - Balneario La Concordia;SORIANO;;Ambulatorio
+9000;Policlínica Agraciada - Gral Artigas esq. Rivera;SORIANO;;Ambulatorio
+9000;Policlínica Cañada Nieto - Manuel Souto esq. Emigrantes Valdenses;SORIANO;;Ambulatorio
+9000;Policlínica Palo Solo - Ruta 96 Km 63.500 y Ruta 12 - Escuela Nº 13;SORIANO;;Ambulatorio
+9000;Policlínica Perseverano -Camino Perseverano s/n;SORIANO;;Ambulatorio
+9000;Policlínica Castillos -  Ruta 55 Km 38 - Contiguo a Salón MEVIR;SORIANO;;Ambulatorio
+9000;Hospital Departamental de Tacuarembó - Treinta y Tres 444 esq. Consejal Catalogne;TACUAREMBÓ;Tacuarembó;Centro de Salud
+9000;" Hospital Paso de los Toros ""Dr. Ruben Curi"" - Víctor Alvarez Menéndez 155";TACUAREMBÓ;Paso de los Toros;Centro de Salud
+9000;Centro Auxiliar San Gregorio de Polanco -  Yamandú Gamba nº 46;TACUAREMBÓ;San Gregorio de Polanco;Centro de Salud
+9000;Policlínica Tambores - Avenida Artigas;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Curtina - Hector Gutierrez Ruiz s/n;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Villa Ansina - Ruta 26 Km. 289.0;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Caraguatá;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Achar - Calle 7;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Sauce de Batoví -  Camino Vecinal ;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Cerro de Batoví - Ruta 5 Cerro Batoví Km.370.0;TACUAREMBÓ;;Ambulatorio
+9000;Policlinica Paso Bonilla - Ruta 5 continuación ;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Rincón de Tranqueras;TACUAREMBÓ;Tranqueras;Ambulatorio
+9000;Policlínica Paso del Cerro- Calle 1 y Calle 4;TACUAREMBÓ;;Ambulatorio
+9000;Policlínicas Cañas;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Los Cuadrados;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica La Hilera;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Clara;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Montevideo Chico - Km.26 al este de Ruta 50 ;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Paso de los Novillos (Puesto de Salud en Escuela);TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Cerro Travieso;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Estacion Laureles - Camino Vecinal esq. calle Laureles.;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Cuchilla Laureles - Camino Vecinal Escuela 42;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Poblado 33;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica La Calzada - Ruta 5 Km 407.0;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Paso de las Carretas;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Lambaré;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Paso Ceferino;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Rincón de la Aldea;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Cerro de la Aldea;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Quiebrayugos;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Paso Hondo (Puesto de Salud en la Escuela) ;TACUAREMBÓ;San Gregorio de Polanco;Ambulatorio
+9000;Policlínica Los Furtados (Puesto de Salud en la escuela);TACUAREMBÓ;San Gregorio de Polanco;Ambulatorio
+9000;Policlínica Cañada del Estado (Puesto de Salud en la Escuela) ;TACUAREMBÓ;San Gregorio de Polanco;Ambulatorio
+9000;Policlínica Carpintería ( Puesto de Salud en la Escuela) ;TACUAREMBÓ;San Gregorio de Polanco;Ambulatorio
+9000;Policlínica Los Arenales;TACUAREMBÓ;Paso de los Toros;Ambulatorio
+9000;Policlínica Peralta (Puesto de Salud en la Escuela);TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Cardozo Grande (Puesto de Salud en la Escuela) ;TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Cardozo Chico (Puesto de Salud en la Escuela);TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Chamberlein (Puesto de Salud en la Escuela);TACUAREMBÓ;;Ambulatorio
+9000;Policlínica Barrio Godoy - Calle Chiquito Saravia S/ Nº (Puesto de Salud en la Escuela);TACUAREMBÓ;Tacuarembó;Ambulatorio
+9000;Policlínica La Matutina- Calle Ruta 31;TACUAREMBÓ;Tacuarembó;Ambulatorio
+9000;Policlínica Barrio Artigas-  Calle 18 de julio s/n (Puesto de Salud en Escuela);TACUAREMBÓ;Tacuarembó;Ambulatorio
+9000;Puesto de Salud Los Molles  Calle Miranda y Fernández Crespo;TACUAREMBÓ;Tacuarembó;Ambulatorio
+9000;Policlínica Barrio Santa Isabel - Calle Martín Luther King Puesto de Salud en Iglesia;TACUAREMBÓ;Tacuarembó;Ambulatorio
+9000;Policlínica Buen Samaritano -  Atanasio Viera y Domingo Arena Barrio Centenario;TACUAREMBÓ;Tacuarembó;Ambulatorio
+9000;Policlínica Nº1 Barrio Ferrocarril- Calle Pablo Ríos;TACUAREMBÓ;Tacuarembó;Ambulatorio
+9000;Policlínica Nº2 Barrio López-calle Manuel Freire 277;TACUAREMBÓ;Tacuarembó;Ambulatorio
+9000;Policlínica Nº3 Barrio El Hongo-calle Bvar. Rodríguez Correa;TACUAREMBÓ;Tacuarembó;Ambulatorio
+9000;Policlínica Nº4 Barrio Torres-calle Avda. San Martín;TACUAREMBÓ;Tacuarembó;Ambulatorio
+9000;Policlínica Nº5 Barrio El Molino-calle Ruta 31 ;TACUAREMBÓ;Tacuarembó;Ambulatorio
+9000;Policlínica Nº6 Barrio Montevideo-calle Michelson 313 ;TACUAREMBÓ;Tacuarembó;Ambulatorio
+9000;Hospital Departamental de Treinta y Tres - José Enrique Rodó y Manuel Cacheiro;TREINTA Y TRES;Treinta y Tres;Centro de Salud
+9000;Centro Auxiliar Dr. Alberto Podestá Carnelli - Treinta y Tres y José María Coya.;TREINTA Y TRES;Treinta y Tres;Centro de Salud
+9000;Centro Auxiliar Santa Clara - Av. Chiquito Saravia casi ruta 7;TREINTA Y TRES;Santa Clara;Centro de Salud
+9000;Centro Auxiliar Vergara -  Lucas Urritia 585;TREINTA Y TRES;Vergara;Centro de Salud
+9000;Centro Auxiliar Cerro Chato - Brigadier Manuel Oribe y Ruta 19;TREINTA Y TRES;Cerro Chato ;Centro de Salud
+9000;Centro de Salud: Dr. Bolivar Ledesma - Pablo Zufriategui Y Areguatti;TREINTA Y TRES;Treinta y Tres;Ambulatorio
+9000;Policlínica Los Arrayanes - Carmelo Colman y Pedro Campbell;TREINTA Y TRES;;Ambulatorio
+9000;Policlínica de Valentines  -  Ruta 19 Valentines;TREINTA Y TRES;;Ambulatorio
+9000;Policlinica Charqueada - La Charqueada Ellauri s/n.;TREINTA Y TRES;;Ambulatorio
+9000;BULEVAR ARTIGAS 1198;Montevideo;Montevideo;Ambulatorio
+9000;MONTEVIDEO - ANTONIO COSTA 3568;Montevideo;Montevideo;Ambulatorio
+9000;MONTEVIDEO - CLINICA CARRASCO - AVENIDA BLANES VIALE 6358;Montevideo;Montevideo;Ambulatorio
+9000;MONTEVIDEO - CLINICA GOLF - BULEVAR ARTIGAS 499;Montevideo;Montevideo;Ambulatorio
+9000;MONTEVIDEO  - CLINICA SETIEMBRE - AVENIDA RICALDONI 2474;Montevideo;Montevideo;Ambulatorio
+9000;MONTEVIDEO - ANEXO JACKSONVILLE - RUTA 8 KM 17;Montevideo;Montevideo;Ambulatorio
+9000;PUNTA DEL ESTE - RIO BRANCO S/N MANZANA 558;Maldonado;Punta del Este;Ambulatorio
+9000;MONTEVIDEO - RAMBLA REPUBLICA DE MEXICO 6405;Montevideo;Montevideo;Ambulatorio
+9000;MONTEVIDEO - AVENIDA INGENIERO LUIS PONCE 1523;Montevideo;Montevideo;Ambulatorio
+9000;MONTEVIDEO - JORGE CANNING 2385;Montevideo;Montevideo;Ambulatorio
+9000;MONTEVIDEO - MORALES 2578;Montevideo;Montevideo;Ambulatorio
+9000;MONTEVIDEO - BAUZA 2406;Montevideo;Montevideo;Ambulatorio
+9000;MONTEVIDEO - AVENIDA ITALIA 2420;Montevideo;Montevideo;Ambulatorio
