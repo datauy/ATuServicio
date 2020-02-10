@@ -92,12 +92,10 @@ module ImporterHelper
       'Ambulatorio - Sede Secundaria', 'Ambulatorio - Serv. Medicina Nuclear',
       'Ambulatorio - Serv. de Fertilidad', 'Ambulatorio(ASSE)', nil]
     structures[:ambulatorio] = provider.sites.where(nivel: ambulatorios).count
-    structures[:urgencia] = provider.sites.where(servicio_de_urgencia: true).count
     provider.update_attributes(
       estructura_primaria: structures[:primaria],
       estructura_secundaria: structures[:secundaria],
-      estructura_ambulatorio: structures[:ambulatorio],
-      estructura_urgencia: structures[:urgencia]
+      estructura_ambulatorio: structures[:ambulatorio]
     )
   end
 end
