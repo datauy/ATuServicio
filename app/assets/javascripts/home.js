@@ -103,7 +103,7 @@ $('.structure').click(function(e){
 });
 
 // Close stuff
-$('.close').click(function(e){
+$('.cerrar').click(function(e){
   e.preventDefault();
   $(this).parent().removeClass('visible').addClass('hidden');
 });

@@ -181,7 +181,7 @@ section { padding:0 50px;}
     display: block;
 }
 .table-head-preview .structure_module i::before {font-size: 20px;}
-.table-head-preview .structure_module a.close { position: absolute;top:10px;right: 10px;}
+.table-head-preview .structure_module a.cerrar { position: absolute;top:10px;right: 10px;}
 
 
 .table-head-preview .progress { width: 100%;}
