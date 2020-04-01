@@ -22,6 +22,7 @@ namespace :importer do
     calculate_maximums
     assign_search_name
     structure
+    fnr
   end
 
   #
@@ -39,6 +40,38 @@ namespace :importer do
   end
 
   #
+  #
+  #
+  desc 'Import FNR'
+  task fnr: [:environment] do
+  #def fnr
+    puts 'Delete fnr'
+    #Fnr.destroy_all
+    import_tag('imaes.csv')
+    puts 'Importing FNR data'
+    #With importer gem
+    #imaes = []
+
+    #Imae.import imaes
+  end
+
+  def import_tag(data_file)
+    @imported = 0
+    @duplicated = 0
+    import_file("tags/"+data_file.to_s, col_sep: ',', headers: true) do |row|
+      #imaes << Imae.new(
+      Imae.create(
+        id: row[0],
+        nombre: row[1],
+      )
+      @imported += 1
+      # Ver qué hacemos con duplicados, por ahora nada
+    rescue ActiveRecord::RecordNotUnique
+      @duplicated += 1
+    end
+    puts "Se importaron "+@imported.to_s+". No se agregaron "+@duplicated.to_s+" por estar duplicados"
+  end
+  #
   # Create pias
   #
   def pias_data
@@ -46,7 +79,7 @@ namespace :importer do
     Pia.destroy_all
 
     puts 'Creating pias'
-    import_file(@year + '/pias.csv', col_sep: ',') do |row|
+    import_file(@year + "/pias.csv", col_sep: ',') do |row|
       if Pia.where(:pid => row[0]).empty?
         pias = Pia.new(
           pid: row[0],
@@ -65,7 +98,7 @@ namespace :importer do
 
   def pias_ancestry
     puts 'Pias hierarchy'
-    ActiveRecord::Base.connection.execute("update pia set ancestry = h.ancestry from 
+    ActiveRecord::Base.connection.execute("update pia set ancestry = h.ancestry from
       ( select pid, regexp_replace(pid,'(\.[^\.]+)$','') as ancestry from pia )
        as h where  h.pid = pia.pid and pia.pid != h.ancestry;")
   end
@@ -91,7 +124,7 @@ namespace :importer do
         logo: assign_logo(row[0]),
         comunicacion: row[7],
         espacio_adolescente: row[8],
-        servicios_atencion_adolescentes: row[9]
+	servicios_atencion_adolescentes: row[9]
       )
       # Set private insurances
       provider.private_insurance = true if provider.nombre_abreviado.include?('Seguro Privado')
