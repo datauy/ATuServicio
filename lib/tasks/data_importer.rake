@@ -45,22 +45,22 @@ namespace :importer do
   desc 'Import FNR'
   task fnr: [:environment] do
   #def fnr
-    puts 'Delete fnr'
-    #Fnr.destroy_all
-    import_tag('imaes.csv')
     puts 'Importing FNR data'
+    import_tag('imaes.csv', Imae)
+    import_tag('areas_acto.csv', InterventionArea)
+    import_tag('tipos_acto.csv', InterventionType)
     #With importer gem
     #imaes = []
 
     #Imae.import imaes
   end
 
-  def import_tag(data_file)
+  def import_tag(data_file, tagType)
     @imported = 0
     @duplicated = 0
+    #Hacer importador genérico por nombre de columna?
     import_file("tags/"+data_file.to_s, col_sep: ',', headers: true) do |row|
-      #imaes << Imae.new(
-      Imae.create(
+      tagType.create(
         id: row[0],
         nombre: row[1],
       )
@@ -124,7 +124,7 @@ namespace :importer do
         logo: assign_logo(row[0]),
         comunicacion: row[7],
         espacio_adolescente: row[8],
-	servicios_atencion_adolescentes: row[9]
+        servicios_atencion_adolescentes: row[9]
       )
       # Set private insurances
       provider.private_insurance = true if provider.nombre_abreviado.include?('Seguro Privado')
