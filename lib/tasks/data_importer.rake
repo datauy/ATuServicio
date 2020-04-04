@@ -22,7 +22,7 @@ namespace :importer do
     calculate_maximums
     assign_search_name
     structure
-    fnr
+    Rake::Task['importer:fnr'].invoke
   end
 
   #
@@ -44,20 +44,37 @@ namespace :importer do
   #
   desc 'Import FNR'
   task fnr: [:environment] do
-  #def fnr
     puts 'Importing FNR data'
+    #Pasar para arriba
     import_tag('imaes.csv', Imae)
     import_tag('areas_acto.csv', InterventionArea)
     import_tag('tipos_acto.csv', InterventionType)
-    #With importer gem
-    #imaes = []
-
-    #Imae.import imaes
+    @imported = 0
+    @duplicated = 0
+    import_file("fnr/espera-test.csv", col_sep: ',', headers: true) do |row|
+      interventionRecord = {
+        imae_id: row[0],
+        intervention_area_id: row[2],
+        intervention_type_id: row[4],
+        realizado: Date.parse(row[6]),
+        autorizado: Date.parse(row[9]),
+      }
+      if Intervention.where(interventionRecord).empty?
+        Intervention.create(interventionRecord)
+        @imported += 1
+      else
+        # Ver qué hacemos con duplicados, por ahora nada
+        @duplicated += 1
+      end
+    end
+    puts "Se importaron "+@imported.to_s+". No se agregaron "+@duplicated.to_s+" por estar duplicados"
   end
 
   def import_tag(data_file, tagType)
     @imported = 0
     @duplicated = 0
+    #With importer gem
+    #imaes = []
     #Hacer importador genérico por nombre de columna?
     import_file("tags/"+data_file.to_s, col_sep: ',', headers: true) do |row|
       tagType.create(
@@ -69,6 +86,7 @@ namespace :importer do
     rescue ActiveRecord::RecordNotUnique
       @duplicated += 1
     end
+    #Imae.import imaes
     puts "Se importaron "+@imported.to_s+". No se agregaron "+@duplicated.to_s+" por estar duplicados"
   end
   #
