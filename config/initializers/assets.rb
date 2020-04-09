@@ -9,3 +9,6 @@ Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'fonts
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile += %w( pias.js )
+
+Rails.application.config.assets.precompile += %w( d3.v3.min.js )
+Rails.application.config.assets.precompile += %w( jquery-ui-1.10.3.min.js )

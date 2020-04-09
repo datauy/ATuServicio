@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   end
   get '/pias' => 'pia#index'
   get '/pias/:category' => 'pia#index'
+  get '/fnr' => 'fnr#index'
 end

@@ -1,0 +1,35 @@
+// Place all the styles related to the fnr controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.fnr {
+  text-align: center;
+  h3 {
+  }
+  .filter {
+    .row {
+      display: flex;
+      .col-md-4 {
+        align-self: center;
+        display: flex;
+        button {
+          margin: auto;
+        }
+      }
+      &.center {
+        text-align: center;
+        justify-content: center;
+        margin: 30px auto 60px;
+      }
+    }
+  }
+  .graphs {
+    .graph-values {
+      width: 100%;
+    }
+    a {
+      width: 100%;
+      display: block;
+      position: relative;
+    }
+  }
+}

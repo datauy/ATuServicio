@@ -1,0 +1,104 @@
+<div id="waiting-time">
+  <h3 class="graph-title">¿Qué tipo de acto te interesa consultar sus tiempos de espera?</h3>
+  <section class="filter">
+    <div class="row">
+      <div class="col-md-4">
+        <%= select_tag "areas", options_for_select(tagging_options(@areas), params[:area]), include_blank: "Elija un área", class: "form-control" %>
+      </div>
+      <div class="col-md-4">
+          <%= select_tag "types", options_for_select(tagging_options(@types), params[:types]),
+            include_blank: "Elija una prestación",
+            class: "form-control",
+            name: 'intervention-types',
+            id: 'intervention-types'
+          %>
+      </div>
+      <div class="col-md-4">
+        Visualización
+        <button class="button toggle" onClick="toggleVis('simple')">Simple</button>
+        <button class="button toggle" onClick="toggleVis('avanzada')">Avanzada</button>
+      </div>
+    </div>
+    <div class="row center">
+      <%= icon_info('fnr-about').html_safe %>
+      <span>Sobre esta visualización/Glosario</span>
+    </div>
+  </section>
+  <div id="graph-wait">
+  </div>
+</div>
+<script>
+  var data = <%=raw @interventions.to_json %>
+    container_id = 'graph-wait',
+    w = $("#"+container_id).innerWidth(),
+    h = 'inherit';
+  console.log('WAITNG');
+  console.log(data);
+  var svg = d3.select("#"+container_id).append("svg")
+    .attr("width", w)
+    .attr("height", h);
+
+  var max_n = 0;
+  for (var d in data) {
+    max_n = Math.max(data[d].averageTime, max_n);
+  }
+
+  var dx = w / max_n;
+  var dy = 50;
+
+  // bars
+  svg.selectAll(".bar")
+    .data(data)
+    .enter()
+    .append("rect")
+    .attr("class", function(d, i) {return "bar " + d.groupName;})
+    .attr("x", function(d, i) {return 170;})
+    .attr("y", function(d, i) {return (dy*i)+(5*i);})
+    .attr("width", function(d, i) {return dx*d.averageTime})
+    .attr("height", dy)
+    .style("fill", function(d,i) {
+      return getRandomColor(d.color,d.groupName);
+    })
+    .style("margin-bottom", "10px")
+    .style('cursor', 'pointer')
+    .on("mouseover", function(d){
+      tooltip.text(d.groupName);
+      return tooltip.style("visibility", "visible");
+    })
+    .on("mousemove", function(){
+      return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
+    })
+    .on("mouseout", function(){
+      return tooltip.style("visibility", "hidden");
+    })
+    .on('click', function(d){
+        tooltip.style("visibility", "hidden");
+        setCategoryGroupFilter(d.groupName);
+     });
+
+   // labels
+   svg.selectAll("text")
+     .data(data)
+     .enter()
+     .append("text")
+     .attr("class", function(d, i) {return "text " + d.groupName;})
+     .attr("x", 0)
+     .attr("width", 160)
+     .attr("y", function(d, i) {return dy*i + (5*i) + 30;})
+     .html( function(d) {return d.groupName + "<a href='https://catalogodatos.gub.uy/dataset/fondo-nacional-de-recursos-solicitudes-de-tramites-autorizados/resource/dd3046c9-06eb-490e-be95-ba58feb25b5e?filters=IMAE%2FCL%C3%ADnica%2FCentro%3A"+d.groupName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase()+"'>(" + d.count  + " actos médicos)</a>";})
+     .attr("font-size", "15px")
+
+   svg.selectAll(".graph-values")
+     .data(data)
+     .enter()
+     .append("xhtml:p")
+     .attr("class", function(d, i) {return "graph-values " + d.groupName;})
+     .attr("x", function(d, i) {return dx*d.averageTime - 160 } )
+     .attr("y", function(d, i) {return dy*i + (5*i) + 30;})
+     .html( function(d) {return "Promedio: <p>" + d.averageTime  + " días</p>";})
+     .attr("font-size", "14px")
+     //.style("font-weight", "bold")
+     .attr("width", 60);
+
+//});
+</script>

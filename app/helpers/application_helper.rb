@@ -66,4 +66,12 @@ module ApplicationHelper
     return "<td class=\"nodata\">#{value}</td>" if td
     value
   end
+  def tagging_options(tags)
+    tags.map do |p|
+      [
+        p.nombre,
+        p.id
+      ]
+    end
+  end
 end

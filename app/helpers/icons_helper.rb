@@ -18,6 +18,10 @@ module IconsHelper
     structure.sort! { |x, y| x[:label] <=> y[:label] }
   end
 
+  def icon_info(id)
+    '<a class="info" href="#" data-toggle="modal" data-target="#'+id+'"><i class="icon-info"></i></a>'
+  end
+
   private
 
   def percentages_value(provider, value)
