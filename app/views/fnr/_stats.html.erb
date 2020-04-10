@@ -1,60 +1,33 @@
 <div id="graphs">
-  <div class="graph-stats" class="chart-group">
-    <div id="graph-stats">
+  <h3 class="graph-title">Estadísticas de actos médicos</h3>
+  <section class="filter">
+    <div class="row">
+      <div class="col-md-4">
+        <%=
+        select_tag "states",
+        options_for_select( state_options(@states), params[:departamento] ),
+        class: "form-control"
+        %>
+      </div>
+      <div class="col-md-4">
+        <%= render partial: 'home/provider_options'
+        %>
+      </div>
+      <div class="col-md-4">
+        Visualización
+        <button class="button toggle" onClick="toggleVis('simple')">Simple</button>
+        <button class="button toggle" onClick="toggleVis('avanzada')">Avanzada</button>
+      </div>
     </div>
-    <div id="graph-stats-legend">
-      <p>Categorías:</p>
-      <ul id="list">
-      </ul>
+    <div class="row center">
+      <%= icon_info('fnr-about').html_safe %>
+      <span>Sobre esta visualización/Glosario</span>
     </div>
+  </section>
+  <div id="graph-stats">
+  </div>
+  <div id="graph-stats-legend">
+    <ul id="list">
+    </ul>
   </div>
 </div>
-<script>
-  var
-    container_id = "graph-stats"
-    width = $("#"+container_id).innerWidth()*0.79,
-    height = $("#"+container_id).innerHeight(),
-    radius = Math.min(width, height) / 2;
-
-  var arc = d3.svg.arc()
-      .outerRadius(radius - 10)
-      .innerRadius(radius - 70);
-
-  var pie = d3.layout.pie()
-      .sort(null)
-      .value(function(d) { return d.reports; });
-
-  var svg = d3.select("#"+container_id).append("svg")
-      .attr("width", width)
-      .attr("height", height)
-    .append("g")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-  $.each(data, function(i, item) {
-    $("#categories-list").append('<li style="cursor: pointer;" onclick="setCategoryGroupFilter(\''+item.groupName+'\');"><div class="circulo" style="background-color: '+getRandomColor(item.color,item.groupName)+';"></div><span style="color: '+getRandomColor(item.color,item.groupName)+';">'+item.groupName+'</span></li>');
-  });
-
-  var g = svg.selectAll(".arc")
-      .data(pie(data))
-    .enter().append("g")
-      .attr("class", "arc");
-
-  g.append("path")
-      .attr("d", arc)
-      .style("fill", function(d) {
-        return getRandomColor(d.data.color,d.data.groupName); })
-      .style('cursor', 'pointer')
-      .on("mouseover", function(d){tooltip.html("<b>"+d.data.groupName + "</b><br/>" + d.data.reports); return tooltip.style("visibility", "visible");})
-      .on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
-      .on("mouseout", function(){return tooltip.style("visibility", "hidden");})
-      .on('click', function(d){
-          tooltip.style("visibility", "hidden");
-          setCategoryGroupFilter(d.data.groupName);
-       });
-
-  g.append("text")
-      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-      .attr("dy", ".35em")
-      .style("display","none")
-      .text(function(d) { return d.data.groupName; })
-</script>

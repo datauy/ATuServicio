@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+
 //= require jquery-ui/widgets/autocomplete
 //= require autocomplete-rails
 //= require bootstrap.min
@@ -21,4 +21,3 @@
 //= require autocomplete-rails
 //= require jquery.mark.min
 //= require popper
-//= require fnr
