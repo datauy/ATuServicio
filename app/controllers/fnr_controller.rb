@@ -10,6 +10,7 @@ class FnrController < ApplicationController
     @resource = 'dd3046c9-06eb-490e-be95-ba58feb25b5e'
     @interventions = Intervention
       .select("imae_id, count(*) as qtty, sum(realizado - autorizado) as wait")
+      .where.not(realizado: nil)
       .includes(:imae)
       .group(:imae_id)
       .map { |i| { count: i.qtty, groupName: i.imae.nombre, averageTime: (i.wait/i.qtty) } }
@@ -17,7 +18,12 @@ class FnrController < ApplicationController
 
     #Statistics
     @selected_state = params['departamento']
-
+    # TODO: CACHEAR como en home?
+    @providers ||= Provider.select(
+      'id',
+      'nombre_abreviado'
+    ).all
+    @states ||= State.all
     @sel_providers = if @selected_state && @selected_state != 'todos'
                        state = State.find_by_name(@selected_state)
                        raise ActionController::RoutingError.new('No se encontró el departamento') unless state
@@ -30,7 +36,7 @@ class FnrController < ApplicationController
     @types = InterventionType.all
 
     respond_to do |format|
-      format.js{} #render :template => "fnr/index.js.erb", :layout => false 
+      format.js{} #render :template => "fnr/index.js.erb", :layout => false
       format.html{}
     end
 

@@ -43,14 +43,14 @@ namespace :importer do
   #
   #
   desc 'Import FNR'
-  task fnr: [:environment] do
+  task :fnr, [:year] => [:environment] do
     puts 'Importing FNR data'
-    #Pasar para arriba
+    @imported = 0
+    @duplicated = 0
+=begin
     import_tag('imaes.csv', Imae)
     import_tag('areas_acto.csv', InterventionArea)
     import_tag('tipos_acto.csv', InterventionType)
-    @imported = 0
-    @duplicated = 0
     import_file("fnr/espera-test.csv", col_sep: ',', headers: true) do |row|
       interventionRecord = {
         imae_id: row[0],
@@ -67,7 +67,79 @@ namespace :importer do
         @duplicated += 1
       end
     end
-    puts "Se importaron "+@imported.to_s+". No se agregaron "+@duplicated.to_s+" por estar duplicados"
+=end
+    #Since we don't have the id yet we will match the transformed waitting time IMAE name
+    @imaesNamed_obj = Imae.all.map {|i| {id: i.id, name: i.nombre.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').upcase} }
+    #Load tags and states for inner search
+    @areas_obj = InterventionArea.all
+    @types_obj = InterventionType.all
+    @states_obj = State.all
+    @providers_obj = Provider.select("id, nombre_abreviado").all
+    import_file("#{@year}/microdatos_autorizaciones_2018.csv", col_sep: ';', headers: true) do |row|
+      Rails.logger.info "\n\n ARRANCA IMPORT Microdatos \n #{row.inspect}\n"
+
+      #if @imae = Imae.where(nombre: row[15])
+      #Duplicate persistent objects for select
+      @imaesNamed = @imaesNamed_obj.dup
+      @areas = @areas_obj.dup
+      @types = @types_obj.dup
+      @states = @states_obj.dup
+      @providers = @providers_obj.dup
+      if !(@imae = @imaesNamed.select { |timae| timae[:name] == row[15] }.first )
+        @imae = Imae.create( nombre: row[15] )
+        @imae_id = @imae.id
+        @imaesNamed_obj << {id: @imae.id, name: @imae.nombre.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').upcase}
+      else
+        @imae_id = @imae[:id]
+      end
+      #Area must be matched since distinction like ACTOS CARDIOLOGÍA from ACTOS MÉDICOS CARDIOLOGÍA must be made for both datasets to match
+      #row[1] = "DISPOSITIVOS"
+      begin
+        row[1]["ACTOS"] = "ACTOS MÉDICOS"
+      rescue IndexError
+      end
+      if !(@area = @areas.select { |area| area[:nombre] == row[1] }.first )
+        @area = InterventionArea.create( nombre: row[1] )
+        @areas_obj << @area
+      end
+      #Intervention Type is asociated with area
+      if !(@type = @types.select { |tipo| tipo[:nombre] == row[3] && tipo[:intervention_area_id] == @area.id }.first )
+        @type = InterventionType.create( {nombre: row[3], intervention_area_id: @area.id} )
+        @types_obj << @types
+      end
+      if !( @state = @states.select { |depto| depto[:name] == row[10].to_s.downcase }.first )
+        Rails.logger.info "No se encontró el depto: #{row[10]}"
+        next
+      end
+      if !( @provider = @providers.select { |prov| prov[:nombre_abreviado] == row[11].upcase}.first )
+        Rails.logger.info "No se encontró el PROVEEDOR: #{row[11]}"
+        next
+      end
+      Rails.logger.info "\n\n ARRANCA4 \n"
+      @interventionRecord = {
+        imae_id: @imae_id,
+        intervention_type_id: @type.id,
+        solicitado: Date.parse(row[4]),
+        autorizado: Date.parse(row[5]),
+        intervention_kind: row[0],
+        estado: row[6],
+        edad: row[8],
+        sexo: row[9],
+        state_id: @state.id,
+        provider_id: @provider.id
+      }
+      if Intervention.where(@interventionRecord).empty?
+        Intervention.create(@interventionRecord)
+        @imported += 1
+      else
+        # Ver qué hacemos con duplicados, por ahora nada
+        @duplicated += 1
+      end
+      if @imported == 100
+        puts "Se importaron #{@imported} No se agregaron #{@duplicated} por estar duplicados"
+        exit
+      end
+    end
   end
 
   def import_tag(data_file, tagType)

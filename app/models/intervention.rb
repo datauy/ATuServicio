@@ -4,4 +4,6 @@ class Intervention < ActiveRecord::Base
   belongs_to :imae
   belongs_to :state
   belongs_to :provider
+
+  enum intervention_kind: ['Acto Médico', 'Tratamiento con medicamentos', 'Otra Prestación']
 end
