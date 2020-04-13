@@ -1,20 +1,25 @@
 <%= render partial: 'layouts/header'%>
-<%= render partial: 'home/social'%>
 <section class="fnr">
-  <h1>Procedimientos financiados por el Fondo Nacional de Recursos</h1>
-  <div class="desc">
-    <p>Obtené información de <b>tiempos de espera</b> para todos los actos médicos financiados por el Fondo Nacional de Recursos (FNR), en todos los Institutos de Medicina Altamente Especializada (IMAE) del país; ya sea que necesites información para tomar la desición sobre dónde realizar una intervención o simplemente para conocer más de cerca el funcionamiento del sistema.</p>
-    <p>Además aquí podés obtener información estadística sobre todos los <b>actos médicos financiados por el FNR</b>, incluyendo áreas, IMAEs, médicos y la capacidad de filtrar esa información por diversas dimensiones.</p>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 center header">
+      <h1>Procedimientos financiados por el Fondo Nacional de Recursos</h1>
+      <div class="desc">
+        <p>Obtené información de <b>tiempos de espera</b> para todos los actos médicos financiados por el Fondo Nacional de Recursos (FNR), en todos los Institutos de Medicina Altamente Especializada (IMAE) del país; ya sea que necesites información para tomar la desición sobre dónde realizar una intervención o simplemente para conocer más de cerca el funcionamiento del sistema.</p>
+        <p>Además aquí podés obtener información estadística sobre todos los <b>actos médicos financiados por el FNR</b>, incluyendo áreas, IMAEs, médicos y la capacidad de filtrar esa información por diversas dimensiones.</p>
+      </div>
+    </div>
   </div>
-  <section class="graphs waiting_time">
+  <section class="row graphs waiting_time">
     <%= render partial: 'waiting_time' %>
   </section>
-  <section class="graphs stats">
+  <section class="row graphs stats">
     <%= render partial: 'stats' %>
   </section>
   <script>
     //Load data into js variables
     var data = <%=raw @interventions %>
+    var data_by = <%=raw @interventions_by %>
   </script>
   <%= javascript_include_tag 'jquery' %>
   <%= javascript_include_tag 'jquery-ui-1.10.3.min.js' %>

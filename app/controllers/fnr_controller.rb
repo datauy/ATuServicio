@@ -15,7 +15,18 @@ class FnrController < ApplicationController
       .group(:imae_id)
       .map { |i| { count: i.qtty, groupName: i.imae.nombre, averageTime: (i.wait/i.qtty) } }
       .to_json
-
+    @by = if params[:by].nil?
+      'intervention_area'
+    else
+      params[:by]
+    end
+    @interventions_by = Intervention
+      .joins(intervention_type: :intervention_area)
+      .select("#{@by}s.id as key, #{@by}s.nombre as groupname, '#000' as color, count(*) as qtty")
+      .where(realizado: nil)
+      .group(:key)
+      .to_json
+      #.map { |i| { count: i.qtty, groupName: i.imae.nombre, averageTime: (i.wait/i.qtty) } }
     #Statistics
     @selected_state = params['departamento']
     # TODO: CACHEAR como en home?

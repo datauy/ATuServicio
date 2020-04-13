@@ -1,6 +1,11 @@
-<div id="graphs">
+<section id="graphs">
   <h3 class="graph-title">Estadísticas de actos médicos</h3>
   <section class="filter">
+    <div class="row center">
+      <button class="button toggle selected" onClick="toggleGraph('area')">AREA</button>
+      <button class="button toggle" onClick="toggleGraph('acto')">ACTO</button>
+      <button class="button toggle" onClick="toggleGraph('imae')">IMAE</button>
+    </div>
     <div class="row">
       <div class="col-md-4">
         <%=
@@ -10,13 +15,10 @@
         %>
       </div>
       <div class="col-md-4">
-        <%= render partial: 'home/provider_options'
-        %>
+        <%= render partial: 'home/provider_options' %>
       </div>
       <div class="col-md-4">
-        Visualización
-        <button class="button toggle" onClick="toggleVis('simple')">Simple</button>
-        <button class="button toggle" onClick="toggleVis('avanzada')">Avanzada</button>
+
       </div>
     </div>
     <div class="row center">
@@ -24,10 +26,12 @@
       <span>Sobre esta visualización/Glosario</span>
     </div>
   </section>
-  <div id="graph-stats">
+  <div class="row">
+  <div class="col-md-9" id="graph-stats">
   </div>
-  <div id="graph-stats-legend">
+  <div class="col-md-3" id="graph-stats-legend">
     <ul id="list">
     </ul>
+    <div id="stats-total" class="totals"></div>
   </div>
-</div>
+</section>

@@ -47,6 +47,7 @@ namespace :importer do
     puts 'Importing FNR data'
     @imported = 0
     @duplicated = 0
+    @fails = 0
 =begin
     import_tag('imaes.csv', Imae)
     import_tag('areas_acto.csv', InterventionArea)
@@ -69,12 +70,14 @@ namespace :importer do
     end
 =end
     #Since we don't have the id yet we will match the transformed waitting time IMAE name
-    @imaesNamed_obj = Imae.all.map {|i| {id: i.id, name: i.nombre.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').upcase} }
+    #Se quita por corrección de planilla, TODO: ver sómo se va a realiazr al final
+    #@imaesNamed_obj = Imae.all.map {|i| {id: i.id, name: i.nombre.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').upcase} }
+    @imaesNamed_obj = Imae.all.map {|i| {id: i.id, name: i.nombre.upcase} }
     #Load tags and states for inner search
     @areas_obj = InterventionArea.all
     @types_obj = InterventionType.all
     @states_obj = State.all
-    @providers_obj = Provider.select("id, nombre_abreviado").all
+    @providers_obj = Provider.select("id, nombre_abreviado, nombre_completo").all
     import_file("#{@year}/microdatos_autorizaciones_2018.csv", col_sep: ';', headers: true) do |row|
       Rails.logger.info "\n\n ARRANCA IMPORT Microdatos \n #{row.inspect}\n"
 
@@ -88,7 +91,8 @@ namespace :importer do
       if !(@imae = @imaesNamed.select { |timae| timae[:name] == row[15] }.first )
         @imae = Imae.create( nombre: row[15] )
         @imae_id = @imae.id
-        @imaesNamed_obj << {id: @imae.id, name: @imae.nombre.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').upcase}
+        #@imaesNamed_obj << {id: @imae.id, name: @imae.nombre.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').upcase}
+        @imaesNamed_obj << {id: @imae.id, name: @imae.nombre.upcase}
       else
         @imae_id = @imae[:id]
       end
@@ -109,10 +113,12 @@ namespace :importer do
       end
       if !( @state = @states.select { |depto| depto[:name] == row[10].to_s.downcase }.first )
         Rails.logger.info "No se encontró el depto: #{row[10]}"
+        @fails += 1
         next
       end
-      if !( @provider = @providers.select { |prov| prov[:nombre_abreviado] == row[11].upcase}.first )
+      if !( @provider = @providers.select { |prov| prov[:nombre_abreviado] == row[11].upcase || prov[:nombre_completo] == row[11] }.first )
         Rails.logger.info "No se encontró el PROVEEDOR: #{row[11]}"
+        @fails += 1
         next
       end
       Rails.logger.info "\n\n ARRANCA4 \n"
@@ -136,7 +142,7 @@ namespace :importer do
         @duplicated += 1
       end
       if @imported == 100
-        puts "Se importaron #{@imported} No se agregaron #{@duplicated} por estar duplicados"
+        puts "Se importaron #{@imported} No se agregaron #{@duplicated} por estar duplicados, fallaron #{@fails}"
         exit
       end
     end
