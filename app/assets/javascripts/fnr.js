@@ -1,23 +1,25 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 var colorsByName = [];
-
+var palette = [ '#003C8D', '#1B6F94', '#1F94B3', '#27ABCD', '#94CBE2', '#CEEDF4', '#007F31', '#A8D372', '#DCA600' ];
+var workingPallete = [...palette];
 function getRandomColor(groupName, originalColor = 0, chartLevel = 0){
-		if(chartLevel==1 && originalColor){
-			return originalColor;
+	if(chartLevel==1 && originalColor){
+		return originalColor;
+	}
+	if(colorsByName[groupName]) {
+		return colorsByName[groupName];
+	}
+	else {
+		if ( workingPallete.length == 0 ) {
+			workingPallete = [...palette];
 		}
-		if(colorsByName[groupName]) {
-			return colorsByName[groupName];
-		}
-		else {
-			var letters = '0123456789ABCDEF';
-			var color = '#';
-			for (var i = 0; i < 6; i++ ) {
-				color += letters[Math.floor(Math.random() * 16)];
-			}
-			colorsByName[groupName] = color;
-			return color;
-		}
+		let random = Math.floor(Math.random()*(workingPallete.length-1));
+		var color = workingPallete[random];
+		workingPallete.splice(random, 1);
+		colorsByName[groupName] = color;
+		return color;
+	}
 }
 $("#states").change(function (e) {
   sval = $('#states').val();
@@ -41,7 +43,7 @@ var tooltip = d3.select("body")
 
 var container_id = 'graph-wait',
   w = $("#"+container_id).innerWidth(),
-  h = 'inherit';
+  h = 600;
 var svg = d3.select("#"+container_id).append("svg")
   .attr("width", w)
   .attr("height", h);
@@ -60,9 +62,9 @@ svg.selectAll(".bar")
   .enter()
   .append("rect")
   .attr("class", function(d, i) {return "bar " + d.groupName;})
-  .attr("x", function(d, i) {return 170;})
+  .attr("x", function(d, i) {return 0;})
   .attr("y", function(d, i) {return (dy*i)+(5*i);})
-  .attr("width", function(d, i) {return dx*d.averageTime - 170})
+  .attr("width", function(d, i) {return dx*d.averageTime;})
   .attr("height", dy)
   .style("fill", function(d,i) {
     return getRandomColor(d.groupName);
@@ -86,27 +88,28 @@ svg.selectAll(".bar")
 
  // labels
  svg.selectAll("text")
-   .data(data)
-   .enter()
-   .append("text")
-   .attr("class", function(d, i) {return "text " + d.groupName;})
-   .attr("x", 0)
-   .attr("width", 160)
-   .attr("y", function(d, i) {return dy*i + (5*i) + 30;})
-   .html( function(d) {return d.groupName + "<a style='width:120px; height:25px;' href='https://catalogodatos.gub.uy/dataset/fondo-nacional-de-recursos-solicitudes-de-tramites-autorizados/resource/dd3046c9-06eb-490e-be95-ba58feb25b5e?filters=IMAE%2FCL%C3%ADnica%2FCentro%3A"+d.groupName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase()+"'>(" + d.count  + " actos médicos)</a>";})
-   .attr("font-size", "15px")
+	.data(data)
+	.enter()
+	.append("text")
+	.attr("class", function(d, i) {return "text " + d.groupName;})
+	.attr("x", 20)
+	.attr("width", 160)
+	.attr("y", function(d, i) {return dy*i + (5*i) + 30;})
+	//.html( function(d) {return d.groupName + "<a style='width:120px; height:25px;' href='https://catalogodatos.gub.uy/dataset/fondo-nacional-de-recursos-solicitudes-de-tramites-autorizados/resource/dd3046c9-06eb-490e-be95-ba58feb25b5e?filters=IMAE%2FCL%C3%ADnica%2FCentro%3A"+d.groupName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase()+"'>(" + d.count  + " actos médicos)</a>";})
+	.html( function(d) {return '<tspan>'+d.groupName + "</tspan><tspan><a style='width:120px; height:25px;' href='https://catalogodatos.gub.uy/dataset/fondo-nacional-de-recursos-solicitudes-de-tramites-autorizados/resource/dd3046c9-06eb-490e-be95-ba58feb25b5e?filters=IMAE%2FCL%C3%ADnica%2FCentro%3A"+d.groupName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase()+"'>(" + d.count  + " actos médicos)</tspan></a>";})
+	.attr("font-size", "15px");
 
  svg.selectAll(".graph-values")
-   .data(data)
-   .enter()
-   .append("text")
-   .attr("class", function(d, i) {return "graph-values " + d.groupName;})
-   .attr("x", function(d, i) {return dx*d.averageTime - 160 } )
-   .attr("y", function(d, i) {return dy*i + (5*i) + 30;})
-   .html( function(d) {return "Promedio: " + d.averageTime  + " días";})
-   .attr("font-size", "14px")
-   //.style("font-weight", "bold")
-   .attr("width", 60);
+	.data(data)
+	.enter()
+	.append("text")
+	.attr("class", function(d, i) {return "graph-values " + d.groupName;})
+	.attr("x", function(d, i) {return dx*d.averageTime - 160 } )
+	.attr("y", function(d, i) {return dy*i + (5*i) + 30;})
+	.html( function(d) {return "Promedio: " + d.averageTime  + " días";})
+	.attr("font-size", "14px")
+	//.style("font-weight", "bold")
+	.attr("width", 60);
 
 var
   container_id = "graph-stats"
@@ -115,46 +118,45 @@ var
   radius = Math.min(width, height) / 2;
 
 var arc = d3.svg.arc()
-    .outerRadius(radius - 10)
-    .innerRadius(0);
+  .outerRadius(radius - 10)
+  .innerRadius(0);
 
 var pie = d3.layout.pie()
-    .sort(null)
-    .value(function(d) { return d.qtty; });
+  .sort(null)
+  .value(function(d) { return d.qtty; });
 
 var svg = d3.select("#"+container_id).append("svg")
-    .attr("width", width)
-    .attr("height", height)
+  .attr("width", width)
+  .attr("height", height)
   .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-console.log('STATS');
-console.log(data_by);
+  .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
 var total = 0;
 $.each(data_by, function(i, item) {
-  $("#list").append('<li style="cursor: pointer;"><span >'+item.groupname+'</span><div class="square" style="background-color: '+getRandomColor(item.key)+';"></div></li>');
+  $("#list").append('<li style="cursor: pointer;"><span>'+item.groupname+'</span><div class="square" style="background-color: '+getRandomColor(item.key)+';"></div></li>');
 	total += item.qtty;
 });
-$('#stats-total').text("Total: "+total);
+$('#stats-total').text(total + " intervenciones");
 var g = svg.selectAll(".arc")
-    .data(pie(data_by))
+  .data(pie(data_by))
   .enter().append("g")
-    .attr("class", "arc");
+  .attr("class", "arc");
 
 g.append("path")
-    .attr("d", arc)
-    .style("fill", function(d) {
-      return getRandomColor(d.data.key); })
-    .style('cursor', 'pointer')
-    .on("mouseover", function(d){tooltip.html("<b>"+d.data.groupname + "</b><br/>" + d.data.qtty); return tooltip.style("visibility", "visible");})
-    .on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
-    .on("mouseout", function(){return tooltip.style("visibility", "hidden");})
-    .on('click', function(d){
-        tooltip.style("visibility", "hidden");
-        setCategoryGroupFilter(d.data.groupname);
-     });
+  .attr("d", arc)
+  .style("fill", function(d) {
+    return getRandomColor(d.data.key); })
+  .style('cursor', 'pointer')
+  .on("mouseover", function(d){tooltip.html("<b>"+d.data.groupname + "</b><br/>" + d.data.qtty); return tooltip.style("visibility", "visible");})
+  .on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
+  .on("mouseout", function(){return tooltip.style("visibility", "hidden");})
+  .on('click', function(d){
+      tooltip.style("visibility", "hidden");
+      setCategoryGroupFilter(d.data.groupname);
+   });
 
 g.append("text")
-    .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-    .attr("dy", ".35em")
-    .style("display","none")
-    .text(function(d) { return d.data.groupname; });
+  .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+  .attr("dy", ".35em")
+  .style("display","none")
+  .text(function(d) { return d.data.groupname; });
