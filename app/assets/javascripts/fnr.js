@@ -1,22 +1,29 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 var colorsByName = [];
-var palette = [ '#003C8D', '#1B6F94', '#1F94B3', '#27ABCD', '#94CBE2', '#CEEDF4', '#007F31', '#A8D372', '#DCA600' ];
+var palette = [
+	[ '#003C8D', '#0047A6', '#0051BF', '#005CD9', '#0067F2',
+		'#1B6F94', '#1F83AD', '#2496C7', '#28A9E0', '#2DBCFA',
+		'#007F31', '#00993B',	'#00B345', '#00CC4F', '#00E659',
+		'#8F6C00', '#A87F00', '#C29200', '#DCA600', '#F5B900' ],
+	[	'#003C8D', '#1B6F94', '#007F31', '#8F6C00', '#0047A6',
+		'#1F83AD', '#00993B', '#A87F00', '#0051BF', '#2496C7',
+		'#00B345', '#C29200', '#005CD9', '#28A9E0', '#00CC4F',
+		'#DCA600', '#0067F2', '#2DBCFA', '#00E659', '#F5B900'	]
+];
 var workingPallete = [...palette];
-function getRandomColor(groupName, originalColor = 0, chartLevel = 0){
-	if(chartLevel==1 && originalColor){
-		return originalColor;
-	}
+function getRandomColor(groupName, pallete_id){
+	//console.log(workingPallete);
 	if(colorsByName[groupName]) {
 		return colorsByName[groupName];
 	}
 	else {
-		if ( workingPallete.length == 0 ) {
-			workingPallete = [...palette];
+		if ( workingPallete[pallete_id].length == 0 ) {
+			workingPallete[pallete_id] = [...palette[pallete_id]];
 		}
-		let random = Math.floor(Math.random()*(workingPallete.length-1));
-		var color = workingPallete[random];
-		workingPallete.splice(random, 1);
+		//let random = Math.floor(Math.random()*(workingPallete.length-1));
+		var color = workingPallete[pallete_id].shift();
+		//workingPallete.splice(random, 1);
 		colorsByName[groupName] = color;
 		return color;
 	}
@@ -67,7 +74,7 @@ svg.selectAll(".bar")
   .attr("width", function(d, i) {return dx*d.averageTime;})
   .attr("height", dy)
   .style("fill", function(d,i) {
-    return getRandomColor(d.groupName);
+    return getRandomColor(d.groupName, 0);
   })
   .style("margin-bottom", "10px")
   .style('cursor', 'pointer')
@@ -133,7 +140,7 @@ var svg = d3.select("#"+container_id).append("svg")
 
 var total = 0;
 $.each(data_by, function(i, item) {
-  $("#list").append('<li style="cursor: pointer;"><span>'+item.groupname+'</span><div class="square" style="background-color: '+getRandomColor(item.key)+';"></div></li>');
+  $("#list").append('<li style="cursor: pointer;"><span>'+item.groupname+'</span><div class="square" style="background-color: '+getRandomColor(item.key, 1)+';"></div></li>');
 	total += item.qtty;
 });
 $('#stats-total').text(total + " intervenciones");
@@ -144,8 +151,7 @@ var g = svg.selectAll(".arc")
 
 g.append("path")
   .attr("d", arc)
-  .style("fill", function(d) {
-    return getRandomColor(d.data.key); })
+  .style("fill", function(d) { return getRandomColor(d.data.key, 1); })
   .style('cursor', 'pointer')
   .on("mouseover", function(d){tooltip.html("<b>"+d.data.groupname + "</b><br/>" + d.data.qtty); return tooltip.style("visibility", "visible");})
   .on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})

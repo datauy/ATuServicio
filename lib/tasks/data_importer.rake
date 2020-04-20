@@ -47,7 +47,7 @@ namespace :importer do
     puts 'Importing FNR data'
     @imported = 0
     @duplicated = 0
-    @fails = 0
+    @fails = []
 =begin
     import_tag('imaes.csv', Imae)
     import_tag('areas_acto.csv', InterventionArea)
@@ -77,8 +77,8 @@ namespace :importer do
     @areas_obj = InterventionArea.all
     @types_obj = InterventionType.all
     @states_obj = State.all
-    @providers_obj = Provider.select("id, nombre_abreviado, nombre_completo").all
-    import_file("#{@year}/microdatos_autorizaciones_2018.csv", col_sep: ';', headers: true) do |row|
+    @providers_obj = ProviderFnr.all
+    import_file("#{@year}/microdatos_autorizaciones_2018.csv", col_sep: ',', headers: true) do |row|
       Rails.logger.info "\n\n ARRANCA IMPORT Microdatos \n #{row.inspect}\n"
 
       #if @imae = Imae.where(nombre: row[15])
@@ -96,12 +96,6 @@ namespace :importer do
       else
         @imae_id = @imae[:id]
       end
-      #Area must be matched since distinction like ACTOS CARDIOLOGÍA from ACTOS MÉDICOS CARDIOLOGÍA must be made for both datasets to match
-      #row[1] = "DISPOSITIVOS"
-      begin
-        row[1]["ACTOS"] = "ACTOS MÉDICOS"
-      rescue IndexError
-      end
       if !(@area = @areas.select { |area| area[:nombre] == row[1] }.first )
         @area = InterventionArea.create( nombre: row[1] )
         @areas_obj << @area
@@ -109,16 +103,15 @@ namespace :importer do
       #Intervention Type is asociated with area
       if !(@type = @types.select { |tipo| tipo[:nombre] == row[3] && tipo[:intervention_area_id] == @area.id }.first )
         @type = InterventionType.create( {nombre: row[3], intervention_area_id: @area.id} )
-        @types_obj << @types
+        @types_obj << @type
+      end
+      if !( @provider = @providers.select { |prov| prov[:nombre] == row[11] }.first )
+        @provider = ProviderFnr.create( nombre: row[11] )
+        @providers_obj << @provider
       end
       if !( @state = @states.select { |depto| depto[:name] == row[10].to_s.downcase }.first )
         Rails.logger.info "No se encontró el depto: #{row[10]}"
-        @fails += 1
-        next
-      end
-      if !( @provider = @providers.select { |prov| prov[:nombre_abreviado] == row[11].upcase || prov[:nombre_completo] == row[11] }.first )
-        Rails.logger.info "No se encontró el PROVEEDOR: #{row[11]}"
-        @fails += 1
+        @fails << row[10]
         next
       end
       Rails.logger.info "\n\n ARRANCA4 \n"
@@ -132,7 +125,8 @@ namespace :importer do
         edad: row[8],
         sexo: row[9],
         state_id: @state.id,
-        provider_id: @provider.id
+        #provider_id: @provider.id
+        provider_fnr_id: @provider.id
       }
       if Intervention.where(@interventionRecord).empty?
         Intervention.create(@interventionRecord)
@@ -142,7 +136,8 @@ namespace :importer do
         @duplicated += 1
       end
       if @imported == 100
-        puts "Se importaron #{@imported} No se agregaron #{@duplicated} por estar duplicados, fallaron #{@fails}"
+        puts "Se importaron #{@imported} No se agregaron #{@duplicated} por estar duplicados, fallaron #{@fails.length}"
+        puts @fails.inspect
         exit
       end
     end
