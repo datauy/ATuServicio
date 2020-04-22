@@ -9,22 +9,25 @@ class FnrController < ApplicationController
     #Waiting time
     @resource = 'dd3046c9-06eb-490e-be95-ba58feb25b5e'
     @interventions = Intervention
-      .select("imae_id, count(*) as qtty, sum(realizado - autorizado) as wait")
+      .select("imae_id, count(*) as numb, sum(realizado - autorizado)/count(*) as wait")
       .where.not(realizado: nil)
       .includes(:imae)
       .group(:imae_id)
-      .map { |i| { count: i.qtty, groupName: i.imae.nombre, averageTime: (i.wait/i.qtty) } }
+      .order("wait")
+      .map { |i| { qtty: i.wait, groupname: i.imae.nombre, numb: i.numb } }
       .to_json
     @by = if params[:by].nil?
       'intervention_area'
     else
       params[:by]
     end
+    Rails.logger.info @interventions.inspect
     @interventions_by = Intervention
       .joins(intervention_type: :intervention_area)
-      .select("#{@by}s.id as key, #{@by}s.nombre as groupname, '#000' as color, count(*) as qtty")
+      .select("#{@by}s.id as key, #{@by}s.nombre as groupname, count(*) as qtty")
       .where(realizado: nil)
       .group(:key)
+      .order("qtty desc")
       .to_json
       #.map { |i| { count: i.qtty, groupName: i.imae.nombre, averageTime: (i.wait/i.qtty) } }
     #Statistics
@@ -51,6 +54,11 @@ class FnrController < ApplicationController
       format.html{}
     end
 
+  end
+
+  private
+  def search_params
+    params.permit(:areas, :"intervention-types", :states, :selected_providers, :"stats-areas")
   end
 
 end

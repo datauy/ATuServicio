@@ -14,6 +14,11 @@
         Catálogo Prestaciones
       </a>
     </li>
+    <li role="presentation" <%= 'class=active' if controller_name == 'fnr' %>>
+      <a href="/fnr">
+        Fondo Nacional de Recursos
+      </a>
+    </li>
     <% if controller.controller_name == 'compare' %>
       <li>
         <a  href="javascript:void(0);" onclick="javascript:introJs().start();">

@@ -11,16 +11,15 @@
     </div>
   </div>
   <section class="row graphs waiting_time">
-    <%= render partial: 'waiting_time' %>
+    <section id="waiting-time">
+      <%= render partial: 'waiting_time' %>
+    </section>
   </section>
   <section class="row graphs stats">
-    <%= render partial: 'stats' %>
+    <section id="graphs">
+      <%= render partial: 'stats' %>
+    </section>
   </section>
-  <script>
-    //Load data into js variables
-    var data = <%=raw @interventions %>
-    var data_by = <%=raw @interventions_by %>
-  </script>
   <%= javascript_include_tag 'jquery' %>
   <%= javascript_include_tag 'jquery-ui-1.10.3.min.js' %>
   <%= javascript_include_tag 'd3.v3.min.js' %>

@@ -1,36 +1,34 @@
-<section id="graphs">
-  <h3 class="graph-title">Estadísticas de actos médicos</h3>
-  <section class="filter">
-    <div class="row center">
-      <button class="button toggle toggle-left active" onClick="toggleGraph('area')">ACTOS</button>
-      <button class="button toggle toggle-right" onClick="toggleGraph('imae')">IMAE</button>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <%=
-        select_tag "states",
-        options_for_select( state_options(@states), params[:departamento] ),
-        class: "form-control"
-        %>
-      </div>
-      <div class="col-md-4">
-        <%= render partial: 'home/provider_options' %>
-      </div>
-      <div class="col-md-4">
-        <%= select_tag "stats-areas", options_for_select(tagging_options(@areas), params[:area]), include_blank: "Elija un área", class: "form-control" %>
-      </div>
-    </div>
-    <div class="row center">
-      <%= icon_info('fnr-about').html_safe %>
-      <span>Sobre esta visualización/Glosario</span>
-    </div>
-  </section>
+<script> var data_by = <%=raw @interventions_by %> </script>
+<h3 class="graph-title">Estadísticas de actos médicos</h3>
+<section class="filter">
+  <div class="row center">
+    <button class="button toggle toggle-left active" onClick="toggleGraph('area')">ACTOS</button>
+    <button class="button toggle toggle-right" onClick="toggleGraph('imae')">IMAE</button>
+  </div>
   <div class="row">
-  <div class="col-md-9" id="graph-stats">
+    <div class="col-md-4">
+      <%=
+      select_tag "states",
+      options_for_select( state_options(@states), params[:departamento] ),
+      class: "form-control"
+      %>
+    </div>
+    <div class="col-md-4">
+      <%= render partial: 'home/provider_options' %>
+    </div>
+    <div class="col-md-4">
+      <%= select_tag "stats-areas", options_for_select(tagging_options(@areas), params[:area]), include_blank: "Elija un área", class: "form-control" %>
+    </div>
   </div>
-  <div class="col-md-3" id="graph-stats-legend">
-    <ul id="list">
-    </ul>
-    <div id="stats-total" class="totals"></div>
+  <div class="row center">
+    <%= icon_info('fnr-about-stats').html_safe %>
+    <span>Sobre esta visualización/Glosario</span>
   </div>
+  <% @body = 'Estas estadísticas se hicieron en base a los datos registrados en el catálogo <a href="/">Stats</a>' %>
+  <%= modal_content("fnr-about-stats", 'Microdatos FNR', @body, '').html_safe %>
+  <div id=></div>
 </section>
+<div class="row">
+<div class="col-md-12" id="graph-stats">
+</div>
+<div id="stats-total" class="totals"></div>
