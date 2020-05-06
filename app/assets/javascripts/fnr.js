@@ -124,6 +124,17 @@ function renderBars(container_id, data, showActos = 0) {
 	});
 };
 
+function filterData() {
+	$("#loading").show();
+	$.ajax({
+		type: "POST",
+		url: "/fnr",
+		data : $("form").serialize(),
+		success: function(result){
+			$("#loading").hide();
+		}
+	});
+}
 function renderGraphs() {
 	// bars
 	renderBars('graph-wait', data, 1);
@@ -131,66 +142,34 @@ function renderGraphs() {
 	renderBars('graph-stats', data_by);
 	/***   Watchers   ***/
 	//Waiting
-	$("#areas").change(function (e) {
-		sval = $('#states').val();
-		$.ajax({
-			type: "GET",
-			url: "/fnr?departamento="+sval,
-			success: function(result){
-				console.log('Success, ajax');
-			}
-		});
-		console.log('Vuelve ajax');
+	$("#area").change(function (e) {
+		//reset type value
+		$("#type").removeAttr('value');
+		filterData();
 	});
-	$("#intervention-types").change(function (e) {
-		sval = $('#states').val();
-		$.ajax({
-			type: "GET",
-			url: "/fnr?departamento="+sval,
-			success: function(result){
-				console.log('Success, ajax');
-			}
-		});
-		console.log('Vuelve ajax');
+	$("#type").change(function (e) {
+		filterData();
 	});
 	//Stats
-	$(".toggle").click(function (e) {
-		console.log('Toggle Clicked');
+	$(".filter-by").not('.active').click(function (e) {
+		e.preventDefault();
+		$(".filter-by").removeClass('active');
+		$(this).addClass('active');
+		$('#by').val($(this)[0].id);
+		filterData();
 	});
 	$("#states").change(function (e) {
-		sval = $('#states').val();
-		$.ajax({
-			type: "GET",
-			url: "/fnr?departamento="+sval,
-			success: function(result){
-				console.log('Success, ajax');
-			}
-		});
-		console.log('Vuelve ajax');
+		filterData();
 	});
-	$("#selected_providers").change(function (e) {
-		sval = $('#states').val();
-		$.ajax({
-			type: "GET",
-			url: "/fnr?departamento="+sval,
-			success: function(result){
-				console.log('Success, ajax');
-			}
-		});
-		console.log('Vuelve ajax');
+	$("#provider").change(function (e) {
+		filterData();
 	});
-	$("#stats-areas").change(function (e) {
-		sval = $('#states').val();
-		$.ajax({
-			type: "GET",
-			url: "/fnr?departamento="+sval,
-			success: function(result){
-				console.log('Success, ajax');
-			}
-		});
-		console.log('Vuelve ajax');
+	$("#statsArea").change(function (e) {
+		//Si va por imae lo dejamos como está
+		if ($('#actos').hasClass('active')) {
+			$('#by').val('intervention_type');
+		}
+		filterData();
 	});
 }
-console.log(data);
-console.log(data_by);
 renderGraphs();

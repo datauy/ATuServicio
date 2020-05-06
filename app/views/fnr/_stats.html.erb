@@ -2,22 +2,24 @@
 <h3 class="graph-title">Estadísticas de actos médicos</h3>
 <section class="filter">
   <div class="row center">
-    <button class="button toggle toggle-left active" onClick="toggleGraph('area')">ACTOS</button>
-    <button class="button toggle toggle-right" onClick="toggleGraph('imae')">IMAE</button>
+    <button id="actos" class="button filter-by filter-by-left <%= @by == 'imae' ? '': 'active' %>">ACTOS</button>
+    <button id="imae" class="button filter-by filter-by-right <%= @by == 'imae' ? 'active' :'' %>">IMAE</button>
+    <input name="by" id="by" type="hidden"/>
   </div>
   <div class="row">
     <div class="col-md-4">
       <%=
       select_tag "states",
-      options_for_select( state_options(@states), params[:departamento] ),
+      options_for_select( @states, params[:states] ),
+      include_blank: "Elija un departamento",
       class: "form-control"
       %>
     </div>
     <div class="col-md-4">
-      <%= render partial: 'home/provider_options' %>
+      <%= render partial: 'provider_options' %>
     </div>
     <div class="col-md-4">
-      <%= select_tag "stats-areas", options_for_select(tagging_options(@areas), params[:area]), include_blank: "Elija un área", class: "form-control" %>
+      <%= select_tag "statsArea", options_for_select(tagging_options(@areas), params[:statsArea]), include_blank: "Elija un área", class: "form-control" %>
     </div>
   </div>
   <div class="row center">

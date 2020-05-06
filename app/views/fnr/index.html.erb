@@ -10,16 +10,19 @@
       </div>
     </div>
   </div>
-  <section class="row graphs waiting_time">
-    <section id="waiting-time">
-      <%= render partial: 'waiting_time' %>
+  <%= form_tag("/fnr") do %>
+    <section class="row graphs waiting_time">
+      <section id="waiting-time">
+        <%= render partial: 'waiting_time' %>
+      </section>
     </section>
-  </section>
-  <section class="row graphs stats">
-    <section id="graphs">
-      <%= render partial: 'stats' %>
+    <section class="row graphs stats">
+      <section id="graphs">
+        <%= render partial: 'stats' %>
+      </section>
     </section>
-  </section>
+  <% end %>
+  <%= loading.html_safe %>
   <%= javascript_include_tag 'jquery' %>
   <%= javascript_include_tag 'jquery-ui-1.10.3.min.js' %>
   <%= javascript_include_tag 'd3.v3.min.js' %>

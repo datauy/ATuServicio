@@ -3,14 +3,12 @@
 <section class="filter">
   <div class="row">
     <div class="col-md-4 left">
-      <%= select_tag "areas", options_for_select(tagging_options(@areas), params[:area]), include_blank: "Elija un área", class: "form-control" %>
+      <%= select_tag "area", options_for_select(tagging_options(@areas), params[:area]), include_blank: "Elija un área", class: "form-control" %>
     </div>
     <div class="col-md-4 right">
-        <%= select_tag "types", options_for_select(tagging_options(@types), params[:types]),
+        <%= select_tag "type", options_for_select(tagging_options(@types), params[:type]),
           include_blank: "Elija una prestación",
-          class: "form-control",
-          name: 'intervention-types',
-          id: 'intervention-types'
+          class: "form-control"
         %>
     </div>
   </div>
