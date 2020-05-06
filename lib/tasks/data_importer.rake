@@ -45,9 +45,9 @@ namespace :importer do
   desc 'Import FNR'
   task :fnr, [:year] => [:environment] do
     puts 'Importing FNR data'
-    @imported = 0
-    @duplicated = 0
-    @fails = []
+    imported = 0
+    duplicated = 0
+    fails = []
 =begin
     import_tag('imaes.csv', Imae)
     import_tag('areas_acto.csv', InterventionArea)
@@ -72,75 +72,81 @@ namespace :importer do
     #Since we don't have the id yet we will match the transformed waitting time IMAE name
     #Se quita por corrección de planilla, TODO: ver sómo se va a realiazr al final
     #@imaesNamed_obj = Imae.all.map {|i| {id: i.id, name: i.nombre.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').upcase} }
-    @imaesNamed_obj = Imae.all.map {|i| {id: i.id, name: i.nombre.upcase} }
+    imaesNamed_obj = Imae.all.map {|i| {id: i.id, name: i.nombre.upcase} }
     #Load tags and states for inner search
-    @areas_obj = InterventionArea.all
-    @types_obj = InterventionType.all
-    @states_obj = State.all
-    @providers_obj = ProviderFnr.all
+    areas_obj = InterventionArea.all
+    types_obj = InterventionType.all
+    states_obj = State.all
+    providers_obj = ProviderFnr.all
     import_file("#{@year}/microdatos_autorizaciones_2018.csv", col_sep: ',', headers: true) do |row|
       Rails.logger.info "\n\n ARRANCA IMPORT Microdatos \n #{row.inspect}\n"
 
       #if @imae = Imae.where(nombre: row[15])
       #Duplicate persistent objects for select
-      @imaesNamed = @imaesNamed_obj.dup
-      @areas = @areas_obj.dup
-      @types = @types_obj.dup
-      @states = @states_obj.dup
-      @providers = @providers_obj.dup
-      if !(@imae = @imaesNamed.select { |timae| timae[:name] == row[15] }.first )
-        @imae = Imae.create( nombre: row[15] )
-        @imae_id = @imae.id
+      imaesNamed = imaesNamed_obj.dup
+      areas = areas_obj.dup
+      types = types_obj.dup
+      states = states_obj.dup
+      states_prov = states_obj.dup
+      providers = providers_obj.dup
+      if !(imae = imaesNamed.select { |timae| timae[:name] == row[15] }.first )
+        imae = Imae.create( nombre: row[15] )
+        imae_id = imae.id
         #@imaesNamed_obj << {id: @imae.id, name: @imae.nombre.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').upcase}
-        @imaesNamed_obj << {id: @imae.id, name: @imae.nombre.upcase}
+        imaesNamed_obj << {id: imae.id, name: imae.nombre.upcase}
       else
-        @imae_id = @imae[:id]
+        imae_id = imae[:id]
       end
-      if !(@area = @areas.select { |area| area[:nombre] == row[1] }.first )
-        @area = InterventionArea.create( nombre: row[1] )
-        @areas_obj << @area
+      if !(area = areas.select { |area| area[:nombre] == row[1] }.first )
+        area = InterventionArea.create( nombre: row[1] )
+        areas_obj << area
       end
       #Intervention Type is asociated with area
-      if !(@type = @types.select { |tipo| tipo[:nombre] == row[3] && tipo[:intervention_area_id] == @area.id }.first )
-        @type = InterventionType.create( {nombre: row[3], intervention_area_id: @area.id} )
-        @types_obj << @type
+      if !(type = types.select { |tipo| tipo[:nombre] == row[3] && tipo[:intervention_area_id] == area.id }.first )
+        type = InterventionType.create( {nombre: row[3], intervention_area_id: area.id} )
+        types_obj << type
       end
-      if !( @provider = @providers.select { |prov| prov[:nombre] == row[11] }.first )
-        @provider = ProviderFnr.create( nombre: row[11] )
-        @providers_obj << @provider
+      provider_state = states_prov.select { |depto| depto[:name] == row[13].to_s.downcase }.first
+      if !provider_state
+        fails += row[13]
+        puts "no se encontró el depto: #{row[13]}"
       end
-      if !( @state = @states.select { |depto| depto[:name] == row[10].to_s.downcase }.first )
+      if !( provider = providers.select { |prov| prov[:nombre] == row[11] }.first )
+        provider = ProviderFnr.create( nombre: row[11], state_id: provider_state[:id] )
+        providers_obj << provider
+      end
+      if !( state = states.select { |depto| depto[:name] == row[10].to_s.downcase }.first )
         Rails.logger.info "No se encontró el depto: #{row[10]}"
-        @fails << row[10]
+        fails << row[10]
         next
       end
       Rails.logger.info "\n\n ARRANCA4 \n"
-      @interventionRecord = {
-        imae_id: @imae_id,
-        intervention_type_id: @type.id,
+      interventionRecord = {
+        imae_id: imae_id,
+        intervention_type_id: type.id,
         solicitado: Date.parse(row[4]),
         autorizado: Date.parse(row[5]),
         intervention_kind: row[0],
         estado: row[6],
         edad: row[8],
         sexo: row[9],
-        state_id: @state.id,
-        #provider_id: @provider.id
-        provider_fnr_id: @provider.id
+        state_id: state.id,
+        #provider_id: provider.id
+        provider_fnr_id: provider.id
       }
-      if Intervention.where(@interventionRecord).empty?
-        Intervention.create(@interventionRecord)
-        @imported += 1
+      if Intervention.where(interventionRecord).empty?
+        Intervention.create(interventionRecord)
+        imported += 1
       else
         # Ver qué hacemos con duplicados, por ahora nada
-        @duplicated += 1
+        duplicated += 1
       end
-      if @imported == 100
-        puts "Se importaron #{@imported} No se agregaron #{@duplicated} por estar duplicados, fallaron #{@fails.length}"
-        puts @fails.inspect
+      if imported == 200
+        puts fails.inspect
         exit
       end
     end
+    puts "Se importaron #{imported} No se agregaron #{duplicated} por estar duplicados, fallaron #{fails.length}"
   end
 
   def import_tag(data_file, tagType)
