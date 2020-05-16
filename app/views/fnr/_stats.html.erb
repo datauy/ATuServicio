@@ -1,5 +1,6 @@
 <script> var data_by = <%=raw @interventions_by %> </script>
-<h3 class="graph-title">Estadísticas de actos médicos</h3>
+<h2>Estadísticas de actos médicos</h2>
+<h3 class="graph-title">Todos los actos financiados por el FNR en el último año cerrado.</h3>
 <section class="filter">
   <div class="row center">
     <button id="actos" class="button filter-by filter-by-left <%= @by == 'imae' ? '': 'active' %>">ACTOS</button>
@@ -26,8 +27,11 @@
     <%= icon_info('fnr-about-stats').html_safe %>
     <span>Sobre esta visualización/Glosario</span>
   </div>
-  <% @body = 'Estas estadísticas se hicieron en base a los datos registrados en el catálogo <a href="/">Stats</a>' %>
-  <%= modal_content("fnr-about-stats", 'Microdatos FNR', @body, '').html_safe %>
+  <% @body = 'Las cifras que se grafican surgen de la cantidad de actos médicos financiados por el FNR realizados en el último año cerrado, para tipo de acto médico, o para cada IMAE (según la vista activa en el selector “Actos/IMAE” que se encuentra bajo el título de la sección).</br>
+Los filtros que ofrece la visualización permiten visualizar esas mismas cifras para un departamento, institución o área en particular.</br>
+De esta forma, seleccionando por ejemplo “Maldonado” en el primer campo desplegable se obtiene la cantidad de actos para ese departamento únicamente, mientras que si se selecciona una institución en el segundo campo desplegable o un área en el tercero, se obtiene la cantidad de actos para esa institución y/o acto en particular.</br>
+Los datos sin procesar están disponibles para ser descargados desde el <a href="https://catalogodatos.gub.uy/dataset/fondo-nacional-de-recursos-solicitudes-de-tramites-autorizados/resource/dd3046c9-06eb-490e-be95-ba58feb25b5e">Catálogo Nacional de Datos Abiertos</a>.' %>
+  <%= modal_content("fnr-about-stats", 'Estadísticas de actos médicos', @body, '').html_safe %>
   <div id=></div>
 </section>
 <div class="row">
