@@ -15,7 +15,7 @@ Esta aplicación Web permite ver el listado de los prestadores integrales de sal
  
  Al iniciar, en la página principal, la aplicación muestra el módulo de Visualización, a través del cual se hace disponible información de cada una de las Instituciones de Salud sobre una serie de atributos. Donde el usuario pueda comparar los valores de cada atributo para las distintas Instituciones, así como poder agrupar a estos últimos por departamento, como se muestra en la siguiente captura de pantalla.
  
-![Capture-DE INSTITUCIONES.png](app/assets/images/Capture-DE-INSTITUCIONES "INSTITUCIONES")
+![Capture-DE INSTITUCIONES.png](app/assets/images/Capture-DE-INSTITUCIONES.png "INSTITUCIONES")
  
 Como se puede observar en la captura de pantalla anterior, podemos ver el prestador integral de salud,tiempo de espera, derecho de usuarios,precio fonasa, indicadores asistenciales, cantidad de usuarios y RRHH.
  
