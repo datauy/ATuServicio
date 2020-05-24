@@ -64,4 +64,4 @@ Archivos PNG nombre sólo letras (sin acentos ni símbolos) y separado del ID de
 
 ## Dependencias
 
-Los detalles de las dependecias se encuentran en el archivo   [COPYRIGHT.md](COPYRIGHT.md).
+Los detalles de las dependecias se encuentran en el archivo [COPYRIGHT.md](COPYRIGHT.md).
