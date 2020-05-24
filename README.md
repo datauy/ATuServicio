@@ -1,67 +1,52 @@
-## Instalación
+[![Build Status](https://travis-ci.org/EL-BID/ccvms.svg?branch=master)](https://travis-ci.org/EL-BID/ccvms)
 
-Local:
+![72x72.png]( app/assetsIimages/72x72.png "LOGO")
 
-1. Bundle - `bundle`
-2. Levantar base de datos (postgres): `rake db:create db:migrate importer:states importer:all[year]`
+##   A tu servicio
+ 
+### Descripción 
+--- 
+Esta herramienta sirve para visualizar un  conjunto de datos sobre las Instituciones que integran el Seguro Nacional de Salud.
+Permite visualizar y comparar aprox. 100 datos distintos sobre éstos prestadores en las categorías Estructura, Tiempos de Espera, Derechos y satisfacción del usuario, Precios, Indicadores Asistenciales, Recursos Humanos, Solicitud de consultas y Sedes (ubicaciones de clínicas).
+También permite consultar el listado completo (+7.000) de prestaciones a las que cada usuario/a tiene derecho al asociarse a cualquier prestador, categorizadas como Modalidades de atención médica, Especialidades médicas, otros profesionales y técnicos para el control y la recuperación y Procedimientos diagnósticos.
+### Guía de usuario
+---
+Esta aplicación Web permite ver el listado de los prestadores integrales de salud del país. Comparar sus indicadores y tomar una decisión informada.
+ 
+ Al iniciar, en la página principal, la aplicación muestra el módulo de Visualización, a través del cual se hace disponible información de cada una de las Instituciones de Salud sobre una serie de atributos. Donde el usuario pueda comparar los valores de cada atributo para las distintas Instituciones, así como poder agrupar a estos últimos por departamento, como se muestra en la siguiente captura de pantalla.
+ 
+![Capture-DE INSTITUCIONES.png](app/assetsIimages/Capture-DE-INSTITUCIINES.png "INSTITUCIONES")
+ 
+Como se puede observar en la captura de pantalla anterior, podemos ver el prestador integral de salud,tiempo de espera, derecho de usuarios,precio fonasa, indicadores asistenciales, cantidad de usuarios y RRHH.
+ 
+También contamos con un botón de acción **Ver estructuras y sedes** para cada prestador integral de salud. Este botón nos permite visualizar las características y sedes de la estructura de los centros de salud en cuestión. En la siguiente captura de pantalla se muestra dicho listado:
+ 
+![Capture-ESTRUCTURA.png]( app/assetsIimages/Capture-ESTRUCTURA.png "ESTRUCTURA")
 
-## Configuración y CSV's
+En esta pantalla podemos observar que tenemos un listado,donde podemos ver las cantidades de estructuras primarias,secundarias,policlínicas y sedes de este prestador integral de salud.También contamos con un links el cual al momento de clickear nos lleva a la página oficial del prestador de salud en este caso a  la institución asistenciaL médica.
 
-### /config/metadata.yml
-Definición de los metadatos. Mapea archivos CSV a datos. Las llaves son los nombres de los archivos csv's a importar, y ahí se encuentra la estructura a la que vamos a transformar las cosas:
+![Capture-DEINSTITUCIONASITENCIAMEDICA.png](app/assetsIimages/Capture-DEINSTITUCIONASITENCIAMEDICA.png "ASISYENCIAMEDICA")
+### Guía de instalación
+---
+Los pasos para instalar y configurar esta aplicación se muestran en el archivo [INSTALL.md](INSTALL.md).
 
-```ruby
-2.2.2 :005 > METADATA.keys
- => [:estructura, :metas, :precios, :sedes, :tiempos_espera,
- :satisfaccion_derechos, :rrhh, :solicitud_consultas]
-```
+### Código de conducta 
+---
+Puedes ver el código de conducta para este proyecto en el siguiente archivo [CODE*OF*CONDUCT.md](CODEOFCONDUCT.md).
+ 
+### Autor/es
+---
+### Licencia 
+---
+Los detalles de licencia para este código fuente se encuentran en el archivo [LICENSE.md](LICENSE.md).
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
-Cada elemento tiene 4 grupos:
-* `title` - Ejemplo: "Estructura", "Metas Asistenciales"
-* `description` - Descripción que mapea a cada columna
-* `columns` - Nombre de la columna en el objeto (y la BD)
-* `definition` - Los tipos de cada columna (text, boolean, decimal)
-
-Estos datos se cargan en `config/initializers/metadata.rb` en el array `METADATA`.
-
-### estructura.csv
-Datos de estructura de los proveedores. Se usa para importar proveedores (ASSE, Española, Casmu, etc.), se mapean al objeto Provider.
-
-### sedes.csv
-Datos de sedes (id, dirección, departamento, localildad, nivel, servicios), se mapean al objeto Site.
-
-### metas.csv
-Metas asistenciales (porcentaje de afiliados, etc.). Datos que se agregan al objeto Provider.
-
-### precios.csv
-Precios de tickets para medicamntos, consultas, demás. Datos que se agregan al objeto Provider.
-
-### tiempos_espera.csv
-Tiempos de espera. Datos que se agregan al objeto Provider.
-
-### satisfaccion_derechos.csv
-Satisfacción de derechos de usuario (conformidad con disponiblidad, evaluación de tiempos de espera, etc.). Datos que se agregan al objeto Provider.
-
-### rrhh.csv
-Recursos Humanos, cargos de médicos generales, de familia, etc. Datos que se agregan al objeto Provider.
-
-### solicitud_consultas.csv
-Solicitud de consultas (reserva presencial, telefónica, web). Datos que se agregan al objeto Provider.
-
-## Importando los datos
-
-En el directorio `lib/` del proyecto hay un script `convert.sh` que convierte todos los archivos CSV de su encoding a utf-8 para Ruby. A su vez, hay que fijarse bien el tema de las comas, punto y coma y punto para separadores de columna y decimales.
-
-## Logos
-
-Los logos deben ir en el directorio `app/assets/images/logos` con el siguiente formato de nombre:
-
-```ruby
-"#{provider.id}-solo-letras-minusculas.png"
-```
-
-Archivos PNG nombre sólo letras (sin acentos ni símbolos) y separado del ID de proveedor (por practicidad).
-
-## Dependencias
-
-Ver COPYRIGHT.md
