@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/EL-BID/ccvms.svg?branch=master)](https://travis-ci.org/EL-BID/ccvms)
+
 
 ![72x72.png]( app/assets/images/72x72.png "LOGO")
 

@@ -23,9 +23,7 @@ son:
 * Acosar a otro en público o privado
 * Publicar informaciones privadas de otro participante (dirección física o
   electrónica) sin previo consentimiento explícito
-* Cualquier acción que viole el
-  [Código de Ética y Conducta Profesional](http://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=37198738 "Código de Ética BID")
-  del [BID](https://www.iadb.org/es "BID")
+
  
 Los colaboradores del proyecto tienen el derecho y la responsabilidad de
 eliminar, editar o rechazar comentarios, "commits", código, ediciones de wiki,
@@ -39,10 +37,7 @@ eliminados del equipo del proyecto.
 Este código de conduct aplica dentro de los espacios del proyecto y en espacios
 públicos cuando el individuo está representando el proyecto o la organización.
  
-Instancias de comportamiento abusivo, de acoso u otro comportamiento inaceptable
-debe ser reportado a su contacto directo dentro del banco o a través del correo
-electrónico [code@iadb.org](code@iadb.org "code@iadb.org").
- 
+
 Este código de conducta está basado en el
 [CNCF Community Code of Conduct v1.0](https://github.com/cncf/foundation/blob/master/code-of-conduct.md "CNCF CoC").
  
