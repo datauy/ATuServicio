@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200420002510) do
+ActiveRecord::Schema.define(version: 20200505165634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20200420002510) do
   create_table "imaes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "nombre"
+    t.string   "nombre",     null: false
   end
 
   create_table "intervention_areas", force: :cascade do |t|
@@ -77,7 +77,10 @@ ActiveRecord::Schema.define(version: 20200420002510) do
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "state_id"
   end
+
+  add_index "provider_fnrs", ["state_id"], name: "index_provider_fnrs_on_state_id", using: :btree
 
   create_table "provider_maximums", force: :cascade do |t|
     t.decimal  "tickets"
@@ -241,5 +244,6 @@ ActiveRecord::Schema.define(version: 20200420002510) do
   add_foreign_key "interventions", "provider_fnrs"
   add_foreign_key "interventions", "providers"
   add_foreign_key "interventions", "states"
+  add_foreign_key "provider_fnrs", "states"
   add_foreign_key "sites", "providers"
 end

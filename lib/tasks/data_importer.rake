@@ -108,7 +108,7 @@ namespace :importer do
       end
       provider_state = states_prov.select { |depto| depto[:name] == row[13].to_s.downcase }.first
       if !provider_state
-        fails += row[13]
+        fails << row[13]
         puts "no se encontró el depto: #{row[13]}"
       end
       if !( provider = providers.select { |prov| prov[:nombre] == row[11] }.first )
