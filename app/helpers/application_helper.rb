@@ -88,4 +88,17 @@ module ApplicationHelper
       </div>
     </div>'
   end
+  def loading
+    '<div id="loading" class="modal fade">
+      <div class="loading-spinner">
+        <div class="ld-spinner">
+          <div></div><div></div><div></div>
+          <div></div><div></div><div></div>
+          <div></div><div></div><div></div>
+          <div></div><div></div><div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>'
+  end
 end
