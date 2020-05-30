@@ -5,8 +5,6 @@ class FnrController < ApplicationController
   def index
     @title = 'FNR'
     @description = 'Conocé los tiempos de espera que hay para cualquier operación financiada através del Fondo Nacional de Recursos, así como otros datos útiles.'
-    #Waiting time
-    @resource = 'dd3046c9-06eb-490e-be95-ba58feb25b5e'
     #filters
     @areas = InterventionArea.all
     @types =
@@ -16,8 +14,9 @@ class FnrController < ApplicationController
       else
         InterventionType.all
       end
-    #data
+    #load data
     get_tiempos_de_espera
+    #process values for each prestador
     @interventions = @interventions.values.
       each {|res| res[:qtty] = res[:qtty]/res[:numb] }.
       sort_by {|h| h[:qtty]}.
@@ -61,13 +60,15 @@ class FnrController < ApplicationController
   end
 
   def get_tiempos_de_espera
-    catalog_url = 'https://catalogodatos.gub.uy/api/3/action/datastore_search?resource_id=dd3046c9-06eb-490e-be95-ba58feb25b5e&limit=200'
+    #Waiting time
+    @resource = 'e19133eb-bb6b-467d-9f4b-5c208ed95889'
+    catalog_url = "https://catalogodatos.gub.uy/api/3/action/datastore_search?resource_id=#{@resource}&limit=2000"
     query = {}
-    if @area_name.present?
-      query[:area_prestacion] = @area_name
+    if params[:waiting_area].present?
+      query[:areaid] = params[:waiting_area]
     end
-    if params[:type].present?
-      query[:prestacion_desc] = InterventionType.find_by(id: params[:type]).nombre
+    if params[:waiting_presta].present?
+      query[:prestacionid] = params[:waiting_presta]
     end
     if (!query.empty?)
       catalog_url += "&filters=#{query.to_json}"
@@ -80,19 +81,31 @@ class FnrController < ApplicationController
     resp = http.get(uri.request_uri)
     if resp.is_a?(Net::HTTPSuccess)
       @interventions = {}
+      @waiting_areas = {}
+      @waiting_presta = {}
       (JSON.parse resp.body)['result']['records'].each do |pres|
-        imae_id = pres["IMAE/Clinica/Centro_cod"]
-        if @interventions[imae_id].nil? #imaeId
+        imae_id = pres["imaeid"]
+        area_id = pres["areaid"]
+        presta_id = pres["prestacionid"]
+        if @interventions[imae_id].nil?
           @interventions[imae_id] = {
-            qtty: (pres['fecha_solicitud'].to_date - pres['fecha_autorizacion'].to_date).to_i.abs, #fechaRealizacion - fechaAutorizacion # TODO: Quitar el abs
-            groupname: pres["IMAE/Clinica/Centro"], #imaeNombre
+            id: imae_id,
+            qtty: (pres['fecharealizacion'].to_date - pres['fechaautorizacion'].to_date).to_i,
+            groupname: pres["imaenombre"],
             numb: 1
           }
         else
           @interventions[imae_id][:numb] += 1
-          @interventions[imae_id][:qtty] += (pres['fecha_solicitud'].to_date - pres['fecha_autorizacion'].to_date).to_i.abs
+          @interventions[imae_id][:qtty] += (pres['fecharealizacion'].to_date - pres['fechaautorizacion'].to_date).to_i
+        end
+        if @waiting_areas[area_id].nil?
+          @waiting_areas[area_id] = pres["areanombre"]
+        end
+        if @waiting_presta[area_id].nil?
+          @waiting_presta[presta_id] = pres["prestacionnombre"]
         end
       end
+      Rails.logger.info "\n #{@interventions.inspect} \n"
     else
       @interventions = 0
     end

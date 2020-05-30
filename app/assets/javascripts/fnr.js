@@ -37,8 +37,8 @@ function getRandomColor(groupname, pallete_id, reload){
 		return color;
 	}
 }
-function renderBars(container_id, data, showActos = 0) {
-	var dy = 50;
+function renderBars(container_id, data) {
+	var dy = 60;
 	w = $("#"+container_id).innerWidth(),
 	h = ( dy + 6 )*data.length;
 
@@ -52,6 +52,7 @@ function renderBars(container_id, data, showActos = 0) {
 	.attr("width", w)
 	.attr("height", h);
 
+	console.log("Rendering "+ container_id);
 	// bars
 	svg.selectAll(".bar")
 	.data(data)
@@ -78,48 +79,60 @@ function renderBars(container_id, data, showActos = 0) {
 		return tooltip.style("visibility", "hidden");
 	})
 	.on('click', function(d){
+		if ( container_id == "graph-wait" ) {
+			window.open( "https://catalogodatos.gub.uy/dataset/fondo-nacional-de-recursos-tiempo-de-espera-de-los-imae/resource/"+
+			resource +"?filters=imaeid%3A"+ d.id );
+		}
+		else {
+			var dest = "https://catalogodatos.gub.uy/dataset/fondo-nacional-de-recursos-solicitudes-de-tramites-autorizados/resource/"+interventionsource +"?filters=";
+			if ( $('#by').val == 'imae') {
+				dest += "IMAE%2FCL%C3%ADnica%2FCentro%3A"+ d.groupname.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+			}
+			else {
+				if ( $("#statsArea").val() ) {
+					dest += "prestacion_desc%3A"+ d.groupname.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+				}
+				else {
+					dest += "area_prestacion%3A"+ d.groupname;
+				}
+			}
+			window.open( dest );
+		}
 		tooltip.style("visibility", "hidden");
-		setCategoryGroupFilter(d.groupname);
 	});
 	// labels
+	//TOP
 	svg.selectAll("text")
 	.data(data)
 	.enter()
 	.append("text")
 	.attr("class", function(d, i) {return "text " + d.groupname;})
 	.attr("x", 20)
-	.attr("width", 160)
-	.attr("y", function(d, i) {return dy*i + (5*i) + 30;})
+	.attr("y", function(d, i) {return dy*i + (5*i) + 25;})
+	//.attr("width", 160)
 	//.html( function(d) {return d.groupname + "<a style='width:120px; height:25px;' href='https://catalogodatos.gub.uy/dataset/fondo-nacional-de-recursos-solicitudes-de-tramites-autorizados/resource/dd3046c9-06eb-490e-be95-ba58feb25b5e?filters=IMAE%2FCL%C3%ADnica%2FCentro%3A"+d.groupname.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase()+"'>(" + d.count  + " actos médicos)</a>";})
 	.attr("font-size", "15px")
 	.html( function(d) {
-		var label = "";
-		if (showActos) {
-			label = '<tspan width="100%">' +
-			d.groupname +
-			"</tspan><tspan><a style='width:120px; height:25px;' href='https://catalogodatos.gub.uy/dataset/fondo-nacional-de-recursos-solicitudes-de-tramites-autorizados/resource/dd3046c9-06eb-490e-be95-ba58feb25b5e?filters=IMAE%2FCL%C3%ADnica%2FCentro%3A"+
-			d.groupname.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase()+"'> (" + d.numb  + " actos médicos)</a></tspan>";
-		}
-		else {
-			label = "<a style='width:120px; height:25px;' href='https://catalogodatos.gub.uy/dataset/fondo-nacional-de-recursos-solicitudes-de-tramites-autorizados/resource/dd3046c9-06eb-490e-be95-ba58feb25b5e?filters=IMAE%2FCL%C3%ADnica%2FCentro%3A"+
-			d.groupname.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase()+"'>" + d.groupname  +", "+ d.qtty  + " intervenciones</a>";
-		}
-		return label;
+		return '<tspan width="100%">' +d.groupname.toUpperCase()+"</tspan>"
 	});
 
+	//BOTTOM
 	svg.selectAll(".graph-values")
 	.data(data)
 	.enter()
 	.append("text")
-	.attr("class", function(d, i) {return "graph-values " + d.groupname;})
-	.attr("x", function(d, i) {return dx*d.qtty - 160 } )
-	.attr("y", function(d, i) {return dy*i + (5*i) + 30;})
+	//.attr("class", function(d, i) {return "graph-values " + d.groupname;})
+	.attr("x", 20 )
+	.attr("y", function(d, i) {return dy*i + (5*i) + 45;})
 	.attr("font-size", "14px")
 	//.style("font-weight", "bold")
 	.attr("width", 60)
 	.html( function(d) {
-		if (showActos) {
-			return "Promedio: " + d.qtty  + " días";
+		if ( container_id == "graph-wait" ) {
+			return "Promedio: " + d.qtty + " días ("+d.numb+" actos médicos)";
+		}
+		else {
+			return d.qtty + " intervenciones";
 		}
 	});
 };
@@ -136,9 +149,9 @@ function filterData() {
 	});
 }
 function renderGraphs() {
-	// bars
-	renderBars('graph-wait', data, 1);
 	workingPallete = JSON.parse(JSON.stringify(palette));
+	// bars
+	renderBars('graph-wait', data);
 	renderBars('graph-stats', data_by);
 	/***   Watchers   ***/
 	//Waiting
