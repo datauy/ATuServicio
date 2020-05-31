@@ -7,13 +7,6 @@ class FnrController < ApplicationController
     @description = 'Conocé los tiempos de espera que hay para cualquier operación financiada através del Fondo Nacional de Recursos, así como otros datos útiles.'
     #filters
     @areas = InterventionArea.all
-    @types =
-      if params[:area].present?
-        @area_name = InterventionArea.find_by(id: params[:area]).nombre
-        InterventionType.where(intervention_area_id: params[:area])
-      else
-        InterventionType.all
-      end
     #load data
     get_tiempos_de_espera
     #process values for each prestador
@@ -21,7 +14,23 @@ class FnrController < ApplicationController
       each {|res| res[:qtty] = res[:qtty]/res[:numb] }.
       sort_by {|h| h[:qtty]}.
       to_json
-
+    #Process filters
+    @waiting_areas = @waiting_filters.map{ |k,a| [a[:nombre], a[:id]] }
+    @types = []
+    if params[:area].present?
+      area = params[:area].to_s
+      logger.info { "\nWTF\n" }
+      @waiting_filters[area][:types].each do |k,t|
+        @types << [t[:nombre], t[:id]]
+      end
+    else
+      logger.info { "\nWTF2\n" }
+      @waiting_filters.each do |k,a|
+        a[:types].each do |k,t|
+          @types << [t[:nombre], t[:id]]
+        end
+      end
+    end
     #Stats
     @interventionsource = 'dd3046c9-06eb-490e-be95-ba58feb25b5e'
     get_stats_filters
@@ -64,11 +73,11 @@ class FnrController < ApplicationController
     @resource = 'e19133eb-bb6b-467d-9f4b-5c208ed95889'
     catalog_url = "https://catalogodatos.gub.uy/api/3/action/datastore_search?resource_id=#{@resource}&limit=2000"
     query = {}
-    if params[:waiting_area].present?
-      query[:areaid] = params[:waiting_area]
+    if params[:area].present?
+      query[:areaid] = params[:area]
     end
-    if params[:waiting_presta].present?
-      query[:prestacionid] = params[:waiting_presta]
+    if params[:type].present?
+      query[:prestacionid] = params[:type]
     end
     if (!query.empty?)
       catalog_url += "&filters=#{query.to_json}"
@@ -80,9 +89,16 @@ class FnrController < ApplicationController
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     resp = http.get(uri.request_uri)
     if resp.is_a?(Net::HTTPSuccess)
+      first = false
       @interventions = {}
-      @waiting_areas = {}
-      @waiting_presta = {}
+      if session[:fnr_waiting].blank?
+        logger.info { "\n\nPASA POR FILTER\n\n" }
+        @waiting_filters = {}
+        first = true
+      else
+        logger.info { "\n\nNO PASA POR FILTER\n\n" }
+        @waiting_filters = JSON.parse(session[:fnr_waiting]).with_indifferent_access
+      end
       (JSON.parse resp.body)['result']['records'].each do |pres|
         imae_id = pres["imaeid"]
         area_id = pres["areaid"]
@@ -98,14 +114,17 @@ class FnrController < ApplicationController
           @interventions[imae_id][:numb] += 1
           @interventions[imae_id][:qtty] += (pres['fecharealizacion'].to_date - pres['fechaautorizacion'].to_date).to_i
         end
-        if @waiting_areas[area_id].nil?
-          @waiting_areas[area_id] = pres["areanombre"]
-        end
-        if @waiting_presta[area_id].nil?
-          @waiting_presta[presta_id] = pres["prestacionnombre"]
+        if first
+          if @waiting_filters[area_id].nil?
+            @waiting_filters[area_id] = {id: pres["areaid"], nombre: pres["areanombre"], types: {} }
+          end
+          if @waiting_filters[area_id][:types][presta_id].nil?
+            @waiting_filters[area_id][:types][presta_id] = {id: pres["prestacionid"], nombre: pres["prestacionnombre"]}
+          end
         end
       end
-      Rails.logger.info "\n #{@interventions.inspect} \n"
+      Rails.logger.info "\n #{@waiting_filters.inspect} \n"
+      session[:fnr_waiting] = @waiting_filters.to_json if first
     else
       @interventions = 0
     end

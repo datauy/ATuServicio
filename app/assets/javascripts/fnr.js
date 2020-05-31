@@ -157,7 +157,7 @@ function renderGraphs() {
 	//Waiting
 	$("#area").change(function (e) {
 		//reset type value
-		$("#type").removeAttr('value');
+		$("#type").val('');
 		filterData();
 	});
 	$("#type").change(function (e) {
