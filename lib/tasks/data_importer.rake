@@ -43,32 +43,12 @@ namespace :importer do
   #
   #
   desc 'Import FNR'
-  task :fnr, [:year] => [:environment] do
+  task :fnr, [:year] => [:environment] do |_, args|
     puts 'Importing FNR data'
+    @year = args[:year]
     imported = 0
     duplicated = 0
     fails = []
-=begin
-    import_tag('imaes.csv', Imae)
-    import_tag('areas_acto.csv', InterventionArea)
-    import_tag('tipos_acto.csv', InterventionType)
-    import_file("fnr/espera-test.csv", col_sep: ',', headers: true) do |row|
-      interventionRecord = {
-        imae_id: row[0],
-        intervention_area_id: row[2],
-        intervention_type_id: row[4],
-        realizado: Date.parse(row[6]),
-        autorizado: Date.parse(row[9]),
-      }
-      if Intervention.where(interventionRecord).empty?
-        Intervention.create(interventionRecord)
-        @imported += 1
-      else
-        # Ver qué hacemos con duplicados, por ahora nada
-        @duplicated += 1
-      end
-    end
-=end
     #Since we don't have the id yet we will match the transformed waitting time IMAE name
     #Se quita por corrección de planilla, TODO: ver sómo se va a realiazr al final
     #@imaesNamed_obj = Imae.all.map {|i| {id: i.id, name: i.nombre.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').upcase} }
@@ -78,7 +58,7 @@ namespace :importer do
     types_obj = InterventionType.all
     states_obj = State.all
     providers_obj = ProviderFnr.all
-    import_file("#{@year}/microdatos_autorizaciones_2018.csv", col_sep: ',', headers: true) do |row|
+    import_file("#{@year}/microdatos_autorizaciones.csv", col_sep: ',', headers: true) do |row|
       Rails.logger.info "\n\n ARRANCA IMPORT Microdatos \n #{row.inspect}\n"
 
       #if @imae = Imae.where(nombre: row[15])
@@ -89,8 +69,12 @@ namespace :importer do
       states = states_obj.dup
       states_prov = states_obj.dup
       providers = providers_obj.dup
-      if !(imae = imaesNamed.select { |timae| timae[:name] == row[15] }.first )
-        imae = Imae.create( nombre: row[15] )
+      #Tratamos los vacíos com NC
+      if ( row[14].blank? )
+        row[14] = 'NO CORRESPONDE'
+      end
+      if !(imae = imaesNamed.select { |timae| timae[:name] == row[14] }.first )
+        imae = Imae.create( nombre: row[14] )
         imae_id = imae.id
         #@imaesNamed_obj << {id: @imae.id, name: @imae.nombre.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').upcase}
         imaesNamed_obj << {id: imae.id, name: imae.nombre.upcase}
@@ -106,18 +90,19 @@ namespace :importer do
         type = InterventionType.create( {nombre: row[3], intervention_area_id: area.id} )
         types_obj << type
       end
-      provider_state = states_prov.select { |depto| depto[:name] == row[13].to_s.downcase }.first
+      provider_state = states_prov.select { |depto| depto[:name] == row[12].to_s.downcase }.first
       if !provider_state
-        fails << row[13]
-        puts "no se encontró el depto: #{row[13]}"
+        fails << row[12]
+        puts "no se encontró el depto: #{row[12]}"
+        next
       end
-      if !( provider = providers.select { |prov| prov[:nombre] == row[11] }.first )
-        provider = ProviderFnr.create( nombre: row[11], state_id: provider_state[:id] )
+      if !( provider = providers.select { |prov| prov[:nombre] == row[10] }.first )
+        provider = ProviderFnr.create( nombre: row[10], state_id: provider_state[:id] )
         providers_obj << provider
       end
-      if !( state = states.select { |depto| depto[:name] == row[10].to_s.downcase }.first )
-        Rails.logger.info "No se encontró el depto: #{row[10]}"
-        fails << row[10]
+      if !( state = states.select { |depto| depto[:name] == row[9].to_s.downcase }.first )
+        Rails.logger.info "No se encontró el depto: #{row[9]}"
+        fails << row[9]
         next
       end
       Rails.logger.info "\n\n ARRANCA4 \n"
@@ -127,9 +112,9 @@ namespace :importer do
         solicitado: Date.parse(row[4]),
         autorizado: Date.parse(row[5]),
         intervention_kind: row[0],
-        estado: row[6],
-        edad: row[8],
-        sexo: row[9],
+        #estado: row[6],
+        edad: row[7],
+        sexo: row[8],
         state_id: state.id,
         #provider_id: provider.id
         provider_fnr_id: provider.id
@@ -141,10 +126,10 @@ namespace :importer do
         # Ver qué hacemos con duplicados, por ahora nada
         duplicated += 1
       end
-      if imported == 200
-        puts fails.inspect
-        exit
-      end
+      #if imported == 2000
+      #  puts fails.inspect
+      #  exit
+      #end
     end
     puts "Se importaron #{imported} No se agregaron #{duplicated} por estar duplicados, fallaron #{fails.length}"
   end

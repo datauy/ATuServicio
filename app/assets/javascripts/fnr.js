@@ -52,7 +52,6 @@ function renderBars(container_id, data) {
 	.attr("width", w)
 	.attr("height", h);
 
-	console.log("Rendering "+ container_id);
 	// bars
 	svg.selectAll(".bar")
 	.data(data)
