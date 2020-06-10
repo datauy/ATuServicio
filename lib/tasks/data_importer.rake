@@ -73,8 +73,8 @@ namespace :importer do
       if ( row[14].blank? )
         row[14] = 'NO CORRESPONDE'
       end
-      if !(imae = imaesNamed.select { |timae| timae[:name] == row[14] }.first )
-        imae = Imae.create( nombre: row[14] )
+      if !(imae = imaesNamed.select { |timae| timae[:name] == row[15].upcase }.first )
+        imae = Imae.create( nombre: row[15] )
         imae_id = imae.id
         #@imaesNamed_obj << {id: @imae.id, name: @imae.nombre.mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').upcase}
         imaesNamed_obj << {id: imae.id, name: imae.nombre.upcase}
@@ -126,10 +126,10 @@ namespace :importer do
         # Ver qué hacemos con duplicados, por ahora nada
         duplicated += 1
       end
-      #if imported == 2000
-      #  puts fails.inspect
-      #  exit
-      #end
+      if imported == 2000
+        puts fails.inspect
+        exit
+      end
     end
     puts "Se importaron #{imported} No se agregaron #{duplicated} por estar duplicados, fallaron #{fails.length}"
   end

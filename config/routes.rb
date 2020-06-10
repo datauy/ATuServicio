@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   get '/pias' => 'pia#index'
   get '/pias/:category' => 'pia#index'
   get '/fnr' => 'fnr#index'
-  post '/fnr' => 'fnr#index'
+  post '/fnr-waiting' => 'fnr#waiting'
+  post '/fnr-stats' => 'fnr#stats'
 end
