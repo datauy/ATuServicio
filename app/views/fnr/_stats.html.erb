@@ -6,24 +6,37 @@
 <h3 class="graph-title">Todos los actos financiados por el FNR en el último año cerrado.</h3>
 <section class="filter">
   <div class="row center">
-    <button id="acto" class="button filter-by filter-by-left <%= @by == 'imae' ? '': 'active' %>">ACTOS</button>
+    <button id="intervention_area" class="button filter-by filter-by-left <%= @by == 'imae' ? '': 'active' %>">ACTOS</button>
     <button id="imae" class="button filter-by filter-by-right <%= @by == 'imae' ? 'active' :'' %>">IMAE</button>
-    <input name="by" id="by" type="hidden"/>
+    <input name="by" id="by" type="hidden" value="<%= @by %>"/>
   </div>
   <div class="row">
     <div class="col-md-4">
-      <%=
-      select_tag "states",
-      options_for_select( @states, params[:states] ),
-      include_blank: "Elija un departamento",
-      class: "form-control"
-      %>
-    </div>
-    <div class="col-md-4">
-      <%= render partial: 'provider_options' %>
+      <%= select_tag "statsKind", options_for_select(@kinds, params[:statsKind]), include_blank: "Elija un tipo", class: "form-control" %>
     </div>
     <div class="col-md-4">
       <%= select_tag "statsArea", options_for_select(tagging_options(@areas), params[:statsArea]), include_blank: "Elija un área", class: "form-control" %>
+    </div>
+    <div class="col-md-4">
+      <%=
+      select_tag "state_pa",
+      options_for_select( @states_pa, params[:state_pa] ),
+      include_blank: "Depto. Paciente",
+      class: "form-control"
+        %>
+    </div>
+  </div>
+  <div class="row filter">
+    <div class="col-md-6">
+      <%=
+      select_tag "states",
+      options_for_select( @states, @sel_state ),
+      include_blank: "Depto. de Prestador",
+      class: "form-control"
+        %>
+    </div>
+    <div class="col-md-6">
+      <%= render partial: 'provider_options' %>
     </div>
   </div>
   <div class="row center">

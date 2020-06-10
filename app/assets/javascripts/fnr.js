@@ -77,28 +77,7 @@ function renderBars(container_id, data) {
 	.on("mouseout", function(){
 		return tooltip.style("visibility", "hidden");
 	})
-	.on('click', function(d){
-		if ( container_id == "graph-wait" ) {
-			window.open( "https://catalogodatos.gub.uy/dataset/fondo-nacional-de-recursos-tiempo-de-espera-de-los-imae/resource/"+
-			resource +"?filters=imaeid%3A"+ d.id );
-		}
-		else {
-			var dest = "https://catalogodatos.gub.uy/dataset/fondo-nacional-de-recursos-solicitudes-de-tramites-autorizados/resource/"+interventionsource +"?filters=";
-			if ( $('#by').val == 'imae') {
-				dest += "IMAE%2FCL%C3%ADnica%2FCentro%3A"+ d.groupname.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
-			}
-			else {
-				if ( $("#statsArea").val() ) {
-					dest += "prestacion_desc%3A"+ d.groupname.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-				}
-				else {
-					dest += "area_prestacion%3A"+ d.groupname;
-				}
-			}
-			window.open( dest );
-		}
-		tooltip.style("visibility", "hidden");
-	});
+	.on('click', function() { catalogLink(container_id, d) } );
 	// labels
 	//TOP
 	svg.selectAll("text")
@@ -113,7 +92,8 @@ function renderBars(container_id, data) {
 	.attr("font-size", "15px")
 	.html( function(d) {
 		return '<tspan width="100%">' +d.groupname.toUpperCase()+"</tspan>"
-	});
+	})
+	.on('click', function() { catalogLink(container_id, d) } );
 
 	//BOTTOM
 	svg.selectAll(".graph-values")
@@ -133,36 +113,73 @@ function renderBars(container_id, data) {
 		else {
 			return d.qtty + " intervenciones";
 		}
-	});
+	})
+	.on('click', function() { catalogLink(container_id, d) } );
 };
 
-function filterData() {
+function catalogLink(container_id, d) {
+	if ( container_id == "graph-wait" ) {
+		window.open( "https://catalogodatos.gub.uy/dataset/fondo-nacional-de-recursos-tiempo-de-espera-de-los-imae/resource/"+
+		resource +"?filters=imaeid%3A"+ d.id );
+	}
+	else {
+		var dest = "https://catalogodatos.gub.uy/dataset/fondo-nacional-de-recursos-solicitudes-de-tramites-autorizados/resource/"+interventionsource +"?filters=";
+		if ( $('#by').val == 'imae') {
+			dest += "IMAE%2FCL%C3%ADnica%2FCentro%3A"+ d.groupname.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+		}
+		else {
+			if ( $("#statsArea").val() ) {
+				dest += "prestacion_desc%3A"+ d.groupname.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+			}
+			else {
+				dest += "area_prestacion%3A"+ d.groupname;
+			}
+		}
+		window.open( dest );
+	}
+	tooltip.style("visibility", "hidden");
+}
+
+function filterData(source) {
 	$("#loading").show();
 	$.ajax({
 		type: "POST",
-		url: "/fnr",
+		url: "/fnr-stats?target="+source,
+		dataType: 'script',
 		data : $("form").serialize(),
 		success: function(result){
 			$("#loading").hide();
 		}
 	});
 }
-function renderGraphs() {
+function filterWaiting() {
+	$("#loading").show();
+	$.ajax({
+		type: "POST",
+		url: "/fnr-waiting",
+		dataType: 'script',
+		data : $("form").serialize(),
+		success: function(result){
+			$("#loading").hide();
+		}
+	});
+}
+function renderWaiting() {
 	workingPallete = JSON.parse(JSON.stringify(palette));
 	// bars
 	renderBars('graph-wait', data);
-	renderBars('graph-stats', data_by);
 	/***   Watchers   ***/
-	//Waiting
 	$("#area").change(function (e) {
 		//reset type value
 		$("#type").val('');
-		filterData();
+		filterWaiting();
 	});
 	$("#type").change(function (e) {
-		filterData();
+		filterWaiting();
 	});
-	//Stats
+}
+function renderStats() {
+	/***   Watchers   ***/
 	$(".filter-by").not('.active').click(function (e) {
 		e.preventDefault();
 		$(".filter-by").removeClass('active');
@@ -170,11 +187,20 @@ function renderGraphs() {
 		$('#by').val($(this)[0].id);
 		filterData();
 	});
-	$("#states").change(function (e) {
+	$("#statsKind").change(function (e) {
 		filterData();
 	});
-	$("#provider").change(function (e) {
+	$("#state_pa").change(function (e) {
 		filterData();
+	});
+	$("#statesPatient").change(function (e) {
+		filterData();
+	});
+	$("#states").change(function (e) {
+		filterData('state');
+	});
+	$("#provider").change(function (e) {
+		filterData('provider');
 	});
 	$("#statsArea").change(function (e) {
 		//Si va por imae lo dejamos como está
@@ -183,5 +209,25 @@ function renderGraphs() {
 		}
 		filterData();
 	});
+	//render message on empty results and return
+	if ( Object.keys(data_by).length === 0 ) {
+		$('#graph-stats').html("No se encontraron resultados para los filtros seleccionados");
+		return;
+	}
+	// bars
+	workingPallete = JSON.parse(JSON.stringify(palette));
+	renderBars('graph-stats', data_by);
 }
-renderGraphs();
+
+$("#test").click(function (e) {
+	$.ajax({
+		type: "POST",
+		url: "/teste",
+		dataType: 'script',
+		success: function(result){
+			console.log("Come back");
+		}
+	});
+});
+renderWaiting();
+renderStats();

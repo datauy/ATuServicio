@@ -5,5 +5,5 @@ class Intervention < ActiveRecord::Base
   belongs_to :state
   belongs_to :provider_fnr
 
-  enum intervention_kind: ['Acto Médico', 'Tratamiento con medicamentos', 'Otra Prestación']
+  enum intervention_kind: ['Acto Médico', 'Tratamiento con medicamentos', 'Otra Prestación', 'Dispositivos']
 end

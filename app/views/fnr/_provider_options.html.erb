@@ -1,6 +1,6 @@
 <%=
 select_tag "provider",
-options_for_select(@sel_providers, params[:provider]),
+options_for_select(@providers, params[:provider]),
   include_blank: "Elija una institución",
   class: "form-control"
 %>

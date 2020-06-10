@@ -69,9 +69,13 @@
     }
     text {
       font-weight: bold;
+      cursor: pointer;
     }
     tspan {
       color: #FFF;
+    }
+    .row.filter {
+      margin-top: 15px;
     }
     .filter-by.active {
       background-color: #0B2F47;

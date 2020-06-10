@@ -13,12 +13,12 @@
   <%= form_tag("/fnr") do %>
     <section class="row graphs waiting_time">
       <section id="waiting-time">
-        <%= render partial: 'waiting_time' %>
+        <%= render 'waiting' %>
       </section>
     </section>
     <section class="row graphs stats">
       <section id="graphs">
-        <%= render partial: 'stats' %>
+        <%= render 'stats' %>
       </section>
     </section>
   <% end %>
