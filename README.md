@@ -3,6 +3,12 @@
 ![72x72.png]( app/assets/images/72x72.png "LOGO")
 
 ##   A tu servicio
+
+<p align="center">
+<img  src="https://img.shields.io/github/license/datauy/ATuServicio">
+<img  src="https://img.shields.io/github/last-commit/datauy/ATuServicio">
+<a href="https://sonarcloud.io/dashboard?id=datauy_ATuServicio" target="_blank"><img src="https://sonarcloud.io/api/project_badges/measure?project=datauy_ATuServicio&metric=alert_status"></a>
+</p>
  
 ### Descripción 
 --- 
