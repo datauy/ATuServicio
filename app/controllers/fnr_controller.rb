@@ -116,12 +116,12 @@ class FnrController < ApplicationController
     @states = states
       .select('id', 'name')
       .all
-      .map { |p| [p.name, p.id] }
+      .map { |p| [p.name.capitalize(), p.id] }
 
     @states_pa = State
       .select('id', 'name')
       .all
-      .map { |p| [p.name, p.id] }
+      .map { |p| [p.name.capitalize(), p.id] }
 
     @by = if params[:by].blank?
         'intervention_area'
