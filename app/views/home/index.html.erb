@@ -1,26 +1,36 @@
 <header>
   <a id="logo_color" class="logo" href="/">Atuservicio.uy</a>
   <ul class="nav nav-pills">
-    <li class="none" role="presentation"><a id="logo_data" href="http://datauy.org" target="_blank">Data</a></li>
-    <li class="none" role="presentation"><a id="logo_msp" href="http://www.msp.gub.uy" target="_blank">MSP</a></li>
+    <li><a class="logos" href="https://atuservicio.msp.gub.uy/" target="_blank"><img id="logo_ats" alt="aTuServicio" src="assets/logocolor.png"></img></a></li>
+    <li><a class="logos" href="https://datauy.org" target="_blank"><img id="logo_data" alt="DATA" src="assets/data.png"></img></a></li>
     <li role="presentation">
-      <a href="/sobre_el_proyecto" class="button button--winona" data-text="Sobre el proyecto">
+      <a href="/sobre_el_proyecto">
         <span>Sobre el proyecto</span>
       </a>
     </li>
     <li role="presentation">
-      <a href="/pias" class="button button--winona" data-text="Catálogo Prestaciones">
+      <a href="/pias">
         <span>Catálogo Prestaciones</span>
       </a>
     </li>
     <li role="presentation">
       <a href="/fnr">
-        Fondo Nacional de Recursos
+        <span>Fondo Nacional de Recursos</span>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="/sistema-nacional-salud">
+        <span>Sobre el Sistema Nacional de Salud</span>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="/usuarios">
+        <span>Usuarios</span>
       </a>
     </li>
   </ul>
 
-  <%= render partial: 'social' %>
+  <%= render partial: 'layouts/asse_modals' %>
 
   <% if flash.count > 0 %>
     <div class="clearfix">
@@ -56,51 +66,53 @@
     </div>
 </header>
 
-<section id="filter">
-  <div class="row">
-    <div class="col-md-3">
-      <h3>Te mostramos el listado de los prestadores integrales de salud del país. Compara sus indicadores y toma una decisión informada.</h3>
-    </div>
-    <div class="col-md-4">
-      <%=
-      select_tag "state",
-      options_for_select(
-        state_options(@states),
-        params[:departamento]),
-        class: "form-control"
-      %>
-    </div>
-    <div class="col-md-4">
-      <%= form_tag '/comparar', method: 'get', id: 'sites' do %>
+<div class="content">
+  <section id="filter">
+    <div class="row">
+      <div class="col-md-3">
+        <h3>Te mostramos el listado de los prestadores integrales de salud del país. Compara sus indicadores y toma una decisión informada.</h3>
+      </div>
+      <div class="col-md-4">
         <%=
-        select_tag "selected_providers",
-        options_for_select(provider_options),
-          include_blank: "Elija una institución",
-          class: "form-control home_providers",
-            name: 'selected_providers',
-            id: 'selected_providers'
+        select_tag "state",
+        options_for_select(
+          state_options(@states),
+          params[:departamento]),
+          class: "form-control"
         %>
-      <% end %>
+      </div>
+      <div class="col-md-4">
+        <%= form_tag '/comparar', method: 'get', id: 'sites' do %>
+          <%=
+          select_tag "selected_providers",
+          options_for_select(provider_options),
+            include_blank: "Elija una institución",
+            class: "form-control home_providers",
+              name: 'selected_providers',
+              id: 'selected_providers'
+          %>
+        <% end %>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="home_table">
-  <div id="fixed-versus" class="block">
-    <table class="table table-head">
-      <%= render 'table_header' %>
-      </tbody>
-    </table>
-  </div>
+  <section id="home_table">
+    <div id="fixed-versus" class="block">
+      <table class="table table-head">
+        <%= render 'table_header' %>
+        </tbody>
+      </table>
+    </div>
 
-  <div class="block_preview">
-    <table class="table table-head-preview">
-      <%= render 'table_header' %>
-      <!--Prestadora-->
-      <%= render 'provider_rows' %>
-      </tbody>
-    </table>
-  </div>
-</section>
+    <div class="block_preview">
+      <table class="table table-head-preview">
+        <%= render 'table_header' %>
+        <!--Prestadora-->
+        <%= render 'provider_rows' %>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-<%= render "layouts/modals" %>
+  <%= render "layouts/modals" %>
+</div>
