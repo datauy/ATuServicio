@@ -26,4 +26,10 @@ class HomeController < ApplicationController
   def about
     @title = 'Sobre el proyecto'
   end
+  def sns
+    @title = 'Sistema Nacional de Salud'
+  end
+  def usuarios
+    @title = 'Usuarios'
+  end
 end

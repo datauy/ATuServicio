@@ -14,6 +14,21 @@
         Catálogo Prestaciones
       </a>
     </li>
+    <li role="presentation" <%= 'class=active' if controller_name == 'fnr' %>>
+      <a href="/fnr">
+        Fondo Nacional de Recursos
+      </a>
+    </li>
+    <li role="presentation" <%= 'class=active' if action_name == 'sns' %>>
+      <a href="/sistema-nacional-de-salud">
+        Sistema Nacional de Salud
+      </a>
+    </li>
+    <li role="presentation" <%= 'class=active' if action_name == 'usuarios' %>>
+      <a href="/usuarios">
+        Usuarios
+      </a>
+    </li>
     <% if controller.controller_name == 'compare' %>
       <li>
         <a  href="javascript:void(0);" onclick="javascript:introJs().start();">
