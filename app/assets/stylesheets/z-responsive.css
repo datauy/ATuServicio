@@ -1,9 +1,11 @@
 @media only screen and (max-width: 600px) {
-  .home header .nav {
+  .home header .nav,
+  header .nav {
     display: grid;
     float: left;
   }
-  .home header .nav li {
+  .home header .nav li,
+  header .nav li {
     margin: 5px 0;
   }
 }
