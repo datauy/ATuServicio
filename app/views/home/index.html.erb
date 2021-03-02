@@ -1,21 +1,38 @@
 <header>
-  <a id="logo_color" class="logo" href="/">Atuservicio.uy</a>
+  <a class="logo" href="/"><img id="logo" alt="MSP-JUNASA" src="assets/MSP-JUNASA.svg"></img></a>
   <ul class="nav nav-pills">
-    <li class="none" role="presentation"><a id="logo_data" href="http://datauy.org" target="_blank">Data</a></li>
-    <li class="none" role="presentation"><a id="logo_msp" href="http://www.msp.gub.uy" target="_blank">MSP</a></li>
+    <li><a class="logos" href="https://atuservicio.msp.gub.uy/" target="_blank"><img id="logo_ats" alt="aTuServicio" src="assets/logocolor.png"></img></a></li>
+    <li><a class="logos" href="https://datauy.org" target="_blank"><img id="logo_data" alt="DATA" src="assets/data.png"></img></a></li>
     <li role="presentation">
-      <a href="/sobre_el_proyecto" class="button button--winona" data-text="Sobre el proyecto">
+      <a href="/sobre_el_proyecto">
         <span>Sobre el proyecto</span>
       </a>
     </li>
     <li role="presentation">
-      <a href="/pias" class="button button--winona" data-text="Catálogo Prestaciones">
+      <a href="/pias">
         <span>Catálogo Prestaciones</span>
+      </a>
+    </li>
+    <!--
+    <li role="presentation">
+      <a href="/fnr">
+        <span>Fondo Nacional de Recursos</span>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="/sistema-nacional-salud">
+        <span>Sobre el Sistema Nacional de Salud</span>
+      </a>
+    </li>
+  -->
+    <li role="presentation">
+      <a href="/usuarios">
+        <span>Afiliaciones y cambios de prestador</span>
       </a>
     </li>
   </ul>
 
-  <%= render partial: 'social' %>
+  <%= render partial: 'layouts/asse_modals' %>
 
   <% if flash.count > 0 %>
     <div class="clearfix">
@@ -24,78 +41,56 @@
       <%= flash[:alert] %>
     </div>
   <% end %>
-
-  <div class="slides">
-    <ul> <!-- slides -->
-      <li>
-        <div>Visualizá y compará indicadores de todos los prestadores de salud del país</div>
-      </li>
-      <li>
-        <div>Conocé a fondo datos de tu prestador de salud y compará con otras opciones</div>
-      </li>
-    </ul>
-  </div>
-  <div id="animation">
-    <div id="city"></div>
-    <div id="clouds">
-      <div class="x5 icon-untitled-1 cloud"></div>
-      <div class="x3 icon-untitled-2 cloud"></div>
-      <div class="x1 icon-untitled-3 cloud"></div>
-      <div class="x2 icon-untitled-2 cloud"></div>
-      <div class="x4 icon-untitled-1 cloud"></div>
-      <div class="x5 icon-untitled-3 cloud"></div>
-    </div>
-    <div class="x6 ambulance"></div>
-    <div class="x7 ambulance"></div>
-  </div>
-    </div>
 </header>
+<img id="cabezal" alt="doctora-clinica-computadora" src="assets/cabezal.jpg"></img>
 
-<section id="filter">
-  <div class="row">
-    <div class="col-md-3">
-      <h3>Te mostramos el listado de los prestadores integrales de salud del país. Compara sus indicadores y toma una decisión informada.</h3>
-    </div>
-    <div class="col-md-4">
-      <%=
-      select_tag "state",
-      options_for_select(
-        state_options(@states),
-        params[:departamento]),
-        class: "form-control"
-      %>
-    </div>
-    <div class="col-md-4">
-      <%= form_tag '/comparar', method: 'get', id: 'sites' do %>
+<div class="content">
+  <section id="filter">
+    <div class="row">
+      <div class="col-md-3">
+        <h3>Te mostramos el listado de los prestadores integrales de salud del país. Compara sus indicadores y toma una decisión informada.</h3>
+      </div>
+      <div class="col-md-4">
         <%=
-        select_tag "selected_providers",
-        options_for_select(provider_options),
-          include_blank: "Elija una institución",
-          class: "form-control home_providers",
-            name: 'selected_providers',
-            id: 'selected_providers'
+        select_tag "state",
+        options_for_select(
+          state_options(@states),
+          params[:departamento]),
+          class: "form-control"
         %>
-      <% end %>
+      </div>
+      <div class="col-md-4">
+        <%= form_tag '/comparar', method: 'get', id: 'sites' do %>
+          <%=
+          select_tag "selected_providers",
+          options_for_select(provider_options),
+            include_blank: "Elija una institución",
+            class: "form-control home_providers",
+              name: 'selected_providers',
+              id: 'selected_providers'
+          %>
+        <% end %>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="home_table">
-  <div id="fixed-versus" class="block">
-    <table class="table table-head">
-      <%= render 'table_header' %>
-      </tbody>
-    </table>
-  </div>
+  <section id="home_table">
+    <div id="fixed-versus" class="block">
+      <table class="table table-head">
+        <%= render 'table_header' %>
+        </tbody>
+      </table>
+    </div>
 
-  <div class="block_preview">
-    <table class="table table-head-preview">
-      <%= render 'table_header' %>
-      <!--Prestadora-->
-      <%= render 'provider_rows' %>
-      </tbody>
-    </table>
-  </div>
-</section>
+    <div class="block_preview">
+      <table class="table table-head-preview">
+        <%= render 'table_header' %>
+        <!--Prestadora-->
+        <%= render 'provider_rows' %>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-<%= render "layouts/modals" %>
+  <%= render "layouts/modals" %>
+</div>

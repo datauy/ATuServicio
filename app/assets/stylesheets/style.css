@@ -30,32 +30,30 @@ a:hover {text-decoration: underline;}
 #loader { background: rgba(255,255,255,0.8); height: 100%; width: 100%; position: fixed; z-index: 3; display: none;}
 
 .comparative_header {
-    background: #0B2F47;
+    background: #0052A4;
     padding:2% 50px;
     display: inline-table;
     width: 100%;
+}
+.home header { padding:50px; width: 100%; position: relative;}
+.home header .nav{
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
 }
 header .nav { display: block; float: right; margin-top: 10px;}
 header .nav li a { border:1px solid #fff; border-radius: 30px; color: #fff;font-weight: 300;font-size: 12px; margin-left:10px;}
 header .nav li a:hover, header .nav li.active a {background-color: #fff;color: #333}
 
 
-.logo { background: url(logo.png);display: block; height:59px; width: 262px; float:left;text-indent:-9000px;font-size: 0; margin:0 0 10px 0}
+#logo { width: 40%; min-width: 300px; max-width: 400px;}
+#cabezal { width: 100%; margin-top: 32px; }
 #logo_color { background: url(logocolor.png) no-repeat;  height:65px; width: 272px;}
-#logo_data { background: url(data.png);display: block; height:48px; width: 122px; text-indent:-9000px;font-size: 0;margin: -9px 22px }
-#logo_msp {
-    background: url(msp.png) no-repeat;
-    display: block;
-    height: 48px;
-    width: 178px;
-    background-size: 76%;
-    text-indent: -9000px;
-    font-size: 0;
-    margin: 3px 22px;
-}
+#logo_data { height:48px; width: 122px; margin: -9px 22px 0; }
+#logo_ats { height: 48px; width: 201px; margin: 3px 0; }
 .breadcrumb { width: 100%; background: #EAEAEA; padding:1% 50px; border-radius: 0; color:#E0F2F1; margin-bottom:50px;}
 .breadcrumb li a {
-    color: #0B2F47;
+    color: #0052A4;
 }
 section { padding:0 50px;}
 
@@ -68,17 +66,18 @@ section { padding:0 50px;}
     width: 30%;
     left: 6%;
     font-weight: 400;
-    color: #0b2f47;
+    color: #0052A4;
     letter-spacing: 1px;
     line-height: 45px;
 }
-.home header { padding:50px;border-bottom: 25px solid #0b2f47; width: 100%;  height: 650px;position: relative;}
-.home header .nav li a{border-color: #0b2f47; color: #0b2f47}
-.home header .nav li a:hover, .home header .nav li.active a {background-color:#0b2f47; color: #fff }
-.home header .nav li.none a { border:none; border-radius: 0}
+.home header .nav li a:not(.logos) {border-color: #0052A4; color: #0052A4}
+.home header .nav li a:hover:not(.logos),
+.home header .nav li.active a:not(.logos) {
+  background-color:#0052A4; color: #fff
+}
 .home header #animation {
     bottom: -21px;
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 353px;
     overflow: hidden;
@@ -95,19 +94,19 @@ section { padding:0 50px;}
 
 }
 .home .text-slider { position: absolute; width: 400px; left: 50%; margin-left: -200px;top: 40%}
-.home .text-slider h3 { font-size: 20px; text-align: center; width: 400px; line-height: 28px; color: #0b2f47;font-weight:700}
+.home .text-slider h3 { font-size: 20px; text-align: center; width: 400px; line-height: 28px; color: #0052A4;font-weight:700}
 
 
 .home #filter {  width: 100%;padding:4% 50px}
-.home #filter h3 {margin:0;color: #0b2f47;font-size: 14px; line-height: 20px }
+.home #filter h3 {margin:0;color: #0052A4;font-size: 14px; line-height: 20px }
 .home #filter select {
-    border-color: #0b2f47;
+    border-color: #0052A4;
     height: 46px;
-    color: #0b2f47;
+    color: #0052A4;
     text-indent: 10px;
 }
 .home .block_preview tr { border-top: 1px solid #ccc}
-.home thead th {background: #0b2f47; border: none; }
+.home thead th {background: #0052A4; border: none; }
 .home thead th h3 {color: #fff;font-size: 15px; margin: 0}
 .home thead th a i {color: #3FA6C9}
 .home thead th a i:hover { color: #fff}
@@ -119,8 +118,8 @@ section { padding:0 50px;}
     padding: 5px 0;
 }
 
-.btn-compare { background: #0b2f47 !important;font-size: 14px; color: #fff }
-.btn-compare:hover { background: #fff; color: #0b2f47; text-decoration: none}
+.btn-compare { background: #0052A4 !important;font-size: 14px; color: #fff }
+.btn-compare:hover { background: #fff; color: #0052A4; text-decoration: none}
 .btn-tag {
     float: right;
     margin-left: 10px;
@@ -158,7 +157,7 @@ section { padding:0 50px;}
     border-radius: 20px;
 
 }
-.table-head-preview .structure:hover { background-color: #0B2F47; color: #fff;text-decoration: none;border-color:#0B2F47}
+.table-head-preview .structure:hover { background-color: #0052A4; color: #fff;text-decoration: none;border-color:#0052A4}
 .table-head-preview .structure_module {
     position: absolute;
     top: 0;
@@ -249,7 +248,7 @@ section { padding:0 50px;}
 .search-prestadora .btn { padding: 10px; background:#ccc; color: #fff}
 
 #fixed-versus {
-    background: #0B2F47;
+    background: #0052A4;
     position: fixed;
     top: 0;
     left: 0;
@@ -264,7 +263,7 @@ section { padding:0 50px;}
 #fixed-versus td .icon-delate {display: block;color: #fff}
 #fixed-versus td { }
 #fixed-versus td i {font-size: 100%;}
-#fixed-versus .title-vs  { background: #0B2F47; color: #fff}
+#fixed-versus .title-vs  { background: #0052A4; color: #fff}
 
 .title-vs {
     content: "vs";
@@ -368,7 +367,7 @@ section { padding:0 50px;}
     position: absolute;
     left: 20px;
     top: 7px;
-    color: #0b2f47;
+    color: #0052A4;
 }
 .block_preview .progress {height:30px; margin: 0}
 
@@ -377,7 +376,7 @@ section { padding:0 50px;}
 .socios { text-align: center;}
 .free { color: #A8D26F; margin: 0 }
 .free p {display: inline-block; padding: 0; margin: 0}
-.nodata { color: #0B2F47;margin: 0}
+.nodata { color: #0052A4;margin: 0}
 .nodata p {display: inline-block;padding: 0;margin: 0;text-transform: uppercase;}
 .asse {
     font-size: 12px !important;
@@ -392,7 +391,7 @@ section { padding:0 50px;}
   font-size: 12px !important;
 }
 .people i { display: block;font-size: 30px; text-indent: -10px ; color: #186E93}
-.money-high { color: #0B2F47;}
+.money-high { color: #0052A4;}
 .money i { }
 .tags li {display: inline-block;}
 .list {  width: 40%;float: left;margin-left: 10%}
@@ -438,8 +437,8 @@ section { padding:0 50px;}
 
 .icon-info:before { content: '\e807'; }
 .icon-ok:before { content: '\e806';font-size: 40px; color: #A8D26F }
-.icon-no:before { content: '\e805';font-size: 40px; color: #0B2F47  }
-.icon-sad:before { content: '\e802';font-size: 30px; color: #0B2F47  }
+.icon-no:before { content: '\e805';font-size: 40px; color: #0052A4  }
+.icon-sad:before { content: '\e802';font-size: 30px; color: #0052A4  }
 .icon-happy:before { content: '\e803'; font-size: 30px; color: #A8D26F }
 .icon-derechos:before { content: '\e808'; }
 .icon-money:before { content: '\e801'; }
@@ -491,9 +490,8 @@ footer a { color: #42B4E7; font-size: 11px;}
 .slides {
     height: 100px;
     overflow: hidden;
-    position: absolute;
+    position: relative;
     width: 400px;
-    top: 200px;
     left: 50%;
     margin-left: -200px;
     background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0.99) 1%, rgba(255,255,255,0) 100%);
@@ -641,7 +639,7 @@ footer a { color: #42B4E7; font-size: 11px;}
     position: absolute;
     top: 50%;
     width: 330px;
-    color: #0b2f47;
+    color: #0052A4;
 
     /* css3 animation */
     -webkit-animation-name: anim_titles;
@@ -711,7 +709,7 @@ footer a { color: #42B4E7; font-size: 11px;}
     top: 0;
     left: 0;
     opacity: 0;
-    color: #0b2f47;
+    color: #0052A4;
     -webkit-transform: translate3d(0, 25%, 0);
     transform: translate3d(0, 25%, 0);
 }
@@ -733,12 +731,12 @@ footer a { color: #42B4E7; font-size: 11px;}
     font-size: 12px;
 }
 .button--winona:hover {
-    border-color: #0b2f47;
-    background-color:#0b2f47;
+    border-color: #0052A4;
+    background-color:#0052A4;
 }
 .button--winona.button--inverted:hover {
-    border-color: #0b2f47;
-    background-color: #0b2f47;
+    border-color: #0052A4;
+    background-color: #0052A4;
 
 }
 .button--winona:hover::after {
@@ -763,9 +761,9 @@ footer a { color: #42B4E7; font-size: 11px;}
     z-index: 1;
     -webkit-backface-visibility: hidden;
     -moz-osx-font-smoothing: grayscale;
-    border-color: #0b2f47;
-    color: #0b2f47;
-    border:1px solid #0b2f47;
+    border-color: #0052A4;
+    color: #0052A4;
+    border:1px solid #0052A4;
     border-radius: 40px;
     background: #fff;
 
