@@ -1,5 +1,5 @@
 <header class='comparative_header'>
-  <a class="logo" href="/">Atuservicio.uy</a>
+  <a class="logo" href="/"><img id="logo" alt="MSP-JUNASA" src="assets/MSP-JUNASA-negativo.svg"></img></a>
   <ul class="nav nav-pills">
     <li role="presentation">
       <a href="/">Inicio</a>
@@ -14,6 +14,7 @@
         Catálogo Prestaciones
       </a>
     </li>
+    <!--
     <li role="presentation" <%= 'class=active' if controller_name == 'fnr' %>>
       <a href="/fnr">
         Fondo Nacional de Recursos
@@ -24,9 +25,10 @@
         Sistema Nacional de Salud
       </a>
     </li>
+  -->
     <li role="presentation" <%= 'class=active' if action_name == 'usuarios' %>>
       <a href="/usuarios">
-        Usuarios
+        Afiliaciones y cambios de prestador
       </a>
     </li>
     <% if controller.controller_name == 'compare' %>
