@@ -3,13 +3,31 @@
 #
 module ValuesHelper
   def waiting_times
-    [
-      [:tiempo_espera_medicina_general, 'Médico general'],
-      [:tiempo_espera_pediatria, 'Pediatra'],
-      [:tiempo_espera_cirugia_general, 'Cirujano general'],
-      [:tiempo_espera_ginecotocologia, 'Ginecólogo'],
-      [:tiempo_espera_cardiologia, 'Cardiología']
-    ]
+    {
+      promedios: [
+        [:tiempo_espera_medicina_general, 'Medicina general'],
+        [:tiempo_espera_pediatria, 'Pediatría'],
+        [:tiempo_espera_cirugia_general, 'Cirujía general'],
+        [:tiempo_espera_ginecotocologia, 'Ginecología'],
+        [:tiempo_espera_cardiologia, 'Cardiología'],
+      ],
+      virtuales: [
+        #
+        [:tiempo_espera_medicina_general_virtual, 'Medicina general'],
+        [:tiempo_espera_pediatria_virtual, 'Pediatría'],
+        [:tiempo_espera_cirugia_general_virtual, 'Cirujía general'],
+        [:tiempo_espera_ginecotocologia_virtual, 'Ginecología'],
+        [:tiempo_espera_cardiologia_virtual, 'Cardiología'],
+      ],
+      presenciales: [
+        #
+        [:tiempo_espera_medicina_general_presencial, 'Medicina general'],
+        [:tiempo_espera_pediatria_presencial, 'Pediatría'],
+        [:tiempo_espera_cirugia_general_presencial, 'Cirujía general'],
+        [:tiempo_espera_ginecotocologia_presencial, 'Ginecología'],
+        [:tiempo_espera_cardiologia_presencial, 'Cardiología']
+      ]
+    }
   end
 
   def satisfactions
@@ -28,7 +46,7 @@ module ValuesHelper
       [:medicos_generales_policlinica, 'Médico general'],
       [:medicos_de_familia_policlinica, 'Médicos de familia'],
       [:medicos_pediatras_policlinica, 'Pediatras'],
-      [:medicos_ginecologos_policlinica, 'Ginecólogos'],
+      [:medicos_ginecologos_policlinica, 'Ginecologías'],
       [:auxiliares_enfermeria_policlinica, 'Aux. de enfermería'],
       [:licenciadas_enfermeria_policlinica, 'Lic. en enfermería']
     ]
