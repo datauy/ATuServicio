@@ -62,33 +62,43 @@
     <% if provider.id == 9000 %>
       <%= render 'asse_tiempos_espera' %>
     <% else %>
-      <td>
-        <% waiting_times.each do |value| %>
-          <div class="value">
-            <div class="txt">
-              <label><%= value[1] %></label>
-              <% if provider.send(value[0]) %>
-                <label><%= number_with_delimiter(provider.send(value[0]), separator: StringConstants::COMMA) %> DIAS</label>
-            </div>
-            <% value = IconsHelper.percentage_icons(provider, value, @provider_maximums.waiting_time) %>
-            <div class="progress icons">
-              <div class="progress-bar" role="progressbar" aria-valuenow="<%= value %>}" aria-valuemin="0" aria-valuemax="100" style="width: <%= value %>%;">
+      <td class="times">
+        <div class="time-overlay">
+          <i class="arrow up"></i>
+          <p>Por motivos vinculados a la emergencia sanitaria producida por la COVID-19, los datos de tiempos de espera esntán separados los datos de tiempos de espera esntán separados</p>
+          <p>Por motivos vinculados a la emergencia sanitaria producida por la COVID-19, los datos de tiempos de espera esntán separados los datos de tiempos de espera esntán separados aunque no tanto para ver el mismo largo</p>
+        </div>
+        <%
+          time_types = [:promedios, :presenciales, :virtuales]
+          time_types.each do |time_type|
+            waiting_times[time_type].each do |value|
+        %>
+            <div class="value <%= time_type%>">
+              <div class="txt">
+                <label><%= value[1] %></label>
+                <% if provider.send(value[0]) %>
+                  <label><%= number_with_delimiter(provider.send(value[0]), separator: StringConstants::COMMA) %> DIAS</label>
               </div>
-              <%= image_tag(clocks, class: 'progress_icons')%>
+              <% value = IconsHelper.percentage_icons(provider, value, @provider_maximums.waiting_time) %>
+              <div class="progress icons">
+                <div class="progress-bar" role="progressbar" aria-valuenow="<%= value %>}" aria-valuemin="0" aria-valuemax="100" style="width: <%= value %>%;">
+                </div>
+                <%= image_tag(clocks, class: 'progress_icons')%>
+              </div>
             </div>
-          </div>
-              <% else %>
-      </div>
-      <% if provider.nombre_abreviado == "ASSE" %>
-        <a href="#" data-toggle="modal" data-target="#asse_tiempos_modal" class="info-nodata">
+                <% else %>
+        </div>
+        <% if provider.nombre_abreviado == "ASSE" %>
+          <a href="#" data-toggle="modal" data-target="#asse_tiempos_modal" class="info-nodata">
+            <%= IconsHelper.no_data.html_safe %>
+            <i class="demo-icon icon-info"></i>
+          </a>
+        <% else %>
           <%= IconsHelper.no_data.html_safe %>
-          <i class="demo-icon icon-info"></i>
-        </a>
-      <% else %>
-        <%= IconsHelper.no_data.html_safe %>
-      <% end %>
-              <% end %>
-      </div>
+        <% end %>
+                <% end %>
+        </div>
+          <% end %>
         <% end %>
       </td>
     <% end %>

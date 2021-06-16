@@ -31,7 +31,7 @@
 }
 
 .home #fixed-versus{
-    z-index: 1041;
+    z-index: 1060;
 }
 
 .hidden{
@@ -100,4 +100,67 @@ table.sites td span.nodata {
 #search{
     padding: 10px 20px !important;
     height: 42px;
+}
+/* Times */
+.time-overlay {
+  top: 0;
+  height: 100%;
+  width: calc(100% - 14px);
+  position: absolute;
+  background: rgba(0, 82, 164, 0.9);
+  z-index: 1050;
+}
+.time-overlay p {
+  color: #fff;
+  padding: 0 30px;
+  font-size: 13px;
+}
+#tiempos {
+  background: #0052A4;
+  color: white;
+  font-size: 10px;
+  font-weight: 300;
+  border: 1px solid #fff;
+  margin-top: 20px;
+  border-radius: 3px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 3px 20px 2px 4px;
+  position: relative;
+}
+.arrow {
+  border: solid #fff;
+  display: inline-block;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  border-width: 0 3px 3px 0;
+  padding: 10px;
+  position: relative;
+  left: calc(50% - 8px);
+  top: 30px;
+  margin-bottom: 40px;
+}
+
+.down {
+  border-width: 0 1px 1px 0;
+  padding: 2px;
+  position: relative;
+  left: -20px;
+  bottom: 2px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }

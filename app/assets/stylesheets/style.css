@@ -357,7 +357,7 @@ section { padding:0 50px;}
     right: 0;
     top:33%;
 }
-.block i {font-size: 100%; padding:10px}
+.block i:not(.arrow) {font-size: 100%; padding:10px}
 
 .progress { height: 35px; background:#E6E7E8; box-shadow: none;padding: 0 !important; border-radius: 0; margin: 0;position: relative;}
 .progress .progress-bar {
