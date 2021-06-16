@@ -11,10 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200129215058) do
+ActiveRecord::Schema.define(version: 20210615021431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "imaes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "nombre",     null: false
+  end
+
+  create_table "intervention_areas", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "intervention_types", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "intervention_area_id"
+  end
+
+  add_index "intervention_types", ["intervention_area_id"], name: "index_intervention_types_on_intervention_area_id", using: :btree
+
+  create_table "interventions", force: :cascade do |t|
+    t.integer  "intervention_type_id"
+    t.string   "estado"
+    t.integer  "imae_id"
+    t.date     "solicitado"
+    t.date     "autorizado"
+    t.date     "realizado"
+    t.integer  "edad"
+    t.string   "sexo"
+    t.integer  "state_id"
+    t.integer  "provider_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "intervention_kind"
+    t.integer  "provider_fnr_id"
+  end
+
+  add_index "interventions", ["imae_id"], name: "index_interventions_on_imae_id", using: :btree
+  add_index "interventions", ["intervention_type_id"], name: "index_interventions_on_intervention_type_id", using: :btree
+  add_index "interventions", ["provider_fnr_id"], name: "index_interventions_on_provider_fnr_id", using: :btree
+  add_index "interventions", ["provider_id"], name: "index_interventions_on_provider_id", using: :btree
+  add_index "interventions", ["state_id"], name: "index_interventions_on_state_id", using: :btree
 
   create_table "pia", primary_key: "pid", force: :cascade do |t|
     t.string  "titulo"
@@ -28,6 +72,15 @@ ActiveRecord::Schema.define(version: 20200129215058) do
   end
 
   add_index "pia", ["ancestry"], name: "index_pia_on_ancestry", using: :btree
+
+  create_table "provider_fnrs", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "state_id"
+  end
+
+  add_index "provider_fnrs", ["state_id"], name: "index_provider_fnrs_on_state_id", using: :btree
 
   create_table "provider_maximums", force: :cascade do |t|
     t.decimal  "tickets"
@@ -153,6 +206,16 @@ ActiveRecord::Schema.define(version: 20200129215058) do
     t.decimal "cantidad_cad_medicina_rural"
     t.decimal "cantidad_cad_imagenologia"
     t.decimal "cantidad_cad_anestesia"
+    t.decimal "tiempo_espera_medicina_general_presencial"
+    t.decimal "tiempo_espera_pediatria_presencial"
+    t.decimal "tiempo_espera_cirugia_general_presencial"
+    t.decimal "tiempo_espera_ginecotocologia_presencial"
+    t.decimal "tiempo_espera_cardiologia_presencial"
+    t.decimal "tiempo_espera_medicina_general_virtual"
+    t.decimal "tiempo_espera_pediatria_virtual"
+    t.decimal "tiempo_espera_cirugia_general_virtual"
+    t.decimal "tiempo_espera_ginecotocologia_virtual"
+    t.decimal "tiempo_espera_cardiologia_virtual"
   end
 
   create_table "recognitions", force: :cascade do |t|
@@ -168,46 +231,12 @@ ActiveRecord::Schema.define(version: 20200129215058) do
 
   create_table "sites", force: :cascade do |t|
     t.integer  "provider_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "direccion"
     t.string   "departamento"
     t.string   "localidad"
     t.string   "nivel"
-    t.boolean  "servicio_de_urgencia"
-    t.boolean  "alergista"
-    t.boolean  "anestesiologia"
-    t.boolean  "cardiologia"
-    t.boolean  "cirugia"
-    t.boolean  "cirugia_reparadora"
-    t.boolean  "cirugia_vascular"
-    t.boolean  "deportologia"
-    t.boolean  "dermatologia"
-    t.boolean  "endocrinolgia"
-    t.boolean  "fisiatria"
-    t.boolean  "gastroenterologia"
-    t.boolean  "geriatria"
-    t.boolean  "ginecologia"
-    t.boolean  "hematologia"
-    t.boolean  "infectologia"
-    t.boolean  "medicina_general"
-    t.boolean  "medicina_interna"
-    t.boolean  "medicina_intensiva"
-    t.boolean  "nefrologia"
-    t.boolean  "neonatologia"
-    t.boolean  "neumologia"
-    t.boolean  "neurocirugia"
-    t.boolean  "neurologia"
-    t.boolean  "neuropediatria"
-    t.boolean  "odontologia"
-    t.boolean  "oncologia"
-    t.boolean  "otorrinolaringologia"
-    t.boolean  "pediatria"
-    t.boolean  "psiquiatria"
-    t.boolean  "psiquiatria_infantil"
-    t.boolean  "reumatologia"
-    t.boolean  "traumatologia"
-    t.boolean  "urologia"
     t.integer  "state_id"
   end
 
@@ -219,5 +248,12 @@ ActiveRecord::Schema.define(version: 20200129215058) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "intervention_types", "intervention_areas"
+  add_foreign_key "interventions", "imaes"
+  add_foreign_key "interventions", "intervention_types"
+  add_foreign_key "interventions", "provider_fnrs"
+  add_foreign_key "interventions", "providers"
+  add_foreign_key "interventions", "states"
+  add_foreign_key "provider_fnrs", "states"
   add_foreign_key "sites", "providers"
 end
