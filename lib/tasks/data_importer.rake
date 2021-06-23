@@ -4,7 +4,7 @@ require "#{Rails.root}/lib/importer_helper"
 include ImporterHelper
 
 namespace :importer do
-  @year = '2018'
+  @year = '2021'
 
   desc 'Importing everything'
   task :all, [:year] => [:environment] do |_, args|
@@ -24,6 +24,23 @@ namespace :importer do
     structure
   end
 
+  task :providers_data, [:year] => [:environment] do |_, args|
+    #providers
+    provider_partial_data
+    calculate_maximums
+  end
+
+  task :test, [:year] => [:environment] do |_, args|
+    name = 'tiempos_espera'
+    options = {col_sep: ';'}
+    headers = get_columns(name)
+    puts headers.inspect
+    import_file("2021/#{name}.csv", options) do |row|
+      #provider = Provider.find_by(id: row[0].to_i)
+      parameters = get_parameters(headers, row)
+      puts parameters.inspect
+    end
+  end
   #
   # Los departamentos se importan de config/states.yml
   #
@@ -103,21 +120,25 @@ namespace :importer do
   # Import provider data
   #
   def provider_data
-    [:precios, :metas, :satisfaccion_derechos, :tiempos_espera].each do |importable|
+    [:metas, :satisfaccion_derechos].each do |importable|
       puts "Importing #{importable}"
       importing(importable, @year)
     end
 
-    [:rrhh, :solicitud_consultas].each do |importable|
-      puts "Importing #{importable}"
-      importing(importable, @year)
-    end
+    provider_partial_data
 
     puts 'Importing sites'
     importing('sedes', @year) do |provider, parameters|
       state = State.find_by_name(parameters['departamento'].strip.mb_chars.downcase.to_s)
       parameters['state_id'] = state.id
       provider.sites.create(parameters)
+    end
+  end
+
+  def provider_partial_data
+    [:rrhh, :solicitud_consultas, :precios, :tiempos_espera].each do |importable|
+      puts "Importing #{importable}"
+      importing(importable, @year)
     end
   end
 
@@ -149,8 +170,11 @@ namespace :importer do
     puts 'Calculating Waiting times'
     value = 0
     Provider.all.each do |provider|
-      ['medicina_general', 'pediatria', 'cirugia_general',
-       'ginecotocologia', 'cardiologia'].map do |field|
+      [
+        'medicina_general', 'pediatria', 'cirugia_general', 'ginecotocologia', 'cardiologia',
+        'medicina_general_presencial', 'pediatria_presencial', 'cirugia_general_presencial', 'ginecotocologia_presencial', 'cardiologia_presencial',
+        'medicina_general_virtual', 'pediatria_virtual', 'cirugia_general_virtual', 'ginecotocologia_virtual', 'cardiologia_virtual',
+      ].map do |field|
         the_thing = provider.send("tiempo_espera_#{field}".to_sym)
         if  the_thing && the_thing > value
           value = provider.send("tiempo_espera_#{field}".to_sym)

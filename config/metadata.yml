@@ -236,12 +236,32 @@ tiempos_espera:
     - "Promedio de tiempo de espera para Cirugía General"
     - "Promedio de tiempo de espera para Ginecotocología"
     - "Promedio de tiempo de espera para Cardiología"
+    - "Promedio de tiempo de espera presencial para Medicina General"
+    - "Promedio de tiempo de espera presencial para Pediatría"
+    - "Promedio de tiempo de espera presencial para Cirugía General"
+    - "Promedio de tiempo de espera presencial para Ginecotocología"
+    - "Promedio de tiempo de espera presencial para Cardiología"
+    - "Promedio de tiempo de espera virtual para Medicina General"
+    - "Promedio de tiempo de espera virtual para Pediatría"
+    - "Promedio de tiempo de espera virtual para Cirugía General"
+    - "Promedio de tiempo de espera virtual para Ginecotocología"
+    - "Promedio de tiempo de espera virtual para Cardiología"
   columns:
     - tiempo_espera_medicina_general
     - tiempo_espera_pediatria
     - tiempo_espera_cirugia_general
     - tiempo_espera_ginecotocologia
     - tiempo_espera_cardiologia
+    - tiempo_espera_medicina_general_presencial
+    - tiempo_espera_pediatria_presencial
+    - tiempo_espera_cirugia_general_presencial
+    - tiempo_espera_ginecotocologia_presencial
+    - tiempo_espera_cardiologia_presencial
+    - tiempo_espera_medicina_general_virtual
+    - tiempo_espera_pediatria_virtual
+    - tiempo_espera_cirugia_general_virtual
+    - tiempo_espera_ginecotocologia_virtual
+    - tiempo_espera_cardiologia_virtual
   definition:
     decimal:
       - tiempo_espera_medicina_general
