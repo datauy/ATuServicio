@@ -8,7 +8,7 @@ module ValuesHelper
         [:tiempo_espera_medicina_general, 'Medicina general'],
         [:tiempo_espera_pediatria, 'Pediatría'],
         [:tiempo_espera_cirugia_general, 'Cirujía general'],
-        [:tiempo_espera_ginecotocologia, 'Ginecología'],
+        [:tiempo_espera_ginecotocologia, 'Ginecotocología'],
         [:tiempo_espera_cardiologia, 'Cardiología'],
       ],
       virtuales: [
@@ -16,7 +16,7 @@ module ValuesHelper
         [:tiempo_espera_medicina_general_virtual, 'Medicina general'],
         [:tiempo_espera_pediatria_virtual, 'Pediatría'],
         [:tiempo_espera_cirugia_general_virtual, 'Cirujía general'],
-        [:tiempo_espera_ginecotocologia_virtual, 'Ginecología'],
+        [:tiempo_espera_ginecotocologia_virtual, 'Ginecotocología'],
         [:tiempo_espera_cardiologia_virtual, 'Cardiología'],
       ],
       presenciales: [
@@ -24,7 +24,7 @@ module ValuesHelper
         [:tiempo_espera_medicina_general_presencial, 'Medicina general'],
         [:tiempo_espera_pediatria_presencial, 'Pediatría'],
         [:tiempo_espera_cirugia_general_presencial, 'Cirujía general'],
-        [:tiempo_espera_ginecotocologia_presencial, 'Ginecología'],
+        [:tiempo_espera_ginecotocologia_presencial, 'Ginecotocología'],
         [:tiempo_espera_cardiologia_presencial, 'Cardiología']
       ]
     }
@@ -43,10 +43,10 @@ module ValuesHelper
 
   def rrhh
     [
-      [:medicos_generales_policlinica, 'Médico general'],
-      [:medicos_de_familia_policlinica, 'Médicos de familia'],
-      [:medicos_pediatras_policlinica, 'Pediatras'],
-      [:medicos_ginecologos_policlinica, 'Ginecologías'],
+      [:medicos_generales_policlinica, 'Médicina general'],
+      [:medicos_de_familia_policlinica, 'Médicina de familia'],
+      [:medicos_pediatras_policlinica, 'Pediatrías'],
+      [:medicos_ginecologos_policlinica, 'Ginecotocologías'],
       [:auxiliares_enfermeria_policlinica, 'Aux. de enfermería'],
       [:licenciadas_enfermeria_policlinica, 'Lic. en enfermería']
     ]

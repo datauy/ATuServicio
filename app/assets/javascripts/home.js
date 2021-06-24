@@ -125,20 +125,14 @@ $('#selected_providers').change(function(){
 jQuery.railsAutocomplete.options.noMatchesLabel = "No se encontraron resultados."
 
 //Select Tiempos de espera
-console.log('TIEMPOS DE ESPERA');
-console.log($('#tiempos'));
 $('select#tiempos').change(function(event) {
-  if ( event.target.value == 'SELECCIONAR' ) {
-    $('.time-overlay').show();
-    $('.times .value').hide();
-  }
-  else {
-    //Duplicate change for floating header
-    $('select#tiempos').val(event.target.value);
-    $('.time-overlay').hide();
-    $('.times .value').hide();
-    $('.times .value.'+event.target.value).show();
-  }
-  console.log( event.target.value );
+  //Duplicate change for floating header
+  $('select#tiempos').val(event.target.value);
+  $('.time-overlay').hide();
+  $('.times .value').hide();
+  $('.times .value.'+event.target.value).show();
 });
-$('select#tiempos').change();
+$('.time-overlay').click(function(event) {
+  $('select#tiempos').change();
+});
+$('.times .value').hide();

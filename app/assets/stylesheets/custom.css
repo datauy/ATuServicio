@@ -121,13 +121,17 @@ table.sites td span.nodata {
   font-size: 10px;
   font-weight: 300;
   border: 1px solid #fff;
-  margin-top: 20px;
+  margin: 20px 0 0 8px;
   border-radius: 3px;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
   padding: 3px 20px 2px 4px;
   position: relative;
+}
+.times .info {
+  margin-bottom: 12px;
+  display: block;
 }
 .arrow {
   border: solid #fff;
@@ -163,4 +167,18 @@ table.sites td span.nodata {
   bottom: 2px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+div.warning {
+  display: inline-flex;
+  background: #0052A4;
+  padding: 24px 10%;
+  color: #fff;
+  margin-bottom: 30px;
+}
+div.warning h3 {
+  font-weight: bold;
+}
+div.warning svg {
+  min-width: 60px;
+  margin-right: 5%;
 }
