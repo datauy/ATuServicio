@@ -48,9 +48,10 @@
       </div>
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
-        <p>Se muestran los tiempos de espera promedio, medidos en días, para diferentes especialidades (medicina general, pediatría, cirugía general, ginecotocología y cardiología).</p>
-        <p>El tiempo de espera individual es la diferencia entre la fecha de solicitud de la cita y la fecha de la cita médica otorgada, para el primer médico disponible dentro de cada especialidad. Si la cita se otorga para el mismo día en que se solicita, se contabiliza como tiempo de espera de cero días. Se presentan los promedios de los tiempos de espera individuales de todas las solicitudes de citas del período considerado.</p>
-<p>Fecha del dato: promedio semestre enero – junio de 2019</p>
+        <p>Se muestran los tiempos de espera promedio, medidos en días, para el primer médico disponible dentro de la especialidad considerada: medicina general, pediatría, cirugía general, ginecotocología y cardiología. El tiempo de espera individual es la diferencia entre la fecha de solicitud de la cita y la fecha de la cita médica otorgada, para el primer médico disponible dentro de cada especialidad. Si la cita se otorga para el mismo día en que se solicita, se contabiliza como tiempo de espera de cero días. Se presentan los promedios de los tiempos de espera individuales de todas las solicitudes de citas del período considerado.</p>
+        <p>Se discriminan los tiempos de espera para consulta presencial o por telemedicina. En los prestadores que no pudieron realizar esta discriminación, los tiempos informados consideran el total de citas solicitadas para el 1er. especialista disponible, sin discriminar entre tipo de consulta.</p>
+        <p>En los prestadores que sí informaron los tiempos de espera discriminados, se presenta además un promedio ponderado de ambos tiempos, de manera de contar con un único valor que permita la comparación entre todas las instituciones.</p>
+        <p>Fecha del dato: promedio semestre julio – diciembre de 2020</p>
         <h3>En el caso de ASSE</h3>
         <%= render 'layouts/asse_tiempos_espera_info' %>
       </div>
@@ -133,7 +134,7 @@
         <p>Fecha del dato: trimestre julio-agosto-setiembre de 2019</p>
         <p><b>Porcentaje de usuarios de 25 a 64 años captados e identificados como hipertensos:</b> Según la ENFRENT 2013, 36.6% de la población de este rango etario es hipertensa y se toma dicho valor como referencia para realizar la pesquisa de la enfermedad.</p>
         <p>Fecha del dato: semestre enero - junio 2019.</p>
-        <p><b>Porcentaje de médicos con capacitación realizada en tratamiento del infarto agudo de miocardio con ST elevado:</b> Este indicador consiste en la "capacitación para la reperfusión en el IAM”. Está destinado a los médicos de los servicios involucrados en la asistencia de esta patología. Se realiza en modalidad virtual con un componente presencial de los referentes de cada una de las instituciones.</p> 
+        <p><b>Porcentaje de médicos con capacitación realizada en tratamiento del infarto agudo de miocardio con ST elevado:</b> Este indicador consiste en la "capacitación para la reperfusión en el IAM”. Está destinado a los médicos de los servicios involucrados en la asistencia de esta patología. Se realiza en modalidad virtual con un componente presencial de los referentes de cada una de las instituciones.</p>
         <p>Fecha del dato: semestre abril-setiembre de 2018</p>
         <p><b>Tasa de cesáreas:</b> La tasa de cesáreas es el porcentaje de partos terminados por vía cesárea en relación al total de partos.</p>
         <p>Fecha del dato: año 2018</p>
@@ -197,7 +198,7 @@
       </div>
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
-        <p>Los datos muestran algunas características de los sistemas de Agenda de Consulta Externa de las instituciones: tipos de vías de asignación de citas, existencia de recordatorio de citas, existencia de caída de reservas de citas no confirmadas, formas de comunicación con el usuario por suspensión o modificación de consultas.</p>
+        <p>Los datos muestran algunas características de los sistemas de agenda de Consulta Externa de las instituciones prestadoras de salud: vías de asignación de citas, existencia de recordatorio de citas, existencia de caída de reservas de citas no confirmadas, forma de comunicación con el usuario por suspensión o modificación de consultas.</p>
       </div>
       <div class="modal-footer">
         <%= render 'layouts/modals_meta' %>

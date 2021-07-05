@@ -31,9 +31,11 @@
       </div>
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
-        <p>Las gráficas reflejan los distintos tiempos de espera promedio para el primer médico disponible dentro de la especialidad considerada. A mayor cantidad de íconos coloreados, mayor tiempo de espera. El mínimo (ningún ícono coloreado) equivale a cero días, mientras que todos los íconos coloreados equivalen al tiempo de espera mayor entre todos los prestadores.</p>
+        <p>Las gráficas reflejan los distintos tiempos de espera promedio para el primer médico disponible dentro de la especialidad considerada. A mayor cantidad de íconos coloreados, mayor tiempo de espera. El mínimo (ningún ícono coloreado) equivale a
+        cero días, mientras que todos los íconos coloreados equivalen al tiempo de espera mayor entre todos los prestadores.</p>
         <p>El tiempo de espera individual es la diferencia entre la fecha de solicitud de la cita y la fecha de la cita médica otorgada, para el primer médico disponible dentro de cada especialidad. Si la cita se otorga para el mismo día en que se solicita, se contabiliza como tiempo de espera de cero días. Se presentan los promedios de los tiempos de espera individuales de todas las solicitudes de citas del período considerado.</p>
-        <p>Fecha del dato: promedio semestre enero – junio de 2019</p>
+        <p>Para el semestre jul-dic 2020 se incluyó la discriminación entre tiempos de espera para consulta presencial o por telemedicina, existiendo prestadores que pudieron realizar dicha discriminación y otros que no. En este último caso, los tiempos informados y presentados consideran el total de citas solicitadas para el 1er. especialista disponible, sin discriminar entre tipo de consulta. Para los prestadores que sí informaron los tiempos de espera discriminados, se presenta en esta sección un promedio ponderado de ambos tiempos, de manera de contar con un único valor que permita la comparación entre todas las instituciones.</p>
+        <p>Fecha del dato: promedio semestre julio – diciembre de 2020</p>
         <h3>En el caso de ASSE</h3>
         <%= render 'layouts/asse_tiempos_espera_info' %>
       </div>
