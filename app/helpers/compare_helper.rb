@@ -50,7 +50,7 @@ module CompareHelper
         VERLINK
       elsif column_value
         indicator = check_enough_data_times(column, provider)
-
+=begin
         tiempo = case column_value
                  when 0..(1.0/24.0)
                    "#{column_value * 24 * 60} <small>MINUTOS</small>"
@@ -59,7 +59,14 @@ module CompareHelper
                  else
                    "#{column_value} <small>DÍAS</small>"
                 end
-        value = "<td><h5>#{tiempo} #{indicator}</h5></td>"
+=end
+        wtype = column.split('_')[-1]
+        calculado = ''
+        if !(wtype == 'presencial' || wtype == 'virtual') && provider.send(:tiempo_espera_medicina_general_virtual)
+          calculado = '<a class="info" href="#" data-toggle="modal" data-target="#tiempos_espera_promedios_modal">Promedios calculados <i class="icon-info"></i></a>'
+        end
+        tiempo = "#{column_value} <small>DÍA#{ column_value == 1.0 ? '' : 'S'}</small>"
+        value = "<td>#{calculado}<h5>#{tiempo} #{indicator}</h5></td>"
       else
         value = ApplicationHelper.no_hay_datos
       end

@@ -231,36 +231,36 @@ sedes:
 tiempos_espera:
   title: "Tiempos de Espera"
   description:
-    - "Promedio de tiempo de espera para Medicina General"
-    - "Promedio de tiempo de espera para Pediatría"
-    - "Promedio de tiempo de espera para Cirugía General"
-    - "Promedio de tiempo de espera para Ginecotocología"
-    - "Promedio de tiempo de espera para Cardiología"
-    - "Promedio de tiempo de espera presencial para Medicina General"
-    - "Promedio de tiempo de espera presencial para Pediatría"
-    - "Promedio de tiempo de espera presencial para Cirugía General"
-    - "Promedio de tiempo de espera presencial para Ginecotocología"
-    - "Promedio de tiempo de espera presencial para Cardiología"
-    - "Promedio de tiempo de espera virtual para Medicina General"
-    - "Promedio de tiempo de espera virtual para Pediatría"
-    - "Promedio de tiempo de espera virtual para Cirugía General"
-    - "Promedio de tiempo de espera virtual para Ginecotocología"
-    - "Promedio de tiempo de espera virtual para Cardiología"
+    - "Promedio de tiempo de espera sin discriminar - MEDICINA GENERAL"
+    - "Promedio de tiempo de espera consulta presencial - MEDICINA GENERAL"
+    - "Promedio de tiempo de espera telemedicina - MEDICINA GENERAL"
+    - "Promedio de tiempo de espera sin discriminar - PEDIATRÍA"
+    - "Promedio de tiempo de espera consulta presencial - PEDIATRÍA"
+    - "Promedio de tiempo de espera telemedicina - PEDIATRÍA"
+    - "Promedio de tiempo de espera sin discriminar - CIRUGÍA GENERAL"
+    - "Promedio de tiempo de espera consulta presencial - CIRUGÍA GENERAL"
+    - "Promedio de tiempo de espera telemedicina - CIRUGÍA GENERAL"
+    - "Promedio de tiempo de espera sin discriminar - GINECOTOCOLOGÍA"
+    - "Promedio de tiempo de espera consulta presencial - GINECOTOCOLOGÍA"
+    - "Promedio de tiempo de espera telemedicina - GINECOTOCOLOGÍA"
+    - "Promedio de tiempo de espera sin discriminar - CARDIOLOGÍA"
+    - "Promedio de tiempo de espera consulta presencial - CARDIOLOGÍA"
+    - "Promedio de tiempo de espera telemedicina - CARDIOLOGÍA"
   columns:
     - tiempo_espera_medicina_general
-    - tiempo_espera_pediatria
-    - tiempo_espera_cirugia_general
-    - tiempo_espera_ginecotocologia
-    - tiempo_espera_cardiologia
     - tiempo_espera_medicina_general_presencial
-    - tiempo_espera_pediatria_presencial
-    - tiempo_espera_cirugia_general_presencial
-    - tiempo_espera_ginecotocologia_presencial
-    - tiempo_espera_cardiologia_presencial
     - tiempo_espera_medicina_general_virtual
+    - tiempo_espera_pediatria
+    - tiempo_espera_pediatria_presencial
     - tiempo_espera_pediatria_virtual
+    - tiempo_espera_cirugia_general
+    - tiempo_espera_cirugia_general_presencial
     - tiempo_espera_cirugia_general_virtual
+    - tiempo_espera_ginecotocologia
+    - tiempo_espera_ginecotocologia_presencial
     - tiempo_espera_ginecotocologia_virtual
+    - tiempo_espera_cardiologia
+    - tiempo_espera_cardiologia_presencial
     - tiempo_espera_cardiologia_virtual
   definition:
     decimal:

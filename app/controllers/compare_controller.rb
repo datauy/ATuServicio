@@ -13,9 +13,9 @@ class CompareController < ApplicationController
     flash['alert'] = 'Solo se pueden elegir hasta 3 proveedores' if provider_ids.length > 3
 
     @selected_providers = Provider.
-      includes([:sites, :states]).
       where(id: provider_ids.take(3)).
-      includes(:recognitions)
+      includes([:sites, :states])
+      #includes(:recognitions)
 
     raise ActionController::RoutingError.new('Proveedor no encontrado') if @selected_providers.empty?
 

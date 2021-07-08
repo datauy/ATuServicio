@@ -68,14 +68,17 @@
           <p>Por motivos vinculados a la emergencia sanitaria producida por la COVID-19, los datos de tiempos de espera esntán separados los datos de tiempos de espera esntán separados</p>
           <p>Por motivos vinculados a la emergencia sanitaria producida por la COVID-19, los datos de tiempos de espera esntán separados los datos de tiempos de espera esntán separados aunque no tanto para ver el mismo largo</p>
         </div>
-        <% if provider.send(:tiempo_espera_medicina_general_virtual) %>
-        <a class="info" href="#" data-toggle="modal" data-target="#tiempos_espera_promedios_modal"><i class="icon-info"></i> </a>
-        <% end %>
         <%
           time_types = [:promedios, :presenciales, :virtuales]
           time_types.each do |time_type|
-            waiting_times[time_type].each do |value|
         %>
+        <div class="group <%= time_type %>">
+        <% if time_type == :promedios && provider.send(:tiempo_espera_medicina_general_virtual) %>
+          <a class="info" href="#" data-toggle="modal" data-target="#tiempos_espera_promedios_modal">
+            Promedios calculados <i class="icon-info"></i>
+          </a>
+        <% end
+          waiting_times[time_type].each do |value| %>
             <div class="value <%= time_type %>">
               <div class="txt">
                 <label><%= value[1] %></label>
@@ -84,13 +87,12 @@
               </div>
               <% value = IconsHelper.percentage_icons(provider, value, @provider_maximums.waiting_time) %>
               <div class="progress icons">
-                <div class="progress-bar" role="progressbar" aria-valuenow="<%= value %>}" aria-valuemin="0" aria-valuemax="100" style="width: <%= value %>%;">
-                </div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="<%= value %>}" aria-valuemin="0" aria-valuemax="100" style="width: <%= value %>%;"></div>
                 <%= image_tag(clocks, class: 'progress_icons')%>
               </div>
             </div>
                 <% else %>
-        </div>
+              </div>
         <% if provider.nombre_abreviado == "ASSE" %>
           <a href="#" data-toggle="modal" data-target="#asse_tiempos_modal" class="info-nodata">
             <%= IconsHelper.no_data.html_safe %>
@@ -99,9 +101,10 @@
         <% else %>
           <%= IconsHelper.no_data.html_safe %>
         <% end %>
+            </div>
                 <% end %>
-        </div>
           <% end %>
+        </div>
         <% end %>
       </td>
     <% end %>

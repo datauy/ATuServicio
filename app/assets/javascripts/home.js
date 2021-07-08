@@ -112,9 +112,11 @@ $('.cerrar').click(function(e){
 $(window).scroll(function() {
   if ($(window).scrollTop() > 900) {
     $("#fixed-versus").show();
+    $('.content').addClass('table-header');
   }
   else {
     $("#fixed-versus").hide();
+    $('.content').removeClass('table-header');
   }
 });
 
@@ -129,10 +131,10 @@ $('select#tiempos').change(function(event) {
   //Duplicate change for floating header
   $('select#tiempos').val(event.target.value);
   $('.time-overlay').hide();
-  $('.times .value').hide();
-  $('.times .value.'+event.target.value).show();
+  $('.times .group').hide();
+  $('.times .group.'+event.target.value).show();
 });
 $('.time-overlay').click(function(event) {
   $('select#tiempos').change();
 });
-$('.times .value').hide();
+$('.times .group').hide();
