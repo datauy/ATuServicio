@@ -59,15 +59,15 @@
     </td>
 
     <!-- Tiempos de espera -->
-    <% if provider.id == 9000 %>
+    <td class="times">
+      <div class="time-overlay">
+        <i class="arrow up"></i>
+        <p>Por motivos vinculados a la emergencia sanitaria producida por la COVID-19, los datos de tiempos de espera esntán separados los datos de tiempos de espera esntán separados</p>
+        <p>Por motivos vinculados a la emergencia sanitaria producida por la COVID-19, los datos de tiempos de espera esntán separados los datos de tiempos de espera esntán separados aunque no tanto para ver el mismo largo</p>
+      </div>
+      <% if provider.id == 9000 %>
       <%= render 'asse_tiempos_espera' %>
-    <% else %>
-      <td class="times">
-        <div class="time-overlay">
-          <i class="arrow up"></i>
-          <p>Por motivos vinculados a la emergencia sanitaria producida por la COVID-19, los datos de tiempos de espera esntán separados los datos de tiempos de espera esntán separados</p>
-          <p>Por motivos vinculados a la emergencia sanitaria producida por la COVID-19, los datos de tiempos de espera esntán separados los datos de tiempos de espera esntán separados aunque no tanto para ver el mismo largo</p>
-        </div>
+      <% else %>
         <%
           time_types = [:promedios, :presenciales, :virtuales]
           time_types.each do |time_type|
@@ -93,21 +93,14 @@
             </div>
                 <% else %>
               </div>
-        <% if provider.nombre_abreviado == "ASSE" %>
-          <a href="#" data-toggle="modal" data-target="#asse_tiempos_modal" class="info-nodata">
-            <%= IconsHelper.no_data.html_safe %>
-            <i class="demo-icon icon-info"></i>
-          </a>
-        <% else %>
-          <%= IconsHelper.no_data.html_safe %>
-        <% end %>
+              <%= IconsHelper.no_data.html_safe %>
             </div>
                 <% end %>
           <% end %>
         </div>
-        <% end %>
-      </td>
-    <% end %>
+      <% end %>
+      <% end %>
+    </td>
 
     <!-- Satisfaction -->
     <td>

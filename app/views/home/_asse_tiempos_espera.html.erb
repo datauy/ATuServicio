@@ -1,13 +1,19 @@
-<td>
-  <% waiting_times.each do |value| %>
-    <div class="value">
-      <div class="txt">
-        <label><%= value[1] %></label>
-      </div>
+<%
+  time_types = [:promedios, :presenciales, :virtuales]
+  time_types.each do |time_type|
+%>
+<div class="group <%= time_type %>">
+<% waiting_times[time_type].each do |value| %>
+  <div class="value">
+    <div class="txt">
+      <label><%= value[1] %></label>
+    </div>
 
-      <div class="nodata"> <p>VER LINK</p></div>
-      <a href="#" data-toggle="modal" data-target="#asse_tiempos_modal" class="info-nodata">
-        <i class="demo-icon icon-info"></i>
-      </a>
-  <% end %>
-</td>
+    <div class="nodata"> <p>VER LINK</p></div>
+    <a href="#" data-toggle="modal" data-target="#asse_tiempos_modal" class="info-nodata">
+      <i class="demo-icon icon-info"></i>
+    </a>
+  </div>
+<% end %>
+</div>
+<% end %>

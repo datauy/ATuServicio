@@ -25,10 +25,12 @@ namespace :importer do
   end
 
   task :providers_data, [:year] => [:environment] do |_, args|
-    #providers
+    providers
     provider_partial_data
     calculate_maximums
   end
+
+
 
   task :test, [:year] => [:environment] do |_, args|
     name = 'tiempos_espera'
@@ -82,7 +84,7 @@ namespace :importer do
 
   def pias_ancestry
     puts 'Pias hierarchy'
-    ActiveRecord::Base.connection.execute("update pia set ancestry = h.ancestry from 
+    ActiveRecord::Base.connection.execute("update pia set ancestry = h.ancestry from
       ( select pid, regexp_replace(pid,'(\.[^\.]+)$','') as ancestry from pia )
        as h where  h.pid = pia.pid and pia.pid != h.ancestry;")
   end
@@ -120,11 +122,6 @@ namespace :importer do
   # Import provider data
   #
   def provider_data
-    [:metas, :satisfaccion_derechos].each do |importable|
-      puts "Importing #{importable}"
-      importing(importable, @year)
-    end
-
     provider_partial_data
 
     puts 'Importing sites'
@@ -136,7 +133,7 @@ namespace :importer do
   end
 
   def provider_partial_data
-    [:rrhh, :solicitud_consultas, :precios, :tiempos_espera].each do |importable|
+    [:satisfaccion_derechos, :metas, :rrhh, :solicitud_consultas, :precios, :tiempos_espera].each do |importable|
       puts "Importing #{importable}"
       importing(importable, @year)
     end
