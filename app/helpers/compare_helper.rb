@@ -63,9 +63,9 @@ module CompareHelper
         wtype = column.split('_')[-1]
         calculado = ''
         if !(wtype == 'presencial' || wtype == 'virtual') && provider.send(:tiempo_espera_medicina_general_virtual)
-          calculado = '<a class="info" href="#" data-toggle="modal" data-target="#tiempos_espera_promedios_modal">Promedios calculados <i class="icon-info"></i></a>'
+          calculado = '<a class="info" href="#" data-toggle="modal" data-target="#tiempos_espera_promedios_modal">Promedio calculado <i class="icon-info"></i></a>'
         end
-        tiempo = "#{column_value} <small>DÍA#{ column_value == 1.0 ? '' : 'S'}</small>"
+        tiempo = "#{column_value} <small>DÍAS</small>"
         value = "<td>#{calculado}<h5>#{tiempo} #{indicator}</h5></td>"
       else
         value = ApplicationHelper.no_hay_datos

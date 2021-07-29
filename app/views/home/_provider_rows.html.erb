@@ -61,9 +61,12 @@
     <!-- Tiempos de espera -->
     <td class="times">
       <div class="time-overlay">
+        <% if n == 2 %>
         <i class="arrow up"></i>
-        <p>Por motivos vinculados a la emergencia sanitaria producida por la COVID-19, los datos de tiempos de espera esntán separados los datos de tiempos de espera esntán separados</p>
-        <p>Por motivos vinculados a la emergencia sanitaria producida por la COVID-19, los datos de tiempos de espera esntán separados los datos de tiempos de espera esntán separados aunque no tanto para ver el mismo largo</p>
+        <p>
+          Debido al contexto sanitario han surgido modalidades de atención ambulatoria no presencial (consulta a distancia por llamada telefónica, videollamada, etc.) que deben considerarse para la medición de tiempos de espera. Para el semestre jul-dic 2020 se incluyó la discriminación por consulta presencial o telemedicina, existiendo prestadores que pudieron realizar dicha discriminación y otros que no. En el último caso, los tiempos informados consideran el total de citas solicitadas para el 1er. especialista disponible, sin discriminar entre tipo de consulta. Para los prestadores que sí informaron los tiempos discriminados, se realizó un promedio ponderado para presentar en la visualización un único valor que permita la comparación entre todas las instituciones. Al consultar los detalles de cada prestador se pueden ver tiempos de espera discriminados según modalidad de consulta y compararlos con los de las instituciones que informaron con esa misma apertura.
+        </p>
+        <% end %>
       </div>
       <% if provider.id == 9000 %>
       <%= render 'asse_tiempos_espera' %>

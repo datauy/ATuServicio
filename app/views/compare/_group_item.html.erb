@@ -30,6 +30,16 @@
             </tr>
             <p>
           <% end %>
+          <% if group == :tiempos_espera %>
+            <tr>
+              <td colspan="5">
+                <p class="asse">
+                  Debido al contexto sanitario han surgido modalidades de atención ambulatoria no presencial (consulta a distancia por llamada telefónica, videollamada, etc.) que deben considerarse para la medición de tiempos de espera. Para el semestre jul-dic 2020 se incluyó la discriminación por consulta presencial o telemedicina, existiendo prestadores que pudieron realizar dicha discriminación y otros que no. En el último caso, los tiempos informados consideran el total de citas solicitadas para el 1er. especialista disponible, sin discriminar entre tipo de consulta. Para los prestadores que sí informaron los tiempos discriminados, se realizó un promedio ponderado para presentar en la visualización un único valor que permita la comparación entre todas las instituciones. Al consultar los detalles de cada prestador se pueden ver tiempos de espera discriminados según modalidad de consulta y compararlos con los de las instituciones que informaron con esa misma apertura.
+                </p>
+              </td>
+            </tr>
+            <p>
+          <% end %>
           <% columns_name_description(group).each do |name, column| %>
             <tr>
               <td class="col-md-3 col-left">

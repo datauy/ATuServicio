@@ -33,15 +33,9 @@ namespace :importer do
 
 
   task :test, [:year] => [:environment] do |_, args|
-    name = 'tiempos_espera'
-    options = {col_sep: ';'}
-    headers = get_columns(name)
-    puts headers.inspect
-    import_file("2021/#{name}.csv", options) do |row|
-      #provider = Provider.find_by(id: row[0].to_i)
-      parameters = get_parameters(headers, row)
-      puts parameters.inspect
-    end
+    #name = :solicitud_consultas
+    #importing(name, @year)
+    provider_partial_data
   end
   #
   # Los departamentos se importan de config/states.yml

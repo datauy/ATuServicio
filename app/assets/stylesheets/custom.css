@@ -102,18 +102,29 @@ table.sites td span.nodata {
     height: 42px;
 }
 /* Times */
+.block_preview tr {
+  overflow: visible;
+}
+td.times {
+  /*position: relative;
+  z-index: 999;*/
+  overflow: visible;
+}
 .time-overlay {
   top: 0;
-  height: 100%;
+  min-height: 100%;
   width: calc(100% - 14px);
   position: absolute;
   background: rgba(0, 82, 164, 0.9);
-  z-index: 1050;
+  /*z-index: 1050;*/
+  overflow: visible;
 }
 .time-overlay p {
   color: #fff;
   padding: 0 30px;
   font-size: 13px;
+  z-index: 1050;
+  position: absolute;
 }
 #tiempos {
   background: #0052A4;
