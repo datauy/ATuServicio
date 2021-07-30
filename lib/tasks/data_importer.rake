@@ -35,7 +35,7 @@ namespace :importer do
   task :test, [:year] => [:environment] do |_, args|
     #name = :solicitud_consultas
     #importing(name, @year)
-    provider_partial_data
+    sedes
   end
   #
   # Los departamentos se importan de config/states.yml
@@ -117,7 +117,10 @@ namespace :importer do
   #
   def provider_data
     provider_partial_data
+    sedes
+  end
 
+  def sedes
     puts 'Importing sites'
     importing('sedes', @year) do |provider, parameters|
       state = State.find_by_name(parameters['departamento'].strip.mb_chars.downcase.to_s)
