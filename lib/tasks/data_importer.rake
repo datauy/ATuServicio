@@ -35,7 +35,8 @@ namespace :importer do
   task :test, [:year] => [:environment] do |_, args|
     #name = :solicitud_consultas
     #importing(name, @year)
-    sedes
+    puts "Importing Test"
+    importing(:rrhh, 2021)
   end
   #
   # Los departamentos se importan de config/states.yml
