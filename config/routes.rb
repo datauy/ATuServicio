@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   end
 
   get '/sobre_el_proyecto' => 'home#about'
-  get '/sistema-nacional-de-salud' => 'home#sns'
   get '/usuarios' => 'home#usuarios'
 
   get '/404' => 'errors#not_found'

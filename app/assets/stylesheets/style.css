@@ -24,6 +24,9 @@
 * {font-family: 'Montserrat', sans-serif; outline: none;}
 a:focus { outline: none; text-decoration: none;}
 a:hover {text-decoration: underline;}
+img {
+  max-width: 100%;
+}
 .table>tbody>tr:nth-of-type(even) { background-color: #F7F7F7; }
 .selected { background:rgba(124, 217, 242, 0.18) !important}
 
@@ -49,8 +52,7 @@ header .nav li a:hover, header .nav li.active a {background-color: #fff;color: #
 .logo img, .logos img { width: 100%;}
 #logo { width: 20%; min-width: 250px; max-width: 400px;}
 #logo_ats { width: 10%; margin: 0 20px; min-width: 108px;}
-#logo_data { width: 8%; margin: 0; min-width: 86px;}
-#logo_data img { margin-bottom: 13px; }
+#logo_data { width: 7%; margin: 0; min-width: 86px;}
 #cabezal { width: 100%; margin-top: 32px; }
 .breadcrumb { width: 100%; background: #EAEAEA; padding:1% 50px; border-radius: 0; color:#E0F2F1; margin-bottom:50px;}
 .breadcrumb li a {
@@ -465,6 +467,7 @@ footer { background: #E6E7E8; padding: 2% 6%;}
 footer p {font-size: 12px; line-height: 22px; color:#666}
 footer h4 { color: #666}
 footer a { color: #42B4E7; font-size: 11px;}
+footer img { max-width: 120px; }
 #bottom_footer { border-top:1px solid  #ccc; padding: 20px 0; margin-top: 20px}
 .modal-content { padding:10% 7%; box-shadow: none;border-radius: 10px; border:none;}
 .modal-title {
