@@ -20,17 +20,28 @@
       <table class="table">
         <tbody>
           <%= custom_asse_message(group) %>
-          <% if group == :rrhh %>
+          <% if group == :rrhh || group == :rrhh_cad || group == :rrhh_especialistas %>
             <tr>
               <td colspan="5">
-                <p class="asse">
-                  Los datos presentados son a nivel país, considerando el total de trabajadores de la Institución en todas sus dependencias.
-                </p>
+                <div class="section-header">
+                  <p class="asse">
+                    Los datos presentados son a nivel país, considerando el total de trabajadores de la Institución en todas sus dependencias.
+                  </p>
+                  <% if group != :rrhh_cad %>
+                    <%=
+                    select_tag "states",
+                    options_for_select(
+                      state_options(@active_states),
+                      params[:departamento]),
+                      class: "states"
+                    %>
+                  <% end %>
+                </div>
               </td>
             </tr>
-            <p>
-          <% end %>
-          <% if group == :tiempos_espera %>
+            <%= render partial: 'rrhh_tables', locals: {group: group} %>
+          <% else %>
+            <% if group == :tiempos_espera %>
             <tr>
               <td colspan="5">
                 <p class="asse">
@@ -39,22 +50,23 @@
               </td>
             </tr>
             <p>
-          <% end %>
-          <% columns_name_description(group).each do |name, column| %>
-            <tr>
-              <td class="col-md-3 col-left">
-                <p>
-                  <% if name.match(/\ ?CAD\ ?/) %>
-                    <%= cad_abbr(name) %>
-                  <% else %>
-                    <%= name %>
-                  <% end %>
-                </p>
-              </td>
-              <% @selected_providers.each do |provider| %>
-                <%= show_value(group, column, provider) %>
               <% end %>
-            </tr>
+              <% columns_name_description(group).each do |name, column| %>
+              <tr>
+                <td class="col-md-3 col-left">
+                  <p>
+                    <% if name.match(/\ ?CAD\ ?/) %>
+                    <%= cad_abbr(name) %>
+                    <% else %>
+                    <%= name %>
+                    <% end %>
+                  </p>
+                </td>
+                <% @selected_providers.each do |provider| %>
+                <%= show_value(group, column, provider) %>
+                <% end %>
+              </tr>
+              <% end %>
           <% end %>
         </tbody>
       </table>

@@ -316,9 +316,12 @@ satisfaccion_derechos:
       - satisfaccion_primer_nivel_atencion_2017
       - satisfaccion_internacion_hospitalaria_2012
 
-
+rrhh_cad:
+  title: "Méd. generales y especialistas c/alta dedicación"
+rrhh_especialistas:
+  title: "Especialistas y principales profesiones"
 rrhh:
-  title: "Recursos Humanos"
+  title: "Personal básico orientado a la asistencia"
   description:
     - "Cargos de médicos generales en policlínica cada 10.000 usuarios mayores de 14 años"
     - "Cargos de médicos de familia en policlínica cada 10.000 usuarios"

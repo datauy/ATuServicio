@@ -16,3 +16,23 @@ $(".icon-info").click(function(e){
 $("#search").on( "autocompleteselect", function( event, ui ) {
   $("#add_provider").css('background', '#3FA6C9');
 });
+var loading = false;
+$('.states').on('change', function(e) {
+  e.preventDefault();
+  if (!loading) {
+    var depto = $(e.target).val();
+    loading = true;
+    $('.states').val(depto);
+    //$("#loading").show();
+    $.ajax({
+      type: "GET",
+      url: "#",
+      data: {
+        departamento: depto,
+      },
+      success: function(result) {
+        loading = false;
+      }
+    });
+  }
+});

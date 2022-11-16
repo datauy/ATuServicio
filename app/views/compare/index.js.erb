@@ -1,0 +1,4 @@
+jQuery('#collapserrhh .rrhh-general').remove();
+jQuery('#collapserrhh tbody').append('<%= escape_javascript(render partial:"compare/rrhh_tables", locals: {group: :rrhh}) %>');
+jQuery('#collapserrhh .rrhh-especialistas').remove();
+jQuery('#collapserrhh_especialistas tbody').append('<%= escape_javascript(render partial:"compare/rrhh_tables", locals: {group: :rrhh_especialistas}) %>');

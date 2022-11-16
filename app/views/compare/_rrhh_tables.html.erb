@@ -1,0 +1,28 @@
+<% if group == :rrhh_cad %>
+  <% @rrhh_cad.values.each do |row| %>
+    <tr class="rrhh-cad"><td class="col-md-3 col-left"><p><%= row[:desc] %></p></td>
+    <% row[:indicator_values].each do |value| %>
+      <%= value.nil? ? ApplicationHelper.no_hay_datos.html_safe : "<td>#{value}</td>".html_safe %>
+    <% end %>
+    </tr>
+  <% end %>
+<% end %>
+<% if group == :rrhh %>
+  <% @rrhh_general.values.each do |row| %>
+    <tr class="rrhh-general"><td class="col-md-3 col-left"><p><%= row[:desc] %></p></td>
+    <% row[:indicator_values].each do |value| %>
+      <%= value.nil? ? ApplicationHelper.no_hay_datos.html_safe : "<td>#{value}</td>".html_safe %>
+    <% end %>
+    </tr>
+  <% end %>
+<% end %>
+<% if group == :rrhh_especialistas %>
+  <% @specialists.values.each do |row| %>
+    <tr class="rrhh-especialistas"><td class="col-md-3 col-left"><p><%= row[:title] %></p></td>
+    <% row[:i_vals].each do |value| %>
+      <%= value.nil? ? ApplicationHelper.no_hay_datos.html_safe : "<td>#{value}</td>".html_safe %>
+    <% end %>
+    </tr>
+  <% end %>
+<% end %>
+<p>
