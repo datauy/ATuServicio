@@ -4,8 +4,8 @@ require "#{Rails.root}/lib/importer_helper"
 include ImporterHelper
 
 namespace :importer do
-  @year = '2021'
-
+  @year = '2022'
+  @stage = '2'
   desc 'Importing everything'
   task :all, [:year] => [:environment] do |_, args|
     @year = args[:year]
@@ -18,7 +18,8 @@ namespace :importer do
     pias_data
     pias_ancestry
     providers
-    provider_data
+    provider_partial_data
+    sedes
     calculate_maximums
     assign_search_name
     structure
@@ -35,8 +36,9 @@ namespace :importer do
   task :test, [:year] => [:environment] do |_, args|
     #name = :solicitud_consultas
     #importing(name, @year)
-    puts "Importing Test"
-    importing(:rrhh, 2021)
+    puts "Importing Providers y precios"
+    providers
+    importing(:precios, @year + (@stage ? '-'+@stage : ''))
   end
   #
   # Los departamentos se importan de config/states.yml
@@ -52,6 +54,163 @@ namespace :importer do
     end
   end
 
+  #
+  #
+  #
+  desc "Metadata to objects"
+  task :fetch_metadata, [:group] => [:environment] do |_, args|
+    metadata = YAML.load_file(File.join(Rails.root, "config", "metadata.yml"))
+    i = 0
+    metadata[args[:group]]["description"].each do |desc|
+      #puts "#{metadata[args[:group]]["columns"][i]} => #{desc}}"
+      Indicator.find_or_create_by(
+        key: metadata[args[:group]]["columns"][i],
+        description: desc
+      )
+      i += 1
+    end
+    #columns = METADATA[:precios][:averages][name][:columns]
+  end
+  #
+  # Impport HHRR
+  #
+  desc 'Import All RRHH'
+  task rrhh: [:environment] do
+    specialists
+    rrhh_general
+    rrhh_cad
+    state_agregate
+  end
+  #
+  # Import specialists
+  #
+  def specialists
+    puts 'Import Specialists'
+    import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_especialistas.csv", col_sep: ';') do |row|
+      specialist = Specialist.find_or_create_by( title: row["specialty"] )
+      puts "SPECIALITY: #{row["specialty"]} --> "
+      create_providerRelation(row['provider'], row['indicator_value'], row["state"], specialist.id)
+    end
+  end
+  #
+  def rrhh_general
+    puts 'Import RRHH'
+    import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_general.csv", col_sep: ';') do |row|
+      indicator = Indicator.find_by( abbr: row["indicator"] )
+      if indicator.present?
+        create_providerRelation(row['provider'], row['indicator_value'], row["state"], nil, indicator.id)
+        activateIndicator(indicator.id)
+      else
+        puts "INDICADOR NO ENCONTRADO: #{row["indicator"]}"
+      end
+    end
+  end
+  #
+  def rrhh_cad
+    puts 'Import RRHH CAD'
+    import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_cad.csv", col_sep: ';') do |row|
+      stage_cads = [
+        ['cantidad_cad','total'],
+        ['medicina_general_cantidad_cad','MG'],
+        ['medicina_familiar_cantidad_cad','MFYC'],
+        ['pediatria_cantidad_cad','Pediatría'],
+        ['ginecotologia_cantidad_cad','Gine'],
+        ['medicina_intensiva_adultos_cantidad_cad','MIA'],
+        ['medicina_intensiva_pediatrica_cantidad_cad','MIP'],
+        ['neonatologia_cantidad_cad','NEO'],
+        ['cantidad_cad_psiquiatria_adultos','Psiq A'],
+        ['cantidad_cad_psiquiatria_pediatrica','Psiq P'],
+      ]
+      stage_cads.each do |cad_arr|
+        i = Indicator.find_by(key: cad_arr[0])
+        value = row[cad_arr[1]]
+        if value == 'Si' || value == true
+          value = 1
+        elsif value == 'No' || value ==   false
+          value = 0
+        end
+        create_providerRelation(row['provider'], value, nil, nil, i.id)
+        activateIndicator(i.id)
+      end
+    end
+  end
+
+  def activateIndicator(i)
+    IndicatorActive.find_or_create_by({
+      indicator_id: i,
+      year: @year,
+      stage: @stage,
+      active: true
+    })
+  end
+  def create_providerRelation(pname, indicator_value, state_name = nil, spec_id = nil, indicator_id = nil)
+    puts "PROCESSING #{pname}\n"
+    if state_name.nil?
+      state_id = nil
+    else
+      state_id = State.find_by( name: state_name.downcase! ).id
+      if (!state_id)
+        rise "State not found #{state_name.downcase!}"
+      end
+    end
+    provider = Provider.where("nombre_abreviado like ?", "#{pname}%" ).first
+    if !provider
+      raise "Provider not found: #{pname}"
+    end
+    if ( spec_id.nil? && indicator_id.nil? )
+      raise "Relation not set"
+    end
+    relation = {
+      provider_id: provider.id,
+      state_id: state_id,
+      indicator_value: indicator_value,
+      year: @year,
+      stage: @stage
+    }
+    if ( spec_id.nil? )
+      relation['indicator_id'] = indicator_id
+    else
+      relation['specialist_id'] = spec_id
+    end
+    puts relation.inspect
+    ProviderRelation.find_or_create_by(relation)
+  end
+
+  def state_agregate
+    Provider.includes(:provider_relations).where.not("provider_relations.state_id": nil).all.each do |provider|
+      specialists = {}
+      indicators = {}
+      provider.provider_relations.each do |pr|
+        if pr.indicator_id.present?
+          if indicators.key?(pr.indicator_id)
+            indicators[pr.indicator_id][:value] += pr.indicator_value
+            indicators[pr.indicator_id][:total] += 1
+          else
+            indicators[pr.indicator_id] = {total: 1, value: pr.indicator_value}
+          end
+        elsif pr.specialist_id.present?
+          if specialists.key?(pr.specialist_id)
+            specialists[pr.specialist_id][:value] += pr.indicator_value
+            specialists[pr.specialist_id][:total] += 1
+          else
+            specialists[pr.specialist_id] = {total: 1, value: pr.indicator_value}
+          end
+        end
+      end
+      puts indicators.inspect
+      indicators.keys.each do |i|
+        prov_spec_total = ProviderRelation.find_or_initialize_by(state: nil, provider_id: provider.id, indicator_id: i, stage: @stage, year: @year)
+        prov_spec_total.indicator_value = (indicators[i][:value]/indicators[i][:total]).round(2)
+        prov_spec_total.save
+      end
+      puts specialists.inspect
+      specialists.keys.each do |i|
+        prov_spec_total = ProviderRelation.find_or_initialize_by(state: nil, provider_id: provider.id, specialist_id: i, stage: @stage, year: @year)
+        prov_spec_total.indicator_value = (specialists[i][:value]/specialists[i][:total]).round(2)
+        prov_spec_total.save
+      end
+    end
+  end
   #
   # Create pias
   #
@@ -89,14 +248,12 @@ namespace :importer do
   # Create providers
   #
   def providers
-    puts 'Delete providers'
-    Provider.destroy_all
-
-    puts 'Creating providers'
-
-    import_file(@year + "/estructura.csv", col_sep: ';') do |row|
-      provider = Provider.new(
-        id: row[0],
+    puts 'Creating or updating providers'
+    provider_ids = []
+    import_file("#{@year + (@stage ? '-'+@stage : '')}/estructura.csv", col_sep: ';') do |row|
+      provider = Provider.find_or_create_by( id: row[0] )
+      provider_ids.push(row[0])
+      provider.update(
         nombre_abreviado: row[1],
         nombre_completo: row[2],
         web: row[3],
@@ -105,25 +262,17 @@ namespace :importer do
         logo: assign_logo(row[0]),
         comunicacion: row[7],
         espacio_adolescente: row[8],
-        servicios_atencion_adolescentes: row[9]
+        servicios_atencion_adolescentes: row[9],
+        private_insurance: provider.nombre_abreviado.include?('Seguro Privado') ? true : nil
       )
-      # Set private insurances
-      provider.private_insurance = true if provider.nombre_abreviado.include?('Seguro Privado')
-      provider.save
     end
-  end
-
-  #
-  # Import provider data
-  #
-  def provider_data
-    provider_partial_data
-    sedes
+    to_deactivate = Provider.where.not(id: provider_ids).map(&:id)
+    puts "\nDELETING #{to_deactivate.inspect}\n\n\n"
   end
 
   def sedes
     puts 'Importing sites'
-    importing('sedes', @year) do |provider, parameters|
+    importing('sedes', @year + (@stage ? '-'+@stage : '') ) do |provider, parameters|
       state = State.find_by_name(parameters['departamento'].strip.mb_chars.downcase.to_s)
       parameters['state_id'] = state.id
       provider.sites.create(parameters)
@@ -131,9 +280,9 @@ namespace :importer do
   end
 
   def provider_partial_data
-    [:satisfaccion_derechos, :metas, :rrhh, :solicitud_consultas, :precios, :tiempos_espera].each do |importable|
+    [ :metas, :solicitud_consultas, :precios, :tiempos_espera].each do |importable|
       puts "Importing #{importable}"
-      importing(importable, @year)
+      importing(importable, @year + (@stage ? '-'+@stage : ''))
     end
   end
 
