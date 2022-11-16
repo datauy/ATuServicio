@@ -2,6 +2,10 @@ class Provider < ActiveRecord::Base
   has_many :sites, dependent: :delete_all
   has_many :states, through: :sites
   has_many :recognitions
+  has_many :provider_relations
+  has_many :indicators, through: :provider_relations
+  has_many :specialists, through: :provider_relations
+
 
   def average(name)
     columns = METADATA[:precios][:averages][name][:columns]
