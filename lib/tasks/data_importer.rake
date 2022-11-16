@@ -57,14 +57,13 @@ namespace :importer do
   #
   #
   #
-  desc "Metadata to objects"
-  task :fetch_metadata, [:group] => [:environment] do |_, args|
+  def fetch_metadata(group)
     metadata = YAML.load_file(File.join(Rails.root, "config", "metadata.yml"))
     i = 0
-    metadata[args[:group]]["description"].each do |desc|
+    metadata[group]["description"].each do |desc|
       #puts "#{metadata[args[:group]]["columns"][i]} => #{desc}}"
       Indicator.find_or_create_by(
-        key: metadata[args[:group]]["columns"][i],
+        key: metadata[group]["columns"][i],
         description: desc
       )
       i += 1
@@ -76,6 +75,7 @@ namespace :importer do
   #
   desc 'Import All RRHH'
   task rrhh: [:environment] do
+    fetch_metadata('rrhh')
     specialists
     rrhh_general
     rrhh_cad
@@ -197,7 +197,6 @@ namespace :importer do
           end
         end
       end
-      puts indicators.inspect
       indicators.keys.each do |i|
         prov_spec_total = ProviderRelation.find_or_initialize_by(state: nil, provider_id: provider.id, indicator_id: i, stage: @stage, year: @year)
         prov_spec_total.indicator_value = (indicators[i][:value]/indicators[i][:total]).round(2)
