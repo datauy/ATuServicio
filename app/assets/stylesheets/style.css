@@ -60,6 +60,9 @@ header .nav li a:hover, header .nav li.active a {background-color: #fff;color: #
 }
 section { padding:0 50px;}
 
+.section-header {
+  display: flex;
+}
 /*HOME*/
 
 .home { width: 100%;  background: #fff}
