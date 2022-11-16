@@ -193,3 +193,50 @@ div.warning svg {
   min-width: 60px;
   margin-right: 5%;
 }
+.loader{
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  position: relative;
+  margin: auto auto 0 30px;
+  display: none;
+}
+
+/* LOADER 1 */
+
+.loader:before, .loader:after{
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 10px solid transparent;
+  border-top-color: #3498db;
+}
+
+.loader:before{
+  z-index: 100;
+  animation: spin 0.2s infinite;
+}
+
+.loader:after{
+  border: 10px solid #ccc;
+}
+
+@keyframes spin{
+  0%{
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100%{
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

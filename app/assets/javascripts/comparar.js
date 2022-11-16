@@ -22,6 +22,7 @@ $('.states').on('change', function(e) {
   if (!loading) {
     var depto = $(e.target).val();
     loading = true;
+    $('.loader').show();
     $('.states').val(depto);
     //$("#loading").show();
     $.ajax({
