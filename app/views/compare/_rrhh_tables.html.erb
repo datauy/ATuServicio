@@ -2,7 +2,11 @@
   <% @rrhh_cad.values.each do |row| %>
     <tr class="rrhh-cad"><td class="col-md-3 col-left"><p><%= row[:desc] %></p></td>
     <% row[:indicator_values].each do |value| %>
-      <%= value.nil? ? ApplicationHelper.no_hay_datos.html_safe : "<td>#{value}</td>".html_safe %>
+      <% if row[:key].include? 'nuevo_regimen' %>
+        <%= value.nil? ? ApplicationHelper.no_hay_datos.html_safe : "<td>#{value == 1 ? 'Si' : 'No'}</td>".html_safe %>
+      <% else %>
+        <%= value.nil? ? ApplicationHelper.no_hay_datos.html_safe : "<td>#{value}</td>".html_safe %>
+      <% end %>
     <% end %>
     </tr>
   <% end %>

@@ -43,7 +43,7 @@ class CompareController < ApplicationController
     where(year: @year, stage: @stage, active: true, "indicators.section": ['rrhh_cad', 'rrhh_general']).
     each do |ind|
       if ind.indicator.section == 'rrhh_cad'
-        @rrhh_cad[ind.indicator.id] = {desc: ind.indicator.description, indicator_values: [] }
+        @rrhh_cad[ind.indicator.id] = {desc: ind.indicator.description, key: ind.indicator.key, indicator_values: [] }
       else
         @rrhh_general[ind.indicator.id] = {desc: ind.indicator.description, indicator_values: [] }
       end
@@ -109,10 +109,9 @@ class CompareController < ApplicationController
     #
     respond_to do |format|
       format.js{
-        Rails.logger.debug { "\nACCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAA VA POR JS!!!!\n\n\n" }
         render :template => "compare/index.js.erb", :layout => false
       }
-      format.html{ Rails.logger.debug { "\nACCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAA VA POR HTML!!!!\n\n\n" } }
+      format.html{}
     end
   rescue ActiveRecord::RecordNotFound
     redirect_to '/404'

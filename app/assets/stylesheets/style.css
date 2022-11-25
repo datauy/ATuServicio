@@ -382,7 +382,7 @@ section { padding:0 50px;}
 .socios { text-align: center;}
 .free { color: #A8D26F; margin: 0 }
 .free p {display: inline-block; padding: 0; margin: 0}
-.nodata { color: #0052A4;margin: 0}
+.nodata { color: #e61414;margin: 0; font-weight: bold;}
 .nodata p {display: inline-block;padding: 0;margin: 0;text-transform: uppercase;}
 .asse {
     font-size: 12px !important;
@@ -443,8 +443,8 @@ section { padding:0 50px;}
 
 .icon-info:before { content: '\e807'; }
 .icon-ok:before { content: '\e806';font-size: 40px; color: #A8D26F }
-.icon-no:before { content: '\e805';font-size: 40px; color: #0052A4  }
-.icon-sad:before { content: '\e802';font-size: 30px; color: #0052A4  }
+.icon-no:before { content: '\e805';font-size: 40px; color: #e61414  }
+.icon-sad:before { content: '\e802';font-size: 30px; color: #e61414  }
 .icon-happy:before { content: '\e803'; font-size: 30px; color: #A8D26F }
 .icon-derechos:before { content: '\e808'; }
 .icon-money:before { content: '\e801'; }
