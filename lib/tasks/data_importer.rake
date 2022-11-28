@@ -29,6 +29,7 @@ namespace :importer do
     providers
     provider_partial_data
     calculate_maximums
+    assign_search_name
   end
 
 
@@ -265,8 +266,9 @@ namespace :importer do
         private_insurance: provider.nombre_abreviado.include?('Seguro Privado') ? true : nil
       )
     end
-    to_deactivate = Provider.where.not(id: provider_ids).map(&:id)
-    puts "\nDELETING #{to_deactivate.inspect}\n\n\n"
+    to_deactivate = Provider.where.not(id: provider_ids)
+    puts "\nDELETING #{to_deactivate.map(&:id).inspect}\n\n\n"
+    to_deactivate.destroy_all
   end
 
   def sedes

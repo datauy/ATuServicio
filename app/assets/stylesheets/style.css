@@ -123,7 +123,18 @@ section { padding:0 50px;}
     font-size: 20px;
     padding: 5px 0;
 }
-
+.panel-group h4 {
+  display: inline-grid;
+  grid-template-columns: 60px 1fr 42px;
+  width: 100%;
+  margin: 0;
+  align-items: center;
+}
+.panel-group h4 span {
+  justify-self: end;
+  padding-right: 15px;
+  color: white;
+}
 .btn-compare { background: #0052A4 !important;font-size: 14px; color: #fff }
 .btn-compare:hover { background: #fff; color: #0052A4; text-decoration: none}
 .btn-tag {
@@ -225,7 +236,7 @@ section { padding:0 50px;}
     margin: 0;
 
 }
-.home #fixed-versus {padding: 0}
+.home #fixed-versus {padding: 0 50px;}
 .home #fixed-versus thead th {background: none;border:none;position: relative;text-align: center;padding: 45px 0}
 .home #fixed-versus thead th h3 {font-size: 13px; margin: 0}
 .home #fixed-versus .info {position: absolute;top: 15px;left: 0;font-size: 16px;}
@@ -338,7 +349,7 @@ section { padding:0 50px;}
 .block_title { background:#186E93; }
 .block_title h4 {}
 .block_title h4 .info { background-color: #3FA6C9; padding:15px 5px}
-.block_title h4 a { color: #fff;display: block; font-size: 18px; display: inline-block;}
+.block_title h4 a { color: #fff;display: block; font-size: 18px; display: inline-block; padding 0 10px;}
 .block_title h4 a:hover {text-decoration: none;}
 .block_title h4 a i:before { font-size: 16px}
 .block_title .demo-icon:before {font-size: 20px;}
@@ -452,7 +463,7 @@ section { padding:0 50px;}
 .icon-calendar:before { content: '\e80a'; }
 .icon-price:before { content: '\e80b'; }
 .icon-metas:before { content: '\e80c'; }
-.icon-rrhh:before { content: '\e80d'; }
+.icon-rrhh:before, .icon-rrhh_cad:before, .icon-rrhh_especialistas:before { content: '\e80d'; }
 .icon-sedes:before { content: '\e80e'; }
 .icon-consultas:before { content: '\e804'; }
 .icon-socios:before { content: '\e80f'; }
