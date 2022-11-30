@@ -318,6 +318,22 @@ section { padding:0 50px;}
 .block_preview .table-head-preview th { border-left: 1px solid #ccc; padding: 2% !important}
 .block_preview .table-head-preview th:first-child { border-left: none;}
 .block_preview .table-head-preview th h3 {font-size: 12px;}
+.block_preview .table-head-preview th span {
+  color: white;
+  font-weight: normal;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+.select-wrapper {
+  position: relative;
+  margin: 10px auto 0;
+}
+.icon-wrapper {
+  position: absolute;
+  right: 7px;
+  top: 5px;
+}
 .block_preview .table-head-preview th a { position: absolute;top: 5px;left: 10px; font-size: 20px; color: #ccc}
 
 .block_preview  tr {}

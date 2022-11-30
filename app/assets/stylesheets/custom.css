@@ -126,13 +126,12 @@ td.times {
   z-index: 1050;
   position: absolute;
 }
-#tiempos {
+.header-select {
   background: #0052A4;
   color: white;
   font-size: 10px;
   font-weight: 300;
   border: 1px solid #fff;
-  margin: 20px 0 0 8px;
   border-radius: 3px;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -174,8 +173,7 @@ td.times {
   border-width: 0 1px 1px 0;
   padding: 2px;
   position: relative;
-  left: -20px;
-  bottom: 2px;
+  bottom: 7px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
