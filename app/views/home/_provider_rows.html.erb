@@ -125,29 +125,31 @@
     </td>
 
     <!-- Tickets -->
-    <td>
-      <% ordered_tickets(provider).each do |ticket| %>
-        <div class="value">
-          <div class="txt">
-            <label><%= ticket[:label] %> (promedio)</label>
-          </div>
-          <% if provider.id == 9000%>
-            <div class="nodata" >
-              <p class="free">GRATUITO</p> <i class="demo-icon icon-happy"></i></p>
+    <% ["fonasa", "no_fonasa"].each do |tipo| %>
+      <td class="prices <%= tipo %>" style="display: <%= tipo == 'fonasa' ? 'table-cell' : 'none'%>;">
+        <% ordered_tickets(provider, tipo).each do |ticket| %>
+          <div class="value">
+            <div class="txt">
+              <label><%= ticket[:label] %> (promedio)</label>
             </div>
-          <% elsif ticket[:average] %>
-            <% value = IconsHelper.percentage_icons(provider, ticket[:average], @provider_maximums.tickets) %>
-            <div class="progress icons">
-              <div class="progress-bar" role="progressbar" aria-valuenow="<%= value %>}" aria-valuemin="0" aria-valuemax="100" style="width: <%= value %>%;">
+            <% if provider.id == 9000%>
+              <div class="nodata" >
+                <p class="free">GRATUITO</p> <i class="demo-icon icon-happy"></i></p>
               </div>
-              <%= image_tag(coins, class: 'progress_icons')%>
-            </div>
-          <% else %>
-            <%= IconsHelper.no_data.html_safe %>
-          <% end %>
-        </div>
-      <% end %>
-    </td>
+            <% elsif ticket[:average] %>
+              <% value = IconsHelper.percentage_icons(provider, ticket[:average], @provider_maximums.tickets) %>
+              <div class="progress icons">
+                <div class="progress-bar" role="progressbar" aria-valuenow="<%= value %>}" aria-valuemin="0" aria-valuemax="100" style="width: <%= value %>%;">
+                </div>
+                <%= image_tag(coins, class: 'progress_icons')%>
+              </div>
+            <% else %>
+              <%= IconsHelper.no_data.html_safe %>
+            <% end %>
+          </div>
+        <% end %>
+      </td>
+    <% end %>
 
     <!-- Metas asistenciales -->
     <td>

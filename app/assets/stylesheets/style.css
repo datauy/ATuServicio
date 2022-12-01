@@ -318,6 +318,7 @@ section { padding:0 50px;}
 .block_preview .table-head-preview th { border-left: 1px solid #ccc; padding: 2% !important}
 .block_preview .table-head-preview th:first-child { border-left: none;}
 .block_preview .table-head-preview th h3 {font-size: 12px;}
+#fixed-versus th span,
 .block_preview .table-head-preview th span {
   color: white;
   font-weight: normal;
@@ -328,6 +329,7 @@ section { padding:0 50px;}
 .select-wrapper {
   position: relative;
   margin: 10px auto 0;
+  width: min-content;
 }
 .icon-wrapper {
   position: absolute;

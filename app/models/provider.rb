@@ -7,8 +7,8 @@ class Provider < ActiveRecord::Base
   has_many :specialists, through: :provider_relations
 
 
-  def average(name)
-    columns = METADATA[:precios][:averages][name][:columns]
+  def average(name, tipo)
+    columns = METADATA[:precios][:"averages_#{tipo}"][name][:columns]
     values = columns.map do |column|
       send(column.to_sym)
     end

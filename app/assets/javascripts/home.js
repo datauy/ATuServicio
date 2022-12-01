@@ -138,3 +138,11 @@ $('.time-overlay').click(function(event) {
   $('select#tiempos').change();
 });
 $('.times .group').hide();
+
+// Prices FONASA - No FONASA
+$('select#precios').change(function(event) {
+  //Duplicate change for floating header
+  $('select#precios').val(event.target.value);
+  $('.prices').hide();
+  $('.prices.'+event.target.value).css("display", "table-cell");
+});

@@ -7,11 +7,11 @@ module IconsHelper
     value * 100 / max
   end
 
-  def ordered_tickets(provider)
+  def ordered_tickets(provider, tipo)
     structure = []
     tickets_show.each do |ticket|
       structure << {
-        average: provider.average(ticket[0]),
+        average: provider.average(ticket[0], tipo),
         label: ticket[1]
       }
     end
