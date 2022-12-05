@@ -184,18 +184,64 @@
   </div>
 </div>
 
-<!-- RRHH -->
+<!-- RRHH Personal básico -->
 <div class="modal fade" id="rrhh_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">RRHH</h4>
+        <h4 class="modal-title" id="myModalLabel">Personal básico orientado a la asistencia</h4>
       </div>
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
         <p>
-          Las cifras indican el personal disponible cada 10.000 usuarios para diferentes especialidades médicas y no médicas (promedio simple de febrero, mayo, agosto y noviembre 2020), y los Cargos de Alta Dedicación (CAD) cada 10.000 usuarios que fueron creados en el marco del Nuevo Régimen de Trabajo Médico (NRTM) y que abarcan también a varias especialidades (diciembre 2020) y el porcentaje de trabajadores que culminaron el Curso 2020 del proceso de capacitación continua.
+          Los indicadores de esta sección muestran la disponibilidad de personal para la atención en policlínica. Un nivel alto del indicador refleja una mayor disponibilidad de cargos por usuarios y es de esperar que eso tenga impacto positivo sobre la calidad asistencial de la población.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <%= render 'layouts/modals_meta' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RRHH Méd. Generales y especialistas -->
+<div class="modal fade" id="rrhh_modal_mge" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Médicos generales y especialistas con alta dedicación</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Sobre estos datos</h3>
+        <p>
+          Los indicadores de esta sección muestran la disponibilidad de cargos de alta dedicación de medicina. Los cargos de alta dedicación son un beneficio importante para los usuarios, en la medida que permiten mejorar su vínculo con el médico tratante, quien al tener una mayor dedicación horaria tendrá una mayor disponibilidad para atender las necesidades de su población de referencia y podrá dar una mayor continuidad a la atención, tanto en policlínica como en los distintos episodios de enfermedad que requieran atención en cualquier nivel asistencial.
+        </p>
+        <h3>Sobre indicadores de CTI</h3>
+        <p>
+          El indicador señala si el CTI funciona en régimen de alta dedicación o no. Toma valor “si” cuando cuenta con médicos que trabajan en el servicio diariamente dando continuidad a la atención a lo largo de toda la semana. En este caso, la transformación hacia el nuevo régimen de trabajo no es individual de cada médico sino del CTI en su conjunto. Este régimen de trabajo donde es el mismo médico o equipo el que ve a los pacientes diariamente permite disminuir la variabilidad en el manejo clínico que es un elemento de mejora en la efectividad y en el control de los procesos. A su vez, mejora sustancialmente el vínculo con las familias en un área cerrada donde la información para estas es crítica.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <%= render 'layouts/modals_meta' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RRHH Especialistas y principales profesiones -->
+<div class="modal fade" id="rrhh_especialistas_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Especialistas y principales profesiones</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Sobre estos datos</h3>
+        <p>
+          Los indicadores de esta sección brindan la posibilidad de consultar la disponibilidad de algunas especialidades o profesiones de su interés. Un nivel alto del indicador refleja una mayor disponibilidad  en relación a la cantidad de usuarios de la institución y es de esperar que eso tenga impacto positivo sobre el acceso a la consulta por parte de los usuarios.
         </p>
       </div>
       <div class="modal-footer">
