@@ -80,7 +80,6 @@ namespace :importer do
     specialists
     rrhh_general
     rrhh_cad
-    state_agregate
   end
   #
   # Import specialists
@@ -89,6 +88,12 @@ namespace :importer do
     puts 'Import Specialists'
     import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_especialistas.csv", col_sep: ';') do |row|
       specialist = Specialist.find_or_create_by( title: row["specialty"] )
+      if ( row["state"] == 'total país')
+        row["state"] = nil;
+      end
+      if row['indicator_value'] == 's/d'
+        row['indicator_value'] = nil
+      end
       puts "SPECIALITY: #{row["specialty"]} --> "
       create_providerRelation(row['provider'], row['indicator_value'], row["state"], specialist.id)
     end
@@ -99,6 +104,12 @@ namespace :importer do
     import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_general.csv", col_sep: ';') do |row|
       indicator = Indicator.find_by( abbr: row["indicator"] )
       if indicator.present?
+        if ( row["state"] == 'total país')
+          row["state"] = nil;
+        end
+        if row['indicator_value'] == 's/d'
+          row['indicator_value'] = nil
+        end
         create_providerRelation(row['provider'], row['indicator_value'], row["state"], nil, indicator.id)
         activateIndicator(indicator.id)
       else
@@ -116,11 +127,11 @@ namespace :importer do
         ['medicina_familiar_cantidad_cad','MFYC'],
         ['pediatria_cantidad_cad','Pediatría'],
         ['ginecotologia_cantidad_cad','Gine'],
-        ['medicina_intensiva_adultos_cantidad_cad','MIA'],
-        ['medicina_intensiva_pediatrica_cantidad_cad','MIP'],
-        ['neonatologia_cantidad_cad','NEO'],
         ['cantidad_cad_psiquiatria_adultos','Psiq A'],
         ['cantidad_cad_psiquiatria_pediatrica','Psiq P'],
+        ['medicina_intensiva_adultos_nuevo_regimen','MIA'],
+        ['medicina_intensiva_pediatrica_nuevo_regimen','MIP'],
+        ['medicina_intensiva_neonatologia_nuevo_regimen','NEO'],
       ]
       stage_cads.each do |cad_arr|
         i = Indicator.find_by(key: cad_arr[0])

@@ -31,11 +31,18 @@
         <tbody>
           <%= custom_asse_message(group) %>
           <% if group == :rrhh || group == :rrhh_cad || group == :rrhh_especialistas %>
+          <%
+          rrhh_messsages = {
+            rrhh: "Los indicadores se construyen considerando cargos de 175 horas mensuales para medicina y de 144 horas mensuales para enfermería.",
+            rrhh_cad: "Los indicadores reflejan la cantidad de cargos de 175 horas mensuales cada 10.000 usuarios de referencia.",
+            rrhh_especialistas: "Los indicadores reflejan la cantidad de cargos de 175 horas mensuales cada 10.000 usuarios de referencia."
+          }
+          %>
             <tr>
               <td colspan="5">
                 <div class="section-header">
                   <p class="asse">
-                    Los indicadores se construyen considerando cargos de 175 horas mensuales para medicina y de 144 horas mensuales para enfermería.
+                    <%= rrhh_messsages[group] %>
                   </p>
                   <% if group != :rrhh_cad %>
                     <%=
