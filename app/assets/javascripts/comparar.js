@@ -37,18 +37,25 @@ $('.states').on('change', function(e) {
     });
   }
 });
-const specialistsRows = $('.rrhh-especialistas');
-const specialistsNames = [];
-$.each( specialistsRows, (index, obj) => {
-  specialistsNames.push( $(obj).find('p').html().toLowerCase() );
+const filterRows = $('.table tr').not(".no-filter");
+const filterNames = [];
+console.log( "filterRows", filterRows);
+$.each( filterRows, (index, obj) => {
+  var parag = $(obj).find('td:first-child p');
+  if ( parag != undefined && parag.length == 1 ) {
+    filterNames.push( parag.html().toLowerCase() );
+  }
+  else {
+    filterNames.push('');
+  }
 });
-console.log( "Specialists", specialistsNames);
-$('#specialist-search').keyup(() => {
-  var str = $('#specialist-search').val();
-  console.log("SEARCH", str);
-  $.each( specialistsRows, (index, obj) => {
-    var name = specialistsNames[index];
-    if ( !name.toLowerCase().startsWith(str) ) {
+console.log( "filterNames", filterNames);
+$('#filter').keyup(() => {
+  var str = $('#filter').val();
+  console.log("FILTER", str);
+  $.each( filterRows, (index, obj) => {
+    var name = filterNames[index];
+    if ( !name.toLowerCase().includes(str) ) {
       $(obj).hide();
     }
     else {

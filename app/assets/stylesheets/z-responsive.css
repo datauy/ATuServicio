@@ -19,4 +19,7 @@
   header .nav li {
     margin: 5px 0;
   }
+  .section-header {
+    flex-direction: column;
+  }
 }

@@ -96,10 +96,29 @@ table.sites td span.nodata {
 .social .twitter{
     padding-top: 1px;
 }
-
+.filter-wrapper {
+  position: relative;
+  padding: 40px 0 20px;
+}
+.input-icon {
+  height: 18px;
+  position: absolute;
+  top: 52px;
+  left: 10px;
+}
+#filter {
+  padding-left: 36px;
+  height: 40px;
+  width: 100%;
+  color: #999;
+  border: 1px solid #ccc;
+}
 #search{
     padding: 10px 20px !important;
     height: 42px;
+}
+#states {
+  height: 40px;
 }
 /* Times */
 .block_preview tr {

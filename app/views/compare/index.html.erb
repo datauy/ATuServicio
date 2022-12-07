@@ -39,11 +39,10 @@
       </div>
     <% end %>
   <% end %>
-
   <div class="block" data-step="1" data-intro="Estos son los Prestadores" data-position='top'>
     <table class="table table-head">
       <tbody>
-        <tr>
+        <tr class="no-filter">
           <td class="col-md-3">
             <p>Compartir esta comparativa en:</p>
             <ul class="share-nav">
@@ -86,6 +85,11 @@
         </tr>
       </tbody>
     </table>
+  </div>
+  <div class="filter-wrapper">
+    <img class="input-icon" alt="lupa" src="/assets/magnifying-glass.svg"></img>
+    <input name="filter" id="filter" placeholder="Filtrar indicadores"></input>
+    <div class="loader-search"></div>
   </div>
   <% if flash.count > 0 %>
     <div class="alert alert-warning dismissable">

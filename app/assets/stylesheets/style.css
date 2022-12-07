@@ -63,6 +63,7 @@ section { padding:0 50px;}
 .section-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 /*HOME*/
 
@@ -424,6 +425,7 @@ section { padding:0 50px;}
     color: #666;
     border-left: 2px solid #333;
     padding: 2px 14px !important;
+    margin: 0;
 }
 .asse p{
   font-size: 12px !important;
