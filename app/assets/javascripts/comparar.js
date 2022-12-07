@@ -37,3 +37,22 @@ $('.states').on('change', function(e) {
     });
   }
 });
+const specialistsRows = $('.rrhh-especialistas');
+const specialistsNames = [];
+$.each( specialistsRows, (index, obj) => {
+  specialistsNames.push( $(obj).find('p').html().toLowerCase() );
+});
+console.log( "Specialists", specialistsNames);
+$('#specialist-search').keyup(() => {
+  var str = $('#specialist-search').val();
+  console.log("SEARCH", str);
+  $.each( specialistsRows, (index, obj) => {
+    var name = specialistsNames[index];
+    if ( !name.toLowerCase().startsWith(str) ) {
+      $(obj).hide();
+    }
+    else {
+      $(obj).show();
+    }
+  });
+});

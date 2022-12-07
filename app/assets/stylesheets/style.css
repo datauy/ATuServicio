@@ -62,6 +62,7 @@ section { padding:0 50px;}
 
 .section-header {
   display: flex;
+  justify-content: space-between;
 }
 /*HOME*/
 
@@ -129,6 +130,9 @@ section { padding:0 50px;}
   width: 100%;
   margin: 0;
   align-items: center;
+}
+.panel-group .state_title h4 {
+  display: block;
 }
 .panel-group h4 span {
   justify-self: end;
@@ -416,7 +420,6 @@ section { padding:0 50px;}
 .asse {
     font-size: 12px !important;
     text-align: left;
-    width: 65%;
     line-height: 18px;
     color: #666;
     border-left: 2px solid #333;
