@@ -41,6 +41,7 @@ class CompareController < ApplicationController
     IndicatorActive.
     includes(:indicator).
     where(year: @year, stage: @stage, active: true, "indicators.section": ['rrhh_cad', 'rrhh_general']).
+    order(:updated_at).
     each do |ind|
       if ind.indicator.section == 'rrhh_cad'
         @rrhh_cad[ind.indicator.id] = {desc: ind.indicator.description, key: ind.indicator.key, indicator_values: [] }
