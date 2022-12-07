@@ -32,7 +32,7 @@ estructura:
       - comunicacion
 
 metas:
-  title: "Indicadores Asistenciales"
+  title: "Metas Asistenciales"
   description:
     - "Porcentaje de captación de recién nacido"
     - "Porcentaje de niños de un año con control de desarrollo en el 4to mes de vida"
@@ -57,7 +57,7 @@ metas:
       - indice_cesareas
 
 precios:
-  title: "Precios"
+  title: "Órdenes y tickets"
   description:
     - "Ticket de medicamentos - general. FONASA"
     - "Ticket de medicamentos - general. NO FONASA"
@@ -299,7 +299,7 @@ tiempos_espera:
       - tiempo_espera_cardiologia
 
 satisfaccion_derechos:
-  title: "Derechos y satisfacción del usuario"
+  title: "Satisfacción de usuarios"
   description:
     - "Conformidad con disponibilidad de agenda (consulta médica) (2017)"
     - "Conformidad con disponibilidad de agenda (consulta médica) (2014)"
