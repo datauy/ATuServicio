@@ -86,6 +86,7 @@ namespace :importer do
   #
   def specialists
     puts 'Import Specialists'
+    last_provider = ""
     import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_especialistas.csv", col_sep: ';') do |row|
       specialist = Specialist.find_or_create_by( title: row["specialty"] )
       if ( row["state"] == 'total país')
@@ -94,13 +95,17 @@ namespace :importer do
       if row['indicator_value'] == 's/d'
         row['indicator_value'] = nil
       end
-      puts "SPECIALITY: #{row["specialty"]} --> "
+      if last_provider != row['provider']
+        last_provider = row['provider']
+        puts "Specialists for #{last_provider}"
+      end
       create_providerRelation(row['provider'], row['indicator_value'], row["state"], specialist.id)
     end
   end
   #
   def rrhh_general
     puts 'Import RRHH'
+    last_provider = ""
     import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_general.csv", col_sep: ';') do |row|
       indicator = Indicator.find_by( abbr: row["indicator"] )
       if indicator.present?
@@ -109,6 +114,10 @@ namespace :importer do
         end
         if row['indicator_value'] == 's/d'
           row['indicator_value'] = nil
+        end
+        if last_provider != row['provider']
+          last_provider = row['provider']
+          puts "RRHH General for #{last_provider}"
         end
         create_providerRelation(row['provider'], row['indicator_value'], row["state"], nil, indicator.id)
         activateIndicator(indicator.id)
@@ -134,6 +143,7 @@ namespace :importer do
         ['medicina_intensiva_neonatologia_nuevo_regimen','NEO'],
       ]
       stage_cads.each do |cad_arr|
+        puts "Creating CAD for #{row['provider']}"
         i = Indicator.find_by(key: cad_arr[0])
         value = row[cad_arr[1]]
         if value == 'Si' || value == true
@@ -156,7 +166,6 @@ namespace :importer do
     })
   end
   def create_providerRelation(pname, indicator_value, state_name = nil, spec_id = nil, indicator_id = nil)
-    puts "PROCESSING #{pname}\n"
     if state_name.nil?
       state_id = nil
     else
@@ -184,7 +193,6 @@ namespace :importer do
     else
       relation['specialist_id'] = spec_id
     end
-    puts relation.inspect
     ProviderRelation.find_or_create_by(relation)
   end
 
@@ -348,8 +356,10 @@ namespace :importer do
     puts 'Calculating Tickets'
     Provider.all.map do |provider|
       [:medicamentos, :tickets, :tickets_urgentes, :estudios].map do |ticket|
-        average = provider.average(ticket)
-        value = average if (average && average > value)
+        ['fonasa', 'no_fonasa'].map do |tipo|
+          average = provider.average(ticket, tipo)
+          value = average if (average && average > value)
+        end
       end
     end
     maximums.tickets = value
