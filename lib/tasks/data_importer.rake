@@ -6,6 +6,7 @@ include ImporterHelper
 namespace :importer do
   @year = '2022'
   @stage = '2'
+  @strict = true
   desc 'Importing everything'
   task :all, [:year] => [:environment] do |_, args|
     @year = args[:year]
@@ -37,9 +38,10 @@ namespace :importer do
   task :test, [:year] => [:environment] do |_, args|
     #name = :solicitud_consultas
     #importing(name, @year)
-    puts "Importing Providers y precios"
-    providers
-    importing(:precios, @year + (@stage ? '-'+@stage : ''))
+    puts "Re Importing duplicated Providers COMEF"
+    specialists
+    rrhh_general
+    rrhh_cad
   end
   #
   # Los departamentos se importan de config/states.yml
@@ -87,7 +89,7 @@ namespace :importer do
   def specialists
     puts 'Import Specialists'
     last_provider = ""
-    import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_especialistas.csv", col_sep: ';') do |row|
+    import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_especialistas-COMEF.csv", col_sep: ';') do |row|
       specialist = Specialist.find_or_create_by( title: row["specialty"] )
       if ( row["state"] == 'total país')
         row["state"] = nil;
@@ -106,7 +108,7 @@ namespace :importer do
   def rrhh_general
     puts 'Import RRHH'
     last_provider = ""
-    import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_general.csv", col_sep: ';') do |row|
+    import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_general-COMEF.csv", col_sep: ';') do |row|
       indicator = Indicator.find_by( abbr: row["indicator"] )
       if indicator.present?
         if ( row["state"] == 'total país')
@@ -129,7 +131,7 @@ namespace :importer do
   #
   def rrhh_cad
     puts 'Import RRHH CAD'
-    import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_cad.csv", col_sep: ';') do |row|
+    import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_cad-COMEF.csv", col_sep: ';') do |row|
       stage_cads = [
         ['cantidad_cad','total'],
         ['medicina_general_cantidad_cad','MG'],
@@ -165,6 +167,11 @@ namespace :importer do
       active: true
     })
   end
+  #
+  def delete_providerRelations
+
+  end
+  #
   def create_providerRelation(pname, indicator_value, state_name = nil, spec_id = nil, indicator_id = nil)
     if state_name.nil?
       state_id = nil
@@ -174,7 +181,11 @@ namespace :importer do
         rise "State not found #{state_name.downcase!}"
       end
     end
-    provider = Provider.where("nombre_abreviado like ?", "#{pname}%" ).first
+    if @strict
+      provider = Provider.find_by(nombre_abreviado: pname )
+    else
+      provider = Provider.where("nombre_abreviado like ?", "#{pname}%" ).first
+    end
     if !provider
       raise "Provider not found: #{pname}"
     end
