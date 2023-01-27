@@ -38,10 +38,11 @@ namespace :importer do
   task :test, [:year] => [:environment] do |_, args|
     #name = :solicitud_consultas
     #importing(name, @year)
-    puts "Re Importing duplicated Providers COMEF"
-    specialists
-    rrhh_general
-    rrhh_cad
+    puts "Re Importing RRHH General Test"
+    @strict = false
+    rrhh_general_provider('rrhh_general_pais.csv')
+    @strict = true
+    rrhh_general_provider('rrhh_general_pais_COMEF.csv')
   end
   #
   # Los departamentos se importan de config/states.yml
@@ -102,6 +103,35 @@ namespace :importer do
         puts "Specialists for #{last_provider}"
       end
       create_providerRelation(row['provider'], row['indicator_value'], row["state"], specialist.id)
+    end
+  end
+  #
+  def rrhh_general_provider(file)
+    last_provider = ''
+    provider = nil
+    import_file("#{@year + (@stage ? '-'+@stage : '')}/#{file}", col_sep: ';') do |row|
+      indicator = Indicator.find_by( abbr: row["indicator"] )
+      if indicator.present?
+        if last_provider != row['provider']
+          puts "UPDATING PROVIDER RRHH general: #{row['provider']}"
+          last_provider = row['provider']
+          if @strict
+            provider = Provider.find_by(nombre_abreviado: row['provider'] )
+          else
+            provider = Provider.where("nombre_abreviado like ?", "#{row['provider']}%" ).first
+          end
+          if !provider
+            raise "Provider not found: #{pname}"
+          end
+        end
+        if row['indicator_value'] == 's/d'
+          row['indicator_value'] = nil
+        end
+        provider[indicator.key] = row['indicator_value']
+        provider.save
+      else
+        puts "INDICADOR NO ENCONTRADO: #{row["indicator"]}"
+      end
     end
   end
   #

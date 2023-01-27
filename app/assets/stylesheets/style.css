@@ -372,7 +372,7 @@ section { padding:0 50px;}
 .block_title { background:#186E93; }
 .block_title h4 {}
 .block_title h4 .info { background-color: #3FA6C9; padding:15px 5px}
-.block_title h4 a { color: #fff;display: block; font-size: 18px; display: inline-block; padding 0 10px;}
+.block_title h4 a { color: #fff;display: block; font-size: 18px; display: inline-block; padding: 0 10px;}
 .block_title h4 a:hover {text-decoration: none;}
 .block_title h4 a i:before { font-size: 16px}
 .block_title .demo-icon:before {font-size: 20px;}

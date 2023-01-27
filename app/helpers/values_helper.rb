@@ -45,8 +45,8 @@ module ValuesHelper
     [
       [:medicos_generales_policlinica, 'Médicina general'],
       [:medicos_de_familia_policlinica, 'Médicina de familia'],
-      [:medicos_pediatras_policlinica, 'Pediatrías'],
-      [:medicos_ginecologos_policlinica, 'Ginecotocologías'],
+      [:medicos_pediatras_policlinica, 'Pediatría'],
+      [:medicos_ginecologos_policlinica, 'Ginecotocología'],
       [:auxiliares_enfermeria_policlinica, 'Aux. de enfermería'],
       [:licenciadas_enfermeria_policlinica, 'Lic. en enfermería']
     ]
