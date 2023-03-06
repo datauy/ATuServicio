@@ -4,8 +4,8 @@ require "#{Rails.root}/lib/importer_helper"
 include ImporterHelper
 
 namespace :importer do
-  @year = '2022'
-  @stage = '2'
+  @year = '2023'
+  @stage = nil
   @strict = true
   desc 'Importing everything'
   task :all, [:year] => [:environment] do |_, args|
@@ -36,13 +36,14 @@ namespace :importer do
 
 
   task :test, [:year] => [:environment] do |_, args|
-    #name = :solicitud_consultas
-    #importing(name, @year)
-    puts "Re Importing RRHH General Test"
-    @strict = false
-    rrhh_general_provider('rrhh_general_pais.csv')
-    @strict = true
-    rrhh_general_provider('rrhh_general_pais_COMEF.csv')
+    name = :precios
+    importing(name, @year)
+    calculate_maximums
+    #puts "Re Importing RRHH General Test"
+    #@strict = false
+    #rrhh_general_provider('rrhh_general_pais.csv')
+    #@strict = true
+    #rrhh_general_provider('rrhh_general_pais_COMEF.csv')
   end
   #
   # Los departamentos se importan de config/states.yml
