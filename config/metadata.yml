@@ -36,24 +36,30 @@ metas:
   description:
     - "Porcentaje de captación de recién nacido"
     - "Porcentaje de niños de un año con control de desarrollo en el 4to mes de vida"
-    - "Porcentaje de embarazadas con control de HIV y VDRL en el 1er, 2do y 3er trimestre"
-    - "Porcentaje de usuarios de 25 a 64 años captados e identificados como hipertensos"
-    #- "Porcentaje de médicos con capacitación realizada en tratamiento del infarto agudo de miocardio con ST elevado"
+    - "Porcentaje de niños de un año con control de desarrollo en el 18vo mes de vida"
+    - "Porcentaje de niños de un año con control de desarrollo en el 4to año de vida"
+    - "Tasa de cobertura en tamizaje de cáncer colorrectal en usuarios de 60 a 70 años"
+    - "Tasa de cobertura en tamizaje de cáncer en cuello de útero en mujeres de 21 a 64 años"
+    - "Tasa de cobertura en tamizaje de cáncer de mama en mujeres de 50 a 69 años"
     - "Tasa de cesáreas"
   columns:
     - captacion_rn
     - control_desarrollo
-    - control_embarazo_hiv_vdrl
-    - control_pauta_25_a_64_hipertensos
-    #- capacitacion_infarto_st_elevado
+    - control_desarrollo_18
+    - control_desarrollo_4
+    - tamizaje_colorrectal
+    - tamizaje_cuello
+    - tamizaje_mama
     - indice_cesareas
   definition:
     decimal:
       - captacion_rn
       - control_desarrollo
-      - control_embarazo_hiv_vdrl
-      - control_pauta_25_a_64_hipertensos
-      #- capacitacion_infarto_st_elevado
+      - control_desarrollo_18
+      - control_desarrollo_4
+      - tamizaje_colorrectal
+      - tamizaje_cuello
+      - tamizaje_mama
       - indice_cesareas
 
 precios:
@@ -363,9 +369,9 @@ rrhh:
     - "Cargos de alta dedicación de pediatría cada 10.000 usuarios menores de 15 años"
     - "Cargos de alta dedicación de ginecología cada 10.000 usuarias mayores de 14 años"
     - "Cantidad de CAD de Medicina Interna"
-    - "Cantidad de CAD de Medicina Intensiva de Adultos"
-    - "Cantidad de CAD de Medicina Intensiva Pediátrica"
-    - "Cantidad de CAD de Neonatología"
+    - "CTI de adultos en régimen de alta dedicación"
+    - "CTI pediátrico en régimen de alta dedicación"
+    - "CTI neonatal en régimen de alta dedicación"
     - "Cargos de alta dedicación de psiquiatría cada 10.000 usuarios mayores de 14 años"
     - "Cargos de alta dedicación de psiquiatría pediátrica cada 10.000 usuarios menores de 15 años"
     - "Cantidad de CAD de Especialidades Médicas"
@@ -389,9 +395,9 @@ rrhh:
     - pediatria_cantidad_cad
     - ginecotologia_cantidad_cad
     - medicina_interna_cantidad_cad
-    - medicina_intensiva_adultos_cantidad_cad
-    - medicina_intensiva_pediatrica_cantidad_cad
-    - neonatologia_cantidad_cad
+    - medicina_intensiva_adultos_nuevo_regimen
+    - medicina_intensiva_pediatrica_nuevo_regimen
+    - medicina_intensiva_neonatologia_nuevo_regimen
     - cantidad_cad_psiquiatria_adultos
     - cantidad_cad_psiquiatria_pediatrica
     - especialidades_medicas_cantidad_cad

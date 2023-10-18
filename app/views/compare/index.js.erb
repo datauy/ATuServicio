@@ -1,5 +1,5 @@
-$('#collapserrhh .rrhh-general').remove();
-$('#collapserrhh tbody').append('<%= escape_javascript(render partial:"compare/rrhh_tables", locals: {group: :rrhh}) %>');
-$('#collapserrhh_especialistas .rrhh-especialistas').remove();
-$('#collapserrhh_especialistas tbody').append('<%= escape_javascript(render partial:"compare/rrhh_tables", locals: {group: :rrhh_especialistas}) %>');
+$('#collapserrhh .rrhh_general').remove();
+$('#collapserrhh tbody').append('<%= escape_javascript(render partial:"compare/indicators_tables", locals: {group: :rrhh}) %>');
+$('#collapserrhh_especialistas .rrhh_especialistas').remove();
+$('#collapserrhh_especialistas tbody').append('<%= escape_javascript(render partial:"compare/indicators_tables", locals: {group: :rrhh_especialistas}) %>');
 $('.loader').hide();

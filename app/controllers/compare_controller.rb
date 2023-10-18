@@ -38,16 +38,17 @@ class CompareController < ApplicationController
     #Get indicators
     @rrhh_cad = {}
     @rrhh_general = {}
+    @indicators = {
+      rrhh_cad: {},
+      rrhh_general: {},
+      metas: {}
+    }
     IndicatorActive.
     includes(:indicator).
-    where(year: @year, stage: @stage, active: true, "indicators.section": ['rrhh_cad', 'rrhh_general']).
+    where(year: @year, stage: @stage, active: true, "indicators.section": @indicators.keys).
     order(:updated_at).
     each do |ind|
-      if ind.indicator.section == 'rrhh_cad'
-        @rrhh_cad[ind.indicator.id] = {desc: ind.indicator.description, key: ind.indicator.key, indicator_values: [] }
-      else
-        @rrhh_general[ind.indicator.id] = {desc: ind.indicator.description, indicator_values: [] }
-      end
+      @indicators[ind.indicator.section][ind.indicator.id] = {desc: ind.indicator.description, key: ind.indicator.key, indicator_values: [] }
       @selected_providers.each do |provider|
         relation = provider.provider_relations.find_by(
           indicator_id: ind.indicator.id,
@@ -56,19 +57,10 @@ class CompareController < ApplicationController
           stage: @stage
         )
         # TODO: Mejorar con instance variables, por ahora son 2
-        if (ind.indicator.section == 'rrhh_cad')
-          if relation.present?
-            @rrhh_cad[ind.indicator.id][:indicator_values].push(relation.indicator_value)
-          else
-            @rrhh_cad[ind.indicator.id][:indicator_values].push(nil)
-          end
-        end
-        if (ind.indicator.section == 'rrhh_general')
-          if relation.present?
-            @rrhh_general[ind.indicator.id][:indicator_values].push(relation.indicator_value)
-          else
-            @rrhh_general[ind.indicator.id][:indicator_values].push(nil)
-          end
+        if relation.present?
+          @indicators[ind.indicator.section][ind.indicator.id][:indicator_values].push(relation.indicator_value)
+        else
+          @indicators[ind.indicator.section][ind.indicator.id][:indicator_values].push(nil)
         end
       end
     end
