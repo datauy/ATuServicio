@@ -156,7 +156,7 @@
       <% goals.each do |value| %>
         <div class="value">
           <label><%= value[1] %></label>
-          <%= percentages_value(provider, value).html_safe %>
+          <%= percentages_indicator(provider, value).html_safe %>
         </div>
       <% end %>
     </td>

@@ -69,7 +69,13 @@ namespace :importer do
 
   #
   #
-  #
+  
+  def updateSpecialistsActive
+    ProviderRelation.where.not(specialist_id: nil).each do |pr|
+      IndicatorActive.find_or_create_by(specialist_id: pr.specialist_id, year: pr.year, stage: pr.stage, active:true)
+    end
+  end
+
   def fetch_metadata(group)
     metadata = YAML.load_file(File.join(Rails.root, "config", "metadata.yml"))
     i = 0
@@ -89,12 +95,12 @@ namespace :importer do
   def metas(file)
     fetch_metadata('metas')
     puts 'Import Metas'
-    last_provider = ""
     metas = Indicator.where(section: 'metas')
     import_file("#{@year + (@stage ? '-'+@stage : '')}/#{file}", col_sep: ';') do |row|
       puts "Creating Metas for #{row['provider']}"
       metas.each do |meta|
         create_providerRelation(nil, row[meta.key], nil, nil, meta.id, row['provider'])
+        activateIndicator(meta.id, "specialist_id")
       end
     end
   end
@@ -218,7 +224,7 @@ namespace :importer do
 
   def activateIndicator(i, key = "indicator_id")
     #deactivate other year indicators
-    IndicatorActive.find_by("#{key}": i).update(active: false)
+    IndicatorActive.find_by("#{key}": i).update(active: false) if IndicatorActive.find_by("#{key}": i).present?
     IndicatorActive.find_or_create_by({
       "#{key}": i,
       year: @year,

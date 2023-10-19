@@ -1,4 +1,4 @@
-<% @indicators[group].values.each do |row| %>
+<% @indicators["#{group}"].values.each do |row| %>
     <tr class="#{group}"><td class="col-md-3 col-left"><p><%= row[:desc] %></p></td>
     <% row[:indicator_values].each do |value| %>
       <% if row[:key].include? 'nuevo_regimen' %>
@@ -8,7 +8,7 @@
       <% end %>
     <% end %>
     </tr>
-<% end %>
+<% end if @indicators["#{group}"].present? %>
 <% if group == :rrhh_especialistas %>
     <% @specialists.values.each do |row| %>
       <tr class="rrhh-especialistas"><td class="col-md-3 col-left"><p><%= row[:title] %></p></td>

@@ -34,7 +34,23 @@ module IconsHelper
     end
     html
   end
-
+  def percentages_indicator(provider, value)
+    html = ''
+    begin
+      percentage = IndicatorActive.
+      includes(indicator: :provider_relations).
+      where(active: true, "indicators.key": value, "provider_relations.provider_id": provider).
+      pluck("provider_relations.indicator_value").first
+      if percentage.nil?
+        html << IconsHelper.no_data
+      else
+        html << progress_bar(percentage)
+      end
+    rescue
+      html << IconsHelper.no_data
+    end
+    html
+  end
   def self.no_data
     html = <<-eos
     <div class="nodata">

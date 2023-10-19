@@ -39,14 +39,14 @@ class CompareController < ApplicationController
     @indicators = {}
     IndicatorActive.
     includes(:indicator).
+    where.not(indicator_id: nil).
     where(active: true).
     order(:updated_at).
     each do |ind|
-      if @indicators[:"#{ind.indicator.section}"].present?
-        @indicators[:"#{ind.indicator.section}"][ind.indicator.id] = {desc: ind.indicator.description, key: ind.indicator.key, indicator_values: [] }
-      else
-        @indicators[:"#{ind.indicator.section}"] = { ind.indicator.id: {desc: ind.indicator.description, key: ind.indicator.key, indicator_values: [] } }
+      if @indicators["#{ind.indicator.section}"].nil?
+        @indicators["#{ind.indicator.section}"] = {}
       end
+      @indicators["#{ind.indicator.section}"][ind.indicator.id] = {desc: ind.indicator.description, key: ind.indicator.key, indicator_values: [] }
       @selected_providers.each do |provider|
         relation = provider.provider_relations.find_by(
           indicator_id: ind.indicator.id,
@@ -55,9 +55,9 @@ class CompareController < ApplicationController
           stage: ind.stage
         )
         if relation.present?
-          @indicators[:"#{ind.indicator.section}"][ind.indicator.id][:indicator_values].push(relation.indicator_value)
+          @indicators["#{ind.indicator.section}"][ind.indicator.id][:indicator_values].push(relation.indicator_value)
         else
-          @indicators[:"#{ind.indicator.section}"][ind.indicator.id][:indicator_values].push(nil)
+          @indicators["#{ind.indicator.section}"][ind.indicator.id][:indicator_values].push(nil)
         end
       end
     end
@@ -66,6 +66,7 @@ class CompareController < ApplicationController
     states = []
     IndicatorActive.
     includes(:specialist).
+    where.not(specialist_id: nil).
     where(active: true).
     each do |iaSpec|
       @specialists[iaSpec.specialist.id] = {
