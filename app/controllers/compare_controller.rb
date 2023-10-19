@@ -36,66 +36,56 @@ class CompareController < ApplicationController
     }
     @selected_state = params['departamento'] && params['departamento'] != 'todos' ? State.find_by_name(params['departamento']).id : nil
     #Get indicators
-    @rrhh_cad = {}
-    @rrhh_general = {}
-    @indicators = {
-      rrhh_cad: {},
-      rrhh_general: {},
-      metas: {}
-    }
+    @indicators = {}
     IndicatorActive.
     includes(:indicator).
-    where(year: @year, stage: @stage, active: true, "indicators.section": @indicators.keys).
+    where(active: true).
     order(:updated_at).
     each do |ind|
-      @indicators[ind.indicator.section][ind.indicator.id] = {desc: ind.indicator.description, key: ind.indicator.key, indicator_values: [] }
+      if @indicators[:"#{ind.indicator.section}"].present?
+        @indicators[:"#{ind.indicator.section}"][ind.indicator.id] = {desc: ind.indicator.description, key: ind.indicator.key, indicator_values: [] }
+      else
+        @indicators[:"#{ind.indicator.section}"] = { ind.indicator.id: {desc: ind.indicator.description, key: ind.indicator.key, indicator_values: [] } }
+      end
       @selected_providers.each do |provider|
         relation = provider.provider_relations.find_by(
           indicator_id: ind.indicator.id,
           state_id: @selected_state,
-          year: @year,
-          stage: @stage
+          year: ind.year,
+          stage: ind.stage
         )
-        # TODO: Mejorar con instance variables, por ahora son 2
         if relation.present?
-          @indicators[ind.indicator.section][ind.indicator.id][:indicator_values].push(relation.indicator_value)
+          @indicators[:"#{ind.indicator.section}"][ind.indicator.id][:indicator_values].push(relation.indicator_value)
         else
-          @indicators[ind.indicator.section][ind.indicator.id][:indicator_values].push(nil)
+          @indicators[:"#{ind.indicator.section}"][ind.indicator.id][:indicator_values].push(nil)
         end
       end
     end
     #get Specialists
     @specialists = {}
-    i = 0
     states = []
-    @selected_providers.each do |provider|
-      states += provider.states.uniq
-      processed = []
-      provider.
-      provider_relations.
-      joins(:specialist).
-      where("provider_relations.state_id": @selected_state, "provider_relations.year": @year, "provider_relations.stage": @stage).
-      order("specialists.title").
-      pluck(:"specialists.id", :title, :indicator_value).
-      each do |spec|
-        if @specialists.key?(spec[0])
-          @specialists[spec[0]][:i_vals].push(spec[2])
+    IndicatorActive.
+    includes(:specialist).
+    where(active: true).
+    each do |iaSpec|
+      @specialists[iaSpec.specialist.id] = {
+        title: iaSpec.specialist.title,
+        i_vals: []
+      }
+      @selected_providers.each do |provider|
+        states += provider.states.uniq
+        relation = provider.provider_relations.find_by(
+          specialist_id: iaSpec.specialist.id,
+          state_id: @selected_state,
+          year: iaSpec.year,
+          stage: iaSpec.stage
+        )
+        if relation.present?
+          @specialists[iaSpec.specialist.id][:i_vals].push(relation.indicator_value)
         else
-          ivals = Array.new(i, nil);
-          ivals.push(spec[2])
-          @specialists[spec[0]] = {
-            title: spec[1],
-            i_vals: ivals
-          }
+          @specialists[iaSpec.specialist.id][:i_vals].push(nil)
         end
-        processed.push(spec[0])
       end
-      # Add nil to specialists values
-      not_processed = @specialists.keys - processed
-      not_processed.each do |np|
-        @specialists[np][:i_vals].push(nil)
-      end
-      i += 1
     end
     @active_states = states.uniq
     #Rails.logger.debug { "\nACCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAA\n#{@specialists.inspect}\n\n" }

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :load_options
 
   def load_options
-    @year = 2022
+    @year = 2023
     @stage = 2
     @providers ||= Provider.includes(:states).all
     @states ||= State.all

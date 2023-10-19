@@ -5,7 +5,7 @@ include ImporterHelper
 
 namespace :importer do
   @year = '2023'
-  @stage = nil
+  @stage = '2'
   @strict = true
   desc 'Importing everything'
   task :all, [:year] => [:environment] do |_, args|
@@ -31,6 +31,7 @@ namespace :importer do
     provider_partial_data
     calculate_maximums
     assign_search_name
+    metas('metas.csv')
   end
 
 
@@ -104,9 +105,10 @@ namespace :importer do
   desc 'Import All RRHH'
   task rrhh: [:environment] do
     fetch_metadata('rrhh')
-    specialists
-    rrhh_general
-    rrhh_cad
+    rrhh_general_provider('rrhh_general_pais.csv')
+    specialists('rrhh_especialistas.csv')
+    rrhh_general('rrhh_general.csv')
+    rrhh_cad('rrhh_cad.csv')
   end
   #
   # Import specialists
@@ -127,6 +129,7 @@ namespace :importer do
         puts "Specialists for #{last_provider}"
       end
       create_providerRelation(row['provider'], row['indicator_value'], row["state"], specialist.id)
+      activateIndicator(specialist.id, "specialist_id")
     end
   end
   #
@@ -213,9 +216,11 @@ namespace :importer do
     end
   end
 
-  def activateIndicator(i)
+  def activateIndicator(i, key = "indicator_id")
+    #deactivate other year indicators
+    IndicatorActive.find_by("#{key}": i).update(active: false)
     IndicatorActive.find_or_create_by({
-      indicator_id: i,
+      "#{key}": i,
       year: @year,
       stage: @stage,
       active: true
@@ -369,7 +374,7 @@ namespace :importer do
   end
 
   def provider_partial_data
-    [ :metas, :solicitud_consultas, :precios, :tiempos_espera].each do |importable|
+    [ :solicitud_consultas, :precios, :tiempos_espera].each do |importable|
       puts "Importing #{importable}"
       importing(importable, @year + (@stage ? '-'+@stage : ''))
     end
