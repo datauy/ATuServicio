@@ -8,7 +8,6 @@ estructura:
     - "Total de afiliados"
     - "Comunicación en soporte electrónico (página web)"
     - "Disponibilidad de servicios de atención a adolescentes"
-    - "Servicios de atención para adolescentes que implementan estándares nacionales de calidad de atención"
   columns:
     - nombre_abreviado
     - nombre_completo
@@ -17,14 +16,12 @@ estructura:
     - afiliados
     - comunicacion
     - espacio_adolescente
-    - servicios_atencion_adolescentes
   definition:
     string:
       - nombre_abreviado
       - nombre_completo
       - web
       - espacio_adolescente
-      - servicios_atencion_adolescentes
     integer:
       - afiliados_fonasa
       - afiliados
