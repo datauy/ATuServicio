@@ -14,20 +14,7 @@
           <i class="demo-icon icon-<%= icon %>"></i>
           <%= title(group) %><i class="fa fa-chevron-down"></i>
         </a>
-        <%
-        year = "2023"
-        case group
-          when :rrhh_especialistas
-            year = 2022
-          when :rrhh
-            year = 2022
-          when :rrhh_cad
-            year = 2022
-          when :satisfaccion_derechos
-            year = 2017
-        end
-        %>
-        <span><%= year %></span>
+        <span><%= group_year(group) %></span>
       </h4>
     </div>
     <div id="collapse<%= group %>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading<%= group %>">

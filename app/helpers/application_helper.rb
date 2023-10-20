@@ -9,6 +9,25 @@ module ApplicationHelper
     groups.delete(['Web', 'web'])
     groups
   end
+  #return group year
+  def group_year(group)
+    year = "2023"
+    case group
+      when :estructura
+        year = 2020
+      when :tiempos_espera
+        year = 2022
+      when :rrhh_especialistas
+        year = 2022
+      when :rrhh
+        year = 2022
+      when :rrhh_cad
+        year = 2022
+      when :satisfaccion_derechos
+        year = 2017
+    end
+    year
+  end  
 
   def state_options(states)
     (['Todo el país'] + states).zip(

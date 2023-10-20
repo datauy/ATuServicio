@@ -32,6 +32,7 @@ namespace :importer do
     calculate_maximums
     assign_search_name
     metas('metas.csv')
+    update2023
   end
 
 
@@ -70,10 +71,11 @@ namespace :importer do
   #
   #
   
-  def updateSpecialistsActive
+  def update2023
     ProviderRelation.where.not(specialist_id: nil).each do |pr|
       IndicatorActive.find_or_create_by(specialist_id: pr.specialist_id, year: pr.year, stage: pr.stage, active:true)
     end
+    Indicator.where(section: 'rrhh_general').update_all(section: 'rrhh')
   end
 
   def fetch_metadata(group)
@@ -100,7 +102,7 @@ namespace :importer do
       puts "Creating Metas for #{row['provider']}"
       metas.each do |meta|
         create_providerRelation(nil, row[meta.key], nil, nil, meta.id, row['provider'])
-        activateIndicator(meta.id, "specialist_id")
+        activateIndicator(meta.id)
       end
     end
   end
