@@ -68,9 +68,6 @@
         </p>
         <% end %>
       </div>
-      <% if provider.id == 9000 %>
-      <%= render 'asse_tiempos_espera' %>
-      <% else %>
         <%
           time_types = [:promedios, :presenciales, :virtuales]
           time_types.each do |time_type|
@@ -101,7 +98,6 @@
                 <% end %>
           <% end %>
         </div>
-      <% end %>
       <% end %>
     </td>
 

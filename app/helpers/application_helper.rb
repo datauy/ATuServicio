@@ -13,8 +13,6 @@ module ApplicationHelper
   def group_year(group)
     year = "2023"
     case group
-      when :estructura
-        year = 2020
       when :tiempos_espera
         year = 2022
       when :rrhh_especialistas
@@ -22,6 +20,8 @@ module ApplicationHelper
       when :rrhh
         year = 2022
       when :rrhh_cad
+        year = 2022
+      when :solicitud_consultas
         year = 2022
       when :satisfaccion_derechos
         year = 2017
