@@ -5,7 +5,7 @@ include ImporterHelper
 
 namespace :importer do
   @year = '2023'
-  @stage = nil
+  @stage = '2'
   @strict = true
   desc 'Importing everything'
   task :all, [:year] => [:environment] do |_, args|
@@ -31,6 +31,8 @@ namespace :importer do
     provider_partial_data
     calculate_maximums
     assign_search_name
+    metas('metas.csv')
+    update2023
   end
 
 
@@ -39,11 +41,18 @@ namespace :importer do
     name = :precios
     importing(name, @year)
     calculate_maximums
-    #puts "Re Importing RRHH General Test"
-    #@strict = false
-    #rrhh_general_provider('rrhh_general_pais.csv')
-    #@strict = true
-    #rrhh_general_provider('rrhh_general_pais_COMEF.csv')
+    puts "Re Importing RRHH General Test"
+    @strict = false
+    rrhh_general_provider('rrhh_general_pais.csv')
+    specialists('rrhh_especialistas.csv')
+    rrhh_general('rrhh_general.csv')
+    rrhh_cad('rrhh_cad.csv')
+
+    @strict = true
+    rrhh_general_provider('rrhh_general_pais_COMEF.csv')
+    specialists('rrhh_especialistas-COMEF.csv')
+    rrhh_general('rrhh_general-COMEF.csv')
+    rrhh_cad('rrhh_cad-COMEF.csv')
   end
   #
   # Los departamentos se importan de config/states.yml
@@ -61,37 +70,61 @@ namespace :importer do
 
   #
   #
-  #
+  
+  def update2023
+    ProviderRelation.where.not(specialist_id: nil).each do |pr|
+      IndicatorActive.find_or_create_by(specialist_id: pr.specialist_id, year: pr.year, stage: pr.stage, active:true)
+    end
+    Indicator.where(section: 'rrhh_general').update_all(section: 'rrhh')
+  end
+
   def fetch_metadata(group)
     metadata = YAML.load_file(File.join(Rails.root, "config", "metadata.yml"))
     i = 0
     metadata[group]["description"].each do |desc|
       #puts "#{metadata[args[:group]]["columns"][i]} => #{desc}}"
-      Indicator.find_or_create_by(
+      indicator = Indicator.find_or_create_by(
         key: metadata[group]["columns"][i],
-        description: desc
+        description: desc,
+        section: group
       )
+      activateIndicator(indicator.id)
       i += 1
     end
     #columns = METADATA[:precios][:averages][name][:columns]
   end
+  # IMPORT METAS
+  def metas(file)
+    fetch_metadata('metas')
+    puts 'Import Metas'
+    metas = Indicator.where(section: 'metas')
+    import_file("#{@year + (@stage ? '-'+@stage : '')}/#{file}", col_sep: ';') do |row|
+      puts "Creating Metas for #{row['provider']}"
+      metas.each do |meta|
+        create_providerRelation(nil, row[meta.key], nil, nil, meta.id, row['provider'])
+        activateIndicator(meta.id)
+      end
+    end
+  end
+
   #
   # Impport HHRR
   #
   desc 'Import All RRHH'
   task rrhh: [:environment] do
     fetch_metadata('rrhh')
-    specialists
-    rrhh_general
-    rrhh_cad
+    rrhh_general_provider('rrhh_general_pais.csv')
+    specialists('rrhh_especialistas.csv')
+    rrhh_general('rrhh_general.csv')
+    rrhh_cad('rrhh_cad.csv')
   end
   #
   # Import specialists
   #
-  def specialists
+  def specialists(file)
     puts 'Import Specialists'
     last_provider = ""
-    import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_especialistas-COMEF.csv", col_sep: ';') do |row|
+    import_file("#{@year + (@stage ? '-'+@stage : '')}/#{file}", col_sep: ';') do |row|
       specialist = Specialist.find_or_create_by( title: row["specialty"] )
       if ( row["state"] == 'total país')
         row["state"] = nil;
@@ -104,6 +137,7 @@ namespace :importer do
         puts "Specialists for #{last_provider}"
       end
       create_providerRelation(row['provider'], row['indicator_value'], row["state"], specialist.id)
+      activateIndicator(specialist.id, "specialist_id")
     end
   end
   #
@@ -136,10 +170,10 @@ namespace :importer do
     end
   end
   #
-  def rrhh_general
+  def rrhh_general(file)
     puts 'Import RRHH'
     last_provider = ""
-    import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_general-COMEF.csv", col_sep: ';') do |row|
+    import_file("#{@year + (@stage ? '-'+@stage : '')}/#{file}", col_sep: ';') do |row|
       indicator = Indicator.find_by( abbr: row["indicator"] )
       if indicator.present?
         if ( row["state"] == 'total país')
@@ -160,9 +194,9 @@ namespace :importer do
     end
   end
   #
-  def rrhh_cad
+  def rrhh_cad(file)
     puts 'Import RRHH CAD'
-    import_file("#{@year + (@stage ? '-'+@stage : '')}/rrhh_cad-COMEF.csv", col_sep: ';') do |row|
+    import_file("#{@year + (@stage ? '-'+@stage : '')}/#{file}", col_sep: ';') do |row|
       stage_cads = [
         ['cantidad_cad','total'],
         ['medicina_general_cantidad_cad','MG'],
@@ -190,9 +224,11 @@ namespace :importer do
     end
   end
 
-  def activateIndicator(i)
+  def activateIndicator(i, key = "indicator_id")
+    #deactivate other year indicators
+    IndicatorActive.find_by("#{key}": i).update(active: false) if IndicatorActive.find_by("#{key}": i).present?
     IndicatorActive.find_or_create_by({
-      indicator_id: i,
+      "#{key}": i,
       year: @year,
       stage: @stage,
       active: true
@@ -203,7 +239,7 @@ namespace :importer do
 
   end
   #
-  def create_providerRelation(pname, indicator_value, state_name = nil, spec_id = nil, indicator_id = nil)
+  def create_providerRelation(pname, indicator_value, state_name = nil, spec_id = nil, indicator_id = nil, provider_id = nil)
     if state_name.nil?
       state_id = nil
     else
@@ -212,19 +248,23 @@ namespace :importer do
         rise "State not found #{state_name.downcase!}"
       end
     end
-    if @strict
-      provider = Provider.find_by(nombre_abreviado: pname )
-    else
-      provider = Provider.where("nombre_abreviado like ?", "#{pname}%" ).first
-    end
-    if !provider
-      raise "Provider not found: #{pname}"
+    if provider_id == nil
+      if @strict
+        provider = Provider.find_by(nombre_abreviado: pname )
+      else
+        provider = Provider.where("nombre_abreviado like ?", "#{pname}%" ).first
+      end
+      if !provider
+        raise "Provider not found: #{pname}"
+      else
+        provider_id = provider.id
+      end
     end
     if ( spec_id.nil? && indicator_id.nil? )
       raise "Relation not set"
     end
     relation = {
-      provider_id: provider.id,
+      provider_id: provider_id,
       state_id: state_id,
       indicator_value: indicator_value,
       year: @year,
@@ -322,9 +362,9 @@ namespace :importer do
         afiliados: row[6],
         logo: assign_logo(row[0]),
         comunicacion: row[7],
-        espacio_adolescente: row[8],
-        servicios_atencion_adolescentes: row[9],
-        private_insurance: provider.nombre_abreviado.include?('Seguro Privado') ? true : nil
+        #espacio_adolescente: row[8],
+        #servicios_atencion_adolescentes: row[9],
+        private_insurance: row[1].include?('Seguro Privado') ? true : nil
       )
     end
     to_deactivate = Provider.where.not(id: provider_ids)
@@ -342,7 +382,7 @@ namespace :importer do
   end
 
   def provider_partial_data
-    [ :metas, :solicitud_consultas, :precios, :tiempos_espera].each do |importable|
+    [ :solicitud_consultas, :precios, :tiempos_espera].each do |importable|
       puts "Importing #{importable}"
       importing(importable, @year + (@stage ? '-'+@stage : ''))
     end

@@ -13,6 +13,8 @@
         <p><b>Sede secundaria:</b> Cantidad de sedes secundarias del prestador de salud. Las sedes secundarias brindan como mínimo atención ambulatoria o consultorio de las especialidades básicas, cobertura domiciliaria no urgente de Médico General y Pediatra y atención domiciliaria de urgencia de 24 horas de Médico General.</p>
         <p><b>Policlínica:</b> Cantidad de servicios de policlínica (no internación) del prestador de salud. Brinda atención en consultorio de uno o más especialidades médicas.</p>
         <p><b>Urgencia:</b> Cantidad de puertas de urgencia en cualquiera de las sedes o servicios del prestador de salud.</p>
+        <p><b>Afiliados FONASA:</b> Cantidad de personas en la institución con cobertura a través del Seguro Nacional de Salud (SNS- FONASA) en agosto de 2023.</p>
+        <p><b>Total de afiliados:</b> Cantidad de afiliados totales a la institución, incluye en todos los prestadores usuarios FONASA y cuotas de prepago y en el caso de ASSE también afiliados con atención gratuita, en agosto de 2023.</p>
       </div>
       <div class="modal-footer">
         <%= render 'layouts/modals_meta' %>
@@ -31,11 +33,10 @@
       </div>
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
-        <p>Las gráficas reflejan los distintos tiempos de espera promedio para el primer médico disponible dentro de la especialidad considerada. A mayor cantidad de íconos coloreados, mayor tiempo de espera. El mínimo (ningún ícono coloreado) equivale a
-        cero días, mientras que todos los íconos coloreados equivalen al tiempo de espera mayor entre todos los prestadores.</p>
-        <p>El tiempo de espera individual es la diferencia entre la fecha de solicitud de la cita y la fecha de la cita médica otorgada, para el primer médico disponible dentro de cada especialidad. Si la cita se otorga para el mismo día en que se solicita, se contabiliza como tiempo de espera de cero días. Se presentan los promedios de los tiempos de espera individuales de todas las solicitudes de citas del período considerado.</p>
-        <p>Para el semestre jul-dic 2020 se incluyó la discriminación entre tiempos de espera para consulta presencial o por telemedicina, existiendo prestadores que pudieron realizar dicha discriminación y otros que no. En este último caso, los tiempos informados y presentados consideran el total de citas solicitadas para el 1er. especialista disponible, sin discriminar entre tipo de consulta. Para los prestadores que sí informaron los tiempos de espera discriminados, se presenta en esta sección un promedio ponderado de ambos tiempos, de manera de contar con un único valor que permita la comparación entre todas las instituciones.</p>
-        <p>Fecha del dato: promedio semestre julio – diciembre de 2020</p>
+        <p>Se muestran los tiempos de espera promedio, medidos en días, para el primer médico disponible dentro de la especialidad considerada: medicina general, pediatría, cirugía general, ginecotocología y cardiología. El tiempo de espera individual es la diferencia entre la fecha de solicitud de la cita y la fecha de la cita médica otorgada, para el primer médico disponible dentro de cada especialidad. Si la cita se otorga para el mismo día en que se solicita, se contabiliza como tiempo de espera de cero días. Se presentan los promedios de los tiempos de espera individuales de todas las solicitudes de citas del período considerado.</p>
+        <p>Se discriminan los tiempos de espera para consulta presencial o por telemedicina. En los prestadores que no pueden realizar esta discriminación, los tiempos informados consideran el total de citas solicitadas para el primer especialista disponible, sin discriminar entre tipo de consulta.</p>
+        <p>En los prestadores que sí informaron los tiempos de espera discriminados, se presenta además un promedio ponderado de ambos tiempos, de manera de contar con un único valor que permita la comparación entre todas las instituciones.</p>
+        <p>Fecha del dato: ppromedio semestre julio – diciembre de 2022</p>
         <h3>En el caso de ASSE</h3>
         <%= render 'layouts/asse_tiempos_espera_info' %>
       </div>
@@ -103,7 +104,8 @@
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
         <p>La gráfica refleja los precios promedio agrupados. A mayor cantidad de íconos coloreados, mayor precio. El mínimo (ningún ícono coloreado) equivale a precio cero, mientras todos los íconos coloreados equivalen a los precios sumados del prestador con las cifras más elevadas.</p>
-        <p>Los precios utilizados son los valores máximos de tickets y órdenes que las instituciones están autorizadas a cobrar a sus afiliados a partir de enero 2023. Cuando se realiza la comparación entre instituciones, además de los tickets y órdenes para afiliados FONASA, pueden observarse los valores para los afiliados NO FONASA.</p>
+        <p>Los precios utilizados son los valores máximos de tickets y órdenes que las instituciones están autorizadas a cobrar a sus afiliados a partir de setiembre 2023. Cuando se realiza la comparación entre instituciones, además de los tickets y órdenes para afiliados FONASA, pueden observarse los valores para los afiliados NO FONASA.</p>
+        <p>Los precios incluyen 10% de IVA y timbres profesionales: $39 para los tickets de medicamentos y $140 para los análisis clínicos, estudios y técnicas diagnósticas (precios vigentes hasta el 31/12/2023).</p>
         <p><b>Medicamentos:</b> Promedio de los precios FONASA/no FONASA de Ticket de medicamentos general y Ticket de medicamentos topeados antihipertensivos (valsartán, amlodipina, hidroclorotiazida, enalapril).</p>
         <p><b>Consultas:</b> Promedio de los precios FONASA/no FONASA de Consulta no urgente consultorio - medicina general, Consulta no urgente consultorio - pediatría, Consulta no urgente consultorio - gineco-obstetricia (control de embarazo), Consulta no urgente consultorio - ginecología, Consulta no urgente consultorio - otras especialidades, Consulta no urgencia domicilio, Consulta odontológica y Consulta médico de referencia.</p>
         <p><b>Consultas urgencia:</b> Promedio de los precios FONASA/no FONASA de Consulta urgencia centralizada y Consulta urgencia domicilio.</p>
@@ -128,17 +130,29 @@
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
         <p>Las barras reflejan la proporción de los usuarios de cada institución que están cubiertos en cada indicador.</p>
-        <p><b>Porcentaje de captación de recién nacido:</b> El indicador refiere al porcentaje de niños nacidos vivos, afiliados a la institución, que presentan su primer control médico en los primeros 10 días de vida.</p>
+        <p><b>Porcentaje de captación de recién nacido:</b> El indicador refiere al porcentaje de niños nacidos vivos, afiliados a la institución, que presentan su primer control médico en los primeros 10 días de vida. </p>
         <p>El cumplimiento de la meta comprende el control efectivo de salud, así como protocolos de actuación los cuales contemplan determinados casos debidamente acreditados en los que los usuarios no concurren a los controles de salud en tiempo, a pesar de una actitud activa de citación por parte de la Institución.</p>
-        <p>Fecha del dato: trimestre octubre-noviembre-diciembre 2019</p>
-        <p><b>Porcentaje de niños de un año con control de desarrollo en el 4to mes de vida:</b> El indicador refiere al porcentaje de niños de un año que cuentan con control de desarrollo en el 4to mes de vida.</p>
+        <p>Fecha del dato: Se toma el cumplimiento de la institución para el cuatrimestre enero-febrero-marzo-abril 2023.</p>
+        <p><b>Porcentaje de niños con control de desarrollo a los 4 meses de edad:</b> El indicador refiere al porcentaje de niños de 6 meses que cuentan con control de desarrollo entre los 3 y 5 meses de edad.</p>
         <p>El cumplimiento de la meta comprende el control efectivo de salud, así como protocolos de actuación los cuales contemplan determinados casos debidamente acreditados en los que los usuarios no concurren a los controles de salud en tiempo, a pesar de una actitud activa de citación por parte de la Institución.</p>
-        <p>Fecha del dato: trimestre octubre-noviembre-diciembre 2019</p>
-        <p><b>Porcentaje de embarazadas con control de HIV y VDRL en el 1er, 2° y 3er trimestre:</b> El indicador refiere al porcentaje de mujeres afiliadas que presentan un parto/cesárea en el trimestre y cuentan con análisis paraclínico de VDRL y HIV en el 1er, 2° y 3er trimestre de embarazo.</p>
-        <p>Fecha del dato: trimestre octubre-noviembre-diciembre 2019</p>
-        <p><b>Porcentaje de usuarios de 25 a 64 años captados como hipertensos:</b> Según la ENFRENT 2013, 36.6% de la población de este rango etario es hipertensa y se toma dicho valor como referencia para realizar la pesquisa de la enfermedad.</p>
-        <p>Fecha del dato: julio-diciembre 2019.</p>
-        <p><b>Tasa de cesáreas:</b> En este caso  el dato no corresponde al indicador del período que se presenta sino a la Línea de Base informada por la institución al 31 de diciembre de 2021 . La Línea de Base permite determinar el punto de partida en el que se encuentra cada institución, reflejando su desempeño asistencial al inicio de la meta, a partir del cual debe trabajar en su población de usuarios/as objetivos de los indicadores.</p>
+        <p>Fecha del dato: Se toma el cumplimiento de la institución para el cuatrimestre enero-febrero-marzo-abril 2023.</p>
+        <p><b>Porcentaje de niños con control de desarrollo a los 18 meses de edad:</b> El indicador refiere al porcentaje de niños de 21 meses que cuentan con control de desarrollo entre los 16 y 20 meses de vida.</p>
+        <p>El cumplimiento de la meta comprende el control efectivo de salud, así como protocolos de actuación los cuales contemplan determinados casos debidamente acreditados en los que los usuarios no concurren a los controles de salud en tiempo, a pesar de una actitud activa de citación por parte de la Institución.</p>
+        <p>Fecha del dato: Se toma el cumplimiento de la institución para el cuatrimestre enero-febrero-marzo-abril 2023.</p>
+        <p><b>Porcentaje de niños con control de desarrollo a los 4 años de edad:</b> El indicador refiere al porcentaje de niños de 55 meses que cuentan con control de desarrollo entre los 42 y 54 meses de vida.</p>
+        <p>El cumplimiento de la meta comprende el control efectivo de salud, así como protocolos de actuación los cuales contemplan determinados casos debidamente acreditados en los que los usuarios no concurren a los controles de salud en tiempo, a pesar de una actitud activa de citación por parte de la Institución.</p>
+        <p>Fecha del dato: Se toma el cumplimiento de la institución para el cuatrimestre enero-febrero-marzo-abril 2023.</p>
+        <p>Estos indicadores pretenden mostrar los resultados de las instituciones respecto al adecuado control y seguimiento del niño/a.</p>
+      <p><b>Tasa de cobertura de tamizaje en cáncer colorrectal en usuarios de 60 a 70 años:</b> Este indicador refiere al porcentaje de afiliados de 60 a 70 años de la institución que se les realizó en los últimos 2 años el tamizaje de cáncer colo-rectal a través de la realización de un test de sangre oculta en materias fecales.</p>
+        <p>Dicho indicador busca estimular la realización de este test con el fin de diagnosticar precozmente este tipo de cáncer con la posibilidad de realizar el tratamiento oportuno.</p>
+        <p>Fecha del dato: Se toma el cumplimiento de la institución para el cuatrimestre enero-febrero-marzo-abril 2023.</p>
+        <p><b>PTasa de cobertura de PAP en mujeres de 21 a 64 años:</b> Este indicador refiere al porcentaje de afiliadas de 21 a 64 años de la institución que se les realizó en los últimos 3 años el tamizaje de cáncer de cuello de útero a través de la realización del Papanicolau.</p>
+        <p>Dicho indicador busca estimular una mayor realización de este estudio con el fin de diagnosticar precozmente este tipo de cáncer y poder realizar tratamiento oportuno.</p>
+        <p>Fecha del dato: Se toma el cumplimiento de la institución para el cuatrimestre enero-febrero-marzo-abril 2023.</p>
+        <p><b>PTasa de cobertura de tamizaje con mamografía en mujeres de 50 a 69 años:</b> Este indicador refiere al porcentaje de afiliadas de 50 a 69 años de la institución que se les realizó en los últimos 2 años el tamizaje de cáncer de mama a través de la realización de mamografía.</p>
+        <p>Dicho indicador busca estimular una mayor realización de este estudio con el fin de diagnosticar precozmente este tipo de cáncer y poder realizar tratamiento oportuno.</p>
+        <p>Fecha del dato: Se toma el cumplimiento de la institución para el cuatrimestre enero-febrero-marzo-abril 2023.</p>
+        <p><b>Tasa de cesáreas:</b> Este indicador refiere al porcentaje de partos por cesárea sobre el total de partos para cada Institución para el año 2022. El mismo no forma parte de los indicadores de pago por desempeño de las Metas Asistenciales. No obstante, es un indicador de relevancia en cuanto a la calidad de la atención en salud perinatal.</p>
       </div>
       <div class="modal-footer">
         <%= render 'layouts/modals_meta' %>
@@ -157,7 +171,8 @@
       </div>
       <div class="modal-body">
         <h3>Sobre estos datos</h3>
-        <p>Número total de afiliados o usuarios a marzo 2022 y porcentaje que representa en el total de los prestadores integrales del Seguro Nacional de Salud, considerando afiliados o usuarios FONASA y NO FONASA.</p>
+        <p>Número total de afiliados o usuarios a agosto 2023 según información de RUCAF.</p>
+        <p>Porcentaje que representa el total de afiliados de la institución en el total de afiliados a los prestadores integrales del Seguro Nacional de Salud (ASSE, IAMC y Seguros Privados Integrales), considerando afiliados o usuarios FONASA y NO FONASA.</p>
       </div>
       <div class="modal-footer">
         <%= render 'layouts/modals_meta' %>

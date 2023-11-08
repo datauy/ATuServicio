@@ -40,33 +40,24 @@ module CompareHelper
     when :metas
       value = meta_value(column_value, provider.id, column)
     when :tiempos_espera
-      if provider.id == 9000
-        value = <<-VERLINK
-          <td>
-            <a href="#" data-toggle="modal" data-target="#asse_tiempos_modal" class="info-nodata">
-            <div class="nodata"> <p>VER LINK</p></div>
-            <i class="demo-icon icon-info"></i>
-          </a></td>
-        VERLINK
-      elsif column_value
+      ctype = column.split('_')
+      wtype = ctype[-1]
+      ctype.delete_at(-1)
+      main_type = ctype.join('_')
+      if column_value
         indicator = check_enough_data_times(column, provider)
-=begin
-        tiempo = case column_value
-                 when 0..(1.0/24.0)
-                   "#{column_value * 24 * 60} <small>MINUTOS</small>"
-                 when (1.0/24.0)..1
-                   "#{column_value * 24} <small>HORAS</small>"
-                 else
-                   "#{column_value} <small>DÍAS</small>"
-                end
-=end
-        wtype = column.split('_')[-1]
         calculado = ''
-        if !(wtype == 'presencial' || wtype == 'virtual') && provider.send(:tiempo_espera_medicina_general_virtual)
+        if !(wtype == 'presencial' || wtype == 'virtual') && provider.send("#{column}_virtual".to_sym) && provider.send("#{column}_presencial".to_sym)
           calculado = '<a class="info" href="#" data-toggle="modal" data-target="#tiempos_espera_promedios_modal">Promedio calculado <i class="icon-info"></i></a>'
         end
         tiempo = "#{column_value} <small>DÍAS</small>"
         value = "<td>#{calculado}<h5>#{tiempo} #{indicator}</h5></td>"
+      elsif (wtype == 'presencial' || wtype == 'virtual') && provider.send(main_type.to_sym)
+        if wtype == 'virtual' && provider.send("#{main_type}_presencial".to_sym)
+          value = "<td><span class='info'>No corresponde</span></td>"
+        else
+          value = "<td><span class='info'>Sin discriminar</span></td>"
+        end
       else
         value = ApplicationHelper.no_hay_datos
       end
