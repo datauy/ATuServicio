@@ -4,29 +4,27 @@
 module ValuesHelper
   def waiting_times
     {
-      promedios: [
-        [:tiempo_espera_medicina_general, 'Medicina general'],
-        [:tiempo_espera_pediatria, 'Pediatría'],
-        [:tiempo_espera_cirugia_general, 'Cirujía general'],
-        [:tiempo_espera_ginecotocologia, 'Ginecotocología'],
-        [:tiempo_espera_cardiologia, 'Cardiología'],
-      ],
-      virtuales: [
-        #
-        [:tiempo_espera_medicina_general_virtual, 'Medicina general'],
-        [:tiempo_espera_pediatria_virtual, 'Pediatría'],
-        [:tiempo_espera_cirugia_general_virtual, 'Cirujía general'],
-        [:tiempo_espera_ginecotocologia_virtual, 'Ginecotocología'],
-        [:tiempo_espera_cardiologia_virtual, 'Cardiología'],
-      ],
-      presenciales: [
-        #
-        [:tiempo_espera_medicina_general_presencial, 'Medicina general'],
-        [:tiempo_espera_pediatria_presencial, 'Pediatría'],
-        [:tiempo_espera_cirugia_general_presencial, 'Cirujía general'],
-        [:tiempo_espera_ginecotocologia_presencial, 'Ginecotocología'],
-        [:tiempo_espera_cardiologia_presencial, 'Cardiología']
-      ]
+      promedios: {
+        tiempo_espera_medicina_general: 'Medicina general',
+        tiempo_espera_pediatria: 'Pediatría',
+        tiempo_espera_cirugia_general: 'Cirujía general',
+        tiempo_espera_ginecotocologia: 'Ginecotocología',
+        tiempo_espera_cardiologia: 'Cardiología',
+      },
+      virtuales: {
+        tiempo_espera_medicina_general_virtual: 'Medicina general',
+        tiempo_espera_pediatria_virtual: 'Pediatría',
+        tiempo_espera_cirugia_general_virtual: 'Cirujía general',
+        tiempo_espera_ginecotocologia_virtual: 'Ginecotocología',
+        tiempo_espera_cardiologia_virtual: 'Cardiología',
+      },
+      presenciales: {
+        tiempo_espera_medicina_general_presencial: 'Medicina general',
+        tiempo_espera_pediatria_presencial: 'Pediatría',
+        tiempo_espera_cirugia_general_presencial: 'Cirujía general',
+        tiempo_espera_ginecotocologia_presencial: 'Ginecotocología',
+        tiempo_espera_cardiologia_presencial: 'Cardiología'
+      }
     }
   end
 
