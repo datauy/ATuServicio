@@ -4,8 +4,8 @@ require "#{Rails.root}/lib/importer_helper"
 include ImporterHelper
 
 namespace :importer do
-  @year = '2023'
-  @stage = '2'
+  @year = '2024'
+  @stage = '1'
   @strict = true
   desc 'Importing everything'
   task :all, [:year] => [:environment] do |_, args|
@@ -38,21 +38,22 @@ namespace :importer do
 
 
   task :test, [:year] => [:environment] do |_, args|
+    providers
     name = :precios
     importing(name, @year)
     calculate_maximums
     puts "Re Importing RRHH General Test"
     @strict = false
-    rrhh_general_provider('rrhh_general_pais.csv')
+    #rrhh_general_provider('rrhh_general_pais.csv')
     specialists('rrhh_especialistas.csv')
     rrhh_general('rrhh_general.csv')
     rrhh_cad('rrhh_cad.csv')
 
-    @strict = true
-    rrhh_general_provider('rrhh_general_pais_COMEF.csv')
-    specialists('rrhh_especialistas-COMEF.csv')
-    rrhh_general('rrhh_general-COMEF.csv')
-    rrhh_cad('rrhh_cad-COMEF.csv')
+    #@strict = true
+    #rrhh_general_provider('rrhh_general_pais_COMEF.csv')
+    #specialists('rrhh_especialistas-COMEF.csv')
+    #rrhh_general('rrhh_general-COMEF.csv')
+    #rrhh_cad('rrhh_cad-COMEF.csv')
   end
   #
   # Los departamentos se importan de config/states.yml
@@ -70,7 +71,7 @@ namespace :importer do
 
   #
   #
-  
+
   def update2023
     ProviderRelation.where.not(specialist_id: nil).each do |pr|
       IndicatorActive.find_or_create_by(specialist_id: pr.specialist_id, year: pr.year, stage: pr.stage, active:true)
@@ -150,8 +151,8 @@ namespace :importer do
         if last_provider != row['provider']
           puts "UPDATING PROVIDER RRHH general: #{row['provider']}"
           last_provider = row['provider']
-          if @strict
-            provider = Provider.find_by(nombre_abreviado: row['provider'] )
+          if @strict || row['provider'] == 'COMEFLO' || row['provider'] == 'COMEF'
+            provider = Provider.find_by(nombre_abreviado: "#{row['provider']} IAMPP" )
           else
             provider = Provider.where("nombre_abreviado like ?", "#{row['provider']}%" ).first
           end
