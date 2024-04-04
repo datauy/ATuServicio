@@ -40,7 +40,7 @@ namespace :importer do
   task :test, [:year] => [:environment] do |_, args|
     providers
     name = :precios
-    importing(name, @year)
+    importing(name, @year, nil, 1)
     calculate_maximums
     puts "Re Importing RRHH General Test"
     @strict = false
