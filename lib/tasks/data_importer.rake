@@ -40,7 +40,7 @@ namespace :importer do
   task :test, [:year] => [:environment] do |_, args|
     providers
     name = :precios
-    importing(name, @year, nil, 1)
+    importing(name, @year, nil, '1')
     calculate_maximums
     puts "Re Importing RRHH General Test"
     @strict = false
@@ -375,7 +375,7 @@ namespace :importer do
 
   def sedes
     puts 'Importing sites'
-    importing('sedes', @year + (@stage ? '-'+@stage : '') ) do |provider, parameters|
+    importing('sedes', @year, nil, @stage ? @stage : '') do |provider, parameters|
       state = State.find_by_name(parameters['departamento'].strip.mb_chars.downcase.to_s)
       parameters['state_id'] = state.id
       provider.sites.create(parameters)
@@ -385,7 +385,7 @@ namespace :importer do
   def provider_partial_data
     [ :solicitud_consultas, :precios, :tiempos_espera].each do |importable|
       puts "Importing #{importable}"
-      importing(importable, @year + (@stage ? '-'+@stage : ''))
+      importing(importable, @year, nil, @stage ? @stage : '')
     end
   end
 

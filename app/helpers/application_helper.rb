@@ -11,23 +11,25 @@ module ApplicationHelper
   end
   #return group year
   def group_year(group)
-    year = "2023"
+    year = "2024"
     case group
+      when :metas
+        year = 2023
       when :tiempos_espera
         year = 2022
       when :rrhh_especialistas
-        year = 2022
+        year = 2023
       when :rrhh
-        year = 2022
+        year = 2023
       when :rrhh_cad
-        year = 2022
+        year = 2023
       when :solicitud_consultas
         year = 2022
       when :satisfaccion_derechos
         year = 2017
     end
     year
-  end  
+  end
 
   def state_options(states)
     (['Todo el país'] + states).zip(

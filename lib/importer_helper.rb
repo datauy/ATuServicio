@@ -58,7 +58,7 @@ module ImporterHelper
     options = {col_sep: ';'}
     options.merge!(more_options) if more_options
     headers = get_columns(name)
-    import_file("#{year}#{stage != '' ? '-'+stage.to_s : ''}/#{name}.csv", options) do |row|
+    import_file("#{year}#{stage != '' ? '-'+stage : ''}/#{name}.csv", options) do |row|
       provider = Provider.find_by(id: row[0].to_i)
       parameters = get_parameters(headers, row)
       if block && provider
