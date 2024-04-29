@@ -41,13 +41,13 @@ namespace :importer do
     providers
     name = :precios
     importing(name, @year, nil, '1')
-    calculate_maximums
     puts "Re Importing RRHH General Test"
     @strict = false
     #rrhh_general_provider('rrhh_general_pais.csv')
     specialists('rrhh_especialistas.csv')
     rrhh_general('rrhh_general.csv')
     rrhh_cad('rrhh_cad.csv')
+    calculate_maximums
 
     #@strict = true
     #rrhh_general_provider('rrhh_general_pais_COMEF.csv')
@@ -250,8 +250,8 @@ namespace :importer do
       end
     end
     if provider_id == nil
-      if @strict
-        provider = Provider.find_by(nombre_abreviado: pname )
+      if @strict || pname == 'COMEFLO' || pname == 'COMEF'
+        provider = Provider.find_by(nombre_abreviado: "#{pname} IAMPP")
       else
         provider = Provider.where("nombre_abreviado like ?", "#{pname}%" ).first
       end
