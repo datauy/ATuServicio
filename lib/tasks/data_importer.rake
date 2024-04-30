@@ -267,7 +267,6 @@ namespace :importer do
     relation = {
       provider_id: provider_id,
       state_id: state_id,
-      indicator_value: indicator_value,
       year: @year,
       stage: @stage
     }
@@ -276,7 +275,8 @@ namespace :importer do
     else
       relation['specialist_id'] = spec_id
     end
-    ProviderRelation.find_or_create_by(relation)
+    rel = ProviderRelation.find_or_create_by(relation)
+    rel.update(indicator_value: indicator_value)
   end
 
   def state_agregate
