@@ -40,7 +40,7 @@ namespace :importer do
   task :test, [:year] => [:environment] do |_, args|
     #providers
     name = :precios
-    importing(name, @year, nil, '1')
+    importing(name, @year, nil, @stage)
     #puts "Re Importing RRHH General Test"
     #@strict = false
     #rrhh_general_provider('rrhh_general_pais.csv')
