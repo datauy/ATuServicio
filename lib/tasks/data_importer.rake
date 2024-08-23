@@ -5,7 +5,7 @@ include ImporterHelper
 
 namespace :importer do
   @year = '2024'
-  @stage = '1'
+  @stage = '2'
   @strict = true
   desc 'Importing everything'
   task :all, [:year] => [:environment] do |_, args|
@@ -38,15 +38,15 @@ namespace :importer do
 
 
   task :test, [:year] => [:environment] do |_, args|
-    providers
+    #providers
     name = :precios
     importing(name, @year, nil, '1')
-    puts "Re Importing RRHH General Test"
-    @strict = false
+    #puts "Re Importing RRHH General Test"
+    #@strict = false
     #rrhh_general_provider('rrhh_general_pais.csv')
-    specialists('rrhh_especialistas.csv')
-    rrhh_general('rrhh_general.csv')
-    rrhh_cad('rrhh_cad.csv')
+    #specialists('rrhh_especialistas.csv')
+    #rrhh_general('rrhh_general.csv')
+    #rrhh_cad('rrhh_cad.csv')
     calculate_maximums
 
     #@strict = true
