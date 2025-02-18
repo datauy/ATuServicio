@@ -4,8 +4,8 @@ require "#{Rails.root}/lib/importer_helper"
 include ImporterHelper
 
 namespace :importer do
-  @year = '2024'
-  @stage = '2'
+  @year = '2025'
+  @stage = '1'
   @strict = true
   desc 'Importing everything'
   task :all, [:year] => [:environment] do |_, args|
@@ -38,7 +38,7 @@ namespace :importer do
 
 
   task :test, [:year] => [:environment] do |_, args|
-    #providers
+    providers
     name = :precios
     importing(name, @year, nil, @stage)
     #puts "Re Importing RRHH General Test"
