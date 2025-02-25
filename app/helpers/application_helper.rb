@@ -11,8 +11,10 @@ module ApplicationHelper
   end
   #return group year
   def group_year(group)
-    year = "2024"
+    year = "2025"
     case group
+    when :usuarios
+      year = 2024
       when :metas
         year = 2023
       when :tiempos_espera
