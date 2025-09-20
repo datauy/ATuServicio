@@ -1,27 +1,16 @@
 Rails.application.routes.draw do
-  match '/(departamento/:departamento)' => 'home#index', via: :get
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  get '/comparar' => 'compare#index'
-  get '/comparar/:selected_providers' => 'compare#index', as: :compare
-  get '/agregar' => 'compare#add'
+  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
+  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :providers do
-    get :autocomplete_provider_search_name, on: :collection
-  end
+  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
+  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
+  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  get '/sobre_el_proyecto' => 'home#about'
-  get '/usuarios' => 'home#usuarios'
-
-  get '/404' => 'errors#not_found'
-  get '/500' => 'errors#internal_server_error'
-
-  get '/apple-touch-icon-precomposed.png',
-      to: redirect('/assets/apple-touch-icon-precomposed.png')
-
-  # PIAS
-  resources :pia do
-    get :autocomplete_pia_titulo, on: :collection
-  end
-  get '/pias' => 'pia#index'
-  get '/pias/:category' => 'pia#index'
+  # Defines the root path route ("/")
+  # root "posts#index"
 end

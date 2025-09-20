@@ -1,7 +1,0 @@
-<% if any_recognitions? %>
-  <%= render partial: 'recognitions' %>
-<% end %>
-
-<% @groups.each do |group, icon| %>
-  <%= render 'compare/group_item', locals: {group: group, icon: icon}%>
-<% end %>
