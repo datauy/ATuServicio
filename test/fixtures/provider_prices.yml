@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  provider: one
+  price: one
+  fonasa: false
+  price: 1
+
+two:
+  provider: two
+  price: two
+  fonasa: false
+  price: 1

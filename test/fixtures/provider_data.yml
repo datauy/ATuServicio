@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: 1
+  period: MyString
+  fonasa_users: 1
+  no_fonasa_users: 1
+  total: 1
+  provider: one
+
+two:
+  year: 1
+  period: MyString
+  fonasa_users: 1
+  no_fonasa_users: 1
+  total: 1
+  provider: two

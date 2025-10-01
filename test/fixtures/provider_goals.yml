@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  provider: one
+  goal: one
+  year: 1
+  period: MyString
+  value: 9.99
+
+two:
+  provider: two
+  goal: two
+  year: 1
+  period: MyString
+  value: 9.99

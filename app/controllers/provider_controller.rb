@@ -1,0 +1,2 @@
+class ProviderController < ApplicationController
+end

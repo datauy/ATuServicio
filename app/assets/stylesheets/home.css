@@ -1,0 +1,39 @@
+.map-wraper {
+  display: flex;
+  #map {
+    height: 500px;
+    min-width: 60%;
+  }
+  #map-controls {
+    padding: 40px 5%;
+    background-color: #d4daea;
+    #location {
+      max-width: calc(100% - 38px);
+    }
+  }
+}
+.tabs {
+  padding: 80px 5%;
+}
+.tabs-header {
+  margin: 60px auto 40px;
+  display: flex;
+  gap: 60px;
+}
+
+#news {
+  height: 500px;
+  display: flex;
+  gap: 60px;
+  margin: 100px 5%;
+  padding-top: 100px;
+  border-top: 1px solid;
+  justify-content: space-between;
+}
+
+.empty-square {
+  border-radius: 40px;
+  background: #E6E6E6;
+  height: 400px;
+  width: 30%;
+}

@@ -8,3 +8,30 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+body {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 500;
+}
+h1 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #000;
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+h2 {
+  color: #000;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+a {
+  text-decoration: none;
+  color: #434343;
+}

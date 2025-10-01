@@ -1,0 +1,51 @@
+<div class="map-wraper" data-controller="map">
+  <div id="map" data-map-target="container"></div>
+  <div id="map-controls">
+    <h1>Te damos la bienvenida a A Tu Servicio</h1>
+    <h3>En el siguiente mapa podrás visualizar todos los servicios relacionados a la salud en el país.</h3>
+    <div class="map-location-filters">
+      <b>¿Te interesa ver una ubicación en particular?</b>
+      <div class="row">
+        <%= select_tag "location", options_for_select(Zone.where(ztype: 2).order(:name).pluck(:name, :id)) %>
+        <%= button_tag "<i class='fas fa-location-crosshairs'></i>".html_safe %>
+      </div>
+    </div>
+    <div class="map-services-filters">
+      <label><%= check_box_tag :providers_map, true, data: {'map-prestador-value': true }%> Prestadores</label>
+    </div>
+  </div>
+</div>
+<div class="tabs" data-controller="tabs">
+  <div class="tabs-title">
+    <h2>Listado de servicios de salud</h2>
+    <p>Explorá los distintos servicios de salud dentro del país.</p>
+    <%= text_field_tag 'name', nil, placeholder: "Buscar por nombre" %>
+  </div>
+  <div class="tabs-header">
+    <%= button_tag "Prestadores", data: {'tabs-tab-value': "prestadores", action: "tabs#switch_tab"} %>
+    <%= button_tag "Vacunatorios", data: {'tabs-tab-value': "vacunatorios", action: "tabs#switch_tab"} %>
+    <%= button_tag "Clínicas", data: {'tabs-tab-value': "clinicas", action: "tabs#switch_tab"} %>
+    <%= button_tag "Otros servicios", data: {'tabs-tab-value': "otros", action: "tabs#switch_tab"} %>
+  </div>
+  <div class=tabs-content">
+    <div class="tab-inner" data-tabs-target="prestadores">
+      <% @providers.each do |p| %>
+        <%= render partial: '/provider/summary', locals: {provider: p} %>
+      <% end %>
+    </div>
+    <div class="tab-inner" data-tabs-target="vacunatorios">
+
+    </div>
+    <div class="tab-inner" data-tabs-target="clinicas">
+
+    </div>
+    <div class="tab-inner" data-tabs-target="otros">
+
+    </div>
+  </div>
+</div>
+<div id=news>
+  <div class="empty-square"></div>
+  <div class="empty-square"></div>
+  <div class="empty-square"></div>
+</div>
