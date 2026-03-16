@@ -8,6 +8,7 @@
   align-self: stretch;
   border-radius: 24px;
   background: #F2F2F2;
+  margin-bottom: 40px;
   .header {
     width: 100%;
     display: flex;
@@ -22,5 +23,40 @@
 .provider-cards {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
+  .card {
+    padding: 20px;
+    background: #e6e6e6;
+    border-radius: 30px;
+    height: 100%;
+    width: 360px;
+    .card-header {
+      .header-top {
+        height: 30px;
+      }
+      h3 {
+        padding: 20px 0;
+        border-bottom: 1px solid #909090;
+        width: fit-content;
+        font-weight: 600
+      }
+    }
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px 0;
+      .values {
+        display: flex;
+        gap: 10px;
+        &.users-total {
+          flex-direction: column;
+          gap: 0;
+          .result {
+            font-size: 46px;
+          }
+        }
+      }
+    }
+  }
 }

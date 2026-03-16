@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_30_190408) do
+ActiveRecord::Schema[8.0].define(version: 2026_01_23_021858) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -86,6 +86,26 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_30_190408) do
     t.index ["zone_id"], name: "index_human_resources_on_zone_id"
   end
 
+  create_table "indicator_actives", force: :cascade do |t|
+    t.bigint "indicator_id"
+    t.integer "year"
+    t.integer "stage"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["indicator_id"], name: "index_indicator_actives_on_indicator_id"
+  end
+
+  create_table "indicators", force: :cascade do |t|
+    t.string "key"
+    t.text "description"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "section"
+    t.string "abbr"
+  end
+
   create_table "prices", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -129,6 +149,20 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_30_190408) do
     t.index ["provider_id"], name: "index_provider_goals_on_provider_id"
   end
 
+  create_table "provider_indicators", force: :cascade do |t|
+    t.bigint "provider_id"
+    t.integer "year"
+    t.string "period"
+    t.bigint "zone_id"
+    t.bigint "indicators_id"
+    t.decimal "value", precision: 9, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_provider_indicators_on_provider_id"
+    t.index ["year"], name: "index_provider_indicators_on_year"
+    t.index ["zone_id"], name: "index_provider_indicators_on_zone_id"
+  end
+
   create_table "provider_prices", force: :cascade do |t|
     t.bigint "provider_id", null: false
     t.bigint "price_id", null: false
@@ -142,6 +176,20 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_30_190408) do
     t.index ["provider_id"], name: "index_provider_prices_on_provider_id"
   end
 
+  create_table "provider_specialists", force: :cascade do |t|
+    t.bigint "provider_id"
+    t.integer "year"
+    t.string "period"
+    t.bigint "zone_id"
+    t.bigint "specialities_id"
+    t.decimal "value", precision: 9, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_provider_specialists_on_provider_id"
+    t.index ["year"], name: "index_provider_specialists_on_year"
+    t.index ["zone_id"], name: "index_provider_specialists_on_zone_id"
+  end
+
   create_table "providers", force: :cascade do |t|
     t.integer "external_id"
     t.string "short_name"
@@ -151,6 +199,34 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_30_190408) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "active"
+    t.boolean "private_insurance"
+    t.text "communication"
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string "title"
+    t.string "name"
+    t.string "string"
+    t.integer "year"
+    t.string "period"
+    t.boolean "is_home_card"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "weight"
+    t.boolean "is_active"
+  end
+
+  create_table "sites", force: :cascade do |t|
+    t.bigint "zone_id", null: false
+    t.string "name"
+    t.text "description"
+    t.string "address"
+    t.bigint "provider_id", null: false
+    t.integer "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_sites_on_provider_id"
+    t.index ["zone_id"], name: "index_sites_on_zone_id"
   end
 
   create_table "specialities", force: :cascade do |t|
@@ -186,6 +262,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_30_190408) do
     t.text "wkt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "parent_zone_id"
+    t.index ["parent_zone_id"], name: "index_zones_on_parent_zone_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -193,12 +271,22 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_30_190408) do
   add_foreign_key "human_resources", "providers"
   add_foreign_key "human_resources", "specialities"
   add_foreign_key "human_resources", "zones"
+  add_foreign_key "indicator_actives", "indicators"
   add_foreign_key "provider_appointments", "providers"
   add_foreign_key "provider_data", "providers"
   add_foreign_key "provider_goals", "goals"
   add_foreign_key "provider_goals", "providers"
+  add_foreign_key "provider_indicators", "indicators", column: "indicators_id"
+  add_foreign_key "provider_indicators", "providers"
+  add_foreign_key "provider_indicators", "zones"
   add_foreign_key "provider_prices", "prices"
   add_foreign_key "provider_prices", "providers"
+  add_foreign_key "provider_specialists", "providers"
+  add_foreign_key "provider_specialists", "specialities", column: "specialities_id"
+  add_foreign_key "provider_specialists", "zones"
+  add_foreign_key "sites", "providers"
+  add_foreign_key "sites", "zones"
   add_foreign_key "wait_times", "providers"
   add_foreign_key "wait_times", "specialities"
+  add_foreign_key "zones", "zones", column: "parent_zone_id"
 end

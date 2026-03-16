@@ -10,4 +10,9 @@ class WaitTime < ApplicationRecord
     ["provider", "speciality"]
   end
 
+  enum :wtype, [
+    'Sin discriminar',
+    'Presenciales',
+    'Virtuales'
+  ]
 end

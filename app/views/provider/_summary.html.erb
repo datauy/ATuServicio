@@ -1,16 +1,16 @@
 <div class="provider-summary">
   <div class="header">
     <div class="header-left">
-      <h3><%= provider.short_name %></h3>
+      <h3><%= provider['short_name'] %></h3>
     </div>
     <div class="header-right">
-      <div class="provider-name"><%= provider.name %></div>
-      <div class="provider-web"><%= provider.web %></div>
+      <div class="provider-name"><%= provider['name'] %></div>
+      <div class="provider-web"><%= provider['web'] %></div>
     </div>
   </div>
   <div class="provider-cards">
-    <div class="empty-square"></div>
-    <div class="empty-square"></div>
-    <div class="empty-square"></div>
+    <% provider[:cards].each do |card| %>
+      <%= render partial: "/provider/cards/#{card[:name]}", locals: { card: card }  %>
+    <% end %>
   </div>
 </div>
