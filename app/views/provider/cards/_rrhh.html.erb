@@ -1,0 +1,13 @@
+<div class="card <%= card[:name] %>">
+  <div class="card-header">
+    <div class="header-top"></div>
+    <h3><%= card[:title] %></h3>
+  </div>
+  <div class="card-content">
+  <% card['total'].keys.each do |ptype|%>
+    <% if ptype.present? %>
+    <div class="values"><%= card['total'][ptype][:title].camelize %>: <div class="result"><%= card['total'][ptype][:value] %></div></div>
+    <% end %>
+  <% end %>
+  </div>
+</div>

@@ -4,7 +4,7 @@ class CreateProviderPrices < ActiveRecord::Migration[8.0]
       t.references :provider, null: false, foreign_key: true
       t.references :price, null: false, foreign_key: true
       t.boolean :fonasa
-      t.integer :value
+      t.decimal :value
       t.integer :year
       t.string :period
 

@@ -3,8 +3,10 @@ class Provider < ApplicationRecord
   has_many :provider_datum
   has_many :sites
   has_many :zones, through: :sites
-  has_many :indicators
+  has_many :provider_indicators
   has_many :specialities
+  has_many :provider_prices
+  
 
   def asse?
     nombre_abreviado.include?('ASSE')

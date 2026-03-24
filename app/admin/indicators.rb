@@ -1,11 +1,11 @@
-ActiveAdmin.register ProviderGoal do
+ActiveAdmin.register Indicator do
   # Specify parameters which should be permitted for assignment
-  permit_params :provider_id, :goal_id, :year, :period, :value
+  permit_params :key, :description, :active, :section, :abbr, :is_active, :section_id, :title, :weight
 
   # or consider:
   #
   # permit_params do
-  #   permitted = [:provider_id, :goal_id, :year, :period, :value]
+  #   permitted = [:key, :description, :active, :section, :abbr, :is_active, :section_id, :title, :weight]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
@@ -15,25 +15,29 @@ ActiveAdmin.register ProviderGoal do
 
   # Add or remove filters to toggle their visibility
   filter :id
-  filter :provider
-  filter :goal
-  filter :year
-  filter :period
-  filter :value
+  filter :title
+  filter :description
+  filter :active
   filter :created_at
   filter :updated_at
+  filter :section
+  filter :abbr
+  filter :is_active
+  filter :weight
 
   # Add or remove columns to toggle their visibility in the index action
   index do
     selectable_column
     id_column
-    column :provider
-    column :goal
-    column :year
-    column :period
-    column :value
+    column :title
+    column :description
+    column :active
     column :created_at
     column :updated_at
+    column :section
+    column :abbr
+    column :is_active
+    column :weight
     actions
   end
 
@@ -41,13 +45,15 @@ ActiveAdmin.register ProviderGoal do
   show do
     attributes_table_for(resource) do
       row :id
-      row :provider
-      row :goal
-      row :year
-      row :period
-      row :value
+      row :title
+      row :description
+      row :active
       row :created_at
       row :updated_at
+      row :section
+      row :abbr
+      row :is_active
+      row :weight
     end
   end
 
@@ -55,11 +61,13 @@ ActiveAdmin.register ProviderGoal do
   form do |f|
     f.semantic_errors(*f.object.errors.attribute_names)
     f.inputs do
-      f.input :provider
-      f.input :goal
-      f.input :year
-      f.input :period
-      f.input :value
+      f.input :title
+      f.input :description
+      f.input :active
+      f.input :section
+      f.input :abbr
+      f.input :is_active
+      f.input :weight
     end
     f.actions
   end

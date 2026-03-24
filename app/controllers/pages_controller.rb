@@ -3,9 +3,9 @@ class PagesController < ApplicationController
     @providers = []
 
     sections = Section.where(is_home_card: true, is_active: true).order(:weight)
-    Provider.where(active: true).each do |p|
+    Provider.where(active: true).order(:short_name).each do |p|
       @cards = []
-      sections.each do |s|
+      sections.where(is_active: true, is_home_card: true).each do |s|
         card = {
           title: s.title,
           name: s.name,
@@ -20,11 +20,20 @@ class PagesController < ApplicationController
           card['fonasa_users'] = data.present? && data.fonasa_users.present? ? data.fonasa_users : "No hay datos"
           card['no_fonasa_users'] = data.present? && data.no_fonasa_users.present? ? data.no_fonasa_users : "No hay datos"
 
-        when 'wait'
-          # wait card FIXED times
-
+        when 'rrhh'
+          card['total'] = {}
+          z = Zone.find_by(ztype: "País")
+          s.indicators.order(:weight).each do |i|
+            card['total'][i.abbr] = {
+              title: i.title,
+              value: p.provider_indicators.where(year: s.year, period: s.period, indicator: i, zone_id: z.id).pluck(:value).first
+            }
+          end
+          #logger.debug " SINDICATRS: #{card['total'].inspect}"
+          #return
         when 'prices'
           # prices card
+          card['total'] = p.provider_prices.includes(:price).where(year: s.year, period: s.period).group('price.ptype').sum(:value)
         end
         @cards.push(card)
       end

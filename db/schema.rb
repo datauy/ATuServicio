@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_01_23_021858) do
+ActiveRecord::Schema[8.0].define(version: 2026_03_24_132555) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -81,6 +81,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_23_021858) do
     t.decimal "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "year"
+    t.string "period"
     t.index ["provider_id"], name: "index_human_resources_on_provider_id"
     t.index ["speciality_id"], name: "index_human_resources_on_speciality_id"
     t.index ["zone_id"], name: "index_human_resources_on_zone_id"
@@ -102,14 +104,19 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_23_021858) do
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "section"
     t.string "abbr"
+    t.boolean "is_active"
+    t.bigint "section_id", null: false
+    t.string "title"
+    t.integer "weight"
+    t.index ["section_id"], name: "index_indicators_on_section_id"
   end
 
   create_table "prices", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "ptype"
   end
 
   create_table "provider_appointments", force: :cascade do |t|
@@ -158,6 +165,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_23_021858) do
     t.decimal "value", precision: 9, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "indicator_id", null: false
+    t.index ["indicator_id"], name: "index_provider_indicators_on_indicator_id"
     t.index ["provider_id"], name: "index_provider_indicators_on_provider_id"
     t.index ["year"], name: "index_provider_indicators_on_year"
     t.index ["zone_id"], name: "index_provider_indicators_on_zone_id"
@@ -167,7 +176,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_23_021858) do
     t.bigint "provider_id", null: false
     t.bigint "price_id", null: false
     t.boolean "fonasa"
-    t.integer "value"
+    t.decimal "value", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "year"
@@ -272,10 +281,12 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_23_021858) do
   add_foreign_key "human_resources", "specialities"
   add_foreign_key "human_resources", "zones"
   add_foreign_key "indicator_actives", "indicators"
+  add_foreign_key "indicators", "sections"
   add_foreign_key "provider_appointments", "providers"
   add_foreign_key "provider_data", "providers"
   add_foreign_key "provider_goals", "goals"
   add_foreign_key "provider_goals", "providers"
+  add_foreign_key "provider_indicators", "indicators"
   add_foreign_key "provider_indicators", "indicators", column: "indicators_id"
   add_foreign_key "provider_indicators", "providers"
   add_foreign_key "provider_indicators", "zones"
