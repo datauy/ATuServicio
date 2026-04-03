@@ -17,7 +17,6 @@ ActiveAdmin.register Indicator do
   filter :id
   filter :title
   filter :description
-  filter :active
   filter :created_at
   filter :updated_at
   filter :section
@@ -31,7 +30,6 @@ ActiveAdmin.register Indicator do
     id_column
     column :title
     column :description
-    column :active
     column :created_at
     column :updated_at
     column :section
@@ -47,7 +45,6 @@ ActiveAdmin.register Indicator do
       row :id
       row :title
       row :description
-      row :active
       row :created_at
       row :updated_at
       row :section
@@ -63,7 +60,6 @@ ActiveAdmin.register Indicator do
     f.inputs do
       f.input :title
       f.input :description
-      f.input :active
       f.input :section
       f.input :abbr
       f.input :is_active

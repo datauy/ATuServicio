@@ -1,0 +1,10 @@
+<div class="section-inner-content <%= section["name"]%>">
+<% Speciality.where(is_active: true).order(:weight).each do |spec| %>
+  <div class="row">
+    <div class="item label"><%= spec.name %></div>
+    <% for i in 0..(@providers.length - 1)%>
+      <div class="item"><%= section['data'][i][spec.id].present? ? section['data'][i][spec.id] : "Sin datos" %></div>
+    <% end %>
+  </div>
+<% end %>
+</div>

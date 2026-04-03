@@ -1,11 +1,11 @@
 ActiveAdmin.register Section do
   # Specify parameters which should be permitted for assignment
-  permit_params :title, :name, :string, :year, :period, :is_home_card, :weight, :is_active
+  permit_params :title, :name, :description, :year, :period, :is_home_card, :weight, :is_active
 
   # or consider:
   #
   # permit_params do
-  #   permitted = [:title, :name, :string, :year, :period, :is_home_card, :weight, :is_active]
+  #   permitted = [:title, :name, :description, :year, :period, :is_home_card, :weight, :is_active]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
@@ -17,7 +17,7 @@ ActiveAdmin.register Section do
   filter :id
   filter :title
   filter :name
-  filter :string
+  filter :description
   filter :year
   filter :period
   filter :is_home_card
@@ -32,7 +32,7 @@ ActiveAdmin.register Section do
     id_column
     column :title
     column :name
-    column :string
+    column :description
     column :year
     column :period
     column :is_home_card
@@ -49,7 +49,7 @@ ActiveAdmin.register Section do
       row :id
       row :title
       row :name
-      row :string
+      row :description
       row :year
       row :period
       row :is_home_card
@@ -66,7 +66,7 @@ ActiveAdmin.register Section do
     f.inputs do
       f.input :title
       f.input :name
-      f.input :string
+      f.input :description
       f.input :year
       f.input :period
       f.input :is_home_card

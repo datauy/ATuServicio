@@ -1,0 +1,16 @@
+<div class="section-inner-content prices">
+<% Price.where(is_active: true).order(:weight).each do |p| %>
+  <div class="row">
+    <div class="item label"><%= p.name %> FONASA</div>
+    <% for i in 0..(@providers.length - 1)%>
+      <div class="item"><%= section['data'][i][:fonasa][p.id].present? ? section['data'][i][:fonasa][p.id] : "Gratis" %></div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="item label"><%= p.name %> NO FONASA</div>
+    <% for i in 0..(@providers.length - 1)%>
+      <div class="item"><%= section['data'][i][:no_fonasa][p.id].present? ? section['data'][i][:no_fonasa][p.id] : 'Gratis' %></div>
+    <% end %>
+  </div>
+<% end %>
+</div>

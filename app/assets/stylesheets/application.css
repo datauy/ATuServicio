@@ -35,3 +35,7 @@ a {
   text-decoration: none;
   color: #434343;
 }
+
+.arrow[aria-expanded="true"] img {
+  transform: rotate(180deg);
+}

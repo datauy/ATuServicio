@@ -3,7 +3,7 @@
   padding: 40px;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 24px;
   align-self: stretch;
   border-radius: 24px;
@@ -21,8 +21,8 @@
   }
 }
 .provider-cards {
-  width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   .card {
     padding: 20px;
@@ -57,6 +57,42 @@
           }
         }
       }
+    }
+  }
+}
+
+.section {
+  margin: 16px 10%;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #919191;
+  .section-header {
+    display: flex;
+    gap: 16px;
+    padding: 8px;
+  }
+  .section-content {
+    display: none;
+    flex-direction: column;
+    &.ways2 .row {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    &.ways3 .row {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .row {
+      background: #fcfcfc;
+      margin: 4px 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%;
+      justify-content: left;
+      align-items: center;
+      .item {
+        padding: 16px;
+      }
+    }
+    .row:nth-child(even) {
+      background: #f8f8f8;
     }
   }
 }

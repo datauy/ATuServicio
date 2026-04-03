@@ -1,0 +1,10 @@
+<div class="section-inner-content <%= section["name"]%>">
+<% Indicator.where(is_active: true, section_id: section["id"]).order(:weight).each do |ind| %>
+  <div class="row">
+    <div class="item label"><%= ind.description %></div>
+    <% for i in 0..(@providers.length - 1)%>
+      <div class="item"><%= section['data'][i][ind.id].present? ? section['data'][i][ind.id] : "Sin datos" %></div>
+    <% end %>
+  </div>
+<% end %>
+</div>

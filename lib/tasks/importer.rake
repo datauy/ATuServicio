@@ -1,30 +1,47 @@
 require 'csv'
 
 namespace :importer do
-  @year = '2023'
-  @period = '2'
+  @year = '2025'
+  @period = '1'
   @strict = true
+
+  #TODO: set as default function before task
+  def set_env(args)
+    if args[:year].present?
+      @year = args[:year]
+    end
+    if args[:period].present?
+      @period = args[:period]
+    end
+    puts "AÑO - PERIODO: #{@year} - #{@period}"
+  end
   #
   # Create providers
   #
   desc 'Importing providers'
-  task :providers, [:year] => [:environment] do |_, args|
+  task :providers, [:year, :period] => [:environment] do |_, args|
+    set_env(args)
     providers
   end
 
-  task :specialists, [:year] => [:environment] do |_, args|
+  task :specialists, [:year, :period] => [:environment] do |_, args|
+    set_env(args)
     specialists()
   end
-  task :prices, [:year] => [:environment] do |_, args|
+  task :prices, [:year, :period] => [:environment] do |_, args|
+    set_env(args)
     prices()
   end
-  task :rrhh, [:year] => [:environment] do |_, args|
+  task :rrhh, [:year, :period] => [:environment] do |_, args|
+    set_env(args)
     rrhh()
   end
-  task :cad, [:year] => [:environment] do |_, args|
+  task :cad, [:year, :period] => [:environment] do |_, args|
+    set_env(args)
     rrhh_cad()
   end
-  task :goals, [:year] => [:environment] do |_, args|
+  task :goals, [:year, :period] => [:environment] do |_, args|
+    set_env(args)
     goals()
   end
 
@@ -53,19 +70,20 @@ namespace :importer do
           end
           i += 1
         end
-      when 'tiempos_espera'
-
-      when 'rrhh', 'rrhh_cad', 'metas'
+      when 'rrhh', 'rrhh_cad', 'goals'
         puts "IMPORT INDICATOR #{key}"
         i = 0
         section = Section.find_by(name: key)
         if section.present?
           metadata[key]["description"].each do |desc|
+            title = metadata[key]["titles"].present? ? metadata[key]["titles"][i] : metadata[key]['abbrs'][i]
             ind = {
+              title: title,
               description: desc,
               abbr: metadata[key]['abbrs'][i],
               active: true,
-              section_id: section.id
+              section_id: section.id,
+              weight: i
             }
             Indicator.find_or_create_by(ind)
             puts "ADDING Indicator #{ind.inspect}"
@@ -86,7 +104,7 @@ namespace :importer do
       provider_ids.push(row[0])
       provider.update(
         short_name: row[1].strip,
-        name: row[2].sttrip,
+        name: row[2].strip,
         web: row[3],
         #logo: assign_logo(row[0]),
         communication: row[7],
@@ -114,7 +132,6 @@ namespace :importer do
   def prices()
     puts 'Import Prices'
     import_file("precios.csv", col_sep: ';') do |row|
-      #TODO: Are we importing this?
       #provider = Provider.find(row['id_mutualista'])
       Price.all.each do |p|
         npp = {
@@ -155,20 +172,21 @@ namespace :importer do
         row['indicator_value'] = nil
       end
       provider = Provider.find_by(short_name: row['provider'] )
+      provider = Provider.find_by(short_name: "#{row['provider']} IAMPP" ) if provider.nil?
       if provider.nil?
         puts "PROVIDER NOT FOUND: #{row['provider']}"
         next
       else
-        hr = {
+        sp = {
           provider: provider,
           speciality_id: speciality.id,
           zone: state,
           year: @year,
           period: @period
         }
-        hresource = HumanResource.find_or_create_by(hr)
-        puts "Import Specialists HR #{hresource.inspect}"
-        hresource.update(value: row['indicator_value'])
+        specialist = ProviderSpecialist.find_or_create_by(sp)
+        puts "Import Specialists HR #{specialist.inspect}"
+        specialist.update(value: row['indicator_value'])
       end
     end
   end
@@ -248,6 +266,7 @@ namespace :importer do
       end
     end
   end
+  #
   def import_file(file, custom_options = nil, &block)
     options = {headers: true}
     #options.merge!(custom_options) if custom_options

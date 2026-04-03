@@ -22,7 +22,7 @@ default: &default
 
 development:
   <<: *default
-  database: ats3
+  database: ats2
   username: ats2
   password: test.4321
   # The specified database role being used to connect to PostgreSQL.

@@ -1,3 +1,17 @@
+## Instalación 2026
+1. `git clone`
+2. `bundle install`
+3. `rails db:migrate`
+4. `rails db:seed`
+5. `rails importer:metadata`
+6. `rails importer:providers[2025,2]`
+7. `rails importer:prices[2025,2]`
+8. `rails importer:specialists[2024,1]`
+9. `rails importer:rrhh[2024,1]`
+10. `rails importer:rrhh_cad[2024,1]`
+11. `rails importer:goals[2025,1]`
+
+
 ## Instalación
 
 Local:

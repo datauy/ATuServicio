@@ -1,0 +1,12 @@
+@media (max-width: 600px ) { 
+  .section {
+    & .section-content {
+      &.ways2 .row {
+        grid-template-columns: repeat(2, 1fr);
+        label {
+          grid-column: span 2fr;
+        }
+      }
+    }
+  }
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_03_24_132555) do
+ActiveRecord::Schema[8.0].define(version: 2026_04_03_201029) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -74,20 +74,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_24_132555) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "human_resources", force: :cascade do |t|
-    t.bigint "provider_id", null: false
-    t.bigint "zone_id", null: false
-    t.bigint "speciality_id", null: false
-    t.decimal "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "year"
-    t.string "period"
-    t.index ["provider_id"], name: "index_human_resources_on_provider_id"
-    t.index ["speciality_id"], name: "index_human_resources_on_speciality_id"
-    t.index ["zone_id"], name: "index_human_resources_on_zone_id"
-  end
-
   create_table "indicator_actives", force: :cascade do |t|
     t.bigint "indicator_id"
     t.integer "year"
@@ -104,6 +90,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_24_132555) do
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "section"
     t.string "abbr"
     t.boolean "is_active"
     t.bigint "section_id", null: false
@@ -117,6 +104,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_24_132555) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "ptype"
+    t.integer "weight"
+    t.boolean "is_active"
   end
 
   create_table "provider_appointments", force: :cascade do |t|
@@ -190,7 +179,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_24_132555) do
     t.integer "year"
     t.string "period"
     t.bigint "zone_id"
-    t.bigint "specialities_id"
+    t.bigint "speciality_id"
     t.decimal "value", precision: 9, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -215,7 +204,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_24_132555) do
   create_table "sections", force: :cascade do |t|
     t.string "title"
     t.string "name"
-    t.string "string"
+    t.string "description"
     t.integer "year"
     t.string "period"
     t.boolean "is_home_card"
@@ -223,6 +212,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_24_132555) do
     t.datetime "updated_at", null: false
     t.integer "weight"
     t.boolean "is_active"
+    t.text "info"
   end
 
   create_table "sites", force: :cascade do |t|
@@ -243,6 +233,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_24_132555) do
     t.string "abbr"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_active"
+    t.integer "weight"
   end
 
   create_table "specialties", force: :cascade do |t|
@@ -277,9 +269,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_24_132555) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "human_resources", "providers"
-  add_foreign_key "human_resources", "specialities"
-  add_foreign_key "human_resources", "zones"
   add_foreign_key "indicator_actives", "indicators"
   add_foreign_key "indicators", "sections"
   add_foreign_key "provider_appointments", "providers"
@@ -293,7 +282,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_24_132555) do
   add_foreign_key "provider_prices", "prices"
   add_foreign_key "provider_prices", "providers"
   add_foreign_key "provider_specialists", "providers"
-  add_foreign_key "provider_specialists", "specialities", column: "specialities_id"
+  add_foreign_key "provider_specialists", "specialities"
   add_foreign_key "provider_specialists", "zones"
   add_foreign_key "sites", "providers"
   add_foreign_key "sites", "zones"

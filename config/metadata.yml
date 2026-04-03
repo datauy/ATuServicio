@@ -28,7 +28,7 @@ estructura:
     text:
       - comunicacion
 
-metas:
+goals:
   title: "Metas Asistenciales"
   description:
     - "Porcentaje de captación de recién nacido"
@@ -55,16 +55,16 @@ precios:
     - "Ticket de medicamentos - general. NO FONASA"
     - "Ticket de medicamentos topeados- antihipertensivos (valsartán, amlodipina, hidroclorotiazida, enalapril). FONASA"
     - "Ticket de medicamentos topeados- antihipertensivos (valsartán, amlodipina, hidroclorotiazida, enalapril). NO FONASA"
-    - "Consulta no urgente consultorio - medicina general. FONASA"
-    - "Consulta no urgente consultorio - medicina general. NO FONASA"
-    - "Consulta no urgente consultorio - pediatria. FONASA"
-    - "Consulta no urgente consultorio - pediatria. NO FONASA"
-    - "Consulta no urgente consultorio - gineco-obstetricia (control de embarazo). FONASA"
-    - "Consulta no urgente consultorio - gineco-obstetricia (control de embarazo). NO FONASA"
-    - "Consulta no urgente consultorio - ginecologia. FONASA"
-    - "Consulta no urgente consultorio - ginecologia. NO FONASA"
-    - "Consulta no urgente consultorio - otras especialidades. FONASA"
-    - "Consulta no urgente consultorio - otras especialidades. NO FONASA"
+    - "Consulta no urgente consultorio: medicina general. FONASA"
+    - "Consulta no urgente consultorio: medicina general. NO FONASA"
+    - "Consulta no urgente consultorio: pediatria. FONASA"
+    - "Consulta no urgente consultorio: pediatria. NO FONASA"
+    - "Consulta no urgente consultorio: gineco-obstetricia (control de embarazo). FONASA"
+    - "Consulta no urgente consultorio: gineco-obstetricia (control de embarazo). NO FONASA"
+    - "Consulta no urgente consultorio: ginecologia. FONASA"
+    - "Consulta no urgente consultorio: ginecologia. NO FONASA"
+    - "Consulta no urgente consultorio: otras especialidades. FONASA"
+    - "Consulta no urgente consultorio: otras especialidades. NO FONASA"
     - "Consulta urgencia centralizada. FONASA"
     - "Consulta urgencia centralizada. NO FONASA"
     - "Consulta no urgencia domicilio. FONASA"
@@ -85,8 +85,8 @@ precios:
     - "Rx abdomen / aparato urinario simple. NO FONASA"
     - "Rx torax. FONASA"
     - "Rx torax. NO FONASA"
-    - "Rx colorectal. (c/contraste). FONASA"
-    - "Rx colorectal. (c/contraste). NO FONASA"
+    - "Rx colorectal (c/contraste). FONASA"
+    - "Rx colorectal (c/contraste). NO FONASA"
     - "Resonancia nuclear magnética, una región. FONASA"
     - "Resonancia nuclear magnética, una región. NO FONASA"
     - "Tomografía axial computarizada, una región. FONASA"
@@ -338,6 +338,17 @@ satisfaccion_derechos:
 
 rrhh_cad:
   title: "Méd. generales y especialistas c/alta dedicación"
+  titles:
+    - "Total"
+    - "Medicina general"
+    - "Medicina familiar"
+    - "Pediatría"
+    - "Ginecología"
+    - "Psiquiatría adultos"
+    - "Psiquiatría pediátrica"
+    - "CTI adultos"
+    - "CTI pediátrico"
+    - "CTI Neonatal"
   description:
     - "Cargos de alta dedicación cada 10.000 usuarios"
     - "Cargos de alta dedicación de medicina general cada 10.000 usuarios mayores de 14 años"
@@ -370,11 +381,19 @@ rrhh_cad:
     - Gine
     - "Psiq A"
     - "Psiq P"
+    - MInt
     - MIA
     - MIP
     - NEO
 rrhh:
   title: "Personal básico orientado a la asistencia"
+  titles:
+    - "Medicina general"
+    - "Medicina familiar"
+    - "Pediatría"
+    - "Ginecología"
+    - "Auxiliares de enfermería"
+    - "Licenciadas en enfermería"
   description:
     - "Cargos de medicina generales en policlínica cada 10.000 usuarios mayores de 14 años"
     - "Cargos de medicina familiar en policlínica cada 10.000 usuarios"
@@ -393,6 +412,7 @@ rrhh:
     - MG
     - MFYC
     - "Pediatría"
+    - Gine
     - AE
     - LE
 

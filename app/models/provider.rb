@@ -4,8 +4,11 @@ class Provider < ApplicationRecord
   has_many :sites
   has_many :zones, through: :sites
   has_many :provider_indicators
-  has_many :specialities
+  has_many :indicators, through: :provider_indicators
+  has_many :provider_specialists
+  has_many :specialities, through: :provider_specialists
   has_many :provider_prices
+  has_many :provider_data
   
 
   def asse?
@@ -22,7 +25,11 @@ class Provider < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    ["name", "created_at", "description", "external_id", "id", "short_name", "updated_at", "web"]
+    ["name", "created_at", "description", "external_id", "id", "short_name", "updated_at", "web", "active"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["provider_datum", "provider_indicators", "provider_prices", "sites", "specialities", "zones"]
   end
 
 end

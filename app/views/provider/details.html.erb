@@ -1,0 +1,16 @@
+<div class="provider single">
+<% @s.each do |s|%>
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">
+        <div class="info"><i class="demo-icon icon-info"></i></div>
+        <i class="demo-icon icon-info"></i>
+        <h3><%= s['title'] %> / <%= s['year'] %></h3>
+      </div>
+    </div>
+    <div class="section-content">
+    <%= render partial: s['name'], locals: { data: s['data'], p: 0 }%>
+    </div>
+  </div>
+<% end %>
+</div>
