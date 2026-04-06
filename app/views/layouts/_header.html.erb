@@ -1,12 +1,12 @@
 <header>
-  <%= link_to image_tag('logo.png'), root_path %>
+  <%= link_to image_tag('/images/logo_ats.svg'), root_path %>
   <nav>
     <ul>
-      <li><%= link_to "Listado de servicios", root_path %></li>
-      <li><%= link_to "Sobre el proyecto", root_path %></li>
-      <li><%= link_to "Comparar", root_path %></li>
-      <li><%= link_to "Denuncias", root_path %></li>
-      <li><%= link_to "Afiliaciones y cambios de prestador", root_path %></li>
+      <li><%= link_to "Inicio", root_path, class: (current_page?(root_path) ? "active" : nil) %></li>
+      <li><%= link_to "Sobre el proyecto", about_path, class: (current_page?(about_path) ? "active" : nil) %></li>
+      <li><%= link_to "Comparar", compare_path, class: (current_page?(compare_path) ? "active" : nil) %></li>
+      <li><%= link_to "Denuncias", inqueries_path, class: (current_page?(inqueries_path) ? "active" : nil) %></li>
+      <li><%= link_to "Afiliaciones y cambios de prestador", affiliations_path, class: (current_page?(affiliations_path) ? "active" : nil) %></li>
     </ul>
   </nav>
 </header>

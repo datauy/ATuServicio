@@ -42,4 +42,16 @@ class PagesController < ApplicationController
       @providers.push(provider)
     end
   end
+
+  def about
+
+  end
+
+  def affiliations
+
+  end
+
+  def inqueries
+
+  end
 end

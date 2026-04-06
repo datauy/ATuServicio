@@ -10,7 +10,8 @@ class Provider < ApplicationRecord
   has_many :provider_prices
   has_many :provider_data
   
-
+  has_one_attached :logo
+  
   def asse?
     nombre_abreviado.include?('ASSE')
   end

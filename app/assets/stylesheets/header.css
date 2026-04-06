@@ -3,10 +3,22 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 24px 6%;
+  font-size: 20px;
+  font-weight: 500;
   nav {
     ul {
       display: flex;
       gap: 32px;
+      li {
+        a {
+          color: #003da5FF;
+          font-family: "DM Sans", sans-serif;
+          font-weight: 500;
+          &.active {
+            font-weight: 700;
+          }
+        }
+      }
     }
   }
 }

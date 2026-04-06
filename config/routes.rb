@@ -15,8 +15,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#index"
 
+  #Static pages
+  get "sobre-el-proyecto", to: "pages#about", as: "about"
+  get "denuncias", to: "pages#inqueries", as: "inqueries"
+  get "afiliaciones", to: "pages#affiliations", as: "affiliations"
   #Providers
   get "proveedor/:id", to: "provider#details"
   get "comparar/:id1/:id2", to: "provider#compare"
   get "proveedor/:id1/:id2/:id3", to: "provider#compare"
+  get "comparar", to: "provider#compare", as: "compare"
+
 end

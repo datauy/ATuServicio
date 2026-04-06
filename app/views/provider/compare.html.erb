@@ -1,23 +1,49 @@
-<div class="providers">
-
+<div class="providers" data-controller="compare">
+  <div class="header">
+    <div class="tags page-tag tag-prestadores"><i class='fas fa-house-medical'></i>Prestadores y servicios</div>
+    <h1>Tomá una desición acertada</h1>
+    <div class="page-description">Seleccioná hasta 3 prestadores para comparar</div>
+    <input type="text" name="provider" data-action='keyup->compare#searchProvider' placeholder="Busca por nombre"/>
+  </div>
+  <div class="compare-header">
+    <div class="filters">
+      <%= image_tag('/images/filter.svg') %>
+      <input type="text" name="datum" data-action='keyup->compare#filterList' placeholder="Filtra la lista"/>
+      <%= turbo_frame_tag "provider_list" %>
+    </div>
+    <% @providers.each do |p|%>
+    <div class="provider-header">
+      <% if p.logo.attached? %>
+        <%= image_tag p.logo %>
+      <% else %>
+        <div class="rectangle-div"></div>
+      <% end %>
+      <h2><%= p.short_name %></h2>
+      <div class="description"><%= p.web %></div>
+    </div>
+    <% end %>
+  </div>
 <% @s.each do |s|%>
   <div class="section" data-controller="section">
     <div class="section-header">
-      <%= button_tag image_tag('/images/arrow.svg'),
-      class: 'arrow',
-      aria: { expanded: false, controls: "section-#{s['id']}"},
-      data: { 
-        "section-target": "expand", 
-        action: 'click->section#toggleVisibility' 
-      }%>
-      <h3><%= s['title'] %> / <%= s['year'] %></h3>
-      <%= button_tag image_tag('/images/info.svg'),
-      class: 'arrow',
-      aria: { expanded: false, controls: "info-#{s['id']}"},
-      data: { 
-        "section-target": "infotrigger", 
-        action: 'click->section#toggleInfo' 
-      }%>
+      <div class="header-left">
+        <%= button_tag image_tag('/images/arrow.svg'),
+        class: 'arrow',
+        aria: { expanded: false, controls: "section-#{s['id']}"},
+        data: { 
+          "section-target": "expand", 
+          action: 'click->section#toggleVisibility' 
+        }%>
+        <h3><%= s['title'] %></h3>
+          <%= button_tag "<i class='fas fa-circle-info'></i>".html_safe,
+          class: 'arrow',
+          aria: { expanded: false, controls: "info-#{s['id']}"},
+          data: { 
+            "section-target": "infotrigger", 
+            action: 'click->section#toggleInfo' 
+          }%>
+      </div>
+      <div class="tags tag-calendar"><i class="fas fa-calendar"></i><%= s['year'] %></div>
     </div>
     <div id="section-<%= s['id'] %>" class="section-content ways<%= @providers.length %>" data-section-target="content">
       <% if s['description'].present? && s['description'] != '' %>

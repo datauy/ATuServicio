@@ -1,12 +1,17 @@
 .map-wraper {
   display: flex;
   #map {
-    height: 500px;
+    height: 600px;
     min-width: 60%;
   }
   #map-controls {
     padding: 40px 5%;
-    background-color: #d4daea;
+    background-color: var(--color-azul-4);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-height: 600px;
+    overflow-y: scroll;
     #location {
       max-width: calc(100% - 38px);
     }
@@ -14,11 +19,32 @@
 }
 .tabs {
   padding: 80px 5%;
-}
-.tabs-header {
-  margin: 60px auto 40px;
-  display: flex;
-  gap: 60px;
+  .tabs-title {
+    input {
+      margin-top: 24px;
+    }
+  }
+  .tabs-header {
+    margin: 60px auto 40px;
+    display: flex;
+    button {
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--color-gris-03);
+      line-height: 1.375;
+      color: var(--color-gris-03);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      &[aria-expanded="true"] {
+        color: var(--color-azul-presidencia);
+        font-weight: 600;
+        border-bottom: 2px solid;
+        .fas {
+          color: var(--color-azul-presidencia);
+        }
+      }
+    }
+  }
 }
 
 #news {

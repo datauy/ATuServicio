@@ -2,16 +2,36 @@
   <div id="map" data-map-target="container"></div>
   <div id="map-controls">
     <h1>Te damos la bienvenida a A Tu Servicio</h1>
-    <h3>En el siguiente mapa podrás visualizar todos los servicios relacionados a la salud en el país.</h3>
-    <div class="map-location-filters">
-      <b>¿Te interesa ver una ubicación en particular?</b>
+    <p>En el siguiente mapa podrás visualizar todos los servicios relacionados a la salud en el país.</p>
+    <div class="box map-location-filters">
+      <h4>¿Te interesa ver una ubicación en particular?</h4>
       <div class="row">
-        <%= select_tag "location", options_for_select(Zone.where(ztype: 2).order(:name).pluck(:name, :id)) %>
-        <%= button_tag "<i class='fas fa-location-crosshairs'></i>".html_safe %>
+        <%= select_tag "location", options_for_select( Zone.where(ztype: "Departamento").order(:name).pluck(:name, :id) ), {include_blank: true, data: {action: "change->map#zoneLocate"}} %>
+        <%= button_tag "<i class='fas fa-location-crosshairs'></i>Utilizar mi ubicación".html_safe, class: "main-button", data: {action: "click->map#geoLocate"} %>
       </div>
     </div>
-    <div class="map-services-filters">
-      <label><%= check_box_tag :providers_map, true, data: {'map-prestador-value': true }%> Prestadores</label>
+    <div class="box map-services-filters">
+      <h4>¿Te interesa ver un servicio en particular?</h4>
+      <div class="tags">
+        <div>
+          <i class="fas fa-house-medical"></i>
+          <span>Prestadores</span>
+        </div>
+        <label class="switch">
+          <%= check_box_tag :providers_map, true, data: {'map-prestador-value': true, action: "map#changeServices" }%>
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="tags">
+        <div>
+          <i class="fas fa-stethoscope"></i>
+          <span>Policlínicas</span>
+        </div>
+        <label class="switch">
+          <%= check_box_tag :providers_map, true, data: {'map-policlinicas-value': true, action: "map#changeServices" }%>
+          <span class="slider round"></span>
+        </label>
+      </div>
     </div>
   </div>
 </div>
@@ -22,24 +42,32 @@
     <%= text_field_tag 'name', nil, placeholder: "Buscar por nombre" %>
   </div>
   <div class="tabs-header">
-    <%= button_tag "Prestadores", data: {'tabs-tab-value': "prestadores", action: "tabs#switch_tab"} %>
-    <%= button_tag "Vacunatorios", data: {'tabs-tab-value': "vacunatorios", action: "tabs#switch_tab"} %>
-    <%= button_tag "Clínicas", data: {'tabs-tab-value': "clinicas", action: "tabs#switch_tab"} %>
-    <%= button_tag "Otros servicios", data: {'tabs-tab-value': "otros", action: "tabs#switch_tab"} %>
+    <%= button_tag "<i class='fas fa-house-medical'></i>Prestadores y servicios".html_safe,
+    {data: {'tabs-tab-value': "prestadores", action: "tabs#switch_tab"},
+    aria: { expanded: true, controls: "tab-prestadores"}} %>
+    <%= button_tag "<i class='fas fa-stethoscope'></i>Polilínicas".html_safe,
+    {data: {'tabs-tab-value': "clinicas", action: "tabs#switch_tab"},
+    aria: { expanded: false, controls: "tab-clinicas"}} %>
+    <%= button_tag "<i class='fas fa-house-medical'></i>Vacunatorios".html_safe,
+    {data: {'tabs-tab-value': "vacunatorios", action: "tabs#switch_tab"},
+    aria: { expanded: false, controls: "tab-vacunatorios"}} %>
+    <%= button_tag "<i class='fas fa-stethoscope'></i>Otros servicios".html_safe,
+    {data: {'tabs-tab-value': "otros", action: "tabs#switch_tab"},
+    aria: { expanded: false, controls: "tab-other"}} %>
   </div>
-  <div class=tabs-content">
-    <div class="tab-inner" data-tabs-target="prestadores">
+  <div class="tabs-content">
+    <div id="tab-prestadores" class="tab-inner" data-tabs-target="prestadores">
       <% @providers.each do |p| %>
         <%= render partial: '/provider/summary', locals: {provider: p} %>
       <% end %>
     </div>
-    <div class="tab-inner" data-tabs-target="vacunatorios">
+    <div id="tab-vacunatorios" class="tab-inner" data-tabs-target="vacunatorios">
 
     </div>
-    <div class="tab-inner" data-tabs-target="clinicas">
+    <div id="tab-clinicas" class="tab-inner" data-tabs-target="clinicas">
 
     </div>
-    <div class="tab-inner" data-tabs-target="otros">
+    <div id="tab-other" class="tab-inner" data-tabs-target="otros">
 
     </div>
   </div>

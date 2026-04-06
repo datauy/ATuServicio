@@ -62,4 +62,11 @@ class ProviderController < ApplicationController
     end
   end
 
+  def get_provider
+    @errors = []
+    @list = Provider.where( "name like ?" , params[:name] ).pluck(:id, :short_name).to_h
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
 end

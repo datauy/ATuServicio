@@ -8,34 +8,216 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  /* Fonts */
+  --font-work-sans: 'Work Sans';
+  --font-inter: Inter;
+  --font-font-awesome-6-pro: 'Font Awesome 6 Pro';
+  /* font sizes */
+  --font-size-base: 16px;
+  --font-size-xs: 12px;
+  /* Color Variables */
+  --Grises-Gris-02: #2c2c2c;
+  --Grises-Gris-04: #c6c6c6;
+  --Grises-Blanco: #fff;
+  --Mostaza-Energizante: #dca410;
+  --Feedback-Warning-Dark: #e0982b;
+  --Feedback-Warning-Light: #fffbed;
+  --Feedback-Error-Dark: #F63B3B;
+  --Feedback-Error-Light: #fff5f5;
+  --color-red: #f63b3b;
+  --color-azul-presidencia: #003da5;
+  --color-azul-dark: #4094e1;
+  --color-azul-4: #f0f6f8;
+  --color-green: #1bb668;
+  --color-policlinica: #ab57f5;
+  --color-gris-01: #1f1f1f;
+  --color-gris-03: #878787;
+  
+}
+
 body {
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
   font-size: 18px;
   font-weight: 500;
 }
+h1,h2,h3,h4,h5 {
+  font-family: "DM Sans", sans-serif;
+  color: var(--color-azul-presidencia);
+}
+a {
+  font-family: "Work Sans", sans-serif;
+}
+
 h1 {
-  font-size: 40px;
-  font-weight: 600;
-  color: #000;
-  font-family: Inter;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.22;
 }
 h2 {
-  color: #000;
-  font-family: Inter;
-  font-size: 30px;
-  font-style: normal;
+  font-size: 28px;
   font-weight: 600;
-  line-height: normal;
+  line-height: 1.36;
+}
+h3 {
+  color: var(--color-gris-01);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+}
+h4 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
 }
 a {
   text-decoration: none;
   color: #434343;
 }
 
+.box {
+  background: #FFFFFFCC;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 24px;
+  gap: 24px;
+  .row {
+    display: flex;
+    gap: 24px;
+  }
+}
+.main-button {
+  background: var(--color-azul-presidencia);
+  color: #FFF;
+  border-radius: 4px;
+  height: 44px;
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+  font-size: 16px;
+  min-width: fit-content;
+  align-items: center;
+}
 .arrow[aria-expanded="true"] img {
   transform: rotate(180deg);
+}
+.rectangle-div {
+  width: 100%;
+  height: 80px;
+  background: #f5f5f5;
+}
+button, input, optgroup, select, textarea {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+input {
+  width: 350px;
+}
+[type="text"] {
+  background: none;
+  width: 350px;
+  border-color: #c6c6c6FF;
+}
+[type="text"]::placeholder {
+  color: var(--color-gris-01);
+}
+.fa-house-medical {
+  color: var(--color-green);
+}
+.fa-stethoscope {
+  color: var(--color-policlinica);
+}
+.tags {
+  padding: 9px 16px;
+  border: 1px solid #e2e2e2FF;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-tag {
+  width: fit-content;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.375;
+}
+.tag-prestadores {
+  background: #f7faf3;
+  color: #2a734e;
+}
+.tag-calendar {
+  background: #ceedf4;
+  color: var(--color-azul-presidencia);
+  font-size: 12px;
+  font-weight: 500;
+  gap: 6px;
+  padding: 4px 8px;
+  border: none;
+}
+/** SWITCH */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--color-azul-presidencia);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--color-azul-presidencia);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
