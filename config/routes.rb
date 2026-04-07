@@ -21,8 +21,11 @@ Rails.application.routes.draw do
   get "afiliaciones", to: "pages#affiliations", as: "affiliations"
   #Providers
   get "proveedor/:id", to: "provider#details"
-  get "comparar/:id1/:id2", to: "provider#compare"
-  get "proveedor/:id1/:id2/:id3", to: "provider#compare"
   get "comparar", to: "provider#compare", as: "compare"
+  get "comparar/:id1/:id2", to: "provider#compare"
+  get "comparar/:id1/:id2/:id3", to: "provider#compare"
+  #API
+  get "proveedor", to: "provider#search", as: "provider_search" 
+  get "proveedor/resumen/:id", to: "provider#get_summary", as: "provider_summary"
 
 end

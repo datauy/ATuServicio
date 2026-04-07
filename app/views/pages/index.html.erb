@@ -56,18 +56,22 @@
     aria: { expanded: false, controls: "tab-other"}} %>
   </div>
   <div class="tabs-content">
-    <div id="tab-prestadores" class="tab-inner" data-tabs-target="prestadores">
+    <div id="tab-prestadores" class="tab-inner" data-controller="compare">
+    <div id="compare-bar" data-compare-target="bar">
+      <%= turbo_frame_tag "compare_list" %>
+      <button class="main-button" data-action="compare#submit">Comparar</button>
+    </div>
       <% @providers.each do |p| %>
         <%= render partial: '/provider/summary', locals: {provider: p} %>
       <% end %>
     </div>
-    <div id="tab-vacunatorios" class="tab-inner" data-tabs-target="vacunatorios">
+    <div id="tab-vacunatorios" class="tab-inner">
 
     </div>
-    <div id="tab-clinicas" class="tab-inner" data-tabs-target="clinicas">
+    <div id="tab-clinicas" class="tab-inner">
 
     </div>
-    <div id="tab-other" class="tab-inner" data-tabs-target="otros">
+    <div id="tab-other" class="tab-inner">
 
     </div>
   </div>

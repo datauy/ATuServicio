@@ -1,6 +1,7 @@
 <div class="provider-summary">
   <div class="header">
     <div class="header-left">
+      <%= check_box_tag :"provider-selector-#{provider['id']}", provider['id'], { class: "provider-selector", data: { action: "compare#addProvider" } }%>
       <h2><%= provider['short_name'] %></h2>
     </div>
     <div class="header-right">

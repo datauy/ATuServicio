@@ -1,0 +1,6 @@
+<%= turbo_stream.append("compare_list") do %>
+  <div id="compare-<%= @provider.id %>" class="provider-compare" >
+    <h4><%= @provider.short_name %></h4>
+    <button data-action="click->compare#removeProvider" value="<%= @provider.id %>">X</button>
+  </div>
+<% end %>

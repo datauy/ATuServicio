@@ -46,6 +46,26 @@
     }
   }
 }
+#compare-bar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+  gap: 32px;
+  padding: 16px;
+  justify-content: end;
+  background: rgba(255,255,255,.8);
+}
+#compare-list {
+  display: flex;
+  gap: 32px;
+  .provider-compare {
+    display: flex;
+    gap: 16px;
+  }
+}
 
 #news {
   height: 500px;
