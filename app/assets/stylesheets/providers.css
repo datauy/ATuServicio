@@ -54,6 +54,35 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .header-left {
+      display: flex;
+      gap: 32px;
+      label {
+        color: var(--color-gris-01);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      input {
+        display: none;
+      }
+      input:checked ~ label {
+        &.check {
+          display: flex;
+        }
+        &.not-check {
+          display: none;
+        }
+      }
+      input:not(input:checked) ~ label {
+        &.check {
+          display: none;
+        }
+        &.not-check {
+          display: flex;
+        }
+      }
+    }
     .header-right {
       display: flex;
       gap: 24px;

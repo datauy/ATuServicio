@@ -5,7 +5,7 @@ footer {
   box-sizing: border-box;
   width: 100%;
   gap: 20px;
-  background: #00786C;
+  background: var(--color-azul-presidencia);
   margin-top: 20px;
   h2 {
     font-family: 'Inter';
@@ -14,6 +14,7 @@ footer {
     font-size: 16px;
     line-height: 22px;
     color: #FFFFFF;
+    margin-bottom: 8px;
   }
   h3 {
     color: #FFF;
@@ -58,9 +59,8 @@ footer {
   .content {
       display: flex;
       flex-direction: column;
-      gap: 34px;
-      width: 100%;
-      max-width: 960px;
+      gap: 80px;
+      max-width: 80%;
       margin: auto;
   }
   .inline {
@@ -115,9 +115,13 @@ footer {
     padding: 0px;
     gap: 20px;
     flex: 1 1 0;
+    .logos {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
     .logos-frame {
       img {
-        width: 140px;
         &.data-logo {
           width: 120px;
         }
@@ -213,16 +217,6 @@ footer {
       object-fit: contain;
       position: absolute;
       right: 15px;
-  }
-
-  .logos {
-      float: left;
-  }
-
-  .logos img {
-      height: 50px;
-      margin: 6px 24px 12px 0;
-      object-fit: contain;
   }
 
   .supporters {

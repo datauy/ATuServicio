@@ -85,19 +85,32 @@
       <div id="we-are-header" class="toggle-data" onclick="this.parentNode.classList.toggle('active');">
         <h2>¿Quiénes somos?</h2>  
       </div>
-      <h3>Presenta:</h3>
-      <div class="logos-frame">
-        <a href="https://msp.gub.uy" target="_blank">
-          <%= image_tag("msp.png", alt:"Ministerio de Salud de Uruguay", class:"msp-logo") %>
-        </a>
+      <h3>Presentan:</h3>
+      <div class="logos">
+        <div class="logos-frame">
+          <a href="https://msp.gub.uy" target="_blank">
+            <%= image_tag("/images/msp.svg", alt:"Ministerio de Salud de Uruguay", class:"msp-logo") %>
+          </a>
+        </div>
+        <div class="logos-frame">
+          <a href="https://data.org.uy" target="_blank">
+            <%= image_tag("data.png", alt:"DATA Uruguay", class: "data-logo") %>
+          </a>
+        </div>
       </div>
-      
-      <h3>Colaboran:</h3>
-      <div class="logos-frame">
-        <a href="https://data.org.uy" target="_blank">
-          <%= image_tag("data.png", alt:"DATA Uruguay", class: "data-logo") %>
-        </a>
-      </div>        
+      <h3>Con el apoyo de:</h3>
+      <div class="logos">
+        <div class="logos-frame">
+          <a href="https://ilda.la" target="_blank">
+            <%= image_tag("/images/ilda.svg", alt:"ILDA", class: "ilda-logo") %>
+          </a>
+        </div>
+        <div class="logos-frame">
+          <a href="https://www.avina.net/" target="_blank">
+            <%= image_tag("/images/avina.svg", alt:"Fundación Avina", class: "avina-logo") %>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="carousel slider-container">
