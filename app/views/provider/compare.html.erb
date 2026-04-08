@@ -5,7 +5,8 @@
     <div class="page-description">Seleccioná hasta 3 prestadores para comparar</div>
     <input type="text" name="provider" data-action='keyup->compare#searchProvider' placeholder="Busca por nombre"/>
   </div>
-  <div class="compare-header">
+<% if @providers.length > 0 %>
+  <div class="compare-header ways<%= @providers.length %>">
     <div class="filters">
       <%= image_tag('/images/filter.svg') %>
       <input type="text" name="datum" data-action='keyup->compare#filterList' placeholder="Filtra la lista"/>
@@ -23,7 +24,7 @@
     </div>
     <% end %>
   </div>
-<% @s.each do |s|%>
+  <% @s.each do |s|%>
   <div class="section" data-controller="section">
     <div class="section-header">
       <div class="header-left">
@@ -53,5 +54,6 @@
     </div>
   </div>
   <div id="info-<%= s['id'] %>" class="backdrop info-box"><%= s['info'] %></div>
+  <% end %>
 <% end %>
 </div>

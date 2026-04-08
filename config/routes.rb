@@ -20,8 +20,9 @@ Rails.application.routes.draw do
   get "denuncias", to: "pages#inqueries", as: "inqueries"
   get "afiliaciones", to: "pages#affiliations", as: "affiliations"
   #Providers
-  get "proveedor/:id", to: "provider#details"
   get "comparar", to: "provider#compare", as: "compare"
+  get "comparar/:id1", to: redirect("proveedor/%{id1}")
+  get "proveedor/:id1", to: "provider#compare"
   get "comparar/:id1/:id2", to: "provider#compare"
   get "comparar/:id1/:id2/:id3", to: "provider#compare"
   #API

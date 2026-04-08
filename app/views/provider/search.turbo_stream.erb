@@ -1,7 +1,7 @@
 <%= turbo_stream.update("provider_list") do %>
   <ul data-controller="compare" >
   <% @list.keys.each do |key| %>
-    <li data-action="click->compare#add_provider" data-compare-value="<%= key %>"><%= @list[key] %></li>
+    <li data-action="click->compare#addProvider" data-compare-value="<%= key %>"><%= @list[key] %></li>
   <% end %>
   </ul>
 <% end %>

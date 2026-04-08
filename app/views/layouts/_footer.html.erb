@@ -222,7 +222,10 @@
               for (i = 0; i < pagers.length; i++){
                 pagers[i].classList.remove("active");
               }
-              document.querySelector("#control-"+slide.id).classList.add("active");
+              let slideControl = document.querySelector("#control-"+slide.id)
+              if ( slideControl != "null" ) {
+                slideControl.classList.add("active");
+              }
             }
 
         }, 60);

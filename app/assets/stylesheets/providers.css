@@ -7,8 +7,14 @@
   }
   .compare-header {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     border-bottom: 1px solid var(--color-gris-01);
+    &.ways2 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    &.ways3 {
+      grid-template-columns: repeat(4, 1fr);
+    }
     .provider-header,
     .filters {
       padding: 16px;
@@ -26,6 +32,9 @@
       img {
         width: 16px;
       }
+    }
+    [type="text"] {
+      width: 100%;
     }
   }
 }

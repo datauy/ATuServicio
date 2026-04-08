@@ -58,9 +58,10 @@
   justify-content: end;
   background: rgba(255,255,255,.8);
 }
-#compare-list {
+#compare_list {
   display: flex;
   gap: 32px;
+  align-items: center;
   .provider-compare {
     display: flex;
     gap: 16px;

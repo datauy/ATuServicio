@@ -23,7 +23,11 @@ class ProviderController < ApplicationController
 
   def compare
     @headers = 1
-    @providers = Provider.where(id: [params[:id1], params[:id2]])
+    provs = []
+    for id in 1..3 do
+      provs.push(params[:"id#{id}"]) if params[:"id#{id}"].present?
+    end
+    @providers = Provider.where(id: provs)
     if @providers.length > 1
       @s = []
       Section.where(is_active: true).order(:weight).each do |s|
