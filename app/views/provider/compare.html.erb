@@ -1,19 +1,20 @@
-<div class="providers" data-controller="compare">
+<div class="providers" data-controller="compare" data-compare-ctype-value="compare" data-compare-pids-value="<%= @pids %>">
   <div class="header">
     <div class="tags page-tag tag-prestadores"><i class='fas fa-house-medical'></i>Prestadores y servicios</div>
     <h1>Tomá una desición acertada</h1>
     <div class="page-description">Seleccioná hasta 3 prestadores para comparar</div>
     <input type="text" name="provider" data-action='keyup->compare#searchProvider' placeholder="Busca por nombre"/>
+    <%= turbo_frame_tag "provider_list" %>
   </div>
 <% if @providers.length > 0 %>
   <div class="compare-header ways<%= @providers.length %>">
     <div class="filters">
       <%= image_tag('/images/filter.svg') %>
       <input type="text" name="datum" data-action='keyup->compare#filterList' placeholder="Filtra la lista"/>
-      <%= turbo_frame_tag "provider_list" %>
     </div>
     <% @providers.each do |p|%>
     <div class="provider-header">
+    <button class="close" value="<%=p.id%>" data-action="compare#removeFromCompare">X</button>
       <% if p.logo.attached? %>
         <%= image_tag p.logo %>
       <% else %>

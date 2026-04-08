@@ -1,7 +1,13 @@
 <%= turbo_stream.update("provider_list") do %>
-  <ul data-controller="compare" >
-  <% @list.keys.each do |key| %>
-    <li data-action="click->compare#addProvider" data-compare-value="<%= key %>"><%= @list[key] %></li>
+  <% if @type == 'summary' %>
+    <% @providers.each do |p| %>
+      <%= render partial: '/provider/summary', locals: {provider: p} %>
+    <% end %>
+  <% else %>
+  <div class="list" >
+    <% @providers.keys.each do |key| %>
+      <button data-action="click->compare#submitWithProvider" value="<%= key %>"><%= @providers[key] %></li>
+    <% end %>
+  </div>
   <% end %>
-  </ul>
 <% end %>

@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="compare"
 export default class extends Controller {
   static targets = ["bar"]
-  static values = { provider: Number }
+  static values = { provider: Number, ctype: String, pids: [] }
 
   initialize() {
     this.providers = [];
@@ -12,35 +12,15 @@ export default class extends Controller {
     })
   }
   connect() {
-    console.log("CONNECT COMPARE");
-    
+    if (this.hasPidsValue) {
+      this.providers = this.pidsValue
+    }
   }
 
   searchProvider(e) {
     console.log("SEARCH PROVIDER", e);
-    fetch('/proveedor/?name='+e.target.value, {
-      method: "GET",
-      headers: {
-        Accept: "text/vnd.turbo-stream.html"
-      }
-    })
-    .then(r => r.text())
-    .then(html => {
-      Turbo.renderStreamMessage(html)
-    })
-  }
-
-  filterList(e) {
-    console.log("FILTER LIST", e);
-  }
-
-  addProvider(e) {
-    // Add/Remove from array
-    if ( e.target.checked ) {
-      this.barTarget.style.display = 'flex'
-      this.providers.push(e.target.value)
-      // Get provider data
-      fetch('/proveedor/resumen/'+e.target.value, {
+    if (e.target.value.length > 2) {
+      fetch('/proveedor/?name='+e.target.value, {
         method: "GET",
         headers: {
           Accept: "text/vnd.turbo-stream.html"
@@ -51,15 +31,41 @@ export default class extends Controller {
         Turbo.renderStreamMessage(html)
       })
     }
+  }
+
+  filterList(e) {
+    console.log("FILTER LIST", e);
+  }
+
+  addProvider(e) {
+    // Add/Remove from array
+    if ( e.target.checked ) {
+      if ( this.providers.length < 3 ) {
+        this.barTarget.style.display = 'flex'
+        this.providers.push(e.target.value)
+        // Get provider data
+        fetch('/proveedor/resumen/'+e.target.value, {
+          method: "GET",
+          headers: {
+            Accept: "text/vnd.turbo-stream.html"
+          }
+        })
+        .then(r => r.text())
+        .then(html => {
+          Turbo.renderStreamMessage(html)
+        })
+      }
+      else {
+        alert("Máximo de 3 proveedores autorizados")
+      }
+    }
     else {
       this.removeProvider(e)
     }
   }
+  //
   removeProvider(e) {
-    let pid = e.target.value 
-    let pi = this.providers.indexOf(pid)
-    if ( pi > -1 ) {
-      this.providers.splice(pi, 1)
+    if ( this.removeFromList(e.target.value) ) {
       //Remove from display
       document.getElementById("compare-"+pid).remove()
       document.getElementById("provider-selector-"+pid).checked = false
@@ -68,8 +74,34 @@ export default class extends Controller {
       this.barTarget.style.display = 'none'
     }
   }
+  //
+  removeFromCompare(e) {
+    if ( this.removeFromList(e.target.value) ) {
+      this.submit()
+    }
+  }
+  //
+  removeFromList(pid) {
+    let pi = this.providers.indexOf(pid)
+    if ( pi > -1 ) {
+      this.providers.splice(pi, 1)
+      return true
+    }
+    return false
+  }
+  //
+  submitWithProvider(e) {
+    if ( this.providers.length < 3 ) {
+      this.providers.push(e.target.value)
+      this.submit()
+    }
+    else {
+      alert("Máximo de 3 proveedores autorizados")
+    }
+  }
+  //
   submit() {
-    let url = "comparar/"+this.providers.join("/")
+    let url = "/comparar/"+this.providers.join("/")
     window.location.replace(url)
   }
 }

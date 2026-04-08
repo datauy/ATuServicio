@@ -39,7 +39,7 @@
   <div class="tabs-title">
     <h2>Listado de servicios de salud</h2>
     <p>Explorá los distintos servicios de salud dentro del país.</p>
-    <%= text_field_tag 'name', nil, placeholder: "Buscar por nombre" %>
+    <%= text_field_tag 'name', nil, { placeholder: "Buscar por nombre", data: {action: "keyup->tabs#search"}} %>
   </div>
   <div class="tabs-header">
     <%= button_tag "<i class='fas fa-house-medical'></i>Prestadores y servicios".html_safe,
@@ -56,13 +56,15 @@
     aria: { expanded: false, controls: "tab-other"}} %>
   </div>
   <div class="tabs-content">
-    <div id="tab-prestadores" class="tab-inner" data-controller="compare">
-    <div id="compare-bar" data-compare-target="bar">
-      <%= turbo_frame_tag "compare_list" %>
-      <button class="main-button" data-action="compare#submit">Comparar</button>
-    </div>
-      <% @providers.each do |p| %>
-        <%= render partial: '/provider/summary', locals: {provider: p} %>
+    <div id="tab-prestadores" class="tab-inner" data-controller="compare" data-compare-ctype-value="home">
+      <div id="compare-bar" data-compare-target="bar">
+        <%= turbo_frame_tag "compare_list" %>
+        <button class="main-button" data-action="compare#submit">Comparar</button>
+      </div>
+      <%= turbo_frame_tag "provider_list" do %>
+        <% @providers.each do |p| %>
+          <%= render partial: '/provider/summary', locals: {provider: p} %>
+        <% end %>
       <% end %>
     </div>
     <div id="tab-vacunatorios" class="tab-inner">

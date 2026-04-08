@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   connect() {
     console.log("CONECT TABS");
-    
+    this.current_tab = 'tab-prestadores'
   }
   
   switch_tab(e) {
@@ -18,6 +18,25 @@ export default class extends Controller {
     })
     //Show content
     let tid = e.target.getAttribute('aria-controls')
+    this.current_tab = tid
     document.getElementById(tid).style.display = 'flex'
+  }
+
+  search(e) {
+    switch(this.current_tab) {
+      case 'tab-prestadores':
+        fetch('/proveedor/?type=summary&name='+e.target.value, {
+        method: "GET",
+        headers: {
+          Accept: "text/vnd.turbo-stream.html"
+        }
+      })
+      .then(r => r.text())
+      .then(html => {
+        Turbo.renderStreamMessage(html)
+      })
+      break
+    }
+    
   }
 }

@@ -89,6 +89,23 @@ a {
     gap: 24px;
   }
 }
+.list {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  gap: 8px;
+  background: #FFF;
+  border-bottom: 1px solid var(--color-gris-03);
+  button {
+    text-align: left;
+    padding: 8px 16px;
+    &:nth-child(odd) {
+      background: var(--color-azul-4);
+    }
+  }
+
+}
 .main-button {
   background: var(--color-azul-presidencia);
   color: #FFF;

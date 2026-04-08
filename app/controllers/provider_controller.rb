@@ -27,8 +27,9 @@ class ProviderController < ApplicationController
     for id in 1..3 do
       provs.push(params[:"id#{id}"]) if params[:"id#{id}"].present?
     end
-    @providers = Provider.where(id: provs)
-    if @providers.length > 1
+    @pids = provs
+    @providers = Provider.where(id: provs).order(:short_name)
+    if @providers.length > 0
       @s = []
       Section.where(is_active: true).order(:weight).each do |s|
         data = []
@@ -61,16 +62,24 @@ class ProviderController < ApplicationController
         section['data'] = data
         @s.push(section)
       end
-    else
-      render :file => "#{Rails.root}/public/404.html",  :status => 404
     end
   end
 
   def search
-    @errors = []
-    @list = Provider.where( "name like ?" , params[:name] ).pluck(:id, :short_name).to_h
-    respond_to do |format|
-      format.turbo_stream
+    if params[:name].present?
+      @type = 'summary'
+      @providers = Provider.where( "LOWER(name) like ?" , "%#{params[:name].downcase}%" )
+      if params[:type].nil? || params[:type] != 'summary'
+        @type = 'list'
+        @providers = @providers.pluck(:id, :short_name).to_h
+      else
+        @sections = Section.where(is_home_card: true, is_active: true).order(:weight)
+      end
+      respond_to do |format|
+        format.turbo_stream
+      end
+    else
+      redirect_to root_url
     end
   end
 
