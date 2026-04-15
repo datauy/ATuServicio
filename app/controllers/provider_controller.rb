@@ -68,7 +68,7 @@ class ProviderController < ApplicationController
   def search
     if params[:name].present?
       @type = 'summary'
-      @providers = Provider.where( "LOWER(name) like ?" , "%#{params[:name].downcase}%" )
+      @providers = Provider.search(params[:name])
       if params[:type].nil? || params[:type] != 'summary'
         @type = 'list'
         @providers = @providers.pluck(:id, :short_name).to_h

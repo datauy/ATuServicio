@@ -1,7 +1,7 @@
 <div class="providers" data-controller="compare" data-compare-ctype-value="compare" data-compare-pids-value="<%= @pids %>">
   <div class="header">
     <div class="tags page-tag tag-prestadores"><i class='fas fa-house-medical'></i>Prestadores y servicios</div>
-    <h1>Tomá una desición acertada</h1>
+    <h1>Tomá una desición informada</h1>
     <div class="page-description">Seleccioná hasta 3 prestadores para comparar</div>
     <input type="text" name="provider" data-action='keyup->compare#searchProvider' placeholder="Busca por nombre"/>
     <%= turbo_frame_tag "provider_list" %>

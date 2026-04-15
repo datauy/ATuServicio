@@ -20,6 +20,8 @@ class Provider < ApplicationRecord
     ["provider_datum", "provider_indicators", "provider_prices", "sites", "specialities", "zones"]
   end
 
+  scope :search , -> (str) { where("LOWER(name) like ? OR LOWER(short_name) like ? " , "%#{str.downcase}%", "%#{str.downcase}%") }
+  
   def asse?
     nombre_abreviado.include?('ASSE')
   end
@@ -32,6 +34,7 @@ class Provider < ApplicationRecord
   def sites_by_state(state)
     sites.where(departamento: state.proper_name).order(localidad: :asc)
   end
+
     
   def cards(sections)
     cards = []

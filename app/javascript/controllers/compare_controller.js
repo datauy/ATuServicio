@@ -34,7 +34,22 @@ export default class extends Controller {
   }
 
   filterList(e) {
-    console.log("FILTER LIST", e);
+    if ( e.target.value.length > 2 ) {
+      let val = e.target.value.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '')
+      document.querySelectorAll('.item.label').forEach(i => {
+        if (i.innerHTML.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').includes(val) ) {
+          i.parentNode.style.display = "grid"
+          let section = i.closest('.section')
+          if ( section.querySelector('.arrow').ariaExpanded == "false" ) {
+            section.querySelector('.arrow').ariaExpanded = 'true'
+            section.querySelector('.section-content').style.display = 'flex'
+          }
+        }
+        else {
+          i.parentNode.style.display = "none"
+        }
+      })
+    }
   }
 
   addProvider(e) {
