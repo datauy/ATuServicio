@@ -29,18 +29,6 @@
         font-weight: 700;
         letter-spacing: 0px;
       }
-      .close {
-        font-weight: 900;
-        padding: 1px 6px;
-        border: 2px solid var(--color-gris-01);
-        width: fit-content;
-        border-radius: 100%;
-        font-size: 12px;
-        position: absolute;
-        left: 24px;
-        color: var(--color-gris-01);
-        top: 24px;
-      }
     }
     .filters {
       justify-content: end;

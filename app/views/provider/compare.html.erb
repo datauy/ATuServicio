@@ -29,14 +29,14 @@
   <div class="section" data-controller="section">
     <div class="section-header">
       <div class="header-left">
-        <%= button_tag image_tag('/images/arrow.svg'),
+        <%= button_tag "#{image_tag('/images/arrow.svg')}<h3>#{s['title']}</h3>".html_safe,
         class: 'arrow',
         aria: { expanded: false, controls: "section-#{s['id']}"},
         data: { 
           "section-target": "expand", 
           action: 'click->section#toggleVisibility' 
         }%>
-        <h3><%= s['title'] %></h3>
+        
           <%= button_tag "<i class='fas fa-circle-info'></i>".html_safe,
           class: 'arrow',
           aria: { expanded: false, controls: "info-#{s['id']}"},
@@ -53,8 +53,13 @@
       <% end %>
       <%= render partial: s['name'], locals: { section: s }%>
     </div>
+    <div class="backdrop" data-section-target="infopanel" data-action='click->section#toggleInfo'>
+      <div id="info-<%= s['id'] %>" class="info-box">
+        <button class="close" data-action='click->section#toggleInfo:stop'>X</button>
+        <div class="info-content"><%= s['info'].present? ? s['info'].html_safe : '' %></div>
+      </div>
+    </div>
   </div>
-  <div id="info-<%= s['id'] %>" class="backdrop info-box"><%= s['info'] %></div>
   <% end %>
 <% end %>
 </div>

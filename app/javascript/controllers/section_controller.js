@@ -10,6 +10,14 @@ export default class extends Controller {
 
   toggleInfo() {
     console.log("TOGGLE INFO", this.infotriggerTarget);
+    if ( this.infotriggerTarget.ariaExpanded == "true" ) {
+      this.infotriggerTarget.ariaExpanded = false
+      this.infopanelTarget.style.display = 'none'
+    }
+    else {
+      this.infotriggerTarget.ariaExpanded = true
+      this.infopanelTarget.style.display = 'flex'
+    }
   }
   toggleVisibility() {
     console.log("TOGGLE VIASIBILITY", this.expandTarget);

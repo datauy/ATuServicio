@@ -1,11 +1,11 @@
 ActiveAdmin.register Section do
   # Specify parameters which should be permitted for assignment
-  permit_params :title, :name, :description, :year, :period, :is_home_card, :weight, :is_active
+  permit_params :title, :name, :description, :year, :period, :is_home_card, :weight, :is_active, :info
 
   # or consider:
   #
   # permit_params do
-  #   permitted = [:title, :name, :description, :year, :period, :is_home_card, :weight, :is_active]
+  #   permitted = [:title, :name, :description, :year, :period, :is_home_card, :weight, :is_active, :info]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
@@ -25,6 +25,7 @@ ActiveAdmin.register Section do
   filter :updated_at
   filter :weight
   filter :is_active
+  filter :info
 
   # Add or remove columns to toggle their visibility in the index action
   index do
@@ -40,6 +41,7 @@ ActiveAdmin.register Section do
     column :updated_at
     column :weight
     column :is_active
+    column :info
     actions
   end
 
@@ -57,6 +59,7 @@ ActiveAdmin.register Section do
       row :updated_at
       row :weight
       row :is_active
+      row :info
     end
   end
 
@@ -72,6 +75,7 @@ ActiveAdmin.register Section do
       f.input :is_home_card
       f.input :weight
       f.input :is_active
+      f.input :info
     end
     f.actions
   end

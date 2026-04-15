@@ -50,6 +50,15 @@ export default class extends Controller {
         }
       })
     }
+    else {
+      this.clearFiters();
+    }
+  }
+
+  clearFiters() {
+    document.querySelectorAll('.section-inner-content .row').forEach( r => {
+      r.style.display = "grid"
+    })
   }
 
   addProvider(e) {

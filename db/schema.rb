@@ -74,6 +74,20 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_03_201029) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "human_resources", force: :cascade do |t|
+    t.bigint "provider_id", null: false
+    t.bigint "zone_id", null: false
+    t.bigint "speciality_id", null: false
+    t.decimal "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "year"
+    t.string "period"
+    t.index ["provider_id"], name: "index_human_resources_on_provider_id"
+    t.index ["speciality_id"], name: "index_human_resources_on_speciality_id"
+    t.index ["zone_id"], name: "index_human_resources_on_zone_id"
+  end
+
   create_table "indicator_actives", force: :cascade do |t|
     t.bigint "indicator_id"
     t.integer "year"
@@ -269,6 +283,9 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_03_201029) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "human_resources", "providers"
+  add_foreign_key "human_resources", "specialities"
+  add_foreign_key "human_resources", "zones"
   add_foreign_key "indicator_actives", "indicators"
   add_foreign_key "indicators", "sections"
   add_foreign_key "provider_appointments", "providers"
