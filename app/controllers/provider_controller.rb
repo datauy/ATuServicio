@@ -66,20 +66,21 @@ class ProviderController < ApplicationController
   end
 
   def search
+    @type = 'summary'
     if params[:name].present?
-      @type = 'summary'
       @providers = Provider.search(params[:name])
-      if params[:type].nil? || params[:type] != 'summary'
-        @type = 'list'
-        @providers = @providers.pluck(:id, :short_name).to_h
-      else
-        @sections = Section.where(is_home_card: true, is_active: true).order(:weight)
-      end
-      respond_to do |format|
-        format.turbo_stream
-      end
     else
-      redirect_to root_url
+      #TODO: Agregar validación de activo
+      @providers = Provider.all
+    end
+    if params[:type].nil? || params[:type] != 'summary'
+      @type = 'list'
+      @providers = @providers.pluck(:id, :short_name).to_h
+    else
+      @sections = Section.where(is_home_card: true, is_active: true).order(:weight)
+    end
+    respond_to do |format|
+      format.turbo_stream
     end
   end
 

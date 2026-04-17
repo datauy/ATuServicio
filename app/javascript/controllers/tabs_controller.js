@@ -25,16 +25,20 @@ export default class extends Controller {
   search(e) {
     switch(this.current_tab) {
       case 'tab-prestadores':
-        fetch('/proveedor/?type=summary&name='+e.target.value, {
+        let url = '/proveedor/?type=summary'
+        if ( e.target.value.length > 2 ) {
+          url = '/proveedor/?type=summary&name='+e.target.value
+        }
+        fetch(url, {
         method: "GET",
         headers: {
           Accept: "text/vnd.turbo-stream.html"
         }
-      })
-      .then(r => r.text())
-      .then(html => {
-        Turbo.renderStreamMessage(html)
-      })
+        })
+        .then(r => r.text())
+        .then(html => {
+          Turbo.renderStreamMessage(html)
+        })
       break
     }
     

@@ -106,6 +106,7 @@
     height: 100%;
     min-width: 268px;
     color: var(--color-gris-01);
+    overflow: hidden;
     .card-header {
       .header-top {
         height: 30px;

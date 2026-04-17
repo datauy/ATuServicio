@@ -2,7 +2,7 @@ require 'csv'
 
 namespace :importer do
   @year = '2025'
-  @period = '1'
+  @period = '2'
   @strict = true
 
   #TODO: set as default function before task

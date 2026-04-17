@@ -20,7 +20,7 @@ class Provider < ApplicationRecord
     ["provider_datum", "provider_indicators", "provider_prices", "sites", "specialities", "zones"]
   end
 
-  scope :search , -> (str) { where("LOWER(name) like ? OR LOWER(short_name) like ? " , "%#{str.downcase}%", "%#{str.downcase}%") }
+  scope :search , -> (str) { where("LOWER(name) like ? OR LOWER(short_name) like ? " , "%#{str.downcase}%", "%#{str.downcase}%").order(:short_name) }
   
   def asse?
     nombre_abreviado.include?('ASSE')
