@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gtype: MyString
+  name: MyString
+  description: MyText
+  zone: one
+
+two:
+  gtype: MyString
+  name: MyString
+  description: MyText
+  zone: two

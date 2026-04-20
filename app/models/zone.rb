@@ -21,5 +21,7 @@ class Zone < ApplicationRecord
     "Localidad",
     'Municipio',
     'Barrio',
+    'Zona',
+    'Punto'
   ]
 end

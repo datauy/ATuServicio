@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_04_03_201029) do
+ActiveRecord::Schema[8.0].define(version: 2026_04_20_154852) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -66,6 +66,28 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_03_201029) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "data", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "key"
+    t.boolean "is_active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "geo_entities", force: :cascade do |t|
+    t.string "gtype"
+    t.string "name"
+    t.text "description"
+    t.bigint "zone_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "is_active"
+    t.bigint "site_id"
+    t.index ["site_id"], name: "index_geo_entities_on_site_id"
+    t.index ["zone_id"], name: "index_geo_entities_on_zone_id"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -229,6 +251,17 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_03_201029) do
     t.text "info"
   end
 
+  create_table "site_data", force: :cascade do |t|
+    t.bigint "datum_id", null: false
+    t.bigint "site_id", null: false
+    t.integer "year"
+    t.string "period"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["datum_id"], name: "index_site_data_on_datum_id"
+    t.index ["site_id"], name: "index_site_data_on_site_id"
+  end
+
   create_table "sites", force: :cascade do |t|
     t.bigint "zone_id", null: false
     t.string "name"
@@ -283,6 +316,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_03_201029) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "geo_entities", "sites"
+  add_foreign_key "geo_entities", "zones"
   add_foreign_key "human_resources", "providers"
   add_foreign_key "human_resources", "specialities"
   add_foreign_key "human_resources", "zones"
@@ -301,6 +336,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_03_201029) do
   add_foreign_key "provider_specialists", "providers"
   add_foreign_key "provider_specialists", "specialities"
   add_foreign_key "provider_specialists", "zones"
+  add_foreign_key "site_data", "data"
+  add_foreign_key "site_data", "sites"
   add_foreign_key "sites", "providers"
   add_foreign_key "sites", "zones"
   add_foreign_key "wait_times", "providers"

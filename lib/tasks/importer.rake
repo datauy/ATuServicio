@@ -1,8 +1,8 @@
 require 'csv'
 
 namespace :importer do
-  @year = '2025'
-  @period = '2'
+  @year = '2026'
+  @period = '1'
   @strict = true
 
   #TODO: set as default function before task
@@ -95,11 +95,39 @@ namespace :importer do
       end
     end
   end
-
+  #
+  task :geo, [:file, :gtype] => [:environment] do |_, args|
+    file = 'vacunatorios.csv'
+    gtype = 'vacunatorio'
+    if args[:file].present?
+      file = args[:file]
+    end
+    if args[:gtype].present?
+      gtype = args[:gtype]
+    end
+    # TODO: add state to vacunatorios and others
+    import_file(file) do |row|
+      if row["WKT"].present? && row['name'].present?
+        z = {
+          wkt: row["WKT"],
+          name: row['name'],
+          ztype: 'Punto'
+        }
+        zone = Zone.find_or_create_by(z)
+        geo = GeoEntity.find_or_create_by({
+          zone: zone,
+          gtype: gtype,
+          name: row['name'],
+        })
+        geo.update(is_active: true, description: row['description'])
+      end
+    end
+  end
+  #
   def providers
     puts 'Creating or updating providers'
     provider_ids = []
-    import_file("estructura.csv", col_sep: ';') do |row|
+    import_file("estructura.csv") do |row|
       provider = Provider.find_or_create_by( id: row[0] )
       provider_ids.push(row[0])
       provider.update(
@@ -131,7 +159,7 @@ namespace :importer do
   #
   def prices()
     puts 'Import Prices'
-    import_file("precios.csv", col_sep: ';') do |row|
+    import_file("precios.csv") do |row|
       #provider = Provider.find(row['id_mutualista'])
       Price.all.each do |p|
         npp = {
@@ -160,7 +188,7 @@ namespace :importer do
   # Import specialists
   #
   def specialists()
-    import_file("rrhh_especialistas.csv", col_sep: ';') do |row|
+    import_file("rrhh_especialistas.csv") do |row|
       speciality = Speciality.find_or_create_by( name: row["specialty"] )
       state = nil;
       if ( row["state"] != 'total país')
@@ -195,7 +223,7 @@ namespace :importer do
     puts 'Import RRHH'
     sec = Section.find_by(name: 'rrhh')
     if sec.present?
-      import_file("rrhh_general.csv", col_sep: ';') do |row|
+      import_file("rrhh_general.csv") do |row|
         cads = Indicator.where(section_id: sec.id, active: true, abbr: row['indicator'])
         create_indicator(row, cads)
       end
@@ -207,7 +235,7 @@ namespace :importer do
     sec = Section.find_by(name: 'rrhh_cad')
     if sec.present?
       cads = Indicator.where(section_id: sec.id, active: true)
-      import_file("rrhh_cad.csv", col_sep: ';') do |row|
+      import_file("rrhh_cad.csv") do |row|
         create_indicator(row, cads)
       end
     end
@@ -218,7 +246,7 @@ namespace :importer do
     sec = Section.find_by(name: 'goals')
     if sec.present?
       cads = Indicator.where(section_id: sec.id, active: true)
-      import_file("metas.csv", col_sep: ';') do |row|
+      import_file("metas.csv") do |row|
         create_indicator(row, cads)
       end
     end
@@ -267,7 +295,7 @@ namespace :importer do
     end
   end
   #
-  def import_file(file, custom_options = nil, &block)
+  def import_file(file, &block)
     options = {headers: true}
     #options.merge!(custom_options) if custom_options
     f = File.join(Rails.root, "db/data/", @period ? "#{@year}-#{@period}" : @year, file)
