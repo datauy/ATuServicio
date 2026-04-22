@@ -108,16 +108,17 @@ namespace :importer do
     # TODO: add state to vacunatorios and others
     import_file(file) do |row|
       if row["WKT"].present? && row['name'].present?
+        name = row['name'].remove("\t")
         z = {
           wkt: row["WKT"],
-          name: row['name'],
+          name: name,
           ztype: 'Punto'
         }
         zone = Zone.find_or_create_by(z)
         geo = GeoEntity.find_or_create_by({
           zone: zone,
           gtype: gtype,
-          name: row['name'],
+          name: name,
         })
         geo.update(is_active: true, description: row['description'])
       end

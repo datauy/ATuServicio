@@ -1,4 +1,4 @@
-<div class="map-wraper" data-controller="map">
+<div class="map-wraper" data-controller="map" data-map-geodata-value="<%= ActiveSupport::JSON.encode(@geodata) %>">
   <div id="map" data-map-target="container"></div>
   <div id="map-controls">
     <h1>Te damos la bienvenida a A Tu Servicio</h1>
@@ -15,10 +15,10 @@
       <div class="tags">
         <div>
           <i class="fas fa-house-medical"></i>
-          <span>Prestadores</span>
+          <span>Hospitales</span>
         </div>
         <label class="switch">
-          <%= check_box_tag :providers_map, true, data: {'map-prestador-value': true, action: "map#changeServices" }%>
+          <%= check_box_tag :first_level_map, 'firstLevel', data: {'map-prestadores-value': true, action: "map#changeServices" }%>
           <span class="slider round"></span>
         </label>
       </div>
@@ -28,7 +28,17 @@
           <span>Policlínicas</span>
         </div>
         <label class="switch">
-          <%= check_box_tag :providers_map, true, data: {'map-policlinicas-value': true, action: "map#changeServices" }%>
+          <%= check_box_tag :third_level_map, 'thirdLevel', data: {'map-policlinicas-value': true, action: "map#changeServices" }%>
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="tags">
+        <div>
+          <i class="fas fa-syringe"></i>
+          <span>Vacunatorios</span>
+        </div>
+        <label class="switch">
+          <%= check_box_tag :vacunatorios_map, 'vacunatorios', data: {'map-vacunatorios-value': true, action: "map#changeServices" }%>
           <span class="slider round"></span>
         </label>
       </div>
