@@ -24,4 +24,6 @@ class Zone < ApplicationRecord
     'Zona',
     'Punto'
   ]
+
+  scope :search , -> (str, ztype) { where(ztype: ztype).where("LOWER(name) like ? " , "%#{str.downcase}%").order(:name) }
 end

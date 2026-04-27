@@ -230,17 +230,39 @@ precios:
         - rx_colorectal_no_fonasa
         - resonancia_no_fonasa
         - tomografia_no_fonasa
-sedes:
+sites:
   description:
-    - "Direccion"
-    - "Departamento"
-    - "Localidad"
-    - "Nivel"
   columns:
-    - direccion
-    - departamento
-    - localidad
-    - nivel
+    - numero_consultorios
+    - especifique_imagenologia
+    - farmacia__etiqueta
+    - dispensacion_medicamentos__etiqueta
+    - numero_camas_cm
+    - numero_block
+    - especificar_imagen
+    - puerta_urgencia__etiqueta
+    - numero_camas_box
+    - numero_sillones
+    - camas_de_reanimacion
+    - metros_cuadrados_totales
+    - numero_salas_maternidad
+    - numero_camas_alojamiento
+    - centro_de_materiales__etiqueta
+    - especifique_centro_mat
+    - servicio_imagen__etiqueta
+    - laboratorio__etiqueta
+    - metros_cuadrados_apoyo
+    - nuemro_block
+    - camas_recuperacion_block
+    - cti_tn__etiqueta
+    - numero_de_camas_adultos
+    - numero_de_camas_intermedios
+    - numero_de_unidades
+    - numero_de_camas_pediatrico
+    - numero_de_camas_boxTN
+    - numero_de_sillones
+    - numero_de_camas_reanimacionTN
+    - metros_cuadradosTN
   definition:
     string:
       - direccion

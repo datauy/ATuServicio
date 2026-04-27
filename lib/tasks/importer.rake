@@ -44,12 +44,20 @@ namespace :importer do
     set_env(args)
     goals()
   end
+  task :sites, [:year, :period, :asse] => [:environment] do |_, args|
+    set_env(args)
+    p = Provider.find(9000)
+    #sites('hospitales-ASSE.csv', "Tercer nivel de atención", [p])
+    #sites('centros-salud-ASSE.csv', "Segundo nivel de atención", [p])
+    sites('policlinicas-ASSE.csv', "Primer nivel de atención", [p])
+    #sites('sedes.csv')
+  end
 
   task :metadata, [:mtype] => [:environment] do |_, args|
     metadata = YAML.load_file(File.join(Rails.root, "config", "metadata.yml")).to_h
     metadata.keys.each do |key|
       case key
-      when 'precios'
+      when 'stalled'#'precios'
         puts "IMPORT PRICES"
         i = 0
         metadata['precios']["description"].each do |desc|
@@ -70,7 +78,7 @@ namespace :importer do
           end
           i += 1
         end
-      when 'rrhh', 'rrhh_cad', 'goals'
+      when 'stall' #'rrhh', 'rrhh_cad', 'goals'
         puts "IMPORT INDICATOR #{key}"
         i = 0
         section = Section.find_by(name: key)
@@ -91,6 +99,13 @@ namespace :importer do
           end
         else
           puts "Section NOT FOUND: #{key}"
+        end
+      when 'sites'
+        metadata['sites']["columns"].each do |key|
+          data = Datum.find_or_create_by({
+            key: key,
+            title: key
+          })
         end
       end
     end
@@ -121,6 +136,89 @@ namespace :importer do
           name: name,
         })
         geo.update(is_active: true, description: row['description'])
+      end
+    end
+  end
+  #
+  def sites(file, level = nil, p = nil)
+    asse = false
+    if p.present?
+      asse = true
+    end
+    import_file(file) do |row|
+      if (row['tipo'].present? || asse) && (p.present? || row['prestador']) && row['estado etapa'] != 'pendiente' && row['departamen'].present?
+        puts "SITES START #{row['nombre']}"
+        #get State
+        state = Zone.search(row['departamen'], "Departamento")
+        #get prestador
+        if p.nil?
+          p = Provider.search( I18n.transliterate(row['prestador']) )
+        end
+        if state.empty? || p.empty?
+          puts "DEPTO #{row['departament']} O PROVIDER #{row['prestador']} NO ENCONTRADO "
+          next
+        end
+        parent_id = state.first.id
+        if row['localidad'].present?
+          #Get Location
+          location = Zone.search(row['localidad'], "Localidad")
+          if location.empty?
+            location = Zone.create({
+              name: row['localidad'],
+              ztype: "Localidad",
+              parent_zone_id: parent_id
+            })
+          else
+            location = location.first
+          end
+          parent_id = location.id
+        end
+        #Get Point
+        point = Zone.find_or_create_by({
+          name: "#{row['prestador']} - #{row['nombre']}}",
+          ztype: "Punto",
+          parent_zone_id: parent_id,
+          wkt: "POINT (#{row['lon']}, #{row['lat']})"
+        })
+        s = Site.find_or_create_by({
+          provider: p.first,
+          zone: point,
+          name: row['nombre'],
+          description: row['desc'],
+          stype: row['tipo'],
+          address: row['calle'],
+          address_comp: row['calle_nro'],
+          highway: row['ruta'],
+          highway_km: row['km'],
+        })
+        puts "Site Created: #{row['nombre_del_establecimiento']}"
+        if (!asse)
+          #get site data
+          metadata = YAML.load_file(File.join(Rails.root, "config", "metadata.yml")).to_h
+          metadata['sites']['columns'].each do |key|
+            #get Datum
+            d = Datum.find_by(key: key)
+            if d.present?
+              SiteDatum.find_or_create_by({
+                datum: d,
+                site: s,
+                level: row['nivel'].present? ? row['nivel'] : level,
+                year: @year,
+                period: @period,
+              })
+            else
+              puts "DATUM NOT FOUND"
+            end
+          end
+        else
+          puts "CREATE EMPTY DATUM"
+          SiteDatum.find_or_create_by({
+            site: s,
+            level: row['nivel'].present? ? row['nivel'] : level,
+            year: @year,
+            period: @period,
+          })
+        end
       end
     end
   end

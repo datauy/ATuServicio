@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_04_20_154852) do
+ActiveRecord::Schema[8.0].define(version: 2026_04_24_163507) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -258,6 +258,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_20_154852) do
     t.string "period"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "level"
     t.index ["datum_id"], name: "index_site_data_on_datum_id"
     t.index ["site_id"], name: "index_site_data_on_site_id"
   end
@@ -268,9 +269,15 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_20_154852) do
     t.text "description"
     t.string "address"
     t.bigint "provider_id", null: false
-    t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "stype"
+    t.string "address_comp"
+    t.string "highway"
+    t.string "highway_km"
+    t.string "phone"
+    t.string "web"
+    t.string "email"
     t.index ["provider_id"], name: "index_sites_on_provider_id"
     t.index ["zone_id"], name: "index_sites_on_zone_id"
   end
