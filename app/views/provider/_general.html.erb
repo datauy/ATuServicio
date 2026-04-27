@@ -1,38 +1,36 @@
-<div class="section-inner-content general">
-  <div class="row">
-    <div class="item label">Nombre abreviado</div>
-    <% for i in 0..(@providers.length - 1)%>
-      <div class="item"><%= @providers[i].short_name %></div>
-    <% end %>
-  </div>
-  <div class="row">
-    <div class="item label">Nombre Completo</div>
-    <% for i in 0..(@providers.length - 1)%>
-      <div class="item"><%= @providers[i].name %></div>
-    <% end %>
-  </div>
-  <div class="row">
-    <div class="item label">Afiliados por Fonasa</div>
-    <% for i in 0..(@providers.length - 1)%>
-      <div class="item"><%= section['data'][i][:fonasa_users] %></div>
-    <% end %>
-  </div>
-  <div class="row">
-    <div class="item label">Afiliados no Fonasa</div>
-    <% for i in 0..(@providers.length - 1)%>
-      <div class="item"><%= section['data'][i][:no_fonasa_users] %></div>
-    <% end %>
-  </div>
-  <div class="row">
-    <div class="item label">Total de afiliados</div>
-    <% for i in 0..(@providers.length - 1)%>
-      <div class="item"><%= section['data'][i][:total] %></div>
-    <% end %>
-  </div>
-  <div class="row">
-    <div class="item label">Comunicación en soporte electrónico (página web)</div>
-    <% for i in 0..(@providers.length - 1)%>
-      <div class="item"><%= @providers[i].communication %></div>
-    <% end %>
-  </div>
+<div class="row">
+  <div class="item label">Nombre abreviado</div>
+  <% for i in 0..(@providers.length - 1)%>
+    <div class="item"><%= @providers[i].short_name %></div>
+  <% end %>
+</div>
+<div class="row">
+  <div class="item label">Nombre Completo</div>
+  <% for i in 0..(@providers.length - 1)%>
+    <div class="item"><%= @providers[i].name %></div>
+  <% end %>
+</div>
+<div class="row">
+  <div class="item label">Afiliados por Fonasa</div>
+  <% for i in 0..(@providers.length - 1)%>
+    <div class="item"><%= section['data'][i][:fonasa_users] %></div>
+  <% end %>
+</div>
+<div class="row">
+  <div class="item label">Afiliados no Fonasa</div>
+  <% for i in 0..(@providers.length - 1)%>
+    <div class="item"><%= section['data'][i][:no_fonasa_users] %></div>
+  <% end %>
+</div>
+<div class="row">
+  <div class="item label">Total de afiliados</div>
+  <% for i in 0..(@providers.length - 1)%>
+    <div class="item"><%= section['data'][i][:total] %></div>
+  <% end %>
+</div>
+<div class="row">
+  <div class="item label">Comunicación en soporte electrónico (página web)</div>
+  <% for i in 0..(@providers.length - 1)%>
+    <div class="item"><%= @providers[i].communication %></div>
+  <% end %>
 </div>

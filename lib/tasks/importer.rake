@@ -173,15 +173,16 @@ namespace :importer do
           end
           parent_id = location.id
         end
+        provider = p.first
         #Get Point
         point = Zone.find_or_create_by({
-          name: "#{row['prestador']} - #{row['nombre']}}",
+          name: "#{provider.name} - #{row['nombre']}",
           ztype: "Punto",
           parent_zone_id: parent_id,
           wkt: "POINT (#{row['lon']}, #{row['lat']})"
         })
         s = Site.find_or_create_by({
-          provider: p.first,
+          provider: provider,
           zone: point,
           name: row['nombre'],
           description: row['desc'],

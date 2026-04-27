@@ -1,4 +1,3 @@
-<div class="section-inner-content prices">
 <% Price.where(is_active: true).order(:weight).each do |p| %>
   <div class="row">
     <div class="item label"><%= p.name %> FONASA</div>
@@ -13,4 +12,3 @@
     <% end %>
   </div>
 <% end %>
-</div>

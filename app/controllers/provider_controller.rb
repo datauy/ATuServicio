@@ -55,6 +55,25 @@ class ProviderController < ApplicationController
             datum = p.provider_specialists.
             where( year: s.year, period: s.period).
             pluck(:speciality_id, :value).to_h
+          when 'sites'
+            datum = {}
+            loc = ''
+            p.zones.each do |z|
+              zones = z.get_tree
+              zsites = z.sites.where(provider_id: p.id)
+              zsites.each do |zs|
+                site = zs.serializable_hash
+                site['zones'] = zones
+                site['levels'] = zs.site_data.order(:level).pluck(:level)
+                #Add Site
+                depto = zones['Departamento'].name
+                if datum[depto].present?
+                  datum[depto].push(site)
+                else
+                  datum[depto] = [site]
+                end
+              end
+            end
           end
           data.push(datum)
         end

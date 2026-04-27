@@ -1,0 +1,34 @@
+<div class="row">
+<div class="empty"></div>
+<% section['data'].each do |pd| %>
+  <div class="column">
+  <% pd.keys.each do |depto, i| %>
+    <div class="section" data-controller="section">
+    <div class="section-header">
+      <div class="header-left">
+        <%= button_tag "#{image_tag('/images/arrow.svg')}<h4>#{depto}</h4>".html_safe,
+        class: 'arrow',
+        aria: { expanded: false, controls: "depto-#{i}"},
+        data: { 
+          "section-target": "expand", 
+          action: 'click->section#toggleVisibility' 
+        }%>
+      </div>
+    </div>
+    <div id="depto-<%= i %>" class="depto-content" data-section-target="content">
+      <% pd[depto].each do |site| %>
+      <div class="item">
+        <div class="name"><%= site['name'] %></div>
+        <div class="description"><%= site['description'] %></div>
+        <div class="tags">
+          <% site['levels'].each do |level| %>
+            <button class="level"><%= level %></button>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+<% end %>
+</div>

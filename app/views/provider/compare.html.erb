@@ -51,7 +51,9 @@
       <% if s['description'].present? && s['description'] != '' %>
         <div class="section-description"><%= s['description'] %></div>
       <% end %>
-      <%= render partial: s['name'], locals: { section: s }%>
+      <div class="section-inner-content <%= s["name"]%>">
+        <%= render partial: s['name'], locals: { section: s }%>
+      </div>
     </div>
     <div class="backdrop" data-section-target="infopanel" data-action='click->section#toggleInfo'>
       <div id="info-<%= s['id'] %>" class="info-box">

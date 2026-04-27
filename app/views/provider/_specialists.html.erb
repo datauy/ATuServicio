@@ -1,4 +1,3 @@
-<div class="section-inner-content <%= section["name"]%>">
 <% Speciality.where(is_active: true).order(:weight).each do |spec| %>
   <div class="row">
     <div class="item label"><%= spec.name %></div>
@@ -7,4 +6,3 @@
     <% end %>
   </div>
 <% end %>
-</div>
