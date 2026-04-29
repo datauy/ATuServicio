@@ -193,6 +193,7 @@ namespace :importer do
           highway_km: row['km'],
         })
         puts "Site Created: #{row['nombre_del_establecimiento']}"
+        level = row['nivel'].present? ? row['nivel'] : level
         if (!asse)
           #get site data
           metadata = YAML.load_file(File.join(Rails.root, "config", "metadata.yml")).to_h
@@ -203,9 +204,10 @@ namespace :importer do
               SiteDatum.find_or_create_by({
                 datum: d,
                 site: s,
-                level: row['nivel'].present? ? row['nivel'] : level,
+                level: level,
                 year: @year,
                 period: @period,
+                value: row[key]
               })
             else
               puts "DATUM NOT FOUND"
@@ -215,7 +217,7 @@ namespace :importer do
           puts "CREATE EMPTY DATUM"
           SiteDatum.find_or_create_by({
             site: s,
-            level: row['nivel'].present? ? row['nivel'] : level,
+            level: level,
             year: @year,
             period: @period,
           })

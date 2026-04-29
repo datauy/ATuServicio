@@ -28,5 +28,7 @@ Rails.application.routes.draw do
   #API
   get "proveedor", to: "provider#search", as: "provider_search" 
   get "proveedor/resumen/:id", to: "provider#get_summary", as: "provider_summary"
+  #Sites
+  get "site-data/:id", to: "site#site_data"
 
 end

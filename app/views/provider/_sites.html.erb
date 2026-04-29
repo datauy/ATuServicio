@@ -2,33 +2,51 @@
 <div class="empty"></div>
 <% section['data'].each do |pd| %>
   <div class="column">
-  <% pd.keys.each do |depto, i| %>
+  <% pd.keys.sort.each do |depto, i| %>
     <div class="section" data-controller="section">
-    <div class="section-header">
-      <div class="header-left">
-        <%= button_tag "#{image_tag('/images/arrow.svg')}<h4>#{depto}</h4>".html_safe,
-        class: 'arrow',
-        aria: { expanded: false, controls: "depto-#{i}"},
-        data: { 
-          "section-target": "expand", 
-          action: 'click->section#toggleVisibility' 
-        }%>
-      </div>
-    </div>
-    <div id="depto-<%= i %>" class="depto-content" data-section-target="content">
-      <% pd[depto].each do |site| %>
-      <div class="item">
-        <div class="name"><%= site['name'] %></div>
-        <div class="description"><%= site['description'] %></div>
-        <div class="tags">
-          <% site['levels'].each do |level| %>
-            <button class="level"><%= level %></button>
-          <% end %>
+      <div class="section-header">
+        <div class="header-left">
+          <%= button_tag "#{image_tag('/images/arrow.svg')}<h4>#{depto}</h4>".html_safe,
+          class: 'arrow',
+          aria: { expanded: false, controls: "depto-#{i}"},
+          data: { 
+            "section-target": "expand", 
+            action: 'click->section#toggleVisibility' 
+          }%>
         </div>
       </div>
-      <% end %>
+      <div id="depto-<%= i %>" class="depto-content" data-section-target="content">
+        <% pd[depto].each do |site| %>
+        <div class="item" data-controller="site">
+          <div class="name"><%= site['name'] %></div>
+          <div class="description"><%= site['description'] %></div>
+          <div class="tags">
+            <% site['levels'].each do |level| %>
+              <div class="tag level" 
+              data-controller="site" 
+              data-site-site-value="<%= site['id'] %>" 
+              data-site-level-value="<%= level %>">
+                <%= button_tag level,
+                  class: 'level',
+                  aria: { expanded: false, controls: "site-backdrop"},
+                  data: {
+                    "site-target": "button",
+                    action: "click->site#toggleModal" 
+                  }
+                %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
   <% end %>
   </div>
 <% end %>
+</div>
+<div id="site-backdrop" class="backdrop" data-controller="site" data-action='click->site#closeModal'>
+  <div class="info-box">
+    <%= turbo_frame_tag "site_data" %>
+  </div>
 </div>

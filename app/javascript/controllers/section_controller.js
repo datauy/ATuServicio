@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="section"
 export default class extends Controller {
-  static values = { section: Number, question: Number, id: Number, position: Number }
+  static values = { section: Number, question: Number, id: Number, position: Number}
   static targets = ["expand", "content", "infotrigger", "infopanel"]
 
   connect() {
@@ -29,6 +29,5 @@ export default class extends Controller {
       this.expandTarget.ariaExpanded = true
       this.contentTarget.style.display = 'flex'
     }
-
   }
 }

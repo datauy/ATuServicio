@@ -1,0 +1,12 @@
+<%= turbo_stream.update("site_data") do %>
+  <% if @data.length > 1 %>
+    <% @data.each do |sd| %>
+      <div class="row">  
+        <div class="item label"><%= sd.datum.title %></div>
+        <div class="item"><%= sd.value %></div>
+      </div>
+    <% end %>
+  <% else %>
+    <b>No hay datos para mostrar</b>
+  <% end %>
+<% end %>

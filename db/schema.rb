@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_04_24_163507) do
+ActiveRecord::Schema[8.0].define(version: 2026_04_28_203114) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -252,13 +252,14 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_24_163507) do
   end
 
   create_table "site_data", force: :cascade do |t|
-    t.bigint "datum_id", null: false
+    t.bigint "datum_id"
     t.bigint "site_id", null: false
     t.integer "year"
     t.string "period"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "level"
+    t.decimal "value"
     t.index ["datum_id"], name: "index_site_data_on_datum_id"
     t.index ["site_id"], name: "index_site_data_on_site_id"
   end

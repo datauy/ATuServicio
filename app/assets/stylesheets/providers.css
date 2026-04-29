@@ -196,8 +196,15 @@
         font-weight: 600;
       }
     }
+    .sites .row {
+      align-items: start;
+    }
     .row:nth-child(even) {
       background: var(--color-azul-4);
     }
+  }
+  .depto-content {
+    flex-direction: column;
+    display: none;
   }
 }

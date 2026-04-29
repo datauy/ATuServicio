@@ -64,7 +64,7 @@ class ProviderController < ApplicationController
               zsites.each do |zs|
                 site = zs.serializable_hash
                 site['zones'] = zones
-                site['levels'] = zs.site_data.order(:level).pluck(:level)
+                site['levels'] = zs.site_data.order(:level).pluck(:level).uniq
                 #Add Site
                 depto = zones['Departamento'].name
                 if datum[depto].present?
