@@ -53,7 +53,7 @@ class Provider < ApplicationRecord
         card['fonasa_users'] = data.present? && data.fonasa_users.present? ? data.fonasa_users : "No hay datos"
         card['no_fonasa_users'] = data.present? && data.no_fonasa_users.present? ? data.no_fonasa_users : "No hay datos"
 
-      when 'rrhh'
+      when 'rrhh', 'goals'
         card['total'] = {}
         z = Zone.find_by(ztype: "País")
         s.indicators.order(:weight).each do |i|

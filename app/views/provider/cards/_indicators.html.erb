@@ -1,0 +1,17 @@
+<div class="card <%= card[:name] %>">
+  <div class="card-header">
+    <div class="header-top">
+      <i class='fas fa-people-group'></i>
+      <%= button_tag "<i class='fas fa-circle-info'></i>".html_safe, data: {'tabs-tab-value': "prestadores", action: "tabs#switch_tab"} %>
+    </div>
+    <h3><%= card[:title] %></h3>
+    <div class="border-bottom"></div>
+  </div>
+  <div class="card-content">
+  <% card['total'].keys.each do |ptype|%>
+    <% if ptype.present? %>
+    <div class="values"><%= card['total'][ptype][:title].camelize %>: <div class="result"><%= card['total'][ptype][:value] %></div></div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
