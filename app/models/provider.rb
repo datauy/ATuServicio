@@ -40,6 +40,7 @@ class Provider < ApplicationRecord
     cards = []
     sections.each do |s|
       card = {
+        sid: s.id,
         title: s.title,
         name: s.name,
         year: s.year,

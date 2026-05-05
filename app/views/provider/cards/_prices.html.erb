@@ -2,7 +2,7 @@
   <div class="card-header">
     <div class="header-top">
       <i class='fas fa-ticket'></i>
-      <%= button_tag "<i class='fas fa-circle-info'></i>".html_safe, data: {'tabs-tab-value': "prestadores", action: "tabs#switch_tab"} %>
+      <button onclick="document.getElementById('info-<%= card[:sid] %>').style.display = 'flex'"><i class='fas fa-circle-info'></i></button>
     </div>
     <h3><%= card[:title] %></h3>
     <div class="border-bottom"></div>
@@ -10,7 +10,7 @@
   <div class="card-content">
   <% card['total'].keys.each do |ptype|%>
     <% if ptype.present? %>
-    <div class="values"><%= ptype.camelize %>: <div class="result"><%= card['total'][ptype] %></div></div>
+    <div class="values"><%= ptype.camelize %>: <div class="result"><%= format_number(card['total'][ptype], 'price') %></div></div>
     <% end %>
   <% end %>
   </div>

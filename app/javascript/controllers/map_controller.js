@@ -7,17 +7,37 @@ import * as Wkt from "wicket"
 export default class extends Controller {
   static targets = ["container"]
   //Change to targets?? TODO
-  static values = {geodata: [], "first_level": {}, "vacunatorios": {}, "third_level": {}}
+  static values = {geodata: [], sites: []}
 
-  static vacunatoriosLayer
+  static zonesData
+  static firstLevel
+  static secondLevel
+  static thirdLevel
+  static zonesDataLayer
   static firstLevelLayer
   static thirdLevelLayer
+  static icon 
+  static userIcon
   static userMarker
   
   connect() {
-    console.log("CONNECT MAP", this.geodataValue, this.prestadoresValue)
-    this.vacunatoriosLayer = new L.FeatureGroup()
+    console.log("CONNECT MAP", this.geodataValue, this.sitesValue)
+    this.zonesData = []
+    this.firstLevel = []
+    this.secondLevel = []
+    this.thirdLevel = []
+    this.icon = {
+      iconUrl: '/images/user.svg',
+      iconSize: [37, 45],
+      iconAnchor: [18.5, 45],
+      popupAnchor: [1, -34],
+      tooltipAnchor: [16, -28],
+      shadowSize: [60, 60]
+    }
+    this.userIcon = L.icon(this.icon)
+    this.zonesDataLayer = new L.FeatureGroup()
     this.firstLevelLayer = new L.FeatureGroup()
+    this.secondLevelLayer = new L.FeatureGroup()
     this.thirdLevelLayer = new L.FeatureGroup()
     this.createMap()
     this.map.setView([-32.65,-56.23388], 7)
@@ -26,7 +46,7 @@ export default class extends Controller {
       const { latlng, accuracy } = e;
       // Create/update marker
       if (!this.userMarker) {
-        this.userMarker = L.marker(latlng).addTo(this.map);
+        this.userMarker = L.marker(latlng, {icon: this.userIcon}).addTo(this.map);
       }
       else {
         this.userMarker.setLatLng(latlng);
@@ -44,43 +64,83 @@ export default class extends Controller {
   }
 
   loadFeatures() {
+    //LOAD DATA
     let wkt = new Wkt.default.Wkt()
-    let zonesData = []
     this.geodataValue.forEach(gd => {
-      if ( gd.wkt !== null ) {
+      if ( gd.wkt != null && gd.wkt != 0 && gd.site_id == null ) {
         wkt.read(gd.wkt);
-        zonesData.push({ 
-          "type": "Feature",
-          'properties': {
+        this.zonesData.push({ 
+          type: "Feature",
+          properties: {
             gId: gd.id,
-            gtype: gd.gtype
-          }, "geometry": wkt.toJson() 
+            gtype: gd.gtype,
+            name: gd.name,
+            description: gd.description,
+          },
+          geometry: wkt.toJson() 
         })
       }
     })
-    let zonesIcon = L.icon({
-      iconUrl: '/images/vacunatorios.svg',
-      iconSize: [37, 45],
-      iconAnchor: [18.5, 45],
-      popupAnchor: [1, -34],
-      tooltipAnchor: [16, -28],
-      shadowSize: [60, 60]
-    });
-    L.geoJSON(zonesData, {
-      fillColor: 'violet',
-      color: 'violet',
-      onEachFeature: (feature, layer) => {
-        layer.setIcon(zonesIcon)
-        layer.on({
-          click: (e) => {
-            console.log("PIN CLICK", e.target.feature.properties)
-          }            
+    let obj
+    
+    this.sitesValue.forEach(gd => {
+      if ( gd.wkt !== null ) {
+        wkt.read(gd.wkt);
+        switch(gd.level) {
+          case 1:
+            obj = this.secondLevel
+          break;
+          case 2:
+            obj = this.thirdLevel
+          break
+          default:
+            obj = this.firstLevel
+          }
+          obj.push({ 
+            type: "Feature",
+            properties: {
+            gId: gd.id,
+            gtype: "site",
+            site_id: gd.id,
+            geo: gd.geo != null ? gd.geo.join('-') : ''
+          },
+          geometry: wkt.toJson() 
         })
       }
-    }).addTo(this.vacunatoriosLayer);
-    this.vacunatoriosLayer.addTo(this.map)
+    })
+    console.log("LEVEL", this['thirdLevel']);
+    //ADD TO MAP
+    ['zonesData', 'firstLevel', 'secondLevel', 'thirdLevel'].forEach(l => {
+      //ICONS
+      this.icon.iconUrl = '/images/'+l+'.svg'
+      let icon = L.icon(this.icon);
+      L.geoJSON(this[l], {
+        onEachFeature: (feature, layer) => {
+          if ( feature.properties.geo != undefined && feature.properties.geo != '' ) {
+            console.log("ICON GEO", feature.properties.geo);
+            this.icon.iconUrl = '/images/'+l+'-vacunatorio.svg'
+            layer.setIcon(L.icon(this.icon))
+          }
+          else {
+            
+            layer.setIcon(icon)
+          }
+          layer.on({
+            click: (e) => {
+              this.showInfo(e.target.feature.properties)
+            }            
+          })
+        }
+      }).addTo(this[l+"Layer"]);
+    this[l+"Layer"].addTo(this.map)
+    })    
   }
-
+  // Info Panel
+  showInfo(props) {
+    console.log("SHOW INFO", props)
+    
+  }
+  //todo: fix geo
   geoLocate() {
     // Leaflet will trigger "locationfound" / "locationerror"
     this.map.locate({

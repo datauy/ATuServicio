@@ -1,4 +1,8 @@
-<div class="map-wraper" data-controller="map" data-map-geodata-value="<%= ActiveSupport::JSON.encode(@geodata) %>">
+<div 
+  class="map-wraper"
+  data-controller="map"
+  data-map-geodata-value="<%= ActiveSupport::JSON.encode(@geodata)%>"
+  data-map-sites-value="<%= ActiveSupport::JSON.encode(@sites.values) %>">
   <div id="map" data-map-target="container"></div>
   <div id="map-controls">
     <h1>Te damos la bienvenida a A Tu Servicio</h1>
@@ -13,32 +17,42 @@
     <div class="box map-services-filters">
       <h4>¿Te interesa ver un servicio en particular?</h4>
       <div class="tags">
-        <div>
-          <i class="fas fa-house-medical"></i>
+        <div class="row">
+          <%= image_tag '/images/hospital.svg' %>
           <span>Hospitales</span>
         </div>
         <label class="switch">
-          <%= check_box_tag :first_level_map, 'firstLevel', data: {'map-prestadores-value': true, action: "map#changeServices" }%>
+          <%= check_box_tag :third_level_map, 'thirdLevel', data: {action: "map#changeServices" }%>
           <span class="slider round"></span>
         </label>
       </div>
       <div class="tags">
-        <div>
+        <div class="row">
+          <%= image_tag '/images/housemedical.svg' %>
+          <span>Centros de salud</span>
+        </div>
+        <label class="switch">
+          <%= check_box_tag :second_level_map, 'secondLevel', data: {action: "map#changeServices" }%>
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="tags">
+        <div class="row">
           <i class="fas fa-stethoscope"></i>
           <span>Policlínicas</span>
         </div>
         <label class="switch">
-          <%= check_box_tag :third_level_map, 'thirdLevel', data: {'map-policlinicas-value': true, action: "map#changeServices" }%>
+          <%= check_box_tag :first_level_map, 'firstLevel', data: {action: "map#changeServices" }%>
           <span class="slider round"></span>
         </label>
       </div>
       <div class="tags">
-        <div>
-          <i class="fas fa-syringe"></i>
+        <div class="row">
+          <%= image_tag '/images/vacuna.svg' %>
           <span>Vacunatorios</span>
         </div>
         <label class="switch">
-          <%= check_box_tag :vacunatorios_map, 'vacunatorios', data: {'map-vacunatorios-value': true, action: "map#changeServices" }%>
+          <%= check_box_tag :vacunatorios_map, 'zonesData', data: {action: "map#changeServices" }%>
           <span class="slider round"></span>
         </label>
       </div>
@@ -75,6 +89,14 @@
         <% @providers.each do |p| %>
           <%= render partial: '/provider/summary', locals: {provider: p} %>
         <% end %>
+      <% end %>
+      <% @sections.each do |s| %>
+        <div id="info-<%= s['id'] %>" class="backdrop" onclick="this.style.display='none'">
+          <div class="info-box">
+            <button class="close" onclick="this.closest('.backdrop').style.display='none'">X</button>
+            <div class="info-content"><%= s['info'].present? ? s['info'].html_safe : '' %></div>
+          </div>
+        </div>
       <% end %>
     </div>
     <div id="tab-vacunatorios" class="tab-inner">

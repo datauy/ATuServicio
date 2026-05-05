@@ -9,7 +9,6 @@ export default class extends Controller {
   }
 
   toggleInfo() {
-    console.log("TOGGLE INFO", this.infotriggerTarget);
     if ( this.infotriggerTarget.ariaExpanded == "true" ) {
       this.infotriggerTarget.ariaExpanded = false
       this.infopanelTarget.style.display = 'none'
@@ -20,7 +19,6 @@ export default class extends Controller {
     }
   }
   toggleVisibility() {
-    console.log("TOGGLE VIASIBILITY", this.expandTarget);
     if ( this.expandTarget.ariaExpanded == "true" ) {
       this.expandTarget.ariaExpanded = false
       this.contentTarget.style.display = 'none'
