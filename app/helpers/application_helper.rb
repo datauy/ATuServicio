@@ -1,6 +1,6 @@
 module ApplicationHelper
   def format_number(num, dtype)
-    if num == -1
+    if num == nil || num == -1
       "<span class='no-data'>Sin dato</span>".html_safe
     else
       case dtype

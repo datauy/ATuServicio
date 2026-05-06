@@ -10,7 +10,7 @@
   <div class="card-content">
   <% card['total'].keys.each do |ptype|%>
     <% if ptype.present? %>
-    <div class="values"><%= card['total'][ptype][:title].camelize %>: <div class="result"><%= format_number(card['total'][ptype][:value], nil) %></div></div>
+    <div class="values"><%= card['total'][ptype][:title].camelize %>: <div class="result"><%= format_number(card['total'][ptype][:value], ntype) %></div></div>
     <% end %>
   <% end %>
   </div>
