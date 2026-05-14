@@ -45,6 +45,7 @@ export default class extends Controller {
     this.emergencyLayer = new L.FeatureGroup()
     this.createMap()
     this.map.setView([-32.65,-56.23388], 7)
+    this.map.scrollWheelZoom.disable()
     this.loadFeatures()
     this.map.on("locationfound", (e) => {
       console.log("LOCATION FOUND", e)
@@ -63,6 +64,14 @@ export default class extends Controller {
       console.log("LOCATION ERROR", e)
       const { latlng, accuracy } = e;
     })
+    this.map.on('click', function() {
+      if (this.map.scrollWheelZoom.enabled()) {
+        this.map.scrollWheelZoom.disable()
+      }
+      else {
+        this.map.scrollWheelZoom.enable()
+      }
+    });
   }
 
   createMap() {

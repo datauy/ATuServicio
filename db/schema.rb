@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_05_13_150705) do
+ActiveRecord::Schema[8.0].define(version: 2026_05_14_154501) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -134,6 +134,16 @@ ActiveRecord::Schema[8.0].define(version: 2026_05_13_150705) do
     t.string "title"
     t.integer "weight"
     t.index ["section_id"], name: "index_indicators_on_section_id"
+  end
+
+  create_table "news", force: :cascade do |t|
+    t.string "head"
+    t.string "title"
+    t.text "description"
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "is_active"
   end
 
   create_table "prices", force: :cascade do |t|

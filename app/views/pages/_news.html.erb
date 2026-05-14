@@ -1,0 +1,10 @@
+<% @news.each do |n| %>
+<div class="card">
+  <div class="content">
+    <div class="head"><%= n.head %></div>
+    <h2><%= n.title %></h2>
+    <p><%= n.description %></p>
+  </div>
+  <%= button_tag "Quiero conocer más", href: n.link, class: 'main-button' %>
+</div>
+<% end %>

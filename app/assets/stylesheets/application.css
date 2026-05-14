@@ -133,7 +133,7 @@ label {
 .row {
   display: flex;
   gap: 24px;
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
 }
 .list {
   position: absolute;
@@ -208,7 +208,6 @@ input {
   height: fit-content;
   align-items: center;
   justify-content: space-between;
-  align-self: center;
   width: max-content;
   background: #FFF;
 }

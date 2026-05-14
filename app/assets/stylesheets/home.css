@@ -57,7 +57,7 @@
   }
 }
 .tabs {
-  padding: 80px 5%;
+  padding: 0 5% 80px;
   .tabs-title {
     .tabs-filters {
       display: flex;
@@ -133,13 +133,39 @@
 }
 
 #news {
-  height: 500px;
   display: flex;
-  gap: 60px;
-  margin: 100px 5%;
-  padding-top: 100px;
-  border-top: 1px solid;
+  gap: 40px;
+  margin: 60px 5%;
+  padding: 20px 0 60px 0;
+  border-bottom: 1px solid #e2e2e2;
   justify-content: space-between;
+  .card {
+    background: var(--color-azul-4);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 40px;
+    justify-content: space-between;
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      .head {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--color-gris-01);
+        font-size: 12px;
+        font-weight: 600;
+      }
+      h2 {
+        color: var(--color-azul-presidencia);
+      }
+    }
+    .main-button {
+      width: fit-content;
+    }
+  }
 }
 
 .empty-square {

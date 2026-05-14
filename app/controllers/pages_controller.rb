@@ -29,6 +29,7 @@ class PagesController < ApplicationController
         end
       end
     end
+    @news = News.where(is_active: true).order(:created_at).limit(3)
   end
 
   def about
