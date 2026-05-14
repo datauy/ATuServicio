@@ -1,5 +1,6 @@
 header {
   display: flex;
+  gap: 32px;
   justify-content: space-between;
   align-items: center;
   padding: 24px 6%;
@@ -9,6 +10,7 @@ header {
     ul {
       display: flex;
       gap: 32px;
+      align-items: center;
       li {
         a {
           color: #003da5FF;

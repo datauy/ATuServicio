@@ -1,17 +1,5 @@
-<div class="card <%= card[:name] %>">
-  <div class="card-header">
-    <div class="header-top">
-      <i class='fas fa-ticket'></i>
-      <button onclick="document.getElementById('info-<%= card[:sid] %>').style.display = 'flex'"><i class='fas fa-circle-info'></i></button>
-    </div>
-    <h3><%= card[:title] %></h3>
-    <div class="border-bottom"></div>
-  </div>
-  <div class="card-content">
-  <% card['total'].keys.each do |ptype|%>
-    <% if ptype.present? %>
-    <div class="values"><%= ptype.camelize %>: <div class="result"><%= format_number(card['total'][ptype], 'price') %></div></div>
-    <% end %>
+<% card['total'].keys.each do |ptype|%>
+  <% if ptype.present? %>
+  <div class="values"><%= ptype.camelize %>: <div class="result"><%= format_value(card['total'][ptype], 'price') %></div></div>
   <% end %>
-  </div>
-</div>
+<% end %>

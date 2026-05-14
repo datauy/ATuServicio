@@ -1,9 +1,9 @@
 <%= turbo_stream.update("site_data") do %>
-  <% if @data.length > 1 %>
+  <% if @data.length > 2 %>
     <% @data.each do |sd| %>
       <div class="row">  
         <div class="item label"><%= sd.datum.title %></div>
-        <div class="item"><%= sd.value %></div>
+        <div class="item"><%= format_value(sd.value, sd.datum.dtype) %></div>
       </div>
     <% end %>
   <% else %>

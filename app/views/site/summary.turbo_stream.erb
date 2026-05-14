@@ -1,0 +1,20 @@
+<%= turbo_stream.update("zone-description") do %>
+  <% if @site.present? %>
+  <div class="zone-description" data-controller="site" data-site-site-value="<%= @site.id %>">
+    <h4><%= @site.name %></h4>
+    <div class="row"><%= get_site_tags('level')%> <%= get_site_tags('address')%></div>
+    <div class="row"><%= site_address() %></div>
+    <p><%= @site.description.present? ? @site.description.html_safe : '' %></p>
+    <%= button_tag "Ver Datos",
+      class: 'level main-button',
+      aria: { expanded: false, controls: "site-backdrop"},
+      data: {
+        "site-target": "button",
+        action: "click->site#toggleModal" 
+      }
+    %>
+  </div>
+  <% else %>
+    <div class="error">No se ha encontrado la zona solicitada</div> 
+  <% end %>
+<% end %>

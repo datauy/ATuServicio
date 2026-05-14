@@ -1,0 +1,13 @@
+<div class="zone-description" data-controller="site" data-site-site-value="<%= @site.id %>">
+  <div class="tags"><%= get_site_tags('address')%></div>
+  <div class="row"><%= site_address() %></div>
+  <p><%= @site.description.present? ? @site.description.html_safe : '' %></p>
+  <%= button_tag "Ver Datos",
+    class: 'level main-button',
+    aria: { expanded: false, controls: "site-backdrop"},
+    data: {
+      "site-target": "button",
+      action: "click->site#toggleModal" 
+    }
+  %>
+</div>

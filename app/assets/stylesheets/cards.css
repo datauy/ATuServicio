@@ -1,0 +1,66 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 100%;
+  overflow-x: scroll;
+  .card {
+    padding: 20px;
+    background: #FFF;
+    border-radius: 24px;
+    height: 100%;
+    color: var(--color-gris-01);
+    overflow: hidden;
+    .card-header {
+      .header-top {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        img {
+          height: 24px;
+        }
+        .fa-circle-info {
+          color: var(--color-azul-dark);
+        }
+      }
+      h3 {
+        padding: 20px 0;
+        width: fit-content;
+        font-weight: 600
+      }
+      .border-bottom {
+        width: 30px;
+        border-bottom: 2px solid #003da5;
+      }
+    }
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px 0;
+      .values {
+        display: flex;
+        gap: 10px;
+        font-size: 16px;
+        &.users-total {
+          flex-direction: column;
+          gap: 0;
+          .result {
+            font-size: 46px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#sites_grid.cards,
+#infra_grid.cards {
+  .card {
+    background: var(--color-azul-4);
+    h3 {
+      color: var(--color-azul-presidencia);
+    }
+  }
+}

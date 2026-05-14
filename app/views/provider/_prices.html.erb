@@ -2,13 +2,13 @@
   <div class="row">
     <div class="item label"><%= p.name %> FONASA</div>
     <% for i in 0..(@providers.length - 1)%>
-      <div class="item"><%= format_number(section['data'][i][:fonasa][p.id], 'price') %></div>
+      <div class="item"><%= format_value(section['data'][i][:fonasa][p.id], 'price') %></div>
     <% end %>
   </div>
   <div class="row">
     <div class="item label"><%= p.name %> NO FONASA</div>
     <% for i in 0..(@providers.length - 1)%>
-      <div class="item"><%=format_number(section['data'][i][:no_fonasa][p.id], 'price') %></div>
+      <div class="item"><%=format_value(section['data'][i][:no_fonasa][p.id], 'price') %></div>
     <% end %>
   </div>
 <% end %>

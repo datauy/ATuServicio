@@ -1,0 +1,5 @@
+<% @sections.each do |s| %>
+  <%= turbo_stream.update(s['name']) do %>
+    <%= render partial: s['name'], locals: { section: s }%>
+  <% end %>
+<% end %>

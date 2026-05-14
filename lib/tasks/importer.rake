@@ -101,11 +101,14 @@ namespace :importer do
           puts "Section NOT FOUND: #{key}"
         end
       when 'sites'
+        i = 0
         metadata['sites']["columns"].each do |key|
           data = Datum.find_or_create_by({
             key: key,
-            title: key
+            title: metadata['sites']["description"][i]
           })
+          data.update(dtype: metadata['sites']["definition"][key].first, is_active: true)
+          i += 1
         end
       end
     end
@@ -187,6 +190,7 @@ namespace :importer do
           name: row['nombre'],
           description: row['desc'],
           stype: row['tipo'],
+          state: state,
           address: row['calle'],
           address_comp: row['calle_nro'],
           highway: row['ruta'],
@@ -200,6 +204,21 @@ namespace :importer do
           metadata['sites']['columns'].each do |key|
             #get Datum
             d = Datum.find_by(key: key)
+            #Check data type
+            value = row['key']
+            text = ''
+            case d.dtype
+            when 'boolean'
+              if row['key'].downcase == 'si'
+                value = 1
+              end
+              if row['key'].downcase == 'no'
+                value = 0
+              end
+            when 'array'
+              text = row['key']
+              value = 0
+            end
             if d.present?
               SiteDatum.find_or_create_by({
                 datum: d,
@@ -207,7 +226,8 @@ namespace :importer do
                 level: level,
                 year: @year,
                 period: @period,
-                value: row[key]
+                value: value,
+                text: text,
               })
             else
               puts "DATUM NOT FOUND"

@@ -89,7 +89,8 @@ export default class extends Controller {
   }
   //
   removeProvider(e) {
-    if ( this.removeFromList(e.target.value) ) {
+    let pid = e.target.value
+    if ( this.removeFromList(pid) ) {
       //Remove from display
       document.getElementById("compare-"+pid).remove()
       document.getElementById("provider-selector-"+pid).checked = false
@@ -127,5 +128,22 @@ export default class extends Controller {
   submit() {
     let url = "/comparar/"+this.providers.join("/")
     window.location.replace(url)
+  }
+  state(e) {
+    console.log("Change STATE ", e.target, this.providers);
+    let url = '/proveedores/get_state_data?providers='+this.providers.join(',')
+    if (e.target.value) {
+      url += '&departamento='+e.target.value
+    }
+    fetch(url, {
+      method: "GET",
+      headers: {
+        Accept: "text/vnd.turbo-stream.html"
+      }
+    })
+    .then(r => r.text())
+    .then(html => {
+      Turbo.renderStreamMessage(html)
+    })
   }
 }

@@ -238,13 +238,16 @@ sites:
     - farmacia__etiqueta
     - dispensacion_medicamentos__etiqueta
     - numero_camas_cm
+    - block
     - numero_block
+    - imagen
     - especificar_imagen
     - puerta_urgencia__etiqueta
     - numero_camas_box
     - numero_sillones
     - camas_de_reanimacion
     - metros_cuadrados_totales
+    - maternidad
     - numero_salas_maternidad
     - numero_camas_alojamiento
     - centro_de_materiales__etiqueta
@@ -264,12 +267,106 @@ sites:
     - numero_de_camas_reanimacionTN
     - metros_cuadradosTN
   definition:
-    string:
-      - direccion
-      - departamento
-      - localidad
-      - nivel
-
+    numero_consultorios:
+      - value
+    especifique_imagenologia:
+      - value
+    farmacia__etiqueta:
+      - boolean
+    dispensacion_medicamentos__etiqueta:
+      - boolean
+    numero_camas_cm:
+      - value
+    block:
+      - boolean
+    numero_block:
+      - value
+    imagen:
+      - boolean
+    especificar_imagen:
+      - value
+    puerta_urgencia__etiqueta:
+      - boolean
+    numero_camas_box:
+      - value
+    numero_sillones:
+      - value
+    camas_de_reanimacion:
+      - value
+    metros_cuadrados_totales:
+      - value
+    maternidad:
+      - boolean
+    numero_salas_maternidad:
+      - value
+    numero_camas_alojamiento:
+      - value
+    centro_de_materiales__etiqueta:
+      - boolean
+    especifique_centro_mat:
+      - value
+    servicio_imagen__etiqueta:
+      - boolean
+    laboratorio__etiqueta:
+      - array
+    metros_cuadrados_apoyo:
+      - value
+    nuemro_block:
+      - value
+    camas_recuperacion_block:
+      - value
+    cti_tn__etiqueta:
+      - array
+    numero_de_camas_adultos:
+      - value
+    numero_de_camas_intermedios:
+      - value
+    numero_de_unidades:
+      - value
+    numero_de_camas_pediatrico:
+      - value
+    numero_de_camas_boxTN:
+      - value
+    numero_de_sillones:
+      - value
+    numero_de_camas_reanimacionTN:
+      - value
+    metros_cuadradosTN:
+      - value
+  description:
+    - Consultorios
+    - Imagenología
+    - Farmacia
+    - Dispensación de medicamentos
+    - Numero camas
+    - Block quirúrgico
+    - Blocks Quirúrgicos
+    - Imagenología
+    - Detalle Imagenología
+    - Puerta de urgencia
+    - Camas separadas
+    - Sillones
+    - Camas de reanimacion
+    - Metros cuadrados
+    - Maternidad
+    - Salas de maternidad
+    - Camas de alojamiento
+    - Centro de materiales
+    - Descripción centro de materiales
+    - Imagen
+    - Laboratorio
+    - Metros cuadrados
+    - Blocks quirúrgicos
+    - Camas de recuperación en block
+    - CTI
+    - Camas de adultos
+    - Camas de intermedio
+    - Unidades CTI
+    - Camas de pediatría
+    - Camas Box CTI
+    - Sillones CTI
+    - Camas de reanimación CTI
+    - Metros cuadrados CTI
 tiempos_espera:
   title: "Tiempos de Espera"
   description:

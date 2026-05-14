@@ -81,16 +81,26 @@ button {
   gap: 16px;
   &.close {
     font-weight: 900;
-    padding: 1px 6px;
-    border: 2px solid var(--color-gris-01);
-    width: fit-content;
-    border-radius: 100%;
-    font-size: 12px;
-    position: absolute;
-    left: 24px;
-    color: var(--color-gris-01);
+    right: 24px;
     top: 24px;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    position: absolute;
+    font-weight: 900;
+    border: 3px solid var(--color-azul-presidencia);
+    padding: 0 5px;
+    border-radius: 100%;
+    color: var(--color-azul-presidencia);
+    line-height: 1.4;
+    font-size: 13px;
+    font-family: "DM Sans";
   }
+}
+label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .backdrop {
   display: none;
@@ -100,7 +110,7 @@ button {
   top: 0;
   left: 0;
   background: #0006;
-  z-index: 100;
+  z-index: 1000;
   justify-content: center;
   align-items: center;
 }
@@ -119,10 +129,11 @@ button {
   flex-direction: column;
   padding: 16px 24px;
   gap: 24px;
-  .row {
-    display: flex;
-    gap: 24px;
-  }
+}
+.row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 .list {
   position: absolute;
@@ -184,12 +195,22 @@ input {
   color: var(--color-policlinica);
 }
 .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tag {
   padding: 9px 16px;
   border: 1px solid #e2e2e2FF;
   border-radius: 100px;
   display: flex;
+  gap: 8px;
+  height: fit-content;
   align-items: center;
   justify-content: space-between;
+  align-self: center;
+  width: max-content;
+  background: #FFF;
 }
 .page-tag {
   width: fit-content;

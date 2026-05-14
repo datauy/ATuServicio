@@ -5,7 +5,7 @@ import * as Wkt from "wicket"
 
 
 export default class extends Controller {
-  static targets = ["container"]
+  static targets = ["container", "info"]
   //Change to targets?? TODO
   static values = {geodata: [], sites: []}
 
@@ -13,9 +13,11 @@ export default class extends Controller {
   static firstLevel
   static secondLevel
   static thirdLevel
+  static emergency
   static zonesDataLayer
   static firstLevelLayer
   static thirdLevelLayer
+  static emergencyLayer
   static icon 
   static userIcon
   static userMarker
@@ -26,6 +28,7 @@ export default class extends Controller {
     this.firstLevel = []
     this.secondLevel = []
     this.thirdLevel = []
+    this.emergency = []
     this.icon = {
       iconUrl: '/images/user.svg',
       iconSize: [37, 45],
@@ -39,18 +42,26 @@ export default class extends Controller {
     this.firstLevelLayer = new L.FeatureGroup()
     this.secondLevelLayer = new L.FeatureGroup()
     this.thirdLevelLayer = new L.FeatureGroup()
+    this.emergencyLayer = new L.FeatureGroup()
     this.createMap()
     this.map.setView([-32.65,-56.23388], 7)
     this.loadFeatures()
     this.map.on("locationfound", (e) => {
-      const { latlng, accuracy } = e;
+      console.log("LOCATION FOUND", e)
+      
+      const { latlng, accuracy } = e
       // Create/update marker
       if (!this.userMarker) {
-        this.userMarker = L.marker(latlng, {icon: this.userIcon}).addTo(this.map);
+        this.userMarker = L.marker(latlng, {icon: this.userIcon}).addTo(this.map)
       }
       else {
-        this.userMarker.setLatLng(latlng);
+        this.userMarker.setLatLng(latlng)
       }
+      this.map.flyTo(latlng,15)
+    })
+    this.map.on("locationfound", (e) => {
+      console.log("LOCATION ERROR", e)
+      const { latlng, accuracy } = e;
     })
   }
 
@@ -76,59 +87,78 @@ export default class extends Controller {
             gtype: gd.gtype,
             name: gd.name,
             description: gd.description,
+            iconUrl: 'zonesData',
           },
           geometry: wkt.toJson() 
         })
       }
     })
     let obj
-    
+    let iconUrl
     this.sitesValue.forEach(gd => {
       if ( gd.wkt !== null ) {
         wkt.read(gd.wkt);
         switch(gd.level) {
-          case 1:
-            obj = this.secondLevel
-          break;
           case 2:
             obj = this.thirdLevel
+            iconUrl = 'thirdLevel'
           break
+          case 1:
+            obj = this.secondLevel
+            iconUrl = 'secondLevel'
+          break;
           default:
             obj = this.firstLevel
-          }
-          obj.push({ 
-            type: "Feature",
-            properties: {
-            gId: gd.id,
-            gtype: "site",
-            site_id: gd.id,
-            geo: gd.geo != null ? gd.geo.join('-') : ''
-          },
-          geometry: wkt.toJson() 
-        })
+            iconUrl = 'firstLevel'
+        }
+        let geo = false
+        if (gd.geo != null) {
+          iconUrl += '-'+gd.geo.join('-')
+          geo = true
+        }
+        let feature = { 
+          type: "Feature",
+          properties: {
+          gId: gd.id,
+          name: gd.name,
+          description: gd.description,
+          gtype: "site",
+          site_id: gd.id,
+          geo: geo,
+          iconUrl: iconUrl,
+          emergency: gd.emergency ? true : false 
+        },
+        geometry: wkt.toJson() 
+        }
+        obj.push(feature)
+        console.log(gd.emergency);
+        
+        if ( gd.emergency ) {
+          this.emergency.push(feature)
+        }
       }
     })
-    console.log("LEVEL", this['thirdLevel']);
+    console.log(this.emergency);
+    
     //ADD TO MAP
-    ['zonesData', 'firstLevel', 'secondLevel', 'thirdLevel'].forEach(l => {
+    ['zonesData', 'firstLevel', 'secondLevel', 'thirdLevel', 'emergency'].forEach(l => {
       //ICONS
-      this.icon.iconUrl = '/images/'+l+'.svg'
-      let icon = L.icon(this.icon);
       L.geoJSON(this[l], {
         onEachFeature: (feature, layer) => {
-          if ( feature.properties.geo != undefined && feature.properties.geo != '' ) {
-            console.log("ICON GEO", feature.properties.geo);
-            this.icon.iconUrl = '/images/'+l+'-vacunatorio.svg'
-            layer.setIcon(L.icon(this.icon))
-          }
-          else {
-            
-            layer.setIcon(icon)
-          }
+          this.icon.iconUrl = '/images/'+feature.properties.iconUrl+'.svg'
+          layer.setIcon(L.icon(this.icon))
+          let popupContent = feature.properties.name
+          layer.bindPopup(popupContent);
           layer.on({
             click: (e) => {
               this.showInfo(e.target.feature.properties)
-            }            
+            },
+            mouseover: (e) => {
+              layer.openPopup(e.latlng)
+            },
+            mouseout: (e) => {
+              layer.closePopup()
+            }
           })
         }
       }).addTo(this[l+"Layer"]);
@@ -136,16 +166,53 @@ export default class extends Controller {
     })    
   }
   // Info Panel
-  showInfo(props) {
-    console.log("SHOW INFO", props)
+  showInfo(zone) {
+    console.log("SHOW INFO", zone)
+    if ( this.infoTarget.classList.contains('visible') ) {
+      console.log("TARGET VISIBLE", this.infoTarget)
+      this.infoTarget.classList.remove('visible')
+      setTimeout( e => {
+        this.infoTarget.style.display = 'none'
+      }, 330)
+    }
+    else {
+      console.log("TARGET NOT", this.infoTarget)
+      if ( zone.gtype == 'vacunatorio') {
+        this.infoTarget.querySelector('#zone-description').innerHTML = "<h4>"+zone.name+"</h4><p>"+zone.description+"</p>"
+        this.infoTarget.style.display = 'flex'
+        setTimeout( e => {
+          this.infoTarget.classList.add('visible')
+        }, 50)
+      }
+      else {
+        fetch('/site/'+zone.site_id+'/summary', {
+        method: "GET",
+        headers: {
+          Accept: "text/vnd.turbo-stream.html"
+        }
+        })
+        .then(r => r.text())
+        .then(html => {
+          Turbo.renderStreamMessage(html)
+          this.infoTarget.style.display = 'flex'
+          setTimeout( e => {
+            this.infoTarget.classList.add('visible')
+          }, 50)
+        })
+      }
+    }
+  }
+
+  slideInfo() {
     
   }
   //todo: fix geo
-  geoLocate() {
+  geoLocate(e) {
+    console.log("LOCATION", e)
     // Leaflet will trigger "locationfound" / "locationerror"
     this.map.locate({
       setView: true,
-      maxZoom: 16,
+      maxZoom: 20,
       enableHighAccuracy: true,
       timeout: 12000,
       maximumAge: 0,

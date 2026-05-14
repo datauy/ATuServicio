@@ -1,15 +1,3 @@
-<div class="card <%= card[:name] %>">
-  <div class="card-header">
-    <div class="header-top">
-      <i class='fas fa-file'></i>
-      <button onclick="document.getElementById('info-<%= card[:sid] %>').style.display = 'flex'"><i class='fas fa-circle-info'></i></button>
-    </div>
-    <h3><%= card[:title] %></h3>
-    <div class="border-bottom"></div>
-  </div>
-  <div class="card-content">
-    <div class="values users-total">Cantitdad de usuarios: <div class="result"><%= format_number(card['total'], nil) %></div></div>
-    <div class="values">Usuarios fonasa: <div class="result"><%= format_number(card['fonasa_users'], nil )%></div></div>
-    <div class="values">Usuarios no fonasa: <div class="result"><%= format_number(card['no_fonasa_users'], nil )%></div></div>
-  </div>
-</div>
+<div class="values users-total">Cantitdad de usuarios: <div class="result"><%= format_value(card['total'], nil) %></div></div>
+<div class="values">Usuarios fonasa: <div class="result"><%= format_value(card['fonasa_users'], nil )%></div></div>
+<div class="values">Usuarios no fonasa: <div class="result"><%= format_value(card['no_fonasa_users'], nil )%></div></div>

@@ -47,6 +47,7 @@
 </div>
 <div id="site-backdrop" class="backdrop" data-controller="site" data-action='click->site#closeModal'>
   <div class="info-box">
+    <button class="close" data-action='click->site#closeModal'>X</button>
     <%= turbo_frame_tag "site_data" %>
   </div>
 </div>

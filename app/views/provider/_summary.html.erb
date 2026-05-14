@@ -1,19 +1,18 @@
 <div class="provider-summary">
   <div class="header">
     <div class="header-left">
-      <%= check_box_tag :"provider-selector-#{provider.id}", provider.id, { class: "provider-selector", data: { action: "compare#addProvider" } }%>
-      <label for="provider-selector-<%= provider.id %>" class="not-check">Comparar</label>
-      <label for="provider-selector-<%= provider.id %>" class="check">Comparando</label>
       <h2><%= provider['short_name'] %></h2>
     </div>
     <div class="header-right">
       <div class="provider-name"><%= provider.name %></div>
       <div class="provider-web"><%= provider.web %></div>
+      <label><%= check_box_tag :"provider-selector-#{provider.id}", provider.id, { class: "provider-selector", data: { action: "compare#addProvider" } }%> Comparar</label>
+      <!--<label for="provider-selector-<%= provider.id %>" class="check">Comparando</label>-->
     </div>
   </div>
-  <div class="provider-cards">
+  <div class="cards">
     <% provider.cards(@sections).each do |card| %>
-      <%= render partial: "/provider/cards/#{card[:name]}", locals: { card: card }  %>
+      <%= render partial: '/layouts/card', locals: {card: card} %>
     <% end %>
   </div>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_05_04_061420) do
+ActiveRecord::Schema[8.0].define(version: 2026_05_13_150705) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -261,6 +261,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_05_04_061420) do
     t.datetime "updated_at", null: false
     t.integer "level"
     t.decimal "value"
+    t.string "text"
     t.index ["datum_id"], name: "index_site_data_on_datum_id"
     t.index ["site_id"], name: "index_site_data_on_site_id"
   end
@@ -280,7 +281,10 @@ ActiveRecord::Schema[8.0].define(version: 2026_05_04_061420) do
     t.string "phone"
     t.string "web"
     t.string "email"
+    t.bigint "state_id"
+    t.boolean "is_active", default: true
     t.index ["provider_id"], name: "index_sites_on_provider_id"
+    t.index ["state_id"], name: "index_sites_on_state_id"
     t.index ["zone_id"], name: "index_sites_on_zone_id"
   end
 
@@ -349,6 +353,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_05_04_061420) do
   add_foreign_key "site_data", "sites"
   add_foreign_key "sites", "providers"
   add_foreign_key "sites", "zones"
+  add_foreign_key "sites", "zones", column: "state_id"
   add_foreign_key "wait_times", "providers"
   add_foreign_key "wait_times", "specialities"
   add_foreign_key "zones", "zones", column: "parent_zone_id"

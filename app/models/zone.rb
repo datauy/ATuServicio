@@ -15,17 +15,30 @@ class Zone < ApplicationRecord
     ["created_at", "id", "name", "updated_at", "wkt", "ztype"]
   end
 
-  def get_tree
+  def parents
     zones = {}
     pz = self.parent_zone
-    while pz.parent_zone.present?
+    if pz.present?
+      while pz.parent_zone.present?
+        zones[pz.ztype] = pz
+        pz = pz.parent_zone
+      end
       zones[pz.ztype] = pz
-      pz = pz.parent_zone
     end
-    zones[pz.ztype] = pz
     zones
   end
 
+  def state
+    pz = self.parent_zone
+    while pz.parent_zone.present? && pz.ztype != "Departamento"
+      pz = pz.parent_zone
+    end
+    pz
+  end
+
+  def children(depth=1)
+    Zone.where(parent_zone: self.id)
+  end
   # The sites should have coordinates, since zones shuld be polygons
   enum :ztype, [
     "País",

@@ -29,6 +29,8 @@ class ProviderController < ApplicationController
     end
     @pids = provs
     @providers = Provider.where(id: provs).order(:short_name)
+    @states = []
+    country_zone = Zone.find_by(ztype: 'País')
     if @providers.length > 0
       @s = []
       Section.where(is_active: true).order(:weight).each do |s|
@@ -37,6 +39,8 @@ class ProviderController < ApplicationController
           case s.name
           when 'general'
             datum = p.provider_data.find_by(year: s.year, period: s.period)
+            logger.debug("STATES 4 PROVIDER: \n #{p.states.uniq.pluck(:name, :id)}")
+            @states.concat( p.states.uniq.pluck(:name, :id) )
           when 'prices'
             datum = {fonasa:{}, no_fonasa: {}}
             p.provider_prices.where(year: s.year, period: s.period).each do |pp|
@@ -49,17 +53,17 @@ class ProviderController < ApplicationController
           when 'goals', 'rrhh', 'rrhh_cad'
             datum = p.provider_indicators.
             includes(:indicator).
-            where('indicator.section_id': s.id, year: s.year, period: s.period).
+            where('indicator.section_id': s.id, year: s.year, period: s.period, zone_id: country_zone.id).
             pluck(:indicator_id, :value).to_h
           when 'specialists'
             datum = p.provider_specialists.
-            where( year: s.year, period: s.period).
+            where( year: s.year, period: s.period, zone_id: country_zone.id).
             pluck(:speciality_id, :value).to_h
           when 'sites'
             datum = {}
             loc = ''
             p.zones.each do |z|
-              zones = z.get_tree
+              zones = z.parents
               zsites = z.sites.where(provider_id: p.id)
               zsites.each do |zs|
                 site = zs.serializable_hash
@@ -83,15 +87,44 @@ class ProviderController < ApplicationController
       end
     end
   end
-
+  #
+  def get_state_data
+    @providers = params[:providers].split(',')
+    zone_id = Zone.find_by(ztype: 'País').id
+    if params[:departamento].present?
+      zone_id = params[:departamento]
+    end
+    specSection = Section.find_by(name: 'specialists')
+    rrhhSection = Section.find_by(name: 'rrhh')
+    specData = {data:[], name: 'specialists'}.stringify_keys
+    rrhhData = {data:[], name: 'rrhh', 'id': rrhhSection.id}.stringify_keys 
+    Provider.where(id: @providers).order(:short_name).each do |p|
+      rrhhData['data'].push(p.provider_indicators.
+      includes(:indicator).
+      where('indicator.section_id': rrhhSection.id, year: rrhhSection.year, period: rrhhSection.period, zone_id: zone_id).
+      pluck(:indicator_id, :value).to_h)
+      specData['data'].push(p.provider_specialists.
+      where( year: specSection.year, period: specSection.period, zone_id: zone_id).
+      pluck(:speciality_id, :value).to_h)
+    end
+    @sections = [rrhhData, specData]
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+  #
   def search
     @type = 'summary'
     if params[:name].present?
       @providers = Provider.search(params[:name])
     else
-      #TODO: Agregar validación de activo
-      @providers = Provider.all
+      @providers = Provider.where(active: true)
     end
+    if params[:departamento].present?
+        @providers = @providers.includes(:sites).where("sites.state_id": params[:departamento])
+        logger.debug "PROVIDERS SEARCH #{@providers}"
+    end
+    @providers = @providers.order(:short_name)
     if params[:type].nil? || params[:type] != 'summary'
       @type = 'list'
       @providers = @providers.pluck(:id, :short_name).to_h

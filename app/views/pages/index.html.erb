@@ -5,85 +5,110 @@
   data-map-sites-value="<%= ActiveSupport::JSON.encode(@sites.values) %>">
   <div id="map" data-map-target="container"></div>
   <div id="map-controls">
-    <h1>Te damos la bienvenida a A Tu Servicio</h1>
-    <p>En el siguiente mapa podrás visualizar todos los servicios relacionados a la salud en el país.</p>
-    <div class="box map-location-filters">
-      <h4>¿Te interesa ver una ubicación en particular?</h4>
-      <div class="row">
-        <%= select_tag "location", options_for_select( Zone.where(ztype: "Departamento").order(:name).pluck(:name, :id) ), {include_blank: true, data: {action: "change->map#zoneLocate"}} %>
-        <%= button_tag "<i class='fas fa-location-crosshairs'></i>Utilizar mi ubicación".html_safe, class: "main-button", data: {action: "click->map#geoLocate"} %>
+    <div class="initial">
+      <h1>Te damos la bienvenida a A Tu Servicio</h1>
+      <p>En el siguiente mapa podrás visualizar todos los servicios relacionados a la salud en el país.</p>
+      <div class="box map-location-filters">
+        <h4>¿Te interesa ver una ubicación en particular?</h4>
+        <div class="row">
+          <%= select_tag "location", options_for_select( @states ), {include_blank: 'Todo el país', data: {action: "change->map#zoneLocate"}} %>
+          <%= button_tag "<i class='fas fa-location-crosshairs'></i>Utilizar mi ubicación".html_safe, class: "main-button", data: {action: "click->map#geoLocate"} %>
+        </div>
+      </div>
+      <div class="box map-services-filters">
+        <h4>¿Te interesa ver un servicio en particular?</h4>
+        <div class="tag">
+          <div class="row">
+            <%= image_tag '/images/hospital.svg' %>
+            <span>Hospitales</span>
+          </div>
+          <label class="switch">
+            <%= check_box_tag :third_level_map, 'thirdLevel', {data: {action: "map#changeServices" }, checked: true }%>
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="tag">
+          <div class="row">
+            <%= image_tag '/images/housemedical.svg' %>
+            <span>Centros de salud</span>
+          </div>
+          <label class="switch">
+            <%= check_box_tag :second_level_map, 'secondLevel', {data: {action: "map#changeServices" }, checked: true }%>
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="tag">
+          <div class="row">
+            <i class="fas fa-stethoscope"></i>
+            <span>Policlínicas</span>
+          </div>
+          <label class="switch">
+            <%= check_box_tag :first_level_map, 'firstLevel', {data: {action: "map#changeServices" }, checked: true }%>
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="tag">
+          <div class="row">
+            <%= image_tag '/images/vacunatorio.svg' %>
+            <span>Vacunatorios</span>
+          </div>
+          <label class="switch">
+            <%= check_box_tag :vacunatorios_map, 'zonesData', {data: {action: "map#changeServices" }, checked: true }%>
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="tag">
+          <div class="row">
+            <%= image_tag '/images/emergency.svg' %>
+            <span>Puertas de emergencia</span>
+          </div>
+          <label class="switch">
+            <%= check_box_tag :emergency_map, 'emergency', {data: {action: "map#changeServices" }, checked: true }%>
+            <span class="slider round"></span>
+          </label>
+        </div>
       </div>
     </div>
-    <div class="box map-services-filters">
-      <h4>¿Te interesa ver un servicio en particular?</h4>
-      <div class="tags">
-        <div class="row">
-          <%= image_tag '/images/hospital.svg' %>
-          <span>Hospitales</span>
-        </div>
-        <label class="switch">
-          <%= check_box_tag :third_level_map, 'thirdLevel', data: {action: "map#changeServices" }%>
-          <span class="slider round"></span>
-        </label>
-      </div>
-      <div class="tags">
-        <div class="row">
-          <%= image_tag '/images/housemedical.svg' %>
-          <span>Centros de salud</span>
-        </div>
-        <label class="switch">
-          <%= check_box_tag :second_level_map, 'secondLevel', data: {action: "map#changeServices" }%>
-          <span class="slider round"></span>
-        </label>
-      </div>
-      <div class="tags">
-        <div class="row">
-          <i class="fas fa-stethoscope"></i>
-          <span>Policlínicas</span>
-        </div>
-        <label class="switch">
-          <%= check_box_tag :first_level_map, 'firstLevel', data: {action: "map#changeServices" }%>
-          <span class="slider round"></span>
-        </label>
-      </div>
-      <div class="tags">
-        <div class="row">
-          <%= image_tag '/images/vacuna.svg' %>
-          <span>Vacunatorios</span>
-        </div>
-        <label class="switch">
-          <%= check_box_tag :vacunatorios_map, 'zonesData', data: {action: "map#changeServices" }%>
-          <span class="slider round"></span>
-        </label>
-      </div>
+    <div class="zone-info" data-map-target="info">
+      <%= button_tag "X", class: "close", onclick: "this.parentNode.classList.remove('visible');setTimeout( e => {this.parentNode.style.display = 'none'}, 330)" %>
+      <%= turbo_frame_tag "zone-description" %>
     </div>
+  </div>
+</div>
+<div id="site-backdrop" class="backdrop" data-controller="site" data-action='click->site#closeModal'>
+  <div class="info-box">
+  <button class="close" data-action='click->site#closeModal'>X</button>
+    <%= turbo_frame_tag "site_data" %>
   </div>
 </div>
 <div class="tabs" data-controller="tabs">
   <div class="tabs-title">
     <h2>Listado de servicios de salud</h2>
     <p>Explorá los distintos servicios de salud dentro del país.</p>
-    <%= text_field_tag 'name', nil, { placeholder: "Buscar por nombre", data: {action: "keyup->tabs#search"}} %>
+    <div class="tabs-filters">
+      <%= text_field_tag 'name', nil, { placeholder: "Buscar por nombre", data: {action: "keyup->tabs#search", "tabs-target": 'filter1'}} %>
+      <%= select_tag "state", options_for_select( @states ), {include_blank: 'Todo el país', data: {action: "change->tabs#search", "tabs-target": 'filter2'}} %>
+    </div>
   </div>
   <div class="tabs-header">
-    <%= button_tag "<i class='fas fa-house-medical'></i>Prestadores y servicios".html_safe,
+    <%= button_tag "#{image_tag '/images/prestadores.svg'} Prestadores y servicios".html_safe,
     {data: {'tabs-tab-value': "prestadores", action: "tabs#switch_tab"},
     aria: { expanded: true, controls: "tab-prestadores"}} %>
-    <%= button_tag "<i class='fas fa-stethoscope'></i>Polilínicas".html_safe,
+    <%= button_tag "#{image_tag '/images/hospital.svg'} Infraestructura y sedes".html_safe,
     {data: {'tabs-tab-value': "clinicas", action: "tabs#switch_tab"},
     aria: { expanded: false, controls: "tab-clinicas"}} %>
-    <%= button_tag "<i class='fas fa-house-medical'></i>Vacunatorios".html_safe,
+    <%= button_tag "#{image_tag '/images/vacuna.svg'}Vacunatorios".html_safe,
     {data: {'tabs-tab-value': "vacunatorios", action: "tabs#switch_tab"},
     aria: { expanded: false, controls: "tab-vacunatorios"}} %>
-    <%= button_tag "<i class='fas fa-stethoscope'></i>Otros servicios".html_safe,
-    {data: {'tabs-tab-value': "otros", action: "tabs#switch_tab"},
-    aria: { expanded: false, controls: "tab-other"}} %>
   </div>
   <div class="tabs-content">
     <div id="tab-prestadores" class="tab-inner" data-controller="compare" data-compare-ctype-value="home">
       <div id="compare-bar" data-compare-target="bar">
-        <%= turbo_frame_tag "compare_list" %>
-        <button class="main-button" data-action="compare#submit">Comparar</button>
+        <h2>Comparar servicios de salud</h2>
+        <div class="row header-left">
+          <%= turbo_frame_tag "compare_list" %>
+          <button class="main-button" data-action="compare#submit">Comparar</button>
+        </div>
       </div>
       <%= turbo_frame_tag "provider_list" do %>
         <% @providers.each do |p| %>
@@ -99,14 +124,11 @@
         </div>
       <% end %>
     </div>
-    <div id="tab-vacunatorios" class="tab-inner">
-
-    </div>
     <div id="tab-clinicas" class="tab-inner">
-
+      <%= turbo_frame_tag "sites_grid", class: "cards" %>
     </div>
-    <div id="tab-other" class="tab-inner">
-
+    <div id="tab-vacunatorios" class="tab-inner">
+      <%= turbo_frame_tag "infra_grid", class: "cards" %>
     </div>
   </div>
 </div>

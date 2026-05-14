@@ -1,0 +1,17 @@
+<%= turbo_stream.update("infra_grid") do %>
+  <% @sites.each do |site| %>
+    <% 
+    @site = site
+    card = {
+      sid: site.id,
+      title: site.name,
+      name: 'infra',
+      icon: site.gtype,
+      year: 2026,
+      period: 1,
+      ctype: 'site'
+    }
+    %>
+    <%= render partial: '/layouts/card', locals: {card: card} %>
+  <% end %>
+<% end %>

@@ -28,7 +28,11 @@ Rails.application.routes.draw do
   #API
   get "proveedor", to: "provider#search", as: "provider_search" 
   get "proveedor/resumen/:id", to: "provider#get_summary", as: "provider_summary"
+  get "proveedores/get_state_data", to: "provider#get_state_data"
   #Sites
-  get "site-data/:id", to: "site#site_data"
+  get "site/:id/data", to: "site#site_data", as: "site_data"
+  get 'site/:id/summary', to: "site#summary", as: "site_summary"
+  get "sites", to: "site#sites", as: "sites"
+  get "infra", to: "site#geo_entities", as: "infra"
 
 end

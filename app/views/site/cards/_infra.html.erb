@@ -1,0 +1,4 @@
+<div class="zone-description" data-controller="site" data-site-site-value="<%= @site.id %>">
+  <div class="tags"><%= get_site_tags('address')%></div>
+  <p><%= @site.description.present? ? @site.description.html_safe : '' %></p>
+</div>

@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="site"
 export default class extends Controller {
   static values = { site: Number, level: String }
-  static targets = ["button", "modal"]
+  static targets = ["button"]
 
   connect() {
   }
@@ -15,7 +15,7 @@ export default class extends Controller {
     else {
       //Get data
       //console.log();
-      let url = '/site-data/' + this.siteValue +'?level='+ this.levelValue
+      let url = '/site/' + this.siteValue +'/data?level='+ this.levelValue
       fetch(url, {
       method: "GET",
       headers: {

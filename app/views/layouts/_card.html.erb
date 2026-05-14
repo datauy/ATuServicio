@@ -1,0 +1,13 @@
+<div class="card <%= card[:name] %>">
+  <div class="card-header">
+    <div class="header-top">
+      <%= image_tag "/images/#{ card[:icon] }.svg"%>
+      <button onclick="document.getElementById('info-<%= card[:sid] %>').style.display = 'flex'"><i class='fas fa-circle-info'></i></button>
+    </div>
+    <h3><%= card[:title] %></h3>
+    <div class="border-bottom"></div>
+  </div>
+  <div class="card-content">
+    <%= render partial: "/#{card[:ctype]}/cards/#{card[:name]}", locals: { card: card }  %>
+  </div>
+</div>

@@ -10,4 +10,35 @@ class SiteController < ApplicationController
       format.turbo_stream
     end
   end
+
+  def summary
+    if params[:id].present?
+      @site = Site.find(params[:id]).serializable_hash
+    end
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
+  def sites
+    if ( params[:name].present? )
+      @sites = Site.search(params[:name])
+    else
+      @sites = Site.where(is_active: true).order(:name)
+    end
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
+  def geo_entities
+    if ( params[:name].present? )
+      @sites = GeoEntity.search(params[:name])
+    else
+      @sites = GeoEntity.where(is_active: true).order(:name)
+    end
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
 end

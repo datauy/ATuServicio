@@ -9,4 +9,7 @@ class GeoEntity < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     ["zone", "site"]
   end
+
+  scope :search , -> (str) { where(is_active: true).where("LOWER(name) like ? " , "%#{str.downcase}%").order(:name) }
+  
 end

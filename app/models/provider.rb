@@ -3,6 +3,7 @@ class Provider < ApplicationRecord
   has_many :provider_datum
   has_many :sites
   has_many :zones, through: :sites
+  has_many :states, through: :sites
   has_many :provider_indicators
   has_many :indicators, through: :provider_indicators
   has_many :provider_specialists
@@ -20,7 +21,7 @@ class Provider < ApplicationRecord
     ["provider_datum", "provider_indicators", "provider_prices", "sites", "specialities", "zones"]
   end
 
-  scope :search , -> (str) { where("LOWER(name) like ? OR LOWER(short_name) like ? " , "%#{str.downcase}%", "%#{str.downcase}%").order(:short_name) }
+  scope :search , -> (str) { where("LOWER(providers.name) like ? OR LOWER(providers.short_name) like ? " , "%#{str.downcase}%", "%#{str.downcase}%").where(active: true).order(:short_name) }
   
   def asse?
     nombre_abreviado.include?('ASSE')
@@ -43,8 +44,10 @@ class Provider < ApplicationRecord
         sid: s.id,
         title: s.title,
         name: s.name,
+        icon: s.name,
         year: s.year,
-        period: s.period
+        period: s.period,
+        ctype: 'provider'
       }
       case s.name
       when 'general'
