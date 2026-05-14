@@ -13,7 +13,7 @@ class Site < ApplicationRecord
 
   scope :search , -> (str) { where(is_active: true).where("LOWER(name) like ? " , "%#{str.downcase}%").order(:name) }
 
-  def level
+  def levels
     self.site_data.order(:level).pluck(:level)
   end
 end

@@ -2,12 +2,12 @@
   <% @sites.each do |site| %>
     <% 
     @site = site
-    level = site.level
+    levels = site.levels
     card = {
       sid: site.id,
       title: site.name,
       name: 'site',
-      icon: level.present? ? level.first.parameterize : 'site',
+      icon: levels.present? ? levels.first.parameterize : 'site',
       year: 2026,
       period: 1,
       ctype: 'site'

@@ -87,6 +87,7 @@ export default class extends Controller {
     //LOAD DATA
     let wkt = new Wkt.default.Wkt()
     this.geodataValue.forEach(gd => {
+
       if ( gd.wkt != null && gd.wkt != 0 && gd.site_id == null ) {
         wkt.read(gd.wkt);
         this.zonesData.push({ 
@@ -136,12 +137,10 @@ export default class extends Controller {
           geo: geo,
           iconUrl: iconUrl,
           emergency: gd.emergency ? true : false 
-        },
-        geometry: wkt.toJson() 
+          },
+          geometry: wkt.toJson() 
         }
         obj.push(feature)
-        console.log(gd.emergency);
-        
         if ( gd.emergency ) {
           this.emergency.push(feature)
         }

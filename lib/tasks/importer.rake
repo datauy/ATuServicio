@@ -190,7 +190,7 @@ namespace :importer do
           name: row['nombre'],
           description: row['desc'],
           stype: row['tipo'],
-          state: state,
+          state: state.first,
           address: row['calle'],
           address_comp: row['calle_nro'],
           highway: row['ruta'],
@@ -209,11 +209,13 @@ namespace :importer do
             text = ''
             case d.dtype
             when 'boolean'
-              if row['key'].downcase == 'si'
-                value = 1
-              end
-              if row['key'].downcase == 'no'
-                value = 0
+              if value.present?
+                if row['key'].downcase == 'si'
+                  value = 1
+                end
+                if row['key'].downcase == 'no'
+                  value = 0
+                end
               end
             when 'array'
               text = row['key']

@@ -13,7 +13,7 @@ class SiteController < ApplicationController
 
   def summary
     if params[:id].present?
-      @site = Site.find(params[:id]).serializable_hash
+      @site = Site.find(params[:id])
     end
     respond_to do |format|
       format.turbo_stream
