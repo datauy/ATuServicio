@@ -21,6 +21,7 @@ export default class extends Controller {
   static icon 
   static userIcon
   static userMarker
+  static map
   
   connect() {
     console.log("CONNECT MAP", this.geodataValue, this.sitesValue)
@@ -47,6 +48,14 @@ export default class extends Controller {
     this.map.setView([-32.65,-56.23388], 7)
     this.map.scrollWheelZoom.disable()
     this.loadFeatures()
+  }
+
+  createMap() {
+    this.map = L.map(this.containerTarget)
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(this.map);
     this.map.on("locationfound", (e) => {
       console.log("LOCATION FOUND", e)
       
@@ -64,7 +73,7 @@ export default class extends Controller {
       console.log("LOCATION ERROR", e)
       const { latlng, accuracy } = e;
     })
-    this.map.on('click', function() {
+    this.map.on('click', (e) => {
       if (this.map.scrollWheelZoom.enabled()) {
         this.map.scrollWheelZoom.disable()
       }
@@ -74,20 +83,10 @@ export default class extends Controller {
     });
   }
 
-  createMap() {
-    this.map = L.map(this.containerTarget)
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(this.map);
-  }
-
   loadFeatures() {
     //LOAD DATA
     let wkt = new Wkt.default.Wkt()
     this.geodataValue.forEach(gd => {
-
       if ( gd.wkt != null && gd.wkt != 0 && gd.site_id == null ) {
         wkt.read(gd.wkt);
         this.zonesData.push({ 
@@ -106,7 +105,7 @@ export default class extends Controller {
     let obj
     let iconUrl
     this.sitesValue.forEach(gd => {
-      if ( gd.wkt !== null ) {
+      if ( gd.wkt != null && gd.wkt != 0 ) {    
         wkt.read(gd.wkt);
         switch(gd.level) {
           case 2:
@@ -130,7 +129,7 @@ export default class extends Controller {
           type: "Feature",
           properties: {
           gId: gd.id,
-          name: gd.name,
+          name: gd.name+'<br><b>'+gd.pname+'</b>',
           description: gd.description,
           gtype: "site",
           site_id: gd.id,

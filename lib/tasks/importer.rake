@@ -49,8 +49,8 @@ namespace :importer do
     p = Provider.find(9000)
     #sites('hospitales-ASSE.csv', "Tercer nivel de atención", [p])
     #sites('centros-salud-ASSE.csv', "Segundo nivel de atención", [p])
-    sites('policlinicas-ASSE.csv', "Primer nivel de atención", [p])
-    #sites('sedes.csv')
+    #sites('policlinicas-ASSE.csv', "Primer nivel de atención", [p])
+    sites('sedes.csv')
   end
 
   task :metadata, [:mtype] => [:environment] do |_, args|
@@ -150,14 +150,15 @@ namespace :importer do
     end
     import_file(file) do |row|
       if (row['tipo'].present? || asse) && (p.present? || row['prestador']) && row['estado etapa'] != 'pendiente' && row['departamen'].present?
-        puts "SITES START #{row['nombre']}"
         #get State
         state = Zone.search(row['departamen'], "Departamento")
         #get prestador
         if p.nil?
-          p = Provider.search( I18n.transliterate(row['prestador']) )
+          provider = Provider.search( row['prestador'] ).first
+        else
+          provider = p
         end
-        if state.empty? || p.empty?
+        if state.empty? || provider.nil?
           puts "DEPTO #{row['departament']} O PROVIDER #{row['prestador']} NO ENCONTRADO "
           next
         end
@@ -176,7 +177,6 @@ namespace :importer do
           end
           parent_id = location.id
         end
-        provider = p.first
         #Get Point
         point = Zone.find_or_create_by({
           name: "#{provider.name} - #{row['nombre']}",
@@ -196,7 +196,6 @@ namespace :importer do
           highway: row['ruta'],
           highway_km: row['km'],
         })
-        puts "Site Created: #{row['nombre_del_establecimiento']}"
         level = row['nivel'].present? ? row['nivel'] : level
         if (!asse)
           #get site data
@@ -205,20 +204,20 @@ namespace :importer do
             #get Datum
             d = Datum.find_by(key: key)
             #Check data type
-            value = row['key']
+            value = row[key]
             text = ''
             case d.dtype
             when 'boolean'
               if value.present?
-                if row['key'].downcase == 'si'
+                if row[key].downcase == 'si'
                   value = 1
                 end
-                if row['key'].downcase == 'no'
+                if row[key].downcase == 'no'
                   value = 0
                 end
               end
             when 'array'
-              text = row['key']
+              text = row[key]
               value = 0
             end
             if d.present?

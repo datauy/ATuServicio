@@ -19,6 +19,7 @@ module SiteHelper
       geo.keys.reverse_each do |zkey|
         res += "<div class='tag location'><img src='/images/user.svg'></i><span>#{geo[zkey].name}</span></div>"
       end
+      res += self.site_address
     end
     res.html_safe
   end
@@ -28,6 +29,6 @@ module SiteHelper
     ['address', 'address_comp', 'highway', 'highway_km'].each do |addr|
       addrs.push(@site[addr]) if @site[addr].present? 
     end
-    "<div class='address'>#{addrs.join(',')}</div>".html_safe
+    "<div class='address tag'>#{addrs.join('</div><div class="address tag">')}</div>".html_safe
   end
 end
