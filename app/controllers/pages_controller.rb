@@ -5,8 +5,8 @@ class PagesController < ApplicationController
     @providers = Provider.where(active: true).order(:short_name)
     @geodata = GeoEntity.joins(:zone).select(:id, :name, :description, :site_id, :wkt, :ztype, :gtype).where(is_active: true)
     @sites = {}
-    emergency_id = Datum.where(key: 'puerta_urgencia__etiqueta').id
-    emergency = SiteDatum.where(datum_id:emergency_id, value: 1).pluck(:site_id)
+    emergency_id = Datum.find_by(key: 'puerta_urgencia__etiqueta').id
+    emergency = SiteDatum.where(datum_id: emergency_id, value: 1).pluck(:site_id)
     Site.
     joins(:zone).
     joins(:site_data).

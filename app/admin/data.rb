@@ -1,11 +1,11 @@
 ActiveAdmin.register Datum do
   # Specify parameters which should be permitted for assignment
-  permit_params :title, :description, :key, :is_active
+  permit_params :title, :description, :key, :is_active, :dtype
 
   # or consider:
   #
   # permit_params do
-  #   permitted = [:title, :description, :key, :is_active]
+  #   permitted = [:title, :description, :key, :is_active, :dtype]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
@@ -21,6 +21,7 @@ ActiveAdmin.register Datum do
   filter :is_active
   filter :created_at
   filter :updated_at
+  filter :dtype
 
   # Add or remove columns to toggle their visibility in the index action
   index do
@@ -32,6 +33,7 @@ ActiveAdmin.register Datum do
     column :is_active
     column :created_at
     column :updated_at
+    column :dtype
     actions
   end
 
@@ -45,6 +47,7 @@ ActiveAdmin.register Datum do
       row :is_active
       row :created_at
       row :updated_at
+      row :dtype
     end
   end
 
@@ -56,6 +59,7 @@ ActiveAdmin.register Datum do
       f.input :description
       f.input :key
       f.input :is_active
+      f.input :dtype
     end
     f.actions
   end

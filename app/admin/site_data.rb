@@ -1,11 +1,11 @@
 ActiveAdmin.register SiteDatum do
   # Specify parameters which should be permitted for assignment
-  permit_params :datum_id, :site_id, :year, :period
+  permit_params :datum_id, :site_id, :year, :period, :level, :value, :text
 
   # or consider:
   #
   # permit_params do
-  #   permitted = [:datum_id, :site_id, :year, :period]
+  #   permitted = [:datum_id, :site_id, :year, :period, :level, :value, :text]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
@@ -21,6 +21,9 @@ ActiveAdmin.register SiteDatum do
   filter :period
   filter :created_at
   filter :updated_at
+  filter :level
+  filter :value
+  filter :text
 
   # Add or remove columns to toggle their visibility in the index action
   index do
@@ -32,6 +35,9 @@ ActiveAdmin.register SiteDatum do
     column :period
     column :created_at
     column :updated_at
+    column :level
+    column :value
+    column :text
     actions
   end
 
@@ -45,6 +51,9 @@ ActiveAdmin.register SiteDatum do
       row :period
       row :created_at
       row :updated_at
+      row :level
+      row :value
+      row :text
     end
   end
 
@@ -56,6 +65,9 @@ ActiveAdmin.register SiteDatum do
       f.input :site
       f.input :year
       f.input :period
+      f.input :level
+      f.input :value
+      f.input :text
     end
     f.actions
   end
