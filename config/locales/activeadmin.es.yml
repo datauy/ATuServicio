@@ -1,0 +1,186 @@
+---
+es:
+  active_admin:
+    access_denied:
+      message: You are not authorized to perform this action.
+    any: Todas
+    dashboard: "Tablero"
+    batch_actions:
+      action_label: "%{title} Selected"
+      button_label: Acciones en masa
+      default_confirmation: Are you sure you want to do this?
+      delete_confirmation: Are you sure you want to delete these %{plural_model}?
+      labels:
+        destroy: Delete
+      selection_toggle_explanation: "(Toggle Selection)"
+      successfully_destroyed:
+        one: Successfully deleted 1 %{model}
+        other: Successfully deleted %{count} %{plural_model}
+    blank_slate:
+      content: There are no %{resource_name} yet.
+      link: Create one
+    cancel: Cancel
+    comments:
+      add: Add Comment
+      author: Author
+      author_missing: Anonymous
+      author_type: Author Type
+      body: Body
+      created_at: Created
+      delete: Delete Comment
+      delete_confirmation: Are you sure you want to delete this comment?
+      errors:
+        empty_text: Comment wasn't saved, text was empty.
+      no_comments_yet: No comments yet.
+      resource: Resource
+      resource_type: Resource Type
+      title_content: All Comments (%{count})
+    create_another: Create another %{model}
+    edit: Editar
+    delete: Borrar
+    delete_confirmation: Are you sure you want to delete this?
+    delete_model: Delete %{model}
+    details: "%{model} Details"
+    devise:
+      change_password:
+        submit: Change my password
+        title: Change your password
+      email:
+        title: Email
+      links:
+        forgot_your_password: ¿Olvidaste tu contraseña?
+        resend_confirmation_instructions: Resend confirmation instructions
+        resend_unlock_instructions: Resend unlock instructions
+        sign_in: Registro
+        sign_in_with_omniauth_provider: Sign in with %{provider}
+        sign_up: Registrarse
+      login:
+        remember_me: Recordar
+        submit: Proceder
+        title: Registro
+      password:
+        title: Contraseña
+      password_confirmation:
+        title: Confirmar contraseña
+      resend_confirmation_instructions:
+        submit: Reenviar instrucciones
+        title: Reeenviar instrucciones
+      reset_password:
+        submit: Reestablecer contraseña
+        title: ¿Olvidaste tu contraseña?
+      sign_up:
+        submit: Registrarse
+        title: Registrarse
+      subdomain:
+        title: Subdomain
+      unlock:
+        submit: Resend unlock instructions
+        title: Resend unlock instructions
+      username:
+        title: Username
+    download: 'Descargar:'
+    edit: Editar
+    edit_model: Editar %{model}
+    empty: Vacío
+    filters:
+      title: "Filtrar"
+      buttons:
+        clear: Borrar filtros
+        filter: Filtrar
+      predicates:
+        from: From
+        to: To
+    has_many_delete: Borrar
+    has_many_new: Agregar %{model}
+    has_many_remove: Borrar
+    index_list:
+      table: Tabla
+    logout: Sign out
+    move: Move
+    new_model: Nueva/o %{model}
+    next: Siguiente
+    pagination:
+      empty: No %{model} found
+      entry:
+        one: entry
+        other: entries
+      multiple: Showing <b>%{from}-%{to}</b> of <b>%{total}</b>
+      multiple_without_total: Showing <b>%{from}-%{to}</b>
+      next: Next
+      one: Showing <b>1</b> of <b>1</b>
+      one_page: Showing <b>all %{n}</b>
+      per_page: 'Per page '
+      previous: Previous
+      truncate: "&hellip;"
+    powered_by: Powered by %{active_admin} %{version}
+    previous: Previous
+    scopes:
+      all: All
+    search_status:
+      no_current_filters: No filters applied
+      title: Active Search
+      title_with_scope: Active Search for %{name}
+    sidebars:
+      filters: Filters
+      search_status: Search Status
+    status_tag:
+      'no': 'No'
+      unset: Unknown
+      'yes': 'Yes'
+    toggle_dark_mode: Toggle dark mode
+    toggle_main_navigation_menu: Toggle main navigation menu
+    toggle_section: Toggle section
+    toggle_user_menu: Toggle user menu
+    view: Ver
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'La validación falló: %{errors}'
+        restrict_dependent_destroy:
+          has_one: No se puede eliminar el registro porque existe un %{record} dependiente
+          has_many: No se puede eliminar el registro porque existen %{record} dependientes
+    models:
+      active_admin/comment:
+        one: Comentario
+        other: Comentarios
+      comment:
+        one: Comentario
+        other: Comentarios
+      datum: "Datos generales"
+      geo_entity: "Geolocalizables"
+      human_resource: "Recursos humanos"
+      indicator: "Indicadores"
+      news: "Novedades"
+      price: "Precios tipo"
+      provider_datum: "Datos base Proveedores"
+      provider_price: "Precios de Proveedores"
+      provider: "Proveedores"
+      evaluation: "Proveedores"
+      section: "Secciones"
+      site_datum: "Datos de Sedes"
+      site: "Sedes"
+      speciality: "Especialidades"
+      zone: "Geolocalizaciones"
+    attributes:
+      active_admin/comment:
+        author_type: Author type
+        body: Body
+        created_at: Created
+        namespace: Namespace
+        resource_type: Resource type
+        updated_at: Updated
+      provider_datum: "Datos base Proveedores"
+      site_datum: "Datos de Sedes"
+      datum: "Datos generales"
+      speciality: "Especialidades"
+      geo_entity: "Geolocalizables"
+      zone: "Geolocalizaciones"
+      indicator: "Indicadores"
+      news: "Novedades"
+      provider_price: "Precios de Proveedores"
+      price: "Precios tipo"
+      provider: "Proveedores"
+      human_resource: "Recursos humanos"
+      section: "Secciones"
+      site: "Sedes"
+      
