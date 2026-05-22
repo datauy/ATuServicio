@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_05_14_154501) do
+ActiveRecord::Schema[8.0].define(version: 2026_05_21_224218) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -87,7 +87,9 @@ ActiveRecord::Schema[8.0].define(version: 2026_05_14_154501) do
     t.datetime "updated_at", null: false
     t.boolean "is_active"
     t.bigint "site_id"
+    t.bigint "state_id"
     t.index ["site_id"], name: "index_geo_entities_on_site_id"
+    t.index ["state_id"], name: "index_geo_entities_on_state_id"
     t.index ["zone_id"], name: "index_geo_entities_on_zone_id"
   end
 
@@ -341,6 +343,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_05_14_154501) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "geo_entities", "sites"
   add_foreign_key "geo_entities", "zones"
+  add_foreign_key "geo_entities", "zones", column: "state_id"
   add_foreign_key "human_resources", "providers"
   add_foreign_key "human_resources", "specialities"
   add_foreign_key "human_resources", "zones"

@@ -89,7 +89,7 @@
     <p>Explorá los distintos servicios de salud dentro del país.</p>
     <div class="tabs-filters">
       <%= text_field_tag 'name', nil, { placeholder: "Buscar por nombre", data: {action: "keyup->tabs#search", "tabs-target": 'filter1'}} %>
-      <%= select_tag "state", options_for_select( @states ), {include_blank: 'Todo el país', data: {action: "change->tabs#search", "tabs-target": 'filter2'}} %>
+      <%= select_tag "state", options_for_select( @states ), {data: {action: "change->tabs#search", "tabs-target": 'filter2'}} %>
     </div>
   </div>
   <div class="tabs-header">

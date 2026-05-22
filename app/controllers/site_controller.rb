@@ -21,10 +21,13 @@ class SiteController < ApplicationController
   end
 
   def sites
-    if ( params[:name].present? )
+    if params[:name].present?
       @sites = Site.search(params[:name])
     else
       @sites = Site.where(is_active: true).order(:name)
+    end
+    if params[:state].present? && params[:state] != '0'
+      @sites = @sites.where(state_id: params[:state])
     end
     respond_to do |format|
       format.turbo_stream
@@ -32,10 +35,13 @@ class SiteController < ApplicationController
   end
 
   def geo_entities
-    if ( params[:name].present? )
+    if params[:name].present?
       @sites = GeoEntity.search(params[:name])
     else
       @sites = GeoEntity.where(is_active: true).order(:name)
+    end
+    if params[:state].present? && params[:state] != '0'
+      @sites = @sites.where(state_id: params[:state])
     end
     respond_to do |format|
       format.turbo_stream

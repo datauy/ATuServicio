@@ -18,6 +18,9 @@
       #location {
         width: fit-content;
       }
+      .tag {
+        font-size: 16px;
+      }
     }
     .zone-info {
       display: none;

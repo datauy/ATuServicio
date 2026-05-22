@@ -7,11 +7,11 @@ module SiteHelper
       @site.site_data.pluck(:level).uniq.each do |level|
         case level
         when 'Primer nivel de atención'
-          res += '<div class="tag"><i class="fas fa-stethoscope"></i><span>Policlínica</span></div>'
+          res += '<div class="tag poli"><i class="fas fa-stethoscope"></i><span>Policlínica</span></div>'
         when 'Segundo nivel de atención'
-          res += '<div class="tag"><img src="/images/housemedical.svg"></i><span>Centros de salud</span></div>'
+          res += '<div class="tag centro"><img src="/images/housemedical.svg"></i><span>Centros de salud</span></div>'
         when 'Tercer nivel de atención'
-          res += '<div class="tag"><img src="/images/hospital.svg"></i><span>Hospitales</span></div>'
+          res += '<div class="tag hospital"><img src="/images/hospital.svg"></i><span>Hospitales</span></div>'
         end
       end
     when 'address'
@@ -29,6 +29,6 @@ module SiteHelper
     ['address', 'address_comp', 'highway', 'highway_km'].each do |addr|
       addrs.push(@site[addr]) if @site[addr].present? 
     end
-    "<div class='address tag'>#{addrs.join('</div><div class="address tag">')}</div>".html_safe
+    "<div class='address tag'>#{addrs.join(', ')}</div>".html_safe
   end
 end

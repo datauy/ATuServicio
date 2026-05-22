@@ -120,8 +120,8 @@ class ProviderController < ApplicationController
     else
       @providers = Provider.where(active: true)
     end
-    if params[:departamento].present?
-        @providers = @providers.includes(:sites).where("sites.state_id": params[:departamento])
+    if params[:state].present? && params[:state] != '0'
+        @providers = @providers.includes(:sites).where("sites.state_id": params[:state])
         logger.debug "PROVIDERS SEARCH #{@providers}"
     end
     @providers = @providers.order(:short_name)

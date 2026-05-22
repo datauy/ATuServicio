@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def index
-    @states = Zone.where(ztype: "Departamento").order(:name).pluck(:name, :id)
+    @states = [["Todo el país", 0]]
+    @states += Zone.where(ztype: "Departamento").order(:name).pluck(:name, :id)
     @sections = Section.where(is_home_card: true, is_active: true).order(:weight)
     @providers = Provider.where(active: true).order(:short_name)
     @geodata = GeoEntity.joins(:zone).select(:id, :name, :description, :site_id, :wkt, :ztype, :gtype).where(is_active: true)
