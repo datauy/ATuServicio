@@ -22,7 +22,7 @@
             <span>Hospitales</span>
           </div>
           <label class="switch">
-            <%= check_box_tag :third_level_map, 'thirdLevel', {data: {action: "map#changeServices" }, checked: true }%>
+            <%= check_box_tag :thirdLevel, 'thirdLevel', {data: {action: "map#changeServices" }, checked: true }%>
             <span class="slider round"></span>
           </label>
         </div>
@@ -32,7 +32,7 @@
             <span>Centros de salud</span>
           </div>
           <label class="switch">
-            <%= check_box_tag :second_level_map, 'secondLevel', {data: {action: "map#changeServices" }, checked: true }%>
+            <%= check_box_tag :secondLevel, 'secondLevel', {data: {action: "map#changeServices" }, checked: true }%>
             <span class="slider round"></span>
           </label>
         </div>
@@ -42,7 +42,7 @@
             <span>Policlínicas</span>
           </div>
           <label class="switch">
-            <%= check_box_tag :first_level_map, 'firstLevel', {data: {action: "map#changeServices" }, checked: true }%>
+            <%= check_box_tag :firstLevel, 'firstLevel', {data: {action: "map#changeServices" } }%>
             <span class="slider round"></span>
           </label>
         </div>
@@ -52,7 +52,7 @@
             <span>Vacunatorios</span>
           </div>
           <label class="switch">
-            <%= check_box_tag :vacunatorios_map, 'zonesData', {data: {action: "map#changeServices" }, checked: true }%>
+            <%= check_box_tag :zonesData, 'zonesData', {data: {action: "map#changeServices" } }%>
             <span class="slider round"></span>
           </label>
         </div>
@@ -62,7 +62,7 @@
             <span>Puertas de emergencia</span>
           </div>
           <label class="switch">
-            <%= check_box_tag :emergency_map, 'emergency', {data: {action: "map#changeServices" }, checked: true }%>
+            <%= check_box_tag :emergency, 'emergency', {data: {action: "map#changeServices" } }%>
             <span class="slider round"></span>
           </label>
         </div>
@@ -132,6 +132,9 @@
     <div id="tab-vacunatorios" class="tab-inner">
       <%= turbo_frame_tag "infra_grid", class: "cards" %>
     </div>
+  </div>
+  <div id="tabs-backdrop" class="backdrop" data-tabs-target='loading'>
+    <%= image_tag '/images/loading.svg'%>
   </div>
 </div>
 <div id=news>

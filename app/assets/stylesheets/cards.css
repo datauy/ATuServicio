@@ -11,9 +11,6 @@
     height: 100%;
     color: var(--color-gris-01);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     .card-header {
       .header-top {
         height: 30px;

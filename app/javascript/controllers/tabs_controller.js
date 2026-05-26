@@ -2,12 +2,11 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="tabs"
 export default class extends Controller {
-  static targets = ['filter1', 'filter2']
+  static targets = ['filter1', 'filter2', 'loading']
   
   static loading
 
   connect() {
-    console.log("CONECT TABS");
     this.current_tab = 'tab-prestadores'
     this.loading = false
   }
@@ -15,7 +14,6 @@ export default class extends Controller {
   switch_tab(e) {
     console.log("SWITCH to ", e);
     if ( !this.loading ) {
-      this.loading == true
       // Change tabs headers
       document.querySelector('.tabs-header [aria-expanded="true"').setAttribute('aria-expanded', false)
       e.target.setAttribute('aria-expanded', true)
@@ -29,31 +27,12 @@ export default class extends Controller {
       let tab = document.getElementById(tid)
       if ( tid == 'tab-clinicas' ) {
         if ( document.getElementById('sites_grid').innerHTML  == "" ) {
-          fetch('/sites', {
-          method: "GET",
-          headers: { Accept: "text/vnd.turbo-stream.html" }
-          })
-          .then(r => r.text())
-          .then(html => {
-            Turbo.renderStreamMessage(html)
-            tab.style.display = 'flex'
-            this.loading = false
-          })
+          this.render_turbo('/sites')
         }
       }
       if ( tid == 'tab-vacunatorios' ) {
         if ( document.getElementById('infra_grid').innerHTML  == "" ) {
-          console.log("GET CONTENT FOR TAB loader?");
-          fetch('/infra', {
-          method: "GET",
-          headers: { Accept: "text/vnd.turbo-stream.html" }
-          })
-          .then(r => r.text())
-          .then(html => {
-            Turbo.renderStreamMessage(html)
-            tab.style.display = 'flex'
-            this.loading = false
-          })
+          this.render_turbo('/infra')
         }
       }
       tab.style.display = 'flex'
@@ -61,9 +40,8 @@ export default class extends Controller {
   }
 
   search(e) {
-    console.log("SEARCH TAB", this.current_tab);
     let url = 0
-    if ( this.filter1Target.value.length > 2 || this.filter2Target.value ) {
+    if ( !this.loading && ( this.filter1Target.value.length > 2 || this.filter2Target.value )) {
       console.log("SEARCHING", this.filter1Target.value,this.filter2Target.value);
       switch(this.current_tab) {
         case 'tab-prestadores':
@@ -83,7 +61,14 @@ export default class extends Controller {
       if ( this.filter2Target.value ) {
         url.searchParams.append('state', this.filter2Target.value)
       }
-      fetch(url, {
+      this.render_turbo(url)
+    }
+  }
+
+  render_turbo(url) {
+    this.loading == true
+    this.loadingTarget.style.display = 'flex'
+    fetch(url, {
       method: "GET",
       headers: {
         Accept: "text/vnd.turbo-stream.html"
@@ -92,7 +77,8 @@ export default class extends Controller {
       .then(r => r.text())
       .then(html => {
         Turbo.renderStreamMessage(html)
+        this.loading == false
+        this.loadingTarget.style.display = 'none'
       })
-    }
   }
 }

@@ -102,6 +102,11 @@
       }
     }
   }
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 #compare-bar {
   display: none;

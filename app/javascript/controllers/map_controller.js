@@ -22,14 +22,22 @@ export default class extends Controller {
   static userIcon
   static userMarker
   static map
+  static layers
   
   connect() {
-    console.log("CONNECT MAP", this.geodataValue, this.sitesValue)
-    this.zonesData = []
-    this.firstLevel = []
-    this.secondLevel = []
-    this.thirdLevel = []
-    this.emergency = []
+    //Set initial layers
+    this.layers = {
+      zonesData: false,
+      firstLevel: false,
+      secondLevel: true,
+      thirdLevel: true,
+      emergency: false
+    }
+    //Initialize variables
+    Object.keys(this.layers).forEach( l => {
+      this[l] = []
+      this[l+'Layer'] = new L.FeatureGroup()
+    })
     this.icon = {
       iconUrl: '/images/user.svg',
       iconSize: [37, 45],
@@ -39,11 +47,6 @@ export default class extends Controller {
       shadowSize: [60, 60]
     }
     this.userIcon = L.icon(this.icon)
-    this.zonesDataLayer = new L.FeatureGroup()
-    this.firstLevelLayer = new L.FeatureGroup()
-    this.secondLevelLayer = new L.FeatureGroup()
-    this.thirdLevelLayer = new L.FeatureGroup()
-    this.emergencyLayer = new L.FeatureGroup()
     this.createMap()
     this.map.setView([-32.65,-56.23388], 7)
     this.map.scrollWheelZoom.disable()
@@ -57,8 +60,6 @@ export default class extends Controller {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(this.map);
     this.map.on("locationfound", (e) => {
-      console.log("LOCATION FOUND", e)
-      
       const { latlng, accuracy } = e
       // Create/update marker
       if (!this.userMarker) {
@@ -145,10 +146,8 @@ export default class extends Controller {
         }
       }
     })
-    console.log(this.emergency);
-    
     //ADD TO MAP
-    ['zonesData', 'firstLevel', 'secondLevel', 'thirdLevel', 'emergency'].forEach(l => {
+    Object.keys(this.layers).forEach(l => {
       //ICONS
       L.geoJSON(this[l], {
         onEachFeature: (feature, layer) => {
@@ -169,21 +168,21 @@ export default class extends Controller {
           })
         }
       }).addTo(this[l+"Layer"]);
-    this[l+"Layer"].addTo(this.map)
-    })    
+      if ( this.layers[l] ) {
+        this[l+"Layer"].addTo(this.map)
+      }
+      document.getElementById(l).checked = this.layers[l]
+    })
   }
   // Info Panel
   showInfo(zone) {
-    console.log("SHOW INFO", zone)
     if ( this.infoTarget.classList.contains('visible') ) {
-      console.log("TARGET VISIBLE", this.infoTarget)
       this.infoTarget.classList.remove('visible')
       setTimeout( e => {
         this.infoTarget.style.display = 'none'
       }, 330)
     }
     else {
-      console.log("TARGET NOT", this.infoTarget)
       if ( zone.gtype == 'vacunatorio') {
         this.infoTarget.querySelector('#zone-description').innerHTML = "<h4>"+zone.name+"</h4><p>"+zone.description+"</p>"
         this.infoTarget.style.display = 'flex'
@@ -215,7 +214,6 @@ export default class extends Controller {
   }
   //todo: fix geo
   geoLocate(e) {
-    console.log("LOCATION", e)
     // Leaflet will trigger "locationfound" / "locationerror"
     this.map.locate({
       setView: true,
