@@ -6,6 +6,7 @@ header {
   padding: 24px 6%;
   font-size: 20px;
   font-weight: 500;
+  border-bottom: 1px solid #e2e2e2;
   nav {
     ul {
       display: flex;

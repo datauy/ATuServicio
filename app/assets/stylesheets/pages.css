@@ -1,0 +1,37 @@
+.content {
+  padding: 100px 10%;
+  color: var(--color-gris-03);
+  font-size: 16px;
+  .section {
+    padding-bottom: 60px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid #be5858;
+    gap: 60px;
+    display: flex;
+    flex-direction: column;
+  }
+  img.photo {
+    max-height: 400px;
+    width: fit-content;
+    border-radius: 24px;
+    align-self: center;
+  }
+  h3 {
+    color: var(--color-azul-presidencia);
+  }
+}
+
+.columns {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 24px;
+  &.center {
+    align-items: center;
+  }
+}
