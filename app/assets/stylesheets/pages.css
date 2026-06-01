@@ -5,10 +5,24 @@
   .section {
     padding-bottom: 60px;
     margin-bottom: 60px;
-    border-bottom: 1px solid #be5858;
+    border-bottom: 1px solid #d6d6d6;
     gap: 60px;
     display: flex;
     flex-direction: column;
+    .tag {
+      svg {
+        width: 56px;
+        min-width: 56px;
+        color: #27abcd;
+        padding: 16px;
+        border-right: 1px solid #ceedf4;
+        margin-right: 16px;
+      }
+      span {
+        font-size: 16px;
+        font-weight: 600;
+      }
+    }
   }
   img.photo {
     max-height: 400px;

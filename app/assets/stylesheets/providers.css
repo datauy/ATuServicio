@@ -59,7 +59,8 @@
     align-items: center;
     .header-left {
       display: flex;
-      gap: 32px;
+      gap: 24px;
+      align-items: center;
       label {
         color: var(--color-gris-01);
         display: flex;
@@ -134,6 +135,9 @@
       }
       .label {
         font-weight: 600;
+      }
+      .value {
+        text-align: end;
       }
     }
     .sites .row {

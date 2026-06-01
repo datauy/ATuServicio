@@ -17,10 +17,12 @@
       <!-- Section content -->
       <div class="section-inner-content infra">
         <% @data.each do |sd| %>
+          <% if sd.value.present? %>
           <div class="row">  
             <div class="item label"><%= sd.datum.title %></div>
-            <div class="item"><%= format_value(sd.value, sd.datum.dtype) %></div>
+            <div class="item value"><%= format_value(sd.value, sd.datum.dtype) %></div>
           </div>
+          <% end %>
         <% end %>
       </div>
     </div>

@@ -23,4 +23,13 @@ module ApplicationHelper
       end
     end 
   end
+
+  def svg(file)
+    path = "#{Rails.root}/public/images/#{file}"
+    if File.exist?(path)
+      File.read(path).html_safe
+    else
+      File.read("#{Rails.root}/public/images/time.svg").html_safe
+    end
+  end
 end

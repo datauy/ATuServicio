@@ -20,6 +20,11 @@
       }
       .tag {
         font-size: 16px;
+        width: 100%;
+        padding: 8px 16px;
+        .row {
+          gap: 16px;
+        }
       }
     }
     .zone-info {
@@ -49,19 +54,45 @@
         align-items: center;
       }
     }
-    .map-services-filters {
-      .tag {
-        width: 100%;
-        .row {
-          gap: 16px;
-        }
-      }
-    }
   }
   .leaflet-popup-content-wrapper {
   }
 
   .leaflet-popup-content-wrapper .leaflet-popup-content {
+  }
+  .leaflet-div-icon {
+    background: none;
+    border: none;
+    width: 36px;
+    height: 36px;
+    img {
+      position: absolute;
+      top: 4px;
+    }
+    b {
+      position: absolute;
+      right: 0;
+      z-index: 300;
+      background: #000;
+      width: 16px;
+      height: 16px;
+      border-radius: 100%;
+      color: #FFF;
+      text-align: center;
+      font-size: 11px;
+      &.emergency {
+        background: #ff4e4b;
+        width: 12px;
+        height: 12px;
+        top: 4px;
+      }
+      &.vac {
+        background: #003da5;
+        width: 12px;
+        height: 12px;
+        top: 4px;
+      }
+    }
   }
 }
 #site_data {
@@ -100,12 +131,15 @@
           color: var(--color-azul-presidencia);
         }
       }
+      svg {
+        height: 16px;
+      }
     }
   }
   .card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
   }
 }
 #compare-bar {
@@ -167,7 +201,7 @@
     gap: 24px;
     padding: 40px;
     justify-content: space-between;
-    .content {
+    .card-content {
       display: flex;
       flex-direction: column;
       gap: 12px;

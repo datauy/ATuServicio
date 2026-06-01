@@ -106,7 +106,8 @@ export default class extends Controller {
     let obj
     let iconUrl
     this.sitesValue.forEach(gd => {
-      if ( gd.wkt != null && gd.wkt != 0 ) {    
+      if ( gd.wkt != null && gd.wkt != 0 ) {
+        let count = 0
         wkt.read(gd.wkt);
         switch(gd.level) {
           case 2:
@@ -123,8 +124,11 @@ export default class extends Controller {
         }
         let geo = false
         if (gd.geo != null) {
-          iconUrl += '-'+gd.geo.join('-')
+          count += 1
           geo = true
+        }
+        if ( gd.emergency ) {
+          count += 1
         }
         let feature = { 
           type: "Feature",
@@ -136,13 +140,17 @@ export default class extends Controller {
           site_id: gd.id,
           geo: geo,
           iconUrl: iconUrl,
-          emergency: gd.emergency ? true : false 
+          emergency: gd.emergency ? true : false,
+          counter: count
           },
           geometry: wkt.toJson() 
         }
         obj.push(feature)
         if ( gd.emergency ) {
           this.emergency.push(feature)
+        }
+        if ( gd.geo ) {
+          this.zonesData.push(feature)
         }
       }
     })
@@ -152,7 +160,26 @@ export default class extends Controller {
       L.geoJSON(this[l], {
         onEachFeature: (feature, layer) => {
           this.icon.iconUrl = '/images/'+feature.properties.iconUrl+'.svg'
-          layer.setIcon(L.icon(this.icon))
+          let icon = L.icon(this.icon)
+          if ( feature.properties.counter > 0 ) {
+            let ihtml = '<img src="' + this.icon.iconUrl + '" />'
+            if ( feature.properties.counter > 1 ) {
+              ihtml += '<b>' + feature.properties.counter + '</b>'
+            }
+            else {
+              if (feature.properties.emergency) {
+                ihtml += '<b class="emergency"></b>'
+              }
+              else {
+                ihtml += '<b class="vac"></b>'
+              }
+            }
+            icon = L.divIcon({ 
+              html: ihtml,
+              iconSize: '36px'
+            });
+          }
+          layer.setIcon(icon)
           let popupContent = feature.properties.name
           layer.bindPopup(popupContent);
           layer.on({

@@ -1,7 +1,7 @@
 <div class="providers" data-controller="compare" data-compare-ctype-value="compare" data-compare-pids-value="<%= @pids %>">
   <div class="header">
     <div class="tag page-tag tag-prestadores"><i class='fas fa-house-medical'></i>Prestadores y servicios</div>
-    <h1>Tomá una desición informada</h1>
+    <h1>Tomá una decisión informada</h1>
     <div class="page-description">Seleccioná hasta 3 prestadores para comparar</div>
     <input type="text" name="provider" data-action='keyup->compare#searchProvider' placeholder="Busca por nombre"/>
     <%= turbo_frame_tag "provider_list" %>
@@ -37,8 +37,8 @@
           action: 'click->section#toggleVisibility' 
         }%>
         
-          <%= button_tag "<i class='fas fa-circle-info'></i>".html_safe,
-          class: 'arrow',
+          <%= button_tag "#{svg('circle-info.svg')}".html_safe,
+          class: 'info',
           aria: { expanded: false, controls: "info-#{s['id']}"},
           data: { 
             "section-target": "infotrigger", 

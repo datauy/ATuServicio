@@ -2,9 +2,9 @@
   <div class="header">
     <div class="header-left">
       <h2><%= provider['short_name'] %></h2>
+      <div class="provider-name"><%= provider.name %></div>
     </div>
     <div class="header-right">
-      <div class="provider-name"><%= provider.name %></div>
       <div class="provider-web"><%= provider.web %></div>
       <label><%= check_box_tag :"provider-selector-#{provider.id}", provider.id, { class: "provider-selector", data: { action: "compare#addProvider" } }%> Comparar</label>
       <!--<label for="provider-selector-<%= provider.id %>" class="check">Comparando</label>-->

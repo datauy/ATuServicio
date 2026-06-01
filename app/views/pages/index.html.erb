@@ -6,10 +6,10 @@
   <div id="map" data-map-target="container"></div>
   <div id="map-controls">
     <div class="initial">
-      <h1>Te damos la bienvenida a A Tu Servicio</h1>
-      <p>En el siguiente mapa podrás visualizar todos los servicios relacionados a la salud en el país.</p>
+      <h1>Descubrí A Tu Servicio</h1>
+      <p>Explorá en el mapa los distintos servicios de salud disponibles.</p>
       <div class="box map-location-filters">
-        <h4>¿Te interesa ver una ubicación en particular?</h4>
+        <h4>Filtrar por ubicación</h4>
         <div class="row">
           <%= button_tag "<i class='fas fa-location-crosshairs'></i>Utilizar mi ubicación".html_safe, class: "main-button", data: {action: "click->map#geoLocate"} %>
         </div>
@@ -19,17 +19,17 @@
         <div class="tag">
           <div class="row">
             <%= image_tag '/images/hospital.svg' %>
-            <span>Hospitales</span>
+            <div>Hospitales</div>
           </div>
           <label class="switch">
             <%= check_box_tag :thirdLevel, 'thirdLevel', {data: {action: "map#changeServices" }, checked: true }%>
-            <span class="slider round"></span>
+            <div class="slider round"></div>
           </label>
         </div>
         <div class="tag">
           <div class="row">
             <%= image_tag '/images/housemedical.svg' %>
-            <span>Centros de salud</span>
+            <div>Centros de salud</div>
           </div>
           <label class="switch">
             <%= check_box_tag :secondLevel, 'secondLevel', {data: {action: "map#changeServices" }, checked: true }%>
@@ -39,7 +39,7 @@
         <div class="tag">
           <div class="row">
             <i class="fas fa-stethoscope"></i>
-            <span>Policlínicas</span>
+            <div>Policlínicas</div>
           </div>
           <label class="switch">
             <%= check_box_tag :firstLevel, 'firstLevel', {data: {action: "map#changeServices" } }%>
@@ -49,7 +49,7 @@
         <div class="tag">
           <div class="row">
             <%= image_tag '/images/vacunatorio.svg' %>
-            <span>Vacunatorios</span>
+            <div>Vacunatorios</div>
           </div>
           <label class="switch">
             <%= check_box_tag :zonesData, 'zonesData', {data: {action: "map#changeServices" } }%>
@@ -59,7 +59,7 @@
         <div class="tag">
           <div class="row">
             <%= image_tag '/images/emergency.svg' %>
-            <span>Puertas de emergencia</span>
+            <div>Puertas de emergencia</div>
           </div>
           <label class="switch">
             <%= check_box_tag :emergency, 'emergency', {data: {action: "map#changeServices" } }%>
@@ -93,13 +93,13 @@
     </div>
   </div>
   <div class="tabs-header">
-    <%= button_tag "#{image_tag '/images/prestadores.svg'} Prestadores y servicios".html_safe,
+    <%= button_tag "#{svg('providers.svg')} Prestadores y servicios".html_safe,
     {data: {'tabs-tab-value': "prestadores", action: "tabs#switch_tab"},
     aria: { expanded: true, controls: "tab-prestadores"}} %>
-    <%= button_tag "#{image_tag '/images/hospital.svg'} Infraestructura y sedes".html_safe,
+    <%= button_tag "#{svg('location-dot.svg')} Infraestructura y sedes".html_safe,
     {data: {'tabs-tab-value': "clinicas", action: "tabs#switch_tab"},
     aria: { expanded: false, controls: "tab-clinicas"}} %>
-    <%= button_tag "#{image_tag '/images/vacunatorio.svg'}Vacunatorios".html_safe,
+    <%= button_tag "#{svg('syringe.svg')}Vacunatorios".html_safe,
     {data: {'tabs-tab-value': "vacunatorios", action: "tabs#switch_tab"},
     aria: { expanded: false, controls: "tab-vacunatorios"}} %>
   </div>
@@ -133,7 +133,7 @@
       <%= turbo_frame_tag "infra_grid", class: "cards" %>
     </div>
   </div>
-  <div id="tabs-backdrop" class="backdrop" data-tabs-target='loading'>
+  <div id="tabs-backdrop" class="backdrop loading" data-tabs-target='loading'>
     <%= image_tag '/images/loading.svg'%>
   </div>
 </div>

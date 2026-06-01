@@ -1,7 +1,8 @@
 <%= turbo_stream.update("zone-description") do %>
   <% if @site.present? %>
   <div class="zone-description" data-controller="site" data-site-site-value="<%= @site.id %>">
-    <h4><%= @site.name %></h4>
+    <h2><%= @site.name %></h2>
+    <h4><%= @site.provider.short_name %></h4>
     <div class="row"><%= get_site_tags('level')%></div>
     <p><%= @site.description.present? ? @site.description.html_safe : '' %></p>
     <%= button_tag "Ver Datos",

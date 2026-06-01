@@ -1,5 +1,10 @@
 class SiteController < ApplicationController
+  before_action :get_emergency_id
 
+  def get_emergency_id
+    @emergency_id = Datum.find_by(key: 'puerta_urgencia__etiqueta').id
+  end
+  
   def site_data
     if params[:level].present?
       @data = SiteDatum.where(site_id: params[:id], level: params[:level])

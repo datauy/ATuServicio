@@ -7,17 +7,24 @@ module SiteHelper
       @site.site_data.pluck(:level).uniq.each do |level|
         case level
         when 'Primer nivel de atención'
-          res += '<div class="tag poli"><i class="fas fa-stethoscope"></i><span>Policlínica</span></div>'
+          res += "<div class='tag poli'>#{svg('primer-nivel-de-atencion.svg')}<span>Policlínica</span></div>"
         when 'Segundo nivel de atención'
-          res += '<div class="tag centro"><img src="/images/housemedical.svg"></i><span>Centros de salud</span></div>'
+          res += "<div class='tag center'>#{svg('housemedical.svg')}<span>Centro de salud</span></div>"
         when 'Tercer nivel de atención'
-          res += '<div class="tag hospital"><img src="/images/hospital.svg"></i><span>Hospitales</span></div>'
+          res += "<div class='tag hospital'>#{svg('hospital.svg')}<span>Hospital</span></div>"
         end
+      end
+      if @site.geo_entities.present?
+        res += "<div class='tag vac'>#{svg('vacunatorio.svg')}<span>Vaunatorio</span></div>"
+      end
+      emergency = @site.site_data.where(datum_id: @emergency_id)
+      if emergency.present? && emergency
+        res += "<div class='tag emergency'>#{svg('emergency.svg')}<span>Puerta de emergencia</span></div>"
       end
     when 'address'
       geo = @site.zone.parents
       geo.keys.reverse_each do |zkey|
-        res += "<div class='tag location'><img src='/images/user.svg'></i><span>#{geo[zkey].name}</span></div>"
+        res += "<div class='tag location'>#{svg('location-pin.svg')}<span>#{geo[zkey].name}</span></div>"
       end
       res += self.site_address
     end
@@ -29,6 +36,6 @@ module SiteHelper
     ['address', 'address_comp', 'highway', 'highway_km'].each do |addr|
       addrs.push(@site[addr]) if @site[addr].present? 
     end
-    "<div class='address tag'>#{addrs.join(', ')}</div>".html_safe
+    "<div class='address column'><b>Dirección</b><span>#{addrs.join(', ')}</span></div>".html_safe
   end
 end
