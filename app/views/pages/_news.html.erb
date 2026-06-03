@@ -5,6 +5,6 @@
     <h2><%= n.title %></h2>
     <p><%= n.description %></p>
   </div>
-  <%= button_tag "Quiero conocer más", href: n.link, class: 'main-button' %>
+  <%= button_tag "Quiero conocer más #{svg('arrow-right.svg')}".html_safe, href: n.link, class: 'main-button' %>
 </div>
 <% end %>

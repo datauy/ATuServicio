@@ -1,4 +1,4 @@
-<div class="provider-summary">
+<div id="provider-summary-<%= provider.id %>" class="provider-summary">
   <div class="header">
     <div class="header-left">
       <h2><%= provider['short_name'] %></h2>
@@ -6,8 +6,9 @@
     </div>
     <div class="header-right">
       <div class="provider-web"><%= provider.web %></div>
-      <label><%= check_box_tag :"provider-selector-#{provider.id}", provider.id, { class: "provider-selector", data: { action: "compare#addProvider" } }%> Comparar</label>
-      <!--<label for="provider-selector-<%= provider.id %>" class="check">Comparando</label>-->
+      <%= check_box_tag :"provider-selector-#{provider.id}", provider.id, { class: "provider-selector", data: { action: "compare#addProvider" } }%>
+      <label for="provider-selector-<%= provider.id %>" class="main-button not-check"><i class="fas fa-plus"></i> Comparar</label>
+      <label for="provider-selector-<%= provider.id %>" class="secondary-button check"><i class="fas fa-xmark"></i> No Comparar</label>
     </div>
   </div>
   <div class="cards">

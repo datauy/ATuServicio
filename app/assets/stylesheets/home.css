@@ -19,9 +19,16 @@
         width: fit-content;
       }
       .tag {
-        font-size: 16px;
         width: 100%;
         padding: 8px 16px;
+        span {
+          color: #2c2c2c;
+          font-size: 16px;
+        }
+        svg {
+          height: 20px;
+          width: 20px;
+        }
         .row {
           gap: 16px;
         }
@@ -32,7 +39,7 @@
       position: absolute;
       background: var(--color-azul-4);
       width: 100%;
-      height: calc(100% + 60px);
+      height: 100%;
       left: 0px;
       top: 0px;
       flex-direction: column;
@@ -52,6 +59,12 @@
       .row {
         flex-wrap: wrap;
         align-items: center;
+        &.address {
+          font-size: 12px;
+        }
+        button {
+          font-size: 12px;
+        }
       }
     }
   }
@@ -134,6 +147,11 @@
       svg {
         height: 16px;
       }
+    }
+  }
+  .tabs-content {
+    .tab-inner {
+      flex-direction: column;
     }
   }
   .card {

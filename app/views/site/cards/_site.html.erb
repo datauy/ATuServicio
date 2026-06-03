@@ -2,7 +2,8 @@
   <h4><%= @site.provider.short_name %></h4>
   <div class="tags"><%= get_site_tags('level')%></div>
   <div class="tags"><%= get_site_tags('address')%></div>
-  <p><%= @site.description.present? ? @site.description.html_safe : '' %></p>
+  <div class="row"><%= site_address() %></div>
+  <!--<p><%= @site.description.present? ? @site.description.html_safe : '' %></p>-->
   <%= button_tag "Ver Datos #{svg('arrow-right.svg')}".html_safe,
     class: 'level main-button',
     aria: { expanded: false, controls: "site-backdrop"},

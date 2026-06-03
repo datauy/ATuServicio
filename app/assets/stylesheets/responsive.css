@@ -30,7 +30,7 @@
 
 @media (max-width: 900px ) {
   .map-wraper {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
   header {
     padding: 24px 2%;
@@ -38,10 +38,19 @@
 }
 
 @media (max-width: 700px ) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
   .provider-summary {
-    .provider-cards {
-      grid-template-columns: 1fr;
+    align-items: center;
+  }
+  .map-wraper {
+    #map-controls {
+      justify-content: center;
     }
+  }
+  #news {
+    flex-direction: column;
   }
 }
 @media (max-width: 600px ) { 

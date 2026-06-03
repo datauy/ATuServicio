@@ -24,18 +24,25 @@ module SiteHelper
     when 'address'
       geo = @site.zone.parents
       geo.keys.reverse_each do |zkey|
-        res += "<div class='tag location'>#{svg('location-pin.svg')}<span>#{geo[zkey].name}</span></div>"
+        icon = 'location-pin.svg'
+        if zkey == "Localidad"
+          icon = 'city.svg'
+        end
+        res += "<div class='tag location'>#{svg(icon)}<span>#{geo[zkey].name}</span></div>"
       end
-      res += self.site_address
     end
     res.html_safe
   end
 
-  def site_address
+  def site_address(sclass = 'column')
     addrs = []
     ['address', 'address_comp', 'highway', 'highway_km'].each do |addr|
       addrs.push(@site[addr]) if @site[addr].present? 
     end
-    "<div class='address column'><b>Dirección</b><span>#{addrs.join(', ')}</span></div>".html_safe
+    if addrs.length > 0
+      "<div class='address #{sclass}'><b>Dirección</b><span>#{addrs.join(', ')}</span></div>".html_safe
+    else
+      ""
+    end
   end
 end

@@ -4,15 +4,20 @@
     <h2><%= @site.name %></h2>
     <h4><%= @site.provider.short_name %></h4>
     <div class="row"><%= get_site_tags('level')%></div>
-    <p><%= @site.description.present? ? @site.description.html_safe : '' %></p>
-    <%= button_tag "Ver Datos",
-      class: 'level main-button',
-      aria: { expanded: false, controls: "site-backdrop"},
-      data: {
-        "site-target": "button",
-        action: "click->site#toggleModal" 
-      }
-    %>
+    <%= @site.description.present? ? "<p>#{@site.description}</p>".html_safe : '' %>
+    <div class="row"><%= get_site_tags('address')%></div>
+    <div class="row"><%= site_address('row')%></div>
+    <div class="row">
+      <button onclick="document.getElementById('provider-selector-<%= @site.provider.id %>').click(); document.getElementById('compare-bar').scrollIntoView();" class="secondary-button">Comparar Prestador</button>
+      <%= button_tag "Más información",
+        class: 'level main-button',
+        aria: { expanded: false, controls: "site-backdrop"},
+        data: {
+          "site-target": "button",
+          action: "click->site#toggleModal" 
+        }
+      %>
+    </div>
   </div>
   <% else %>
     <div class="error">No se ha encontrado la zona solicitada</div> 

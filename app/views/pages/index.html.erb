@@ -16,30 +16,30 @@
       </div>
       <div class="box map-services-filters">
         <h4>¿Te interesa ver un servicio en particular?</h4>
-        <div class="tag">
+        <div class="tag hospital">
           <div class="row">
-            <%= image_tag '/images/hospital.svg' %>
-            <div>Hospitales</div>
+            <%= svg('hospital.svg') %>
+            <span>Hospitales</span>
           </div>
           <label class="switch">
             <%= check_box_tag :thirdLevel, 'thirdLevel', {data: {action: "map#changeServices" }, checked: true }%>
             <div class="slider round"></div>
           </label>
         </div>
-        <div class="tag">
+        <div class="tag centre">
           <div class="row">
-            <%= image_tag '/images/housemedical.svg' %>
-            <div>Centros de salud</div>
+            <%= svg('housemedical.svg') %>
+            <span>Centros de salud</span>
           </div>
           <label class="switch">
             <%= check_box_tag :secondLevel, 'secondLevel', {data: {action: "map#changeServices" }, checked: true }%>
             <span class="slider round"></span>
           </label>
         </div>
-        <div class="tag">
+        <div class="tag poli">
           <div class="row">
-            <i class="fas fa-stethoscope"></i>
-            <div>Policlínicas</div>
+            <%= svg('stethoscope.svg') %>
+            <span>Policlínicas</span>
           </div>
           <label class="switch">
             <%= check_box_tag :firstLevel, 'firstLevel', {data: {action: "map#changeServices" } }%>
@@ -48,8 +48,8 @@
         </div>
         <div class="tag">
           <div class="row">
-            <%= image_tag '/images/vacunatorio.svg' %>
-            <div>Vacunatorios</div>
+            <%= svg('vacunatorio.svg') %>
+            <span>Vacunatorios</span>
           </div>
           <label class="switch">
             <%= check_box_tag :zonesData, 'zonesData', {data: {action: "map#changeServices" } }%>
@@ -58,8 +58,8 @@
         </div>
         <div class="tag">
           <div class="row">
-            <%= image_tag '/images/emergency.svg' %>
-            <div>Puertas de emergencia</div>
+            <%= svg('emergency.svg') %>
+            <span>Puertas de emergencia</span>
           </div>
           <label class="switch">
             <%= check_box_tag :emergency, 'emergency', {data: {action: "map#changeServices" } }%>
@@ -136,9 +136,4 @@
   <div id="tabs-backdrop" class="backdrop loading" data-tabs-target='loading'>
     <%= image_tag '/images/loading.svg'%>
   </div>
-</div>
-<div id=news>
-  <div class="empty-square"></div>
-  <div class="empty-square"></div>
-  <div class="empty-square"></div>
 </div>

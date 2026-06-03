@@ -83,8 +83,18 @@ Los detalles de las dependecias se encuentran en el archivo [COPYRIGHT.md](COPYR
 
 # ATuServicio 2.0
 ATS install
+## Proceso de instalación
+### Clonar repositorio
+`git clone https://github.com/datauy/ATuServicio.git`
+### Instalar Ruby 3.4.6
+`bundle install`
+### Crear base de datos
+`rails db:migrate`
+### Cargar datos
 
-## Ruby version manager (asdf), follow your own 
+
+## Proceso de creación
+### Ruby version manager (asdf), follow your own 
 `asdf plugin update ruby`
 `asdf install ruby 3.4.6`
 `asdf reshim ruby`

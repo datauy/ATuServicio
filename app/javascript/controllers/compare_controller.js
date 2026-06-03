@@ -63,10 +63,14 @@ export default class extends Controller {
 
   addProvider(e) {
     // Add/Remove from array
+    let summary = document.getElementById('provider-summary-'+e.target.value)
     if ( e.target.checked ) {
       if ( this.providers.length < 3 ) {
         this.barTarget.style.display = 'flex'
         this.providers.push(e.target.value)
+        if ( summary != null ) {
+          summary.classList.add('active')
+        }
         // Get provider data
         fetch('/proveedor/resumen/'+e.target.value, {
           method: "GET",
@@ -84,6 +88,9 @@ export default class extends Controller {
       }
     }
     else {
+      if ( summary != null ) {
+        summary.classList.remove('active')
+      }
       this.removeProvider(e)
     }
   }

@@ -31,12 +31,13 @@
   --color-azul-presidencia: #003da5;
   --color-azul-dark: #4094e1;
   --color-azul-4: #f0f6f8;
+  --color-azul-3: #ceedf4;
   --color-green: #1bb668;
   --color-policlinica: #ab57f5;
   --color-hospital: #27abcd;
   --color-hospital-sec: #ceedf4;
-  --color-center: #1bb668;
-  --color-center-sec: #e8f5e9;
+  --color-centre: #1bb668;
+  --color-centre-sec: #e8f5e9;
   --color-poli: #ab57f5;
   --color-poli-sec: #faeeff;
   --color-vac: #003da5;
@@ -49,10 +50,16 @@
   
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Inter", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
+  color: #2c2c2c;
+  scroll-behavior: smooth;
 }
 h1,h2,h3,h4,h5 {
   font-family: "DM Sans", sans-serif;
@@ -187,20 +194,27 @@ label {
   }
 
 }
-.main-button {
-  background: var(--color-azul-presidencia);
-  color: #FFF;
+.main-button, .secondary-button {
   border-radius: 4px;
   height: 44px;
   display: flex;
   gap: 8px;
-  padding: 16px;
+  padding: 12px 16px;
   font-size: 16px;
+  font-weight: 600;
   min-width: fit-content;
   align-items: center;
   svg {
-    width: 20px;
+    width: 14px;
   }
+}
+.main-button {
+  background: var(--color-azul-presidencia);
+  color: #FFF;
+}
+.secondary-button {
+  color: var(--color-azul-presidencia);
+  border: 1px solid var(--color-azul-presidencia);
 }
 .arrow[aria-expanded="true"] img {
   transform: rotate(180deg);
@@ -268,15 +282,15 @@ input {
     width: 20px;
   }
   svg {
-    width: 13px;
+    height: 12px;
   }
   &.hospital {
     color: var(--color-hospital);
     border-color: var(--color-hospital-sec);
   }
-  &.center {
-    color: var(--color-center);
-    border-color: var(--color-center-sec);
+  &.centre {
+    color: var(--color-centre);
+    border-color: var(--color-centre-sec);
   }
   &.poli {
     color: var(--color-poli);
