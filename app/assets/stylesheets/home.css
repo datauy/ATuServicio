@@ -68,10 +68,10 @@
       }
     }
   }
-  .leaflet-popup-content-wrapper {
-  }
-
-  .leaflet-popup-content-wrapper .leaflet-popup-content {
+  .popup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
   .leaflet-div-icon {
     background: none;
@@ -166,7 +166,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1001;
+  z-index: 10;
   gap: 12px;
   padding: 24px 40px;
   justify-content: space-between;

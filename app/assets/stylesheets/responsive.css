@@ -1,19 +1,19 @@
 @media (max-width: 1280px ) {
   body {
-    font-size: 16px;
+    font-size: 14px;
   }
   h1 {
-    font-size: 30px;
-  }
-  h2 {
     font-size: 26px;
   }
+  h2 {
+    font-size: 22px;
+  }
   h4 {
-    font-size: 18px;
+    font-size: 16px;
   }
   nav {
     ul {
-      font-size: 18px;
+      font-size: 16px;
       gap: 16px;
     }
   }
@@ -25,12 +25,13 @@
   }
   .cards {
     grid-template-columns: repeat(2, 1fr);
+    margin: auto;
   }
 }
 
 @media (max-width: 900px ) {
   .map-wraper {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
   header {
     padding: 24px 2%;

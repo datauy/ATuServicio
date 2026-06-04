@@ -40,9 +40,9 @@ export default class extends Controller {
     })
     this.icon = {
       iconUrl: '/images/user.svg',
-      iconSize: [37, 45],
-      iconAnchor: [18.5, 45],
-      popupAnchor: [1, -34],
+      iconSize: [36, 36],
+      iconAnchor: [18, 36],
+      popupAnchor: [1, -36],
       tooltipAnchor: [16, -28],
       shadowSize: [60, 60]
     }
@@ -54,7 +54,7 @@ export default class extends Controller {
   }
 
   createMap() {
-    this.map = L.map(this.containerTarget)
+    this.map = L.map(this.containerTarget, {gestureHandling: true})
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -105,6 +105,7 @@ export default class extends Controller {
     })
     let obj
     let iconUrl
+    let level
     this.sitesValue.forEach(gd => {
       if ( gd.wkt != null && gd.wkt != 0 ) {
         let count = 0
@@ -113,14 +114,17 @@ export default class extends Controller {
           case 2:
             obj = this.thirdLevel
             iconUrl = 'thirdLevel'
+            level = 'Hospital'
           break
           case 1:
             obj = this.secondLevel
             iconUrl = 'secondLevel'
+            level = 'Centro de salud'
           break;
           default:
             obj = this.firstLevel
             iconUrl = 'firstLevel'
+            level = 'Policlínica'
         }
         let geo = false
         if (gd.geo != null) {
@@ -134,11 +138,13 @@ export default class extends Controller {
           type: "Feature",
           properties: {
           gId: gd.id,
-          name: gd.name+'<br><b>'+gd.pname+'</b>',
+          name: gd.name,
+          pname: gd.pname,
           description: gd.description,
           gtype: "site",
           site_id: gd.id,
           geo: geo,
+          level: level,
           iconUrl: iconUrl,
           emergency: gd.emergency ? true : false,
           counter: count
@@ -176,11 +182,13 @@ export default class extends Controller {
             }
             icon = L.divIcon({ 
               html: ihtml,
-              iconSize: '36px'
+              iconSize: 36,
+              iconAnchor: [18, 36],
+              popupAnchor: [1, -36],
             });
           }
           layer.setIcon(icon)
-          let popupContent = feature.properties.name
+          let popupContent = this.buildPopUp(feature.properties)
           layer.bindPopup(popupContent);
           layer.on({
             click: (e) => {
@@ -190,7 +198,7 @@ export default class extends Controller {
               layer.openPopup(e.latlng)
             },
             mouseout: (e) => {
-              layer.closePopup()
+              //layer.closePopup()
             }
           })
         }
@@ -200,6 +208,27 @@ export default class extends Controller {
       }
       document.getElementById(l).checked = this.layers[l]
     })
+  }
+  //
+  buildPopUp(feature) {
+    let popup = '<div class="popup"><h4>'+feature.name+'</h4>'
+    if ( feature.pname ) {
+      popup += '<span class="subtitle">'+feature.pname+'</span><div class="break">Servicios:</div><div class="tags">'
+    }
+    if ( feature.level != null ) {
+      popup += '<div class="tag '+feature.iconUrl+'">'+feature.level+'</div>'
+      if (feature.geo) {
+        popup += '<div class="tag vac">Vacunatorio</div>'
+      }
+      if (feature.emergency) {
+        popup += '<div class="tag emergency">Puerta de emergencia</div>'
+      }
+    }
+    else {
+      popup += '<div class="tag vac">Vacunatorio</div>'
+    }
+    popup += '</div></div></div>'
+    return popup
   }
   // Info Panel
   showInfo(zone) {

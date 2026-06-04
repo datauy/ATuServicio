@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     joins(:site_data).
     joins(:provider).
     includes(:geo_entities).
-    select(:id, :name, :description, :address, :provider_id, :stype, :wkt, :ztype, :level, "provider.name": :pname).
+    select(:id, :name, :description, :address, :provider_id, :stype, :wkt, :ztype, :level, "provider.short_name": :pname).
     where(is_active: true).
     order(:level).uniq.each do |s|
       #Add site
