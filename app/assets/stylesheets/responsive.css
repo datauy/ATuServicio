@@ -35,6 +35,15 @@
   }
   header {
     padding: 24px 2%;
+    .hamb-wrapper {
+      display: block !important;
+    }
+    .menu-container nav {
+      display: none;
+      ul {
+        flex-direction: column;
+      }
+    }
   }
 }
 

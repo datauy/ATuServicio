@@ -24,4 +24,60 @@ header {
       }
     }
   }
+  /* MENU */
+
+  .hamb-wrapper {
+    display: none;
+    width: 25px;
+    height: 25px;
+  }
+  .hamb {
+    height: 3px;
+    width: 25px;
+    border-radius: 1.5px;
+    background-color: #383a48;
+    display: block;
+    position: relative;
+    transition: background .2s ease-out;
+  }
+  .hamb::before, .hamb::after {
+    height: 3px;
+    width: 25px;
+    border-radius: 1.5px;
+    background-color: #383a48;
+    content: '';
+    display: block;
+    position: absolute;
+    transition: all .2s ease-out;
+  }
+  .hamb::before {
+    top: 8px;
+  }
+  .hamb::after {
+    top: 16px;
+  }
+
+  .menu-container.active { 
+    nav {
+        flex-direction: column;
+        display: flex;
+        position: absolute;
+        background: #FFF;
+        padding: 45px;
+        top: 80px;
+        right: 0;
+        z-index: 100;
+        width: 100%;
+    }
+    .hamb::after {
+      top: 0;
+      rotate: 90deg;
+    }
+    .hamb {
+      rotate: 45deg;
+    }
+    .hamb::before {
+      display: none;
+    }
+  }
 }

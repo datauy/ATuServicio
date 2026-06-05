@@ -198,7 +198,7 @@ export default class extends Controller {
               layer.openPopup(e.latlng)
             },
             mouseout: (e) => {
-              //layer.closePopup()
+              layer.closePopup()
             }
           })
         }
