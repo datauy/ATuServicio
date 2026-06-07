@@ -1,4 +1,5 @@
 <div class="card <%= card[:name] %>">
+<% logger.debug "PRICES MAX #{@prices_max.inspect} "%>
   <div class="card-header">
     <div class="header-top">
       <%= image_tag "/images/#{ card[:icon] }.svg"%>
@@ -8,6 +9,9 @@
     <div class="border-bottom"></div>
   </div>
   <div class="card-content">
+    <% if card[:description].present? %>
+      <div class="card-desc"><%= card[:description] %></div>
+    <% end %>
     <%= render partial: "/#{card[:ctype]}/cards/#{card[:name]}", locals: { card: card }  %>
   </div>
 </div>

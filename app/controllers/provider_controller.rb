@@ -115,6 +115,7 @@ class ProviderController < ApplicationController
   #
   def search
     @type = 'summary'
+    @prices_max = ProviderPrice.includes(:price).group('price.ptype').maximum(:value)
     if params[:name].present?
       @providers = Provider.search(params[:name])
     else
