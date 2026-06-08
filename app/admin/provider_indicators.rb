@@ -1,11 +1,11 @@
-ActiveAdmin.register HumanResource do
+ActiveAdmin.register ProviderIndicator do
   # Specify parameters which should be permitted for assignment
-  permit_params :provider_id, :zone_id, :speciality_id, :value
+  permit_params :provider_id, :year, :period, :zone_id, :value, :indicator_id
 
   # or consider:
   #
   # permit_params do
-  #   permitted = [:provider_id, :zone_id, :speciality_id, :value]
+  #   permitted = [:provider_id, :year, :period, :zone_id, :value, :indicator_id]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
@@ -16,22 +16,26 @@ ActiveAdmin.register HumanResource do
   # Add or remove filters to toggle their visibility
   filter :id
   filter :provider
+  filter :year
+  filter :period
   filter :zone
-  filter :speciality
   filter :value
   filter :created_at
   filter :updated_at
+  filter :indicator
 
   # Add or remove columns to toggle their visibility in the index action
   index do
     selectable_column
     id_column
     column :provider
+    column :year
+    column :period
     column :zone
-    column :speciality
     column :value
     column :created_at
     column :updated_at
+    column :indicator
     actions
   end
 
@@ -40,11 +44,13 @@ ActiveAdmin.register HumanResource do
     attributes_table_for(resource) do
       row :id
       row :provider
+      row :year
+      row :period
       row :zone
-      row :speciality
       row :value
       row :created_at
       row :updated_at
+      row :indicator
     end
   end
 
@@ -53,9 +59,11 @@ ActiveAdmin.register HumanResource do
     f.semantic_errors(*f.object.errors.attribute_names)
     f.inputs do
       f.input :provider
+      f.input :year
+      f.input :period
       f.input :zone
-      f.input :speciality
       f.input :value
+      f.input :indicator
     end
     f.actions
   end

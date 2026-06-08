@@ -148,14 +148,14 @@ es:
         other: Comentarios
       datum: "Tipo de datos"
       geo_entity: "Geolocalizables"
-      human_resource: "Recursos humanos"
+      provider_specialist: "Recursos humanos"
+      provider_indicator: "Indicadores de proveedores"
       indicator: "Indicadores"
       news: "Novedades"
       price: "Precios tipo"
-      provider_datum: "Datos base Proveedores"
-      provider_price: "Precios de Proveedores"
+      provider_datum: "Datos base proveedores"
+      provider_price: "Precios de proveedores"
       provider: "Proveedores"
-      evaluation: "Proveedores"
       section: "Secciones"
       site_datum: "Datos de Sedes"
       site: "Sedes"
@@ -244,7 +244,7 @@ es:
         short_name: "Nombre corto"
         web: "Web"
         active: "Activo"
-      human_resource:
+      provider_specialist:
         created_at: "Creado"
         updated_at: "Actualizado"
         provider: "Proveedor"
