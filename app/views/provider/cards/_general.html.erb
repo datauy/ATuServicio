@@ -1,3 +1,9 @@
 <div class="values users-total">Cantitdad de usuarios: <div class="result"><%= format_value(card['total'], nil) %></div></div>
 <div class="values">Usuarios fonasa: <div class="result"><%= format_value(card['fonasa_users'], nil )%></div></div>
 <div class="values">Usuarios no fonasa: <div class="result"><%= format_value(card['no_fonasa_users'], nil )%></div></div>
+<div class="values">Sedes en:</div>
+<div class="tags">
+<% card['states'].each do |state_id| %>
+  <div class="tag location departamento"><%= @states.detect{|(_,n)| n == state_id}.first %></div>
+<% end %>
+</div>

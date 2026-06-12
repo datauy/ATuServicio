@@ -19,8 +19,7 @@
   --font-size-base: 16px;
   --font-size-xs: 12px;
   /* Color Variables */
-  --Grises-Gris-02: #2c2c2c;
-  --Grises-Gris-04: #c6c6c6;
+  
   --Grises-Blanco: #fff;
   --Mostaza-Energizante: #dca410;
   --Feedback-Warning-Dark: #e0982b;
@@ -33,6 +32,7 @@
   --color-azul-4: #f0f6f8;
   --color-azul-3: #ceedf4;
   --color-green: #1bb668;
+  --color-green-02: #a8d372;
   --color-policlinica: #ab57f5;
   --color-hospital: #27abcd;
   --color-hospital-sec: #ceedf4;
@@ -48,7 +48,7 @@
   --color-gris-01: #1f1f1f;
   --color-gris-03: #878787;
   --color-gris-06: #f5f5f5;
-  
+  --color-gris-04: #c6c6c6;
 }
 
 html {
@@ -248,7 +248,7 @@ input {
   color: var(--color-policlinica);
 }
 .break {
-  color: var(--Grises-Gris-04);
+  color: var(--color-gris-04);
   font-size: 10px;
   border-top: 1px solid var(--color-gris-06);
   padding-top: 8px;

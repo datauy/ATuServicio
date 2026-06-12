@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_05_21_224218) do
+ActiveRecord::Schema[8.0].define(version: 2026_06_08_031627) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -126,7 +126,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_05_21_224218) do
   create_table "indicators", force: :cascade do |t|
     t.string "key"
     t.text "description"
-    t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "section"
@@ -135,6 +134,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_05_21_224218) do
     t.bigint "section_id", null: false
     t.string "title"
     t.integer "weight"
+    t.decimal "max_value"
     t.index ["section_id"], name: "index_indicators_on_section_id"
   end
 
@@ -199,7 +199,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_05_21_224218) do
     t.integer "year"
     t.string "period"
     t.bigint "zone_id"
-    t.bigint "indicators_id"
     t.decimal "value", precision: 9, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -354,7 +353,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_05_21_224218) do
   add_foreign_key "provider_goals", "goals"
   add_foreign_key "provider_goals", "providers"
   add_foreign_key "provider_indicators", "indicators"
-  add_foreign_key "provider_indicators", "indicators", column: "indicators_id"
   add_foreign_key "provider_indicators", "providers"
   add_foreign_key "provider_indicators", "zones"
   add_foreign_key "provider_prices", "prices"

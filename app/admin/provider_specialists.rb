@@ -1,11 +1,11 @@
-ActiveAdmin.register Indicator do
+ActiveAdmin.register ProviderSpecialist do
   # Specify parameters which should be permitted for assignment
-  permit_params :key, :description, :section, :abbr, :is_active, :section_id, :title, :weight, :max_value
+  permit_params :provider_id, :year, :period, :zone_id, :speciality_id, :value
 
   # or consider:
   #
   # permit_params do
-  #   permitted = [:key, :description, :section, :abbr, :is_active, :section_id, :title, :weight, :max_value]
+  #   permitted = [:provider_id, :year, :period, :zone_id, :speciality_id, :value]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
@@ -15,33 +15,27 @@ ActiveAdmin.register Indicator do
 
   # Add or remove filters to toggle their visibility
   filter :id
-  filter :key
-  filter :description
+  filter :provider
+  filter :year
+  filter :period
+  filter :zone
+  filter :speciality
+  filter :value
   filter :created_at
   filter :updated_at
-  filter :section
-  filter :abbr
-  filter :is_active
-  filter :section
-  filter :title
-  filter :weight
-  filter :max_value
 
   # Add or remove columns to toggle their visibility in the index action
   index do
     selectable_column
     id_column
-    column :key
-    column :description
+    column :provider
+    column :year
+    column :period
+    column :zone
+    column :speciality
+    column :value
     column :created_at
     column :updated_at
-    column :section
-    column :abbr
-    column :is_active
-    column :section
-    column :title
-    column :weight
-    column :max_value
     actions
   end
 
@@ -49,17 +43,14 @@ ActiveAdmin.register Indicator do
   show do
     attributes_table_for(resource) do
       row :id
-      row :key
-      row :description
+      row :provider
+      row :year
+      row :period
+      row :zone
+      row :speciality
+      row :value
       row :created_at
       row :updated_at
-      row :section
-      row :abbr
-      row :is_active
-      row :section
-      row :title
-      row :weight
-      row :max_value
     end
   end
 
@@ -67,15 +58,12 @@ ActiveAdmin.register Indicator do
   form do |f|
     f.semantic_errors(*f.object.errors.attribute_names)
     f.inputs do
-      f.input :key
-      f.input :description
-      f.input :section
-      f.input :abbr
-      f.input :is_active
-      f.input :section
-      f.input :title
-      f.input :weight
-      f.input :max_value
+      f.input :provider
+      f.input :year
+      f.input :period
+      f.input :zone
+      f.input :speciality
+      f.input :value
     end
     f.actions
   end

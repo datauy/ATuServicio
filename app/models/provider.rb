@@ -43,6 +43,7 @@ class Provider < ApplicationRecord
       card = {
         sid: s.id,
         title: s.title,
+        description: s.description,
         name: s.name,
         icon: s.name,
         year: s.year,
@@ -56,21 +57,23 @@ class Provider < ApplicationRecord
         card['total'] = data.present? && data.total.present? ? data.total : "No hay datos"
         card['fonasa_users'] = data.present? && data.fonasa_users.present? ? data.fonasa_users : "No hay datos"
         card['no_fonasa_users'] = data.present? && data.no_fonasa_users.present? ? data.no_fonasa_users : "No hay datos"
-
+        card['states'] = self.sites.pluck(:state_id).uniq
       when 'rrhh', 'goals'
         card['total'] = {}
         z = Zone.find_by(ztype: "País")
-        s.indicators.order(:weight).each do |i|
+        s.indicators.where(is_active: true).order(:weight).each do |i|
           card['total'][i.abbr] = {
             title: i.title,
-            value: self.provider_indicators.where(year: s.year, period: s.period, indicator: i, zone_id: z.id).pluck(:value).first
+            value: self.provider_indicators.where(year: s.year, period: s.period, indicator: i, zone_id: z.id).pluck(:value).first,
+            max_value: i.max_value
           }
         end
         #logger.debug " SINDICATRS: #{card['total'].inspect}"
         #return
       when 'prices'
         # prices card
-        card['total'] = self.provider_prices.includes(:price).where(year: s.year, period: s.period).group('price.ptype').sum(:value)
+        card['total'] = self.provider_prices.includes(:price).where(year: s.year, period: s.period).group('price.ptype').average(:value)
+        card['max'] = @prices_max
       end
       cards.push(card)
     end

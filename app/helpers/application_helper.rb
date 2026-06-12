@@ -1,11 +1,11 @@
 module ApplicationHelper
-  def format_value(num, dtype)
+  def format_value(num, dtype, max_value = 0)
     if num == nil || num == -1
       "<span class='no-data'>Sin dato</span>".html_safe
     else
       case dtype
       when 'percent'
-        "#{number_with_delimiter(num, {delimiter: '.', separator: ','})} %"
+        "<div class='bar'><div class='total-bar'></div><div class='percent-bar' style='width: #{num.to_i}%'></div></div><span>#{number_with_delimiter(num.round(2), {delimiter: '.', separator: ','})} %</span>".html_safe
       when 'boolean'
         if num == 0
           '<span class="percent cross">No</span>'.html_safe
@@ -16,7 +16,8 @@ module ApplicationHelper
         if num == 0
           '<span class="free">Gratis</span>'.html_safe
         else
-          "$ #{number_with_delimiter(num, {delimiter: '.', separator: ','})}"
+          num
+          "<div class='bar price'><div class='total-bar'></div><div class='percent-bar' style='width: #{num.to_i*100/max_value}%'></div></div><span>$ #{number_with_delimiter(num.round(2), {delimiter: '.', separator: ','})}</span>".html_safe
         end
       else
         number_with_delimiter(num, {delimiter: '.', separator: ','})

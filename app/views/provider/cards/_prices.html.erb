@@ -1,5 +1,7 @@
 <% card['total'].keys.each do |ptype|%>
   <% if ptype.present? %>
-  <div class="values"><%= ptype.camelize %>: <div class="result"><%= format_value(card['total'][ptype], 'price') %></div></div>
+  <div class="values percent">
+  <label><%= ptype.camelize %></label>
+  <div class="result"><%= format_value(card['total'][ptype], 'price', @prices_max[ptype]) %></div></div>
   <% end %>
 <% end %>

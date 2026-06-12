@@ -3,7 +3,7 @@
   <div class="card-content">
     <div class="head"><%= n.head %></div>
     <h2><%= n.title %></h2>
-    <p><%= n.description %></p>
+    <p><%= n.description.html_safe %></p>
   </div>
   <%= button_tag "Quiero conocer más #{svg('arrow-right.svg')}".html_safe, href: n.link, class: 'main-button' %>
 </div>
