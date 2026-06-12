@@ -1,151 +1,158 @@
 <div class="content pages">
-  <div class="section">
-    <div class="columns">
-      <div class="column column-left">
-        <h1>Sobre el proyecto</h1>
-        <div class="description">
-          El <a href="https://msp.gub.uy">Ministerio de Salud Pública</a> y <a href="https://data.org.uy">Data Uruguay</a> ponen a disposición de usuarios/a un conjunto de datos sobre las instituciones que integran el Seguro Nacional de Salud. ATuServicio.uy permite visualizar y comparar cientos de indicadores de todos los prestadores de salud (públicos y privados) del país, para tomar decisiones informadas a la hora de evaluar, elegir o cambiar de prestador de salud. Ha sido además una herramienta para impulsar mejoras en el sistema a través de la transparencia y la facilidad para consultar y cotejar distintas opciones.
+<!--Sobre el proyecto-->
+    <div class="section">
+        <div class="columns">
+            <div class="column column-left">
+                <h1>Sobre el proyecto</h1>
+                <div class="description">
+                El <a href="https://msp.gub.uy">Ministerio de Salud Pública</a> y <a href="https://data.org.uy">Data Uruguay</a> ponen a disposición de usuarios/a un conjunto de datos sobre las instituciones que integran el Seguro Nacional de Salud. ATuServicio.uy permite visualizar y comparar cientos de indicadores de todos los prestadores de salud (públicos y privados) del país, para tomar decisiones informadas a la hora de evaluar, elegir o cambiar de prestador de salud. Ha sido además una herramienta para impulsar mejoras en el sistema a través de la transparencia y la facilidad para consultar y cotejar distintas opciones.
+                </div>
+                <h3>Hitos del proyecto</h3>
+                <p>
+                Desde el lanzamiento de esta herramienta en 2015, el proyecto ha sido ampliamente reconocido dentro y fuera del país. Tanto por sus logros a nivel de transparencia e incidencia —por la herramienta técnica y la publicación de datos abiertos— como por tratarse de una colaboración a largo plazo y atravesando administraciones entre sociedad civil y gobierno, excepcional a nivel mundial. ATuServicio.uy es, además de un proyecto de tecnología cívica, un ejemplo en la construcción de infraestructura digital pública en el marco de los principios del Gobierno Abierto.
+                </p>
+                <ul>
+                    <li>Lanzado en febrero 2015 junto al Ministerio de Salud Pública, con apoyo de ILDA, Avina y OD4D</li>
+                    <li>Finalista en la categoría Open Data Innovatios de los ODI Awards 2015 del Open Data Institute (Reino Unido)</li>
+                    <li>Ganador a nivel global de los Open Government Awards 2015 de la Alianza para el Gobierno Abierto (OGP)</li>
+                    <li>Seleccionado por SocialTIC en Lo Mejor del Infoactivismo LATAM 2015 (México)</li>
+                    <li>Lanzamiento de versión 2.0 en febrero de 2016</li>
+                    <li>Mención en Diseño de Servicios en la Bienal Iberoamericana de Diseño 2016 (España)</li>
+                    <li>Incorporación de decenas de nuevos indicadores a lo largo del desarrollo del proyecto, incluyendo demandas como tasa de cesáreas.</li>
+                    <li>Incorporación de sección de Catálogo de Prestaciones en 2018</li>
+                    <li>Replicación en Colombia (Bogotá) de la mano de Fundación Corona y Wingu junto a la Subsecretaría de Salud de Bogotá</li>
+                    <li>Incorporación a catálogo "Código para el Desarrollo" del BID</li>
+                    <li>Incorporación de indicadores de atención virtual en respuesta a necesidades de la pandemia de la COVID-19</li>
+                    <li>Compromiso de actualización en 6º Plan de Gobierno Abierto en 2025</li>
+                    <li>Lanzamiento de versión 3.0 en 2026</li>
+                </ul>
+                <p>
+                    Por más información del proyecto, incluyendo acceso a logos y materiales gráficos, prensa sobre el proyecto, fotos, publicaciones sobre el proyecto y más, recomendamos consultar la <a href="https://data.org.uy/proyectos/atuservicio-uy/">página del proyecto en el sitio de Data Uruguay</a>.
+                </p>
+            </div>
+            <div class="column column-right">
+                <%= image_tag '/images/ats1.png', class: 'photo' %>
+                <p>Lanzamiento de la versión 1.0 en Torre Ejecutiva, febrero 2015.</p>
+                <%= image_tag '/images/award.png', class: 'photo' %>
+                <p>1º puesto Open Gov Awards (Alianza p/el Gobierno Abierto), octubre 2015.</p>
+                <h3>Objetivos principales</h3>
+                    <p>ATuServicio.uy pone a disposición información sistematizada y actualizada con dos finalidades principales: </p>
+                    <div class="row">
+                        <div class="tag highlight">
+                        <%= File.read("#{Rails.root}/public/images/book-medical.svg").html_safe %>
+                        <span>Ampliar el acceso a información e indicadores de prestadores de salud para la toma de decisiones infomrada</span>
+                        </div>
+                        <div class="tag highlight">
+                        <%= File.read("#{Rails.root}/public/images/messages.svg").html_safe %>
+                        <span>Promover la comunicación y retroalimentación en el sistema de salud, impulsando un mejor funcionamiento</span>
+                        </div>
+                    </div>
+            </div>
         </div>
-        <h3>Hitos del proyecto</h3>
-        <p>
-          Desde el lanzamiento de esta herramienta en 2015, el proyecto ha sido ampliamente reconocido dentro y fuera del país. Tanto por sus logros a nivel de transparencia e incidencia —por la herramienta técnica y la publicación de datos abiertos— como por tratarse de una colaboración a largo plazo y atravesando administraciones entre sociedad civil y gobierno, excepcional a nivel mundial. ATuServicio.uy es, además de un proyecto de tecnología cívica, un ejemplo en la construcción de infraestructura digital pública en el marco de los principios del Gobierno Abierto.
-        </p>
-        <ul>
-        <li>Lanzado en febrero 2015 junto al Ministerio de Salud Pública, con apoyo de ILDA, Avina y OD4D</li>
-        <li>Finalista en la categoría Open Data Innovatios de los ODI Awards 2015 del Open Data Institute (Reino Unido)</li>
-        <li>Ganador a nivel global de los Open Government Awards 2015 de la Alianza para el Gobierno Abierto (OGP)</li>
-        <li>Seleccionado por SocialTIC en Lo Mejor del Infoactivismo LATAM 2015 (México)</li>
-        <li>Lanzamiento de versión 2.0 en febrero de 2016</li>
-        <li>Mención en Diseño de Servicios en la Bienal Iberoamericana de Diseño 2016 (España)</li>
-        <li>Incorporación de decenas de nuevos indicadores a lo largo del desarrollo del proyecto, incluyendo demandas como tasa de cesáreas.</li>
-        <li>Incorporación de sección de Catálogo de Prestaciones en 2018</li>
-        <li>Replicación en Colombia (Bogotá) de la mano de Fundación Corona y Wingu junto a la Subsecretaría de Salud de Bogotá</li>
-        <li>Incorporación a catálogo "Código para el Desarrollo" del BID</li>
-        <li>Incorporación de indicadores de atención virtual en respuesta a necesidades de la pandemia de la COVID-19</li>
-        <li>Compromiso de actualización en 6º Plan de Gobierno Abierto en 2025</li>
-        <li>Lanzamiento de versión 3.0 en 2026</li>
-        </ul>
-        <p>
-            Por más información del proyecto, incluyendo acceso a logos y materiales gráficos, prensa sobre el proyecto, fotos, publicaciones sobre el proyecto y más, recomendamos consultar la <a href="https://data.org.uy/proyectos/atuservicio-uy/">página del proyecto en el sitio de Data Uruguay</a>.
-        </p>
-        </div>
-      </div>
-      <div class="column column-right">
-        <%= image_tag '/images/ats1.png', class: 'photo' %>
-        <%= image_tag '/images/award.png', class: 'photo' %>
-      </div>
     </div>
-  </div>
-  <div class="section">
-      <h3>Objetivos principales</h3>
-      <p>ATuServicio.uy pone a disposición información sistematizada y actualizada con dos finalidades principales: </p>
-      <div class="row">
+<!--Antecedentes-->
+    <div class="section">
+        <div class="columns">
+            <div class="column column-left">
+                <%= image_tag '/images/v1.png', class: 'photo' %>
+                <p>Versión 1.0, febrero de 2015.</p>
+                <%= image_tag '/images/v2.png', class: 'photo' %>
+                <p>Versión 2.0, febrero de 2016.</p>
+                <%= image_tag '/images/v2_1.png', class: 'photo' %>
+                <p>Versión 2.1, diciembre de 2022.</p>
+                <%= image_tag '/images/v3.png', class: 'photo' %>
+                <p>Versión 3.0, agosto de 2026.</p>
+            </div>
+            <div class="column column-right">
+                <h2>Antecedentes</h2>
+                <h3>Una historia que comienza en 2014</h3>
+                <p>
+                En el año 2014 Data Uruguay y Portal 180 (por su iniciativa 180 Ciencia con apoyo de ANII), lanzaron la aplicación "Temporada de Pases", permitiendo visualizar datos de prestadores de salud publicados por el Ministerio de Salud Pública. Meses más tarde, en el contexto de las mesas de diálogo de Gobierno Abierto, impulsadas por AGESIC y la Red de Gobierno Abierto, surge la posibilidad de establecer un acuerdo entre Data y el MSP para la creación de este proyecto, que se integra en el segundo Plan de Acción Nacional de Gobierno Abierto. Este lanzamiento inicial contó con el apoyo de ILDA, Fundación Avina y OD4D.
+                </p>
+                <p>
+                En febrero de 2015 se lanza ATuServicio.uy con una segunda versión en 2016, logrando una excelente respuesta del público y recepción por parte de organizaciones académicas y relacionadas al Gobierno Abierto, que destacan el caso a nivel internacional. La herramienta fue destacada como caso de alto impacto por Open Knowledge Foundation y Nesta (Reino Unido), Sunlight Foundation y GovLab (EE.UU.), Banco Interamericano de Desarrollo (BID) y Banco Munidial entre muchas otras. También fue premiada como "Lo Mejor del Infoactivismo LATAM 2015" por SocialTIC (México), finalista de los Open Data Institute Awards (Reino Unido), mención en la Bienal Iberoamericana de Diseño 2016 (España) y primer premio del Open Government Partnership Open Government Awards (global). El detalle completo de publicaciones y reconocimeintos se puede consultar en el <a href="https://data.org.uy/proyectos/atuservicio-uy/">sitio de Data Uruguay</a>.
+                </p>
+                <p>
+                Desde un primer momento, generó gran interés en repliacciones en distintos países de la región y el mundo. Sin embargo, pocos países cuentan con un ente rector central del sistema de salud capaz de recabar y publciar datos, haciendo patente que este proyecto, más allá de sus méritos técnicos e institucionales, es posible gracias a la fuerte institucionalidad uruguaya en la salud. De esos diversos intentos, logró concretarse en 2018 una versión impulsada por la Subseretaría de Salud de Bogotá junto a Fundación Corona y Wingu, donde el equipo de Data Uruguay apoyó en la concepción inicial. Sin embargo, más allá de compartir el espíritu (y el nombre), el proyecto divergió significativamente en el alcance e implicó el desarollo de otro software específico.
+                </p>
+                <p>
+                Durante la pandemia de la COVID-19, el proyecto se enfrentó al desafío de nuevas necesidades y prioridades de datos, que implicaron un retrabajo de su segunda versión, incorporando dimensiones vinculadas a la atención remota en particular.
+                </p>
+                <p>
+                En 2025, el proyecto da los primeros pasos hacia su versión actual a través de la incorporación de un compromiso en 6º Plan de Gobierno Abierto por el MSP y Data Uruguay, abordando mejoras planificadas largamente para poner la herrameinta al día incorporando datos geográficos, diseño responsivo y nuevas categorías de datos, entre otras mejoras.
+                </p>
+            </div>
+        </div>
+        <div class="row highlighted">
+        <h2>Sobre Data Uruguay</h2>
         <div class="tag highlight">
-          <%= File.read("#{Rails.root}/public/images/book-medical.svg").html_safe %>
-          <span>Ampliar el acceso a información e indicadores de prestadores de salud para la toma de decisiones infomrada</span>
+            <%= File.read("#{Rails.root}/public/images/people-group.svg").html_safe %>
+            <span>Data Uruguay es una organización de la sociedad civil que trabaja en temas de Gobierno Abierto, Datos Abiertos, Tecnología Cívica, Transparencia, Acceso a la Información y co-creación de política pública, así como en derechos digitales a través del proyecto <a href="https://datysoc.org">Datysoc</a> y en conocimiento abierto desde <a href="https://wikimedistas.uy">Wikimedistas de Uruguay</a>.
+
+            Tiene como misión contribuir a una sociedad más justa a través del uso de datos abiertos y tecnología cívica, en base a tres pilares; Herramientas (tecnología cívica basada en datos abiertos para promover el conocimiento, ejercicio de derechos y la toma de decisiones informadas), Comunidad (organización de eventos nacionales e internacionales para fomentar el gobierno abierto y datos abiertos) y Activismo (trabajo en red con organizaciones de la sociedad civil y academia locales e internacionales).</span>
         </div>
         <div class="tag highlight">
-          <%= File.read("#{Rails.root}/public/images/messages.svg").html_safe %>
-          <span>Promover la comunicación y retroalimentación en el sistema de salud, impulsando un mejor funcionamiento</span>
+            <%= File.read("#{Rails.root}/public/images/browsers.svg").html_safe %>
+            <span>Todas las herramientas de Data Uruguay son abiertas, licenciadas como software libre y disponibles para su descarga y reuso, así como los datos generados por éstas están disponibles como datos abiertos. Entre sus proyectos más destacados se cuentan ATuServicio.uy, DondeReciclo.uy, DerechosDeEstudiantes.edu.uy y ElijoEstudiar.edu.uy.
+
+            El foco principal de la organización está en Uruguay, pero desarrolla trabajo regional e internacionalmente tanto en gestión de comunidad y eventos, como en la replicación de proyectos en otros países, en coordinación con organizaciones locales.
+
+            Es una organización semi-voluntaria, horizontal y basada en el consenso, conformada por un equipo multidisciplinario que trabaja de forma remota, sin espacios físicos fijos u horarios. La colaboración es un aspecto central del trabajo,  desarrollando proyectos en cocreación con otras organizaciones o personas destinatarias, de forma colaborativa y complementando saberes y experticias.</span>
         </div>
-  </div>
-  <div class="section">
-    <div class="columns">
-      <div class="column column-left">
-          <%= image_tag '/images/v1.png', class: 'photo' %>
-          <%= image_tag '/images/v2.png', class: 'photo' %>
-          <%= image_tag '/images/v2_1.png', class: 'photo' %>
-          <%= image_tag '/images/v3.png', class: 'photo' %>
-      </div>
-      <div class="column column-right">
-        <h2>Antecedentes</h2>
-        <h3>Una historia que comienza en 2014</h3>
-        <p>
-          En el año 2014 Data Uruguay y Portal 180 (por su iniciativa 180 Ciencia con apoyo de ANII), lanzaron la aplicación "Temporada de Pases", permitiendo visualizar datos de prestadores de salud publicados por el Ministerio de Salud Pública. Meses más tarde, en el contexto de las mesas de diálogo de Gobierno Abierto, impulsadas por AGESIC y la Red de Gobierno Abierto, surge la posibilidad de establecer un acuerdo entre Data y el MSP para la creación de este proyecto, que se integra en el segundo Plan de Acción Nacional de Gobierno Abierto. Este lanzamiento inicial contó con el apoyo de ILDA, Fundación Avina y OD4D.
-        </p>
-        <p>
-          En febrero de 2015 se lanza ATuServicio.uy con una segunda versión en 2016, logrando una excelente respuesta del público y recepción por parte de organizaciones académicas y relacionadas al Gobierno Abierto, que destacan el caso a nivel internacional. La herramienta fue destacada como caso de alto impacto por Open Knowledge Foundation y Nesta (Reino Unido), Sunlight Foundation y GovLab (EE.UU.), Banco Interamericano de Desarrollo (BID) y Banco Munidial entre muchas otras. También fue premiada como "Lo Mejor del Infoactivismo LATAM 2015" por SocialTIC (México), finalista de los Open Data Institute Awards (Reino Unido), mención en la Bienal Iberoamericana de Diseño 2016 (España) y primer premio del Open Government Partnership Open Government Awards (global). El detalle completo de publicaciones y reconocimeintos se puede consultar en el <a href="https://data.org.uy/proyectos/atuservicio-uy/">sitio de Data Uruguay</a>.
-        </p>
-        <p>
-          Desde un primer momento, generó gran interés en repliacciones en distintos países de la región y el mundo. Sin embargo, pocos países cuentan con un ente rector central del sistema de salud capaz de recabar y publciar datos, haciendo patente que este proyecto, más allá de sus méritos técnicos e institucionales, es posible gracias a la fuerte institucionalidad uruguaya en la salud. De esos diversos intentos, logró concretarse en 2018 una versión impulsada por la Subseretaría de Salud de Bogotá junto a Fundación Corona y Wingu, donde el equipo de Data Uruguay apoyó en la concepción inicial. Sin embargo, más allá de compartir el espíritu (y el nombre), el proyecto divergió significativamente en el alcance e implicó el desarollo de otro software específico.
-        </p>
-        <p>
-          Durante la pandemia de la COVID-19, el proyecto se enfrentó al desafío de nuevas necesidades y prioridades de datos, que implicaron un retrabajo de su segunda versión, incorporando dimensiones vinculadas a la atención remota en particular.
-        </p>
-        <p>
-          En 2025, el proyecto da los primeros pasos hacia su versión actual a través de la incorporación de un compromiso en 6º Plan de Gobierno Abierto por el MSP y Data Uruguay, abordando mejoras planificadas largamente para poner la herrameinta al día incorporando datos geográficos, diseño responsivo y nuevas categorías de datos, entre otras mejoras.
-        </p>
-      </div>
+        </div>
     </div>
-    <div class="row highlighted">
-      <h2>Sobre Data Uruguay</h2>
-      <div class="tag highlight">
-        <%= File.read("#{Rails.root}/public/images/people-group.svg").html_safe %>
-        <span>Data Uruguay es una organización de la sociedad civil que trabaja en temas de Gobierno Abierto, Datos Abiertos, Tecnología Cívica, Transparencia, Acceso a la Información y co-creación de política pública, así como en derechos digitales a través del proyecto <a href="https://datysoc.org">Datysoc</a> y en conocimiento abierto desde <a href="https://wikimedistas.uy">Wikimedistas de Uruguay</a>.
-
-        Tiene como misión contribuir a una sociedad más justa a través del uso de datos abiertos y tecnología cívica, en base a tres pilares; Herramientas (tecnología cívica basada en datos abiertos para promover el conocimiento, ejercicio de derechos y la toma de decisiones informadas), Comunidad (organización de eventos nacionales e internacionales para fomentar el gobierno abierto y datos abiertos) y Activismo (trabajo en red con organizaciones de la sociedad civil y academia locales e internacionales).</span>
-      </div>
-      <div class="tag highlight">
-        <%= File.read("#{Rails.root}/public/images/browsers.svg").html_safe %>
-        <span>Todas las herramientas de Data Uruguay son abiertas, licenciadas como software libre y disponibles para su descarga y reuso, así como los datos generados por éstas están disponibles como datos abiertos. Entre sus proyectos más destacados se cuentan ATuServicio.uy, DondeReciclo.uy, DerechosDeEstudiantes.edu.uy y ElijoEstudiar.edu.uy.
-
-        El foco principal de la organización está en Uruguay, pero desarrolla trabajo regional e internacionalmente tanto en gestión de comunidad y eventos, como en la replicación de proyectos en otros países, en coordinación con organizaciones locales.
-
-        Es una organización semi-voluntaria, horizontal y basada en el consenso, conformada por un equipo multidisciplinario que trabaja de forma remota, sin espacios físicos fijos u horarios. La colaboración es un aspecto central del trabajo,  desarrollando proyectos en cocreación con otras organizaciones o personas destinatarias, de forma colaborativa y complementando saberes y experticias.</span>
-      </div>
+<!--Datos abiertos que utiliza la aplicación-->
+    <div class="section">
+        <h2>Datos abiertos que utiliza la aplicación</h2>
+        <div class="grid">
+            <div>
+                <h3>Datos abiertos y reutilización</h3>
+                <p>Los datos utilizados en esta aplicación se encuentran disponibles para su reutilización a través del Catálogo Nacional de Datos Abiertos de AGESIC, como datos abiertos, en formatos abiertos.</p>
+                <p>Los organismos estatales del sector público recogen, producen, reproducen y difunden datos para cumplir con su función pública. Incorporar la publicación de datos públicos en formatos abiertos abre la puerta a la posibilidad de que los mismos sean reutilizados en nuevos proyectos, que puedan combinarse con otras fuentes de datos y generar nuevas aplicaciones desarrolladas por el gobierno, por la sociedad civil, organizaciones, empresas o ciudadanos en general.</p>
+            </div>
+            <div>
+                <h3>Conocimiento Abierto</h3>
+                <p>El contenido de nuestras herramientas está bajo una <a href="https://creativecommons.org/licenses/by/4.0/deed.es">Licencia Creative Commons Atribución 4.0 Internacional</a>. Sos libre de: Compartir (copiar y redistribuir el material en cualquier medio o formato) y Adaptar (remezclar, transformar y construir a partir del material para cualquier propósito, incluso comercialmente), bajo los siguientes términos; Atribución (dar crédito de manera adecuada, brindar un enlace a la licencia, e indicar si se han realizado cambios) y No imponer restricciones adicionales (términos legales ni medidas tecnológicas que restrinjan legalmente a otras a hacer cualquier uso permitido por la licencia).</p>
+            </div>
+        </div>
+            <div>
+                <h3>Fuentes y criterios de análisis</h3>
+                <p>La información a partir de la cual se construyeron los indicadores presentados proviene de las diversas fuentes desde las cuales el M.S.P., o bien la JU.NA.SA., recaban regularmente información de las Instituciones de Salud.</p>
+                <p>Dado que no existen estándares que actúen como línea de referencia para evaluar a las distintas instituciones en base a los indicadores publicados, la utilidad del análisis radica en la comparación entre instituciones de acuerdo a las características a las que cada usuario asigne mayor valor. Además, este proyecto busca explorar estándares técnicos para la sistematización de los datos en materia de prestadores de salud.</p>
+                <p>Los análisis y visualizaciones provistos por esta aplicación son realizados por Data, brindando toda la información disponible a través de la herramienta de comparación (sección comparar) del sitio web. Para la tabla de visualizaciones principal (home de la página) no se toma la totalidad de los datos y se realizan promedios y aglomeraciones a los efectos de simplificar la visualización de los datos. Éstas operaciones están disponibles para consulta a través del código de la aplicación disponible a través de GitHub, así como el resto del código fuente.</p>
+            </div>
     </div>
-  </div>
-
-  <div class="section">
-  <h2>Datos abiertos que utiliza la aplicación</h2>
-    <div class="row">
-      <div>
-        <h3>Datos abiertos y reutilización</h3>
-        <p>Los datos utilizados en esta aplicación se encuentran disponibles para su reutilización a través del Catálogo Nacional de Datos Abiertos de AGESIC, como datos abiertos, en formatos abiertos.</p>
-        <p>Los organismos estatales del sector público recogen, producen, reproducen y difunden datos para cumplir con su función pública. Incorporar la publicación de datos públicos en formatos abiertos abre la puerta a la posibilidad de que los mismos sean reutilizados en nuevos proyectos, que puedan combinarse con otras fuentes de datos y generar nuevas aplicaciones desarrolladas por el gobierno, por la sociedad civil, organizaciones, empresas o ciudadanos en general.</p>
-      </div>
-      <div>
-        <h3>Conocimiento Abierto</h3>
-        <p>El contenido de nuestras herramientas está bajo una <a href="https://creativecommons.org/licenses/by/4.0/deed.es">Licencia Creative Commons Atribución 4.0 Internacional</a>. Sos libre de: Compartir (copiar y redistribuir el material en cualquier medio o formato) y Adaptar (remezclar, transformar y construir a partir del material para cualquier propósito, incluso comercialmente), bajo los siguientes términos; Atribución (dar crédito de manera adecuada, brindar un enlace a la licencia, e indicar si se han realizado cambios) y No imponer restricciones adicionales (términos legales ni medidas tecnológicas que restrinjan legalmente a otras a hacer cualquier uso permitido por la licencia).</p>
-      </div>
-      <div>
-        <h3>Fuentes y criterios de análisis</h3>
-        <p>La información a partir de la cual se construyeron los indicadores presentados proviene de las diversas fuentes desde las cuales el M.S.P., o bien la JU.NA.SA., recaban regularmente información de las Instituciones de Salud.</p>
-        <p>Dado que no existen estándares que actúen como línea de referencia para evaluar a las distintas instituciones en base a los indicadores publicados, la utilidad del análisis radica en la comparación entre instituciones de acuerdo a las características a las que cada usuario asigne mayor valor. Además, este proyecto busca explorar estándares técnicos para la sistematización de los datos en materia de prestadores de salud.</p>
-        <p>Los análisis y visualizaciones provistos por esta aplicación son realizados por Data, brindando toda la información disponible a través de la herramienta de comparación (sección comparar) del sitio web. Para la tabla de visualizaciones principal (home de la página) no se toma la totalidad de los datos y se realizan promedios y aglomeraciones a los efectos de simplificar la visualización de los datos. Éstas operaciones están disponibles para consulta a través del código de la aplicación disponible a través de GitHub, así como el resto del código fuente.</p>
-      </div>
+<!--Software Libre y Contacto-->
+    <div class="section">
+        <div class="grid">
+            <div class="tag highlighted green column">
+            <%= File.read("#{Rails.root}/public/images/magnifying-glass.svg").html_safe %>
+            <h2>Software Libre</h2>
+            <p>Un programa es software libre si los usuarios tienen la libertad de ejecutar, copiar, distribuir, estudiar, modificar y mejorar el software, a través de cuatro libertades esenciales (<a href="https://www.gnu.org/philosophy/free-sw.html">definición de software libre</a>).</p>
+            <p>Data Uruguay incentiva la reutilización de este software para cualquier propósito, brindándolo bajo <a href="https://www.gnu.org/licenses/gpl-3.0.html">licencia GPLv3</a> para que otras organizaciones, gobiernos, empresas o ciudadanos puedan sacar provecho del trabajo aquí realizado.</p>
+            </div>
+            <div class="tag highlighted green column">
+            <%= File.read("#{Rails.root}/public/images/messages.svg").html_safe %>
+            <h2>Contacto</h2>
+            <p>En caso de dudas o sugerencias sobre los datos mostrados, puede comunicarse con nosotros a través de atuservicio.uy@msp.gub.uy. En caso de consultas sobre la aplicación, Data Uruguay o contactos de prensa puede dirigirse a contacto@data.org.uy. También estamos disponibles a través de nuestra cuenta de Twitter y página de Facebook.</p>
+            <p>Como la mayoría de los proyectos que trabajan con datos abiertos y software libre, la retroalimentación de los usuarios es una herramienta fundamental para la mejora de los datos y su tratamiento, por lo que agradecemos e incentivamos la recepción de ideas, sugerencias o correcciones.</p>
+            <p>En la web de Data puede encontrarse un kit de prensa de la organización conteniendo material gráfico, así como un kit de prensa del proyecto.</p>
+            </div>
+        </div>
     </div>
-    <div class="grid">
-      <div class="tag highlighted green column">
-        <%= File.read("#{Rails.root}/public/images/magnifying-glass.svg").html_safe %>
-        <h2>Software Libre</h2>
-        <p>Un programa es software libre si los usuarios tienen la libertad de ejecutar, copiar, distribuir, estudiar, modificar y mejorar el software, a través de cuatro libertades esenciales (<a href="https://www.gnu.org/philosophy/free-sw.html">definición de software libre</a>).</p>
-        <p>Data Uruguay incentiva la reutilización de este software para cualquier propósito, brindándolo bajo <a href="https://www.gnu.org/licenses/gpl-3.0.html">licencia GPLv3</a> para que otras organizaciones, gobiernos, empresas o ciudadanos puedan sacar provecho del trabajo aquí realizado.</p>
-      </div>
-      <div class="tag highlighted green column">
-        <%= File.read("#{Rails.root}/public/images/messages.svg").html_safe %>
-        <h2>Contacto</h2>
-        <p>En caso de dudas o sugerencias sobre los datos mostrados, puede comunicarse con nosotros a través de atuservicio.uy@msp.gub.uy. En caso de consultas sobre la aplicación, Data Uruguay o contactos de prensa puede dirigirse a contacto@data.org.uy. También estamos disponibles a través de nuestra cuenta de Twitter y página de Facebook.</p>
-        <p>Como la mayoría de los proyectos que trabajan con datos abiertos y software libre, la retroalimentación de los usuarios es una herramienta fundamental para la mejora de los datos y su tratamiento, por lo que agradecemos e incentivamos la recepción de ideas, sugerencias o correcciones.</p>
-        <p>En la web de Data puede encontrarse un kit de prensa de la organización conteniendo material gráfico, así como un kit de prensa del proyecto.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section">
+<!--Términos y condiciones-->
     <h2>Términos y condiciones</h2>
-    <div class="row">
-      <div class="column column-left">
-        <h3>Datos y responsabilidades</h3>
-        <p>Los datos utilizados en esta aplicación son provistos por el Ministerio de Salud Pública. La versión original de los mismos se encuentra publicada y licenciada en el Catálogo Nacional de Datos Abiertos de AGESIC. Salvo indicación en contrario, la información contenida en el portal será considerada de carácter público. Cuando su uso o tratamiento esté sujeto a algún tipo de restricción deberá estarse a lo indicado expresamente en ese caso. Los datos y sus visualizaciones en este sitio son provistos únicamente como información general para los usuarios/as, haciéndose el máximo esfuerzo en materia de relevancia, exactitud y completitud. Data y el MSP no son responsables por las acciones que los usuarios tomen en función de los datos obtenidos a través de esta página. Los datos y el software se publican en función de sus respectivas licencias y cualquier garantía expresa o implícita son rechazados. En ningún caso Data y el MSP serán responsables por ningún daño directo, indirecto, incidental, especial o de cualquier otra clase que surja de cualquier forma de uso de este software y estos datos, incluso si se ha advertido la posibilidad de tales daños existan.</p>
-        <p>Los análisis y visualizaciones provistos por esta aplicación son realizados por Data, brindando toda la información disponible a través de la herramienta de comparación (sección comparar) del sitio web. Para la tabla de visualizaciones principal (home de la página) no se toma la totalidad de los datos y se realizan promedios y aglomeraciones a los efectos de simplificar la visualización de los datos. Éstas operaciones están disponibles para consulta a través del código de la aplicación disponible a través de GitHub, así como el resto del código fuente.</p>
-      </div>
-      <div class="column column-right">
-        <h3>Uso del servicio</h3>
-        <p>La prestación de este servicio tiene carácter gratuito para los usuarios. Los usuarios se obligan a hacer buen uso del sitio web y de sus contenidos, respetando la normativa nacional vigente, las buenas costumbres y el orden público, comprometiéndose en todos los casos a no causar daños al mismo ni a ningún tercero. A tal efecto, el Usuario se abstendrá de utilizar cualquiera de los servicios con fines o efectos ilícitos, prohibidos en los presentes Términos y condiciones, lesivos de los derechos e intereses de terceros, o que de cualquier forma puedan dañar, inutilizar, sobrecargar, deteriorar o impedir la normal utilización de los servicios, documentos y toda clase de contenidos en cualquier equipo informático o de otros Usuarios.</p>
-        <p>Para asegurarnos de que la aplicación esté acorde a las necesidades de nuestros usuarios, e intentar mejorarla utilizamos analítica de Matomo para recolectar información sobre cómo se utiliza. Matomo almacena información como qué páginas ha visitado, cuánto tiempo ha navegado en las mismas, cómo llegó a la página, qué elementos clikea e información sobre qué navegador utiliza. Su dirección IP es enmascarada (parcialmente almacenada) y la información personal sólo es reportada en forma no individualizada (agregada). Esta información sólo es accesible para nosotros y no es compartida con terceros.</p>
-        <p>En la elaboración de este material se ha buscado que el lenguaje no invisibilice ni discrimine a las mujeres y a la vez que el uso reiterado de “ /o”, “/a”, “los y las”, etcétera, no dificulte la lectura. También en esta publicación, en la página 9 encontrás un marco normativo: Guía de Lenguaje Inclusivo - INMUJERES</p>
-      </div>
+    <div class="columns">
+        <div class="column column-left">
+            <h3>Datos y responsabilidades</h3>
+            <p>Los datos utilizados en esta aplicación son provistos por el Ministerio de Salud Pública. La versión original de los mismos se encuentra publicada y licenciada en el Catálogo Nacional de Datos Abiertos de AGESIC. Salvo indicación en contrario, la información contenida en el portal será considerada de carácter público. Cuando su uso o tratamiento esté sujeto a algún tipo de restricción deberá estarse a lo indicado expresamente en ese caso. Los datos y sus visualizaciones en este sitio son provistos únicamente como información general para los usuarios/as, haciéndose el máximo esfuerzo en materia de relevancia, exactitud y completitud. Data y el MSP no son responsables por las acciones que los usuarios tomen en función de los datos obtenidos a través de esta página. Los datos y el software se publican en función de sus respectivas licencias y cualquier garantía expresa o implícita son rechazados. En ningún caso Data y el MSP serán responsables por ningún daño directo, indirecto, incidental, especial o de cualquier otra clase que surja de cualquier forma de uso de este software y estos datos, incluso si se ha advertido la posibilidad de tales daños existan.</p>
+            <p>Los análisis y visualizaciones provistos por esta aplicación son realizados por Data, brindando toda la información disponible a través de la herramienta de comparación (sección comparar) del sitio web. Para la tabla de visualizaciones principal (home de la página) no se toma la totalidad de los datos y se realizan promedios y aglomeraciones a los efectos de simplificar la visualización de los datos. Éstas operaciones están disponibles para consulta a través del código de la aplicación disponible a través de GitHub, así como el resto del código fuente.</p>
+        </div>
+        <div class="column column-right">
+            <h3>Uso del servicio</h3>
+            <p>La prestación de este servicio tiene carácter gratuito para los usuarios. Los usuarios se obligan a hacer buen uso del sitio web y de sus contenidos, respetando la normativa nacional vigente, las buenas costumbres y el orden público, comprometiéndose en todos los casos a no causar daños al mismo ni a ningún tercero. A tal efecto, el Usuario se abstendrá de utilizar cualquiera de los servicios con fines o efectos ilícitos, prohibidos en los presentes Términos y condiciones, lesivos de los derechos e intereses de terceros, o que de cualquier forma puedan dañar, inutilizar, sobrecargar, deteriorar o impedir la normal utilización de los servicios, documentos y toda clase de contenidos en cualquier equipo informático o de otros Usuarios.</p>
+            <p>Para asegurarnos de que la aplicación esté acorde a las necesidades de nuestros usuarios, e intentar mejorarla utilizamos analítica de Matomo para recolectar información sobre cómo se utiliza. Matomo almacena información como qué páginas ha visitado, cuánto tiempo ha navegado en las mismas, cómo llegó a la página, qué elementos clikea e información sobre qué navegador utiliza. Su dirección IP es enmascarada (parcialmente almacenada) y la información personal sólo es reportada en forma no individualizada (agregada). Esta información sólo es accesible para nosotros y no es compartida con terceros.</p>
+            <p>En la elaboración de este material se ha buscado que el lenguaje no invisibilice ni discrimine a las mujeres y a la vez que el uso reiterado de “ /o”, “/a”, “los y las”, etcétera, no dificulte la lectura. También en esta publicación, en la página 9 encontrás un marco normativo: Guía de Lenguaje Inclusivo - INMUJERES</p>
+        </div>
     </div>
-  </div>
 </div>
