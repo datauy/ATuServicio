@@ -36,12 +36,14 @@
                 <%= image_tag '/images/award.png', class: 'photo' %>
                 <p>1º puesto Open Gov Awards (Alianza p/el Gobierno Abierto), octubre 2015.</p>
                 <h3>Objetivos principales</h3>
-                    <p>ATuServicio.uy pone a disposición información sistematizada y actualizada con dos finalidades principales: </p>
+                <p>ATuServicio.uy pone a disposición información sistematizada y actualizada con dos finalidades principales: </p>
                     <div class="row">
                         <div class="tag highlight">
                         <%= File.read("#{Rails.root}/public/images/book-medical.svg").html_safe %>
                         <span>Ampliar el acceso a información e indicadores de prestadores de salud para la toma de decisiones infomrada</span>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="tag highlight">
                         <%= File.read("#{Rails.root}/public/images/messages.svg").html_safe %>
                         <span>Promover la comunicación y retroalimentación en el sistema de salud, impulsando un mejor funcionamiento</span>
@@ -83,22 +85,24 @@
                 </p>
             </div>
         </div>
-        <div class="row highlighted">
+        <div class="highlighted">
         <h2>Sobre Data Uruguay</h2>
-        <div class="tag highlight">
-            <%= File.read("#{Rails.root}/public/images/people-group.svg").html_safe %>
-            <span>Data Uruguay es una organización de la sociedad civil que trabaja en temas de Gobierno Abierto, Datos Abiertos, Tecnología Cívica, Transparencia, Acceso a la Información y co-creación de política pública, así como en derechos digitales a través del proyecto <a href="https://datysoc.org">Datysoc</a> y en conocimiento abierto desde <a href="https://wikimedistas.uy">Wikimedistas de Uruguay</a>.
+            <div class="columns">
+                <div class="tag highlight">
+                    <%= File.read("#{Rails.root}/public/images/people-group.svg").html_safe %>
+                    <span>Data Uruguay es una organización de la sociedad civil que trabaja en temas de Gobierno Abierto, Datos Abiertos, Tecnología Cívica, Transparencia, Acceso a la Información y co-creación de política pública, así como en derechos digitales a través del proyecto <a href="https://datysoc.org">Datysoc</a> y en conocimiento abierto desde <a href="https://wikimedistas.uy">Wikimedistas de Uruguay</a>.
 
-            Tiene como misión contribuir a una sociedad más justa a través del uso de datos abiertos y tecnología cívica, en base a tres pilares; Herramientas (tecnología cívica basada en datos abiertos para promover el conocimiento, ejercicio de derechos y la toma de decisiones informadas), Comunidad (organización de eventos nacionales e internacionales para fomentar el gobierno abierto y datos abiertos) y Activismo (trabajo en red con organizaciones de la sociedad civil y academia locales e internacionales).</span>
-        </div>
-        <div class="tag highlight">
-            <%= File.read("#{Rails.root}/public/images/browsers.svg").html_safe %>
-            <span>Todas las herramientas de Data Uruguay son abiertas, licenciadas como software libre y disponibles para su descarga y reuso, así como los datos generados por éstas están disponibles como datos abiertos. Entre sus proyectos más destacados se cuentan ATuServicio.uy, DondeReciclo.uy, DerechosDeEstudiantes.edu.uy y ElijoEstudiar.edu.uy.
+                    Tiene como misión contribuir a una sociedad más justa a través del uso de datos abiertos y tecnología cívica, en base a tres pilares; Herramientas (tecnología cívica basada en datos abiertos para promover el conocimiento, ejercicio de derechos y la toma de decisiones informadas), Comunidad (organización de eventos nacionales e internacionales para fomentar el gobierno abierto y datos abiertos) y Activismo (trabajo en red con organizaciones de la sociedad civil y academia locales e internacionales).</span>
+                </div>
+                <div class="tag highlight">
+                    <%= File.read("#{Rails.root}/public/images/browsers.svg").html_safe %>
+                    <span>Todas las herramientas de Data Uruguay son abiertas, licenciadas como software libre y disponibles para su descarga y reuso, así como los datos generados por éstas están disponibles como datos abiertos. Entre sus proyectos más destacados se cuentan ATuServicio.uy, DondeReciclo.uy, DerechosDeEstudiantes.edu.uy y ElijoEstudiar.edu.uy.
 
-            El foco principal de la organización está en Uruguay, pero desarrolla trabajo regional e internacionalmente tanto en gestión de comunidad y eventos, como en la replicación de proyectos en otros países, en coordinación con organizaciones locales.
+                    El foco principal de la organización está en Uruguay, pero desarrolla trabajo regional e internacionalmente tanto en gestión de comunidad y eventos, como en la replicación de proyectos en otros países, en coordinación con organizaciones locales.
 
-            Es una organización semi-voluntaria, horizontal y basada en el consenso, conformada por un equipo multidisciplinario que trabaja de forma remota, sin espacios físicos fijos u horarios. La colaboración es un aspecto central del trabajo,  desarrollando proyectos en cocreación con otras organizaciones o personas destinatarias, de forma colaborativa y complementando saberes y experticias.</span>
-        </div>
+                    Es una organización semi-voluntaria, horizontal y basada en el consenso, conformada por un equipo multidisciplinario que trabaja de forma remota, sin espacios físicos fijos u horarios. La colaboración es un aspecto central del trabajo,  desarrollando proyectos en cocreación con otras organizaciones o personas destinatarias, de forma colaborativa y complementando saberes y experticias.</span>
+                </div>
+            </div>
         </div>
     </div>
 <!--Datos abiertos que utiliza la aplicación-->
