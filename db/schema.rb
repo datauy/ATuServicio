@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_06_08_031627) do
+ActiveRecord::Schema[8.0].define(version: 2026_06_08_204339) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -76,6 +76,15 @@ ActiveRecord::Schema[8.0].define(version: 2026_06_08_031627) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "dtype"
+  end
+
+  create_table "equipment", force: :cascade do |t|
+    t.string "etype"
+    t.string "brand"
+    t.string "model"
+    t.integer "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "geo_entities", force: :cascade do |t|
@@ -277,6 +286,17 @@ ActiveRecord::Schema[8.0].define(version: 2026_06_08_031627) do
     t.index ["site_id"], name: "index_site_data_on_site_id"
   end
 
+  create_table "site_equipments", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.bigint "equipment_id", null: false
+    t.integer "year"
+    t.string "period"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["equipment_id"], name: "index_site_equipments_on_equipment_id"
+    t.index ["site_id"], name: "index_site_equipments_on_site_id"
+  end
+
   create_table "sites", force: :cascade do |t|
     t.bigint "zone_id", null: false
     t.string "name"
@@ -362,6 +382,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_06_08_031627) do
   add_foreign_key "provider_specialists", "zones"
   add_foreign_key "site_data", "data"
   add_foreign_key "site_data", "sites"
+  add_foreign_key "site_equipments", "equipment"
+  add_foreign_key "site_equipments", "sites"
   add_foreign_key "sites", "providers"
   add_foreign_key "sites", "zones"
   add_foreign_key "sites", "zones", column: "state_id"

@@ -7,7 +7,7 @@ import * as Wkt from "wicket"
 export default class extends Controller {
   static targets = ["container", "info"]
   //Change to targets?? TODO
-  static values = {geodata: [], sites: []}
+  static values = {geodata: [], sites: [], mtype: String }
 
   static zonesData
   static firstLevel
@@ -32,6 +32,12 @@ export default class extends Controller {
       secondLevel: true,
       thirdLevel: true,
       emergency: false
+    }
+    if ( this.mtypeValue == 'compare' ) {
+      this.layers.zonesData = true,
+      this.layers.firstLevel = true,
+      this.layers.emergency = true
+      this.showMap(true, true)
     }
     //Initialize variables
     Object.keys(this.layers).forEach( l => {
@@ -259,6 +265,7 @@ export default class extends Controller {
           this.infoTarget.style.display = 'flex'
           setTimeout( e => {
             this.infoTarget.classList.add('visible')
+            document.getElementById('map-controls').scrollIntoView()
           }, 50)
         })
       }
@@ -291,6 +298,25 @@ export default class extends Controller {
     }
     else {
       this[layer].remove()
+    }
+  }
+
+  showMap(input, initial = false) {
+    let mapWrap = document.querySelector('.map-wraper')
+    let listWrap = document.getElementById('sites-list')
+    if ( listWrap == null ) {
+      listWrap = mapWrap
+    }
+    console.log(listWrap, initial);
+    if ( initial || document.getElementById('show_map').checked ) {
+      console.log("SHOW MAP CHECKEDF");
+      document.getElementById('show_map').checked = true
+      mapWrap.style.display = 'flex'
+      listWrap.style.display = 'none'
+    }
+    else {
+      mapWrap.style.display = 'none'
+      listWrap.style.display = 'flex'
     }
   }
 

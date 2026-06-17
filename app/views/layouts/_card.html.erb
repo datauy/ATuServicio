@@ -10,7 +10,7 @@
   </div>
   <div class="card-content">
     <% if card[:description].present? %>
-      <div class="card-desc"><%= card[:description] %></div>
+      <div class="description"><%= card[:description] %></div>
     <% end %>
     <%= render partial: "/#{card[:ctype]}/cards/#{card[:name]}", locals: { card: card }  %>
   </div>

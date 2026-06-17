@@ -1,18 +1,3 @@
 <%= turbo_stream.update("sites_grid") do %>
-  <% @sites.each do |site| %>
-    <% 
-    @site = site
-    levels = site.levels
-    card = {
-      sid: site.id,
-      title: site.name,
-      name: 'site',
-      icon: levels.present? ? levels.first.parameterize : 'site',
-      year: 2026,
-      period: 1,
-      ctype: 'site'
-    }
-    %>
-    <%= render partial: '/layouts/card', locals: {card: card} %>
-  <% end %>
+  <%= render partial: 'cards' %>
 <% end %>

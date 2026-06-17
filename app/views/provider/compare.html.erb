@@ -21,7 +21,7 @@
         <div class="rectangle-div"></div>
       <% end %>
       <h2><%= p.short_name %></h2>
-      <div class="description"><%= p.web %></div>
+      <div class="web"><%= p.web %></div>
     </div>
     <% end %>
   </div>
@@ -31,7 +31,7 @@
       <div class="header-left">
         <%= button_tag "#{image_tag('/images/arrow.svg')}<h3>#{s['title']}</h3>".html_safe,
         class: 'arrow',
-        aria: { expanded: false, controls: "section-#{s['id']}"},
+        aria: { expanded: s['name'] == 'sites' ? true : false, controls: "section-#{s['id']}"},
         data: { 
           "section-target": "expand", 
           action: 'click->section#toggleVisibility' 
@@ -48,9 +48,9 @@
       <div class="tag tag-calendar"><i class="fas fa-calendar"></i><%= s['year'] %></div>
     </div>
     <!-- Sections -->
-    <div id="section-<%= s['id'] %>" class="section-content ways<%= @providers.length %>" data-section-target="content">
+    <div id="section-<%= s['id'] %>" class="section-content ways<%= @providers.length %> <%= s['name'] == 'sites' ? 'active' : '' %>" data-section-target="content">
       <% if s['description'].present? && s['description'] != '' %>
-        <div class="section-description"><%= s['description'] %></div>
+        <div class="description"><%= s['description'] %></div>
       <% end %>
       <!-- Section content -->
       <div class="section-inner-content <%= s["name"]%>">

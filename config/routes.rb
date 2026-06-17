@@ -34,5 +34,6 @@ Rails.application.routes.draw do
   get 'site/:id/summary', to: "site#summary", as: "site_summary"
   get "sites", to: "site#sites", as: "sites"
   get "infra", to: "site#geo_entities", as: "infra"
+  get "sites/:provider/:state", to: "site#provider_state"
 
 end

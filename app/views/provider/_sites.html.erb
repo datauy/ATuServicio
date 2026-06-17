@@ -1,49 +1,110 @@
-<div class="row">
-<div class="empty"></div>
-<% section['data'].each do |pd| %>
-  <div class="column">
-  <% pd.keys.sort.each do |depto, i| %>
-    <div class="section" data-controller="section">
-      <div class="section-header">
-        <div class="header-left">
-          <%= button_tag "#{image_tag('/images/arrow.svg')}<h4>#{depto}</h4>".html_safe,
-          class: 'arrow',
-          aria: { expanded: false, controls: "depto-#{i}"},
-          data: { 
-            "section-target": "expand", 
-            action: 'click->section#toggleVisibility' 
-          }%>
-        </div>
+<div class="site-section"
+  data-controller="map"
+  data-map-sites-value="<%= ActiveSupport::JSON.encode(@sites.values) %>"
+  data-map-mtype-value="compare">
+  <div class="section-header">
+      <%= button_tag "<i class='fas fa-location-crosshairs'></i>Utilizar mi ubicación".html_safe, class: "main-button", data: {action: "click->map#geoLocate"} %>
+      <div class="header-right">
+        <span>Mostrar en mapa</span>
+        <label class="switch">
+          <%= check_box_tag :show_map, 'show_map', {data: {action: "map#showMap" }, checked: true }%>
+          <div class="slider round"></div>
+        </label>
       </div>
-      <div id="depto-<%= i %>" class="depto-content" data-section-target="content">
-        <% pd[depto].each do |site| %>
-        <div class="item" data-controller="site">
-          <div class="name"><%= site['name'] %></div>
-          <div class="description"><%= site['description'] %></div>
-          <div class="tags">
-            <% site['levels'].each do |level| %>
-              <div class="tag level" 
-              data-controller="site" 
-              data-site-site-value="<%= site['id'] %>" 
-              data-site-level-value="<%= level %>">
-                <%= button_tag level,
-                  class: 'level',
-                  aria: { expanded: false, controls: "site-backdrop"},
-                  data: {
-                    "site-target": "button",
-                    action: "click->site#toggleModal" 
-                  }
-                %>
-              </div>
-            <% end %>
+  </div>
+  <div class="map-wraper">
+    <div id="map-controls">
+      <div class="initial">
+        <div class="box map-services-filters">
+          <h4>¿Te interesa ver un servicio en particular?</h4>
+          <div class="tag">
+            <div class="flex">
+              <%= svg('hospital.svg') %>
+              <span>Hospitales</span>
+            </div>
+            <label class="switch">
+              <%= check_box_tag :thirdLevel, 'thirdLevel', {data: {action: "map#changeServices" }, checked: true }%>
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <div class="tag">
+            <div class="flex">
+              <%= svg('housemedical.svg') %>
+              <span>Centros de salud</span>
+            </div>
+            <label class="switch">
+              <%= check_box_tag :secondLevel, 'secondLevel', {data: {action: "map#changeServices" }, checked: true }%>
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="tag">
+            <div class="flex">
+              <%= svg('stethoscope.svg') %>
+              <span>Policlínicas</span>
+            </div>
+            <label class="switch">
+              <%= check_box_tag :firstLevel, 'firstLevel', {data: {action: "map#changeServices" } }%>
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="tag">
+            <div class="flex">
+              <%= svg('vacunatorio.svg') %>
+              <span>Vacunatorios</span>
+            </div>
+            <label class="switch">
+              <%= check_box_tag :zonesData, 'zonesData', {data: {action: "map#changeServices" } }%>
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="tag">
+            <div class="flex">
+              <%= svg('emergency.svg') %>
+              <span>Puertas de emergencia</span>
+            </div>
+            <label class="switch">
+              <%= check_box_tag :emergency, 'emergency', {data: {action: "map#changeServices" } }%>
+              <span class="slider round"></span>
+            </label>
           </div>
         </div>
-        <% end %>
+      </div>
+      <div class="zone-info" data-map-target="info">
+        <%= button_tag "X", class: "close", onclick: "this.parentNode.classList.remove('visible');setTimeout( e => {this.parentNode.style.display = 'none'}, 330)" %>
+        <%= turbo_frame_tag "zone-description" %>
       </div>
     </div>
-  <% end %>
+    <div id="map" data-map-target="container"></div>
   </div>
-<% end %>
+  <div id="sites-list">
+    <% Zone.where(ztype: "Departamento").order(:name).each do |depto| %>
+      <% div = "<div class='item label'>#{depto.name}</div>" %>
+        <% add = false %>
+        <% section['data'].each_with_index do |pd, i| %>
+          <% if pd[depto.id].present? %>
+            <% add = true %>
+            <% div += "<div class='item'><span class='value'>#{pd[depto.id]}</span>#{
+              button_tag "Ver detalle", data: {
+                controller: "site", 
+                "site-provider-value": @providers[i].id,
+                "site-state-value": depto.id,
+                "site-target": "button",
+                action: "click->site#getSites"
+                },
+                class: 'link',
+                aria: { expanded: false, controls: "site-backdrop"}}
+            </div>" %>
+          <% else %>
+            <% div += "<div class='item'>Sin sedes</div>" %>
+          <% end %>
+        <% end %>
+        <% if add %>
+          <div class="row">
+          <%= div.html_safe %>
+          </div>
+        <% end %>
+    <% end %>
+  </div>
 </div>
 <div id="site-backdrop" class="backdrop" data-controller="site" data-action='click->site#closeModal'>
   <div class="info-box">

@@ -4,6 +4,9 @@
 <div class="values">Sedes en:</div>
 <div class="tags">
 <% card['states'].each do |state_id| %>
-  <div class="tag location departamento"><%= @states.detect{|(_,n)| n == state_id}.first %></div>
+  <% state = @states.detect{|(_,n)| n == state_id} %>
+  <% if state.present? %>
+    <div class="tag location departamento"><%= state.first %></div>
+  <% end %>
 <% end %>
 </div>

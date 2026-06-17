@@ -4,6 +4,9 @@
   gap: 20px;
   max-width: 100%;
   overflow-x: scroll;
+  &.side {
+    grid-template-columns: 1fr;
+  }
   .card {
     padding: 24px;
     background: #FFF;
@@ -42,13 +45,6 @@
       flex-direction: column;
       gap: 12px;
       padding-top: 20px;
-      .card-desc {
-        border-radius: 12px;
-        background: var(--color-gris-06);
-        color: #666666;
-        font-size: 12px;
-        padding: 8px;
-      }
       .values {
         display: flex;
         gap: 10px;
@@ -58,14 +54,25 @@
           .result {
             width: 100%;
             display: flex;
+            justify-content: space-between;
             gap: 8px;
             align-items: center;
             span {
               min-width: fit-content;
+              &.price {
+                padding: 4px 8px;
+                background: var(--color-green-03);
+                color: var(--color-green-04);
+                font-size: 12px;
+                font-weight: 500;
+                border-radius: 24px;
+              }
             }
             .bar {
               width: 100%;
               position: relative;
+              background: var(--color-gris-06);
+              border-radius: 256px;
               .total-bar {
                 width: inherit;
                 background: var(--color-gris-06);
@@ -80,13 +87,16 @@
                 position: relative;
               }
               &.price {
-                .total-bar {
-                  height: 32px;
-                  background: url('/images/circle-dollar.svg');
-                  z-index: 10;
+                width: fit-content;
+                img {
+                  position: relative;
+                  z-index: 11;
                 }
                 .percent-bar {
-                  height: 32px;
+                  height: 100%;
+                  border-radius: 0;
+                  position: absolute;
+                  top: 0;
                 }
               }
             }

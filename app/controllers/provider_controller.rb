@@ -29,8 +29,10 @@ class ProviderController < ApplicationController
     end
     @pids = provs
     @providers = Provider.where(id: provs).order(:short_name)
+    @prices_max = ProviderPrice.includes(:price).group('price.ptype').maximum(:value)
     @states = []
     country_zone = Zone.find_by(ztype: 'País')
+    @sites = Site.new.get_map_sites(provs)
     if @providers.length > 0
       @s = []
       Section.where(is_active: true).order(:weight).each do |s|
@@ -60,24 +62,7 @@ class ProviderController < ApplicationController
             where( year: s.year, period: s.period, zone_id: country_zone.id).
             pluck(:speciality_id, :value).to_h
           when 'sites'
-            datum = {}
-            loc = ''
-            p.zones.each do |z|
-              zones = z.parents
-              zsites = z.sites.where(provider_id: p.id)
-              zsites.each do |zs|
-                site = zs.serializable_hash
-                site['zones'] = zones
-                site['levels'] = zs.site_data.order(:level).pluck(:level).uniq
-                #Add Site
-                depto = zones['Departamento'].name
-                if datum[depto].present?
-                  datum[depto].push(site)
-                else
-                  datum[depto] = [site]
-                end
-              end
-            end
+            datum = p.sites.group(:state_id).count
           end
           data.push(datum)
         end

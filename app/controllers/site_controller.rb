@@ -52,4 +52,10 @@ class SiteController < ApplicationController
       format.turbo_stream
     end
   end
+
+  def provider_state
+    if params[:provider].present? && params[:state].present?
+      @sites = Site.where(provider_id: params[:provider], state_id: params[:state])
+    end
+  end
 end

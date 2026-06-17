@@ -70,6 +70,12 @@
         align-items: center;
         gap: 16px;
       }
+      .provider-name {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #2c2c2c;
+      }
     }
     .header-right {
       display: flex;
@@ -111,6 +117,8 @@
     gap: 16px;
     padding: 8px;
     justify-content: space-between;
+    align-items: center;
+    .header-right,
     .header-left {
       display: flex;
       align-items: center;
@@ -126,35 +134,61 @@
     font-size: 16px;
     color: var(--color-gris-01);
     font-weight: 400;
-
-    &.ways2 .row {
-      grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 24px 0;
+    &.active {
+      display: flex;
     }
-    &.ways3 .row {
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .row {
-      margin: 4px 0;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      width: 100%;
-      justify-content: left;
-      align-items: center;
-      .item {
-        padding: 16px;
-      }
-      .label {
-        font-weight: 600;
-      }
-      .value {
-        text-align: end;
+    &.ways2 {
+      .section-inner-content,
+      .site-section {
+        .row {
+          grid-template-columns: repeat(3, 1fr);
+        }
       }
     }
-    .sites .row {
-      align-items: start;
+    &.ways3 {
+      .section-inner-content,
+      .site-section {
+        .row {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
     }
-    .row:nth-child(even) {
-      background: var(--color-azul-4);
+    .section-inner-content,
+    .site-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      .row {
+        margin: 4px 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        justify-content: left;
+        align-items: center;
+        .item {
+          padding: 16px;
+          display: flex;
+          gap: 8px;
+          align-items: center;
+        }
+        .label {
+          font-weight: 600;
+        }
+        .value {
+          text-align: end;
+        }
+      }
+      .sites .row {
+        align-items: start;
+      }
+      .row:nth-child(even) {
+        background: var(--color-azul-4);
+      }
+      #sites-list {
+        flex-direction: column;
+      }
     }
   }
   .depto-content {

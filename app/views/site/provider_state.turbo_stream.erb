@@ -1,0 +1,5 @@
+<%= turbo_stream.update("site_data") do %>
+  <div id="sites_grid" class="cards side">
+    <%= render partial: 'cards' %>
+  </div>
+<% end %>
