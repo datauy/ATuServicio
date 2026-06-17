@@ -22,4 +22,8 @@ class PagesController < ApplicationController
   def inqueries
 
   end
+
+  def benefits
+
+  end
 end
