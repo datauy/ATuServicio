@@ -6,7 +6,7 @@
     padding-bottom: 60px;
     margin-bottom: 60px;
     border-bottom: 1px solid #d6d6d6;
-    gap: 60px;
+    gap: 24px;
     display: flex;
     flex-direction: column;
     .tag {
@@ -17,6 +17,7 @@
         padding: 16px;
         border-right: 1px solid #ceedf4;
         margin-right: 16px;
+        height: auto;
       }
       span {
         font-size: 16px;
@@ -26,26 +27,11 @@
   }
   img.photo {
     max-height: 400px;
-    width: fit-content;
+    width: auto;
     border-radius: 24px;
     align-self: center;
   }
   h3 {
     color: var(--color-azul-presidencia);
-  }
-}
-
-.columns {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-}
-.column {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  gap: 24px;
-  &.center {
-    align-items: center;
   }
 }

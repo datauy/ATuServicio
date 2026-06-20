@@ -1,6 +1,6 @@
 <div class="providers" data-controller="compare" data-compare-ctype-value="compare" data-compare-pids-value="<%= @pids %>">
   <div class="header">
-    <div class="tag page-tag tag-prestadores"><i class='fas fa-house-medical'></i>Prestadores y servicios</div>
+    <div class="tag page-tag tag-prestadores"><%= svg('house-medical') %>Prestadores y servicios</div>
     <h1>Tomá una decisión informada</h1>
     <div class="page-description">Seleccioná hasta 3 prestadores para comparar</div>
     <input type="text" name="provider" data-action='keyup->compare#searchProvider' placeholder="Busca por nombre"/>
@@ -14,7 +14,7 @@
     </div>
     <% @providers.each do |p|%>
     <div class="provider-header">
-    <button class="close" value="<%=p.id%>" data-action="compare#removeFromCompare">X</button>
+      <%= button_tag "X #{svg('trash.svg')}".html_safe, value: p.id, class: 'close', data: { action: "compare#removeFromCompare" } %>
       <% if p.logo.attached? %>
         <%= image_tag p.logo %>
       <% else %>
@@ -45,7 +45,7 @@
             action: 'click->section#toggleInfo' 
           }%>
       </div>
-      <div class="tag tag-calendar"><i class="fas fa-calendar"></i><%= s['year'] %></div>
+      <div class="tag tag-calendar"><%= svg("calendar.svg") %> <%= s['year'] %> - <%= s['period'] %></div>
     </div>
     <!-- Sections -->
     <div id="section-<%= s['id'] %>" class="section-content ways<%= @providers.length %> <%= s['name'] == 'sites' ? 'active' : '' %>" data-section-target="content">

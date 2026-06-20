@@ -42,7 +42,6 @@ export default class extends Controller {
     //Initialize variables
     Object.keys(this.layers).forEach( l => {
       this[l] = []
-      this[l+'Layer'] = new L.FeatureGroup()
     })
     this.icon = {
       iconUrl: '/images/user.svg',
@@ -57,6 +56,8 @@ export default class extends Controller {
     this.map.setView([-32.65,-56.23388], 7)
     this.map.scrollWheelZoom.disable()
     this.loadFeatures()
+    this.loadFeaturesToMap()
+    document.querySelectorAll('.map-providers').forEach(p => { p.checked = true })
   }
 
   createMap() {
@@ -76,9 +77,17 @@ export default class extends Controller {
       }
       this.map.flyTo(latlng,15)
     })
-    this.map.on("locationfound", (e) => {
-      console.log("LOCATION ERROR", e)
-      const { latlng, accuracy } = e;
+    this.map.on("zoomend", (e) => {
+      if (this.map.getZoom() > 11 ) {
+        document.querySelectorAll('.leaflet-div-icon span:not(.active)').forEach( n => {
+          n.classList.add('active')
+        })
+      }
+      else {
+        document.querySelectorAll('.leaflet-div-icon span.active').forEach( n => {
+          n.classList.remove('active')
+        })
+      }
     })
     this.map.on('click', (e) => {
       if (this.map.scrollWheelZoom.enabled()) {
@@ -144,6 +153,7 @@ export default class extends Controller {
           type: "Feature",
           properties: {
           gId: gd.id,
+          pId: gd.provider_id,
           name: gd.name,
           pname: gd.pname,
           description: gd.description,
@@ -166,54 +176,72 @@ export default class extends Controller {
         }
       }
     })
+  }
+
+  loadFeaturesToMap( filter = null ) {
+    let geo_options = {
+      onEachFeature: (feature, layer) => {
+        this.icon.iconUrl = '/images/'+feature.properties.iconUrl+'.svg'
+        let icon = L.icon(this.icon)
+        if ( feature.properties.counter > 0 || this.mtypeValue == 'compare' ) {
+          let ihtml = '<img src="' + this.icon.iconUrl + '" />'
+          if ( this.mtypeValue == 'compare' ) {
+            ihtml += '<span>' + feature.properties.pname + '</span>'
+            bound.push(layer.getLatLng())
+          }
+          if ( feature.properties.counter > 1 ) {
+            ihtml += '<b>' + feature.properties.counter + '</b>'
+          }
+          else {
+            if (feature.properties.emergency) {
+              ihtml += '<b class="emergency"></b>'
+            }
+            if (feature.properties.geo) {
+              ihtml += '<b class="vac"></b>'
+            }
+          }
+          icon = L.divIcon({ 
+            html: ihtml,
+            iconSize: 36,
+            iconAnchor: [18, 36],
+            popupAnchor: [1, -36],
+          });
+        }
+        layer.setIcon(icon)
+        let popupContent = this.buildPopUp(feature.properties)
+        layer.bindPopup(popupContent);
+        layer.on({
+          click: (e) => {
+            this.showInfo(e.target.feature.properties)
+          },
+          mouseover: (e) => {
+            layer.openPopup(e.latlng)
+          },
+          mouseout: (e) => {
+            layer.closePopup()
+          }
+        })
+      }
+    }
+    if ( filter != null ) {
+      geo_options['filter'] = function (feature, layer) {
+        return filter.includes(feature.properties.pId)
+      }
+    }
     //ADD TO MAP
+    let bound = []
     Object.keys(this.layers).forEach(l => {
       //ICONS
-      L.geoJSON(this[l], {
-        onEachFeature: (feature, layer) => {
-          this.icon.iconUrl = '/images/'+feature.properties.iconUrl+'.svg'
-          let icon = L.icon(this.icon)
-          if ( feature.properties.counter > 0 ) {
-            let ihtml = '<img src="' + this.icon.iconUrl + '" />'
-            if ( feature.properties.counter > 1 ) {
-              ihtml += '<b>' + feature.properties.counter + '</b>'
-            }
-            else {
-              if (feature.properties.emergency) {
-                ihtml += '<b class="emergency"></b>'
-              }
-              else {
-                ihtml += '<b class="vac"></b>'
-              }
-            }
-            icon = L.divIcon({ 
-              html: ihtml,
-              iconSize: 36,
-              iconAnchor: [18, 36],
-              popupAnchor: [1, -36],
-            });
-          }
-          layer.setIcon(icon)
-          let popupContent = this.buildPopUp(feature.properties)
-          layer.bindPopup(popupContent);
-          layer.on({
-            click: (e) => {
-              this.showInfo(e.target.feature.properties)
-            },
-            mouseover: (e) => {
-              layer.openPopup(e.latlng)
-            },
-            mouseout: (e) => {
-              layer.closePopup()
-            }
-          })
-        }
-      }).addTo(this[l+"Layer"]);
+      this[l+"Layer"] = L.geoJSON(this[l], geo_options)
+      //this[l+"OriginalLayer"] = this[l+"Layer"]
       if ( this.layers[l] ) {
         this[l+"Layer"].addTo(this.map)
       }
       document.getElementById(l).checked = this.layers[l]
     })
+    if ( this.mtypeValue == 'compare' && bound.length > 0 ) {
+      this.map.flyToBounds(bound);
+    }
   }
   //
   buildPopUp(feature) {
@@ -238,37 +266,44 @@ export default class extends Controller {
   }
   // Info Panel
   showInfo(zone) {
+    console.log("SHOW INFO");
     if ( this.infoTarget.classList.contains('visible') ) {
       this.infoTarget.classList.remove('visible')
       setTimeout( e => {
         this.infoTarget.style.display = 'none'
-      }, 330)
+      }, 50)
+    }
+    if ( zone.gtype == 'vacunatorio') {
+      this.infoTarget.querySelector('#zone-description').innerHTML = "<h4>"+zone.name+"</h4><p>"+zone.description+"</p>"
+      setTimeout( e => {
+        this.infoTarget.style.display = 'flex'
+      }, 50)
+      setTimeout( e => {
+        this.infoTarget.classList.add('visible')
+        document.getElementById('map-controls').scrollIntoView()
+        console.log("BACK WITH CONYT");
+      }, 200)
     }
     else {
-      if ( zone.gtype == 'vacunatorio') {
-        this.infoTarget.querySelector('#zone-description').innerHTML = "<h4>"+zone.name+"</h4><p>"+zone.description+"</p>"
-        this.infoTarget.style.display = 'flex'
+      fetch('/site/'+zone.site_id+'/summary', {
+      method: "GET",
+      headers: {
+        Accept: "text/vnd.turbo-stream.html"
+      }
+      })
+      .then(r => r.text())
+      .then(html => {
+        Turbo.renderStreamMessage(html)
         setTimeout( e => {
-          this.infoTarget.classList.add('visible')
-        }, 50)
-      }
-      else {
-        fetch('/site/'+zone.site_id+'/summary', {
-        method: "GET",
-        headers: {
-          Accept: "text/vnd.turbo-stream.html"
-        }
-        })
-        .then(r => r.text())
-        .then(html => {
-          Turbo.renderStreamMessage(html)
           this.infoTarget.style.display = 'flex'
-          setTimeout( e => {
-            this.infoTarget.classList.add('visible')
-            document.getElementById('map-controls').scrollIntoView()
-          }, 50)
-        })
-      }
+        }, 50)
+        setTimeout( e => {
+          console.log("BACK WITH CONYT");
+          
+          this.infoTarget.classList.add('visible')
+          document.getElementById('map-controls').scrollIntoView()
+        }, 200)
+      })
     }
   }
 
@@ -307,7 +342,6 @@ export default class extends Controller {
     if ( listWrap == null ) {
       listWrap = mapWrap
     }
-    console.log(listWrap, initial);
     if ( initial || document.getElementById('show_map').checked ) {
       console.log("SHOW MAP CHECKEDF");
       document.getElementById('show_map').checked = true
@@ -320,8 +354,17 @@ export default class extends Controller {
     }
   }
 
-  getDescription(gid, gtype) {
-
+  changeProvider() {
+    let provs = []
+    document.querySelectorAll('.map-providers').forEach(p => {
+      if ( p.checked ) {
+        provs.push(parseInt(p.value))
+      }
+    })
+    Object.keys(this.layers).forEach(l => {
+      this.map.removeLayer(this[l+"Layer"])
+    })
+    this.loadFeaturesToMap( provs )
   }
 
   disconnect() {

@@ -1,5 +1,7 @@
 .providers {
   margin: 60px 10%;
+  z-index: 2;
+  position: relative;
   .header {
     display: flex;
     flex-direction: column;
@@ -24,6 +26,7 @@
       flex-direction: column;
       gap: 16px;
       position: relative;
+      /*max-height: 300px;*/
       h2 {
         font-size: 22px;
         font-weight: 700;

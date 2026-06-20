@@ -122,6 +122,13 @@ button {
     font-size: 13px;
     font-family: "DM Sans";
   }
+  &.trash {
+    height: 20px;
+    color: var(--color-azul-presidencia);
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
   &.info {
     svg {
       width: 20px;
@@ -184,6 +191,23 @@ label {
     height: 100%;
   }
 }
+.columns {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 24px;
+  &.center {
+    align-items: center;
+  }
+  ul {
+    list-style: inherit;
+  }
+}
 .row {
   display: flex;
   gap: 24px;
@@ -217,8 +241,9 @@ label {
   font-weight: 600;
   min-width: fit-content;
   align-items: center;
+  font-weight: 600;
   svg {
-    width: 14px;
+    height: 16px;
   }
 }
 .main-button {

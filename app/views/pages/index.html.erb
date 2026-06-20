@@ -11,7 +11,7 @@
       <div class="box map-location-filters">
         <h4>Filtrar por ubicación</h4>
         <div class="row">
-          <%= button_tag "<i class='fas fa-location-crosshairs'></i>Utilizar mi ubicación".html_safe, class: "main-button", data: {action: "click->map#geoLocate"} %>
+          <%= button_tag "#{ svg('map-pin.svg') }Utilizar mi ubicación".html_safe, class: "main-button", data: {action: "click->map#geoLocate"} %>
         </div>
       </div>
       <div class="box map-services-filters">

@@ -7,8 +7,8 @@
     <div class="header-right">
       <div class="provider-web"><%= provider.web %></div>
       <%= check_box_tag :"provider-selector-#{provider.id}", provider.id, { class: "provider-selector", data: { action: "compare#addProvider" } }%>
-      <label for="provider-selector-<%= provider.id %>" class="main-button not-check"><i class="fas fa-plus"></i> Comparar</label>
-      <label for="provider-selector-<%= provider.id %>" class="secondary-button check"><i class="fas fa-xmark"></i> No Comparar</label>
+      <label for="provider-selector-<%= provider.id %>" class="main-button not-check"><%= svg('plus.svg') %> Comparar</label>
+      <label for="provider-selector-<%= provider.id %>" class="secondary-button check"><%= svg("xmark.svg")%></i> No Comparar</label>
     </div>
   </div>
   <div class="cards">

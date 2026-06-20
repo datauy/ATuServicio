@@ -1,5 +1,9 @@
 class ProviderController < ApplicationController
+  before_action :get_states
 
+  def get_states
+    @states = Zone.where(ztype: 'Departamento').pluck(:name, :id)
+  end
   def details
     @headers = 1
     p = Provider.find(params[:id])
@@ -30,7 +34,6 @@ class ProviderController < ApplicationController
     @pids = provs
     @providers = Provider.where(id: provs).order(:short_name)
     @prices_max = ProviderPrice.includes(:price).group('price.ptype').maximum(:value)
-    @states = []
     country_zone = Zone.find_by(ztype: 'País')
     @sites = Site.new.get_map_sites(provs)
     if @providers.length > 0
@@ -41,8 +44,6 @@ class ProviderController < ApplicationController
           case s.name
           when 'general'
             datum = p.provider_data.find_by(year: s.year, period: s.period)
-            logger.debug("STATES 4 PROVIDER: \n #{p.states.uniq.pluck(:name, :id)}")
-            @states.concat( p.states.uniq.pluck(:name, :id) )
           when 'prices'
             datum = {fonasa:{}, no_fonasa: {}}
             p.provider_prices.where(year: s.year, period: s.period).each do |pp|
@@ -117,6 +118,7 @@ class ProviderController < ApplicationController
     else
       @sections = Section.where(is_home_card: true, is_active: true).order(:weight)
     end
+    logger.debug " SEARCH RES: #{@providers.inspect}"
     respond_to do |format|
       format.turbo_stream
     end

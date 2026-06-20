@@ -3,7 +3,7 @@
   data-map-sites-value="<%= ActiveSupport::JSON.encode(@sites.values) %>"
   data-map-mtype-value="compare">
   <div class="section-header">
-      <%= button_tag "<i class='fas fa-location-crosshairs'></i>Utilizar mi ubicación".html_safe, class: "main-button", data: {action: "click->map#geoLocate"} %>
+      <%= button_tag "#{svg('map-pin.svg')} Utilizar mi ubicación".html_safe, class: "main-button", data: {action: "click->map#geoLocate"} %>
       <div class="header-right">
         <span>Mostrar en mapa</span>
         <label class="switch">
@@ -15,6 +15,17 @@
   <div class="map-wraper">
     <div id="map-controls">
       <div class="initial">
+        <% @providers.each do |p| %>
+          <div class="tag">
+            <div class="flex">
+              <span><%= p.short_name %></span>
+            </div>
+            <label class="switch">
+              <%= check_box_tag :"provider-#{p.id}", p.id, {data: {action: "map#changeProvider" }, class: "map-providers", checked: true }%>
+              <div class="slider round"></div>
+            </label>
+          </div>
+        <% end %>
         <div class="box map-services-filters">
           <h4>¿Te interesa ver un servicio en particular?</h4>
           <div class="tag">

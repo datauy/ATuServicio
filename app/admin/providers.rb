@@ -1,6 +1,6 @@
 ActiveAdmin.register Provider do
   # Specify parameters which should be permitted for assignment
-  permit_params :external_id_id, :short_name, :name, :web, :description, :active
+  permit_params :external_id, :short_name, :name, :web, :description, :active, :logo
 
   # or consider:
   #
@@ -61,10 +61,29 @@ ActiveAdmin.register Provider do
       f.input :external_id
       f.input :short_name
       f.input :name
+      f.input :logo, as: :file
+      if f.object.logo.attached?
+        li do
+          div do
+            image_tag(f.object.logo)
+          end
+          div do
+            a "Borrar", href: delete_image_admin_provider_path, method: :delete, "data-confirm": "Confirme que desea eliminarla"
+          end
+        end
+      end
       f.input :web
       f.input :description
       f.input :active
     end
     f.actions
   end
+  
+  member_action :delete_image, method: [:delete, :get] do
+    if resource.logo.attached?
+      resource.logo.delete
+    end
+    redirect_to edit_resource_path, notice: "Imagen borrada"
+  end
+
 end
