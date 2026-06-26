@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="map"
 import L from "leaflet"
+import * as lgh from "leaflet-gesture-handling";
 import * as Wkt from "wicket"
 
 
@@ -25,6 +26,7 @@ export default class extends Controller {
   static layers
   
   connect() {
+    //L.Map.addInitHook("addHandler", "gestureHandling", GestureHandling);
     //Set initial layers
     this.layers = {
       zonesData: false,

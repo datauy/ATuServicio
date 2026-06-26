@@ -93,13 +93,13 @@
     </div>
   </div>
   <div class="tabs-header">
-    <%= button_tag "#{svg('providers.svg')} Prestadores y servicios".html_safe,
+    <%= button_tag "#{svg('providers.svg')} Prestadores".html_safe,
     {data: {'tabs-tab-value': "prestadores", action: "tabs#switch_tab"},
     aria: { expanded: true, controls: "tab-prestadores"}} %>
-    <%= button_tag "#{svg('location-dot.svg')} Infraestructura y sedes".html_safe,
+    <%= button_tag "#{svg('location-dot.svg')} Sedes".html_safe,
     {data: {'tabs-tab-value': "clinicas", action: "tabs#switch_tab"},
     aria: { expanded: false, controls: "tab-clinicas"}} %>
-    <%= button_tag "#{svg('syringe.svg')}Vacunatorios".html_safe,
+    <%= button_tag "#{svg('syringe.svg')} Vacunatorios".html_safe,
     {data: {'tabs-tab-value': "vacunatorios", action: "tabs#switch_tab"},
     aria: { expanded: false, controls: "tab-vacunatorios"}} %>
   </div>

@@ -64,6 +64,9 @@
   }
 }
 @media (max-width: 600px ) { 
+  input {
+    width: 100%;
+  }
   .section {
     & .section-content {
       &.ways2 .row {
@@ -74,12 +77,24 @@
       }
     }
   }
+  .tabs-filters {
+    flex-direction: column;
+    width: 100%;
+  }
   .provider-summary {
     .header {
-      .header-right {
+      .header-left, .header-right {
         flex-direction: column;
-        font-size: 16px;
+        align-items: flex-start;
+        width: 100%;
+        .provider-name {
+          font-size: 12px;
+        }
       }
     }
+  }
+  .main-button {
+    width: 100%;
+    justify-content: center;
   }
 }

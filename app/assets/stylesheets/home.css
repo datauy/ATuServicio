@@ -135,7 +135,7 @@
     .tabs-filters {
       display: flex;
       margin-top: 24px;
-      gap: 15px;
+      gap: 24px;
       width: fit-content;
     }
   }

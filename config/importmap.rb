@@ -7,3 +7,4 @@ pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin "leaflet" # @1.9.4
 pin "wicket" # @1.3.8
+pin "leaflet-gesture-handling" # @1.2.2
