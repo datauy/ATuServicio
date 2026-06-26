@@ -49,6 +49,17 @@
       width: 100%;
     }
   }
+  .map-wraper {
+    #map-controls {
+      .zone-info {
+        .row {
+          & button.secondary-button {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }
 .provider-summary {
   display: flex;
