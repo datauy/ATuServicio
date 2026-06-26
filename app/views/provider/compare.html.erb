@@ -1,12 +1,16 @@
 <div class="providers" data-controller="compare" data-compare-ctype-value="compare" data-compare-pids-value="<%= @pids %>">
   <div class="header">
-    <div class="tag page-tag tag-prestadores"><%= svg('house-medical') %>Prestadores y servicios</div>
+    <div class="tag page-tag tag-prestadores"><%= svg('house-medical.svg') %>Prestadores y servicios</div>
     <h1>Tomá una decisión informada</h1>
     <div class="page-description">Seleccioná hasta 3 prestadores para comparar</div>
     <input type="text" name="provider" data-action='keyup->compare#searchProvider' placeholder="Busca por nombre"/>
     <%= turbo_frame_tag "provider_list" %>
   </div>
 <% if @providers.length > 0 %>
+  <div class="filters filters-mov">
+    <%= image_tag('/images/filter.svg') %>
+    <input type="text" name="datum" data-action='keyup->compare#filterList' placeholder="Filtra la lista"/>
+  </div>
   <div class="compare-header ways<%= @providers.length %>">
     <div class="filters">
       <%= image_tag('/images/filter.svg') %>
@@ -14,7 +18,7 @@
     </div>
     <% @providers.each do |p|%>
     <div class="provider-header">
-      <%= button_tag "X #{svg('trash.svg')}".html_safe, value: p.id, class: 'close', data: { action: "compare#removeFromCompare" } %>
+      <%= button_tag "#{svg('trash.svg')}".html_safe, value: p.id, class: 'close', data: { action: "compare#removeFromCompare" } %>
       <% if p.logo.attached? %>
         <%= image_tag p.logo %>
       <% else %>

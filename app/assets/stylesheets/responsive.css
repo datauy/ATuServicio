@@ -34,7 +34,7 @@
     flex-direction: column-reverse;
   }
   header {
-    padding: 24px 2%;
+    padding: 24px 5%;
     .hamb-wrapper {
       display: block !important;
     }
@@ -47,7 +47,56 @@
   }
 }
 
+@media (max-width: 800px ) {
+  .section {
+    .section-content {
+        &.ways2 {
+          .section-inner-content, & .site-section { 
+            .row {
+              grid-template-columns: repeat(2, 1fr);
+              .label {
+                grid-column: span 2;
+              }
+            }
+          }
+        }
+        &.ways3 {
+          .section-inner-content, & .site-section { 
+            .row {
+              grid-template-columns: repeat(3, 1fr);
+              .label {
+                grid-column: span 3;
+              }
+            }
+          }
+        }
+      }
+    }
+  .providers {
+    margin: 60px 5%;
+    .filters {
+      display: none;
+      &.filters-mov {
+        display: flex;
+      }
+    }
+    .compare-header {
+      &.ways2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      &.ways3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .provider-header {
+        overflow-x: scroll;
+      }
+    }
+  }
+}
 @media (max-width: 700px ) {
+  h3 {
+    font-size: 16px;
+  }
   .cards {
     grid-template-columns: 1fr;
   }
@@ -59,6 +108,9 @@
       justify-content: center;
     }
   }
+  .main-button {
+    font-size: 14px;
+  }
   #news {
     flex-direction: column;
   }
@@ -67,19 +119,25 @@
   input {
     width: 100%;
   }
+  .main-button {
+    width: 100%;
+    justify-content: center;
+  }
   .section {
-    & .section-content {
-      &.ways2 .row {
-        grid-template-columns: repeat(2, 1fr);
-        label {
-          grid-column: span 2fr;
-        }
-      }
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
     }
+  }
+  .tabs-header {
+    overflow-x: scroll;
   }
   .tabs-filters {
     flex-direction: column;
     width: 100%;
+  }
+  #compare-bar {
+    flex-direction: column;
   }
   .provider-summary {
     .header {
@@ -93,8 +151,11 @@
       }
     }
   }
-  .main-button {
-    width: 100%;
-    justify-content: center;
+  #news {
+    flex-direction: row;
+    overflow-x: scroll;
+    .card {
+      min-width: 75vw;
+    }
   }
 }

@@ -9,35 +9,41 @@
     z-index: 1;
     position: relative;
   }
+  .provider-header,
+  .filters {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    /*max-height: 300px;*/
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0px;
+    }
+  }
+  .filters {
+    justify-content: end;
+    &.filters-mov {
+      display: none;
+    }
+    img {
+      width: 16px;
+    }
+  }
   .compare-header {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1.8 1fr;
     border-bottom: 1px solid var(--color-gris-01);
+    position: sticky;
+    top: 0;
+    background: #ffffffed;
     &.ways2 {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1.8fr repeat(2, 1fr);
     }
     &.ways3 {
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .provider-header,
-    .filters {
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      position: relative;
-      /*max-height: 300px;*/
-      h2 {
-        font-size: 22px;
-        font-weight: 700;
-        letter-spacing: 0px;
-      }
-    }
-    .filters {
-      justify-content: end;
-      img {
-        width: 16px;
-      }
+      grid-template-columns: 1.8fr repeat(3, 1fr);
     }
     [type="text"] {
       width: 100%;
@@ -149,7 +155,7 @@
       .section-inner-content,
       .site-section {
         .row {
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: 1.8fr repeat(2, 1fr);
         }
       }
     }
@@ -157,7 +163,7 @@
       .section-inner-content,
       .site-section {
         .row {
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: 1.8fr repeat(3, 1fr);
         }
       }
     }
@@ -169,7 +175,7 @@
       .row {
         margin: 4px 0;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1.8fr 1fr;
         width: 100%;
         justify-content: left;
         align-items: center;
