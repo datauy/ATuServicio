@@ -114,6 +114,9 @@
   .main-button {
     font-size: 14px;
   }
+  button.arrow img {
+    width: 16px;
+  }
   #news {
     flex-direction: column;
   }

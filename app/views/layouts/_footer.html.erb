@@ -1,7 +1,7 @@
 <footer>
   <div class="content">
     <div class="module">
-      <div class="inline"><i class="fa-solid fa-share-from-square"></i><h2 id="share">Compartí este proyecto</h2></div>
+      <div class="inline"><%= svg("share-from-square.svg") %><h2 id="share">Compartí este proyecto</h2></div>
       <p>Si te fue útil o le puede ser útil a alguien más, tu ayuda en difusión hace una enorme diferencia. ¡Gracias!</p>
       <% share_msg = "Mapa Verde nuclea toda la información de iniciativas de jóvenes que trabajan por el ambiente en Uruguay, conocelas y sumate." %>
       <div class="inline">
@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="module">
-        <div class="group column">
+        <div class="group">
             <h2>Sobre el proyecto</h2>
             <div id="info-group">
                 <p>
@@ -81,11 +81,10 @@
         </div>
         <a class="support-button" href='mailto:soporte@data.org.uy' >Escribí a Soporte</a>
     </div>
-    <div class="module" class="group column center">
+    <div class="module" class="group center">
       <div id="we-are-header" class="toggle-data" onclick="this.parentNode.classList.toggle('active');">
         <h2>¿Quiénes somos?</h2>  
       </div>
-      <h3>Presentan:</h3>
       <div class="logos">
         <div class="logos-frame">
           <a href="https://msp.gub.uy" target="_blank">
@@ -114,7 +113,7 @@
     </div>
   </div>
   <div class="carousel slider-container">
-    <h2>Conocé otros proyectos de DATA:</h2>
+    <h3>Otros proyectos de Data Uruguay:</h3>
     <div id="data-projects" class="slides"></div>
     <div id="slider-controls"></div>
   </div>

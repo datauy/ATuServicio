@@ -53,17 +53,21 @@
     </div>
     <!-- Sections -->
     <div id="section-<%= s['id'] %>" class="section-content ways<%= @providers.length %> <%= s['name'] == 'sites' ? 'active' : '' %>" data-section-target="content">
+      <div class="section-inner-header">
       <% if s['description'].present? && s['description'] != '' %>
         <div class="description"><%= s['description'] %></div>
       <% end %>
+      <% if ['specialists', 'rrhh'].include? s["name"] %>
+        <!-- Section with state filters -->
+        <%= select_tag "state", options_for_select( @states ),
+        {include_blank: 'Todo el país',
+        data: {action: "change->compare#state"}
+        } %>
+      <% end %>
+      </div>
       <!-- Section content -->
       <div class="section-inner-content <%= s["name"]%>">
         <% if ['specialists', 'rrhh'].include? s["name"] %>
-        <!-- Section with state filters -->
-          <%= select_tag "state", options_for_select( @states ),
-          {include_blank: 'Todo el país',
-          data: {action: "change->compare#state"}
-          } %>
           <%= turbo_frame_tag s["name"] do %>
             <%= render partial: s['name'], locals: { section: s }%>
           <% end %>

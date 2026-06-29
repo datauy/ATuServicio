@@ -269,6 +269,8 @@ select {
   color: var(--color-gris-01);
   border-color: var(--color-gris-01);
   background-color: transparent;
+  max-width: 350px;
+  width: fit-content;
 }
 input {
   width: 350px;

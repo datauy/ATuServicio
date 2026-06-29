@@ -34,7 +34,7 @@
   }
   .compare-header {
     display: grid;
-    grid-template-columns: 1.8 1fr;
+    grid-template-columns: 1.8fr 1fr;
     border-bottom: 1px solid var(--color-gris-01);
     position: sticky;
     top: 0;
@@ -177,6 +177,11 @@
           grid-template-columns: 1.8fr repeat(3, 1fr);
         }
       }
+    }
+    .section-inner-header {
+      display: flex;
+      gap: 24px;
+      justify-content: space-between;
     }
     .section-inner-content,
     .site-section {
