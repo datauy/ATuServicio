@@ -26,4 +26,9 @@ class PagesController < ApplicationController
   def benefits
 
   end
+
+  def pias
+
+  end
+  
 end
