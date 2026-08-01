@@ -11,10 +11,15 @@ class Site < ApplicationRecord
     "POLICLÍNICO",
   ]
 
+  enum :category, [
+    'POLICLINICA',
+    'CENTRO DE SALUD',
+    'HOSPITAL'
+  ]
   scope :search , -> (str) { where(is_active: true).where("LOWER(name) like ? " , "%#{str.downcase}%").order(:name) }
 
   def levels
-    self.site_data.order(:level).pluck(:level)
+    self.site_data.select(:level).distinct.order(:level).pluck(:level)
   end
 
   def self.ransackable_attributes(auth_object = nil)
@@ -35,7 +40,7 @@ class Site < ApplicationRecord
     joins(:site_data).
     joins(:provider).
     includes(:geo_entities).
-    select(:id, :name, :description, :address, :provider_id, :stype, :state_id, :wkt, :ztype, :level, "provider.short_name": :pname).
+    select(:id, :name, :description, :address, :provider_id, :stype, :state_id, :wkt, :ztype, :level, :category, "provider.short_name": :pname).
     where(is_active: true)
     if pids.present?
       site_query = site_query.where(provider_id: pids)

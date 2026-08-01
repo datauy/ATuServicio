@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   #Providers
   get "comparar", to: "provider#compare", as: "compare"
   get "comparar/:id1", to: redirect("proveedor/%{id1}")
-  get "proveedor/:id1", to: "provider#compare"
+  get "proveedor/:id1", to: "provider#compare", as: "provider"
   get "comparar/:id1/:id2", to: "provider#compare"
   get "comparar/:id1/:id2/:id3", to: "provider#compare"
   #API

@@ -10,4 +10,7 @@ class Datum < ApplicationRecord
     ["created_at", "description", "dtype", "id", "id_value", "is_active", "key", "title", "updated_at"]
   end
 
+  def search_key(key)
+    self.where("key contains ?", "%#{key}%").first
+  end
 end

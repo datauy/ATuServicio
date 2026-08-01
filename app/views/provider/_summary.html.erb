@@ -1,6 +1,6 @@
 <div id="provider-summary-<%= provider.id %>" class="provider-summary">
   <div class="header">
-    <a class="header-left" href="/proveedor/<%= provider.id %>">
+    <a class="header-left" href="<%= provider_path(provider.id) %>" data-turbo="false">
       <h2><%= provider['short_name'] %></h2>
       <div class="provider-name"><%= provider.name %></div>
     </a>

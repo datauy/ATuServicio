@@ -15,6 +15,21 @@ namespace :importer do
     end
     puts "AÑO - PERIODO: #{@year} - #{@period}"
   end
+  def conciliate_site_categories
+    Site.where(category: nil).each do |s|
+      category = 'POLICLINICA'
+      s.levels.each do |level|
+        case level
+        when 'Segundo nivel de atención'
+          category = 'CENTRO DE SALUD'
+        when 'Tercer nivel de atención'
+          category = 'HOSPITAL'
+        end
+      end
+      puts "UPDATE"
+      s.update(category: category)
+    end
+  end
   #
   # Create providers
   #
@@ -50,7 +65,7 @@ namespace :importer do
     #sites('hospitales-ASSE.csv', "Tercer nivel de atención", [p])
     #sites('centros-salud-ASSE.csv', "Segundo nivel de atención", [p])
     #sites('policlinicas-ASSE.csv', "Primer nivel de atención", [p])
-    sites('sedes.csv')
+    sites('sedes-asse.csv', nil, p)
   end
 
   task :metadata, [:mtype] => [:environment] do |_, args|
@@ -102,12 +117,31 @@ namespace :importer do
         end
       when 'sites'
         i = 0
-        metadata['sites']["columns"].each do |key|
-          data = Datum.find_or_create_by({
-            key: key,
-            title: metadata['sites']["description"][i]
-          })
-          data.update(dtype: metadata['sites']["definition"][key].first, is_active: true)
+        metadata['sites']["columns"].each do |skeys|
+          puts "SITES META: #{skeys}"
+          found = false
+          datum = nil
+          skeys.split(',').each do |key|
+            datum = Datum.find_by( key: key )
+            if datum.present?
+              found = true
+              break
+            end
+          end
+          if found 
+            datum.update(
+              dtype: metadata['sites']["definition"][skeys].first,
+              is_active: true,
+              key: skeys
+            )
+          else
+            datum = Datum.create({
+              key: skeys,
+              title: metadata['sites']["description"][i],
+              dtype: metadata['sites']["definition"][skeys].first,
+              is_active: true,
+            })
+          end
           i += 1
         end
       end
@@ -149,9 +183,14 @@ namespace :importer do
       asse = true
     end
     import_file(file) do |row|
-      if (row['tipo'].present? || asse) && (p.present? || row['prestador']) && row['estado etapa'] != 'pendiente' && row['departamen'].present?
+      a = (row['tipo'].present? || asse)
+      b = (p.present? || row['prestador'])
+      c = (row['estado etapa'].nil? || row['estado etapa'] != 'pendiente')
+      d = row['departamento'].present?
+      puts "START IMPORT SITES #{a} O PROVIDER #{row['nombre']} "
+      if (row['tipo'].present? || asse) && (p.present? || row['prestador']) && (row['estado etapa'].nil? || row['estado etapa'] != 'pendiente') && row['departamento'].present?
         #get State
-        state = Zone.search(row['departamen'], "Departamento")
+        state = Zone.search(row['departamento'], "Departamento")
         #get prestador
         if p.nil?
           provider = Provider.search( row['prestador'] ).first
@@ -159,7 +198,7 @@ namespace :importer do
           provider = p
         end
         if state.empty? || provider.nil?
-          puts "DEPTO #{row['departament']} O PROVIDER #{row['prestador']} NO ENCONTRADO "
+          puts "DEPTO #{row['departamento']} O PROVIDER #{row['prestador']} NO ENCONTRADO "
           next
         end
         parent_id = state.first.id
@@ -178,70 +217,77 @@ namespace :importer do
           parent_id = location.id
         end
         #Get Point
+        wkt = row['geometry'].present? ? row['geometry'] : "POINT (#{row['lon']}, #{row['lat']})"
         point = Zone.find_or_create_by({
           name: "#{provider.name} - #{row['nombre']}",
           ztype: "Punto",
           parent_zone_id: parent_id,
-          wkt: "POINT (#{row['lon']}, #{row['lat']})"
+          wkt: wkt
         })
+        level = row['nivel'].present? ? row['nivel'] : row['nivelatencion'].present? ? "#{row['nivelatencion'].downcase.capitalize} de atención" : level
+        category = 'POLICLINICA'
+        if row['categoria'].present?
+          category = row['categoria']
+        else
+          case level
+          when 'Segundo nivel de atención'
+            category = 'CENTRO DE SALUD'
+          when 'Tercer nivel de atención'
+            category = 'HOSPITAL'
+          end
+        end
+
         s = Site.find_or_create_by({
           provider: provider,
           zone: point,
           name: row['nombre'],
-          description: row['desc'],
+          description: row['desc'].present? ? row['desc'] : row['alias'],
+          category: category,
           stype: row['tipo'],
           state: state.first,
           address: row['calle'],
-          address_comp: row['calle_nro'],
+          address_comp: row['calle_nro'].present? ? row['calle_nro'] : row['numpuerta'],
           highway: row['ruta'],
           highway_km: row['km'],
         })
-        level = row['nivel'].present? ? row['nivel'] : level
-        if (!asse)
-          #get site data
-          metadata = YAML.load_file(File.join(Rails.root, "config", "metadata.yml")).to_h
-          metadata['sites']['columns'].each do |key|
-            #get Datum
-            d = Datum.find_by(key: key)
-            #Check data type
-            value = row[key]
-            text = ''
-            case d.dtype
-            when 'boolean'
+        #get site data
+        metadata = YAML.load_file(File.join(Rails.root, "config", "metadata.yml")).to_h
+        metadata['sites']['columns'].each do |key|
+          #get Datum
+          d = Datum.find_by(key: key)
+          if d.present?
+            key.split(',').each do |k|
+              value = row[k]
               if value.present?
-                if row[key].downcase == 'si'
-                  value = 1
-                end
-                if row[key].downcase == 'no'
+                text = ''
+                #Check data type
+                case d.dtype
+                when 'boolean'
+                  if row[k].downcase == 'si'
+                    value = 1
+                  end
+                  if row[k].downcase == 'no'
+                    value = 0
+                  end
+                when 'array'
+                  text = row[k]
                   value = 0
                 end
+                SiteDatum.find_or_create_by({
+                  datum: d,
+                  site: s,
+                  level: level,
+                  year: @year,
+                  period: @period,
+                  value: value,
+                  text: text,
+                })
+                break
               end
-            when 'array'
-              text = row[key]
-              value = 0
             end
-            if d.present?
-              SiteDatum.find_or_create_by({
-                datum: d,
-                site: s,
-                level: level,
-                year: @year,
-                period: @period,
-                value: value,
-                text: text,
-              })
-            else
-              puts "DATUM NOT FOUND"
-            end
+          else
+            puts "DATUM NOT FOUND"
           end
-        else
-          puts "CREATE EMPTY DATUM"
-          SiteDatum.find_or_create_by({
-            site: s,
-            level: level,
-            year: @year,
-            period: @period,
-          })
         end
       end
     end

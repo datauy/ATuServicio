@@ -231,31 +231,27 @@ precios:
         - resonancia_no_fonasa
         - tomografia_no_fonasa
 sites:
-  description:
   columns:
     - numero_consultorios
-    - especifique_imagenologia
-    - farmacia__etiqueta
-    - dispensacion_medicamentos__etiqueta
-    - numero_camas_cm
+    - farmacia__etiqueta,medfarmaci,medfarmacia
+    - dispensacion_medicamentos__etiqueta,meddispens,meddispensa
+    - numero_camas_cm,camacm
     - block
-    - numero_block
-    - imagen
-    - especificar_imagen
-    - puerta_urgencia__etiqueta
+    - numero_block,nuemro_block
+    - imagen,servicio_imagen__etiqueta
+    - especificar_imagen,especifique_imagenologia
+    - puerta_urgencia__etiqueta,puertaurge
     - numero_camas_box
     - numero_sillones
     - camas_de_reanimacion
     - metros_cuadrados_totales
-    - maternidad
+    - maternidad,maternidadac,maternid_1,maternidad,maternidadbc
     - numero_salas_maternidad
     - numero_camas_alojamiento
     - centro_de_materiales__etiqueta
     - especifique_centro_mat
-    - servicio_imagen__etiqueta
-    - laboratorio__etiqueta
+    - laboratorio__etiqueta,laboratorio,laboratori
     - metros_cuadrados_apoyo
-    - nuemro_block
     - camas_recuperacion_block
     - cti_tn__etiqueta
     - numero_de_camas_adultos
@@ -266,26 +262,39 @@ sites:
     - numero_de_sillones
     - numero_de_camas_reanimacionTN
     - metros_cuadradosTN
+    - telemedici,telemedicina
+    - ridi
+    - minipacs
+    - imrnm
+    - imtomografo,imtomograf
+    - immamografo,immamograf
+    - imecografo
+    - imradiologia,imradiolog
+    - muestraslab,muestrasla
+    - geosalud
+    - puertaemer
+    - vacunatorio,vacunatori
+    - espadolesc
+    - meddispensa,meddispens
+    
   definition:
     numero_consultorios:
       - value
-    especifique_imagenologia:
-      - value
-    farmacia__etiqueta:
+    farmacia__etiqueta,medfarmaci,medfarmacia:
       - boolean
-    dispensacion_medicamentos__etiqueta:
+    dispensacion_medicamentos__etiqueta,meddispens,meddispensa:
       - boolean
-    numero_camas_cm:
+    numero_camas_cm,camacm:
       - value
     block:
       - boolean
-    numero_block:
+    numero_block,nuemro_block:
       - value
-    imagen:
+    imagen,servicio_imagen__etiqueta:
       - boolean
-    especificar_imagen:
+    especificar_imagen,especifique_imagenologia:
       - value
-    puerta_urgencia__etiqueta:
+    puerta_urgencia__etiqueta,puertaurge:
       - boolean
     numero_camas_box:
       - value
@@ -295,7 +304,7 @@ sites:
       - value
     metros_cuadrados_totales:
       - value
-    maternidad:
+    maternidad,maternidadac,maternid_1,maternidad,maternidadbc:
       - boolean
     numero_salas_maternidad:
       - value
@@ -305,13 +314,9 @@ sites:
       - boolean
     especifique_centro_mat:
       - value
-    servicio_imagen__etiqueta:
-      - boolean
-    laboratorio__etiqueta:
+    laboratorio__etiqueta,laboratorio,laboratori:
       - array
     metros_cuadrados_apoyo:
-      - value
-    nuemro_block:
       - value
     camas_recuperacion_block:
       - value
@@ -333,9 +338,36 @@ sites:
       - value
     metros_cuadradosTN:
       - value
+    telemedici,telemedicina:
+      - boolean
+    ridi:
+      - boolean
+    minipacs:
+      - boolean
+    imrnm:
+      - boolean
+    imtomografo,imtomograf:
+      - boolean
+    immamografo,immamograf:
+      - boolean
+    imecografo:
+      - boolean
+    imradiologia,imradiolog:
+      - boolean
+    muestraslab,muestrasla:
+      - boolean
+    geosalud:
+      - boolean
+    puertaemer:
+      - boolean
+    vacunatorio,vacunatori:
+      - boolean
+    espadolesc:
+      - boolean
+    meddispensa,meddispens:
+      - boolean
   description:
     - Consultorios
-    - Imagenología
     - Farmacia
     - Dispensación de medicamentos
     - Numero camas
@@ -353,10 +385,8 @@ sites:
     - Camas de alojamiento
     - Centro de materiales
     - Descripción centro de materiales
-    - Imagen
     - Laboratorio
     - Metros cuadrados
-    - Blocks quirúrgicos
     - Camas de recuperación en block
     - CTI
     - Camas de adultos
@@ -367,6 +397,21 @@ sites:
     - Sillones CTI
     - Camas de reanimación CTI
     - Metros cuadrados CTI
+    - Telemedicina
+    - R.I.D.I
+    - Mini Pacs
+    - Resonador magnético
+    - Tomógrafo
+    - Mamografía
+    - Ecógrafo
+    - Radiología
+    - Recibe muestras de laboratorio
+    - Geo Salud
+    - Puerta de emergencia
+    - Vacunatorio
+    - Espacio Adolecente
+    - Dispensa Medicamentos
+  
 tiempos_espera:
   title: "Tiempos de Espera"
   description:

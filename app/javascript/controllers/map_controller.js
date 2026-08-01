@@ -127,13 +127,16 @@ export default class extends Controller {
       if ( gd.wkt != null && gd.wkt != 0 ) {
         let count = 0
         wkt.read(gd.wkt);
-        switch(gd.level) {
-          case 2:
+        //Todo: cambiar todo a categoría?
+        console.log(gd);
+        
+        switch(gd.category) {
+          case 'HOSPITAL':
             obj = this.thirdLevel
             iconUrl = 'thirdLevel'
             level = 'Hospital'
           break
-          case 1:
+          case 'CENTRO DE SALUD':
             obj = this.secondLevel
             iconUrl = 'secondLevel'
             level = 'Centro de salud'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_06_08_204339) do
+ActiveRecord::Schema[8.0].define(version: 2026_07_31_162510) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -314,6 +314,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_06_08_204339) do
     t.string "email"
     t.bigint "state_id"
     t.boolean "is_active", default: true
+    t.integer "category"
     t.index ["provider_id"], name: "index_sites_on_provider_id"
     t.index ["state_id"], name: "index_sites_on_state_id"
     t.index ["zone_id"], name: "index_sites_on_zone_id"
