@@ -1,5 +1,42 @@
 <div class="content pages">
   <div class="section">
-    <h1>Denuncias</h1>
-  </div>
+      <h1>Prestaciones</h1>
+      <div class="columns">
+          <div class="column column-left">
+              <p>
+              El Plan Integral de Atención a la Salud (PIAS) es un catálogo de las prestaciones y programas que deben brindar a los usuarios las entidades públicas y privadas que integren el Sistema Nacional Integrado de Salud (SNIS).
+              </p>
+              <p>
+              Las prestaciones incluyen estudios diagnósticos, cirugías, consultas ambulatorias, atención en internación y atención por especialidades, entre otros servicios y procedimientos.
+              </p>
+              <p>
+              Los <a href="https://www.gub.uy/ministerio-salud-publica/areas-programas-salud">Programas integrales de salud</a> incluyen actividades de promoción, protección, recuperación, rehabilitación y cuidados paliativos de las personas.
+              </p>
+              <p>
+              El PIAS centraliza la información y busca mejorar el acceso a la información, promoviendo una gestión más transparente y eficiente de los recursos de salud pública en Uruguay.
+              </p>
+              <p>
+              Se puede acceder al catálogo <a href="https://visualizador-pias.msp.gub.uy/">en este enlace</a>.
+              </p>
+          </div>
+          <div class="column column-right">
+              <div class="tag highlighted green column">
+                  <%= File.read("#{Rails.root}/public/images/magnifying-glass.svg").html_safe %>
+                  <h2>Atención a la ciudadanía MSP</h2>
+                  <p>La información de esta sección es una guía básica para temas centrados en prestadores del Sistema Nacional Integrado de Salud, recomendamos visitar la sección de <a href="https://www.gub.uy/ministerio-salud-publica/ciudadania">Atención a la Ciudadanía</a> en el sitio del Ministerio de Salud Pública, para acceder a más información y canales de atención para estos y otrs temas.</p>
+              </div>
+              <div class="tag highlighted green column">
+                  <%= File.read("#{Rails.root}/public/images/messages.svg").html_safe %>
+                  <h2>Consultas al departamento de atención al usuario</h2>
+                  <p>Una consulta refiere a cualquier duda o incertidumbre que puedan presentar los usuarios del Sistema Nacional Integrado de Salud, referidas a cualquier momento del proceso asistencial, aspectos administrativos, normativos u otros.</p>
+                  <a href="https://www.gub.uy/tramites/consultas-departamento-atencion-usuario">Iniciar trámite en línea</a>
+              </div>
+              <div class="tag highlighted green column">
+                  <%= File.read("#{Rails.root}/public/images/book-medical.svg").html_safe %>
+                  <h2>Buscador de Prestaciones incluidas en el Catálogo del Plan Integral de Atención a la Salud (PIAS)</h2>
+                  <p>En el Catálogo del PIAS (Decreto 465/008) y normativas posteriores, se encuentran todas las prestaciones de salud que deben ofrecer los prestadores con cobertura integral de asistencia médica del Sistema Nacional Integrado de Salud (SNIS) a sus usuarios y usuarias (Ley No 18.335). Estas prestaciones incluyen estudios diagnósticos, cirugías, consultas ambulatorias, atención en internación y atención por especialidades, entre otros servicios y procedimientos.</p>
+                  <a href="https://visualizador.gobiernoabierto.gub.uy/visualizador/api/repos/:public:organismos:msp:pias:pias.wcdf/generatedContent">Ir al buscador</a>
+              </div>
+          </div>
+      </div>
 </div>
