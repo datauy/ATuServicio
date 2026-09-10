@@ -1,6 +1,6 @@
 ActiveAdmin.register Datum do
   # Specify parameters which should be permitted for assignment
-  permit_params :title, :description, :key, :is_active, :dtype
+  permit_params :title, :description, :key, :is_active, :dtype, :icon
 
   # or consider:
   #
@@ -27,6 +27,9 @@ ActiveAdmin.register Datum do
   index do
     selectable_column
     id_column
+    column :icon do |l|
+      image_tag url_for(l.icon) if l.icon.attached?
+    end
     column :title
     column :description
     column :key
@@ -60,7 +63,24 @@ ActiveAdmin.register Datum do
       f.input :key
       f.input :is_active
       f.input :dtype
+      f.input :icon, as: :file
+      if f.object.icon.attached?
+        li do
+          div do
+            image_tag(f.object.icon)
+          end
+          div do
+            a "Borrar", href: delete_image_admin_datum_path, method: :delete, "data-confirm": "Confirme que desea eliminarla"
+          end
+        end
+      end
     end
     f.actions
+  end
+  member_action :delete_image, method: [:delete, :get] do
+    if resource.icon.attached?
+      resource.icon.delete
+    end
+    redirect_to edit_resource_path, notice: "Imagen borrada"
   end
 end

@@ -219,8 +219,29 @@
       }
     }
   }
+
   .depto-content {
     flex-direction: column;
     display: none;
+  }
+}
+
+.site-data {
+  padding-bottom: 48px;
+  .row {
+    display: grid !important;
+    grid-template-columns: 0.3fr 3fr 1fr;
+    color: var(--color-gris-01);
+    font-weight: 600;
+    background: #FFF;
+    padding: 16px 0;
+    &:nth-child(even) {
+      background: var(--color-azul-4);
+    }
+  }
+}
+.actions {
+  button {
+    font-size: 12px;
   }
 }

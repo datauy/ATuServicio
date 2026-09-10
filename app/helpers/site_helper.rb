@@ -26,6 +26,7 @@ module SiteHelper
       geo.keys.reverse_each do |zkey|
         res += "<div class='tag location #{zkey.downcase}'><span>#{geo[zkey].name}</span></div>"
       end
+      res += self.site_address('tag location')
     end
     res.html_safe
   end
@@ -36,7 +37,7 @@ module SiteHelper
       addrs.push(@site[addr]) if @site[addr].present? 
     end
     if addrs.length > 0
-      "<div class='address #{sclass}'><b>Dirección</b><span>#{addrs.join(', ')}</span></div>".html_safe
+      "<div class='address #{sclass}'><span>#{addrs.join(', ')}</span></div>".html_safe
     else
       ""
     end

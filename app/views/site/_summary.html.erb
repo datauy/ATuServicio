@@ -1,14 +1,32 @@
-<div class="zone-description" data-controller="site" data-site-site-value="<%= @site.id %>">
-  <h4><%= @site.name %></h4>
-  <div class="row"><%= get_site_tags('level')%> <%= get_site_tags('address')%></div>
-  <div class="row"><%= site_address() %></div>
-  <p><%= @site.description.present? ? @site.description.html_safe : '' %></p>
-  <%= button_tag "Ver Datos",
-    class: 'level main-button',
-    aria: { expanded: false, controls: "site-backdrop"},
-    data: {
-      "site-target": "button",
-      action: "click->site#toggleModal" 
-    }
-  %>
-</div>
+<% if @site.present? %>
+  <div class="zone-description" data-controller="site" data-site-site-value="<%= @site.id %>">
+    <h2><%= @site.name %></h2>
+    <h4><%= @site.provider.short_name %></h4>
+    <div class="row"><%= get_site_tags('level')%></div>
+    <%= @site.description.present? ? "<p>#{@site.description}</p>".html_safe : '' %>
+    <div class="row"><%= get_site_tags('address')%></div>
+    <div class="row"><%= site_address('row')%></div>
+    <div class="row actions">
+      <button onclick="document.getElementById('provider-selector-<%= @site.provider.id %>').click(); document.getElementById('compare-bar').scrollIntoView();" class="secondary-button">Comparar Prestador</button>
+      <% button_tag "Más información",
+        class: 'level main-button',
+        aria: { expanded: false, controls: "site-backdrop"},
+        data: {
+          "site-target": "button",
+          action: "click->site#toggleModal" 
+        }
+      %>
+    </div>
+    <% if @map %>
+    <div class="site-section"
+      data-controller="map"
+      data-map-sites-value="<%= ActiveSupport::JSON.encode(@sites.values) %>"
+      data-map-mtype-value="zone">
+      <div id="map" data-map-target="container"></div>
+    </div>
+    <% end %>
+    <%= render partial: 'site_data' %>
+  </div>
+  <% else %>
+    <div class="error">No se ha encontrado la zona solicitada</div> 
+  <% end %>

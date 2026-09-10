@@ -1,3 +1,7 @@
-<%= turbo_stream.update("sites_grid") do %>
-  <%= render partial: 'cards' %>
+<% if @sites.length > 0 %>
+  <%= turbo_stream.append("sites_grid") do %>
+    <%= render partial: 'cards' %>
+  <% end %>
+<% else %>
+  0
 <% end %>

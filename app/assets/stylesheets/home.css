@@ -11,6 +11,7 @@
     max-height: 800px;
     overflow-y: scroll;
     position: relative;
+    min-width: 40%;
     .initial {
       display: flex;
       flex-direction: column;
@@ -60,9 +61,6 @@
         flex-wrap: wrap;
         align-items: center;
         &.address {
-          font-size: 12px;
-        }
-        button {
           font-size: 12px;
         }
       }
@@ -275,4 +273,7 @@
   .main-button {
     width: fit-content;
   }
+}
+.load-more {
+  margin: 30px auto;
 }

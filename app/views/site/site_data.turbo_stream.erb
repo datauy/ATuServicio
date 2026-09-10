@@ -1,33 +1,3 @@
 <%= turbo_stream.update("site_data") do %>
-  <% if @data.length > 2 %>
-  <div class="section" data-controller="section">
-    <div class="section-header">
-      <div class="header-left">
-        <%= button_tag "#{image_tag('/images/arrow.svg')}<h3>Infraestructura</h3>".html_safe,
-        class: 'arrow',
-        aria: { expanded: true, controls: "section-infra"},
-        data: { 
-          "section-target": "expand", 
-          action: 'click->section#toggleVisibility:stop' 
-        }%>
-      </div>
-    </div>
-    <div id="section-infra" class="section-content" data-section-target="content">
-        <div class="section-description">Datos de infraestructura</div>
-      <!-- Section content -->
-      <div class="section-inner-content infra">
-        <% @data.each do |sd| %>
-          <% if sd.value.present? %>
-          <div class="row">  
-            <div class="item label"><%= sd.datum.title %></div>
-            <div class="item value"><%= format_value(sd.value, sd.datum.dtype) %></div>
-          </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <% else %>
-    <b>No hay datos para mostrar</b>
-  <% end %>
+  <%= render partial: 'summary' %>
 <% end %>

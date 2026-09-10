@@ -112,6 +112,13 @@ class ProviderController < ApplicationController
         logger.debug "PROVIDERS SEARCH #{@providers}"
     end
     @providers = @providers.order(:short_name)
+    @page = 0
+    if params[:page].present?
+      @page = params[:page].to_i
+    end
+    limit = 10
+    offset = @page*limit
+    @providers = @providers.offset(offset).limit(limit)
     if params[:type].nil? || params[:type] != 'summary'
       @type = 'list'
       @providers = @providers.pluck(:id, :short_name).to_h

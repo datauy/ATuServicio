@@ -30,9 +30,9 @@ class Site < ApplicationRecord
     ["geo_entities", "provider", "site_data", "state", "zone"]
   end
 
-  def get_map_sites(pids=nil)
+  def get_map_sites(pids=nil, sids=nil)
     sites = {}
-    emergency_datum = Datum.find_by(key: 'puerta_urgencia__etiqueta')
+    emergency_datum = Datum.find_by(key: 'puerta_urgencia__etiqueta,puertaurge')
     emergency_id = emergency_datum.present? ? emergency_datum.id : 0
     emergency = SiteDatum.where(datum_id: emergency_id, value: 1).pluck(:site_id)
     site_query = Site.
@@ -44,6 +44,9 @@ class Site < ApplicationRecord
     where(is_active: true)
     if pids.present?
       site_query = site_query.where(provider_id: pids)
+    end
+    if sids.present?
+      site_query = site_query.where(id: sids)
     end
     site_query.order(:level).uniq.each do |s|
       #Add site

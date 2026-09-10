@@ -24,6 +24,8 @@ export default class extends Controller {
   static userMarker
   static map
   static layers
+  static svgs
+  static selectedPin
   
   connect() {
     //L.Map.addInitHook("addHandler", "gestureHandling", GestureHandling);
@@ -35,10 +37,12 @@ export default class extends Controller {
       thirdLevel: true,
       emergency: false
     }
-    if ( this.mtypeValue == 'compare' ) {
+    if ( this.mtypeValue == 'compare' || this.mtypeValue == 'zone' ) {
       this.layers.zonesData = true,
       this.layers.firstLevel = true,
       this.layers.emergency = true
+    }
+    if ( this.mtypeValue == 'compare' ) {
       this.showMap(true, true)
     }
     //Initialize variables
@@ -53,6 +57,12 @@ export default class extends Controller {
       tooltipAnchor: [16, -28],
       shadowSize: [60, 60]
     }
+    /*this.svgs = {
+      firstLevel: '',
+      secondLevel: '',
+      thirdLevel: ''
+    }
+    this.loadSvgs()*/
     this.userIcon = L.icon(this.icon)
     this.createMap()
     this.map.setView([-32.65,-56.23388], 7)
@@ -60,6 +70,30 @@ export default class extends Controller {
     this.loadFeatures()
     this.loadFeaturesToMap()
     document.querySelectorAll('.map-providers').forEach(p => { p.checked = true })
+  }
+
+  loadSvgs() {
+    Object.keys(this.svgs).forEach(url => {
+      fetch('/images/'+url+'.svg')
+      .then(r => r.text())
+      .then(text => {
+        this.svgs[url] = text;
+      })
+      .catch(console.error.bind(console));
+    })  
+    this.svgs.thirdLevel = '<svg/>'
+  }
+
+  setIcon(obj, url) {
+    this.icon.iconUrl = url
+    let icon = L.icon(this.icon)
+    obj.setIcon(icon)
+  }
+
+  closeModal(e) {
+    e.target.parentNode.classList.remove('visible')
+    setTimeout( w => {e.target.parentNode.style.display = 'none'}, 330)
+    this.setIcon(this.selectedPin, '/images/'+this.selectedPin.feature.properties.iconUrl+'.svg')
   }
 
   createMap() {
@@ -123,12 +157,14 @@ export default class extends Controller {
     let obj
     let iconUrl
     let level
+    //console.log(this.sitesValue);
+    
     this.sitesValue.forEach(gd => {
       if ( gd.wkt != null && gd.wkt != 0 ) {
         let count = 0
         wkt.read(gd.wkt);
         //Todo: cambiar todo a categoría?
-        console.log(gd);
+        //console.log(gd);
         
         switch(gd.category) {
           case 'HOSPITAL':
@@ -172,6 +208,7 @@ export default class extends Controller {
           },
           geometry: wkt.toJson() 
         }
+        
         obj.push(feature)
         if ( gd.emergency ) {
           this.emergency.push(feature)
@@ -182,17 +219,17 @@ export default class extends Controller {
       }
     })
   }
-
+  
   loadFeaturesToMap( filter = null ) {
+    let bound = []
     let geo_options = {
       onEachFeature: (feature, layer) => {
         this.icon.iconUrl = '/images/'+feature.properties.iconUrl+'.svg'
         let icon = L.icon(this.icon)
         if ( feature.properties.counter > 0 || this.mtypeValue == 'compare' ) {
-          let ihtml = '<img src="' + this.icon.iconUrl + '" />'
+          let ihtml = '<img src="' + this.icon.iconUrl + '" />' //this.svgs[feature.properties.iconUrl]
           if ( this.mtypeValue == 'compare' ) {
             ihtml += '<span>' + feature.properties.pname + '</span>'
-            bound.push(layer.getLatLng())
           }
           if ( feature.properties.counter > 1 ) {
             ihtml += '<b>' + feature.properties.counter + '</b>'
@@ -212,12 +249,20 @@ export default class extends Controller {
             popupAnchor: [1, -36],
           });
         }
+        if ( this.mtypeValue == 'compare' || this.mtypeValue == 'zone' ) {
+          bound.push(layer.getLatLng())
+        }
         layer.setIcon(icon)
         let popupContent = this.buildPopUp(feature.properties)
         layer.bindPopup(popupContent);
         layer.on({
           click: (e) => {
+            if ( typeof this.selectedPin !== 'undefined' ) {
+              this.setIcon(this.selectedPin, '/images/'+this.selectedPin.feature.properties.iconUrl+'.svg')
+            }
             this.showInfo(e.target.feature.properties)
+            this.setIcon(e.target, '/images/pin-selected.svg')
+            this.selectedPin = e.target
           },
           mouseover: (e) => {
             layer.openPopup(e.latlng)
@@ -234,7 +279,6 @@ export default class extends Controller {
       }
     }
     //ADD TO MAP
-    let bound = []
     Object.keys(this.layers).forEach(l => {
       //ICONS
       this[l+"Layer"] = L.geoJSON(this[l], geo_options)
@@ -244,7 +288,7 @@ export default class extends Controller {
       }
       document.getElementById(l).checked = this.layers[l]
     })
-    if ( this.mtypeValue == 'compare' && bound.length > 0 ) {
+    if ( (this.mtypeValue == 'compare' || this.mtypeValue == 'zone') && bound.length > 0 ) {
       this.map.flyToBounds(bound);
     }
   }
@@ -271,7 +315,6 @@ export default class extends Controller {
   }
   // Info Panel
   showInfo(zone) {
-    console.log("SHOW INFO");
     if ( this.infoTarget.classList.contains('visible') ) {
       this.infoTarget.classList.remove('visible')
       setTimeout( e => {
@@ -286,7 +329,6 @@ export default class extends Controller {
       setTimeout( e => {
         this.infoTarget.classList.add('visible')
         document.getElementById('map-controls').scrollIntoView()
-        console.log("BACK WITH CONYT");
       }, 200)
     }
     else {
@@ -303,8 +345,6 @@ export default class extends Controller {
           this.infoTarget.style.display = 'flex'
         }, 50)
         setTimeout( e => {
-          console.log("BACK WITH CONYT");
-          
           this.infoTarget.classList.add('visible')
           document.getElementById('map-controls').scrollIntoView()
         }, 200)
@@ -348,7 +388,6 @@ export default class extends Controller {
       listWrap = mapWrap
     }
     if ( initial || document.getElementById('show_map').checked ) {
-      console.log("SHOW MAP CHECKEDF");
       document.getElementById('show_map').checked = true
       mapWrap.style.display = 'flex'
       listWrap.style.display = 'none'

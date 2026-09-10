@@ -1,9 +1,15 @@
 class Datum < ApplicationRecord
 
+  has_one_attached :icon
+
   enum :dtype, [
     "value",
     "boolean",
     "array",
+  ]
+  enum :group, [
+    "Información general",
+    "Equipamiento"
   ]
 
   def self.ransackable_attributes(auth_object = nil)

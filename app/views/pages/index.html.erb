@@ -69,7 +69,7 @@
       </div>
     </div>
     <div class="zone-info" data-map-target="info">
-      <%= button_tag "X", class: "close", onclick: "this.parentNode.classList.remove('visible');setTimeout( e => {this.parentNode.style.display = 'none'}, 330)" %>
+    <%= button_tag "X", class: "close", data: {action: 'click->map#closeModal' }  %>
       <%= turbo_frame_tag "zone-description" %>
     </div>
   </div>

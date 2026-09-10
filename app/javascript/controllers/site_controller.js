@@ -15,7 +15,7 @@ export default class extends Controller {
     else {
       //Get data
       //console.log();
-      let url = '/site/' + this.siteValue +'/data?level='+ this.levelValue
+      let url = '/site/' + this.siteValue +'/data?map=1&level='+ this.levelValue
       this.fetchContent(url)
     }
   }
@@ -44,6 +44,9 @@ export default class extends Controller {
       })
       this.buttonTarget.ariaExpanded = true
       document.getElementById('site-backdrop').style.display = 'flex'
+  }
+  closeModalMap(e) {
+    
   }
 
 }
