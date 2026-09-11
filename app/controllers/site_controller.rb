@@ -34,18 +34,18 @@ class SiteController < ApplicationController
     if params[:name].present?
       @sites = Site.search(params[:name])
     else
-      @sites = Site.where(is_active: true).order(:name)
+      @sites = Site.where(is_active: true)
     end
     if params[:state].present? && params[:state] != '0'
       @sites = @sites.where(state_id: params[:state])
     end
-    page = 0
+    @page = 0
     if params[:page].present?
-      page = params[:page].to_i
+      @page = params[:page].to_i
     end
     limit = 10
-    offset = page*limit
-    @sites = @sites.offset(offset).limit(limit)
+    offset = @page*limit
+    @sites = @sites.offset(offset).order(:name).limit(limit)
     respond_to do |format|
       format.turbo_stream
     end
@@ -55,18 +55,18 @@ class SiteController < ApplicationController
     if params[:name].present?
       @sites = GeoEntity.search(params[:name])
     else
-      @sites = GeoEntity.where(is_active: true).order(:name)
+      @sites = GeoEntity.where(is_active: true)
     end
     if params[:state].present? && params[:state] != '0'
       @sites = @sites.where(state_id: params[:state])
     end
-    page = 0
+    @page = 0
     if params[:page].present?
-      page = params[:page].to_i
+      @page = params[:page].to_i
     end
     limit = 10
-    offset = page*limit
-    @sites = @sites.offset(offset).limit(limit)
+    offset = @page*limit
+    @sites = @sites.order(:name).offset(offset).limit(limit)
     respond_to do |format|
       format.turbo_stream
     end

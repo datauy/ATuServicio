@@ -13,8 +13,9 @@ export default class extends Controller {
     this.loading = false
     this.page = 0
     this.stalled = false
+    this.render_turbo('/sites')
+    this.render_turbo('/infra')
     window.addEventListener('scroll', () => {
-      
       let inner = document.getElementById(this.current_tab)
       if ( this.loading == false && (inner.offsetTop + inner.offsetHeight - window.innerHeight < window.scrollY) ) {
         console.log("SCROLLING LOAD", this.stalled );
@@ -24,34 +25,20 @@ export default class extends Controller {
   }
   
   switch_tab(e) {
-    console.log("SWITCH to ", e);
-    if ( !this.loading ) {
-      this.stalled = false
-      this.page = 0
-      this.loading = true
-      // Change tabs headers
-      document.querySelector('.tabs-header [aria-expanded="true"').setAttribute('aria-expanded', false)
-      e.target.setAttribute('aria-expanded', true)
-      //Hide all content
-      document.querySelectorAll(".tab-inner").forEach( tab => {
-        tab.style.display = 'none'
-      })
-      //Show content
-      let tid = e.target.getAttribute('aria-controls')
-      this.current_tab = tid
-      let tab = document.getElementById(tid)
-      if ( tid == 'tab-clinicas' ) {
-        if ( document.getElementById('sites_grid').innerHTML  == "" ) {
-          this.render_turbo('/sites')
-        }
-      }
-      if ( tid == 'tab-vacunatorios' ) {
-        if ( document.getElementById('infra_grid').innerHTML  == "" ) {
-          this.render_turbo('/infra')
-        }
-      }
-      tab.style.display = 'flex'
-    }
+    this.stalled = false
+    this.page = 0
+    // Change tabs headers
+    document.querySelector('.tabs-header [aria-expanded="true"').setAttribute('aria-expanded', false)
+    e.target.setAttribute('aria-expanded', true)
+    //Hide all content
+    document.querySelectorAll(".tab-inner").forEach( tab => {
+      tab.style.display = 'none'
+    })
+    //Show content
+    let tid = e.target.getAttribute('aria-controls')
+    this.current_tab = tid
+    let tab = document.getElementById(tid)
+    tab.style.display = 'flex'
   }
   
   more() {
@@ -67,7 +54,6 @@ export default class extends Controller {
       if ( !load ) {
         this.page = 0
       }
-      console.log("SEARCHING", this.filter1Target,this.filter2Target);
       switch(this.current_tab) {
         case 'tab-prestadores':
           url = '/proveedor/?type=summary&page='+this.page
@@ -100,7 +86,6 @@ export default class extends Controller {
       })
       .then(r => r.text())
       .then(html => {
-        console.log("turbo return", html);
         if ( html == 0 ) {
           if ( load ) {
             this.stalled = true

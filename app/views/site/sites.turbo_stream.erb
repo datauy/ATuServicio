@@ -1,5 +1,9 @@
 <% if @sites.length > 0 %>
-  <%= turbo_stream.append("sites_grid") do %>
+  <% op = "update" %>
+  <% if @page > 0 %>
+    <% op = "append" %>
+  <% end %>
+  <%= turbo_stream.send(:"#{op}", "sites_grid") do %>
     <%= render partial: 'cards' %>
   <% end %>
 <% else %>
