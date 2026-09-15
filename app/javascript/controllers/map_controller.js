@@ -389,12 +389,12 @@ export default class extends Controller {
     }
     if ( initial || document.getElementById('show_map').checked ) {
       document.getElementById('show_map').checked = true
-      mapWrap.style.display = 'flex'
       listWrap.style.display = 'none'
+      mapWrap.style.display = 'flex'
     }
     else {
-      mapWrap.style.display = 'none'
       listWrap.style.display = 'flex'
+      mapWrap.style.display = 'none'
     }
   }
 

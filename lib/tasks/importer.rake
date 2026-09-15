@@ -2,7 +2,7 @@ require 'csv'
 
 namespace :importer do
   @year = '2026'
-  @period = '1'
+  @period = '2'
   @strict = true
 
   #TODO: set as default function before task
@@ -86,9 +86,15 @@ ull}]'
     set_env(args)
     prices()
   end
+  task :rrhh_general, [:year, :period] => [:environment] do |_, args|
+    set_env(args)
+    rrhh()
+  end
   task :rrhh, [:year, :period] => [:environment] do |_, args|
     set_env(args)
     rrhh()
+    rrhh_cad()
+    specialists()
   end
   task :cad, [:year, :period] => [:environment] do |_, args|
     set_env(args)
@@ -143,7 +149,7 @@ ull}]'
               title: title,
               description: desc,
               abbr: metadata[key]['abbrs'][i],
-              active: true,
+              is_active: true,
               section_id: section.id,
               weight: i
             }
@@ -397,32 +403,34 @@ ull}]'
   #
   def specialists()
     import_file("rrhh_especialistas.csv") do |row|
-      speciality = Speciality.find_or_create_by( name: row["specialty"] )
-      state = nil;
-      if ( row["state"] != 'total país')
-        state = Zone.find_or_create_by(name: row["state"], ztype: "Departamento")
-      else
-        state = Zone.find_or_create_by(name: 'Uruguay', ztype: "País")
-      end
-      if row['indicator_value'] == 's/d'
-        row['indicator_value'] = nil
-      end
-      provider = Provider.find_by(short_name: row['provider'] )
-      provider = Provider.find_by(short_name: "#{row['provider']} IAMPP" ) if provider.nil?
-      if provider.nil?
-        puts "PROVIDER NOT FOUND: #{row['provider']}"
-        next
-      else
-        sp = {
-          provider: provider,
-          speciality_id: speciality.id,
-          zone: state,
-          year: @year,
-          period: @period
-        }
-        specialist = ProviderSpecialist.find_or_create_by(sp)
-        puts "Import Specialists HR #{specialist.inspect}"
-        specialist.update(value: row['indicator_value'])
+      if row["specialty"].present? && row["specialty"] != ''
+        speciality = Speciality.find_or_create_by( name: row["specialty"] )
+        state = nil;
+        if ( row["state"] != 'total país')
+          state = Zone.find_or_create_by(name: row["state"], ztype: "Departamento")
+        else
+          state = Zone.find_or_create_by(name: 'Uruguay', ztype: "País")
+        end
+        if row['indicator_value'] == 's/d'
+          row['indicator_value'] = nil
+        end
+        provider = Provider.search( row['provider'] ).first
+        provider = Provider.search( "#{row['provider']} IAMPP" ).first if provider.nil?
+        if provider.nil?
+          puts "PROVIDER NOT FOUND: #{row['provider']}"
+          next
+        else
+          sp = {
+            provider: provider,
+            speciality_id: speciality.id,
+            zone: state,
+            year: @year,
+            period: @period
+          }
+          specialist = ProviderSpecialist.find_or_create_by(sp)
+          puts "Import Specialists HR #{specialist.inspect}"
+          specialist.update(value: row['indicator_value'])
+        end
       end
     end
   end
@@ -432,7 +440,7 @@ ull}]'
     sec = Section.find_by(name: 'rrhh')
     if sec.present?
       import_file("rrhh_general.csv") do |row|
-        cads = Indicator.where(section_id: sec.id, active: true, abbr: row['indicator'])
+        cads = Indicator.where(section_id: sec.id, is_active: true, abbr: row['indicator'])
         create_indicator(row, cads)
       end
     end
@@ -442,7 +450,7 @@ ull}]'
     puts 'Import RRHH CAD'
     sec = Section.find_by(name: 'rrhh_cad')
     if sec.present?
-      cads = Indicator.where(section_id: sec.id, active: true)
+      cads = Indicator.where(section_id: sec.id, is_active: true)
       import_file("rrhh_cad.csv") do |row|
         create_indicator(row, cads)
       end
@@ -453,7 +461,7 @@ ull}]'
     puts 'Import METAS'
     sec = Section.find_by(name: 'goals')
     if sec.present?
-      cads = Indicator.where(section_id: sec.id, active: true)
+      cads = Indicator.where(section_id: sec.id, is_active: true)
       import_file("metas.csv") do |row|
         create_indicator(row, cads)
       end
@@ -465,8 +473,8 @@ ull}]'
     if row_prov_is_numeric
       provider = Provider.find( row['provider'] )
     else
-      provider = Provider.find_by(short_name: row['provider'] )
-      provider = Provider.find_by(short_name: "#{row['provider']} IAMPP" ) if provider.nil?
+      provider = Provider.search(row['provider'] ).first
+      provider = Provider.search("#{row['provider']} IAMPP" ).first if provider.nil?
     end
     if provider.nil?
       puts "PROVIDER NOT FOUND: #{row['provider']}"
