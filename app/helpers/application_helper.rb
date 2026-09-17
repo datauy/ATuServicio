@@ -4,13 +4,15 @@ module ApplicationHelper
       "<span class='no-data'>Sin dato</span>".html_safe
     else
       case dtype
+      when 'array'
+        "<span class='array'>#{num}</span>".html_safe
       when 'percent'
         "<div class='bar'><div class='total-bar'></div><div class='percent-bar' style='width: #{num.to_i}%'></div></div><span>#{number_with_delimiter(num.round(2), {delimiter: '.', separator: ','})} %</span>".html_safe
       when 'boolean'
         if num == 0
-          '<span class="percent cross">No</span>'.html_safe
+          '<img src="/images/cross.svg" alt="No"></img>'.html_safe
         else
-          '<span class="percent tick">Si</span>'.html_safe
+          '<img src="/images/tick.svg" alt="Si"></img>'.html_safe
         end
       when 'price'
         if num == 0
