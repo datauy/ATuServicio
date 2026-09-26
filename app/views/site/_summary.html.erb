@@ -6,6 +6,7 @@
     <%= @site.description.present? ? "<p>#{@site.description}</p>".html_safe : '' %>
     <div class="row"><%= get_site_tags('address')%></div>
     <div class="row"><%= site_address('row')%></div>
+    <% if ! @map %>
     <div class="row actions">
       <button onclick="document.getElementById('provider-selector-<%= @site.provider.id %>').click(); document.getElementById('compare-bar').scrollIntoView();" class="secondary-button">Comparar Prestador</button>
       <% button_tag "Más información",
@@ -17,7 +18,7 @@
         }
       %>
     </div>
-    <% if @map %>
+    <% else %>
     <div class="site-section"
       data-controller="map"
       data-map-sites-value="<%= ActiveSupport::JSON.encode(@sites.values) %>"

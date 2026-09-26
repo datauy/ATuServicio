@@ -1,21 +1,25 @@
-<% op = "update" %>
-<% if @page > 0 %>
-  <% op = "append" %>
-<% end %>
-<%= turbo_stream.send(:"#{op}", "infra_grid") do %>
-  <% @sites.each do |site| %>
-    <% 
-    @site = site
-    card = {
-      sid: site.id,
-      title: site.name,
-      name: 'infra',
-      icon: site.gtype,
-      year: 2026,
-      period: 1,
-      ctype: 'site'
-    }
-    %>
-    <%= render partial: '/layouts/card', locals: {card: card} %>
+<% if @sites.length > 0 %>
+  <% op = "update" %>
+  <% if @page > 0 %>
+    <% op = "append" %>
   <% end %>
+  <%= turbo_stream.send(:"#{op}", "infra_grid") do %>
+    <% @sites.each do |site| %>
+      <% 
+      @site = site
+      card = {
+        sid: site.id,
+        title: site.name,
+        name: 'infra',
+        icon: site.gtype,
+        year: 2026,
+        period: 1,
+        ctype: 'site'
+      }
+      %>
+      <%= render partial: '/layouts/card', locals: {card: card} %>
+    <% end %>
+  <% end %>
+<% else %>
+  0
 <% end %>

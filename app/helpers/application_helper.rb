@@ -5,7 +5,15 @@ module ApplicationHelper
     else
       case dtype
       when 'array'
-        "<span class='array'>#{num}</span>".html_safe
+        if num.is_a? String
+          if num == 'NO'
+            '<img src="/images/cross.svg" alt="No"></img>'.html_safe
+          else
+            '<img src="/images/tick.svg" alt="Si"></img>'.html_safe
+          end
+        else
+          "<span class='array'>#{JSON.parse(num).join(", ")}</span>".html_safe
+        end
       when 'percent'
         "<div class='bar'><div class='total-bar'></div><div class='percent-bar' style='width: #{num.to_i}%'></div></div><span>#{number_with_delimiter(num.round(2), {delimiter: '.', separator: ','})} %</span>".html_safe
       when 'boolean'

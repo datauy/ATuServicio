@@ -5,7 +5,17 @@
     }
   }
 }
-
+.section {
+  & .section-content {
+    & .section-inner-content, & .site-section {
+      .site-data {
+        .row {
+          grid-template-columns: 0.3fr 3fr 1fr;
+        }
+      }
+    }
+  }
+}
 .site-data {
   padding-bottom: 48px;
   .row {

@@ -19,7 +19,7 @@ module SiteHelper
       end
       emergency = @site.site_data.where(datum_id: @emergency_id)
       if emergency.present? && emergency
-        res += "<div class='tag emergency'><span>Puerta de emergencia</span></div>"
+        res += "<div class='tag emergency'><span>Puerta de urgencia</span></div>"
       end
     when 'address'
       geo = @site.zone.parents

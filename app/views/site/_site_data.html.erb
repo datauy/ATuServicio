@@ -19,7 +19,7 @@
           <div class="row">
             <div class="item icon"><%= image_tag url_for(sd.datum.icon) if sd.datum.icon.present? %></div>
             <div class="item label"><%= sd.datum.title %></div>
-            <div class="item value"><%= format_value(sd.value, sd.datum.dtype) %></div>
+            <div class="item value"><%= (sd.datum.dtype == 'array' && sd.text != '') ? format_value(sd.text, sd.datum.dtype) : format_value(sd.value, sd.datum.dtype) %></div>
           </div>
           <% end %>
         <% end %>
