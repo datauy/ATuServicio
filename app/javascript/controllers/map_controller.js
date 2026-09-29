@@ -14,11 +14,11 @@ export default class extends Controller {
   static firstLevel
   static secondLevel
   static thirdLevel
-  static emergency
+  static urgence
   static zonesDataLayer
   static firstLevelLayer
   static thirdLevelLayer
-  static emergencyLayer
+  static urgenceLayer
   static icon 
   static userIcon
   static userMarker
@@ -35,12 +35,12 @@ export default class extends Controller {
       firstLevel: false,
       secondLevel: true,
       thirdLevel: true,
-      emergency: false
+      urgence: false
     }
     if ( this.mtypeValue == 'compare' || this.mtypeValue == 'zone' ) {
       this.layers.zonesData = true,
       this.layers.firstLevel = true,
-      this.layers.emergency = true
+      this.layers.urgence = true
     }
     if ( this.mtypeValue == 'compare' ) {
       this.showMap(true, true)
@@ -187,7 +187,7 @@ export default class extends Controller {
           count += 1
           geo = true
         }
-        if ( gd.emergency ) {
+        if ( gd.urgence ) {
           count += 1
         }
         let feature = { 
@@ -203,15 +203,15 @@ export default class extends Controller {
           geo: geo,
           level: level,
           iconUrl: iconUrl,
-          emergency: gd.emergency ? true : false,
+          urgence: gd.urgence ? true : false,
           counter: count
           },
           geometry: wkt.toJson() 
         }
         
         obj.push(feature)
-        if ( gd.emergency ) {
-          this.emergency.push(feature)
+        if ( gd.urgence ) {
+          this.urgence.push(feature)
         }
         if ( gd.geo ) {
           this.zonesData.push(feature)
@@ -235,7 +235,7 @@ export default class extends Controller {
             ihtml += '<b>' + feature.properties.counter + '</b>'
           }
           else {
-            if (feature.properties.emergency) {
+            if (feature.properties.urgence) {
               ihtml += '<b class="emergency"></b>'
             }
             if (feature.properties.geo) {
@@ -303,8 +303,8 @@ export default class extends Controller {
       if (feature.geo) {
         popup += '<div class="tag vac">Vacunatorio</div>'
       }
-      if (feature.emergency) {
-        popup += '<div class="tag emergency">Puerta de emergencia</div>'
+      if (feature.urgence) {
+        popup += '<div class="tag emergency">Puerta de urgencia</div>'
       }
     }
     else {

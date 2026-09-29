@@ -32,9 +32,9 @@ class Site < ApplicationRecord
 
   def get_map_sites(pids=nil, sids=nil)
     sites = {}
-    emergency_datum = Datum.find_by(key: 'puerta_urgencia__etiqueta,puertaurge')
-    emergency_id = emergency_datum.present? ? emergency_datum.id : 0
-    emergency = SiteDatum.where(datum_id: emergency_id, value: 1).pluck(:site_id)
+    urgence_datum = Datum.find_by(key: 'puerta_urgencia__etiqueta,puertaurge')
+    urgence_id = urgence_datum.present? ? urgence_datum.id : 0
+    urgence = SiteDatum.where(datum_id: urgence_id, value: 1).pluck(:site_id)
     site_query = Site.
     joins(:zone).
     joins(:site_data).
@@ -53,8 +53,8 @@ class Site < ApplicationRecord
       if sites[s.id].nil?
         sites[s.id] = s.serializable_hash
       end
-      #Add emergency
-      sites[s.id]['emergency'] = emergency.include?(s.id) ? true : false
+      #Add urgence
+      sites[s.id]['urgence'] = urgence.include?(s.id) ? true : false
       #Add geo
       if s.geo_entities.present?
         sites[s.id]['geo'] = []

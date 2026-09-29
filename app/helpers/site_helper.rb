@@ -17,8 +17,8 @@ module SiteHelper
       if @site.geo_entities.present?
         res += "<div class='tag vac'><span>Vaunatorio</span></div>"
       end
-      emergency = @site.site_data.where(datum_id: @emergency_id)
-      if emergency.present? && emergency
+      urgence = @site.site_data.where(datum_id: @urgence_id)
+      if urgence.present? && urgence.first.value
         res += "<div class='tag emergency'><span>Puerta de urgencia</span></div>"
       end
     when 'address'

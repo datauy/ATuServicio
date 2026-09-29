@@ -1,8 +1,8 @@
 class SiteController < ApplicationController
-  before_action :get_emergency_id
+  before_action :get_urgence_id
 
-  def get_emergency_id
-    @emergency_id = Datum.find_by(key: 'puerta_urgencia__etiqueta,puertaurge').id
+  def get_urgence_id
+    @urgence_id = Datum.find_by(key: 'puerta_urgencia__etiqueta,puertaurge').id
   end
   
   def site_data
