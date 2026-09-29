@@ -4,21 +4,19 @@ module SiteHelper
     res = ''
     case ttype
     when 'level'
-      @site.site_data.pluck(:level).uniq.each do |level|
-        case level
-        when 'Primer nivel de atención'
-          res += "<div class='tag firstLevel'><span>Policlínica</span></div>"
-        when 'Segundo nivel de atención'
-          res += "<div class='tag secondLevel'><span>Centro de salud</span></div>"
-        when 'Tercer nivel de atención'
-          res += "<div class='tag thirdLevel'><span>Hospital</span></div>"
-        end
+      case @site.category
+      when 'CENTRO DE SALUD'
+        res += "<div class='tag secondLevel'><span>Centro de salud</span></div>"
+      when 'HOSPITAL'
+        res += "<div class='tag thirdLevel'><span>Hospital</span></div>"
+      else
+        res += "<div class='tag firstLevel'><span>Policlínica</span></div>"
       end
       if @site.geo_entities.present?
         res += "<div class='tag vac'><span>Vaunatorio</span></div>"
       end
       urgence = @site.site_data.where(datum_id: @urgence_id)
-      if urgence.present? && urgence.first.value
+      if urgence.present? && urgence.first.value == 1
         res += "<div class='tag emergency'><span>Puerta de urgencia</span></div>"
       end
     when 'address'
