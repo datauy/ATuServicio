@@ -31,39 +31,88 @@ namespace :importer do
     end
   end
 
-  def conciliate_asse_vacs
-    pp = '[{"id":139,"name":"CENTRO DE SALUD CIUDAD DE LA COSTA","description":null,"address":"AVDA. GARCIA AROCENA"},{"id":162,"name":"POLICLINICA ZAPICAN","description":null,"address":null},{"id":147,"name":"CENTRO AUXILIAR TALA","description":null,"address":"J
-OSE J ALONSO Y TRELLES"},{"id":155,"name":"POLICLINICA COLONIA VALDENSE","description":null,"address":"11 DE JUNIO"},{"id":158,"name":"POLICLINICA CASUPA","description":null,"address":"JOSE PEDRO VARELA"},{"id":164,"name":"POLICLINICA PIRIAPOLIS","description":null,"addre
-ss":"SIMON DEL PINO"},{"id":186,"name":"HOSPITAL PASTEUR","description":"HOSPITAL PASTEUR","address":"LARRAVIDE"},{"id":168,"name":"CENTRO DE SALUD J ROYOL","description":null,"address":"DR. ALTIVO ESTEVES"},{"id":178,"name":"POLICLINICA UBA 3","description":null,"address
-":null},{"id":180,"name":"CENTRO DEPARTAMENTAL SALTO","description":"HOSPITAL DE SALTO","address":"CERVANTES SAAVEDRA"},{"id":181,"name":"POLICLINICA VILLA CONSTITUCION","description":null,"address":"G OXANDABARAT"},{"id":182,"name":"CENTRO DE SALUD CIUDAD VIEJA","descrip
-tion":null,"address":"25 DE MAYO"},{"id":183,"name":"CENTRO DE SALUD PIEDRAS BLANCAS ANEXO","description":null,"address":"AVDA. JOSE BELLONI"},{"id":184,"name":"HOSPITAL PEDIATRICO","description":null,"address":"BVAR. GRAL. ARTIGAS"},{"id":212,"name":"POLICLINICA CHARQUEA
-DA","description":null,"address":null},{"id":216,"name":"CENTRO AUXILIAR VERGARA","description":null,"address":"CNEL. M BARRETO"},{"id":226,"name":"POLICLINICA SANTA ROSA","description":null,"address":"18 DE JULIO"},{"id":227,"name":"POLICLINICA SAN BAUTISTA","description
-":null,"address":"JUSTO ALVAREZ"},{"id":229,"name":"POLICLINICA CASARINO","description":null,"address":null},{"id":231,"name":"POLICLINICA FLORESTA BALNEARIO","description":null,"address":"RBLA. DR. PEREA"},{"id":232,"name":"POLICLINICA SALINAS","description":null,"addres
-s":"AVDA. JULIETA"},{"id":240,"name":"POLICLINICA AUTODROMO","description":null,"address":"RIO NEGRO"},{"id":241,"name":"POLICLINICA PINAR","description":null,"address":"GUILLERMO PEREZ BUTLER"},{"id":245,"name":"CENTRO DE SALUD MONTERREY","description":null,"address":"FR
-ANCISCO MACIEL"},{"id":247,"name":"POLICLINICA VILLA DON ARTURO","description":null,"address":"CMNO. AL PASO ESCOBAR"},{"id":248,"name":"CENTRO AUXILIAR DOLORES","description":"CENTRO AUXILIAR DOLORES","address":"ANDRES CHEVESTE"},{"id":249,"name":"POLICLINICA AGRACIADA",
-"description":null,"address":null},{"id":251,"name":"POLICLINICA CARLOS REYLES","description":null,"address":"RIVERA"},{"id":318,"name":"POLICLINICA PASO PEREIRA","description":null,"address":null},{"id":259,"name":"POLICLINICA CANADA NIETO","description":null,"address":n
-ull},{"id":260,"name":"POLICLINICA VILLA PANCHA","description":null,"address":null},{"id":261,"name":"POLICLINICA EGANA","description":null,"address":"TABARE"},{"id":263,"name":"POLICLINICA BARRIO KENNEDY","description":null,"address":"RINCON"},{"id":264,"name":"POLICLINI
-CA BARRIO HIPODROMO","description":null,"address":null},{"id":265,"name":"POLICLINICA LA CAPUERA","description":null,"address":null},{"id":268,"name":"POLICLINICA PUNTA DEL DIABLO","description":null,"address":null},{"id":269,"name":"POLICLINICA CEBOLLATI","description":n
-ull,"address":"SAN MIGUEL"},{"id":270,"name":"POLICLINICA LA PALOMA","description":null,"address":null},{"id":273,"name":"POLICLINICA LA CORONILLA","description":null,"address":null},{"id":274,"name":"POLICLINICA SAN LUIS","description":null,"address":"MISIONES"},{"id":27
-8,"name":"POLICLINICA JOSE ENRIQUE RODO","description":null,"address":"RUTA 2 GRITO DE ASENCIO"},{"id":279,"name":"POLICLINICA PALMITAS","description":null,"address":"LAURENA JAUREGUI"},{"id":282,"name":"POLICLINICA RISSO","description":null,"address":null},{"id":283,"nam
-e":"POLICLINICA VILLA SORIANO","description":null,"address":null},{"id":280,"name":"POLICLINICA PALMAR","description":null,"address":"BRASIL"},{"id":275,"name":"POLICLINICA 18 DE JULIO","description":null,"address":null},{"id":287,"name":"POLICLINICA VELAZQUEZ","descripti
-on":null,"address":null},{"id":288,"name":"POLICLINICA LOS CERRILLOS","description":null,"address":null},{"id":289,"name":"CENTRO DE SALUD PARQUE DEL PLATA","description":null,"address":"TOMAS BERRETA"},{"id":291,"name":"POLICLINICA CONCHILLAS","description":null,"address
-":"DAVID EVANS"},{"id":292,"name":"POLICLINICA CUFRE","description":null,"address":"SARANDI"},{"id":298,"name":"POLICLINICA CARDAL","description":null,"address":"AVDA. GRAL. ARTIGAS"},{"id":299,"name":"POLICLINICA CERRO COLORADO","description":null,"address":null},{"id":3
-00,"name":"POLICLINICA CHAMIZO","description":null,"address":"FLORIDA"},{"id":301,"name":"POLICLINICA FRAY MARCOS","description":null,"address":null},{"id":302,"name":"POLICLINICA INDEPENDENCIA","description":null,"address":null},{"id":303,"name":"POLICLINICA 25 DE MAYO",
-"description":null,"address":"19 DE JUNIO"},{"id":304,"name":"POLICLINICA 25 DE AGOSTO","description":null,"address":"MANUEL CALLEROS"},{"id":305,"name":"POLICLINICA GONI","description":null,"address":"SARANDI"},{"id":306,"name":"POLICLINICA LA CRUZ","description":null,"a
-ddress":null},{"id":307,"name":"POLICLINICA POLANCO DEL YI","description":null,"address":"RUTA 42"},{"id":308,"name":"POLICLINICA MENDOZA GRANDE","description":null,"address":null},{"id":310,"name":"POLICLINICA ANDRESITO","description":null,"address":"SENAQUE"},{"id":311,
-"name":"POLICLINICA ISMAEL CORTINAS","description":null,"address":"LUIS A DE HERRERA"},{"id":314,"name":"POLICLINICA CUCHILLA ALTA","description":null,"address":"MONTEVIDEO"},{"id":316,"name":"POLICLINICA AREVALO","description":null,"address":null},{"id":321,"name":"POLIC
-LINICA CERRO DE LAS CUENTAS","description":null,"address":null},{"id":322,"name":"POLICLINICA CUCHILLA GRANDE","description":null,"address":null},{"id":323,"name":"POLICLINICA RAMON TRIGO","description":null,"address":null},{"id":329,"name":"POLICLINICA ESTACION ATLANTIDA
-","description":null,"address":null},{"id":330,"name":"POLICLINICA ESTACION FLORESTA","description":null,"address":null},{"id":331,"name":"CENTRO DE SALUD LA CRUZ DE CARRASCO","description":null,"address":"JUAN AGAZZI"},{"id":342,"name":"POLICLINICA YANICELLI","descriptio
-n":null,"address":null},{"id":332,"name":"CENTRO DEPARTAMENTAL DURAZNO","description":"HOSPITAL DE DURAZNO","address":"DR. MIGUEL C RUBINO"},{"id":233,"name":"POLICLINICA PARQUE DEL PLATA NORTE","description":null,"address":null},{"id":354,"name":"POLICLINICA INVE 16","de
-scription":null,"address":"HIPOLITO YRIGOYEN"},{"id":351,"name":"CENTRO AUXILIAR SAN RAMON","description":null,"address":null},{"id":347,"name":"POLICLINICA ALBISU","description":null,"address":null},{"id":317,"name":"POLICLINICA TRES ISLAS","description":null,"address":n
-ull}]'
-    jj = JSON.parse(pp)
-    jj.each do |site|
-      s = Site.find_by(name: site['name'])
+  def conciliate_vacs
+    pp = [{"id" => 314, "provider_id" => 769, "name" => "POLICLINICA CUCHILLA ALTA", "address" => "CALLE 16 S/N CUCHILLA ALTA"},
+    {"id" => 366, "provider_id" => 7618, "name" => "POLICLINICO CASTILLOS", "address" => "FORMOSO"},
+    {"id" => 300, "provider_id" => 6618, "name" => "POLICLINICA CHAMIZO", "address" => "25 DE AGOSTO"},
+    {"id" => 304, "provider_id" => 6618, "name" => "POLICLINICA 25 DE AGOSTO", "address" => "BRUNO MAS"},
+    {"id" => 298, "provider_id" => 6618, "name" => "POLICLINICA CARDAL", "address" => "RODO"},
+    {"id" => 158, "provider_id" => 6618, "name" => "POLICLINICA CASUPA", "address" => "BATLLE"},
+    {"id" => 301, "provider_id" => 6618, "name" => "POLICLINICA FRAY MARCOS", "address" => "ARTIGAS"},
+    {"id" => 303, "provider_id" => 6618, "name" => "POLICLINICA 25 DE MAYO", "address" => "OTILIA ROLIN DE MARINONI"},
+    {"id" => 331, "provider_id" => 9000, "name" => "CENTRO DE SALUD LA CRUZ DE CARRASCO", "address" => "JUAN AGAZZI"},
+    {"id" => 182, "provider_id" => 9000, "name" => "CENTRO DE SALUD CIUDAD VIEJA", "address" => "25 DE MAYO"},
+    {"id" => 186, "provider_id" => 9000, "name" => "HOSPITAL PASTEUR", "address" => "LARRAVIDE"},
+    {"id" => 184, "provider_id" => 9000, "name" => "HOSPITAL PEDIATRICO", "address" => "BVAR. ARTIGAS"},
+    {"id" => 342, "provider_id" => 9000, "name" => "POLICLINICA YANICELLI", "address" => "CNO. CARRASCO EUSKALERRIA 92"},
+    {"id" => 351, "provider_id" => 9000, "name" => "CENTRO AUXILIAR SAN RAMON", "address" => "BATLLE Y ORDONEZ"},
+    {"id" => 245, "provider_id" => 9000, "name" => "CENTRO DE SALUD MONTERREY", "address" => "GRAL. SAN MARTIN"},
+    {"id" => 226, "provider_id" => 9000, "name" => "POLICLINICA SANTA ROSA", "address" => "18 DE JULIO"},
+    {"id" => 147, "provider_id" => 9000, "name" => "CENTRO AUXILIAR TALA", "address" => "J. ALONSO Y TRELLES"},
+    {"id" => 229, "provider_id" => 9000, "name" => "POLICLINICA CASARINO", "address" => "CNO. DEL ANDALUZ"},
+    {"id" => 329, "provider_id" => 9000, "name" => "POLICLINICA ESTACION ATLANTIDA", "address" => "CNO. A PARQUE DEL PLATA"},
+    {"id" => 288, "provider_id" => 9000, "name" => "POLICLINICA LOS CERRILLOS", "address" => "RUTA 36 KM"},
+    {"id" => 289, "provider_id" => 9000, "name" => "CENTRO DE SALUD PARQUE DEL PLATA", "address" => "DIAGONAL 11"},
+    {"id" => 233, "provider_id" => 9000, "name" => "POLICLINICA PARQUE DEL PLATA NORTE", "address" => "CALLE W"},
+    {"id" => 227, "provider_id" => 9000, "name" => "POLICLINICA SAN BAUTISTA", "address" => "JUSTO ALVAREZ"},
+    {"id" => 231, "provider_id" => 9000, "name" => "POLICLINICA FLORESTA BALNEARIO", "address" => "RAMBLA PEREA"},
+    {"id" => 330, "provider_id" => 9000, "name" => "POLICLINICA ESTACION FLORESTA", "address" => "PABLO VI"},
+    {"id" => 232, "provider_id" => 9000, "name" => "POLICLINICA SALINAS", "address" => "AVDA. JULIETA"},
+    {"id" => 139, "provider_id" => 9000, "name" => "CENTRO DE SALUD CIUDAD DE LA COSTA", "address" => "GARCIA AROCENA"},
+    {"id" => 247, "provider_id" => 9000, "name" => "POLICLINICA VILLA DON ARTURO", "address" => "CNO. A PASO ESCOBAR"},
+    {"id" => 241, "provider_id" => 9000, "name" => "POLICLINICA PINAR", "address" => "AVDA. EDUARDO PEREZ"},
+    {"id" => 240, "provider_id" => 9000, "name" => "POLICLINICA AUTODROMO", "address" => "INTERLAGOS"},
+    {"id" => 274, "provider_id" => 9000, "name" => "POLICLINICA SAN LUIS", "address" => "JUAN CARUSO"},
+    {"id" => 270, "provider_id" => 9000, "name" => "POLICLINICA LA PALOMA", "address" => "CNO. LA CAPILLA"},
+    {"id" => 321, "provider_id" => 9000, "name" => "POLICLINICA CERRO DE LAS CUENTAS", "address" => "RUTA 7  KM 339"},
+    {"id" => 264, "provider_id" => 9000, "name" => "POLICLINICA BARRIO HIPODROMO", "address" => "ROMEO POGGIOLA"},
+    {"id" => 317, "provider_id" => 9000, "name" => "POLICLINICA TRES ISLAS", "address" => "RUTA 7  KM 346"},
+    {"id" => 322, "provider_id" => 9000, "name" => "POLICLINICA CUCHILLA GRANDE", "address" => "S-D"},
+    {"id" => 318, "provider_id" => 9000, "name" => "POLICLINICA PASO PEREIRA", "address" => "RUTA 7  KM 293  EMPALME A AREVALO A 75KM"},
+    {"id" => 316, "provider_id" => 9000, "name" => "POLICLINICA AREVALO", "address" => "RUTA 7  KM 293 EMPALME A AREVALO 35KM"},
+    {"id" => 323, "provider_id" => 9000, "name" => "POLICLINICA RAMON TRIGO", "address" => "RUTA 26  KM 396 ENTRANDO A RUTA 44"},
+    {"id" => 260, "provider_id" => 9000, "name" => "POLICLINICA VILLA PANCHA", "address" => "ZELMAR MICHELINI"},
+    {"id" => 155, "provider_id" => 9000, "name" => "POLICLINICA COLONIA VALDENSE", "address" => "ALICE RIVOIR DE ARMAND UGON"},
+    {"id" => 291, "provider_id" => 9000, "name" => "POLICLINICA CONCHILLAS", "address" => "DAVID EVANS"},
+    {"id" => 292, "provider_id" => 9000, "name" => "POLICLINICA CUFRE", "address" => "SARANDI"},
+    {"id" => 332, "provider_id" => 9000, "name" => "CENTRO DEPARTAMENTAL DURAZNO", "address" => "PROF. M. RUBINO"},
+    {"id" => 251, "provider_id" => 9000, "name" => "POLICLINICA CARLOS REYLES", "address" => "RIVERA"},
+    {"id" => 311, "provider_id" => 9000, "name" => "POLICLINICA ISMAEL CORTINAS", "address" => "LUIS A. DE HERRERA"},
+    {"id" => 310, "provider_id" => 9000, "name" => "POLICLINICA ANDRESITO", "address" => "SENAQUE"},
+    {"id" => 299, "provider_id" => 9000, "name" => "POLICLINICA CERRO COLORADO", "address" => "RUTA 3"},
+    {"id" => 306, "provider_id" => 9000, "name" => "POLICLINICA LA CRUZ", "address" => "GRA. JOSE ARTIGAS"},
+    {"id" => 305, "provider_id" => 9000, "name" => "POLICLINICA GONI", "address" => "SARANDI"},
+    {"id" => 308, "provider_id" => 9000, "name" => "POLICLINICA MENDOZA GRANDE", "address" => "FLORIDA"},
+    {"id" => 302, "provider_id" => 9000, "name" => "POLICLINICA INDEPENDENCIA", "address" => "CALLE 1"},
+    {"id" => 307, "provider_id" => 9000, "name" => "POLICLINICA POLANCO DEL YI", "address" => "RUTA 42"},
+    {"id" => 162, "provider_id" => 9000, "name" => "POLICLINICA ZAPICAN", "address" => "BVAR. CONSTITUCION"},
+    {"id" => 273, "provider_id" => 9000, "name" => "POLICLINICA LA CORONILLA", "address" => "RUTA 8 BARRIO LA CORONILLA-MINAS"},
+    {"id" => 265, "provider_id" => 9000, "name" => "POLICLINICA LA CAPUERA", "address" => "AVDA. DEL LAGO"},
+    {"id" => 269, "provider_id" => 9000, "name" => "POLICLINICA CEBOLLATI", "address" => "SAN MIGUEL"},
+    {"id" => 287, "provider_id" => 9000, "name" => "POLICLINICA VELAZQUEZ", "address" => "CALLE 14"},
+    {"id" => 275, "provider_id" => 9000, "name" => "POLICLINICA 18 DE JULIO", "address" => "DR. LUCIAN CANZANI"},
+    {"id" => 268, "provider_id" => 9000, "name" => "POLICLINICA PUNTA DEL DIABLO", "address" => "JOSE G. PERCHA"},
+    {"id" => 180, "provider_id" => 9000, "name" => "CENTRO DEPARTAMENTAL SALTO", "address" => "CERVANTES"},
+    {"id" => 178, "provider_id" => 9000, "name" => "POLICLINICA UBA 3", "address" => "LORENZO LATORRE"},
+    {"id" => 181, "provider_id" => 9000, "name" => "POLICLINICA VILLA CONSTITUCION", "address" => "G. OXANDABARAT"},
+    {"id" => 347, "provider_id" => 9000, "name" => "POLICLINICA ALBISU", "address" => "CALLE 1"},
+    {"id" => 279, "provider_id" => 9000, "name" => "POLICLINICA PALMITAS", "address" => "VICENTE ORCOYEN"},
+    {"id" => 283, "provider_id" => 9000, "name" => "POLICLINICA VILLA SORIANO", "address" => "CABILDO"},
+    {"id" => 280, "provider_id" => 9000, "name" => "POLICLINICA PALMAR", "address" => "AVDA. BRASIL"},
+    {"id" => 261, "provider_id" => 9000, "name" => "POLICLINICA EGANA", "address" => "TABARE"},
+    {"id" => 249, "provider_id" => 9000, "name" => "POLICLINICA AGRACIADA", "address" => "GRAL. ARTIGAS"},
+    {"id" => 282, "provider_id" => 9000, "name" => "POLICLINICA RISSO", "address" => "CALLE 3"},
+    {"id" => 259, "provider_id" => 9000, "name" => "POLICLINICA CANADA NIETO", "address" => "MANUEL SOUTO (RUTA 96)"},
+    {"id" => 263, "provider_id" => 9000, "name" => "POLICLINICA BARRIO KENNEDY", "address" => "RINCON"},
+    {"id" => 216, "provider_id" => 9000, "name" => "CENTRO AUXILIAR VERGARA", "address" => "MARCELO BARRETO"},
+    {"id" => 212, "provider_id" => 9000, "name" => "POLICLINICA CHARQUEADA", "address" => "JOSE ELLAURI"},
+    {"id" => 354, "provider_id" => 9000, "name" => "POLICLINICA INVE 16", "address" => "HIPOLITO IRIGOYEN"}]
+
+    pp.each do |site|
+      s = Site.find_by(name: site['name'], provider_id: site['provider_id'], address: site['address'])
       if s.present?
         puts "UPDATING #{s['name']}"
-        GeoEntity.find(site['id']).update(site_id: s['id'])
+        GeoEntity.find(site['id']).update(site_id: s.id)
       else
         puts "NOT FOUND: #{site['name']}"
       end
@@ -82,28 +131,34 @@ ull}]'
     set_env(args)
     specialists()
   end
+  #
   task :prices, [:year, :period] => [:environment] do |_, args|
     set_env(args)
     prices()
   end
+  #
   task :rrhh_general, [:year, :period] => [:environment] do |_, args|
     set_env(args)
     rrhh()
   end
+  #
   task :rrhh, [:year, :period] => [:environment] do |_, args|
     set_env(args)
     rrhh()
     rrhh_cad()
     specialists()
   end
+  #
   task :cad, [:year, :period] => [:environment] do |_, args|
     set_env(args)
     rrhh_cad()
   end
+  #
   task :goals, [:year, :period] => [:environment] do |_, args|
     set_env(args)
     goals()
   end
+  #
   task :sites, [:year, :period, :asse] => [:environment] do |_, args|
     set_env(args)
     p = Provider.find(9000)
@@ -111,8 +166,17 @@ ull}]'
     #sites('centros-salud-ASSE.csv', "Segundo nivel de atención", [p])
     #sites('policlinicas-ASSE.csv', "Primer nivel de atención", [p])
     sites('sedes-asse.csv', nil, p)
+    sites('sedes.csv')
   end
-
+  #
+  task :equipment, [:year, :period] => [:environment] do |_, args|
+    set_env(args)
+    equipment()
+  end
+  #
+  task :vacs, [] => [:environment] do |_, args|
+    conciliate_vacs()
+  end
   task :metadata, [:mtype] => [:environment] do |_, args|
     metadata = YAML.load_file(File.join(Rails.root, "config", "metadata.yml")).to_h
     metadata.keys.each do |key|
@@ -263,12 +327,19 @@ ull}]'
         end
         #Get Point
         wkt = row['geometry'].present? ? row['geometry'] : "POINT (#{row['lon']}, #{row['lat']})"
-        point = Zone.find_or_create_by({
-          name: "#{provider.name} - #{row['nombre']}",
+        point = Zone.find_by({
           ztype: "Punto",
           parent_zone_id: parent_id,
           wkt: wkt
         })
+        if point.nil?
+          point = Zone.find_or_create_by({
+            name: "#{provider.name} - #{row['nombre']}",
+            ztype: "Punto",
+            parent_zone_id: parent_id,
+            wkt: wkt
+          })
+        end
         level = row['nivel'].present? ? row['nivel'] : row['nivelatencion'].present? ? "#{row['nivelatencion'].downcase.capitalize} de atención" : level
         category = 'POLICLINICA'
         if row['categoria'].present?
@@ -281,20 +352,32 @@ ull}]'
             category = 'HOSPITAL'
           end
         end
-
-        s = Site.find_or_create_by({
+        s = Site.find_by({
           provider: provider,
           zone: point,
           name: row['nombre'],
-          description: row['desc'].present? ? row['desc'] : row['alias'],
-          category: category,
-          stype: row['tipo'],
-          state: state.first,
-          address: row['calle'],
-          address_comp: row['calle_nro'].present? ? row['calle_nro'] : row['numpuerta'],
-          highway: row['ruta'],
-          highway_km: row['km'],
         })
+        if s.nil?
+          s = Site.find_or_create_by({
+            provider: provider,
+            zone: point,
+            name: row['nombre'],
+            description: row['desc'].present? ? row['desc'] : row['alias'],
+            category: category,
+            stype: row['tipo'],
+            state: state.first,
+            address: row['calle'],
+            address_comp: row['calle_nro'].present? ? row['calle_nro'] : row['numpuerta'],
+            highway: row['ruta'],
+            highway_km: row['km'],
+          })
+        else
+          if s.category != 'HOSPITAL'
+            if s.category == 'CENTRO DE SALUD' && category == 'HOSPITAL' || s.category == 'POLICLINICA' && category != 'POLICLINICA'
+              s.update(category: category)
+            end
+          end
+        end
         #get site data
         metadata = YAML.load_file(File.join(Rails.root, "config", "metadata.yml")).to_h
         metadata['sites']['columns'].each do |key|
@@ -331,9 +414,41 @@ ull}]'
               end
             end
           else
-            puts "DATUM NOT FOUND"
+            puts "DATUM NOT FOUND #{key}"
           end
         end
+      end
+    end
+  end
+  #
+  def equipment
+    puts 'Creating or updating site equipment'
+    @period = '1'
+    import_file("equipos.csv") do |row|
+      providers = Provider.search( row['prestador__etiqueta'] )
+      if providers.length > 0
+        p = providers.first
+        sites = []
+        if row['nombre_del_establecimiento'].present?
+          sites = p.sites.search(row['nombre_del_establecimiento'])
+          if sites.length > 1
+            dsites = sites.where(stype: row['tipo_de_establecimiento__etiqueta'])
+            if dsites.present?
+              sites = dsites
+            end
+          end
+        end
+        sites = p.sites.where(stype: row['tipo_de_establecimiento__etiqueta']) if sites.empty?
+        if sites.present?
+          if sites.length > 1
+            puts "MULTIPLE SITES FOR #{row['prestador__etiqueta']} FOUND: #{row['nombre_del_establecimiento']} -> #{row['tipo_de_establecimiento__etiqueta']}"
+          end
+          s = sites.first
+        else
+          puts "SITE FOR #{row['prestador__etiqueta']} NOT FOUND: #{row['nombre_del_establecimiento']}" 
+        end
+      else
+        puts "PROVIDER NOT FOUND #{row['prestador__etiqueta']}"
       end
     end
   end

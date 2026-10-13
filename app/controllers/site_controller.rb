@@ -20,9 +20,17 @@ class SiteController < ApplicationController
         @sites = Site.new.get_map_sites(nil, params[:id])
       end
       @site = Site.find(params[:id])
-      @data = SiteDatum.includes(:datum).where(site_id: params[:id], data:{is_active: true})
+      data = SiteDatum.includes(:datum).where(site_id: params[:id], data:{is_active: true})
       if params[:level].present?
-        @data = @data.where(level: params[:level])
+        data = data.where(level: params[:level])
+      end
+      @data = {}
+      data.each do |sd|
+        if @data.key? sd.level
+          @data[sd.level].push sd
+        else
+          @data[sd.level] = [sd]
+        end
       end
     end
     respond_to do |format|

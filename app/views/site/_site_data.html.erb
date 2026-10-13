@@ -1,31 +1,33 @@
-<% if @data.length > 2 %>
-  <!--<div class="section" data-controller="section">
-    <div class="section-header">
-      <div class="header-left">
-        <%= button_tag "#{image_tag('/images/arrow.svg')}<h3>Infraestructura</h3>".html_safe,
-        class: 'arrow',
-        aria: { expanded: true, controls: "section-infra"},
-        data: { 
-          "section-target": "expand", 
-          action: 'click->section#toggleVisibility:stop' 
-        }%>
+<% if @data.length > 0 %>
+  <% @data.keys.each do |level| %>
+    <div class="section" data-controller="section">
+      <div class="section-header">
+        <div class="header-left">
+          <%= button_tag "#{image_tag('/images/arrow.svg')}<h3>#{level}</h3>".html_safe,
+          class: 'arrow',
+          aria: { expanded: true, controls: "section-infra"},
+          data: { 
+            "section-target": "expand", 
+            action: 'click->section#toggleVisibility:stop' 
+          }%>
+        </div>
+      </div>
+      <div class="section-content active" data-section-target="content">
+        <!-- Section content -->
+        <div class="site-data infra">
+            <% @data[level].each do |sd| %>
+              <% if sd.value.present? %>
+              <div class="row">
+                <div class="item icon"><%= image_tag url_for(sd.datum.icon) if sd.datum.icon.present? %></div>
+                <div class="item label"><%= sd.datum.title %></div>
+                <div class="item value"><%= (sd.datum.dtype == 'array' && sd.text != '') ? format_value(sd.text, sd.datum.dtype) : format_value(sd.value, sd.datum.dtype) %></div>
+              </div>
+              <% end %>
+            <% end %>
+        </div>
       </div>
     </div>
-    <div id="section-infra" class="section-content" data-section-target="content">
-      <!-- Section content -->
-      <div class="site-data infra">
-        <% @data.each do |sd| %>
-          <% if sd.value.present? %>
-          <div class="row">
-            <div class="item icon"><%= image_tag url_for(sd.datum.icon) if sd.datum.icon.present? %></div>
-            <div class="item label"><%= sd.datum.title %></div>
-            <div class="item value"><%= (sd.datum.dtype == 'array' && sd.text != '') ? format_value(sd.text, sd.datum.dtype) : format_value(sd.value, sd.datum.dtype) %></div>
-          </div>
-          <% end %>
-        <% end %>
-      </div>
-    <!--</div>-->
-  </div>
+    <% end %>
   <% else %>
     <b>No hay datos para mostrar</b>
   <% end %>
