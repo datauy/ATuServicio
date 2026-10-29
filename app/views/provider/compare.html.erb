@@ -49,7 +49,7 @@
             action: 'click->section#toggleInfo' 
           }%>
       </div>
-      <div class="tag tag-calendar"><%= svg("calendar.svg") %> <%= s['year'] %> - <%= s['period'] %></div>
+      <div class="tag tag-calendar"><%= svg("calendar.svg") %> <%= s['period'] %>/<%= s['year'] %></div>
     </div>
     <!-- Sections -->
     <div id="section-<%= s['id'] %>" class="section-content ways<%= @providers.length %> <%= s['name'] == 'sites' ? 'active' : '' %>" data-section-target="content">
