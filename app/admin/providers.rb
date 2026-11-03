@@ -32,7 +32,9 @@ ActiveAdmin.register Provider do
     column :short_name
     column :name
     column :web
-    column :description
+    column :description do |r| 
+      r.description.html_safe if r.description.present?
+    end
     column :created_at
     column :updated_at
     column :active
@@ -47,7 +49,9 @@ ActiveAdmin.register Provider do
       row :short_name
       row :name
       row :web
-      row :description
+      row :description do |r| 
+        r.description.html_safe if r.description.present?
+      end
       row :created_at
       row :updated_at
       row :active
@@ -73,7 +77,7 @@ ActiveAdmin.register Provider do
         end
       end
       f.input :web
-      f.input :description
+      f.input :description, as: :action_text
       f.input :active
     end
     f.actions

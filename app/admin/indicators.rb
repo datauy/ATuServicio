@@ -32,7 +32,9 @@ ActiveAdmin.register Indicator do
     selectable_column
     id_column
     column :key
-    column :description
+    column :description do |r| 
+      r.description.html_safe if r.description.present?
+    end
     column :created_at
     column :updated_at
     column :section
@@ -50,7 +52,9 @@ ActiveAdmin.register Indicator do
     attributes_table_for(resource) do
       row :id
       row :key
-      row :description
+      row :description do |r| 
+        r.description.html_safe if r.description.present?
+      end
       row :created_at
       row :updated_at
       row :section
@@ -68,7 +72,7 @@ ActiveAdmin.register Indicator do
     f.semantic_errors(*f.object.errors.attribute_names)
     f.inputs do
       f.input :key
-      f.input :description
+      f.input :description, as: :action_text
       f.input :section
       f.input :abbr
       f.input :is_active

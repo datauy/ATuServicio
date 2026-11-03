@@ -1,0 +1,15 @@
+<div class="content pages">
+<!--Info-->
+    <h1>Guía metodológica de A Tu Servicio 2026</h1>
+    <% Section.where(is_active: true).each do |section| %>
+      <div class="section">
+        <h2><%= section.title %></h2>
+        <% if section.description.present? %>
+          <div class="info"><%= section.info.html_safe %></div>
+        <% end %>
+        <% if section.description.present? %>
+          <div class="description"><%= section.description.html_safe %></div>
+        <% end %>
+      </div>
+    <% end %>
+</div>

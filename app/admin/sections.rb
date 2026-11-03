@@ -33,7 +33,9 @@ ActiveAdmin.register Section do
     id_column
     column :title
     column :name
-    column :description
+    column :description do |r| 
+      r.description.html_safe if r.description.present?
+    end
     column :year
     column :period
     column :is_home_card
@@ -41,7 +43,9 @@ ActiveAdmin.register Section do
     column :updated_at
     column :weight
     column :is_active
-    column :info
+    column :info do |r| 
+      r.info.html_safe if r.info.present?
+    end
     actions
   end
 
@@ -51,7 +55,9 @@ ActiveAdmin.register Section do
       row :id
       row :title
       row :name
-      row :description
+      row :description do |r| 
+        r.description.html_safe if r.description.present?
+      end
       row :year
       row :period
       row :is_home_card
@@ -59,7 +65,9 @@ ActiveAdmin.register Section do
       row :updated_at
       row :weight
       row :is_active
-      row :info
+      row :info do |r| 
+        r.info.html_safe if r.info.present?
+      end
     end
   end
 
@@ -69,13 +77,13 @@ ActiveAdmin.register Section do
     f.inputs do
       f.input :title
       f.input :name
-      f.input :description
+      f.input :description, as: :action_text
       f.input :year
       f.input :period
       f.input :is_home_card
       f.input :weight
       f.input :is_active
-      f.input :info
+      f.input :info, as: :action_text
     end
     f.actions
   end

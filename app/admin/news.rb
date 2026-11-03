@@ -17,7 +17,7 @@ ActiveAdmin.register News do
   filter :id
   filter :head
   filter :title
-  filter :description
+  filter :description, as: :action_text
   filter :link
   filter :created_at
   filter :updated_at
@@ -29,7 +29,9 @@ ActiveAdmin.register News do
     id_column
     column :head
     column :title
-    column :description
+    column :description do |r| 
+      r.description.html_safe if r.description.present?
+    end
     column :link
     column :created_at
     column :updated_at
@@ -43,7 +45,9 @@ ActiveAdmin.register News do
       row :id
       row :head
       row :title
-      row :description
+      row :description do |r| 
+        r.description.html_safe if r.description.present?
+      end
       row :link
       row :created_at
       row :updated_at

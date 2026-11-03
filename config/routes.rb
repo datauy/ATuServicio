@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get "afiliaciones", to: "pages#affiliations", as: "affiliations"
   get "prestaciones", to: "pages#benefits"
   get "pias", to: "pages#pias", as: "pias"
+  get "guia-metodologica", to: "pages#info"
   #Providers
   get "comparar", to: "provider#compare", as: "compare"
   get "comparar/:id1", to: redirect("proveedor/%{id1}")

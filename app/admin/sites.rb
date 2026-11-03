@@ -38,7 +38,9 @@ ActiveAdmin.register Site do
     id_column
     column :zone
     column :name
-    column :description
+    column :description do |r| 
+      r.description.html_safe if r.description.present?
+    end
     column :address
     column :provider
     column :created_at
@@ -61,7 +63,9 @@ ActiveAdmin.register Site do
       row :id
       row :zone
       row :name
-      row :description
+      row :description do |r| 
+        r.description.html_safe if r.description.present?
+      end
       row :address
       row :provider
       row :created_at
@@ -84,7 +88,7 @@ ActiveAdmin.register Site do
     f.inputs do
       f.input :zone
       f.input :name
-      f.input :description
+      f.input :description, as: :action_text
       f.input :address
       f.input :provider
       f.input :stype

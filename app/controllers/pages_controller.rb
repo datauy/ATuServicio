@@ -31,4 +31,7 @@ class PagesController < ApplicationController
 
   end
   
+  def info
+    
+  end
 end

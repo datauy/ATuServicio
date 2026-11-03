@@ -1,3 +1,19 @@
+ActiveAdmin.importmap.draw do
+  pin "@rails/actioncable", to: "actioncable.esm.js", preload: true
+  pin "@rails/activestorage", to: "activestorage.esm.js", preload: true
+
+  pin "@hotwired/turbo-rails", to: "turbo.js", preload: true
+  pin "@hotwired/stimulus", to: "stimulus.js", preload: true
+  pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
+
+  pin "application", to: 'active_admin_custom.js', preload: true
+  pin "trix"
+  pin "@rails/actiontext", to: "actiontext.esm.js"
+  #pin "jquery", to: "/vendor/javascript/jquery.js" # @4.0.0
+  #pin "select2", to: "/vendor/javascript/select2.js" # @4.1.0
+  #pin "@codevise/activeadmin-searchable_select", to: "/vendor/javascript/@codevise--activeadmin-searchable_select.js" # @1.9.0
+end
+
 ActiveAdmin.setup do |config|
   # == Site Title
   #

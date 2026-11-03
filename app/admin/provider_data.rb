@@ -63,7 +63,7 @@ ActiveAdmin.register ProviderDatum do
       f.input :fonasa_users
       f.input :no_fonasa_users
       f.input :total
-      f.input :provider
+      f.input :provider, as: :searchable_select
     end
     f.actions
   end
