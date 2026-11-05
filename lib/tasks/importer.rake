@@ -491,6 +491,17 @@ namespace :importer do
   def equipment
     puts 'Creating or updating site equipment'
     @period = '1'
+    r = Datum.find_by(title:'Radiología')
+    m = Datum.find_by(title:'Mamografía')
+    image = {
+      'tc': Datum.find_by(title:'Tomógrafo'),
+      'rx fijo digital': r,
+      'rx fijo analógico': r,
+      'rx fijo analogico': r,
+      'mamógrafo': m,
+      'mamografo': m,
+      'rm': Datum.find_by(title:'Resonador magnético'),
+    }
     import_file("equipos.csv") do |row|
       providers = Provider.search( row['prestador__etiqueta'] )
       if providers.length > 0
@@ -498,19 +509,52 @@ namespace :importer do
         sites = []
         if row['nombre_del_establecimiento'].present?
           sites = p.sites.search(row['nombre_del_establecimiento'])
+        end
+        sites = p.sites.where(stype: row['tipo_de_establecimiento__etiqueta']) if sites.empty?
+        if sites.present?
           if sites.length > 1
             dsites = sites.where(stype: row['tipo_de_establecimiento__etiqueta'])
             if dsites.present?
               sites = dsites
             end
           end
-        end
-        sites = p.sites.where(stype: row['tipo_de_establecimiento__etiqueta']) if sites.empty?
-        if sites.present?
           if sites.length > 1
-            puts "MULTIPLE SITES FOR #{row['prestador__etiqueta']} FOUND: #{row['nombre_del_establecimiento']} -> #{row['tipo_de_establecimiento__etiqueta']}"
+            #search by state
+            loc = Zone.search(row['localidad'], "Localidad")
+            if loc.present?
+              loc = loc.first
+              sites.each do |s|
+                if s.zone.parent_zone_id == loc.id
+                  sites = [s]
+                  break
+                end
+              end
+            end
           end
-          s = sites.first
+          if sites.length > 1
+            puts "MULTIPLE SITES FOR #{row['prestador__etiqueta']} FOUND: #{row['nombre_del_establecimiento']} -> #{row['tipo_de_establecimiento__etiqueta']}\n #{sites.pluck(:name).inspect}"
+            next
+          else
+            s = sites.first
+            if image[:"#{row['equipo__etiqueta']}"].present?
+              level = 'Primer nivel de atención'
+              case s.category
+              when 'HOSPITAL'
+                level = 'Tercer nivel de atención'
+              when 'CENTRO DE SALUD'
+                level = 'Segundo nivel de atención'
+              end
+              SiteDatum.find_or_create_by({
+                datum: image[:"#{row['equipo__etiqueta']}"],
+                site: s,
+                level: level,
+                year: @year,
+                period: @period,
+                value: 1,
+              })
+              puts "Datum created: #{image[:"#{row['equipo__etiqueta']}"].title} for site #{s.name}"
+            end
+          end
         else
           puts "SITE FOR #{row['prestador__etiqueta']} NOT FOUND: #{row['nombre_del_establecimiento']}" 
         end
