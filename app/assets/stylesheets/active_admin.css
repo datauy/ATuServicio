@@ -1,4 +1,4 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "active_admin/searchable_select";
+@import '@codevise/activeadmin-searchable_select';

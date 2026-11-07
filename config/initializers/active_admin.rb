@@ -9,9 +9,9 @@ ActiveAdmin.importmap.draw do
   pin "application", to: 'active_admin_custom.js', preload: true
   pin "trix"
   pin "@rails/actiontext", to: "actiontext.esm.js"
-  #pin "jquery", to: "/vendor/javascript/jquery.js" # @4.0.0
-  #pin "select2", to: "/vendor/javascript/select2.js" # @4.1.0
-  #pin "@codevise/activeadmin-searchable_select", to: "/vendor/javascript/@codevise--activeadmin-searchable_select.js" # @1.9.0
+  pin "jquery", to: "jquery.min.js", preload: true
+  pin "select2" # @4.1.0
+  pin "@codevise/activeadmin-searchable_select", to: "@codevise--activeadmin-searchable_select.js" # @1.9.0
 end
 
 ActiveAdmin.setup do |config|

@@ -15,14 +15,14 @@ ActiveAdmin.register ProviderIndicator do
 
   # Add or remove filters to toggle their visibility
   filter :id
-  filter :provider
+  filter :provider, as: :searchable_select
   filter :year
   filter :period
   filter :zone
   filter :value
   filter :created_at
   filter :updated_at
-  filter :indicator
+  filter :indicator, as: :searchable_select
 
   # Add or remove columns to toggle their visibility in the index action
   index do
@@ -58,12 +58,12 @@ ActiveAdmin.register ProviderIndicator do
   form do |f|
     f.semantic_errors(*f.object.errors.attribute_names)
     f.inputs do
-      f.input :provider
+      f.input :provider, as: :searchable_select
       f.input :year
       f.input :period
       f.input :zone
       f.input :value
-      f.input :indicator
+      f.input :indicator, as: :searchable_select
     end
     f.actions
   end

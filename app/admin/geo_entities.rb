@@ -18,11 +18,11 @@ ActiveAdmin.register GeoEntity do
   filter :gtype
   filter :name
   filter :description
-  filter :zone
+  filter :zone, as: :searchable_select
   filter :created_at
   filter :updated_at
   filter :is_active
-  filter :site
+  filter :site, as: :searchable_select
 
   # Add or remove columns to toggle their visibility in the index action
   index do
@@ -60,10 +60,10 @@ ActiveAdmin.register GeoEntity do
     f.inputs do
       f.input :gtype
       f.input :name
-      f.input :description
-      f.input :zone
+      f.input :description, as: :action_text
+      f.input :zone, as: :searchable_select
       f.input :is_active
-      f.input :site
+      f.input :site, as: :searchable_select
     end
     f.actions
   end

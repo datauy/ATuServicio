@@ -15,7 +15,7 @@ ActiveAdmin.register ProviderPrice do
 
   # Add or remove filters to toggle their visibility
   filter :id
-  filter :provider
+  filter :provider, as: :searchable_select
   filter :price
   filter :fonasa
   filter :value
@@ -58,7 +58,7 @@ ActiveAdmin.register ProviderPrice do
   form do |f|
     f.semantic_errors(*f.object.errors.attribute_names)
     f.inputs do
-      f.input :provider
+      f.input :provider, as: :searchable_select
       f.input :price
       f.input :fonasa
       f.input :value

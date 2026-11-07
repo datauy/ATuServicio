@@ -61,7 +61,7 @@ ActiveAdmin.register News do
     f.inputs do
       f.input :head
       f.input :title
-      f.input :description
+      f.input :description, as: :action_text
       f.input :link
       f.input :is_active
     end

@@ -15,11 +15,11 @@ ActiveAdmin.register Site do
 
   # Add or remove filters to toggle their visibility
   filter :id
-  filter :zone
+  filter :zone, as: :searchable_select
   filter :name
   filter :description
   filter :address
-  filter :provider
+  filter :provider, as: :searchable_select
   filter :created_at
   filter :updated_at
   filter :stype
@@ -86,11 +86,11 @@ ActiveAdmin.register Site do
   form do |f|
     f.semantic_errors(*f.object.errors.attribute_names)
     f.inputs do
-      f.input :zone
+      f.input :zone, as: :searchable_select
       f.input :name
       f.input :description, as: :action_text
       f.input :address
-      f.input :provider
+      f.input :provider, as: :searchable_select
       f.input :stype
       f.input :address_comp
       f.input :highway

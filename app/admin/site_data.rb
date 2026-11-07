@@ -16,7 +16,7 @@ ActiveAdmin.register SiteDatum do
   # Add or remove filters to toggle their visibility
   filter :id
   filter :datum
-  filter :site
+  filter :site, as: :searchable_select
   filter :year
   filter :period
   filter :created_at
@@ -62,7 +62,7 @@ ActiveAdmin.register SiteDatum do
     f.semantic_errors(*f.object.errors.attribute_names)
     f.inputs do
       f.input :datum
-      f.input :site
+      f.input :site, as: :searchable_select
       f.input :year
       f.input :period
       f.input :level

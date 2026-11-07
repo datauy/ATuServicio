@@ -20,7 +20,7 @@ ActiveAdmin.register ProviderDatum do
   filter :fonasa_users
   filter :no_fonasa_users
   filter :total
-  filter :provider
+  filter :provider, as: :searchable_select
   filter :created_at
   filter :updated_at
 

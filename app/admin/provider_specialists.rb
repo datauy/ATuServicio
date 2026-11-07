@@ -15,11 +15,11 @@ ActiveAdmin.register ProviderSpecialist do
 
   # Add or remove filters to toggle their visibility
   filter :id
-  filter :provider
+  filter :provider, as: :searchable_select
   filter :year
   filter :period
-  filter :zone
-  filter :speciality
+  filter :zone, as: :searchable_select
+  filter :speciality, as: :searchable_select
   filter :value
   filter :created_at
   filter :updated_at
@@ -58,11 +58,11 @@ ActiveAdmin.register ProviderSpecialist do
   form do |f|
     f.semantic_errors(*f.object.errors.attribute_names)
     f.inputs do
-      f.input :provider
+      f.input :provider, as: :searchable_select
       f.input :year
       f.input :period
-      f.input :zone
-      f.input :speciality
+      f.input :zone, as: :searchable_select
+      f.input :speciality, as: :searchable_select
       f.input :value
     end
     f.actions

@@ -1,0 +1,4 @@
+// @codevise/activeadmin-searchable_select@1.9.0 downloaded from https://ga.jspm.io/npm:@codevise/activeadmin-searchable_select@1.9.0/src/searchable_select.js
+
+import"select2";var e=typeof globalThis!=="undefined"?globalThis:typeof self!=="undefined"?self:global;(function(){function a(a,t){a.each((function(){var a=$(this||e);var l=$.extend(t||{},a.data("searchableSelect"));var o=a.data("ajaxUrl");o&&$.extend(l,{ajax:{url:o,dataType:"json",data:function(e){return{term:e.term,page:n(e)}}}});a.select2(l)}))}function n(e){return e.page?e.page-1:void 0}$(document).on("has_many_add:after",".has_many_container",(function(e,n){a(n.find(".searchable-select-input"))}));$(document).on("page:load turbolinks:load",(function(){a($(".searchable-select-input"),{placeholder:""})}));$((function(){a($(".searchable-select-input"))}))})();
+

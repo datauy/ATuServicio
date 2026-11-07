@@ -14,6 +14,8 @@
 <%= javascript_importmap_tags "active_admin", importmap: ActiveAdmin.importmap %>
 <%= javascript_import_module_tag "application" %>
 
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet"/>
+
 <% if content_for?(:head) %>
   <%= yield(:head) %>
 <% end %>
