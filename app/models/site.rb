@@ -4,6 +4,7 @@ class Site < ApplicationRecord
   belongs_to :state, class_name: 'Zone'
   has_many :geo_entities
   has_many :site_data
+  has_many :data, through: :site_data
 
   enum :stype, [
     "SEDE PRINCIPAL",

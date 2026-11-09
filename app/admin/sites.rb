@@ -1,6 +1,6 @@
 ActiveAdmin.register Site do
   # Specify parameters which should be permitted for assignment
-  permit_params :zone_id, :name, :description, :address, :provider_id, :stype, :address_comp, :highway, :highway_km, :phone, :web, :email, :state_id, :is_active
+  permit_params :zone_id, :name, :description, :address, :provider_id, :stype, :address_comp, :highway, :highway_km, :phone, :web, :email, :state_id, :is_active, datum_ids: []
 
   # or consider:
   #
@@ -66,6 +66,7 @@ ActiveAdmin.register Site do
       row :description do |r| 
         r.description.html_safe if r.description.present?
       end
+      row :state
       row :address
       row :provider
       row :created_at
@@ -77,7 +78,6 @@ ActiveAdmin.register Site do
       row :phone
       row :web
       row :email
-      row :state
       row :is_active
     end
   end
@@ -89,6 +89,7 @@ ActiveAdmin.register Site do
       f.input :zone, as: :searchable_select
       f.input :name
       f.input :description, as: :action_text
+      f.input :state
       f.input :address
       f.input :provider, as: :searchable_select
       f.input :stype
@@ -98,8 +99,8 @@ ActiveAdmin.register Site do
       f.input :phone
       f.input :web
       f.input :email
-      f.input :state
       f.input :is_active
+      f.input :data, as: :check_boxes, collection: Datum.where(is_active: true)
     end
     f.actions
   end
