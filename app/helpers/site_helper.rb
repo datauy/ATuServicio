@@ -13,7 +13,7 @@ module SiteHelper
         res += "<div class='tag firstLevel'><span>Policlínica</span></div>"
       end
       if @site.geo_entities.present?
-        res += "<div class='tag vac'><span>Vaunatorio</span></div>"
+        res += "<div class='tag vac'><span>Vacunatorio</span></div>"
       end
       urgence = @site.site_data.where(datum_id: @urgence_id)
       if urgence.present? && urgence.first.value == 1

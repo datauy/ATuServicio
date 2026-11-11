@@ -1,6 +1,6 @@
 ActiveAdmin.register Site do
   # Specify parameters which should be permitted for assignment
-  permit_params :zone_id, :name, :description, :address, :provider_id, :stype, :address_comp, :highway, :highway_km, :phone, :web, :email, :state_id, :is_active, datum_ids: []
+  permit_params :zone_id, :name, :description, :address, :provider_id, :stype, :address_comp, :highway, :highway_km, :phone, :web, :email, :state_id, :is_active, datum_id:[], site_data_attributes: [:id, :datum_id, :year, :period, :level, :value, :text, :_destroy]
 
   # or consider:
   #
@@ -100,7 +100,17 @@ ActiveAdmin.register Site do
       f.input :web
       f.input :email
       f.input :is_active
-      f.input :data, as: :check_boxes, collection: Datum.where(is_active: true)
+      f.has_many :site_data, allow_destroy: true do |d|
+        d.input :datum_id, as: :select, label: "Dato", collection: Datum.where(is_active: true)
+        d.input :year
+        d.input :period
+        d.input :level
+        d.input :value
+        d.actions
+        #d.input :text
+      end
+      #f.inputs "Datos" do
+      #end
     end
     f.actions
   end

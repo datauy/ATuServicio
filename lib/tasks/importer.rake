@@ -380,7 +380,7 @@ namespace :importer do
         parent_id = state.first.id
         if row['localidad'].present?
           #Get Location
-          location = Zone.search(row['localidad'], "Localidad")
+          location = Zone.search(row['localidad'], "Localidad").where(parent_zone_id: parent_id)
           if location.empty?
             location = Zone.create({
               name: row['localidad'],

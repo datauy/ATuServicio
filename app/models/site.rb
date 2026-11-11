@@ -5,6 +5,7 @@ class Site < ApplicationRecord
   has_many :geo_entities
   has_many :site_data
   has_many :data, through: :site_data
+  accepts_nested_attributes_for :site_data, allow_destroy: true
 
   enum :stype, [
     "SEDE PRINCIPAL",
