@@ -380,7 +380,8 @@ namespace :importer do
         parent_id = state.first.id
         if row['localidad'].present?
           #Get Location
-          location = Zone.search(row['localidad'], "Localidad").where(parent_zone_id: parent_id)
+          #location = Zone.search(row['localidad'], "Localidad").where(parent_zone_id: parent_id)
+          location = Zone.where(name: row['localidad'].gsub('_',' '), ztype: "Localidad", parent_zone_id: parent_id)
           if location.empty?
             location = Zone.create({
               name: row['localidad'],
@@ -388,6 +389,10 @@ namespace :importer do
               parent_zone_id: parent_id
             })
           else
+            if location.length > 1
+              puts "MULTIPLE LOCATIONS"
+              next
+            end
             location = location.first
           end
           parent_id = location.id

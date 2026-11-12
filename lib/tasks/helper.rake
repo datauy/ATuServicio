@@ -14,7 +14,13 @@ namespace :helper do
     #end
     #remove_wrong()
     #get_empty_zones.delete_all
-    get_duplicated_zones()
+    #get_duplicated_zones()
+    ambiguos_localidad
+  end
+  #
+  task :reload_parents, [] => [:environment] do |_, args|
+    @period = 1
+    reload_zone_parents
   end
   #
   def get_empty_zones
@@ -64,6 +70,72 @@ namespace :helper do
     end
   end
   # Duplicados
+  # 
+  def ambiguos_localidad
+    Zone.where(ztype: 'Localidad').each do |l|
+      zs = Zone.search(l.name, 'Localidad')
+      if zs.length > 1
+        puts "AMBIGUOS Location #{l.name} getting childs"
+        zs.each do |c|
+          childs = Zone.where(parent_zone: c.id).pluck(:id,:name)
+          puts "AMBIGUOS childs for #{c.name} -> #{childs.inspect}"
+        end
+      end
+    end
+  end
+  #
+  def reload_zone_parents
+    points = []
+    parents = {}
+    import_file('sedes-asse.csv') do |row|
+      if row['estado etapa'].nil? || row['estado etapa'] != 'pendiente'
+        state = Zone.search(row['departamento'], "Departamento")
+        if state.empty?
+          puts "DEPTO #{row['departamento']} O PROVIDER #{row['prestador']} NO ENCONTRADO "
+          next
+        end
+        parent_id = state.first.id
+        if row['localidad'].present?
+          #Get Location
+          location = Zone.where(name: row['localidad'].gsub('_',' '), ztype: "Localidad", parent_zone_id: parent_id)
+          if location.empty?
+            puts "LOCATION EMPTY CREATE #{row['localidad']} - #{parent_id}"
+            location = [Zone.create({
+              name: row['localidad'].gsub('_',' '),
+              ztype: "Localidad",
+              parent_zone_id: parent_id
+            })]
+            next
+          end
+          if location.length > 1 
+            puts "MULTIPLE LOCATIONS #{location.pluck(:name).inspect}"
+            next
+          end
+          location = location.first
+          wkt = row['geometry'].present? ? row['geometry'] : "POINT (#{row['lon']}, #{row['lat']})"
+          point = Zone.find_by({
+            ztype: "Punto",
+            wkt: wkt
+          })
+          if point.present?
+            if point.parent_zone_id != location.id && point.id != 3360
+              parents[point.id] = point.parent_zone_id
+              puts "PARENT DIFFERE #{wkt} for #{row['localidad']}: #{point.id} -> #{point.parent_zone_id} != #{location.id}"
+              #ANALISIS
+              puts zone_used(point.id)
+              point.update(parent_zone_id: location.id)
+            end
+          else
+            points.push "POINT NOT FOUND #{wkt} for #{row['prestador']} in site #{row['nombre']}"
+            next
+          end
+        end
+      end
+    end
+    puts "#{points.join("\n")}"
+    #puts "#{parents.keys.join(", ")}"
+  end
+  #
   def get_duplicated_zones
     Zone.where(ztype: 'Punto').each do |rz|
       l = 0
