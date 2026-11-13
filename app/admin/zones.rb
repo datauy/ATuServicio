@@ -1,6 +1,6 @@
 ActiveAdmin.register Zone do
   # Specify parameters which should be permitted for assignment
-  permit_params :name, :ztype, :wkt
+  permit_params :name, :ztype, :wkt, :parent_zone_id
 
   # or consider:
   #
@@ -18,6 +18,7 @@ ActiveAdmin.register Zone do
   filter :name
   filter :ztype
   filter :wkt
+  filter :parent_zone, as: :searchable_select
   filter :created_at
   filter :updated_at
 
@@ -28,6 +29,7 @@ ActiveAdmin.register Zone do
     column :name
     column :ztype
     column :wkt
+    column :parent_zone
     column :created_at
     column :updated_at
     actions
@@ -40,6 +42,7 @@ ActiveAdmin.register Zone do
       row :name
       row :ztype
       row :wkt
+      row :parent_zone
       row :created_at
       row :updated_at
     end
@@ -52,6 +55,7 @@ ActiveAdmin.register Zone do
       f.input :name
       f.input :ztype
       f.input :wkt
+      f.input :parent_zone, as: :searchable_select
     end
     f.actions
   end
