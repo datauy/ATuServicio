@@ -15,6 +15,10 @@ class Zone < ApplicationRecord
     ["created_at", "id", "name", "updated_at", "wkt", "ztype"]
   end
 
+  def self.ransackable_associations(auth_object = nil)
+    ["parent_zone", "providers", "sites"]
+  end
+  
   def parents
     zones = {}
     pz = self.parent_zone

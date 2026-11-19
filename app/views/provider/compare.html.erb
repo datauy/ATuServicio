@@ -25,7 +25,7 @@
         <div class="rectangle-div"></div>
       <% end %>
       <h2><%= p.short_name %></h2>
-      <div class="web"><%= p.web %></div>
+      <div class="web"><%= link_to p.web, "https://#{p.web}" %></div>
     </div>
     <% end %>
   </div>

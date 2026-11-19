@@ -32,6 +32,13 @@
       width: 16px;
     }
   }
+  .provider-header {
+    justify-content: space-between;
+    img {
+      height: 200px;
+      margin-right: auto;
+    }
+  }
   .compare-header {
     display: grid;
     grid-template-columns: 1.8fr 1fr;

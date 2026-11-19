@@ -113,6 +113,7 @@ button {
     height: 20px;
     position: absolute;
     color: var(--color-azul-presidencia);
+    z-index: 2;
     svg {
       z-index: -1;
     }

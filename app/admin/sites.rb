@@ -106,6 +106,7 @@ ActiveAdmin.register Site do
         d.input :period
         d.input :level
         d.input :value
+        d.input :text
         d.actions
         #d.input :text
       end
