@@ -5,7 +5,7 @@
       <div class="provider-name"><%= provider.name %></div>
     </a>
     <div class="header-right">
-      <div class="provider-web"><%= link_to provider.web, "https://#{provider.web}" %></div>
+      <div class="provider-web"><%= link_to provider.web, "https://#{provider.web}", target: "_blank" %></div>
       <%= check_box_tag :"provider-selector-#{provider.id}", provider.id, { class: "provider-selector", data: { action: "compare#addProvider" } }%>
       <label for="provider-selector-<%= provider.id %>" class="main-button not-check"><%= svg('plus.svg') %> Comparar</label>
       <label for="provider-selector-<%= provider.id %>" class="secondary-button check"><%= svg("xmark.svg")%></i> No Comparar</label>
