@@ -31,11 +31,11 @@ export default class extends Controller {
     //L.Map.addInitHook("addHandler", "gestureHandling", GestureHandling);
     //Set initial layers
     this.layers = {
-      thirdLevel: true,
-      secondLevel: true,
-      urgence: false,
+      zonesData: false,
       firstLevel: false,
-      zonesData: false
+      urgence: false,
+      secondLevel: true,
+      thirdLevel: true,
     }
     if ( this.mtypeValue == 'compare' || this.mtypeValue == 'zone' ) {
       this.layers.zonesData = true,

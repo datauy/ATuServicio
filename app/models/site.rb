@@ -50,7 +50,7 @@ class Site < ApplicationRecord
     if sids.present?
       site_query = site_query.where(id: sids)
     end
-    site_query.order(:level).uniq.each do |s|
+    site_query.order(level: :desc).uniq.each do |s|
       #Add site
       if sites[s.id].nil?
         sites[s.id] = s.serializable_hash

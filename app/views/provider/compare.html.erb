@@ -26,6 +26,9 @@
       <% end %>
       <h2><%= p.short_name %></h2>
       <div class="web"><%= link_to p.web, "https://#{p.web}", target: "_blank" %></div>
+      <% if p.description.present? %>
+      <div class="description"><%= p.description.html_safe %></div>
+      <% end %>
     </div>
     <% end %>
   </div>
@@ -79,7 +82,11 @@
     <div class="backdrop" data-section-target="infopanel" data-action='click->section#toggleInfo'>
       <div id="info-<%= s['id'] %>" class="info-box">
         <button class="close" data-action='click->section#toggleInfo:stop'>X</button>
-        <div class="info-content"><%= s['info'].present? ? s['info'].html_safe : '' %></div>
+        <div class="info-content">
+        <% if s['info'].present? %>
+          <%= s['info'].gsub('[periodo]', "#{s['period']}/#{s['year']}").html_safe %>
+        <% end %>
+        </div>
       </div>
     </div>
   </div>
