@@ -88,7 +88,7 @@
     <h2>Listado de servicios de salud</h2>
     <p>Explorá los distintos servicios de salud dentro del país.</p>
     <div class="tabs-filters">
-      <%= text_field_tag 'name', nil, { placeholder: "Buscar por nombre", data: {action: "keyup->tabs#search", "tabs-target": 'filter1'}} %>
+      <%= text_field_tag 'name', nil, { placeholder: "Buscar por nombre", data: {action: "keyup->tabs#searchWrite", "tabs-target": 'filter1'}} %>
       <%= select_tag "state", options_for_select( @states ), {data: {action: "change->tabs#search", "tabs-target": 'filter2'}} %>
     </div>
   </div>

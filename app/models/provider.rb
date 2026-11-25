@@ -72,7 +72,12 @@ class Provider < ApplicationRecord
         #return
       when 'prices'
         # prices card
-        card['total'] = self.provider_prices.includes(:price).where(year: s.year, period: s.period).group('price.ptype').average(:value)
+        card['total'] = {}
+        card['total']['Ticket general de medicamentos'] = self.provider_prices.includes(:price).where(year: s.year, period: s.period, fonasa: true, "price.name": "Ticket de medicamentos - general").pluck(:value).first
+        card['total']['Consulta no urgente consultorio – Médico General'] = self.provider_prices.includes(:price).where(year: s.year, period: s.period, fonasa: true, "price.name": "Consulta no urgente consultorio: medicina general").pluck(:value).first
+        card['total']['Consulta no urgente consultorio – Especialista'] = self.provider_prices.includes(:price).where(year: s.year, period: s.period, fonasa: true, "price.name": "Consulta no urgente consultorio: otras especialidades").pluck(:value).first
+        card['total']['Consulta Urgencia Centralizada (Puerta)'] = self.provider_prices.includes(:price).where(year: s.year, period: s.period, fonasa: true, "price.name": "Consulta urgencia centralizada").pluck(:value).first
+        card['total']['Estudios (promedio de los precios FONASA)'] = self.provider_prices.includes(:price).where(year: s.year, period: s.period, fonasa: true, "price.ptype": "estudios").average(:value)
         card['max'] = @prices_max
       end
       cards.push(card)

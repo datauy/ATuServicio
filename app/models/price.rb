@@ -1,7 +1,11 @@
 class Price < ApplicationRecord
 
   def self.ransackable_attributes(auth_object = nil)
-    ["created_at", "id", "name", "updated_at", "ptype"]
+    ["created_at", "id", "name", "updated_at", "ptype", "weight", "is_active"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
   end
 
   enum :ptype, [

@@ -26,7 +26,7 @@ module ApplicationHelper
         if num == 0
           '<span class="free">Gratis</span>'.html_safe
         else
-          if max_value > 0
+          if max_value.present? && max_value > 0
             "<div class='bar price'><img src='/images/circle-dollar-negativo.svg'/><div class='percent-bar' style='width: #{num.to_i*100/max_value}%'></div></div><span class='price'>$ #{number_with_delimiter(num.round(2), {delimiter: '.', separator: ','})}</span>".html_safe
           else
             "<span class='price'>$ #{number_with_delimiter(num.round(2), {delimiter: '.', separator: ','})}</span>".html_safe

@@ -7,12 +7,16 @@ export default class extends Controller {
   static loading
   static page
   static stalled
+  static writting
+  static lastSearch
 
   connect() {
     this.current_tab = 'tab-prestadores'
     this.loading = false
     this.page = 0
     this.stalled = false
+    this.writting = false
+    this.lastSearch = ''
     this.render_turbo('/sites')
     this.render_turbo('/infra')
     window.addEventListener('scroll', () => {
@@ -47,6 +51,18 @@ export default class extends Controller {
       this.search(null, true)
     }
   }
+  searchWrite() {
+    if ( this.lastSearch != this.filter1Target.value ) {
+      this.lastSearch = this.filter1Target.value
+      if ( this.writting ) {
+        this.writting.cancel();
+      }
+      this.writting = this.timeout(1500)
+      this.writting.promise.then(() => {
+        this.search()
+      })
+    }
+  }
   search(e, load = false) {
     let url = 0
     if ( !this.loading && ( this.filter1Target.value.length > 2 || this.filter1Target.value.length == 0 || this.filter2Target.value != 0 || load )) {
@@ -68,12 +84,25 @@ export default class extends Controller {
       url = new URL(url, window.location.origin)
       if ( this.filter1Target.value.length > 2 ) {
         url.searchParams.append('name', this.filter1Target.value)
+        _paq.push(['trackSiteSearch', this.filter1Target.value, this.current_tab+'-name', 0])
       }
-      if ( this.filter2Target.value ) {
+      if ( this.filter2Target.value > 0) {
         url.searchParams.append('state', this.filter2Target.value)
+        _paq.push(['trackSiteSearch', this.filter2Target.value, this.current_tab+'-state', 0])
       }
       this.render_turbo(url, load)
     }
+  }
+
+  timeout(ms) {
+    var timeout, promise;
+
+    promise = new Promise(function(resolve, reject) {
+      timeout = setTimeout(function() {
+        resolve('timeout done');
+      }, ms)
+    })
+    return { promise:promise, cancel:function(){clearTimeout(timeout )} }
   }
 
   render_turbo(url, load = false) {

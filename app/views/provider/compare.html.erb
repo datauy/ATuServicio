@@ -3,18 +3,18 @@
     <div class="tag page-tag tag-prestadores"><%= svg('house-medical.svg') %>Prestadores y servicios</div>
     <h1>Tomá una decisión informada</h1>
     <div class="page-description">Seleccioná hasta 3 prestadores y compará más de 120 indicadores. Ampliá las secciones usando la flecha o haciendo click en el título y navegá la información de sedes usando el mapa, o listado por departamento.</div>
-    <input type="text" name="provider" data-action='keyup->compare#searchProvider' placeholder="Buscá prestadores por nombre"/>
+    <input type="text" name="provider" data-action='keyup->compare#searchWrite' placeholder="Buscá prestadores por nombre"/>
     <%= turbo_frame_tag "provider_list" %>
   </div>
 <% if @providers.length > 0 %>
   <div class="filters filters-mov">
     <%= image_tag('/images/filter.svg') %>
-    <input type="text" name="datum" data-action='keyup->compare#filterList' placeholder="¿Demasiada información? Filtrá por palabra"/>
+    <input type="text" name="datum" data-action='keyup->compare#searchWrite' placeholder="¿Demasiada información? Filtrá por palabra"/>
   </div>
   <div class="compare-header ways<%= @providers.length %>">
     <div class="filters">
       <%= image_tag('/images/filter.svg') %>
-      <input type="text" name="datum" data-action='keyup->compare#filterList' placeholder="¿Demasiada información? Filtrá por palabra"/>
+      <input type="text" name="datum" data-action='keyup->compare#searchWrite' placeholder="¿Demasiada información? Filtrá por palabra"/>
     </div>
     <% @providers.each do |p|%>
     <div class="provider-header">
@@ -58,7 +58,7 @@
     <div id="section-<%= s['id'] %>" class="section-content ways<%= @providers.length %> <%= s['name'] == 'sites' ? 'active' : '' %>" data-section-target="content">
       <div class="section-inner-header">
       <% if s['description'].present? && s['description'] != '' %>
-        <div class="description"><%= s['description'] %></div>
+        <div class="description"><%= s['description'].html_safe %></div>
       <% end %>
       <% if ['specialists', 'rrhh'].include? s["name"] %>
         <!-- Section with state filters -->
