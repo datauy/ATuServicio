@@ -8,12 +8,14 @@ export default class extends Controller {
   static lastSearch
   static lastFilter
 
+  //
   initialize() {
     this.providers = [];
     document.querySelectorAll('.provider-selector').forEach(ps => {
       ps.checked = false
     })
   }
+  //
   connect() {
     this.lastFilter = ''
     this.lastSearch = ''
@@ -21,12 +23,10 @@ export default class extends Controller {
       this.providers = this.pidsValue
     }
   }
-
+  //
   searchProvider(e) {
     if (e.target.value.length > 2) {
       _paq.push(['trackSiteSearch', e.target.value, 'search-provider', 1])
-      console.log("SP", _paq);
-      
       fetch('/proveedor/?name='+e.target.value, {
         method: "GET",
         headers: {
@@ -39,9 +39,9 @@ export default class extends Controller {
       })
     }
   }
-
+  //
   searchWrite(e) {
-    if ( ( e.target.name == 'provider' && this.lastSearch != e.target.value ) || this.lastFilter != e.target.value ) {
+    if ( ( e.target.name == 'provider' && this.lastSearch != e.target.value ) || (e.target.name == 'state' && this.lastFilter != e.target.value) ) {
       if ( this.writting ) {
         this.writting.cancel();
       }
@@ -58,11 +58,10 @@ export default class extends Controller {
       })
     }
   }
-
+  //
   filterList(e) {
     if ( e.target.value.length > 2 ) {
       _paq.push(['trackSiteSearch', e.target.value, 'filter-list', 1])
-      console.log("FL", _paq);
       let val = e.target.value.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '')
       document.querySelectorAll('.item.label').forEach(i => {
         if (i.innerHTML.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').includes(val) ) {
@@ -82,6 +81,7 @@ export default class extends Controller {
       this.clearFiters();
     }
   }
+  //
   timeout(ms) {
     var timeout, promise;
 
@@ -97,7 +97,7 @@ export default class extends Controller {
       r.style.display = "grid"
     })
   }
-
+  //
   addProvider(e) {
     // Add/Remove from array
     let summary = document.getElementById('provider-summary-'+e.target.value)
@@ -145,7 +145,11 @@ export default class extends Controller {
   }
   //
   removeFromCompare(e) {
-    if ( this.removeFromList(e.target.value) ) {
+    let val = e.target.value
+    if ( e.target.nodeName != 'BUTTON') {
+      val = e.target.parentElement.value
+    }
+    if ( this.removeFromList(val) ) {
       this.submit()
     }
   }
@@ -160,8 +164,8 @@ export default class extends Controller {
   }
   //
   submitWithProvider(e) {
+    e.preventDefault()
     if ( this.providers.length < 3 ) {
-      _paq.push(['trackEvent', 'Provider', 'click', e.target.value]);
       this.providers.push(e.target.value)
       this.submit()
     }
@@ -171,9 +175,16 @@ export default class extends Controller {
   }
   //
   submit() {
-    let url = "/comparar/"+this.providers.join("/")
-    window.location.replace(url)
+    this.providers.forEach((p) => {
+      _paq.push(['trackEvent', 'Prestador', 'compare', p]);
+    })
+    let sleep = this.timeout(300)
+    sleep.promise.then(() => {
+      let url = "/comparar/"+this.providers.join("/")
+      window.location.replace(url)
+    })
   }
+  //
   state(e) {
     console.log("Change STATE ", e.target, this.providers);
     let url = '/proveedores/get_state_data?providers='+this.providers.join(',')

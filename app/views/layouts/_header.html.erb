@@ -17,3 +17,12 @@
       </div>
   </div>
 </header>
+<script>
+  if ( typeof window.listenLoaded == 'undefined' ) {
+    window.listenLoaded = true
+    document.addEventListener("turbo:before-visit", (event) => {
+      _paq.push(['trackContentImpression', 'Pages', '', event.explicitOriginalTarget.href]);
+      console.log("PHASE", _paq)
+    })
+  }
+</script>

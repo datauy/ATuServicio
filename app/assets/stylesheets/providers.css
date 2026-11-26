@@ -79,6 +79,7 @@
   border-radius: 24px;
   background: var(--color-azul-4);
   margin-bottom: 40px;
+  overflow: hidden;
   &.active {
     background: var(--color-azul-3);
   }

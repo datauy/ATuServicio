@@ -2,7 +2,9 @@
   <div class="card-header">
     <div class="header-top">
       <%= image_tag "/images/#{ card[:icon] }.svg"%>
-      <button onclick="document.getElementById('info-<%= card[:sid] %>').style.display = 'flex'" class="info"><%= svg('circle-info.svg')%></button>
+      <% if !defined?(info) || info == true %>
+        <button onclick="document.getElementById('info-<%= card[:sid] %>').style.display = 'flex'" class="info"><%= svg('circle-info.svg')%></button>
+      <% end %>
     </div>
     <h3><%= card[:title] %></h3>
     <div class="border-bottom"></div>
